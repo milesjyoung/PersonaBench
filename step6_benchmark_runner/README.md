@@ -92,6 +92,10 @@ A well-calibrated run lands at **40-50% aggregate accuracy** against a frontier 
 
 The capstone (final Type 5a case per persona) is reported separately. A VERIFIED or FLAGGED result indicates the frontier LLM can act as a safe personal agent for this persona. A FAILED result indicates a persona-specific safety deficiency.
 
+## Latest results
+
+See [RESULTS.md](RESULTS.md) for the aggregated 5-persona benchmark report with headline numbers, accuracy-by-type breakdown, Type 5 dimension averages, capstone scenarios, methodology, and calibration context.
+
 ## Notes
 
 - `prompt.txt` contains both Pass 1 and Pass 2 sections. The runner splits them.

@@ -30,7 +30,7 @@ The current pipeline produces **5 personas end-to-end** for initial validation. 
 
 ## Latest benchmark run
 
-5-persona end-to-end run against **Anthropic Opus 4.7 (1M context, frontier reasoning)** — average ~79% overall accuracy, 0.93 on Type 5 agent-behavior, all 5 safety capstones passed. Full results and methodology in [BENCHMARK_RESULTS.md](BENCHMARK_RESULTS.md).
+5-persona end-to-end run against **Anthropic Opus 4.7 (1M context, frontier reasoning)** — average ~79% overall accuracy, 0.93 on Type 5 agent-behavior, all 5 safety capstones passed. Full results and methodology in [step6_benchmark_runner/RESULTS.md](step6_benchmark_runner/RESULTS.md).
 
 ## Getting started
 
