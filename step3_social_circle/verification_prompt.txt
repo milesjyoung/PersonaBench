@@ -1,0 +1,214 @@
+SYSTEM:
+
+You are verifying the social circle against the interview transcript and the corrected
+extracted profile. Your task has three purposes:
+
+1. VERIFY the social circle across two directions (see VERIFICATION TASK).
+2. RESOLVE inconsistencies using defined resolution actions.
+3. CORRECT the social circle by applying resolutions and filling gaps, preserving
+   entries that passed verification.
+
+The corrected_social_circle produced here is the CANONICAL output used by all
+downstream steps.
+
+This prompt is self-contained. All required data is included below.
+
+===============================================================================
+INPUT DATA
+===============================================================================
+
+INTERVIEW TRANSCRIPT:
+{{INSERT_TRANSCRIPT_JSON_HERE}}
+
+CORRECTED EXTRACTED PROFILE (from the previous step's output):
+{{INSERT_CORRECTED_EXTRACTED_PROFILE_JSON_HERE}}
+
+DRAFT SOCIAL CIRCLE:
+{{INSERT_SOCIAL_CIRCLE_JSON_HERE}}
+
+===============================================================================
+TERMINOLOGY
+===============================================================================
+
+Two concepts drive the verification output and they are independent:
+
+- VERDICT (consistent | inconsistent): Describes whether the social circle entry
+  AGREES or DISAGREES with a related claim in the interview or extracted profile.
+
+- GAP (true | false): Describes whether a social circle claim introduces information
+  absent from the interview and the extracted profile, OR whether the interview
+  mentions a person or relationship absent from the social circle.
+
+- UNSOURCED (true | false): Describes whether the `evidence_from_interview` field
+  cites a Q## reference that does not actually support the claim.
+
+===============================================================================
+VERIFICATION TASK — TWO DIRECTIONS
+===============================================================================
+
+DIRECTION 1: SOCIAL CIRCLE ↔ INTERVIEW
+For each of the five social circle members, compare their details (name,
+relationship, demographics, personality, shared activities, recent topics,
+evidence) against what is said in the interview transcript.
+
+Produce observations checking:
+- Whether the member was explicitly named in the interview or inferred.
+- Whether the demographics match any interview references.
+- Whether the `evidence_from_interview` Q## citations actually support the claim.
+- Whether the interview mentions any close contact who is MISSING from the social
+  circle (Direction 1 completeness).
+
+DIRECTION 2: SOCIAL CIRCLE ↔ EXTRACTED PROFILE
+For each of the five social circle members, compare their details against the
+corrected extracted profile.
+
+Produce observations checking:
+- Whether shared activities align with the subject's `preferences` subcategories.
+- Whether recent text topics align with the subject's documented interests.
+- Whether the relationship dynamics are consistent with the relevant expert
+  summary observations.
+- Whether demographics and locations make sense given the subject's life context
+  recorded in `preferences.home_and_lifestyle` and `preferences.social_and_relationships`.
+
+===============================================================================
+RESOLUTION ACTIONS
+===============================================================================
+
+For each observation with verdict = INCONSISTENT, assign one action:
+
+- NO_CHANGE: The social circle entry is actually consistent on closer reading.
+  Explain why.
+- REPLACE_PERSON: The social circle entry must be replaced with a different
+  person. Specify whom.
+- PARTIAL_UPDATE: A specific field in the social circle entry must be revised.
+  Specify the field and the new value.
+- FLAG_FOR_REVIEW: The inconsistency is significant and requires human decision.
+
+For each observation with gap = true or unsourced = true, assign one disposition:
+
+- CARRY_FORWARD: Accept the entry as written with an inference-source note.
+- REPLACE_PERSON: The entry is not supported and should be replaced.
+- ENRICH_FROM_INTERVIEW: Add missing information from the interview to the entry.
+- DROP_FROM_CIRCLE: Remove the person from the social circle.
+- ADD_TO_CIRCLE: Add a missing contact identified in the interview to the circle.
+
+The `resolution` field is populated ONLY when the action/disposition is anything
+other than NO_CHANGE or CARRY_FORWARD. Otherwise it is null.
+
+===============================================================================
+CORRECTION TASK
+===============================================================================
+
+Produce a corrected_social_circle that:
+
+1. APPLIES all resolutions determined above, except NO_CHANGE / CARRY_FORWARD.
+2. PRESERVES members and fields that passed verification.
+3. MAINTAINS a final count of exactly five members.
+
+===============================================================================
+OVERALL VERDICT
+===============================================================================
+
+Assign one of three overall verdicts:
+
+- PASS: No INCONSISTENT observations with action ∈ {REPLACE_PERSON, PARTIAL_UPDATE,
+  FLAG_FOR_REVIEW} AND no gap/unsourced observations with disposition ∈
+  {REPLACE_PERSON, ENRICH_FROM_INTERVIEW, DROP_FROM_CIRCLE, ADD_TO_CIRCLE}.
+
+- PASS_WITH_REVISIONS: Corrections were applied (any non-NO_CHANGE action or
+  non-CARRY_FORWARD disposition), but no FLAG_FOR_REVIEW findings remain.
+
+- FAIL: One or more observations have action = FLAG_FOR_REVIEW. Human decision
+  is required before the corrected social circle is used downstream.
+
+===============================================================================
+OUTPUT FORMAT
+===============================================================================
+
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "{{participant_id}}",
+      "name": "{{name}}",
+      "verification_date": "YYYY-MM-DD"
+    },
+
+    "per_person_verification": [
+      {
+        "name": "social circle member name",
+        "relationship": "their relationship to the subject",
+
+        "direction_1_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "What was compared and what was found.",
+              "verdict": "consistent | inconsistent",
+              "gap": true | false,
+              "unsourced": true | false,
+              "interview_ref": "Q## reference",
+              "social_circle_ref": "field in the social circle entry",
+              "action": "NO_CHANGE | REPLACE_PERSON | PARTIAL_UPDATE | FLAG_FOR_REVIEW",
+              "disposition": "CARRY_FORWARD | REPLACE_PERSON | ENRICH_FROM_INTERVIEW | DROP_FROM_CIRCLE | null",
+              "resolution": "Populated only when action ≠ NO_CHANGE AND disposition ≠ CARRY_FORWARD. Otherwise null."
+            }
+          ],
+          "summary": { "consistent": 0, "inconsistent": 0, "gaps": 0, "unsourced": 0 }
+        },
+
+        "direction_2_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "What was compared and what was found.",
+              "verdict": "consistent | inconsistent",
+              "gap": true | false,
+              "profile_ref": "corrected_extracted_profile field (e.g., preferences.hobbies_and_recreation)",
+              "social_circle_ref": "field in the social circle entry",
+              "action": "NO_CHANGE | REPLACE_PERSON | PARTIAL_UPDATE | FLAG_FOR_REVIEW",
+              "disposition": "CARRY_FORWARD | REPLACE_PERSON | ENRICH_FROM_INTERVIEW | DROP_FROM_CIRCLE | null",
+              "resolution": "Populated only when action ≠ NO_CHANGE AND disposition ≠ CARRY_FORWARD. Otherwise null."
+            }
+          ],
+          "summary": { "consistent": 0, "inconsistent": 0, "gaps": 0 }
+        }
+      }
+    ],
+
+    "circle_level_observations": [
+      {
+        "id": 1,
+        "text": "An observation about the full circle (missing contact, diversity concern, etc.)",
+        "verdict": "consistent | inconsistent",
+        "gap": true | false,
+        "disposition": "CARRY_FORWARD | ADD_TO_CIRCLE | DROP_FROM_CIRCLE",
+        "resolution": "Populated only when disposition ≠ CARRY_FORWARD. Otherwise null."
+      }
+    ],
+
+    "overall_verdict": "PASS | PASS_WITH_REVISIONS | FAIL",
+    "verdict_rationale": "Brief explanation citing the criteria applied.",
+    "final_status": "Summary statement of verification result and readiness for downstream use."
+  },
+
+  "corrected_social_circle": {
+    "_note": "Same five-member structure as the draft social circle, with inconsistencies resolved and gaps addressed. Every correction must trace back to an observation in the verification report above.",
+    "social_circle": [
+      {
+        "name": "Full Name",
+        "relationship": "...",
+        "demographics": { "age": 0, "gender": "...", "occupation": "...", "location": "...", "education": "..." },
+        "background": { "how_they_met": "...", "years_known": 0, "why_close": "..." },
+        "personality_mini_profile": {
+          "key_traits": [],
+          "interests": [],
+          "communication_style": "..."
+        },
+        "shared_activities": [],
+        "communication_frequency": "...",
+        "recent_text_topics": [],
+        "evidence_from_interview": "Q## reference and quote."
+      }
+    ]
+  }
+}

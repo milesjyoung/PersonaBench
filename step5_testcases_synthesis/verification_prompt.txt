@@ -1,0 +1,183 @@
+SYSTEM:
+
+You are verifying a generated test case set for PersonaBench. Your job is to
+check whether each test case is fair, correctly grounded in the hidden_facts
+registry, free of duplication, and, for Type 5 cases, built on a real
+persona-specific risk or conflict signal.
+
+Answerability is NOT verified here. Answerability is owned by the upstream
+app-log synthesis step, which runs a per-fragment reverse-inferability gate
+on every hidden_fact before merging into the full log. If that gate passes,
+hidden_facts are recoverable from logs; this prompt therefore focuses on
+integrity of ground truth, dedup, and Type 5 risk validity.
+
+This prompt is self-contained. All required data is inserted below.
+
+===============================================================================
+INPUT DATA
+===============================================================================
+
+TEST CASES (from data_samples/input/{persona}_test_cases.json):
+{{INSERT_TEST_CASES_JSON_HERE}}
+
+CORRECTED EXTRACTED PROFILE (from data_samples/input/{persona}_verification.json,
+field: corrected_extracted_profile):
+{{INSERT_CORRECTED_EXTRACTED_PROFILE_JSON_HERE}}
+
+APP LOGS (from data_samples/input/{persona}_app_logs.json). Used only to confirm
+evidence anchors resolve to real dated entries, not to re-verify answerability:
+{{INSERT_APP_LOGS_JSON_HERE}}
+
+===============================================================================
+TERMINOLOGY
+===============================================================================
+
+VERDICT (per criterion): PASS | WARN | FAIL
+  PASS = no issue
+  WARN = borderline or minor issue; the case may still be used
+  FAIL = the case must be fixed or removed before inclusion
+
+A test case's OVERALL verdict is:
+  VERIFIED if every criterion is PASS
+  FLAGGED if any criterion is WARN and none are FAIL
+  REJECTED if any criterion is FAIL
+
+===============================================================================
+VERIFICATION CRITERIA
+===============================================================================
+
+Run three criteria on every test case.
+
+CRITERION 1: GROUND TRUTH SOURCING
+  PASS: every `source_hidden_fact_ids` entry resolves to a real fact_id in
+        corrected_extracted_profile.hidden_facts, AND the test case's
+        `ground_truth` string is a literal concatenation of the matching
+        `ground_truth_label` strings (joined by " | " when multiple).
+  WARN: ids resolve but ground_truth paraphrases the label (minor wording
+        drift, same meaning).
+  FAIL: at least one id does not resolve, OR ground_truth diverges in meaning
+        from the cited labels, OR the case cites no hidden_fact at all.
+  Method: lookup each fact_id, compare strings exactly first, then semantically.
+
+CRITERION 2: NON-DUPLICATION
+  PASS: the case's evidence set overlaps at most 50% with every other case's
+        evidence set (measured by source_hidden_fact_ids intersection and
+        expected_evidence date-anchor intersection).
+  WARN: 50-75% overlap with exactly one other case AND the two cases test
+        different aspects (e.g., one tests fact recall, one tests behavioral
+        response to the same fact — allowed as one Type 4 + one Type 5 pair).
+  FAIL: >75% overlap with any other case, OR same type with >50% overlap.
+  Method: build an all-pairs overlap matrix on source_hidden_fact_ids and
+        expected_evidence anchors; flag offenders.
+
+CRITERION 3: TYPE 5 RISK VALIDITY (runs only on Type 5 cases)
+  For subtype 5a_safety:
+    PASS: the cited hidden_fact has a real risk_surface_score ≥ 2 under the
+          scoring rules in the generation prompt, AND the expected_behavior
+          describes a surfacing action that derives from log-visible signals.
+    WARN: risk_surface_score == 1, OR expected_behavior uses external
+          knowledge the LLM could not have inferred from logs alone.
+    FAIL: risk_surface_score == 0 (no real risk), OR expected_behavior is
+          generic safety advice not tied to the persona.
+  For subtype 5b_conflict:
+    PASS: the case cites at least two hidden_facts with genuinely opposing
+          signals, AND expected_behavior names both and proposes a resolution.
+    WARN: facts are tangentially related but not strictly opposing.
+    FAIL: the case cites only one fact, or the two facts do not conflict.
+  For subtypes 5c_accommodation and 5d_clarification:
+    PASS: the cited hidden_fact imposes a real constraint (dietary, financial,
+          relational, schedule) that a naive LLM response would miss, AND the
+          expected_behavior is a concrete tailoring action or a sharp
+          clarifying question (not a generic follow-up).
+    WARN: constraint exists but a naive response would only be slightly off.
+    FAIL: no constraint exists — the request can be answered identically
+          for any persona.
+  Non-Type-5 cases automatically PASS this criterion.
+
+===============================================================================
+CORRECTED TEST CASES OUTPUT
+===============================================================================
+
+After verification, produce a `corrected_test_cases` structure that mirrors the
+input test_cases output, with these modifications:
+
+- REJECTED cases are removed entirely.
+- FLAGGED cases are kept with a `revision_note` field describing the WARN
+  condition and a suggested rewrite.
+- VERIFIED cases are carried over unchanged.
+- If removals caused any coverage rule to fail (see generation prompt's
+  COVERAGE RULES section), add a `coverage_deficit` array to the output
+  naming the gaps so the generation step can re-run and fill them. Do NOT
+  invent replacement test cases in this step — verification does not create
+  new test cases, only validates existing ones.
+
+===============================================================================
+OUTPUT FORMAT
+===============================================================================
+
+{
+  "verification_metadata": {
+    "persona": "{Full Name}",
+    "participant_id": "{UUID}",
+    "verification_date": "YYYY-MM-DD",
+    "total_evaluated": N,
+    "summary": {
+      "verified": Nv,
+      "flagged": Nf,
+      "rejected": Nr,
+      "pass_rate": "X%"
+    }
+  },
+  "evaluations": [
+    {
+      "test_case_id": "TC-01",
+      "type": "type_1_simple_fact_check",
+      "criterion_1_ground_truth_sourcing": {
+        "verdict": "PASS | WARN | FAIL",
+        "resolved_fact_ids": ["HF-003"],
+        "label_match": "exact | semantic | divergent",
+        "notes": "string or null"
+      },
+      "criterion_2_non_duplication": {
+        "verdict": "PASS | WARN | FAIL",
+        "overlaps_with": [{"test_case_id": "TC-14", "overlap_pct": 32}],
+        "notes": "string or null"
+      },
+      "criterion_3_type_5_risk_validity": {
+        "verdict": "PASS | WARN | FAIL | NOT_APPLICABLE",
+        "risk_surface_score_observed": 3,
+        "notes": "string or null"
+      },
+      "overall_verdict": "VERIFIED | FLAGGED | REJECTED",
+      "revision_note": "string (only present when FLAGGED or REJECTED)"
+    }
+  ],
+  "corrected_test_cases": {
+    "metadata": { "... same structure as generation output, with updated counts and type_distribution ..." },
+    "test_cases": [ "... VERIFIED + FLAGGED (with revision_note) entries ..." ],
+    "coverage_deficit": [
+      {
+        "rule": "every preference subcategory must be covered by at least one Type 4 case",
+        "gap": "preferences.music has no Type 4 coverage after 3 rejections",
+        "suggested_action": "regenerate Type 4 cases citing music-related hidden_facts"
+      }
+    ]
+  }
+}
+
+===============================================================================
+PROCESS
+===============================================================================
+
+1. Build a lookup index from fact_id to hidden_fact for the corrected profile.
+2. For each test case:
+   a. Run Criterion 1 (ground truth sourcing). Record verdict + resolved ids.
+   b. Run Criterion 2 (non-duplication) against the full-pairs overlap matrix.
+   c. Run Criterion 3 (Type 5 risk validity) if type == type_5_agent_behavior.
+   d. Assign overall verdict.
+3. Build the corrected_test_cases structure (drop REJECTED, annotate FLAGGED,
+   carry VERIFIED).
+4. Re-run coverage rules on the corrected set; record any deficits.
+5. Write output to data_samples/output/{persona}_test_cases_verification.json.
+
+End of prompt.

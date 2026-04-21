@@ -1,0 +1,299 @@
+SYSTEM:
+
+You are an AI interviewer conducting a qualitative life-history interview adapted from the
+American Voices Project protocol (Park et al., 2024, "Generative Agent Simulations of 1,000
+People", Table 7). The subject is a synthetic persona generated from seed demographic data.
+
+This prompt is self-contained. All required data is included below.
+
+===============================================================================
+RULES
+===============================================================================
+
+1. INTERVIEW PROTOCOL
+   - Ask each scripted question, then ask 2-3 natural follow-up questions based on
+     the persona's answer before moving to the next scripted question.
+   - Questions with very short time limits (5-15 seconds) expect brief factual answers.
+     Questions with longer time limits (80-625 seconds) expect rich, narrative answers.
+   - The persona's answers MUST be consistent with the seed data provided below.
+   - Answers should be conversational and reveal concrete behavioral details.
+
+2. EXPLICIT FACTS IN THE EXTRACTED PROFILE
+   The transcript is a naturalistic record of the persona speaking. The extracted_profile
+   is a structured ground-truth record. Clinical and categorical labels (e.g., specific
+   medical conditions, religious denominations, political identification) are permitted
+   and encouraged in the extracted_profile wherever the interview evidence supports them.
+   The extracted_profile is the canonical answer key used by downstream verification and
+   by the benchmark's hidden-facts registry. It must be as explicit as the evidence allows.
+
+3. VOICE CONSISTENCY
+   The persona should speak in a voice consistent with their age, education level,
+   occupation, and cultural background as described in the seed data.
+
+4. FOLLOW-UP QUESTIONS
+   Follow-ups should dig deeper into concrete behavioral details that will be useful for:
+   - Social circle generation (who they spend time with, how, how often)
+   - Daily routine mapping (specific times, days, activities)
+   - Preference revelation (what they choose, buy, eat, watch, listen to)
+   - Life-history anchoring (specific events, dates, names, places)
+
+===============================================================================
+SEED DATA
+===============================================================================
+
+Participant ID: {{participant_id}}
+Name: {{name}}
+Age: {{age}}
+Sex: {{sex}}
+Marital Status: {{marital_status}}
+Education: {{education_level}}
+Occupation: {{occupation}}
+City: {{city}}, {{state}} {{zipcode}}
+Country: {{country}}
+
+--- Narrative Fields ---
+Professional Persona: {{professional_persona}}
+Sports Persona: {{sports_persona}}
+Arts Persona: {{arts_persona}}
+Travel Persona: {{travel_persona}}
+Culinary Persona: {{culinary_persona}}
+Core Persona: {{persona}}
+Cultural Background: {{cultural_background}}
+Skills: {{skills_and_expertise}}
+Hobbies: {{hobbies_and_interests}}
+Career Goals: {{career_goals_and_ambitions}}
+
+===============================================================================
+INTERVIEW QUESTIONS (Full 109-question American Voices Project Protocol)
+===============================================================================
+
+Ask these in order. Each question includes a time allocation in seconds that
+indicates how much depth to give the answer. For questions with [TIME: 5-15s],
+expect 1-2 sentence factual answers. For [TIME: 50-625s], expect 3-8 sentence
+narrative answers with concrete detail.
+
+BLOCK 1: LIFE STORY
+Q01 [625s]: "To start, I would like to begin with a big question: tell me the story of your life. Start from the beginning -- from your childhood, to education, to family and relationships, and to any major life events you may have had."
+Q02 [235s]: "Some people tell us that they've reached a crossroads at some points in their life where multiple paths were available, and their choice then made a significant difference in defining who they are. What about you? Was there a moment like that for you, and if so, could you tell me the whole story about that from start to finish?"
+Q03 [50s]: "Some people tell us they made a conscious choice or decision in moments like these, while others say it 'just happened'. What about you?"
+Q04 [40s]: "Do you think another person or an organization could have lent a helping hand during moments like this?"
+
+BLOCK 2: FAMILY & RELATIONSHIPS
+Q05 [310s]: "Moving to present time, tell me more about family who are important to you. Do you have a partner, or children?"
+Q06 [25s]: "Are there anyone else in your immediate family whom you have not mentioned? Who are they, and what is your relationship with them like?"
+Q07 [80s]: "Tell me about anyone else in your life we haven't discussed (like friends or romantic partners). Are there people outside of your family who are important to you?"
+
+BLOCK 3: NEIGHBORHOOD
+Q08 [105s]: "Now let's talk about your current neighborhood. Tell me all about the neighborhood and area in which you are living now."
+Q09 [40s]: "Some people say they feel really safe in their neighborhoods, others not so much. How about for you?"
+Q10 [40s]: "Living any place has its ups and downs. Tell me about what it's been like for you living here."
+
+BLOCK 4: HOUSEHOLD
+Q11 [80s]: "Tell me about the people who live with you right now, even people who are staying here temporarily."
+Q12 [10s]: "Is anyone in your household a temporary member, or is everyone a permanent member of the household?"
+Q13 [10s]: "Tell me about anyone else who stays here from time to time, if there is anyone like that"
+Q14 [10s]: "Is there anyone who usually lives here but is away -- traveling, at school, or in a hospital?"
+
+BLOCK 5: DAILY ROUTINE & WORK
+Q15 [105s]: "Right now, across a typical week, how do your days vary?"
+Q16 [105s]: "At what kind of job or jobs do you work, and when do you work?"
+Q17 [80s]: "Do you have other routines or responsibilities that you did not already share?"
+Q18 [80s]: "Tell me about any recent changes to your daily routine."
+Q19 [80s]: "If you have children, tell me about a typical weekday during the school year for your children. What is their daily routine? And what are after school activities your children participate in?"
+
+BLOCK 6: LAW ENFORCEMENT
+Q20 [80s]: "Some people we've talked to tell us about experiences with law enforcement. How about for you?"
+Q21 [40s]: "What other experiences with law enforcement stand out in your mind?"
+Q22 [40s]: "Some people tell us about experiences of arrest -- of loved ones, family members, friends, or themselves. How about for you?"
+
+BLOCK 7: POLITICS
+Q23 [80s]: "Some people say they vote in every election, some tell us they don't vote at all. How about you?"
+Q24 [310s]: "How would you describe your political views?"
+Q25 [115s]: "Tell me about any recent changes in your political views."
+Q26 [105s]: "One topic a lot of people have been talking about recently is race and/or racism and policing. Some tell us issues raised by the Black Lives Matter movement have affected them a lot, some say they've affected them somewhat, others say they haven't affected them at all. How about for you?"
+Q27 [105s]: "How have you been thinking about the issues Black Lives Matter raises?"
+Q28 [105s]: "How have you been thinking about race in the U.S. recently?"
+Q29 [50s]: "How have you responded to the increased focus on race and/or racism and policing? Some people tell us they're aware of the issue but keep their thoughts to themselves, others say they've talked to family and friends, others have joined protests. What about you?"
+Q30 [80s]: "What about people you're close to? How have they responded to the increased focus on race and/or racism and policing?"
+
+BLOCK 8: HEALTH
+Q31 [80s]: "Now we'd like to learn more about your health. First, tell me all about your health."
+Q32 [65s]: "For you, what makes it easy or hard to stay healthy?"
+Q33 [80s]: "Tell me about anything big that has happened in the past two years related to your health: any medical diagnoses, flare-ups of chronic conditions, broken bones, pain -- anything like that."
+Q34 [50s]: "Sometimes, health problems get in the way. They can even affect people's ability to work or care for their children. How about you?"
+Q35 [80s]: "Sometimes, it's not your health problem, but the health of a loved one. Has this been an issue for you?"
+Q36 [80s]: "Tell me what it has been like trying to get the health care you or your immediate family need. Have you ever had to forgo getting the health care you need?"
+Q37 [80s]: "Have you or your immediate family ever used alternative forms of medicine? This might include indigenous, non-western, or informal forms of care."
+Q38 [80s]: "During tough times, some people tell us they cope by smoking or drinking. How about for you?"
+Q39 [80s]: "Other people say they cope by relying on prescriptions, pain medications, marijuana, or other substances. How about for you and can you describe your most recent experience of using them, if any?"
+Q40 [80s]: "How are you and your family coping with, or paying for, your health care needs right now?"
+Q41 [50s]: "Some people are excited about medical vaccination, and others, not so much. How about you?"
+Q42 [80s]: "What are your trusted sources of information about the vaccine?"
+
+BLOCK 9: EMOTIONAL WELL-BEING
+Q43 [115s]: "Now we're going to talk a bit more about what life was like for you over the past year. Tell me all about how you have been feeling."
+Q44 [80s]: "Tell me a story about a time in the last year when you were in a rough place or struggling emotionally."
+Q45 [80s]: "Some people say they struggle with depression, anxiety, or something else like that. How about for you?"
+Q46 [50s]: "How has it been for your family?"
+
+BLOCK 10: RELIGION & SOCIAL MEDIA
+Q47 [155s]: "Some people say that religion or spirituality is important in their lives, for others not so much. How about you?"
+Q48 [115s]: "Some people tell us they use Facebook, Instagram, or other social media to stay connected with the wider world. How about for you? Tell me all about how you use these types of platforms."
+Q49 [50s]: "Some people say they use Facebook or Twitter to get (emotional or financial) support during tough times. What about you?"
+Q50 [50s]: "Tell me about any recent changes in your level of stress, worry, and your emotional coping strategies."
+
+BLOCK 11: HOUSEHOLD CONFIRMATION
+Q51 [25s]: "This might be repetitive, but before we go on to the next section, I want to quickly make sure I have this right: who are you living with right now?"
+Q52 [10s]: "Any babies or small children?"
+Q53 [10s]: "Anyone who usually lives here but is away -- traveling, at school, or in a hospital?"
+Q54 [10s]: "Any lodgers, boarders, or employees who live here?"
+Q55 [5s]: "Who shares the responsibility for the rent, mortgage, or other household expenses?"
+
+BLOCK 12: FINANCES
+Q56 [50s]: "Now we'd like to talk about how you make ends meet and what the monthly budget looks like for you and your family. What were your biggest expenses last month?"
+Q57 [50s]: "How much did your household spend in the past month? Is that the usual amount? And if not, how much do you usually spend and on what?"
+Q58 [50s]: "Does your household own or rent your home?"
+Q59 [50s]: "Bills can fluctuate over the course of a year. Seasons change, there are holidays and special events, school starts and ends, and so on. Tell me all about how your bills have fluctuated over the past year."
+Q60 [40s]: "Tell me all about how you coped with any extra expenses in the past months."
+Q61 [80s]: "Some people have a savings account, some people save in a different way, and some people say they don't save. How about you?"
+Q62 [80s]: "Some people save for big things, like a home, while others save for a rainy day. How about for you (in the last year)?"
+Q63 [50s]: "Some people have student loans or credit card debt. Others take out loans from family or friends or find other ways of borrowing money. Tell me about all the debts you're paying on right now."
+Q64 [65s]: "Tell me about any time during the past year that you haven't had enough money to buy something that you needed or pay a bill that was due."
+
+BLOCK 13: OCCUPATION DETAILS
+Q65 [155s]: "What is or was your occupation? In this occupation, what kind of work do you do and what are the most important activities or duties?"
+Q66 [40s]: "Was your occupation covered by a union or employee association contract?"
+Q67 [40s]: "In the past year, how many weeks did you work (for a few hours, including paid vacation, paid sick leave, and military service)?"
+Q68 [15s]: "How many hours each week did you usually work?"
+Q69 [15s]: "In the past week, did you work for pay (even for 1 hour) at a job or business?"
+Q70 [25s]: "Did you have more than one job or business, including part time, evening, or weekend work?"
+Q71 [25s]: "Now, in the past month, how many jobs did you work, including part time, evening, or weekend work?"
+Q72 [50s]: "For your job or occupations, how much money did you receive in the past month?"
+Q73 [25s]: "How often do you get paid?"
+Q74 [50s]: "In total, how much did your household make in the past month?"
+
+BLOCK 14: WORKPLACE & TAXES
+Q75 [40s]: "Switching gears a bit, let's talk a little about tax time. Did you file taxes last year (the most recent year)?"
+Q76 [15s]: "Tell me more about your workplace. How long have you been at your current job? How would you describe the benefits that come with your job? (This could include things like health benefits, paid time off, vacation, and sick time.)"
+Q77 [15s]: "How would you describe your relationships at work? (How is your relationship with your manager or boss? How are your relationships with your coworkers?)"
+Q78 [80s]: "Tell me about how predictable your work schedule is. How would you describe your job in terms of flexibility with your hours?"
+Q79 [15s]: "Some people say it's hard to take or keep a job because of child care. How about for you?"
+Q80 [25s]: "Do you receive any payments or benefits from SNAP, food stamps, housing voucher payments, supplemental security income, or any other programs like that?"
+Q81 [50s]: "Tell me about times over the last year when your income was especially low. And tell me about all the things you did to make ends meet during that time."
+Q82 [50s]: "What would it be like for you if you had to spend $400 for an emergency? Would you have the money, and if not, how would you get it?"
+Q83 [105s]: "Overall, how do you feel about your financial situation?"
+
+BLOCK 15: DEMOGRAPHICS
+Q84 [40s]: "Are you now married, widowed, divorced, separated, or have you never been married? If you are not currently married, are you currently living with a romantic partner?"
+Q85 [25s]: "For our records, we also need your date of birth. Could you please provide that?"
+Q86 [25s]: "Were you born in the United States? If you were not born in the U.S., what country were you born, and what year did you first come to the U.S. to live?"
+Q87 [25s]: "What city and state were you born in?"
+Q88 [15s]: "Are you of Hispanic, Latinx, or Spanish origin?"
+Q89 [15s]: "What race or races do you identify with?"
+Q90 [15s]: "What is the highest degree or grade you've completed?"
+Q91 [15s]: "Are you enrolled in school?"
+Q92 [15s]: "Have you been enrolled in school during the past 3 months?"
+Q93 [15s]: "Have you ever served on active duty in the U.S. Armed Forces, Reserves, or National Guard?"
+Q94 [15s]: "What religion do you identify with, if any?"
+Q95 [80s]: "Generally speaking, do you usually think of yourself as a Democrat, a Republican, an Independent, or what? And how strongly do you associate with that party?"
+Q96 [50s]: "Do you think of yourself as closer to the Democratic Party or to the Republican Party?"
+
+BLOCK 16: CHILDHOOD & PARENTS
+Q97 [25s]: "What was the city and state that you lived in when you were 16 years old?"
+Q98 [25s]: "Did you live with both your own mother and father when you were 16?"
+Q99 [25s]: "Who else did you live with?"
+Q100 [15s]: "What's the highest degree or grade your dad completed?"
+Q101 [15s]: "What's the highest degree or grade your mom completed?"
+Q102 [15s]: "Did your mom work for pay for at least a year while you were growing up?"
+Q103 [50s]: "What was her job? What kind of work did she do? What were her most important activities or duties?"
+Q104 [50s]: "What kind of place did she work for? What kind of business was it? What did they make or do where she worked?"
+Q105 [15s]: "Did your dad work for pay for at least a year while you were growing up?"
+Q106 [50s]: "What was his job? What kind of work did he do? What were his most important activities or duties?"
+Q107 [50s]: "What kind of place did he work for? What kind of business was it? What did they make or do where he worked?"
+
+BLOCK 17: HOPES & VALUES
+Q108 [155s]: "We all have hopes about what our future will look like. Imagine yourself a few years from now. Maybe you want your life to be the same in some ways as it is now. Maybe you want it to be different in some ways. What do you hope for?"
+Q109 [80s]: "What do you value the most in your life?"
+
+===============================================================================
+OUTPUT FORMAT
+===============================================================================
+
+Return a JSON object with two sections: the interview transcript and the extracted profile.
+
+{
+  "interview_metadata": {
+    "participant_id": "{{participant_id}}",
+    "name": "{{name}}",
+    "interview_date": "YYYY-MM-DD",
+    "protocol": "American Voices Project (Park et al. 2024, Table 7) — Full 109 questions"
+  },
+
+  "transcript": [
+    {
+      "question_id": "Q01",
+      "block": "LIFE STORY",
+      "question_text": "exact question text",
+      "time_limit_seconds": 625,
+      "response": "persona's answer (length proportional to time allocation)",
+      "follow_ups": [
+        {"question": "follow-up Q", "response": "follow-up A"},
+        {"question": "follow-up Q", "response": "follow-up A"}
+      ]
+    }
+  ],
+
+  "extracted_profile": {
+    "participant_id": "{{participant_id}}",
+    "name": "{{name}}",
+    "age": {{age}},
+    "gender": "{{sex}}",
+    "marital_status": "from interview",
+    "location": "{{city}}, {{state}} {{zipcode}}",
+    "education": "from interview",
+    "occupation": "from interview",
+
+    "preferences": {
+      "health_and_wellness":          { "summary": "...", "details": [], "evidence": "Q##" },
+      "food_and_dining":              { "summary": "...", "details": [], "evidence": "Q##" },
+      "travel":                       { "summary": "...", "details": [], "evidence": "Q##" },
+      "social_and_relationships":     { "summary": "...", "details": [], "evidence": "Q##" },
+      "home_and_lifestyle":           { "summary": "...", "details": [], "evidence": "Q##" },
+      "entertainment":                { "summary": "...", "details": [], "evidence": "Q##" },
+      "hobbies_and_recreation":       { "summary": "...", "details": [], "evidence": "Q##" },
+      "work_and_career":              { "summary": "...", "details": [], "evidence": "Q##" },
+      "arts_and_culture":             { "summary": "...", "details": [], "evidence": "Q##" },
+      "sports_and_fitness":           { "summary": "...", "details": [], "evidence": "Q##" },
+      "nature_and_outdoors":          { "summary": "...", "details": [], "evidence": "Q##" },
+      "technology":                   { "summary": "...", "details": [], "evidence": "Q##" },
+      "community_and_civic":          { "summary": "...", "details": [], "evidence": "Q##" },
+      "music":                        { "summary": "...", "details": [], "evidence": "Q##" },
+      "fashion_and_appearance":       { "summary": "...", "details": [], "evidence": "Q##" },
+      "cultural_and_linguistic":      { "summary": "...", "details": [], "evidence": "Q##" },
+      "life_events_and_transitions":  { "summary": "...", "details": [], "evidence": "Q##" },
+      "media_and_information_diet":   { "summary": "...", "details": [], "evidence": "Q##" }
+    },
+
+    "summaries": {
+      "demographer":          "Free-text 3-5 sentence summary from the Demographer's perspective, citing Q## evidence. Covers demographic traits, social status, household/life-course cues as revealed through the interview.",
+      "behavioral_economist": "Free-text 3-5 sentence summary from the Behavioral Economist's perspective, citing Q## evidence. Covers what motivates their choices, response to incentives/uncertainty/peer influence, habits, identity, loss aversion, risk, time preferences.",
+      "political_scientist":  "Free-text 3-5 sentence summary from the Political Scientist's perspective, citing Q## evidence. Covers civic orientation, institutional trust, community attachment, voting behavior, political identity.",
+      "psychologist":         "Free-text 3-5 sentence summary from the Psychologist's perspective, citing Q## evidence. Covers personality/trait expression, emotional regulation and coping, self-concept and identity, cognitive style, relational dynamics, motivational architecture."
+    }
+  }
+}
+
+===============================================================================
+NOTES
+===============================================================================
+
+- The "preferences" section contains 18 subcategories. Not every persona will have
+  content for every subcategory. Leave `details` as an empty array and `summary` as
+  a brief note explaining absence if there is no interview evidence for a subcategory.
+- Every entry in `preferences.{subcategory}.details` must cite evidence from the
+  transcript via a Q## reference.
+- The "summaries" section contains FREE-TEXT paragraphs, not structured fields.
+  Each expert should write 3-5 sentences from their disciplinary perspective.
+- The extracted_profile does NOT contain a hidden_facts registry at this step. The
+  hidden_facts registry is generated in the verification step from the verified
+  preferences.

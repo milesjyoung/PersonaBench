@@ -1,0 +1,2579 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "e7035edf5bc744c9912694a7d4b2a99c",
+      "name": "Julio Simmons",
+      "verification_date": "2026-04-15"
+    },
+
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed lists age 49; interview gives DOB October 14, 1976, consistent with age 49 at interview date 2026-04-15.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.age = 49",
+              "source_b_ref": "Q85 'October 14, 1976'",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed lists sex Male; interview never contradicts and uses 'he/him' framing throughout.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.sex = Male",
+              "source_b_ref": "Q01, Q84 (implicit male pronouns)",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed lists marital_status divorced; interview confirms final decree 2022, casually dating Ellery.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.marital_status = divorced",
+              "source_b_ref": "Q01, Q84 'Divorced, final decree in 2022. Dating someone casually — Ellery'",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed lists education_level graduate and bachelors_field stem; interview confirms M.S. in computational modeling (University of Rochester 2005) and B.S. in imaging science (RIT).",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.education_level = graduate, seed.bachelors_field = stem",
+              "source_b_ref": "Q01, Q90 'Master's degree — M.S. in computational modeling from the University of Rochester, 2005'",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Seed lists occupation not_in_workforce; interview confirms no W-2 but details patchwork 1099 income (RMSC contract, grants, consulting, speaking). Consistent with Census classification despite actual work activity.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.occupation = not_in_workforce",
+              "source_b_ref": "Q16, Q65, Q69-Q72",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 6,
+              "text": "Seed lists city Rochester, state NY, zipcode 14618; interview confirms Brighton neighborhood in 14618. Fully consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.city = Rochester, seed.state = NY, seed.zipcode = 14618",
+              "source_b_ref": "Q01, Q08, Q87, Q97",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": { "consistent": 6, "inconsistent": 0, "gaps": 3 }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview Q01 provides detailed childhood in Brighton (tree-lined, engineering/healthcare families, cherry tree, Brighton High, Monroe Community College to RIT to U of R); profile cultural_and_linguistic captures this accurately.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01, Q97, Q98, Q99",
+              "source_b_ref": "preferences.cultural_and_linguistic, preferences.life_events_and_transitions",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Interview Q05 names sister Catherine, 53, Denver, husband and two teens Jasper and Nora; profile social_and_relationships captures all these accurately including Jasper's ADHD (Q46) and Nora's marching band (Q19).",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q05, Q19, Q46",
+              "source_b_ref": "preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Interview Q08 details Brighton neighborhood, Twelve Corners, 1920-1960 homes, good sidewalks, library, Jewish community, growing South Asian population, U of R faculty, Buckman's Deli, Brighton Farmers Market, Kaplans and Nguyens neighbors, car-dependent suburb, brutal property taxes. Profile captures most of this in home_and_lifestyle.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q08",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Interview Q58 specifies house purchased 2011 with Dana, 1,650 sq ft, ~$310K Zillow / $280K quick-sale. Profile home_and_lifestyle captures all figures accurately.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q55, Q58",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Interview Q100-Q107 provides detailed parents' education and employment. Profile life_events_and_transitions mentions father's death but omits father's Clarkson BSE and mother's MCC RN to bachelor's pathway. Summaries.demographer covers this, but preferences.cultural_and_linguistic could be richer on parent education specifics.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q100, Q101, Q103, Q106, Q107",
+              "source_b_ref": "preferences.cultural_and_linguistic, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": { "consistent": 5, "inconsistent": 0, "gaps": 2 }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile lists Julio as 'not in workforce' in occupation field while work_and_career details active 1099 income (~$2,800/month earned). This is internally consistent — profile explicitly notes the Census-vs-functional distinction.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "corrected_extracted_profile.occupation",
+              "field_b": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile social_and_relationships says 'casually dating Ellery ~4 months' while home_and_lifestyle describes a single-person household. Consistent — profile correctly notes Ellery stays over ~1 night/week but does not live there.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships (Ellery detail)",
+              "field_b": "preferences.home_and_lifestyle (single-person household)",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile health_and_wellness describes GAD diagnosed 2019, while life_events_and_transitions also lists 'GAD formally diagnosed 2019'. Redundant but consistent. No deduplication needed in preferences — hidden_facts handles dedup.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness (GAD detail)",
+              "field_b": "preferences.life_events_and_transitions (GAD detail)",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": { "consistent": 3, "inconsistent": 0, "gaps": 0 }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview Q99 mentions childhood golden retriever named Pixel. Not captured in any preference subcategory.",
+              "gap": true,
+              "interview_ref": "Q99",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add detail: 'Childhood golden retriever named Pixel' to life_events_and_transitions as childhood context."
+            },
+            {
+              "id": 2,
+              "text": "Interview Q100 specifies father's degree: B.S. mechanical engineering, Clarkson University, 1967. Interview Q101 specifies mother's degree path: RN at MCC, then bachelor's in healthcare admin part-time in her 40s. Not in preferences.cultural_and_linguistic details.",
+              "gap": true,
+              "interview_ref": "Q100, Q101",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add parent education details to cultural_and_linguistic: father BSE Clarkson 1967, mother RN MCC then BSc healthcare admin part-time."
+            },
+            {
+              "id": 3,
+              "text": "Interview Q92 mentions completing a Coursera course on nonprofit financial management last fall. Not captured in preferences.",
+              "gap": true,
+              "interview_ref": "Q92",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add to work_and_career details: 'Completed Coursera course on nonprofit financial management (fall 2025).'"
+            },
+            {
+              "id": 4,
+              "text": "Interview Q09 describes Brighton as 'very safe,' mentions car break-ins on Winton Road, notes Brighton PD is responsive but sometimes over-polices teenagers. Not captured in home_and_lifestyle.",
+              "gap": true,
+              "interview_ref": "Q09",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add to home_and_lifestyle: 'Feels very safe in Brighton; walks at night with headphones. Notes occasional over-policing of teens by Brighton PD.'"
+            }
+          ],
+          "summary": { "present": 0, "missing": 4 }
+        }
+      },
+
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed career_goals_and_ambitions describes part-time role leveraging science + art, makerspace ambition, grant from arts-science foundation, graphic novel. Interview Q108 confirms makerspace (501c3 South Wedge or NOTA, 300 members, sliding scale) and graphic novel (quantum physics, small press, PBS option). Consistent with richer detail in interview.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.career_goals_and_ambitions",
+              "source_b_ref": "Q108, Q16, Q65",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed culinary_persona describes experimental cooking (miso black cod, sous-vide duck, Sichuan chocolate truffles, fermentation, heirloom tomatoes, specialty pantry). Interview Q32 confirms cooking ability and farmers-market sourcing. Consistent; interview provides less culinary granularity but no contradiction.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.culinary_persona",
+              "source_b_ref": "Q32, Q08",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed persona describes 'competitive streak' and 'self-critical burnout.' Interview Q02 (turned down six-figure job), Q65 (felt dead inside at old job), Q44 (four-day depressive spiral) richly confirm both the competitiveness and the burnout pattern.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q02, Q44, Q65, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed sports_persona mentions 'competitive edge that drives them to improve lap times' on cycling. Interview Q31 lists cycling as activity but does not mention lap-time tracking. Minor enrichment from seed not contradicted.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.sports_persona (lap times)",
+              "source_b_ref": "Q31 (cycling mentioned generally)",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Seed career_goals mentions 'sustainable income stream that supports his mental-health needs.' Interview Q108 target of $45-65K/year aligns; Q83 describes 'anxious but fundamentally stable.' Behavioral consistency between identity-driven career bet and financial loss aversion on assets.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.career_goals_and_ambitions",
+              "source_b_ref": "Q83, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": { "consistent": 5, "inconsistent": 0, "gaps": 2 }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview Q61 details specific savings allocation (Ally $14K, Vanguard $185K VTI/VXUS, Roth IRA $90K, 401k rollover $240K). Profile work_and_career captures income; technology captures Ally and Vanguard. Summaries.behavioral_economist computes total ~$529K. All consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q61",
+              "source_b_ref": "preferences.technology, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Interview Q64 describes deferring dental crown, studio lighting, and pro-dev course despite having cash available, indicating scarcity-adjacent psychology. Profile health_and_wellness captures deferred dental crown. Studio lighting and pro-dev course not explicitly captured in any preference.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q64",
+              "source_b_ref": "preferences.health_and_wellness (dental crown only)",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Interview Q03 describes using a weighted decision matrix for the Virginia choice, then overriding it. Profile arts_and_culture and work_and_career capture the choice but not the analytical-then-override metacognition. Summaries.psychologist covers this. Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q03",
+              "source_b_ref": "summaries.psychologist, preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Interview Q62 mentions earmarking ~$400/month for makerspace capital campaign contribution. Not explicitly in preferences.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q62",
+              "source_b_ref": "preferences.work_and_career (makerspace mentioned but not $400/month earmark)",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Interview Q60 states he picked up a speaking gig he would have turned down otherwise to cope with extra expenses. Profile work_and_career mentions speaking gigs generally. Behavioral flexibility under financial stress is captured in summaries.behavioral_economist.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q60",
+              "source_b_ref": "preferences.work_and_career, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": { "consistent": 5, "inconsistent": 0, "gaps": 2 }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile work_and_career says income ~$2,800/month earned while technology details substantial savings ($529K total). food_and_dining says ~$600-700/month groceries. These are internally consistent: asset-rich, income-poor profile matches the behavioral economist reading.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career (income details)",
+              "field_b": "preferences.food_and_dining (grocery spend), preferences.technology (savings accounts)",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile health_and_wellness lists bourbon 3-4 oz most evenings and bourbon as coping mechanism, while food_and_dining lists bourbon as a dietary detail. Consistent in content, appropriate dual categorization.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness (bourbon detail)",
+              "field_b": "preferences.food_and_dining (bourbon detail)",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": { "consistent": 2, "inconsistent": 0, "gaps": 0 }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview Q62 mentions earmarking ~$400/month for makerspace capital campaign. Not in preferences.work_and_career details.",
+              "gap": true,
+              "interview_ref": "Q62",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add to work_and_career: 'Earmarks ~$400/month for potential makerspace capital campaign contribution.'"
+            },
+            {
+              "id": 2,
+              "text": "Interview Q64 mentions deferring studio lighting and a $1,200 professional development course despite having cash. Only dental crown captured.",
+              "gap": true,
+              "interview_ref": "Q64",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add to work_and_career: 'Deferred studio lighting purchase and $1,200 pro-dev course due to psychological cost aversion despite available funds.'"
+            },
+            {
+              "id": 3,
+              "text": "Interview Q59 details seasonal bill fluctuation: winter gas $280, summer $60; $800 holiday gifts; bursty art supply spending ~$400/month then nothing. Not captured in preferences.",
+              "gap": true,
+              "interview_ref": "Q59",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add seasonal expense pattern to home_and_lifestyle details."
+            },
+            {
+              "id": 4,
+              "text": "Interview Q81 details February low-income coping: $1,100 earned, drew savings, skipped Roth contribution, cut dining, cut alcohol saving ~$150. Not captured explicitly in preferences.",
+              "gap": true,
+              "interview_ref": "Q81",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add low-income coping detail to work_and_career."
+            }
+          ],
+          "summary": { "present": 0, "missing": 4 }
+        }
+      },
+
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed cultural_background describes 'progressive Midwestern values that emphasize education, self-reliance, and community participation, while also embracing the region's commitment to social equity and environmental stewardship.' Interview Q24 confirms committed progressive; Q24 mentions environmentalism (Sierra Club 15 years), civic participation (Q23 votes every election). Fully consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q23, Q24",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed does not explicitly mention political affiliation. Interview Q95 identifies as registered Democrat since age 18, strongly. Gap in seed (reasonable since seed doesn't have a politics field), no contradiction.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed (no explicit party field)",
+              "source_b_ref": "Q95 'Democrat, strongly, with progressive tendencies'",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed cultural_background mentions Rochester's cultural institutions (George Eastman Museum, Strong Museum, live-music scene). Interview Q01 confirms these as childhood formative institutions. Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q01",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed persona mentions 'competitive drive pushes them to secure grant funding and position themselves as a thought-leader.' Interview Q16, Q44 confirm grant pursuit (arts-council micro-grant, Mellon Foundation rejection, revised resubmission) and Q108 confirms thought-leader aspiration. Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.professional_persona, seed.career_goals_and_ambitions",
+              "source_b_ref": "Q16, Q44, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": { "consistent": 4, "inconsistent": 0, "gaps": 1 }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview Q24 provides dense political detail: single-payer healthcare, federal minimum wage $15+, wealth tax, socially liberal but allergic to performative left, pro free speech, anti surveillance, strong environmentalist, Sierra Club 15 years, renewable energy surcharge, Democrat since 1996, occasional third-party local votes. Profile community_and_civic and nature_and_outdoors capture most. Summaries.political_scientist captures the rest.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q24",
+              "source_b_ref": "preferences.community_and_civic, preferences.nature_and_outdoors, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Interview Q25 details anti-big-tech shift, antitrust support, local politics prioritization over national, and softened gun policy (still supports background checks + red flags, but AR-15 ban no longer top priority). Profile does not capture gun-policy nuance in preferences. Summaries.political_scientist captures anti-tech and local shift.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q25",
+              "source_b_ref": "preferences.community_and_civic, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Interview Q26-Q29 provides deeply personal account of Daniel Prude response (Rochester 2020), East Avenue march (Marcus pepper-sprayed), reading (Coates, Wilkerson Caste, Kendi), bail fund + mutual aid donations, self-examination of assumptions. Profile community_and_civic and media_and_information_diet capture these well.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q26, Q27, Q28, Q29",
+              "source_b_ref": "preferences.community_and_civic, preferences.media_and_information_diet",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Interview Q20-Q22 describes law enforcement experiences: speeding tickets, BLM march pepper-spray witness, friend arrested at Occupy 2011, thinks Brighton PD mostly fine but broader policing needs reform. Profile does not have a distinct law-enforcement subcategory but summaries.political_scientist covers the policing stance.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q20, Q21, Q22",
+              "source_b_ref": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Interview Q23 provides specific civic actions: donates ~$1,000/cycle to local candidates, phone-banked for 2022 state senate race, canvassed ~8 hours for 2023 city council. Profile community_and_civic captures all of these accurately.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": { "consistent": 5, "inconsistent": 0, "gaps": 2 }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile community_and_civic lists '$1,500/year to Roc/ACTS, local bail fund, two mutual-aid groups' while media_and_information_diet cites Wilkerson Caste and race-reading. These are thematically consistent: the donations flow from the reading and protest engagement.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "preferences.media_and_information_diet",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile community_and_civic says 'marched Rochester BLM East Avenue 2020 + 3 more protests that summer' and summaries.political_scientist says 'post-2020 reflective white liberal.' Consistent tone and timeline.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic (protest detail)",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Summaries.political_scientist mentions 'libertarian civil-liberties instincts on speech and privacy that cut across standard partisan lines' while summaries.behavioral_economist notes 'minimizes exposure to broad-audience platforms.' These are consistent: principled free-speech support coexists with personal choice to limit platform use.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.political_scientist (libertarian civil-liberties)",
+              "field_b": "summaries.behavioral_economist (platform minimization)",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": { "consistent": 3, "inconsistent": 0, "gaps": 0 }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview Q25 provides nuanced gun policy stance: supports universal background checks and red-flag laws, no longer prioritizes federal AR-15 ban. Not captured in any preference detail.",
+              "gap": true,
+              "interview_ref": "Q25",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add to community_and_civic: 'Supports universal background checks and red-flag laws; no longer prioritizes federal AR-15 ban (softened position).'"
+            },
+            {
+              "id": 2,
+              "text": "Interview Q24 explicitly states positions: supports single-payer healthcare, federal minimum wage $15+ indexed to local COL, sympathetic to wealth tax on top 0.1%, 'allergic to performative corners of online left discourse,' pro free speech, anti surveillance. Not decomposed into preference details.",
+              "gap": true,
+              "interview_ref": "Q24",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add explicit policy positions to community_and_civic details: single-payer, $15+ min wage, wealth-tax sympathy, free-speech/anti-surveillance absolutism."
+            },
+            {
+              "id": 3,
+              "text": "Interview Q28 provides analysis on structural segregation as 'load-bearing wall of American inequality' and notes honest disagreements among Black Americans. Not captured in preferences but expressed in summaries context.",
+              "gap": true,
+              "interview_ref": "Q28",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "DROP",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Interview Q80 mentions receiving ACA premium subsidies. Not captured explicitly as a government benefit received.",
+              "gap": true,
+              "interview_ref": "Q80",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add to health_and_wellness: 'Receives ACA premium subsidies; the only federal benefit received.'"
+            }
+          ],
+          "summary": { "present": 0, "missing": 4 }
+        }
+      },
+
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed persona describes 'restless polymath whose analytical mind fuels bold artistic experiments, yet anxiety and a competitive streak often drive them between bursts of creative brilliance and bouts of self-critical burnout.' Interview richly confirms all elements: anxiety disorder (Q31, Q45), competitive drive (Q02 spreadsheet), creative bursts (Q01 'six hours on one problem'), burnout (Q34, Q65), self-criticism (Q43, Q44).",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q01, Q02, Q31, Q34, Q43, Q44, Q45, Q65",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed hobbies_and_interests mentions 'practice mindfulness meditation to manage his anxiety.' Interview Q15, Q31, Q37, Q47 richly confirms: Waking Up app daily 20 min, 3-year consistency, Shambhala retreat 2023, secular Buddhist self-identification, meditation-as-anxiety-management evolving into deeper practice.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.hobbies_and_interests (mindfulness meditation)",
+              "source_b_ref": "Q15, Q31, Q37, Q47",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed persona uses they/them pronouns ('their competitive drive pushes them'). Interview and profile consistently use he/him, and seed sex = Male. The seed pronoun is a narrative device, not a gender signal. No inconsistency.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed (they/them pronouns in narrative)",
+              "source_b_ref": "Q84, Q89 (male, he/him implicit)",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed hobbies lists 'volunteer at the Rochester Museum & Science Center's outreach programs.' Interview Q17 confirms RMSC outreach volunteer 2 Saturdays/month. Consistent with enrichment.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.hobbies_and_interests (RMSC volunteer)",
+              "source_b_ref": "Q17",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Seed mentions 'imposter syndrome almost broke me' in graduate school narrative (cultural_background does not, but seed text for skills/hobbies references it implicitly). Interview Q01 follow-up: 'the imposter syndrome almost broke me — that's where I started meditating.' Direct match.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed (imposter syndrome in grad school implied)",
+              "source_b_ref": "Q01 follow-up on grad school",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": { "consistent": 5, "inconsistent": 0, "gaps": 1 }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview Q44 describes February depressive spiral in vivid detail: grant rejection, mother's cardiology scare, 18-inch snow, 4 days isolated, frozen pizza, no meditation, no texts, Marcus intervened. Profile life_events_and_transitions does not capture this specific episode. Summaries.psychologist references it ('Marcus pulling him out of a February depressive spiral exemplifies secure-base use').",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q44",
+              "source_b_ref": "summaries.psychologist, preferences.life_events_and_transitions (Mellon rejection mentioned indirectly)",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Interview Q43 describes 'the most stable of my last five years,' mood log averaging 7/10 since April, productive vs. paralyzing anxiety, grieving the athlete he was at 30 without self-pity. Profile health_and_wellness captures mood log. Summaries.psychologist captures emotional regulation and trait neuroticism framing.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q43",
+              "source_b_ref": "preferences.health_and_wellness, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Interview Q47 details religious/spiritual trajectory: raised Irish-Catholic/German-Lutheran, stopped identifying Catholic in late 20s, now secular Buddhist, reads Stephen Batchelor and Thich Nhat Hanh, attends Christmas Eve Mass at St. Thomas More with mother for music/relationship. Profile media_and_information_diet captures reading; preferences do not have a religion subcategory but cultural_and_linguistic could hold this.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q47, Q94",
+              "source_b_ref": "preferences.media_and_information_diet (Buddhist reading), preferences.cultural_and_linguistic (German-Irish background)",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Interview Q109 states core values: 'Integrity between my inner life and my outer life,' community, creative rigor, mental peace. Profile does not have a values subcategory but summaries.psychologist frames these through identity coherence and motivational architecture.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q109",
+              "source_b_ref": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Interview Q04 follow-up names therapist Dr. Liu at Strong Behavioral Health and gives specific frame: 'a nervous system in crisis is not a career advisor.' Profile health_and_wellness captures Dr. Liu and weekly therapy. Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q04",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": { "consistent": 5, "inconsistent": 0, "gaps": 2 }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile health_and_wellness details GAD, sertraline, therapy, meditation. Summaries.psychologist frames these as 'multi-pronged regimen' with 'strong executive compensation for underlying trait neuroticism.' Internally consistent clinical-behavioral picture.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile health_and_wellness lists bourbon 6-7 drinks/week while summaries.psychologist calls it 'moderate maladaptive use of alcohol (6-7 drinks/week, self-monitored).' Consistent framing, appropriate clinical characterization.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness (bourbon detail)",
+              "field_b": "summaries.psychologist (alcohol characterization)",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile work_and_career lists 'refuses to return to corporate simulation work; identifies that as his specific failure mode' and summaries.psychologist calls this 'a self-coherence threat rather than a material one.' Consistent cross-domain framing.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": { "consistent": 3, "inconsistent": 0, "gaps": 0 }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview Q47 provides detailed spiritual trajectory: secular Buddhist, Shambhala tradition, meditation started as anxiety management and became 'something deeper,' attends Christmas Eve Mass at St. Thomas More with mother for music. Not decomposed into preference details for a religion/spirituality dimension.",
+              "gap": true,
+              "interview_ref": "Q47, Q94",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add spiritual/religious details to cultural_and_linguistic: secular Buddhist, Shambhala tradition, Christmas Eve Mass at St. Thomas More with mother, meditation-as-spiritual-practice evolution."
+            },
+            {
+              "id": 2,
+              "text": "Interview Q44 Mellon Foundation grant rejection (3 months writing, late February) and plan to resubmit revised proposal in June. Not captured in preferences.work_and_career or life_events_and_transitions.",
+              "gap": true,
+              "interview_ref": "Q44",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add to work_and_career: 'Mellon Foundation grant rejected (late February); revised proposal being submitted June.'"
+            },
+            {
+              "id": 3,
+              "text": "Interview Q46 provides family mental-health context: mother has untreated anxiety (generational), Jasper has ADHD managed with therapist + stimulant. Jasper's ADHD is in social_and_relationships. Mother's untreated anxiety not in preferences.",
+              "gap": true,
+              "interview_ref": "Q46",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add to social_and_relationships: 'Mother Eleanor has untreated anxiety (generational pattern).'"
+            },
+            {
+              "id": 4,
+              "text": "Interview Q10 mentions considering moving to Portland Maine, Asheville, or Pittsburgh every February. Not explicitly in preferences.",
+              "gap": true,
+              "interview_ref": "Q10",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add to home_and_lifestyle: 'Considers relocating (Portland ME, Asheville, Pittsburgh) every February but roots keep him.'"
+            },
+            {
+              "id": 5,
+              "text": "Interview Q43 follow-up describes Ellery relationship as 'I remembered I can be present with another person without fleeing.' This attachment-repair framing is in summaries.psychologist but not in preference details.",
+              "gap": true,
+              "interview_ref": "Q43",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "DROP",
+              "resolution": null
+            }
+          ],
+          "summary": { "present": 0, "missing": 5 }
+        }
+      }
+    },
+
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No INCONSISTENT observations were found across all four experts and four directions. Multiple Direction 4 completeness gaps were identified with NEEDS_ENRICHMENT or CARRY_FORWARD dispositions, requiring additions to the corrected profile. No FLAG_FOR_REVIEW findings exist. The draft profile was substantially accurate but incomplete in several preference subcategories.",
+    "final_status": "Corrected profile is ready for downstream use after enrichment of 12 completeness gaps across the four expert domains. All seed-interview-profile alignments verified as consistent. Hidden facts registry generated with reprojection pass."
+  },
+
+  "corrected_extracted_profile": {
+    "participant_id": "e7035edf5bc744c9912694a7d4b2a99c",
+    "name": "Julio Simmons",
+    "age": 49,
+    "gender": "Male",
+    "marital_status": "Divorced (final decree 2022); casually dating Ellery, not cohabiting",
+    "location": "Rochester (Brighton), NY 14618",
+    "education": "Master's degree — M.S. in computational modeling, University of Rochester (2005); B.S. in imaging science, RIT; A.A. Monroe Community College",
+    "occupation": "Not in workforce (per Census category); functionally an independent interdisciplinary facilitator — RMSC workshop contractor, arts-council grant recipient, curriculum consultant, emerging nonprofit (Rochester Interdisciplinary Makerspace) founder",
+
+    "preferences": {
+      "health_and_wellness": {
+        "summary": "Actively manages diagnosed Generalized Anxiety Disorder with sertraline 100 mg daily, weekly therapy with Dr. Liu at Strong Behavioral Health, daily 20-minute Waking Up app meditation, and regular exercise; also manages a mild recurring lumbar disc issue and borderline-high cholesterol via diet. Strongly pro-vaccine (all COVID boosters, annual flu, early Shingrix). Uses acupuncture (Wei Chen, South Wedge), melatonin, and low-dose THC gummies adjunctively.",
+        "details": [
+          {"detail": "Generalized Anxiety Disorder diagnosed 2019, sertraline 100 mg daily (dose increased from 75 mg ~14 months ago)", "evidence": "Q31, Q33, Q45"},
+          {"detail": "Weekly therapy with Dr. Liu at Strong Behavioral Health", "evidence": "Q04, Q31"},
+          {"detail": "20-minute daily meditation using Waking Up app, consistent for ~3 years", "evidence": "Q15, Q31, Q47"},
+          {"detail": "History of depressive episodes, especially winter (SAD-adjacent)", "evidence": "Q43, Q45"},
+          {"detail": "Mild lumbar disc issue, flare-ups ~2x/year from 2021 hiking fall", "evidence": "Q31, Q33"},
+          {"detail": "Borderline-high cholesterol managed by diet", "evidence": "Q31"},
+          {"detail": "Clean colonoscopy October 2024 (routine)", "evidence": "Q33"},
+          {"detail": "Cardiology workup summer 2024 — chest tightness turned out to be anxiety, not cardiac", "evidence": "Q33"},
+          {"detail": "Strongly pro-vaccine: all COVID boosters, annual flu, Shingrix at 48", "evidence": "Q41"},
+          {"detail": "Trusted health info sources: CDC, NEJM, URMC PCP, Ed Yong, Helen Branswell", "evidence": "Q42"},
+          {"detail": "Acupuncture ~4x/year with Wei Chen in South Wedge for back", "evidence": "Q37"},
+          {"detail": "Uses melatonin for sleep; uses 5 mg THC gummies ~2x/month for sleep or pre-show anxiety", "evidence": "Q37, Q39"},
+          {"detail": "Drinks bourbon (Four Roses, ~3-4 oz most evenings, 6-7 drinks/week); monitoring intake, has done Dry January twice", "evidence": "Q32, Q38"},
+          {"detail": "Does not smoke; quit nicotine in 20s, brief vape relapse during divorce", "evidence": "Q38"},
+          {"detail": "Completed 3-day Shambhala silent meditation retreat (Catskills, 2023); planning 5-day retreat this fall", "evidence": "Q37"},
+          {"detail": "Keeps quantitative mood log in Notion, 1-10 morning and evening, since 2022", "evidence": "Q18"},
+          {"detail": "Wears readers; eyes declining", "evidence": "Q31"},
+          {"detail": "Deferred dental crown (~$1,800) for nearly 2 years due to cost", "evidence": "Q36"},
+          {"detail": "Receives ACA premium subsidies; only federal benefit received", "evidence": "Q80"},
+          {"detail": "ACA Excellus Silver tier plan, ~$520/month after subsidies; concerned about premium instability (14% increase this year)", "evidence": "Q36"}
+        ],
+        "evidence": "Q31, Q32, Q33, Q36, Q37, Q38, Q39, Q41, Q42, Q45, Q80"
+      },
+      "food_and_dining": {
+        "summary": "Ambitious experimental home cook who treats cooking as a lab; sources from Brighton Farmers Market on Sundays; maintains a specialty pantry (agar-agar, kelp powder, fresh herbs) and iterates on techniques including miso-glazed black cod, sous-vide duck, and Sichuan-pepper chocolate truffles. Eats monthly Sunday pot roast at his mother's. Drinks bourbon (Four Roses), old-fashioneds with friend Derek, and turmeric-ginger tea.",
+        "details": [
+          {"detail": "Brighton Farmers Market every Sunday May-November; knows heirloom-tomato, sourdough, and maple-syrup vendors personally", "evidence": "Q08, Q15"},
+          {"detail": "Cooks miso-glazed black cod, sous-vide duck breast with cherry-balsamic, Sichuan pepper chocolate truffles", "evidence": "seed culinary_persona"},
+          {"detail": "Specialty pantry: agar-agar, kelp powder, fresh herbs", "evidence": "seed culinary_persona"},
+          {"detail": "Sunday pot-roast dinner at mother's home in Pittsford (weekly ritual)", "evidence": "Q05, Q15"},
+          {"detail": "Saturday coffee co-working at Joe Bean Coffee on University Ave with Priya", "evidence": "Q07, Q15"},
+          {"detail": "Diner meals as emotional rescue (Marcus breaking him out of depressive spiral)", "evidence": "Q44"},
+          {"detail": "Turmeric-ginger tea regular", "evidence": "Q37"},
+          {"detail": "Bourbon drinker (Four Roses); enjoys Derek's old-fashioneds", "evidence": "Q07, Q32, Q38"},
+          {"detail": "Monthly grocery spend ~$600-700", "evidence": "Q56, Q57"},
+          {"detail": "Tendency to skip meals during hyperfocus on projects", "evidence": "Q32"}
+        ],
+        "evidence": "Q07, Q08, Q15, Q17, Q32, Q37, Q38, Q44, Q56"
+      },
+      "travel": {
+        "summary": "Prefers purposeful, regional travel oriented around art and community over luxury or frequency; budget-constrained. Has visited Adirondack remote cabins, MoMA NYC immersive installations, and Portland Maine maker festivals; wish-lists include Kyoto art cafes and Burning Man. One annual trip to Denver to see sister Catherine's family.",
+        "details": [
+          {"detail": "Adirondack Park remote-cabin trips", "evidence": "seed travel_persona, Q108"},
+          {"detail": "Visited MoMA NYC for immersive art installations", "evidence": "seed travel_persona"},
+          {"detail": "Portland, Maine maker-festival weekend trip", "evidence": "seed travel_persona"},
+          {"detail": "Wish list: Kyoto art cafes, Burning Man", "evidence": "seed travel_persona"},
+          {"detail": "Annual Denver trip to see sister Catherine, nephew Jasper, niece Nora", "evidence": "Q05"},
+          {"detail": "Budget-driven — trips stay regional", "evidence": "Q16, Q57, Q83"},
+          {"detail": "Flying triggers anxiety sufficient that therapist has offered lorazepam, which he declines", "evidence": "Q39"}
+        ],
+        "evidence": "Q05, Q39, Q108, seed travel_persona"
+      },
+      "social_and_relationships": {
+        "summary": "Intentional, deep small-circle social life organized around chosen family. Closest ties: best friend Marcus Reyes (improv director, 9 years) and his husband Derek; grad-school friend Priya Shah (Saturday coffee co-working at Joe Bean); hiking buddies Tom and Rashida; new casual partner Ellery (ceramicist, MAG teacher, 4 months). Close but complicated with mother Eleanor (Sunday dinners in Pittsford). Amicable-distant with ex-wife Dana.",
+        "details": [
+          {"detail": "Best friend: Marcus Reyes, director of Rochester Fringe improv troupe, 9-year friendship, Thursday rehearsals", "evidence": "Q02, Q07, Q44"},
+          {"detail": "Marcus's husband Derek (landscape architect, Black, makes great old-fashioneds); dinner ~2x/month", "evidence": "Q05, Q07, Q30"},
+          {"detail": "Priya Shah, RIT data scientist, grad-school friend; Saturday and Tuesday coffees at Joe Bean on University Ave", "evidence": "Q07, Q15, Q18"},
+          {"detail": "Hiking buddies Tom and Rashida — at least one Finger Lakes trail/month", "evidence": "Q07"},
+          {"detail": "Casually dating Ellery, ceramicist teaching at Memorial Art Gallery (MAG), ~4 months", "evidence": "Q07, Q11, Q43, Q84"},
+          {"detail": "Mother Eleanor, 78, Pittsford condo ~12 min away; weekly Sunday dinner; close but wiry", "evidence": "Q05, Q17"},
+          {"detail": "Mother Eleanor has untreated anxiety (generational pattern)", "evidence": "Q46"},
+          {"detail": "Father Robert deceased 2019 (congestive heart failure); still grieving", "evidence": "Q01, Q05, Q35"},
+          {"detail": "Sister Catherine, 53, Denver; biweekly FaceTime; once-yearly in-person visit", "evidence": "Q05"},
+          {"detail": "Niece Nora (marching band) and nephew Jasper (debate team, competitive Minecraft, ADHD managed with therapist + stimulant)", "evidence": "Q05, Q19, Q46"},
+          {"detail": "DMs monthly online D&D campaign for nephew, niece, and two friends, Sunday nights 7-10", "evidence": "Q05, Q15, Q17"},
+          {"detail": "Ex-wife Dana (Syracuse); cordial, text on birthdays only; misses her sister Miriam more", "evidence": "Q01, Q05"},
+          {"detail": "Uncle Declan (Buffalo, retired pipefitter); cousin Siobhan (Buffalo ER nurse) — text memes", "evidence": "Q06"},
+          {"detail": "Neighbors: Kaplans (east) and Nguyens (west)", "evidence": "Q08"},
+          {"detail": "Lives alone with cat Fermi (7yo black DSH, named after Enrico Fermi)", "evidence": "Q11, Q12, Q51"},
+          {"detail": "Meets new people through existing activities (improv, frisbee, cycling); not on dating apps; met Ellery at gallery opening", "evidence": "Q07"},
+          {"detail": "RMSC contact Jenna Park, Director of Education — warm but professional working relationship", "evidence": "Q77"},
+          {"detail": "No children; mutual decision with ex-wife Dana; still quietly processing; metabolizes through mentoring teens at RMSC", "evidence": "Q01, Q05"}
+        ],
+        "evidence": "Q01, Q05, Q06, Q07, Q08, Q11, Q15, Q17, Q19, Q30, Q43, Q46, Q77, Q84"
+      },
+      "home_and_lifestyle": {
+        "summary": "Owns outright a 1,650 sq-ft 1947 Cape Cod in Brighton (14618) near Twelve Corners; mortgage-free since 2022 post-divorce. Uses second bedroom as studio (synths, drawing tablet, dual monitors). Slow 12-year ongoing renovation. Highly structured morning routine (wake 6:30, meditate, coffee); treats scaffolded routine as anxiety-management necessity.",
+        "details": [
+          {"detail": "Owns 1947 Cape Cod outright, ~1,650 sq ft, near Twelve Corners, purchased 2011, paid off 2022", "evidence": "Q55, Q58"},
+          {"detail": "Two-bedroom layout: bedroom + creative studio (modular synths, drawing tablet, dual monitors)", "evidence": "Q11"},
+          {"detail": "12-year slow renovation in progress", "evidence": "Q08"},
+          {"detail": "Cat Fermi lives with him", "evidence": "Q11, Q51"},
+          {"detail": "Wakes 6:30, meditates 20 min, rigid weekly scaffolding", "evidence": "Q15"},
+          {"detail": "House worth ~$310K (Zillow) / $280K quick-sale estimate", "evidence": "Q58"},
+          {"detail": "Walks to Buckman's Deli, Brighton library, farmers market", "evidence": "Q08"},
+          {"detail": "Knows neighbors Kaplans and Nguyens", "evidence": "Q08"},
+          {"detail": "Mows mom's lawn in summer, shovels driveway in winter", "evidence": "Q17"},
+          {"detail": "Feels very safe in Brighton; walks at night with headphones; forgets to lock door ~1 week in 3", "evidence": "Q09"},
+          {"detail": "Considers relocating (Portland ME, Asheville, Pittsburgh) every February but deep roots keep him", "evidence": "Q10"},
+          {"detail": "Seasonal expense variation: winter gas $280 vs summer $60; ~$800 holiday gifts; bursty art supply spending", "evidence": "Q59"},
+          {"detail": "Property taxes ~$2,100/quarter; Monroe County described as brutal", "evidence": "Q56"},
+          {"detail": "Usual monthly spend ~$3,400 (housing $1K, food $700, health $500, transport $400, discretionary remainder)", "evidence": "Q57"}
+        ],
+        "evidence": "Q08, Q09, Q10, Q11, Q15, Q17, Q55, Q56, Q57, Q58, Q59"
+      },
+      "entertainment": {
+        "summary": "Highbrow/indie entertainment palette: independent film screenings, speculative fiction reading, improv theater performance, tabletop RPGs (D&D DM), puzzles including escape rooms and advanced Sudoku, and Eastman School free concerts.",
+        "details": [
+          {"detail": "Independent film screenings attendee", "evidence": "seed hobbies"},
+          {"detail": "Speculative fiction reader", "evidence": "seed hobbies"},
+          {"detail": "Improv performer and director-adjacent at Rochester Fringe troupe; Thursday rehearsals at MuCCC 7-10 p.m.", "evidence": "Q07, Q15"},
+          {"detail": "DMs monthly D&D campaign for niece, nephew, and friends", "evidence": "Q05, Q15, Q17"},
+          {"detail": "Escape rooms and advanced Sudoku", "evidence": "seed hobbies"},
+          {"detail": "Eastman School of Music free concerts attendee", "evidence": "Q10"},
+          {"detail": "Popular science reader", "evidence": "seed hobbies"}
+        ],
+        "evidence": "Q05, Q07, Q10, Q15, Q17, seed hobbies"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Polymathic hobbyist — acrylic landscape painting, digital illustration (p5.js), modular synth ambient composition, improv theater, tabletop RPG dungeon-mastering, escape rooms, advanced Sudoku, hiking, cycling, ultimate frisbee, mindfulness meditation, community maker workshops, and cooking experiments.",
+        "details": [
+          {"detail": "Acrylic painting — Finger Lakes landscapes", "evidence": "seed arts_persona, Q48"},
+          {"detail": "Digital illustration in p5.js; posts on Instagram (~800 followers)", "evidence": "Q48"},
+          {"detail": "Modular synth ambient composition (Brian Eno influence)", "evidence": "Q11, seed arts_persona"},
+          {"detail": "Improv with Rochester Fringe troupe, 9 years", "evidence": "Q02, Q07, Q15"},
+          {"detail": "Tabletop RPG DM for monthly D&D (3 hours prep per session)", "evidence": "Q05, Q17"},
+          {"detail": "Escape rooms, advanced Sudoku", "evidence": "seed hobbies"},
+          {"detail": "Hiking, Finger Lakes trails including Watkins Glen, with Tom and Rashida", "evidence": "Q07, Q15"},
+          {"detail": "Co-ed ultimate frisbee league at South Wedge Park", "evidence": "seed sports_persona, Q31"},
+          {"detail": "Summer community cycling group — Erie Canal towpath", "evidence": "seed sports_persona, Q31"},
+          {"detail": "Mindfulness meditation — Waking Up app, Shambhala retreats", "evidence": "Q15, Q31, Q37"},
+          {"detail": "Cooking experiments (miso cod, sous-vide duck, fermentation)", "evidence": "seed culinary_persona"},
+          {"detail": "Volunteer STEM outreach at RMSC, 2 Saturdays/month", "evidence": "Q17"}
+        ],
+        "evidence": "Q05, Q07, Q15, Q17, Q31, Q37, Q48, seed"
+      },
+      "work_and_career": {
+        "summary": "Officially not-in-workforce per Census; functionally a 1099 interdisciplinary facilitator three years post-exit from a defense-adjacent senior computational modeling role. Income ~$48K AGI last year across RMSC workshop contract, arts-council grant, speaking fees, and consulting. Core ambition: incorporate and grow the Rochester Interdisciplinary Makerspace into a sustainable $40-65K/year nonprofit role by ~2028. Refuses to return to corporate simulation work; identifies that as his specific failure mode.",
+        "details": [
+          {"detail": "Independent 1099 contractor; no benefits", "evidence": "Q16, Q76"},
+          {"detail": "RMSC (Rochester Museum & Science Center) workshop contract, ~8 teaching hours/week fall and spring; contact Jenna Park, Director of Education", "evidence": "Q16, Q77"},
+          {"detail": "Regional arts-council micro-grant for quantum-physics graphic novel project", "evidence": "Q16, Q65"},
+          {"detail": "Speaking gigs (e.g., SUNY Geneseo keynote $800, February)", "evidence": "Q16, Q60"},
+          {"detail": "Previous W-2 job 2014-2020: senior computational modeler, defense-adjacent firm in Rochester, stochastic simulation / logistics", "evidence": "Q65"},
+          {"detail": "Left previous job due to anxiety/burnout", "evidence": "Q34, Q65"},
+          {"detail": "Turned down 6-figure Reston, VA contractor role 2021 to take RMSC artist-in-residence", "evidence": "Q02"},
+          {"detail": "Monthly earned income ~$2,800; total monthly income ~$3,700 including dividends", "evidence": "Q72, Q74"},
+          {"detail": "Last AGI ~$48,000; taxes prepared by CPA Marsha Gillespie", "evidence": "Q75"},
+          {"detail": "Primary 5-year goal: Rochester Interdisciplinary Makerspace 501(c)(3), 300 members, sliding-scale, South Wedge or Neighborhood of the Arts", "evidence": "Q108"},
+          {"detail": "Serves as treasurer of improv troupe — ~4 hours QuickBooks/month", "evidence": "Q17"},
+          {"detail": "Publicly speaks and facilitates; strengths in Python, MATLAB, R, p5.js, curriculum design", "evidence": "Q65, seed skills"},
+          {"detail": "Earmarks ~$400/month for potential makerspace capital campaign contribution", "evidence": "Q62"},
+          {"detail": "Deferred studio lighting purchase and $1,200 pro-dev course due to psychological cost aversion despite available funds", "evidence": "Q64"},
+          {"detail": "February was lowest-income month (~$1,100 earned); coped by drawing savings, skipping Roth contribution, cutting dining and alcohol", "evidence": "Q81"},
+          {"detail": "Mellon Foundation grant rejected (late February, 3 months of work); revised proposal being submitted June", "evidence": "Q44"},
+          {"detail": "Completed Coursera course on nonprofit financial management (fall 2025)", "evidence": "Q92"},
+          {"detail": "Sustainability target: $45-65K/year by 2028 from makerspace + workshop fees + grants", "evidence": "Q108"},
+          {"detail": "Specific failure mode: returning to corporate simulation job out of financial fear", "evidence": "Q108"}
+        ],
+        "evidence": "Q02, Q16, Q17, Q34, Q44, Q62, Q64, Q65, Q72, Q75, Q81, Q92, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Deeply embedded in Rochester arts scene; personal practice blends fine art, digital/generative art, and performance. Influences cited include Yayoi Kusama, Brian Eno, and graphic novelists Alan Moore. Attends Eastman School concerts, MAG openings (met Ellery there), and MuCCC theater. Working on a serialized quantum-physics graphic novel.",
+        "details": [
+          {"detail": "Acrylic landscape painter (Finger Lakes subjects)", "evidence": "seed arts_persona, Q48"},
+          {"detail": "Working on quantum-physics graphic novel series; influenced by Alan Moore narrative pacing", "evidence": "Q15, Q65, Q108"},
+          {"detail": "Modular synth ambient composition (Brian Eno lineage)", "evidence": "Q11, seed arts_persona"},
+          {"detail": "Inspired by Yayoi Kusama surrealism", "evidence": "seed arts_persona"},
+          {"detail": "Performer with Rochester Fringe improv troupe", "evidence": "Q07, Q15"},
+          {"detail": "Met Ellery at a gallery opening", "evidence": "Q07"},
+          {"detail": "Attends Eastman School of Music free concerts", "evidence": "Q10"},
+          {"detail": "Cultural anchors: George Eastman Museum, Strong Museum of Play (childhood formative sites)", "evidence": "Q01"},
+          {"detail": "Has visited MoMA NYC for immersive installations", "evidence": "seed travel_persona"},
+          {"detail": "Creative coding with Processing, p5.js for data visualization and generative art", "evidence": "Q65, seed skills"}
+        ],
+        "evidence": "Q01, Q07, Q10, Q11, Q15, Q48, Q65, Q108, seed"
+      },
+      "sports_and_fitness": {
+        "summary": "Competitive-streak recreational athlete: hikes Finger Lakes trails monthly (including Watkins Glen), plays co-ed ultimate frisbee at South Wedge Park, rides Erie Canal towpath in summer with cycling group, and follows Rochester Red Wings (baseball) and Rochester Americans (AHL hockey). Resting HR ~60, BMI ~24.",
+        "details": [
+          {"detail": "Monthly Finger Lakes hikes with Tom and Rashida; Watkins Glen trails", "evidence": "Q07, Q15, seed sports_persona"},
+          {"detail": "Co-ed ultimate frisbee league at South Wedge Park", "evidence": "seed sports_persona, Q31"},
+          {"detail": "Summer community cycling group on Erie Canal towpath; tracks lap times competitively", "evidence": "seed sports_persona"},
+          {"detail": "Fan of Rochester Red Wings (MiLB baseball)", "evidence": "seed sports_persona"},
+          {"detail": "Fan of Rochester Americans (AHL hockey)", "evidence": "seed sports_persona"},
+          {"detail": "Resting HR ~60, BMI ~24", "evidence": "Q31"},
+          {"detail": "Goal: hike Adirondack high peaks within 5 years", "evidence": "Q108"},
+          {"detail": "Recovering from 2021 hiking fall (lumbar disc)", "evidence": "Q31, Q33"}
+        ],
+        "evidence": "Q07, Q15, Q31, Q33, Q108, seed sports_persona"
+      },
+      "nature_and_outdoors": {
+        "summary": "Strong outdoors orientation centered on the Finger Lakes region and Adirondacks. Weekend trail hiking, summer cycling on Erie Canal towpath, remote cabin trips. Strong environmentalist — donates to Sierra Club for 15 years, pays for RG&E renewable energy surcharge.",
+        "details": [
+          {"detail": "Regular Finger Lakes trail hiking year-round (weather permitting)", "evidence": "Q15, seed sports_persona"},
+          {"detail": "Erie Canal towpath cycling in summer", "evidence": "seed sports_persona"},
+          {"detail": "Adirondack Park remote-cabin trips", "evidence": "seed travel_persona, Q108"},
+          {"detail": "Sierra Club donor for 15 years", "evidence": "Q24"},
+          {"detail": "Pays extra for renewable energy through RG&E", "evidence": "Q24"},
+          {"detail": "Rochester gray-season (Nov-Apr) negatively affects mental health", "evidence": "Q10, Q43"}
+        ],
+        "evidence": "Q10, Q15, Q24, Q43, Q108, seed"
+      },
+      "technology": {
+        "summary": "Quantitative power-user with skeptical and intentional consumer relationship to consumer tech. Fluent in Python, MATLAB, R, p5.js, Processing, Max/MSP. Uses Notion for mood logging, Dropbox, Vanguard for investing, Ally for savings, one-sec app to cap social media, Waking Up app for meditation. Avoids TikTok by design; quit Twitter in 2023. Skeptical of big tech, pro-antitrust.",
+        "details": [
+          {"detail": "Proficient in Python, MATLAB, R, p5.js, Processing, Max/MSP", "evidence": "Q65, seed skills"},
+          {"detail": "Uses Notion database for daily mood tracking since 2022", "evidence": "Q18"},
+          {"detail": "Uses one-sec app to limit social media to ~20 min/day", "evidence": "Q18, Q48"},
+          {"detail": "Uses Waking Up app daily for meditation", "evidence": "Q15, Q31"},
+          {"detail": "Quit Twitter late 2023 post-acquisition", "evidence": "Q48"},
+          {"detail": "Active on Bluesky and Instagram; inactive Facebook; avoids TikTok deliberately", "evidence": "Q48"},
+          {"detail": "Savings at Ally (HYSA $14K); brokerage at Vanguard (VTI, VXUS ~$185K); Roth IRA ~$90K; 401k rollover ~$240K", "evidence": "Q61"},
+          {"detail": "Chase Sapphire credit card, paid in full monthly", "evidence": "Q63"},
+          {"detail": "Bought a new drawing tablet last month (~$450)", "evidence": "Q56"},
+          {"detail": "Hardware: modular synths, drawing tablet, dual-monitor studio setup", "evidence": "Q11"},
+          {"detail": "Increasingly pro-antitrust on big tech / critical of social media effects on teens", "evidence": "Q25"},
+          {"detail": "Uses Dropbox (stores artifacts folder with old decision spreadsheets)", "evidence": "Q03"}
+        ],
+        "evidence": "Q03, Q11, Q15, Q18, Q25, Q48, Q56, Q61, Q63, Q65"
+      },
+      "community_and_civic": {
+        "summary": "High-engagement local civic participant. Votes in every election at Twelve Corners Presbyterian polling place since 2008. Donates ~$1,000/cycle to local candidates, ~$1,500/year to Roc/ACTS, local bail fund, and mutual-aid groups. Volunteers at RMSC outreach 2 Saturdays/month. Marched at 2020 Rochester BLM protests after Daniel Prude; later phone-banked and canvassed. Active treasurer of Rochester Fringe improv troupe.",
+        "details": [
+          {"detail": "Votes every election (federal, state, local, school board); 20-year clean record since 2008", "evidence": "Q23"},
+          {"detail": "Registered at Monroe County Board of Elections; polling place Twelve Corners Presbyterian", "evidence": "Q23"},
+          {"detail": "~$1,000/cycle donated to local candidates", "evidence": "Q23"},
+          {"detail": "Phone-banked 2022 state senate race; canvassed ~8 hours fall 2022 city council race", "evidence": "Q23"},
+          {"detail": "Marched Rochester BLM East Avenue 2020 (Daniel Prude response) + 3 more protests that summer", "evidence": "Q21, Q26"},
+          {"detail": "~$1,500/year to Roc/ACTS, local bail fund, two mutual-aid groups", "evidence": "Q27"},
+          {"detail": "RMSC STEM outreach volunteer, 2 Saturdays/month", "evidence": "Q17"},
+          {"detail": "Treasurer of Rochester Fringe improv troupe", "evidence": "Q17"},
+          {"detail": "Primary community-building goal: nonprofit makerspace serving 300 members on sliding scale", "evidence": "Q108"},
+          {"detail": "Supports universal background checks and red-flag laws; no longer prioritizes federal AR-15 ban (softened position)", "evidence": "Q25"},
+          {"detail": "Supports single-payer healthcare; federal minimum wage $15+ indexed to local COL; sympathetic to wealth tax on top 0.1%", "evidence": "Q24"},
+          {"detail": "Pro free speech, anti-surveillance; libertarian civil-liberties instincts on speech and privacy", "evidence": "Q24"},
+          {"detail": "Registered Democrat since age 18; strongly identifies; occasionally votes third-party in local races against machine candidates", "evidence": "Q95, Q96"},
+          {"detail": "Shifted focus from national to local politics (school board, city council, state legislature) since 2022", "evidence": "Q25"},
+          {"detail": "~$500 donation to school board candidate was consequential vs. rounding-error federal donations", "evidence": "Q25"}
+        ],
+        "evidence": "Q17, Q21, Q23, Q24, Q25, Q26, Q27, Q95, Q96, Q108"
+      },
+      "music": {
+        "summary": "Produces ambient/experimental electronic music on modular synthesizers in Brian Eno lineage. Listens to ambient electronic, Eastman School classical (attends free concerts), and presumably Rochester indie scene. Open to MuCCC and Fringe performance traditions.",
+        "details": [
+          {"detail": "Composes ambient modular-synth music; Brian Eno influence", "evidence": "Q11, seed arts_persona"},
+          {"detail": "Eastman School of Music free concert attendee", "evidence": "Q10"},
+          {"detail": "Uses Max/MSP for creative audio coding", "evidence": "Q65, seed skills"},
+          {"detail": "Christmas Eve Mass at St. Thomas More appreciated specifically for music", "evidence": "Q47"}
+        ],
+        "evidence": "Q10, Q11, Q47, Q65, seed"
+      },
+      "fashion_and_appearance": {
+        "summary": "Minimal interview evidence for self-presentation details. Wears readers. Inferred preference is practical/utilitarian creative-Rochester aesthetic consistent with studio artist who hikes and performs improv. Not a high-engagement category for Julio.",
+        "details": [
+          {"detail": "Wears reading glasses; explicitly describes as 'minor indignity'", "evidence": "Q31"},
+          {"detail": "Self-presentation reads as unambiguously white/safe-to-police per his own framing — notes this as racial privilege, not style claim", "evidence": "Q20"}
+        ],
+        "evidence": "Q20, Q31"
+      },
+      "cultural_and_linguistic": {
+        "summary": "Monolingual English speaker of German-Irish ancestry. Raised Rochester NY in middle-class German-Irish family (dad in Kodak/imaging manufacturing, mom in nursing administration at Strong). Identifies with progressive Midwestern-values cultural frame emphasizing education, self-reliance, civic participation, social equity, and environmental stewardship.",
+        "details": [
+          {"detail": "White, German-Irish ancestry", "evidence": "Q89"},
+          {"detail": "Not Hispanic/Latinx/Spanish origin; first name was chosen by his mother after a family friend she admired", "evidence": "Q88"},
+          {"detail": "Born Rochester NY, raised Brighton; lived with both parents at age 16", "evidence": "Q87, Q97, Q98"},
+          {"detail": "Cultural touchstones: George Eastman Museum, Strong Museum of Play, Eastman School, MAG, RMSC, MuCCC", "evidence": "Q01, Q07, Q10"},
+          {"detail": "Progressive Midwestern-values cultural self-identification", "evidence": "Q24, seed cultural_background"},
+          {"detail": "English monolingual (no evidence of other languages)", "evidence": "implicit across interview"},
+          {"detail": "Father Robert: B.S. in mechanical engineering, Clarkson University (1967); process engineer at Eastman Kodak then medical-imaging spinoff", "evidence": "Q100, Q106, Q107"},
+          {"detail": "Mother Eleanor: RN via Monroe Community College, then B.S. in healthcare administration (part-time, completed in her 40s); career at Strong Memorial from floor RN to assistant director of nursing administration", "evidence": "Q101, Q103, Q104"},
+          {"detail": "Secular Buddhist with Shambhala tradition; raised Irish-Catholic and German-Lutheran; stopped identifying Catholic in late 20s; attends Christmas Eve Mass at St. Thomas More with mother", "evidence": "Q47, Q94"},
+          {"detail": "Reads Stephen Batchelor and Thich Nhat Hanh for spiritual practice", "evidence": "Q47"},
+          {"detail": "Meditation practice evolved from anxiety management to deeper spiritual significance", "evidence": "Q47"}
+        ],
+        "evidence": "Q01, Q24, Q47, Q87, Q88, Q89, Q94, Q97, Q98, Q100, Q101, Q103, Q106, Q107"
+      },
+      "life_events_and_transitions": {
+        "summary": "Recent life course dominated by three transitions: father's death (2019, congestive heart failure), divorce from Dana (final decree 2022), and career exit from defense-adjacent computational modeler role (2020-2021, burnout-driven). Mortgage paid off 2022 via divorce settlement. Mother's hip replacement Nov 2024 required 3 weeks of primary caregiving. GAD formally diagnosed 2019. Took RMSC artist-in-residence 2021 over 6-figure Reston VA contractor role — identifies this as his defining crossroad.",
+        "details": [
+          {"detail": "Father Robert died 2019 of congestive heart failure after years of cardiology care", "evidence": "Q01, Q05, Q35"},
+          {"detail": "Divorce from Dana: unraveling ~5 years + Tuesday October kitchen-table moment; final decree 2022", "evidence": "Q01, Q84"},
+          {"detail": "Left defense-adjacent senior modeler job 2020-2021 due to burnout/anxiety", "evidence": "Q34, Q65"},
+          {"detail": "Crossroad: turned down 6-figure Reston VA role for RMSC residency (2021)", "evidence": "Q02"},
+          {"detail": "Mortgage paid off late 2022 via divorce settlement + stock sale", "evidence": "Q55"},
+          {"detail": "Mother's hip replacement Nov 2024; 3 weeks caregiving", "evidence": "Q35"},
+          {"detail": "GAD formally diagnosed 2019", "evidence": "Q31, Q45"},
+          {"detail": "Sertraline dose increased from 75 to 100 mg ~14 months ago", "evidence": "Q33"},
+          {"detail": "Started current steady relationship with Ellery ~4 months ago", "evidence": "Q07, Q43, Q84"},
+          {"detail": "Shambhala 3-day silent retreat 2023", "evidence": "Q37"},
+          {"detail": "Quit Twitter late 2023", "evidence": "Q48"},
+          {"detail": "Met Marcus and started improv troupe involvement 9 years ago", "evidence": "Q07"},
+          {"detail": "Married Dana at 32 (circa 2009); met at 29 at gallery opening", "evidence": "Q01"},
+          {"detail": "Grad school M.S. completed 2005 at University of Rochester", "evidence": "Q01, Q90"},
+          {"detail": "Childhood golden retriever named Pixel", "evidence": "Q99"},
+          {"detail": "Sister Catherine left for college when Julio was 14", "evidence": "Q99"}
+        ],
+        "evidence": "Q01, Q02, Q05, Q07, Q31, Q33, Q34, Q35, Q37, Q45, Q48, Q55, Q65, Q84, Q90, Q99"
+      },
+      "media_and_information_diet": {
+        "summary": "High-quality, vetted information diet. Reads Democrat & Chronicle daily for local; follows science journalists Ed Yong and Helen Branswell; reads Ta-Nehisi Coates, Isabel Wilkerson (Caste), Ibram Kendi; reads Stephen Batchelor, Thich Nhat Hanh for spirituality; reads speculative fiction and popular science. Active on Instagram and Bluesky, ~20 min/day social cap. Rejects vaccine misinformation and random-YouTube-doctor sources explicitly.",
+        "details": [
+          {"detail": "Democrat & Chronicle daily local read", "evidence": "Q24"},
+          {"detail": "Race-and-America reading: Ta-Nehisi Coates, Isabel Wilkerson (Caste cited as most influential), Ibram Kendi", "evidence": "Q26"},
+          {"detail": "Trusted health journalists: Ed Yong, Helen Branswell", "evidence": "Q42"},
+          {"detail": "Meditation/Buddhism reading: Stephen Batchelor, Thich Nhat Hanh", "evidence": "Q47"},
+          {"detail": "Primary literature habit: reads NEJM when parseable", "evidence": "Q42"},
+          {"detail": "Speculative fiction and popular science reader", "evidence": "seed hobbies"},
+          {"detail": "Instagram ~800 followers, posts 2x/week (paintings, p5.js sketches)", "evidence": "Q48"},
+          {"detail": "Active on Bluesky (few posts/week, art-science + occasional politics)", "evidence": "Q48"},
+          {"detail": "Quit Twitter late 2023; avoids TikTok on purpose; Facebook dormant since 2020", "evidence": "Q48"},
+          {"detail": "Uses one-sec app to cap social media at 20 min/day", "evidence": "Q18, Q48"},
+          {"detail": "Source evaluation rule: skin in the game + primary citations + track record of admitting error", "evidence": "Q42"}
+        ],
+        "evidence": "Q18, Q24, Q26, Q42, Q47, Q48, seed hobbies"
+      }
+    },
+
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Julio Simmons is a 49-year-old non-Hispanic White (German-Irish) divorced male with a master's degree in computational modeling (University of Rochester 2005), residing in Brighton, Rochester NY (14618) as an unmarried single-person household with a companion animal (Q05, Q11, Q84, Q89, Q90). He owns his 1947 Cape Cod home outright following his 2022 divorce settlement and lives mortgage-free on a patchwork 1099 income of roughly $48K AGI, supplemented by substantial pre-divorce accumulated wealth (~$529K across taxable, Roth, and rollover retirement accounts) (Q55, Q58, Q61, Q75). He is a second-generation Rochester resident, the son of a Kodak-era process engineer and a nurse-administrator at Strong Memorial, both with post-secondary education, placing him in a classic dual-credentialed Rust Belt middle-class lineage (Q100-Q107). His household structure and informal caregiver role for his 78-year-old widowed mother Eleanor in Pittsford mark him as a classic sandwich-generation caregiver without downstream dependents (Q05, Q35).",
+      "behavioral_economist": "Julio exhibits loss-averse, risk-managed behavior around tangible security (mortgage-free home, $14K emergency fund, diversified index investing at Vanguard, Chase card paid in full monthly) paired with a deliberate willingness to accept expected-value negative career bets in service of identity and meaning preservation — most dramatically turning down a six-figure Reston VA offer for a half-time RMSC residency (Q02, Q55, Q61, Q63). He demonstrates strong commitment devices (daily meditation, one-sec social-media cap, Notion mood log, scheduled Tuesday coffees, structured weekly scaffolding) and explicit metacognition about their necessity for his nervous system (Q15, Q18, Q48). Time preference is medium-to-long — he defers discretionary goods (dental crown, studio lighting, pro-dev course) for psychological reasons even when cash is available, indicating scarcity-adjacent reasoning despite actual abundance (Q64). Peer influence is asymmetric: he is deeply responsive to small-circle trusted counsel (Marcus, Priya, Dr. Liu, his mother on the VA decision) but actively minimizes exposure to broad-audience platforms (quit Twitter, avoids TikTok), consistent with someone who knows his own affective vulnerabilities (Q02, Q18, Q48). His identity utility is organized around interdisciplinary 'facilitator' self-concept, and the specific loss he fears most is identity reversal (returning to corporate simulation work), which he names explicitly as his personal failure mode (Q108).",
+      "political_scientist": "Julio is a committed progressive-Democrat with consistent, high-intensity civic participation: twenty-year clean voting record, ~$1,000/cycle to local candidates, phone-banking and canvassing in recent state and municipal races, and ~$1,500/year to local mutual-aid and bail-fund causes after the 2020 Daniel Prude protests in Rochester (Q23, Q26, Q27, Q95, Q96). His political trust profile is inverted in the classic post-2016 progressive pattern — declining trust in national institutions, rising investment in local politics and neighbors — and he explicitly describes a strategic shift of attention from national to school-board/city-council/state legislature since 2022 (Q24, Q25). On race and policing, he is a post-2020 reflective white liberal: active in protest, consistent in donations, critical of 'defund the police' as a slogan while endorsing the underlying reinvestment policy, and self-aware about white-liberal fatigue post-2020 (Q26-Q30). He is a strong environmentalist (15-year Sierra Club donor, pays RG&E renewable surcharge), pro-vaccine, pro-antitrust, and holds libertarian civil-liberties instincts on speech and privacy that cut across standard partisan lines (Q24, Q25, Q41). Community attachment to Rochester is deep, ambivalent, and generative — he channels civic identity into the planned Rochester Interdisciplinary Makerspace as a nonprofit institution-builder (Q108).",
+      "psychologist": "Julio presents as a cognitively high-functioning, introspective, agreeable-but-privately-intense individual with diagnosed Generalized Anxiety Disorder (2019) and a history of depressive episodes, managed through a multi-pronged regimen: sertraline 100 mg, weekly therapy with Dr. Liu, daily 20-minute meditation, structured exercise, and quantitative self-monitoring (Notion mood log) — a profile of self-reflective affect regulation with strong executive compensation for underlying trait neuroticism (Q18, Q31, Q33, Q45). His self-concept is organized around integration of seemingly disparate identities (quantitative analyst + artist + facilitator + caregiver son), and his articulated failure mode — returning to corporate simulation work — is specifically a self-coherence threat rather than a material one (Q65, Q108). He shows strong attachment security in a small, high-quality circle (Marcus pulling him out of a February depressive spiral exemplifies secure-base use) alongside tentative but healthy approach behavior in the Ellery relationship four months post-onset (Q07, Q43, Q44, Q84). His cognitive style is data-driven but self-aware about its limits — he built a weighted decision matrix for the Reston VA choice and then consciously overrode it, demonstrating integrated Type-1/Type-2 reasoning and a mature relationship with his own intuition (Q03). Coping includes both adaptive strategies (meditation, exercise, therapy, social scheduling, creative production) and moderate maladaptive use of alcohol (6-7 drinks/week, self-monitored), suggesting a person with insight into his own risks who is working on them without perfection (Q32, Q38, Q50)."
+    },
+
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Has Generalized Anxiety Disorder diagnosed in 2019, takes sertraline 100 mg daily (dose increased from 75 mg approximately 14 months ago)",
+        "ground_truth_label": "Generalized Anxiety Disorder, sertraline 100 mg daily",
+        "behavioral_evidence_from_interview": ["Q31 'generalized anxiety disorder, diagnosed in 2019, managed with a combination of sertraline (100 mg daily)'", "Q33 'sertraline dose got adjusted up from 75 to 100 mg about fourteen months ago'", "Q45 'diagnosed generalized anxiety disorder since 2019'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.life_events_and_transitions"]
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Attends weekly therapy with Dr. Liu at Strong Behavioral Health",
+        "ground_truth_label": "Weekly therapy with Dr. Liu",
+        "behavioral_evidence_from_interview": ["Q04 'My therapist Dr. Liu at Strong Behavioral Health was enormous during that period'", "Q31 'weekly therapy with Dr. Liu'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Meditates 20 minutes daily using the Waking Up app, consistent for approximately 3 years",
+        "ground_truth_label": "Daily 20-minute Waking Up app meditation",
+        "behavioral_evidence_from_interview": ["Q15 'meditate for twenty minutes using the Waking Up app'", "Q31 'meditation'", "Q47 'the meditation practice' — 'started as anxiety management, it's become more than that'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.hobbies_and_recreation"]
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Has history of depressive episodes especially in winter (SAD-adjacent pattern)",
+        "ground_truth_label": "Seasonal depressive episodes",
+        "behavioral_evidence_from_interview": ["Q43 'January through March was rough — Seasonal Affective stuff'", "Q45 'history of depressive episodes particularly in winter'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Has mild lumbar disc issue from a 2021 hiking fall, flares up approximately twice per year",
+        "ground_truth_label": "Recurring lumbar disc issue from 2021 hiking fall",
+        "behavioral_evidence_from_interview": ["Q31 'mild lumbar disc issue from a hiking fall in 2021 that flares up maybe twice a year'", "Q33 'lumbar flare-up last March that put me on the couch for about ten days'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Has borderline-high cholesterol managed by diet",
+        "ground_truth_label": "Borderline-high cholesterol, diet-managed",
+        "behavioral_evidence_from_interview": ["Q31 'My cholesterol is borderline-high; I'm managing with diet'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Had a clean routine colonoscopy in October 2024",
+        "ground_truth_label": "Clean colonoscopy October 2024",
+        "behavioral_evidence_from_interview": ["Q33 'colonoscopy in October — routine screening, clean'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Had a cardiology workup in summer 2024 for chest tightness that turned out to be anxiety-related, not cardiac",
+        "ground_truth_label": "Anxiety-related chest tightness, not cardiac (summer 2024 workup)",
+        "behavioral_evidence_from_interview": ["Q33 'weird cardiology workup last summer for some chest tightness that turned out to be anxiety-related, not cardiac'", "Q33 follow-up 'Two weeks of stress tests and echocardiograms convinced I was dying'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Strongly pro-vaccine: has received all COVID boosters, gets annual flu shot, got Shingrix series early at age 48",
+        "ground_truth_label": "Strongly pro-vaccine (all COVID boosters, annual flu, early Shingrix)",
+        "behavioral_evidence_from_interview": ["Q41 'Strongly pro-vaccine. I've had every COVID booster, I get a flu shot every October, I got the Shingrix series early at forty-eight'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Trusts CDC, NEJM, URMC PCP, Ed Yong, and Helen Branswell as health information sources; rejects social media health misinformation",
+        "ground_truth_label": "Vetted health info sources (CDC, NEJM, URMC, Ed Yong, Helen Branswell)",
+        "behavioral_evidence_from_interview": ["Q42 'CDC, the NEJM when I can parse it, my primary care doctor at URMC, and a couple of science journalists I trust — Ed Yong, Helen Branswell'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.media_and_information_diet"]
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Gets acupuncture approximately 4 times per year with Wei Chen in the South Wedge for back pain",
+        "ground_truth_label": "Acupuncture ~4x/year with Wei Chen (South Wedge)",
+        "behavioral_evidence_from_interview": ["Q37 'I do acupuncture maybe four times a year for my back, with a practitioner named Wei Chen in the South Wedge'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Uses melatonin for sleep and 5 mg THC gummies approximately twice per month for sleep or pre-show performance anxiety",
+        "ground_truth_label": "Melatonin for sleep; 5 mg THC gummies ~2x/month",
+        "behavioral_evidence_from_interview": ["Q37 'I use melatonin for sleep'", "Q39 'legal cannabis — gummies, 5 mg THC — that I use maybe twice a month for sleep or social anxiety before an improv show'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Drinks bourbon (Four Roses) most evenings, approximately 3-4 oz per night (6-7 drinks/week); has done Dry January twice and self-monitors intake",
+        "ground_truth_label": "Regular bourbon drinker (Four Roses, ~6-7 drinks/week), self-monitored",
+        "behavioral_evidence_from_interview": ["Q32 'a weakness for bourbon when I'm stressed'", "Q38 'bourbon mostly, occasionally beer. In rough patches I've been up around six or seven drinks a week'", "Q38 follow-up 'I've done dry January two years running'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.food_and_dining"]
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Does not smoke; quit nicotine in his 20s; had a brief vaping relapse during the divorce lasting about 4 months",
+        "ground_truth_label": "Non-smoker, quit nicotine in 20s, brief divorce-era vaping relapse",
+        "behavioral_evidence_from_interview": ["Q38 'I don't smoke. I quit nicotine in my twenties, had a brief vaping relapse during the divorce that lasted about four months'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Completed a 3-day Shambhala silent meditation retreat in the Catskills in 2023; planning a 5-day retreat this fall",
+        "ground_truth_label": "Shambhala retreat 2023 (3-day); 5-day retreat planned",
+        "behavioral_evidence_from_interview": ["Q37 'I've done one silent meditation retreat — Shambhala tradition, three days in the Catskills, 2023'", "Q37 follow-up 'planning a five-day one for this fall'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.life_events_and_transitions"]
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Keeps a quantitative mood log in Notion database (1-10, morning and evening) since 2022",
+        "ground_truth_label": "Notion mood log, 1-10 twice daily, since 2022",
+        "behavioral_evidence_from_interview": ["Q18 follow-up 'I literally keep a mood log in a Notion database — 1 to 10, morning and evening, since 2022'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.technology"]
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Wears reading glasses, describes it as a 'minor indignity'",
+        "ground_truth_label": "Wears readers (presbyopia)",
+        "behavioral_evidence_from_interview": ["Q31 'My eyes are going — I wear readers now, which is a minor indignity'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.fashion_and_appearance"]
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Has deferred a dental crown (~$1,800) for nearly 2 years due to perceived cost",
+        "ground_truth_label": "Deferred dental crown (~$1,800) for ~2 years",
+        "behavioral_evidence_from_interview": ["Q36 'I've forgone dental work once, a crown I've been putting off for almost two years because it's $1,800 out of pocket'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "On ACA Excellus Silver tier plan at ~$520/month after subsidies; premium jumped 14% this year",
+        "ground_truth_label": "ACA Excellus Silver, ~$520/month, 14% premium increase",
+        "behavioral_evidence_from_interview": ["Q36 'I'm on a marketplace ACA plan now, Excellus Silver tier, about $520 a month after subsidies'", "Q36 follow-up 'Premiums jumped fourteen percent this year'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Shops at Brighton Farmers Market every Sunday May through November; knows the heirloom-tomato, sourdough, and maple-syrup vendors personally",
+        "ground_truth_label": "Brighton Farmers Market regular (Sunday, May-Nov), knows vendors",
+        "behavioral_evidence_from_interview": ["Q08 follow-up 'The Brighton Farmers Market, hands down. I know the heirloom-tomato guy, the sourdough woman, the maple-syrup couple'", "Q15 'Sunday I do the farmers market'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Cooks miso-glazed black cod, sous-vide duck breast with cherry-balsamic reduction, and Sichuan pepper chocolate truffles",
+        "ground_truth_label": "Experimental home cook (miso cod, sous-vide duck, Sichuan chocolate truffles)",
+        "behavioral_evidence_from_interview": ["seed culinary_persona describes these dishes; Q32 'I can cook'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Maintains a specialty pantry including agar-agar, kelp powder, and fresh herbs",
+        "ground_truth_label": "Specialty pantry (agar-agar, kelp powder, fresh herbs)",
+        "behavioral_evidence_from_interview": ["seed culinary_persona 'a well-stocked pantry of agar-agar, kelp powder, and fresh herbs'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Has weekly Sunday pot-roast dinner at mother Eleanor's home in Pittsford",
+        "ground_truth_label": "Weekly Sunday pot-roast dinner at mother's in Pittsford",
+        "behavioral_evidence_from_interview": ["Q05 'We have dinner every Sunday at her place — she makes this pot roast that is objectively mediocre but sacredly important'", "Q15 'then dinner at my mom's'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.social_and_relationships"]
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Co-works with Priya Shah over coffee at Joe Bean Coffee on University Ave on Tuesdays and Saturdays",
+        "ground_truth_label": "Joe Bean Coffee co-working with Priya (Tues & Sat mornings)",
+        "behavioral_evidence_from_interview": ["Q07 'Priya Shah... we meet Saturday mornings at Joe Bean Coffee on University Ave to co-work'", "Q15 'coffee with Priya at Joe Bean on Tuesday and Saturday mornings'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.social_and_relationships"]
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Drinks turmeric-ginger tea regularly",
+        "ground_truth_label": "Regular turmeric-ginger tea drinker",
+        "behavioral_evidence_from_interview": ["Q37 'I drink a lot of turmeric-ginger tea'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Spends approximately $600-700 per month on groceries",
+        "ground_truth_label": "Monthly grocery spend ~$600-700",
+        "behavioral_evidence_from_interview": ["Q56 'Groceries, about $600'", "Q57 '$700 food'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Tends to skip meals when hyperfocused on a project",
+        "ground_truth_label": "Skips meals during hyperfocus periods",
+        "behavioral_evidence_from_interview": ["Q32 'my tendency to hyperfocus and skip meals when I'm deep in a project'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Has taken trips to Adirondack Park remote cabins",
+        "ground_truth_label": "Adirondack Park remote-cabin trips",
+        "behavioral_evidence_from_interview": ["Q108 'hiking the Adirondack high peaks'", "seed travel_persona 'explored the Adirondack park's remote cabins'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.nature_and_outdoors"]
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Visited MoMA NYC for immersive art installations",
+        "ground_truth_label": "MoMA NYC visit (immersive installations)",
+        "behavioral_evidence_from_interview": ["seed travel_persona 'visited the immersive art installations at the Museum of Modern Art in New York City'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Took a weekend trip to Portland, Maine for maker festivals",
+        "ground_truth_label": "Portland ME maker-festival trip",
+        "behavioral_evidence_from_interview": ["seed travel_persona 'taken a weekend trip to Portland, Maine for its vibrant maker festivals'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Travel wish list includes Kyoto art cafes and Burning Man",
+        "ground_truth_label": "Wish list: Kyoto art cafes, Burning Man",
+        "behavioral_evidence_from_interview": ["seed travel_persona 'wish list includes a pilgrimage to Kyoto's art cafes and the annual Burning Man gathering'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Flies to Denver once a year to visit sister Catherine and her family",
+        "ground_truth_label": "Annual Denver trip to visit sister's family",
+        "behavioral_evidence_from_interview": ["Q05 'I fly out maybe once a year'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Flying triggers anxiety; therapist has offered lorazepam for flights but he declines it",
+        "ground_truth_label": "Flight anxiety; declines prescribed lorazepam",
+        "behavioral_evidence_from_interview": ["Q39 'I'm wary of benzos; my therapist would prescribe lorazepam for flights but I've resisted'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Best friend is Marcus Reyes, director of Rochester Fringe improv troupe; 9-year friendship with Thursday rehearsals together",
+        "ground_truth_label": "Best friend Marcus Reyes (improv troupe director, 9 years)",
+        "behavioral_evidence_from_interview": ["Q07 'Marcus Reyes is my closest friend — director of the Rochester Fringe improv troupe, we've done Thursday-night rehearsals together for nine years'", "Q44 'Marcus showed up on day five, made me shower, and dragged me to the diner'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Marcus's husband Derek is a Black landscape architect who makes the best old-fashioned in Monroe County; has dinner at their home approximately twice a month",
+        "ground_truth_label": "Derek (Marcus's husband), landscape architect, Black, dinner ~2x/month",
+        "behavioral_evidence_from_interview": ["Q07 'His husband Derek is a landscape architect and makes the best old-fashioned in Monroe County'", "Q05 'Marcus and his husband Derek have me over for dinner probably twice a month'", "Q30 'Derek is Black and has been doing this work longer than I've been paying attention'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Close friend Priya Shah is a data scientist at RIT whom he met in graduate school",
+        "ground_truth_label": "Priya Shah, RIT data scientist, grad-school friend",
+        "behavioral_evidence_from_interview": ["Q07 'Priya Shah, who I met in grad school; she's a data scientist at RIT now'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Hiking buddies Tom and Rashida go on at least one Finger Lakes trail hike per month together",
+        "ground_truth_label": "Hiking buddies Tom and Rashida (monthly Finger Lakes hikes)",
+        "behavioral_evidence_from_interview": ["Q07 'My hiking buddies Tom and Rashida — we do at least one Finger Lakes trail a month'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Casually dating Ellery for approximately 4 months; Ellery is a ceramicist who teaches at the Memorial Art Gallery (MAG); met at a gallery opening",
+        "ground_truth_label": "Dating Ellery (~4 months), ceramicist/MAG teacher, met at gallery opening",
+        "behavioral_evidence_from_interview": ["Q07 'I've been seeing someone named Ellery for about four months, very casually; they're a ceramicist who teaches at MAG'", "Q07 follow-up 'Ellery I met at a gallery opening'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Mother Eleanor is 78 years old, lives in a Pittsford condo about 12 minutes away; they have dinner every Sunday; relationship is close but wiry",
+        "ground_truth_label": "Mother Eleanor, 78, Pittsford, weekly Sunday dinner, close-but-wiry relationship",
+        "behavioral_evidence_from_interview": ["Q05 'My mom Eleanor is still alive, she's seventy-eight, lives in a condo in Pittsford about twelve minutes from me. We have dinner every Sunday'", "Q05 follow-up 'Close but wiry'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Father Robert passed in 2019 from congestive heart failure; still carries that grief",
+        "ground_truth_label": "Father Robert deceased 2019 (congestive heart failure)",
+        "behavioral_evidence_from_interview": ["Q05 'My dad Robert passed in 2019 from congestive heart failure; that's still a weight I carry'", "Q35 'My dad's congestive heart failure from 2017 to his death in 2019'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.life_events_and_transitions"]
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Sister Catherine is 53, lives in Denver with husband and two teenage kids (Jasper and Nora); biweekly FaceTime calls",
+        "ground_truth_label": "Sister Catherine, 53, Denver, husband + teens Jasper & Nora",
+        "behavioral_evidence_from_interview": ["Q05 'one older sister, Catherine, she's fifty-three, lives in Denver with her husband and two teenage kids, Jasper and Nora. We FaceTime every other weekend'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "DMs a monthly online D&D campaign for nephew Jasper, niece Nora, and two of their friends on Sunday nights 7-10 p.m.",
+        "ground_truth_label": "Monthly online D&D DM for nephew, niece, and friends (Sunday 7-10 PM)",
+        "behavioral_evidence_from_interview": ["Q05 follow-up 'we play Dungeons & Dragons online one Sunday a month — I'm DMing a campaign for them and two of their friends'", "Q15 'the D&D game with my niece and nephew from 7 to 10'", "Q17 'probably three hours of writing per session'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.entertainment"]
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Ex-wife Dana lives in Syracuse; they are cordial and text on each other's birthdays; he misses her sister Miriam more than he misses Dana",
+        "ground_truth_label": "Ex-wife Dana (Syracuse), cordial, birthday texts; misses her sister Miriam more",
+        "behavioral_evidence_from_interview": ["Q05 'My ex-wife Dana and I are cordial — we text on each other's birthdays. I was close to her sister Miriam and I miss her more than I miss Dana'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Lives alone with cat Fermi, a 7-year-old black domestic shorthair named after Enrico Fermi",
+        "ground_truth_label": "Lives alone with cat Fermi (7yo black DSH, named after Enrico Fermi)",
+        "behavioral_evidence_from_interview": ["Q11 'Just me and my cat Fermi, a seven-year-old black domestic shorthair named after Enrico Fermi because she does experimental physics on my houseplants'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.home_and_lifestyle"]
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Uncle Declan (mother's brother) is a retired union pipefitter in Buffalo; cousin Siobhan (Declan's daughter, ER nurse in Buffalo) texts memes with him",
+        "ground_truth_label": "Uncle Declan (Buffalo, retired pipefitter); cousin Siobhan (Buffalo ER nurse)",
+        "behavioral_evidence_from_interview": ["Q06 'My uncle Declan — my mom's younger brother — lives in Buffalo, we see each other maybe three times a year. He's a retired union pipefitter'", "Q06 follow-up 'Declan's daughter Siobhan, she's my age, she's an ER nurse in Buffalo. We text memes'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Owns a 1947 Cape Cod outright (~1,650 sq ft) near Twelve Corners in Brighton, purchased 2011, paid off 2022 via divorce settlement and stock sale",
+        "ground_truth_label": "Owns 1947 Cape Cod, Brighton, 1,650 sq ft, mortgage-free since 2022",
+        "behavioral_evidence_from_interview": ["Q55 'I own the house outright — no mortgage since late 2022 thanks to the divorce settlement and selling some stock'", "Q58 'Own, outright. 1947 Cape Cod in Brighton, about 1,650 square feet, purchased in 2011 with Dana'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Second bedroom is used as creative studio with modular synths, a drawing tablet, and dual monitors",
+        "ground_truth_label": "Home studio: modular synths, drawing tablet, dual monitors",
+        "behavioral_evidence_from_interview": ["Q11 'I've got one bedroom as a bedroom and the other as a studio with my synths, a drawing tablet, and two monitors'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.technology"]
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Has been slowly renovating the house for 12 years",
+        "ground_truth_label": "12-year slow home renovation in progress",
+        "behavioral_evidence_from_interview": ["Q08 'My house is a 1947 Cape Cod that I've been slowly renovating for twelve years'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Wakes at 6:30 a.m. and maintains a rigid weekly scaffolding to manage anxiety; if meditation is missed for more than 3 days, he can 'feel the wheels coming off'",
+        "ground_truth_label": "Rigid 6:30 AM routine; scaffolding as anxiety management",
+        "behavioral_evidence_from_interview": ["Q15 'Weekdays I'm up at 6:30, meditate for twenty minutes'", "Q15 follow-up 'The scaffolding is strict because without it my anxiety eats me'", "Q15 follow-up 'If I miss meditation for more than three days in a row I can feel the wheels coming off'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "House worth approximately $310K (Zillow estimate) or $280K quick-sale",
+        "ground_truth_label": "House value ~$310K Zillow / ~$280K quick-sale",
+        "behavioral_evidence_from_interview": ["Q58 follow-up 'Zillow says about $310,000. I'd believe $280,000 if I had to sell fast'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Feels very safe in Brighton; walks at night with headphones; forgets to lock the door about one week in three",
+        "ground_truth_label": "Feels very safe in Brighton; occasionally forgets to lock doors",
+        "behavioral_evidence_from_interview": ["Q09 'Very safe. I walk at night with headphones on without thinking about it'", "Q09 follow-up 'I admit I forget about one week in three'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Mows mother's lawn in summer and shovels her driveway in winter",
+        "ground_truth_label": "Caregiver chores: mows mom's lawn (summer), shovels driveway (winter)",
+        "behavioral_evidence_from_interview": ["Q17 'I mow my mom's lawn in summer and shovel her driveway in winter'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Considers relocating to Portland ME, Asheville, or Pittsburgh every February but deep roots in Rochester keep him",
+        "ground_truth_label": "Annual February relocation consideration (Portland ME, Asheville, Pittsburgh) but stays",
+        "behavioral_evidence_from_interview": ["Q10 follow-up 'Every February. Portland Maine, Asheville, sometimes Pittsburgh. But the roots here are deep'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Property taxes approximately $2,100 per quarter; usual monthly expenses approximately $3,400",
+        "ground_truth_label": "Property taxes ~$2,100/quarter; monthly spend ~$3,400",
+        "behavioral_evidence_from_interview": ["Q56 'Property taxes — quarterly installment landed, about $2,100'", "Q57 'Usual is closer to $3,400'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Performs improv with the Rochester Fringe troupe; Thursday rehearsals at MuCCC from 7 to 10 p.m.",
+        "ground_truth_label": "Improv performer, Rochester Fringe troupe, Thursday MuCCC 7-10 PM",
+        "behavioral_evidence_from_interview": ["Q15 'Thursday night is improv rehearsal at MuCCC 7 to 10'", "Q07 'Marcus Reyes is my closest friend — director of the Rochester Fringe improv troupe'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.hobbies_and_recreation", "preferences.arts_and_culture"]
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Attends Eastman School of Music free concerts",
+        "ground_truth_label": "Eastman School free concerts attendee",
+        "behavioral_evidence_from_interview": ["Q10 'the Eastman School's free concerts'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.music"]
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Paints acrylic landscapes inspired by the Finger Lakes",
+        "ground_truth_label": "Acrylic landscape painter (Finger Lakes subjects)",
+        "behavioral_evidence_from_interview": ["Q48 'I have an Instagram where I post paintings and p5.js sketches'", "seed arts_persona 'they paint vivid acrylic landscapes inspired by the Finger Lakes'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.arts_and_culture"]
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Creates digital illustrations using p5.js; posts on Instagram with approximately 800 followers",
+        "ground_truth_label": "Digital illustration in p5.js, Instagram ~800 followers",
+        "behavioral_evidence_from_interview": ["Q48 'I have an Instagram where I post paintings and p5.js sketches, maybe twice a week. About eight hundred followers'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.media_and_information_diet"]
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Composes ambient electronic music on modular synthesizers, influenced by Brian Eno",
+        "ground_truth_label": "Ambient modular synth composition (Brian Eno influence)",
+        "behavioral_evidence_from_interview": ["Q11 'a studio with my synths'", "seed arts_persona 'compose ambient textures on a modular synth that echo Brian Eno's soundscapes'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.music", "preferences.arts_and_culture"]
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Prepares approximately 3 hours for each monthly D&D session",
+        "ground_truth_label": "3 hours prep per D&D session",
+        "behavioral_evidence_from_interview": ["Q17 'probably three hours of writing per session'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Volunteers at RMSC STEM outreach 2 Saturdays per month, running science-visualization tables at branch libraries",
+        "ground_truth_label": "RMSC STEM outreach volunteer, 2 Saturdays/month",
+        "behavioral_evidence_from_interview": ["Q17 'I volunteer at the RMSC outreach program two Saturdays a month... we do science-visualization tables at branch libraries'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.community_and_civic"]
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Has a 1099 contract with RMSC for approximately 8 hours of workshop teaching per week (fall and spring); RMSC contact is Jenna Park, Director of Education",
+        "ground_truth_label": "RMSC 1099 contract, ~8 hrs/week workshops, contact Jenna Park",
+        "behavioral_evidence_from_interview": ["Q16 'I have a 1099 contract with the Rochester Museum & Science Center for about eight hours of workshop teaching a week, fall and spring'", "Q77 'Jenna Park, director of education'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Has a regional arts-council micro-grant funding the quantum-physics graphic novel project",
+        "ground_truth_label": "Arts-council micro-grant for quantum-physics graphic novel",
+        "behavioral_evidence_from_interview": ["Q16 'I have a small arts-council micro-grant for the quantum graphic-novel project'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Previous job (2014-2020) was senior computational modeler at a defense-adjacent firm in Rochester doing stochastic simulation for logistics",
+        "ground_truth_label": "Former senior computational modeler (2014-2020), defense-adjacent, stochastic simulation",
+        "behavioral_evidence_from_interview": ["Q65 'from 2014 to 2020, I was a senior computational modeler at a defense-adjacent firm in Rochester, doing stochastic simulation for logistics problems'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Turned down a six-figure Reston, VA contractor role in 2021 to take an RMSC artist-in-residence position; identifies this as his defining crossroad",
+        "ground_truth_label": "Rejected 6-figure VA job for RMSC residency (2021 crossroad)",
+        "behavioral_evidence_from_interview": ["Q02 'I had two offers on the table. One was a senior modeling role at a contractor in Reston, Virginia, six figures... The other was basically nothing — a half-time artist-in-residence slot at the Rochester Museum & Science Center'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.life_events_and_transitions"]
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Monthly earned income approximately $2,800; total monthly income approximately $3,700 including dividends and interest",
+        "ground_truth_label": "Monthly earned income ~$2,800; total ~$3,700 with dividends",
+        "behavioral_evidence_from_interview": ["Q72 'About $2,800 gross'", "Q74 'About $2,800 from work. Plus about $900 in dividends and interest'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Primary 5-year goal is to launch and sustain the Rochester Interdisciplinary Makerspace as a 501(c)(3) with 300 members and sliding-scale membership, located in South Wedge or Neighborhood of the Arts",
+        "ground_truth_label": "5-year goal: Rochester Interdisciplinary Makerspace, 501(c)(3), 300 members, sliding-scale",
+        "behavioral_evidence_from_interview": ["Q108 'the Rochester Interdisciplinary Makerspace — that's my working name — is a real 501(c)(3) with a leased space in the South Wedge or the Neighborhood of the Arts, serving maybe 300 members, with a sliding-scale membership'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.community_and_civic"]
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Earmarks approximately $400/month toward a potential makerspace capital campaign contribution",
+        "ground_truth_label": "Earmarks ~$400/month for makerspace capital campaign",
+        "behavioral_evidence_from_interview": ["Q62 'I'm also earmarking about $400 a month for a potential makerspace capital campaign contribution'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Mellon Foundation grant was rejected in late February after 3 months of writing; revised proposal being submitted in June",
+        "ground_truth_label": "Mellon Foundation grant rejected (Feb); June resubmission planned",
+        "behavioral_evidence_from_interview": ["Q44 'I got a rejection letter from the Mellon Foundation on a grant I'd spent three months writing'", "Q44 follow-up 'Submitting a revised proposal in June'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Completed a Coursera course on nonprofit financial management in fall 2025",
+        "ground_truth_label": "Coursera nonprofit financial management course (fall 2025)",
+        "behavioral_evidence_from_interview": ["Q92 'I did complete a Coursera course on nonprofit financial management last fall'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Identifies returning to a corporate simulation job out of financial fear as his specific failure mode",
+        "ground_truth_label": "Specific failure mode: returning to corporate simulation work",
+        "behavioral_evidence_from_interview": ["Q108 follow-up 'Going back to a corporate simulation job out of financial fear. That's my specific failure mode and I know it'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Serves as treasurer of the improv troupe; approximately 4 hours of QuickBooks per month; troupe has 9 members and ~$12K annual revenue",
+        "ground_truth_label": "Improv troupe treasurer, ~4 hrs QuickBooks/month, 9 members, ~$12K revenue",
+        "behavioral_evidence_from_interview": ["Q17 'I'm the treasurer of the improv troupe, which means about four hours of QuickBooks a month'", "Q17 follow-up 'The troupe is small — nine people, maybe twelve grand a year in revenue'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Last adjusted gross income approximately $48,000 including investment income; taxes prepared by CPA Marsha Gillespie",
+        "ground_truth_label": "AGI ~$48K; CPA Marsha Gillespie",
+        "behavioral_evidence_from_interview": ["Q75 'Adjusted gross income was about $48,000 including investment income' and 'Used a local CPA — Marsha Gillespie'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Working on a serialized quantum-physics graphic novel; influenced by Alan Moore's narrative pacing; aims for small-press publication and possibly PBS educational series",
+        "ground_truth_label": "Quantum-physics graphic novel series (Alan Moore influence, small-press + PBS aspiration)",
+        "behavioral_evidence_from_interview": ["Q65 'I write and illustrate a serialized quantum-physics graphic novel'", "Q108 'The quantum-physics graphic novel is two volumes in, published by a small press, maybe optioned for a PBS educational series'", "seed arts_persona 'narrative pacing of graphic novelists like Alan Moore'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.work_and_career"]
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Artistically inspired by Yayoi Kusama's surrealism",
+        "ground_truth_label": "Yayoi Kusama influence",
+        "behavioral_evidence_from_interview": ["seed arts_persona 'drawing inspiration from the surrealist works of Yayoi Kusama'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "George Eastman Museum and Strong Museum of Play were childhood formative cultural sites",
+        "ground_truth_label": "Childhood cultural anchors: George Eastman Museum, Strong Museum of Play",
+        "behavioral_evidence_from_interview": ["Q01 'I spent weekends at the George Eastman Museum and the Strong Museum of Play; those places wired me for this combination of technical curiosity and visual appetite'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.cultural_and_linguistic"]
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Hikes Finger Lakes trails monthly including Watkins Glen, with friends Tom and Rashida",
+        "ground_truth_label": "Monthly Finger Lakes hikes (incl. Watkins Glen) with Tom and Rashida",
+        "behavioral_evidence_from_interview": ["Q07 'My hiking buddies Tom and Rashida — we do at least one Finger Lakes trail a month'", "seed sports_persona 'trekking the Watkins Glen trails'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.nature_and_outdoors"]
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Plays co-ed ultimate frisbee at South Wedge Park",
+        "ground_truth_label": "Co-ed ultimate frisbee league at South Wedge Park",
+        "behavioral_evidence_from_interview": ["Q31 'I play ultimate frisbee'", "seed sports_persona 'co-ed ultimate frisbee league at South Wedge Park'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Rides with a summer community cycling group on the Erie Canal towpath; tracks lap times competitively",
+        "ground_truth_label": "Erie Canal towpath cycling group (summer); competitive lap-time tracking",
+        "behavioral_evidence_from_interview": ["Q31 'I cycle in summer'", "seed sports_persona 'community cycling group that rides the Erie Canal towpath... competitive edge that drives them to improve lap times'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.nature_and_outdoors"]
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Fan of the Rochester Red Wings (MiLB baseball) and Rochester Americans (AHL hockey)",
+        "ground_truth_label": "Follows Rochester Red Wings (MiLB) and Rochester Americans (AHL)",
+        "behavioral_evidence_from_interview": ["seed sports_persona 'cheering for the Rochester Red Wings and the Rochester Americans'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Resting heart rate approximately 60, BMI approximately 24",
+        "ground_truth_label": "Resting HR ~60, BMI ~24",
+        "behavioral_evidence_from_interview": ["Q31 'Resting heart rate around sixty, BMI around twenty-four'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Has a 5-year goal to hike the Adirondack high peaks",
+        "ground_truth_label": "5-year goal: hike Adirondack high peaks",
+        "behavioral_evidence_from_interview": ["Q108 'Physically I'm hiking the Adirondack high peaks'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Has donated to the Sierra Club for 15 years",
+        "ground_truth_label": "Sierra Club donor, 15 years",
+        "behavioral_evidence_from_interview": ["Q24 'I've donated to the Sierra Club for fifteen years'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Pays extra for renewable energy through RG&E",
+        "ground_truth_label": "Pays RG&E renewable energy surcharge",
+        "behavioral_evidence_from_interview": ["Q24 'I pay extra for renewable energy through RG&E'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Rochester gray season (November through April) negatively affects his mental health",
+        "ground_truth_label": "Rochester Nov-Apr gray season worsens mental health",
+        "behavioral_evidence_from_interview": ["Q10 'the gray season from November to April is legitimately hard on my mental health'", "Q43 'January through March was rough — Seasonal Affective stuff'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.health_and_wellness"]
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Proficient in Python, MATLAB, R, p5.js, Processing, and Max/MSP",
+        "ground_truth_label": "Proficient: Python, MATLAB, R, p5.js, Processing, Max/MSP",
+        "behavioral_evidence_from_interview": ["Q65 'What I actually do: I design and deliver workshops that combine STEM content with creative practice — for example, a six-week course for teens on using Python and p5.js'", "seed skills 'Python, MATLAB, R, Processing, p5.js, Max/MSP'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Uses the one-sec app to limit social media to approximately 20 minutes per day; freed up about an hour per day for drawing",
+        "ground_truth_label": "One-sec app caps social media at ~20 min/day",
+        "behavioral_evidence_from_interview": ["Q18 'I cut social media down to twenty minutes a day using the one-sec app. That freed up probably an hour a day that now goes into actual drawing'", "Q48 'Total screen time on social: about twenty minutes a day, capped by the one-sec app'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Quit Twitter in late 2023 after the acquisition; avoids TikTok deliberately; Facebook dormant since 2020",
+        "ground_truth_label": "Quit Twitter (late 2023); avoids TikTok; Facebook dormant since 2020",
+        "behavioral_evidence_from_interview": ["Q48 'I quit Twitter in late 2023'", "Q48 follow-up 'The vibe shift after the acquisition plus the realization I'd become meaner and dumber on it'", "Q48 'I don't have TikTok on purpose'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.media_and_information_diet"]
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Has savings at Ally (HYSA ~$14K), brokerage at Vanguard (VTI, VXUS ~$185K), Roth IRA (~$90K), and 401(k) rollover (~$240K)",
+        "ground_truth_label": "Financial accounts: Ally $14K, Vanguard $185K, Roth $90K, 401k rollover $240K",
+        "behavioral_evidence_from_interview": ["Q61 'A high-yield savings account at Ally with about $14,000... A brokerage account at Vanguard — mostly VTI and VXUS, about $185,000... A Roth IRA with about $90,000. A 401(k) rollover from the old job with about $240,000'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Increasingly supports antitrust enforcement against big tech and is critical of social media effects on teenagers",
+        "ground_truth_label": "Pro-antitrust on big tech; critical of social media impact on teens",
+        "behavioral_evidence_from_interview": ["Q25 'I've become more skeptical of big-tech platforms and more open to antitrust enforcement — watching what social media is doing to teenagers, including my nephew, radicalized me on that'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.community_and_civic"]
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Votes in every election (federal, state, local, school board, county judge); 20-year clean voting record; polls at Twelve Corners Presbyterian since 2008",
+        "ground_truth_label": "Votes every election, 20-year record, Twelve Corners Presbyterian polling place",
+        "behavioral_evidence_from_interview": ["Q23 'I vote in every single election — federal, state, local, school board, even the weird off-cycle county judge races'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Donates approximately $1,000 per election cycle to local candidates",
+        "ground_truth_label": "~$1,000/cycle to local candidates",
+        "behavioral_evidence_from_interview": ["Q23 follow-up 'I donate to local candidates I believe in — about a thousand dollars a cycle spread across three or four races'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-093",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Marched at the Rochester BLM East Avenue protest in 2020 after Daniel Prude's death, plus three more protests that summer; friend Marcus was pepper-sprayed at the march",
+        "ground_truth_label": "BLM protester (2020 Rochester, East Ave + 3 more); Marcus pepper-sprayed",
+        "behavioral_evidence_from_interview": ["Q21 'I was at the 2020 BLM march on East Avenue when Rochester PD used pepper spray on a crowd that included my friend Marcus'", "Q21 follow-up 'Three more that summer'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-094",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Donates approximately $1,500/year to Roc/ACTS, a local bail fund, and two mutual-aid groups",
+        "ground_truth_label": "~$1,500/year to Roc/ACTS, bail fund, mutual-aid",
+        "behavioral_evidence_from_interview": ["Q27 follow-up 'Roc/ACTS, the local bail fund, and two mutual-aid groups. About fifteen hundred a year'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-095",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Supports universal background checks and red-flag laws; no longer prioritizes a federal AR-15 ban",
+        "ground_truth_label": "Pro-background checks and red-flag laws; deprioritizes AR-15 ban",
+        "behavioral_evidence_from_interview": ["Q25 'I still support universal background checks and red-flag laws, but I don't think a federal AR-15 ban is politically achievable or the top priority anymore'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-096",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Supports single-payer healthcare, federal minimum wage $15+ indexed to local cost of living, and a wealth tax on the top 0.1%",
+        "ground_truth_label": "Policy positions: single-payer, $15+ min wage, wealth tax",
+        "behavioral_evidence_from_interview": ["Q24 'I support single-payer health care, I think the federal minimum wage should be fifteen minimum and probably indexed to local cost of living, and I'm sympathetic to a wealth tax on the top tenth of a percent'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-097",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Self-describes as pro free speech, anti-surveillance, and skeptical of the security state",
+        "ground_truth_label": "Pro free speech, anti-surveillance, security-state skeptic",
+        "behavioral_evidence_from_interview": ["Q24 'On civil liberties I'm pretty absolutist — pro free speech, pro due process, anti surveillance, skeptical of the security state'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-098",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Registered Democrat since age 18; strongly identifies; has voted third-party in local races when Democratic candidate was a 'machine hack'",
+        "ground_truth_label": "Registered Democrat since 18; occasional third-party local votes",
+        "behavioral_evidence_from_interview": ["Q95 'Democrat, strongly, with progressive tendencies... Registered Democrat since I turned eighteen. I've voted third-party in local races when the Democratic machine candidate was bad'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-099",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Has shifted focus from national to local politics (school board, city council, state legislature) since 2022; considers a $500 school-board donation more consequential than federal donations",
+        "ground_truth_label": "Local-politics priority shift since 2022",
+        "behavioral_evidence_from_interview": ["Q25 'I've also gotten more serious about local politics and less emotionally invested in national politics'", "Q25 follow-up 'my federal donations were rounding errors but a $500 donation to a school board candidate was consequential'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-100",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Uses Max/MSP for creative audio coding",
+        "ground_truth_label": "Uses Max/MSP for audio creative coding",
+        "behavioral_evidence_from_interview": ["seed skills 'Max/MSP'", "Q65 (creative coding context)"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.technology"]
+      },
+      {
+        "fact_id": "HF-101",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Attends Christmas Eve Mass at St. Thomas More with his mother, specifically for the music",
+        "ground_truth_label": "Christmas Eve Mass at St. Thomas More with mother (for music)",
+        "behavioral_evidence_from_interview": ["Q47 'I still go to Christmas Eve Mass with my mom at St. Thomas More, because it matters to her and because I like the music'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.cultural_and_linguistic"]
+      },
+      {
+        "fact_id": "HF-102",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "White, German-Irish ancestry; first name chosen by his mother after a family friend she admired, not of Hispanic origin",
+        "ground_truth_label": "White, German-Irish; first name from mother's admired friend",
+        "behavioral_evidence_from_interview": ["Q88 'No. My first name is from a family friend my mom admired; the heritage is German-Irish'", "Q89 'White — German and Irish ancestry'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-103",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Father Robert held a B.S. in mechanical engineering from Clarkson University (1967); worked as a process engineer at Eastman Kodak then a medical-imaging spinoff",
+        "ground_truth_label": "Father: BSE Clarkson 1967, Kodak process engineer",
+        "behavioral_evidence_from_interview": ["Q100 'Bachelor's degree — B.S. in mechanical engineering from Clarkson University, 1967'", "Q106 'Process engineer — designed and optimized manufacturing processes for photographic film and later for medical imaging components'", "Q107 'Started at Eastman Kodak in 1969'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-104",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Mother Eleanor started as a floor RN at Strong Memorial (pediatrics), rose to assistant director of nursing administration; earned RN at Monroe Community College then a B.S. in healthcare administration part-time in her 40s",
+        "ground_truth_label": "Mother: RN (MCC) to asst. director nursing admin at Strong; BSc healthcare admin in 40s",
+        "behavioral_evidence_from_interview": ["Q101 'Associate's degree — RN program at Monroe Community College... She later got a bachelor's in healthcare administration part-time while working, finished in her forties'", "Q103 'Started as a floor RN in pediatrics at Strong Memorial, moved into nursing management, and by the time I was in high school she was an assistant director of nursing administration'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-105",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Identifies as secular Buddhist with Shambhala tradition; raised Irish-Catholic and German-Lutheran; stopped identifying Catholic in late 20s; attends Christmas Eve Mass at St. Thomas More with mother",
+        "ground_truth_label": "Secular Buddhist (Shambhala); ex-Catholic; Christmas Eve Mass with mother",
+        "behavioral_evidence_from_interview": ["Q47 'I'd call myself spiritual but not religious now, with a Buddhist lean — I do the meditation practice, I've done one Shambhala retreat'", "Q47 'I stopped identifying as Catholic in my late twenties'", "Q94 'Spiritual but not religious, with a secular Buddhist leaning'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-106",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Divorced from Dana after approximately 5 years of unraveling; sharp moment was a Tuesday in October when she said 'I don't think we're building the same life anymore'; final decree 2022",
+        "ground_truth_label": "Divorce from Dana: 5-year unraveling, October kitchen-table moment, decree 2022",
+        "behavioral_evidence_from_interview": ["Q01 follow-up 'The unraveling was maybe five years of me working too much and her needing more than I could give. The sharp moment was a Tuesday in October'", "Q84 'Divorced, final decree in 2022'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-107",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Mother's hip replacement in November 2024; provided 3 weeks of primary caregiving; sees this as preview of the next decade",
+        "ground_truth_label": "Mother's hip replacement (Nov 2024); 3 weeks primary caregiver",
+        "behavioral_evidence_from_interview": ["Q35 'my mom's hip replacement last November, I took three weeks off my own work to be primary support. She healed well, but it was a preview of the next decade of my life'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-108",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Had a childhood golden retriever named Pixel",
+        "ground_truth_label": "Childhood golden retriever named Pixel",
+        "behavioral_evidence_from_interview": ["Q99 'A golden retriever named Pixel'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-109",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Married Dana at age 32 (circa 2009); met her at a gallery opening at age 29",
+        "ground_truth_label": "Married Dana at 32 (~2009); met at 29 at gallery opening",
+        "behavioral_evidence_from_interview": ["Q01 'I met my ex-wife Dana at a gallery opening when I was twenty-nine, we married at thirty-two, divorced at forty-five'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-110",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Sister Catherine left for college when Julio was 14",
+        "ground_truth_label": "Sister Catherine left for college when Julio was 14",
+        "behavioral_evidence_from_interview": ["Q99 'My older sister Catherine until she left for college when I was fourteen'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-111",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Reads the Democrat & Chronicle daily for local news",
+        "ground_truth_label": "Daily Democrat & Chronicle reader (local news)",
+        "behavioral_evidence_from_interview": ["Q24 'I care a lot about local politics — I read the Democrat & Chronicle every morning'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-112",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Has read Ta-Nehisi Coates, Isabel Wilkerson (Caste cited as most influential framework), and Ibram Kendi on race in America",
+        "ground_truth_label": "Race reading: Coates, Wilkerson (Caste), Kendi",
+        "behavioral_evidence_from_interview": ["Q26 'I read Ta-Nehisi Coates, Isabel Wilkerson, Ibram Kendi'", "Q26 follow-up 'Wilkerson's Caste. It gave me a framework I still use'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-113",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Active on Bluesky (a few posts per week, art-science content + occasional politics) and Instagram (~800 followers, paintings and p5.js sketches 2x/week)",
+        "ground_truth_label": "Active on Bluesky and Instagram; ~800 Instagram followers",
+        "behavioral_evidence_from_interview": ["Q48 'I have a Bluesky account I post to a few times a week' and 'I have an Instagram where I post paintings and p5.js sketches, maybe twice a week. About eight hundred followers'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.technology"]
+      },
+      {
+        "fact_id": "HF-114",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Evaluates information sources by checking for skin in the game, citation of primary literature, and a track record of admitting errors",
+        "ground_truth_label": "Source evaluation: skin in game + primary citations + error admission track record",
+        "behavioral_evidence_from_interview": ["Q42 follow-up 'I check whether they have skin in the game, whether they cite primary literature, and whether they've been publicly wrong before and said so'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-115",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Has approximately $529K in total accumulated wealth across taxable, Roth, and rollover retirement accounts",
+        "ground_truth_label": "Total accumulated wealth ~$529K",
+        "behavioral_evidence_from_interview": ["Q61 (itemized: $14K Ally + $185K Vanguard + $90K Roth + $240K 401k rollover = $529K)"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.technology"]
+      },
+      {
+        "fact_id": "HF-116",
+        "source": "reprojected",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Occupies a classic sandwich-generation caregiver role for his 78-year-old widowed mother without downstream dependents",
+        "ground_truth_label": "Sandwich-generation caregiver (upward only, no downstream dependents)",
+        "behavioral_evidence_from_interview": ["Q05 'My mom Eleanor is still alive, she's seventy-eight'", "Q35 'my mom's hip replacement last November, I took three weeks off'", "Q05 'No kids'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-117",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Demonstrates loss-averse, risk-managed behavior around tangible security paired with willingness to accept expected-value negative career bets for identity preservation",
+        "ground_truth_label": "Loss-averse on assets, identity-driven career risk-taking",
+        "behavioral_evidence_from_interview": ["Q02 (turned down six-figure offer for RMSC residency)", "Q55 (mortgage-free home)", "Q61 (diversified investments)", "Q63 (credit card paid in full)"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-118",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Uses strong commitment devices (daily meditation, one-sec social-media cap, Notion mood log, scheduled coffees, structured weekly scaffolding) with explicit metacognition about their necessity for his nervous system",
+        "ground_truth_label": "Commitment-device user with metacognitive awareness of necessity",
+        "behavioral_evidence_from_interview": ["Q15 'The scaffolding is strict because without it my anxiety eats me'", "Q18 (one-sec app, mood log)", "Q15 (scheduled coffees, meditation)"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-119",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Exhibits scarcity-adjacent reasoning despite actual financial abundance — defers discretionary goods (dental crown, studio lighting, pro-dev course) for psychological reasons even when cash is available",
+        "ground_truth_label": "Scarcity-adjacent psychology despite financial stability",
+        "behavioral_evidence_from_interview": ["Q64 'I always have the cash. In the deferred because it felt like too much sense, yes'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-120",
+        "source": "reprojected",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Peer influence is asymmetric: deeply responsive to small-circle trusted counsel but actively minimizes broad-audience platform exposure, consistent with awareness of own affective vulnerabilities",
+        "ground_truth_label": "Asymmetric peer influence: small-circle trust, platform minimization",
+        "behavioral_evidence_from_interview": ["Q02 follow-up (Marcus and mother's support)", "Q48 (quit Twitter, avoids TikTok)", "Q18 (one-sec app)"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-121",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Political trust profile is inverted: declining trust in national institutions, rising investment in local politics and neighbors (classic post-2016 progressive pattern)",
+        "ground_truth_label": "Inverted political trust: low national, rising local",
+        "behavioral_evidence_from_interview": ["Q24 'My trust in national institutions is low and declining; my trust in my actual neighbors is higher than it used to be'", "Q25 follow-up (local politics shift)"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-122",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "On race and policing: post-2020 reflective white liberal — active in protest, consistent in donations, critical of 'defund the police' as a slogan while endorsing underlying reinvestment policy",
+        "ground_truth_label": "Post-2020 reflective white liberal on race and policing",
+        "behavioral_evidence_from_interview": ["Q27 'I think defund the police as a slogan was a strategic disaster... the actual policy underneath it, reinvesting in mental-health response and community programs, is sound'", "Q29 'I've done all three over time — protests in 2020, sustained conversations, and ongoing donations'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-123",
+        "source": "reprojected",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Profile of self-reflective affect regulation with strong executive compensation for underlying trait neuroticism; manages GAD through multi-pronged regimen plus quantitative self-monitoring",
+        "ground_truth_label": "Self-reflective affect regulation compensating for trait neuroticism",
+        "behavioral_evidence_from_interview": ["Q18 (mood log)", "Q31 (multi-pronged regimen)", "Q15 (structured scaffolding)", "Q45 (open about diagnosis)"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-124",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Self-concept is organized around integration of seemingly disparate identities (quantitative analyst + artist + facilitator + caregiver son); failure mode is specifically a self-coherence threat rather than a material one",
+        "ground_truth_label": "Identity integration as core self-concept; failure = self-coherence threat",
+        "behavioral_evidence_from_interview": ["Q65 (describes interdisciplinary work identity)", "Q108 (failure mode = returning to corporate)", "Q109 'Integrity between my inner life and my outer life'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-125",
+        "source": "reprojected",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Shows strong attachment security in a small, high-quality circle (Marcus as secure base) alongside tentative but healthy approach behavior in the Ellery relationship",
+        "ground_truth_label": "Secure attachment in small circle; healthy approach with Ellery",
+        "behavioral_evidence_from_interview": ["Q44 'Marcus showed up on day five, made me shower, and dragged me to the diner'", "Q43 follow-up 'I remembered I can be present with another person without fleeing'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-126",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Cognitive style is data-driven but self-aware about its limits — built a weighted decision matrix for the Reston VA choice and then consciously overrode it, demonstrating integrated Type-1/Type-2 reasoning",
+        "ground_truth_label": "Data-driven cognitive style with mature intuition override",
+        "behavioral_evidence_from_interview": ["Q03 'I made a spreadsheet — literally a weighted decision matrix... The spreadsheet said Virginia. I overrode the spreadsheet. That's a data person's way of admitting the gut was right'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-127",
+        "source": "reprojected",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Coping includes both adaptive strategies (meditation, exercise, therapy, social scheduling, creative production) and moderate maladaptive alcohol use (6-7 drinks/week, self-monitored) — insight into risks without perfection",
+        "ground_truth_label": "Mixed adaptive/maladaptive coping; self-monitored alcohol use",
+        "behavioral_evidence_from_interview": ["Q32 (bourbon weakness)", "Q38 (6-7 drinks/week)", "Q50 (coping more proactive, less bourbon would help)"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-128",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Community attachment to Rochester is deep, ambivalent, and generative — channels civic identity into the planned Rochester Interdisciplinary Makerspace as an institution-builder",
+        "ground_truth_label": "Deep, ambivalent Rochester attachment channeled into makerspace institution-building",
+        "behavioral_evidence_from_interview": ["Q10 'I love it and I resent it, which is maybe just what adulthood is'", "Q108 (makerspace vision)"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-129",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Gave a keynote at SUNY Geneseo in February for $800",
+        "ground_truth_label": "SUNY Geneseo keynote (February, $800)",
+        "behavioral_evidence_from_interview": ["Q16 'I did a keynote at SUNY Geneseo in February for eight hundred dollars'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-130",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Paid approximately $3,200 in federal taxes last year; filed by April 15",
+        "ground_truth_label": "Federal taxes ~$3,200; filed on time",
+        "behavioral_evidence_from_interview": ["Q75 'filed by April 15 as always... Owed about $3,200, paid it'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-131",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Uses Dropbox to store personal artifacts including old decision spreadsheets",
+        "ground_truth_label": "Dropbox user (stores personal artifacts)",
+        "behavioral_evidence_from_interview": ["Q03 follow-up 'it's in a folder called artifacts on my Dropbox'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-132",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "No children; mutual decision with ex-wife Dana; still quietly processing this; metabolizes it through mentoring teens at RMSC",
+        "ground_truth_label": "Childless by mutual decision; processes through mentoring",
+        "behavioral_evidence_from_interview": ["Q01 'No kids, which was a mutual decision that I'm still quietly processing'", "Q05 follow-up 'teaching teens at the RMSC is part of how I metabolize that'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-133",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Phone-banked for a 2022 state senate race and canvassed door-to-door approximately 8 hours in fall 2022 for a city council race; prefers canvassing over phone-banking",
+        "ground_truth_label": "Phone-banked (2022 state senate) and canvassed (2022 city council, ~8 hrs); prefers canvassing",
+        "behavioral_evidence_from_interview": ["Q23 follow-up 'I've phone-banked twice, once for a state senate race in 2022 and once for a city council race in 2023'", "Q23 follow-up 'I would rather canvass door-to-door, which I also did, for about eight hours in fall 2022'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-134",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Has a $400 emergency fund threshold that would not cause panic; emergency fund is $14K at Ally",
+        "ground_truth_label": "$400 emergency spend would annoy, not panic; $14K emergency fund",
+        "behavioral_evidence_from_interview": ["Q82 'I'd have it — emergency fund is $14K. I'd be annoyed, not panicked'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.technology"]
+      }
+    ]
+  }
+}

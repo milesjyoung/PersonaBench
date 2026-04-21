@@ -1,0 +1,2296 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "e7c0574639a244c8972c92aab9501035",
+      "name": "Mary Alberti",
+      "verification_date": "2026-04-15"
+    },
+
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed lists age 28; interview Q85 gives DOB July 22 1997, confirming age 28 at interview date.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.age",
+              "source_b_ref": "Q85",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed lists sex Female; interview consistently uses female self-reference and mentions being 'a white woman' (Q26).",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.sex",
+              "source_b_ref": "Q26, Q89",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed lists city Madison, state WI, zipcode 53717; interview Q08 confirms 53717 zip, west side near High Point Road, and Q87 confirms born and lifelong Madison resident.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.city, seed.state, seed.zipcode",
+              "source_b_ref": "Q08, Q87, Q97",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed lists marital_status as never_married; interview Q84 confirms never married, not currently living with a partner.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.marital_status",
+              "source_b_ref": "Q84",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Seed lists education_level high_school; interview Q90 confirms high school diploma from Memorial High 2015, no college yet (enrolling fall 2026). Interview enriches seed with planned enrollment.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.education_level",
+              "source_b_ref": "Q90, Q91",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Interview enriches education with fall 2026 Madison College enrollment plan — already captured in profile."
+            },
+            {
+              "id": 6,
+              "text": "Seed lists occupation fast_food_or_counter_worker; interview Q16/Q65 confirms counter worker at a quick-service restaurant, burgers and frozen custard. Consistent. Interview adds detail about lead-crew role and promotion track.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.occupation",
+              "source_b_ref": "Q16, Q65",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Lead-crew and promotion track detail enriches occupation — already in profile."
+            }
+          ],
+          "summary": { "consistent": 6, "inconsistent": 0, "gaps": 2 }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview Q85 gives DOB July 22 1997; profile records age 28. Consistent but profile omits exact DOB.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q85",
+              "source_b_ref": "corrected_extracted_profile.age",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add DOB July 22 1997 to life_events_and_transitions details."
+            },
+            {
+              "id": 2,
+              "text": "Interview Q87 states born at Meriter Hospital in Madison; profile cultural_and_linguistic captures this accurately.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q87",
+              "source_b_ref": "preferences.cultural_and_linguistic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Interview Q05 describes family structure in extensive detail; profile social_and_relationships captures parents, brother, aunt Rosa, grandfather Joe, cousin Gianna accurately.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q05, Q06",
+              "source_b_ref": "preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Interview Q01 mentions grandparents from Bari in the sixties; profile cultural_and_linguistic captures this. Interview Q93 follow-up reveals grandfather Joe served Army in Korea — this is absent from the profile.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q01, Q93",
+              "source_b_ref": "preferences.cultural_and_linguistic",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add grandfather Joe's Korean War Army service to cultural_and_linguistic or social_and_relationships."
+            },
+            {
+              "id": 5,
+              "text": "Profile records mother Teresa 'worked the front desk at a dentist's office for about twenty years' and retired 2023. Interview Q103 confirms. Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q103",
+              "source_b_ref": "preferences.life_events_and_transitions",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": { "consistent": 5, "inconsistent": 0, "gaps": 2 }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile home_and_lifestyle states lease signed June 2023 after moving out of Kyle's place; life_events_and_transitions notes breakup with Kyle spring 2020. There is a 3-year gap between breakup and apartment move. Closer reading of Q08 follow-up shows the apartment was signed 'right after I moved out of Kyle's place' in context of 'three years this June.' The breakup was 2020 but she did not move out until June 2023 — or she may have had an interim arrangement. This is actually consistent: she could have stayed after the breakup and moved out later.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.home_and_lifestyle",
+              "field_b": "preferences.life_events_and_transitions",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile sports_and_fitness says runs 15-20 miles/week; health_and_wellness also says runs 15-20 miles/week. Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.sports_and_fitness",
+              "field_b": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile life_events_and_transitions says 'Started at current store ~2020-21'; work_and_career says '~4.5 years tenure.' Interview date 2026-04-15 minus 4.5 years = late 2021. The life_events entry says ~2020-21, which is consistent with rounding.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.life_events_and_transitions",
+              "field_b": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": { "consistent": 3, "inconsistent": 0, "gaps": 0 }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Q100: Father Frank has an Associate's degree from Madison College in HVAC tech with EPA 608 and NATE certifications. This family education detail is absent from the profile.",
+              "gap": true,
+              "interview_ref": "Q100",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add father's Associate's degree and HVAC certifications to cultural_and_linguistic."
+            },
+            {
+              "id": 2,
+              "text": "Q101: Mother Teresa has a high school diploma, no college. This parental education detail is absent.",
+              "gap": true,
+              "interview_ref": "Q101",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add mother's high school diploma detail."
+            },
+            {
+              "id": 3,
+              "text": "Q106/Q107: Father owns Alberti Heating & Cooling with two employees. Business detail absent from profile.",
+              "gap": true,
+              "interview_ref": "Q106, Q107",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add father's small business name and details."
+            },
+            {
+              "id": 4,
+              "text": "Q93 follow-up: Grandfather Joe served in U.S. Army, Korea. Absent from profile.",
+              "gap": true,
+              "interview_ref": "Q93",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add grandfather's Korean War Army service."
+            },
+            {
+              "id": 5,
+              "text": "Q99 follow-up: Childhood golden retriever named Biscuit, passed 2019. Absent from profile.",
+              "gap": true,
+              "interview_ref": "Q99",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add childhood pet Biscuit."
+            }
+          ],
+          "summary": { "present": 0, "missing": 5 }
+        }
+      },
+
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed career_goals lists promotion to shift supervisor, then manager, then own a diner plus community college hospitality program and ServSafe Manager cert. Interview Q01/Q02/Q108 confirms entire career ladder with specific behavioral evidence.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.career_goals_and_ambitions",
+              "source_b_ref": "Q01, Q02, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed persona describes 'double-checking every receipt for hidden costs'; interview Q57/Q60/Q61 confirms meticulous budget tracking (bullet journal + spreadsheet, sinking funds, Sunday reconciliation, no credit card debt streak).",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q57, Q60, Q61",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed persona mentions 'occasional craft-brew indulgence'; interview Q38 gives specific consumption (4-6 beers/week, Spotted Cow, Ale Asylum), which is moderate-regular rather than 'occasional.' The seed understates frequency slightly.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q38",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed hobbies list includes 'Listening to classic rock music'; interview does not specifically confirm classic rock listening in any question but seed arts_persona lists John Prine and Bon Iver (indie-folk/singer-songwriter). No contradiction — the interview simply does not address classic rock.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.hobbies_and_interests_list",
+              "source_b_ref": "Q01-Q109 (no mention)",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Classic rock from seed carried forward in profile hobbies_and_recreation — no interview contradiction."
+            },
+            {
+              "id": 5,
+              "text": "Seed culinary_persona mentions cheddar-crusted bratwurst, cheese-curd poutine, spiced apple crumble; interview Q01 mentions tagliatelle and red gravy specifically, and Q17 mentions garden produce. The seed recipes are not contradicted but also not specifically confirmed by interview answers.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.culinary_persona",
+              "source_b_ref": "Q01, Q17",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Seed culinary details carried forward — consistent with culinary interest established in interview."
+            }
+          ],
+          "summary": { "consistent": 5, "inconsistent": 0, "gaps": 2 }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview Q61 details specific savings architecture: Ally HYSA (five-figure, earmarked diner+emergency), 5% 401(k) with 3% match, Fidelity Roth IRA $200/month, sinking funds. Profile work_and_career and technology capture these. Consistent and complete.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q61",
+              "source_b_ref": "preferences.work_and_career, preferences.technology",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Interview Q61 follow-up: 'I pay myself first on every paycheck. $400 to Ally, $100 to Roth, then I spend the rest.' This specific behavioral rule is captured in the behavioral_economist summary but not as a discrete preference detail.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q61",
+              "source_b_ref": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add pay-yourself-first automation detail ($400 Ally, $100 Roth per paycheck) to home_and_lifestyle."
+            },
+            {
+              "id": 3,
+              "text": "Interview Q83 follow-up: Mary felt guilty for two weeks after buying Bon Iver tickets. Profile entertainment captures the concert attendance. The guilt-response behavioral pattern is referenced in the behavioral_economist summary. Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q83",
+              "source_b_ref": "preferences.entertainment, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Interview Q56 details monthly expenses: rent $1185, car-related $130 insurance/gas, groceries ~$300, $100 grandpa, utilities ~$90, phone $55. Profile home_and_lifestyle captures rent and car. Monthly detailed budget absent as a discrete entry.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q56",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add monthly expense breakdown to home_and_lifestyle details."
+            },
+            {
+              "id": 5,
+              "text": "Interview Q58 follow-up: rent going up $45 next cycle. Already captured in home_and_lifestyle. Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q58",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 6,
+              "text": "Interview Q82: covers $400 emergency from earmarked sinking fund; follow-up says $4,000 also doable from diner bucket but painful. Profile does not capture the specific emergency-response capacity. Behavioral_economist summary covers it.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q82",
+              "source_b_ref": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": { "consistent": 6, "inconsistent": 0, "gaps": 2 }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile health_and_wellness says 'moderate craft-beer drinker' and specifies 4-6 beers/week; profile food_and_dining does not mention craft beer as part of dining. No contradiction — beer is placed in health/wellness context.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness",
+              "field_b": "preferences.food_and_dining",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile work_and_career lists benefits including 10 PTO + 3 sick; profile travel lists Door County one-week vacation covered via PTO. Consistent — 10 PTO days covers the trip.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career",
+              "field_b": "preferences.travel",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile food_and_dining mentions tagleiatelle (with typo); cultural_and_linguistic also references 'homemade tagleiatelle.' Consistent content, same typo in both (should be 'tagliatelle').",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.food_and_dining",
+              "field_b": "preferences.cultural_and_linguistic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Correct spelling of 'tagleiatelle' to 'tagliatelle' in food_and_dining and cultural_and_linguistic."
+            }
+          ],
+          "summary": { "consistent": 3, "inconsistent": 0, "gaps": 0 }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Q59: Holiday spending ~$400 in December for gifts (Mom, Dad, Anthony's family, Lauren, coworkers). Absent from profile as discrete detail.",
+              "gap": true,
+              "interview_ref": "Q59",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add annual holiday gift spending pattern (~$400 December) to home_and_lifestyle."
+            },
+            {
+              "id": 2,
+              "text": "Q59: Car timing belt service $640 in August, budgeted. Running registrations ~$200/year April-October. Already in sports_and_fitness for running regs. Timing belt absent.",
+              "gap": true,
+              "interview_ref": "Q59",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "DROP",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Q62: Rainy-day fund at ~4 months of expenses, target 6 months. This specific savings milestone is absent from profile preferences.",
+              "gap": true,
+              "interview_ref": "Q62",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add emergency fund detail (4 months saved, 6-month target) to home_and_lifestyle."
+            },
+            {
+              "id": 4,
+              "text": "Q75: Files taxes via TurboTax Free; got $412 federal + $180 state refund, routed to Ally diner bucket. Profile technology mentions TurboTax Free. Refund routing absent.",
+              "gap": true,
+              "interview_ref": "Q75",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add tax refund routing behavior (refund to diner savings) to home_and_lifestyle."
+            },
+            {
+              "id": 5,
+              "text": "Q64: Last time short on rent was 2020 during Kyle period ($200 short, mom covered). Since then no shortfalls. Absent from profile.",
+              "gap": true,
+              "interview_ref": "Q64",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "DROP",
+              "resolution": null
+            }
+          ],
+          "summary": { "present": 0, "missing": 5 }
+        }
+      },
+
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed does not contain political data; interview Q23-Q30, Q95-Q96 provide rich political profile. No seed-level political data exists to compare.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed (no political fields)",
+              "source_b_ref": "Q23, Q24, Q25, Q95, Q96",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Political data fully sourced from interview — no seed contradiction possible."
+            },
+            {
+              "id": 2,
+              "text": "Seed cultural_background mentions Catholic upbringing; interview Q47 confirms Roman Catholic upbringing with lapsed practice. Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q47",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed cultural_background mentions Italian-American; interview Q86-Q89 and Q01 confirm second-generation Italian-American. The seed describes 'hard work, practicality, and community' values which align with interview responses about work ethic and family.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q01, Q86, Q89",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed lists Madison, WI; interview Q24 describes herself as shaped by Madison's political environment ('Madison pushed me left'). Location politically consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.city, seed.state",
+              "source_b_ref": "Q24",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": { "consistent": 4, "inconsistent": 0, "gaps": 1 }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview Q24 describes moderate Democrat, pro-labor, pro-choice, fiscally cautious, pro-background-checks, pro-immigration, skeptical of performative leftism. Profile community_and_civic and political_scientist summary capture moderate Democrat, civic behavior. Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q24",
+              "source_b_ref": "summaries.political_scientist, preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Interview Q96 follow-up: Mary names Senator Tammy Baldwin as a politician she particularly likes. Profile political_scientist summary mentions Baldwin. Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q96",
+              "source_b_ref": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Interview Q25: Mary has gotten more pro-labor in last three years and more skeptical of both parties on healthcare. She donated $40 to local alderperson campaign (first political donation). All captured in profile.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q25",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Interview Q24 follow-up: Mary notes she voted for the Democratic candidate in both recent presidential elections but 'not with enormous enthusiasm.' This nuance is captured in the summary's 'weak-to-moderate' Democrat. Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q24",
+              "source_b_ref": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Interview Q95 follow-up: Mary once voted for a moderate Republican in a local county board race. This cross-partisan behavior detail is absent from preferences but implied in political_scientist summary. Slightly incomplete.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q95",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add cross-party voting detail (once voted for moderate Republican in local race) to community_and_civic."
+            }
+          ],
+          "summary": { "consistent": 5, "inconsistent": 0, "gaps": 1 }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile community_and_civic describes 'consistent voter' and also notes 'missed last spring primary — feels regret.' These are compatible: she votes every presidential and midterm but occasionally misses smaller races.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile cultural_and_linguistic says 'culturally Roman Catholic, lapsed in practice'; community_and_civic says 'St. Maria Goretti parish (now infrequent attendance).' Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.cultural_and_linguistic",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile media_and_information_diet says 'deleted Twitter/X in 2023'; technology also says 'Deleted Twitter/X in 2023.' Consistent, minor redundancy but not a problem.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.media_and_information_diet",
+              "field_b": "preferences.technology",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": { "consistent": 3, "inconsistent": 0, "gaps": 0 }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Q24: Detailed gun-control position (pro-background-checks, dad hunts, grew up around rifles, doesn't understand AR-15 culture). Absent from profile preferences.",
+              "gap": true,
+              "interview_ref": "Q24",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add gun-control views to community_and_civic."
+            },
+            {
+              "id": 2,
+              "text": "Q24: Explicitly pro-choice. Absent from profile preferences (only in summary implicitly via 'moderate Democrat').",
+              "gap": true,
+              "interview_ref": "Q24",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add pro-choice position to community_and_civic."
+            },
+            {
+              "id": 3,
+              "text": "Q24: Pro-immigration, citing grandparent immigrant experience. Absent from profile preferences.",
+              "gap": true,
+              "interview_ref": "Q24",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add pro-immigration stance to community_and_civic."
+            },
+            {
+              "id": 4,
+              "text": "Q27: Supports police oversight board in Madison, police accountability reforms, and the combined policing/mental-health-response model. Partially in summary, absent from preferences.",
+              "gap": true,
+              "interview_ref": "Q25, Q27",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add police-reform views to community_and_civic."
+            },
+            {
+              "id": 5,
+              "text": "Q25: Skepticism of both parties on healthcare (elder care affordability). Absent from preferences.",
+              "gap": true,
+              "interview_ref": "Q25",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add healthcare skepticism and elder-care cost concern to community_and_civic."
+            }
+          ],
+          "summary": { "present": 0, "missing": 5 }
+        }
+      },
+
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed persona describes 'routine-obsessed, bullet-journal aficionado who balances disciplined work ambition with a competitive edge.' Interview confirms through Q01 (Ryder Carroll method), Q15 (nightly journaling, structured week), Q03 (keeps all old journals), Q50 (meditation routine). Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q01, Q03, Q15, Q50",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed persona mentions 'competitive edge'; interview Q03 says 'I overthink everything,' which aligns with competitive conscientiousness rather than pure competition.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q03",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed persona mentions 'habit of double-checking every receipt for hidden costs.' Interview Q57/Q60/Q61 confirms meticulous financial tracking. Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q57, Q60, Q61",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed cultural_background emphasizes 'hard work, practicality, and community'; interview Q109 lists 'family, consistency, and competence' as core values. The sets overlap in spirit. Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Seed hobbies mention 'Reading self-help books'; interview Q15 confirms Thursday-night reading plus self-help. Interview Q26 adds Coates and Kendi. Enrichment, not contradiction.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.hobbies_and_interests",
+              "source_b_ref": "Q15, Q26",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Already captured in profile."
+            }
+          ],
+          "summary": { "consistent": 5, "inconsistent": 0, "gaps": 1 }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview Q45: six CBT sessions with Dr. Chen through EAP in early 2023, thought records still used. Profile health_and_wellness captures this accurately. Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q45",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Interview Q109: Core values explicitly stated as family, consistency, competence — with family as terminal value. Profile psychologist summary captures this. Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q109",
+              "source_b_ref": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Interview Q43: Describes herself as 'content' rather than 'happy.' This is well captured in the psychologist summary. Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q43",
+              "source_b_ref": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Interview Q43: Low-grade money-related anxiety. Profile health_and_wellness captures this. Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q43",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Interview Q07: Mary says she has 'maybe six people I'd call at 2am.' Profile psychologist summary captures this. Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q07",
+              "source_b_ref": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": { "consistent": 5, "inconsistent": 0, "gaps": 0 }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile health_and_wellness says 'situational depression' history managed via CBT and journaling; psychologist summary describes 'situational-reactive rather than chronic.' Consistent framing.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile hobbies_and_recreation says 'Sudoku daily/weekly habit'; entertainment says 'Sudoku as habitual mental challenge.' Consistent but slightly redundant across subcategories.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.hobbies_and_recreation",
+              "field_b": "preferences.entertainment",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile health_and_wellness lists Insight Timer meditation; technology lists same app. Consistent cross-reference.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness",
+              "field_b": "preferences.technology",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": { "consistent": 3, "inconsistent": 0, "gaps": 0 }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Q44: Cried in walk-in cooler at work on anniversary of Nonna's death; drove to cemetery with bread and salt. The cemetery ritual is in cultural_and_linguistic. The walk-in cooler emotional episode is absent from profile preferences.",
+              "gap": true,
+              "interview_ref": "Q44",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add the walk-in cooler grief episode and cemetery visit as behavioral detail."
+            },
+            {
+              "id": 2,
+              "text": "Q43 follow-up: Mary handles low stretches with more running, more journaling, more phone calls to Lauren, vitamin D boost, and more Grandpa Joe visits. This specific coping protocol is absent from profile.",
+              "gap": true,
+              "interview_ref": "Q43",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add named coping protocol to health_and_wellness."
+            },
+            {
+              "id": 3,
+              "text": "Q02: The 2020 crossroads involved explicit option of going back to school for nursing (mother's preference). The nursing alternative is absent from profile.",
+              "gap": true,
+              "interview_ref": "Q02",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add nursing-vs-food-service crossroads detail to life_events_and_transitions."
+            },
+            {
+              "id": 4,
+              "text": "Q10 follow-up: Mary mentions wanting to move to Schenk-Atwood or Tenney-Lapham neighborhoods when she can afford it. Absent from profile.",
+              "gap": true,
+              "interview_ref": "Q10",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add aspirational neighborhood move to home_and_lifestyle."
+            },
+            {
+              "id": 5,
+              "text": "Q11 follow-up: Mary loves living alone and values the solitude for routines and journaling. This positive-solitude preference is absent as a discrete fact.",
+              "gap": true,
+              "interview_ref": "Q11",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add positive-solitude preference to home_and_lifestyle."
+            }
+          ],
+          "summary": { "present": 0, "missing": 5 }
+        }
+      }
+    },
+
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No FLAG_FOR_REVIEW findings. Multiple Direction 4 gaps identified across all four experts, with disposition NEEDS_ENRICHMENT (political positions, DOB, savings details, grandfather military service) and CARRY_FORWARD (family details, emotional episodes, coping protocols). One PARTIAL_UPDATE for typo correction ('tagleiatelle' -> 'tagliatelle'). All Direction 1-3 observations were consistent. The corrected profile fills all gaps and applies the typo fix.",
+    "final_status": "Verification complete. Draft profile was substantially accurate with no inconsistencies. Corrections consist of gap-filling from Direction 4 (political positions, financial details, family background, emotional coping specifics) and one typo fix. Corrected profile with hidden_facts registry is ready for downstream use."
+  },
+
+  "corrected_extracted_profile": {
+    "participant_id": "e7c0574639a244c8972c92aab9501035",
+    "name": "Mary Alberti",
+    "age": 28,
+    "gender": "Female",
+    "marital_status": "never married, currently single, no cohabiting partner",
+    "location": "Madison, WI 53717 (west side, near High Point Road)",
+    "education": "High school diploma (Memorial High School, Madison, 2015); enrolled for Fall 2026 in Madison College Hospitality Management associate's program, part-time",
+    "occupation": "Front-counter crew member / lead crew at a regional Midwestern fast-casual restaurant (burgers and frozen custard); ~4.5 years tenure; up for promotion to shift supervisor",
+
+    "preferences": {
+      "health_and_wellness": {
+        "summary": "Routine-driven, disciplined health maintenance: regular running, annual physicals, pro-vaccine, situational-depression history managed via CBT and journaling, mild GERD and prior plantar fasciitis managed; moderate craft-beer drinker, minimal cannabis use, no tobacco.",
+        "details": [
+          "Runs 15-20 miles per week around Lake Mendota with Madison Runners Club (Q31, Q01)",
+          "Height 5'6\", weight ~145 lbs, generally excellent baseline health at 28 (Q31)",
+          "Mild seasonal allergies treated with Zyrtec April-June (Q31)",
+          "GERD diagnosed 2024, managed with occasional omeprazole and reduced coffee/beer (Q31, Q33)",
+          "Plantar fasciitis summer 2023, rehabbed via UW Health PT twice weekly with custom insoles and Brooks Glycerin shoes (Q33, Q34)",
+          "On oral contraceptive pill (Q31)",
+          "Primary care at Group Health Cooperative with Dr. Kaufman; annual physical January, annual dermatology (Q31)",
+          "Six EAP CBT sessions with Dr. Chen in early 2023 for situational depression after Nonna's death; thought-records still used in bullet journal (Q31, Q45)",
+          "Low-grade money-related generalized anxiety, no current medication (Q45)",
+          "Fully vaccinated: COVID series, annual flu, childhood vaccines, HPV catch-up at 22, Tdap boosters (Q41)",
+          "Trusted vaccine sources: personal doctor, CDC, Public Health Madison and Dane County, NPR (Q42)",
+          "Moderate craft-beer consumption, 4-6 beers/week, favorite: New Glarus Spotted Cow, Ale Asylum (Q38)",
+          "Elevated drinking post-breakup 2020 (~10/week for several months), since moderated (Q38)",
+          "Occasional 10mg cannabis edibles (~3x/year), last was at friend Becca's December birthday (Q38, Q39)",
+          "Never smoked cigarettes (Q38)",
+          "Daily 10-minute Insight Timer app meditation since January 2026 (Q50)",
+          "Two acupuncture sessions for plantar fasciitis; family uses Italian-grandmother home remedies (hot lemon water, garlic, ginger compresses) (Q37)",
+          "Supplements: Vitamin D (winter), magnesium (night), multivitamin (Q37)",
+          "Coping protocol for low stretches: more running, more journaling, more phone calls to Lauren, vitamin D boost, more Grandpa Joe visits (Q43)",
+          "GHC HMO health insurance through work, ~$110/month premium, small copays; budgets ~$50/month for out-of-pocket medical (Q32, Q40)"
+        ],
+        "evidence": "Q31, Q32, Q33, Q34, Q37, Q38, Q39, Q40, Q41, Q42, Q43, Q45, Q50"
+      },
+      "food_and_dining": {
+        "summary": "Home cooks Italian-American and Midwestern classics from scratch; shops Woodman's and Trader Joe's; frequents local Madison brunch spots; gets one free meal per shift at work and leans toward grilled chicken plus occasional frozen custard.",
+        "details": [
+          "Makes homemade tagliatelle and red gravy from scratch; specialty dishes include cheddar-crusted bratwurst, poutine with cheese curds, and spiced apple crumble (Q01)",
+          "Garden-to-table cooking using her own raised-bed tomatoes, green beans, basil, rosemary (Q17)",
+          "Meal-prep every Sunday afternoon (Q15)",
+          "Grocery runs at Woodman's Sunday afternoon; also uses Trader Joe's (Q08, Q15)",
+          "Monthly Sunday brunches with cousin Gianna at Marigold Kitchen or Short Stack Eatery (Q06)",
+          "At-work meal: grilled chicken sandwich plus a small frozen custard on Fridays (Q32)",
+          "Hosts low-key dinners for up to six at her apartment (Q57)",
+          "Catholic Italian-American Sunday family dinners (homemade pasta, Wisconsin cheese) historically, now reduced since grandmother's death (Q01)",
+          "Italian grandmother food traditions: bread-and-salt cemetery tribute, bracciole (Q44, Q01)"
+        ],
+        "evidence": "Q01, Q06, Q15, Q17, Q32, Q44, Q57"
+      },
+      "travel": {
+        "summary": "Budget-conscious, meticulously planned travel; favors weekend lakeside getaways in Door County, culinary trips with a Napa Valley bucket-list item, and is actively saving for a Kyoto trip in cherry blossom season ~2028.",
+        "details": [
+          "Took a one-week Door County vacation in September (covered via 10 days annual PTO) (Q67)",
+          "Dedicated Kyoto travel savings bucket currently at ~$1,200, targeting 2028 two-week trip in cherry blossom season (Q62)",
+          "Interest in Napa Valley culinary trip (seed travel_persona)",
+          "Family visits to brother Anthony and family in Milwaukee, ~monthly overnight trips (Q05)",
+          "Every-other-Sunday visits to grandfather Joe in Middleton assisted living (Q05, Q17)"
+        ],
+        "evidence": "Q05, Q17, Q62, Q67"
+      },
+      "social_and_relationships": {
+        "summary": "Tight, small social circle organized around a high-school best friend, a runners-club trio, close work friends, and extended Italian-American family; never married, currently single, open to partnership but not actively dating.",
+        "details": [
+          "Best friend Lauren (dental hygienist, married) since 9th grade at Memorial High; daily contact, standing Wednesday wine nights, six-week pedicure cadence (Q07)",
+          "Running crew: Becca, Priya, Danielle from Madison Runners Club; Saturday long runs plus brunch (Q07)",
+          "Work friends: Marcus (line cook, leans right politically), Jess (counter), Desiree (Q07, Q28, Q77)",
+          "Parents Frank and Teresa Alberti live 15 minutes away; mother phone contact every other day; Sunday visits (Q05)",
+          "Father Frank owns Alberti Heating & Cooling, small HVAC business with two employees; started business from a van (Q02, Q106, Q107)",
+          "Brother Anthony, 31, in Milwaukee with wife Jenna, son Luca (4), daughter Sofia (~2); group text, monthly visits (Q05)",
+          "Aunt Rosa in Fitchburg, frequent Sunday dinners (Q05)",
+          "Grandfather Joe (84) in Middleton assisted living, afib managed with medication; biweekly Sunday visits with biscotti; Korean War Army veteran (Q05, Q17, Q35, Q93)",
+          "Cousin Gianna (26, dental lab worker, Rosa's daughter) — monthly brunch partner, occasional couch-crasher (Q06, Q13)",
+          "Eight-month relationship with Ben (carpenter) ended amicably last year (Q05)",
+          "Prior nearly-three-year relationship with Kyle, ended spring 2020 during pandemic; had been saving for duplex together (Q01, Q02)",
+          "Never married; wants 1-2 children around age 32-33 within stable partnership (Q05)",
+          "Neighbors John and Mei across the hall trade packages; otherwise friendly-nod neighborhood (Q08)",
+          "Six people she'd call at 2am if something went wrong (Q07)",
+          "GM Aisha is promotion sponsor; former GM Denise (now Sun Prairie) is reference and mentor (Q02, Q77)",
+          "Friction with assistant manager Brandon ('kind of lazy') (Q77)"
+        ],
+        "evidence": "Q02, Q05, Q06, Q07, Q08, Q13, Q17, Q28, Q35, Q77, Q84, Q93, Q106, Q107"
+      },
+      "home_and_lifestyle": {
+        "summary": "Lives alone in a $1,185/month one-bedroom apartment on Madison's quiet west side, three years in; highly organized, routine-obsessed single-person household with a raised-bed community garden plot, considering cat adoption.",
+        "details": [
+          "One-bedroom apartment rental near High Point Road, 53717; $1,185/month, $45 increase next cycle (Q08, Q56, Q58)",
+          "Three years in current apartment (signed June 2023 after moving out of prior partner's place) (Q08)",
+          "Solo household; lease signed only in her name (Q11, Q51, Q55)",
+          "Shared-plot 4x8 raised-bed garden (tomatoes, green beans, basil, rosemary), tended Saturdays April-October (Q17)",
+          "On waitlist at Dane County Humane Society for tabby cat adoption; delaying until supervisor promotion stabilizes hours (Q11)",
+          "Monthly budget review last Saturday of the month with bullet journal and bank statements (Q17, Q57)",
+          "Meal prep Sundays; Sunday afternoon grocery at Woodman's (Q15)",
+          "Drives a paid-off 2016 Honda Civic (Q43, Q63)",
+          "Possessions tidy; values solitude and routines — 'nobody touches my coffee setup' and journals in silence at 10pm (Q11)",
+          "Monthly expenses: rent $1,185, car insurance/gas ~$130, groceries ~$300, grandpa contribution $100, utilities ~$90, phone $55; total typical ~$2,400/month (Q56, Q57)",
+          "Emergency fund at ~4 months of expenses, target 6 months (Q62)",
+          "Pay-yourself-first automation: $400 to Ally HYSA, $100 to Fidelity Roth IRA per paycheck (Q61)",
+          "Tax refunds ($412 federal + $180 state) routed to Ally diner savings bucket (Q75)",
+          "Annual holiday gift spending ~$400 in December (Mom, Dad, Anthony's family, Lauren, coworkers) (Q59)",
+          "Aspires to eventually move to Schenk-Atwood or Tenney-Lapham neighborhoods closer to Madison isthmus (Q10)",
+          "Loves living alone; values solitude for routines, bullet journaling, and her coffee setup (Q11)",
+          "Sinking funds: car (~$900), travel (Kyoto), holidays, tuition, diner seed (Q60, Q61, Q62)"
+        ],
+        "evidence": "Q08, Q10, Q11, Q15, Q17, Q51, Q55, Q56, Q57, Q58, Q59, Q60, Q61, Q62, Q63, Q75"
+      },
+      "entertainment": {
+        "summary": "Low-key entertainment preferences: reading, movies with a Wes Anderson lean, modest concert attendance, TikTok and Instagram scrolling with strict screen-time limits, and Sudoku as a habitual mental challenge.",
+        "details": [
+          "Wes Anderson cinematography fan (seed arts_persona)",
+          "Attended Bon Iver concert at The Sylvee — felt guilty about the splurge for two weeks (Q83)",
+          "Solves Sudoku puzzles as regular habit (Q15)",
+          "Thursday night reading-plus-Sudoku routine before bed (Q15)",
+          "Reads self-help and practical nonfiction books (Q15)",
+          "Read 'Between the World and Me' by Coates and Ibram X. Kendi for race-and-policing homework in 2020 (Q26)",
+          "Scrolls TikTok ~20 minutes/day for recipes and comedy, screen-time limits enforced (Q48)",
+          "No Twitter/X (deleted 2023) (Q48)"
+        ],
+        "evidence": "Q15, Q26, Q48, Q83"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Highly structured hobby stack centered on bullet journaling, running, raised-bed gardening, Sudoku, self-help reading, baking/cooking from scratch, and craft-brew tastings.",
+        "details": [
+          "Bullet journaling in a Leuchtturm1917 dot grid using full Ryder Carroll method since 2020; nightly ~15-minute entry (Q01, Q15)",
+          "Archives all filled journals in plastic bin under bed; specific entries labeled like 'Q2 2020' (Q03)",
+          "Running 15-20 miles/week with Madison Runners Club around Lake Mendota (Q01, Q15)",
+          "Raised-bed community-plot gardening April-October (Q17)",
+          "Sudoku daily/weekly habit (Q15)",
+          "Self-help and practical nonfiction reading Thursday nights (Q15)",
+          "Home cooking and baking Midwestern and Italian-American classics (Q01, seed culinary_persona)",
+          "Attends local craft-brew tastings with friends (seed hobbies)",
+          "Twice-weekly strength training at Anytime Fitness (Tuesday/Thursday) since January 2026 (Q18)",
+          "Listens to classic rock (seed hobbies)"
+        ],
+        "evidence": "Q01, Q03, Q15, Q17, Q18"
+      },
+      "work_and_career": {
+        "summary": "Career-committed front-line food-service worker with disciplined, promotion-track trajectory: ~4.5 years at a regional fast-casual, lead-crew de facto responsibilities, in active promotion process for shift supervisor, with a long-term goal to own a community-focused diner.",
+        "details": [
+          "Front-counter and drive-thru POS operator, cash handler, drawer reconciler, inventory spot-checker, opener, and new-hire trainer at regional Midwestern fast-casual chain (Q16, Q65)",
+          "Earning $16.50/hour; supervisor promotion would move to ~$19.75/hour plus monthly metrics bonus (Q16)",
+          "Gross ~$2,840/month, net ~$2,250 after taxes/insurance/401(k) (Q72)",
+          "38-40 hours/week, bi-weekly Friday direct deposit to GHC Credit Union (Q68, Q73)",
+          "Benefits: GHC HMO health, 401(k) with 3% match (contributes 5%), 10 PTO + 3 sick, no paid family leave (Q76)",
+          "Non-unionized workplace; would support unionization if organized (Q66)",
+          "Good relationship with GM Aisha (promotion sponsor), friction with assistant manager Brandon (Q77)",
+          "Schedule posted 10 days in advance; frequent go-to for call-out covers (Q78)",
+          "Trains new hires on POS, food safety, and upselling since January 2026 (Q18)",
+          "Career ladder: crew -> shift supervisor -> restaurant manager -> own small family-style diner (Q01, Q108)",
+          "Enrolling Fall 2026 at Madison College, part-time, hospitality management associate's, Intro to Hospitality Management as first course (Q18, Q91)",
+          "Actively studying for ServSafe Manager certification (Q01, Q92)",
+          "Former GM Denise (now at Sun Prairie store) is a reference and mentor (Q02)",
+          "Serves 200-450 customer tickets per shift depending on day; Fridays in summer busiest (Q65)"
+        ],
+        "evidence": "Q01, Q02, Q16, Q18, Q65, Q66, Q68, Q72, Q73, Q76, Q77, Q78, Q91, Q92"
+      },
+      "arts_and_culture": {
+        "summary": "Modest, locally rooted arts engagement: local art walks and museum exhibits post-shift, atmospheric indie-folk listening, lyrical singer-songwriter appreciation, and Wes Anderson film taste.",
+        "details": [
+          "Attends local Madison art walks and museum exhibits to unwind after shifts (seed arts_persona)",
+          "Favorite artists: John Prine (lyrical storytelling), Bon Iver (atmospheric indie folk), Wes Anderson (film) (seed arts_persona)",
+          "Attended Bon Iver concert at The Sylvee in Madison (Q83)",
+          "Culturally Italian-American; values traditions like Sunday family meals, Italian cemetery ritual (bread and salt) (Q44, Q01)"
+        ],
+        "evidence": "Q44, Q83"
+      },
+      "sports_and_fitness": {
+        "summary": "Competitive-but-consistent runner with an active Wisconsin sports-fan identity; cross-trains at a gym, follows Badgers basketball, Brewers baseball, and Packers football by season.",
+        "details": [
+          "Runs 3-5 miles around Lake Mendota, 15-20 miles/week total, with Madison Runners Club (Q01, Q31, seed sports_persona)",
+          "Wears Brooks Glycerin shoes with custom insoles post-plantar fasciitis (Q33)",
+          "Uses Strava to track runs (Q48)",
+          "Saturday long runs plus brunch with crew Becca, Priya, Danielle (Q07, Q15)",
+          "Strength training at Anytime Fitness twice weekly, Tuesday and Thursday, since January 2026 (Q18)",
+          "Fan of Wisconsin Badgers (winter basketball), Milwaukee Brewers (summer baseball), Green Bay Packers (never missing a Sunday game) (seed sports_persona, Q05)",
+          "Pays ~$200/year in running registrations April-October (Q59)",
+          "Watches Packers or Brewers with Grandpa Joe during biweekly visits (Q05)"
+        ],
+        "evidence": "Q01, Q05, Q07, Q15, Q18, Q31, Q33, Q48, Q59"
+      },
+      "nature_and_outdoors": {
+        "summary": "Outdoor engagement is local and routine-integrated: Lake Mendota running, community-plot gardening, Door County lakeside getaways, and weekend outdoor-sports fandom rhythms.",
+        "details": [
+          "Regular runs around Lake Mendota and Picnic Point (Q01, Q07)",
+          "Drives to Lake Mendota for long runs; neighborhood sidewalk runs for short days (Q08)",
+          "Maintains 4x8 ft raised-bed vegetable garden; gives August tomatoes to mother (Q17)",
+          "Saturday afternoon garden maintenance April-October (Q17)",
+          "Weekend Door County lakeside getaways (Q67)",
+          "Grew up valuing Midwestern outdoor recreation and local farmers markets (seed cultural_background)"
+        ],
+        "evidence": "Q01, Q07, Q08, Q17, Q67"
+      },
+      "technology": {
+        "summary": "Pragmatic, moderate tech user: iPhone with screen-time limits, Strava for running, Insight Timer for meditation, TurboTax Free for taxes, bullet journal preferred over digital planners, unofficial family IT support.",
+        "details": [
+          "Uses iPhone with screen-time limits enforced (Q48)",
+          "Apps: Instagram (primary social), Facebook (minimal, Marketplace), TikTok (~20 min/day), Strava (running), Insight Timer (meditation), Discord (Runners Club of ~50 members) (Q48, Q50)",
+          "Deleted Twitter/X in 2023 (Q48)",
+          "Unofficial IT help for parents' Wi-Fi and iPad (weekly FaceTime) (Q17)",
+          "Uses TurboTax Free for tax filing (Q75)",
+          "Uses Ally high-yield savings and Fidelity Roth IRA (Q61)",
+          "Tracks budget in a spreadsheet in addition to bullet journal (Q57)",
+          "Prefers paper bullet journal to digital productivity apps (Q01, Q03)"
+        ],
+        "evidence": "Q01, Q03, Q17, Q48, Q50, Q57, Q61, Q75"
+      },
+      "community_and_civic": {
+        "summary": "Engaged local civic participant: consistent voter, small-dollar donor to local candidate and local racial-equity org, reliable family caregiver with monthly financial support to grandfather, moderate Democrat with nuanced policy positions on labor, guns, abortion, immigration, and police reform.",
+        "details": [
+          "Votes every presidential and midterm in Dane County, mostly in-person, occasional absentee (Q23)",
+          "Missed last spring primary for state supreme court due to opener shift (feels regret) (Q23)",
+          "Researches via Wisconsin State Journal endorsements and Ballotpedia; tracks local mayor and alder races (Q23)",
+          "Donated $40 to local alderperson campaign last fall — first political donation ever (Q25)",
+          "Small donation to Freedom Inc. (Madison) during 2020 racial-justice movement (Q29)",
+          "Two-to-three GoFundMe donations for coworker funeral costs and parish family medical needs (Q49)",
+          "Contributes ~$100/month to grandfather's assisted-living costs (Q40)",
+          "Member, Madison Runners Club (~50-member Discord) (Q07, Q48)",
+          "Historic parish ties: St. Maria Goretti parish (now infrequent attendance) (Q47)",
+          "Once voted for moderate Republican in a local county board race (Q95)",
+          "Strongly pro-choice (Q24)",
+          "Pro-labor, would support workplace unionization (Q24, Q25, Q66)",
+          "Pro-immigration, citing grandparent immigrant experience (Q24)",
+          "Pro-background-checks on guns; moderate gun position — dad hunts, grew up around rifles in locked cabinet, but opposes AR-15-style weapons (Q24)",
+          "Supports police accountability reforms and Madison police oversight board; favors combined policing/mental-health co-response model over 'defund' approach (Q25, Q27)",
+          "Skeptical of both parties on healthcare; deeply concerned about elder-care affordability (grandpa's $6,200/month assisted living) (Q25, Q40)",
+          "Skeptical of performative online leftism; prefers local civic action to social-media politics (Q24, Q25)",
+          "Admires Senator Tammy Baldwin (Q96)"
+        ],
+        "evidence": "Q07, Q23, Q24, Q25, Q27, Q29, Q40, Q47, Q48, Q49, Q66, Q95, Q96"
+      },
+      "music": {
+        "summary": "Midwestern indie-folk and singer-songwriter palette with classic-rock undertones; Bon Iver and John Prine are canonical favorites.",
+        "details": [
+          "Favorite artists: John Prine (lyrical storytelling), Bon Iver (atmospheric indie folk) (seed arts_persona)",
+          "Attended Bon Iver concert at The Sylvee (Madison) (Q83)",
+          "Listens to classic rock (seed hobbies)"
+        ],
+        "evidence": "Q83"
+      },
+      "fashion_and_appearance": {
+        "summary": "Low-maintenance, practical, and athletic-skewed appearance norms with regular grooming rituals; branded running gear (Brooks), standing salon cadence with best friend, no mention of fashion-forward spending.",
+        "details": [
+          "Brooks Glycerin running shoes with custom insoles (Q33)",
+          "Trail-running shoes (noted shared choice with Becca on first meeting) (Q07)",
+          "Standing six-week pedicure with best friend Lauren (Q07)",
+          "Work uniform implied by counter-worker role (no mention of fashion interest)",
+          "Practical-living ethos from Midwestern Italian-American Catholic upbringing — 'modest, reliable living' (seed cultural_background)"
+        ],
+        "evidence": "Q07, Q33"
+      },
+      "cultural_and_linguistic": {
+        "summary": "Second-generation Italian-American, Wisconsin-born English monolingual with active Italian-American cultural practice (food, rituals, Catholic cultural identity) and strong Madison/Midwestern regional identity.",
+        "details": [
+          "Second-generation Italian-American; paternal grandparents immigrated from Bari, Italy in the 1960s (Q01)",
+          "Born in Madison, WI at Meriter Hospital; lifelong Madison resident (Q86, Q87, Q97)",
+          "Culturally Roman Catholic, baptized and confirmed, lapsed in practice, culturally identifies 'Catholic' on forms (Q47, Q94)",
+          "Active Italian-American food traditions: homemade tagliatelle, red gravy, bracciole, Sunday family meals (Q01)",
+          "Italian cemetery ritual: leaving bread and salt at grandmother's grave (Q44)",
+          "Aware of Italian jure sanguinis citizenship option; has not pursued it (Q86)",
+          "Identifies racially as White, non-Hispanic (Q88, Q89)",
+          "Language: English monolingual (implied; no other language mentioned)",
+          "Father Frank holds Associate's degree from Madison College in HVAC tech with EPA 608 and NATE certifications (Q100)",
+          "Mother Teresa has high school diploma, no college; retired 2023 from dental office (Q101, Q103)",
+          "Grandfather Joe served in U.S. Army, Korean War (Q93)"
+        ],
+        "evidence": "Q01, Q44, Q47, Q86, Q87, Q88, Q89, Q93, Q94, Q97, Q100, Q101, Q103"
+      },
+      "life_events_and_transitions": {
+        "summary": "Key life transitions center on 2020 breakup-and-career-double-down, grandmother's 2022 death, 2023 health rehab, 2025-26 promotion track, and 2026 return to school.",
+        "details": [
+          "Born July 22, 1997 at Meriter Hospital, Madison, WI (Q85, Q87)",
+          "2015: Graduated Memorial High School, Madison (Q01, Q90)",
+          "2015-~2021: Series of counter jobs starting with Culver's; settled at current store ~2020-21 (Q01)",
+          "Spring 2020: Breakup with Kyle (nearly 3-year relationship) during pandemic shutdown; chose to double down at work via GM Denise's offer rather than return home for nursing school (mom's preference) (Q01, Q02)",
+          "2020: Started bullet journaling Ryder Carroll method (Q01)",
+          "Summer 2021: Joined Madison Runners Club (Q07)",
+          "2022: Mother's benign breast lump scare; grandmother Nonna's death October 2022 (vascular dementia, final 3 years) (Q35)",
+          "November 2024: Two-year anniversary grief episode — cried in walk-in cooler at work, took half day, drove to cemetery in Middleton with bread and salt (Q44)",
+          "Early 2023: Six CBT sessions with Dr. Chen through EAP (Q45)",
+          "2023: Mother Teresa retired from dental front office after ~20 years (Q103)",
+          "Summer 2023: Plantar fasciitis and PT rehab; out of running ~3 months (Q33)",
+          "June 2023: Moved into current 1BR apartment (Q08)",
+          "2023: Dated Ben, carpenter, 8 months (ended amicably) (Q05)",
+          "2023: Paid off 2016 Honda Civic (Q63)",
+          "2024: GERD diagnosis (Q31)",
+          "January 2026: Started training new hires; started strength training; started Insight Timer meditation (Q18, Q50)",
+          "Anticipated 2026: Shift supervisor promotion; Fall 2026 Madison College enrollment; ServSafe Manager certification (Q01, Q91, Q92)",
+          "Longer horizon: Kyoto trip ~2028; small condo purchase (10% down); 1-2 children age 32-33; diner ownership (Q62, Q108)",
+          "Childhood pet: golden retriever Biscuit, passed 2019 (Q99)"
+        ],
+        "evidence": "Q01, Q02, Q05, Q07, Q08, Q18, Q31, Q33, Q35, Q44, Q45, Q50, Q62, Q63, Q85, Q87, Q90, Q91, Q92, Q99, Q103, Q108"
+      },
+      "media_and_information_diet": {
+        "summary": "Curated, moderately skeptical news diet skewed toward NPR, local Wisconsin print, and public-health sources; minimized political-news social intake; entertainment social feeds on Instagram and TikTok.",
+        "details": [
+          "Primary news: NPR (including Code Switch), Wisconsin State Journal (especially endorsements) (Q26, Q42, Q23)",
+          "Public health info: personal doctor, CDC, Public Health Madison and Dane County (Q42)",
+          "Muted most news accounts on Instagram; deleted Twitter/X in 2023 (Q48)",
+          "Scrolls TikTok ~20 min/day (recipes and comedy) (Q48)",
+          "Facebook primarily for Marketplace and family photos (Q48)",
+          "Ballotpedia used for down-ballot research (Q23)",
+          "Does not trust random Facebook health content; does not trust political social-media ecosystem (Q42, Q48)",
+          "Reading stack: self-help and practical nonfiction; anti-racism texts in 2020 (Coates, Kendi) (Q15, Q26)",
+          "Instagram posts ~once/week: running photos, garden tomatoes, dinners (Q48)",
+          "Morning coffee and pre-bed scrolling ~15 minutes each; screen-time limits enforced (Q48)"
+        ],
+        "evidence": "Q15, Q23, Q26, Q42, Q48"
+      }
+    },
+
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Mary Alberti is a 28-year-old white, non-Hispanic, second-generation Italian-American single woman, born July 22, 1997 at Meriter Hospital in Madison, WI, with an unbroken lifelong Madison residence (Q85, Q86, Q87, Q88, Q89, Q97). She holds a high-school diploma from Memorial High School (2015), works full-time (38-40 hrs/wk) as a front-counter crew/lead at a regional fast-casual chain earning ~$2,840/mo gross, and is an upwardly mobile 'routinized working-class' profile planning Fall 2026 part-time enrollment at Madison College for a hospitality management associate's (Q16, Q18, Q68, Q72, Q76, Q90, Q91). She lives alone in a $1,185/mo 1BR west-side apartment (53717), is never-married, currently unpartnered, and has no children, with close immediate family — parents Frank and Teresa, brother Anthony in Milwaukee — and intergenerational caregiving obligations to grandfather Joe (Q05, Q08, Q11, Q51, Q58, Q84). She identifies culturally Roman Catholic (lapsed in practice) and as a moderate Democrat, a classic Midwestern upwardly striving second-generation profile (Q47, Q94, Q95).",
+      "behavioral_economist": "Mary exhibits an unusually disciplined, high-salience savings and self-control profile for her income bracket: she pays herself first ($400 to Ally HYSA, $100 to Fidelity Roth, 5% 401(k) with 3% match), maintains multiple labeled sinking funds (car, holiday, tuition, Kyoto, diner), has zero revolving debt, and resolved a $380 surprise brake bill entirely from earmarked cash (Q60, Q61, Q62, Q63, Q82). Her choice architecture is paper-anchored via a Leuchtturm1917 bullet journal and a Sunday-night reconciliation ritual, producing strong habit-stacking across exercise, meditation, meal-prep, and monthly budget reviews (Q01, Q03, Q15, Q17, Q50, Q57). She shows clear loss aversion (guilt over Bon Iver tickets, two-year streak of no credit-card usage as a 'point of pride'), long time-horizon preferences (saving for 2028 Kyoto trip and multi-decade diner goal), and identity-consistent motivation — the 2020 Kyle breakup and Denise's promotion offer triggered a durable identity shift from 'job I'm killing time at' to 'career I own' (Q02, Q60, Q83, Q108). She is peer-influenced positively (Madison Runners Club, Lauren) but resistant to negative peer frames (work-floor political talk, performative social-media politics), a pattern consistent with a moderately conscientious, moderately risk-averse, present-and-future-oriented decision-maker (Q24, Q30, Q77).",
+      "political_scientist": "Mary is a moderate, pragmatic Democrat with weak-to-moderate partisan strength, consistently voting in presidential and midterm federal races and actively researching down-ballot via Ballotpedia and the Wisconsin State Journal endorsements, with one missed spring state-supreme-court primary she regrets (Q23, Q95, Q96). She exhibits civic-economy behavior disproportionate to her income: first-ever political donation of $40 to a local alderperson, small donation to Freedom Inc., and GoFundMe contributions to coworker and parish causes (Q25, Q29, Q49). She expresses high trust in local institutions (Madison police oversight board, Senator Tammy Baldwin, GHC, Public Health Madison and Dane County) and declining trust in national partisan media and performative online politics, having deleted Twitter/X in 2023 and muted news accounts on Instagram (Q24, Q42, Q48, Q96). Her cross-cutting conservative-leaning moves — skepticism of 'defund,' sympathy for police training/mental-health co-response models, pro-labor unionization posture, respect for her Republican father — produce a classic pragmatic, Midwestern, working-class moderate-Democrat profile with limited social-movement participation (listener/reader, not marcher) but high local civic reliability (Q24, Q25, Q27, Q29, Q66).",
+      "psychologist": "Mary presents as high-conscientiousness, moderate-neuroticism, moderate-agreeableness, with introverted-leaning sociability and strong self-regulation — the bullet journal, opener-sleep discipline, thought-records from CBT, and rigid budget rituals together evidence top-decile conscientiousness and internal locus of control (Q01, Q03, Q15, Q45, Q57, Q60). Her emotional architecture is situational-reactive rather than chronic: two discrete depressive episodes (post-2020 breakup; post-2022 grandmother's death with a measurable 2024-anniversary aftershock) were addressed via EAP-delivered CBT, community (running club, Lauren), physical exercise, ritual (cemetery bread-and-salt), and re-engagement with family, with no current diagnostic load and no psychotropic medication (Q31, Q43, Q44, Q45, Q46, Q50). Her self-concept is tightly organized around three explicit values — family, consistency, competence — which function as a coherent motivational hierarchy: competence and consistency are instrumentally ordered under family as the terminal value, an unusually articulate value structure for a 28-year-old (Q109). Relationally she runs a 'wide-periphery, narrow-core' social graph (6 people callable at 2am), shows healthy differentiation from her family of origin while maintaining tight instrumental support (caregiver coordination, monthly financial transfer to grandfather), and displays future-oriented identity crystallization around the diner goal backed by concrete behavioral milestones (ServSafe, Madison College, supervisor promotion), together suggesting strong ego-integrity and adaptive long-horizon agency (Q05, Q07, Q40, Q108, Q109)."
+    },
+
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Runs 15-20 miles per week around Lake Mendota with Madison Runners Club",
+        "ground_truth_label": "Runs 15-20 miles/week with Madison Runners Club around Lake Mendota",
+        "behavioral_evidence_from_interview": ["Q31: 'I run 15-20 miles a week'", "Q01: 'started running around Lake Mendota, joined the Madison Runners Club'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.sports_and_fitness", "preferences.hobbies_and_recreation"]
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Height 5'6\", weight approximately 145 lbs",
+        "ground_truth_label": "5'6\", ~145 lbs",
+        "behavioral_evidence_from_interview": ["Q31: 'I'm 28, 5'6\", about 145 pounds'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Has mild seasonal allergies treated with Zyrtec from April through June",
+        "ground_truth_label": "Mild seasonal allergies managed with Zyrtec April-June",
+        "behavioral_evidence_from_interview": ["Q31: 'mild seasonal allergies — Zyrtec from April through June'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Diagnosed with mild GERD in 2024, managed with occasional omeprazole and reduced coffee/beer intake",
+        "ground_truth_label": "GERD diagnosis 2024, managed with omeprazole and dietary adjustments",
+        "behavioral_evidence_from_interview": ["Q33: 'GERD diagnosis in 2024, which is managed with omeprazole occasionally and watching my coffee intake'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Had plantar fasciitis summer 2023, rehabbed via UW Health PT twice weekly with custom insoles and Brooks Glycerin shoes; fully resolved",
+        "ground_truth_label": "Plantar fasciitis 2023, rehabbed with PT, custom insoles, Brooks Glycerin shoes",
+        "behavioral_evidence_from_interview": ["Q33: 'Plantar fasciitis in the summer of 2023... did PT twice a week at UW Health Rehab, got new running shoes — Brooks Glycerin now — and custom insoles'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.sports_and_fitness", "preferences.fashion_and_appearance"]
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Takes oral contraceptive pill",
+        "ground_truth_label": "On oral contraceptive pill",
+        "behavioral_evidence_from_interview": ["Q31: 'I'm on the pill for birth control'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Primary care at Group Health Cooperative with Dr. Kaufman; annual physical in January, annual dermatology visit",
+        "ground_truth_label": "Primary care at GHC with Dr. Kaufman, annual physical January, annual dermatology",
+        "behavioral_evidence_from_interview": ["Q31: 'Dr. Kaufman at Group Health Cooperative. Annual physical in January, dermatology once a year'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Completed six EAP CBT sessions with Dr. Chen in early 2023 for situational depression after grandmother's death; still uses thought-records technique in bullet journal",
+        "ground_truth_label": "Six EAP CBT sessions with Dr. Chen, early 2023, for post-bereavement depression",
+        "behavioral_evidence_from_interview": ["Q45: 'Six sessions of CBT through EAP in early 2023 with a therapist named Dr. Chen'", "Q45: 'Thought records. I still do them in my bullet journal when I'm spiraling'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Has low-grade money-related generalized anxiety, no current medication",
+        "ground_truth_label": "Low-grade financial anxiety, unmedicated",
+        "behavioral_evidence_from_interview": ["Q45: 'Some generalized anxiety, mostly money-related, low-grade. No meds currently'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Fully vaccinated: COVID series, annual flu shot, childhood vaccines, HPV catch-up at 22, Tdap boosters on schedule; got vaccinated first day eligible",
+        "ground_truth_label": "Fully vaccinated, pro-vaccine, vaccinated first day eligible",
+        "behavioral_evidence_from_interview": ["Q41: 'I'm pro-vaccine, fully. Got the full COVID series, flu shot every fall, all the childhood stuff, HPV catch-up at 22'", "Q41: 'I got vaccinated the first day I was eligible'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Drinks 4-6 craft beers per week; favorites are New Glarus Spotted Cow and Ale Asylum",
+        "ground_truth_label": "Moderate craft-beer drinker, 4-6/week, favors Spotted Cow and Ale Asylum",
+        "behavioral_evidence_from_interview": ["Q38: 'I like craft beer — Spotted Cow, Ale Asylum, anything at a Wisconsin brewery. I'd say four to six beers a week'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Uses cannabis edibles approximately 3 times per year (10mg dose); last use at friend Becca's December birthday party",
+        "ground_truth_label": "Occasional cannabis edible user, ~3x/year, 10mg dose",
+        "behavioral_evidence_from_interview": ["Q39: 'an edible maybe three times a year. Last one was at Becca's birthday in December, 10mg'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Has never smoked cigarettes",
+        "ground_truth_label": "Never smoked cigarettes",
+        "behavioral_evidence_from_interview": ["Q38: 'I don't smoke cigarettes, never have'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Practices daily 10-minute meditation using Insight Timer app since January 2026; misses about two days per week",
+        "ground_truth_label": "Daily 10-minute Insight Timer meditation since January 2026",
+        "behavioral_evidence_from_interview": ["Q50: 'added meditation — ten minutes a morning with the Insight Timer app since January'", "Q50: 'I miss maybe two days a week'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.technology"]
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Takes Vitamin D in winter, magnesium at night, and a daily multivitamin",
+        "ground_truth_label": "Supplements: Vitamin D (winter), magnesium (nightly), multivitamin",
+        "behavioral_evidence_from_interview": ["Q37: 'Vitamin D in winter, magnesium at night, a multivitamin'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Makes homemade tagliatelle and red gravy from scratch; also makes cheddar-crusted bratwurst, poutine with cheese curds, and spiced apple crumble",
+        "ground_truth_label": "Home cooks Italian-American and Midwestern classics from scratch",
+        "behavioral_evidence_from_interview": ["Q01: 'homemade tagliatelle and gravy — real red gravy, not pasta sauce'", "Q01: 'I still make the tagliatelle from scratch maybe once every couple months'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.cultural_and_linguistic"]
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Grows tomatoes, green beans, basil, and rosemary in a raised-bed garden and cooks with them",
+        "ground_truth_label": "Garden-to-table cooking from raised-bed garden (tomatoes, beans, basil, rosemary)",
+        "behavioral_evidence_from_interview": ["Q17: 'tomatoes, green beans, basil, a little rosemary'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.nature_and_outdoors", "preferences.home_and_lifestyle"]
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Does weekly meal-prep every Sunday afternoon",
+        "ground_truth_label": "Sunday afternoon meal prep routine",
+        "behavioral_evidence_from_interview": ["Q15: 'meal-prep Sundays'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Shops at Woodman's on Sunday afternoons and also uses Trader Joe's",
+        "ground_truth_label": "Grocery shops at Woodman's (Sunday) and Trader Joe's",
+        "behavioral_evidence_from_interview": ["Q15: 'grocery run Sunday afternoon at Woodman's'", "Q08: 'Woodman's, Trader Joe's'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Monthly brunches with cousin Gianna at Marigold Kitchen or Short Stack Eatery in downtown Madison",
+        "ground_truth_label": "Monthly brunch with cousin Gianna at Marigold Kitchen or Short Stack Eatery",
+        "behavioral_evidence_from_interview": ["Q06: 'Marigold Kitchen downtown, or Short Stack Eatery if the wait's not insane'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.social_and_relationships"]
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Gets one free meal per shift at work; usually chooses grilled chicken sandwich plus small frozen custard on Fridays",
+        "ground_truth_label": "Free work meal: grilled chicken sandwich + Friday frozen custard",
+        "behavioral_evidence_from_interview": ["Q32: 'I get one free meal per shift, I usually do the grilled chicken sandwich and a small custard on Fridays'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Took a one-week vacation in Door County in September, using PTO",
+        "ground_truth_label": "Annual Door County vacation (lakeside, one week)",
+        "behavioral_evidence_from_interview": ["Q67: 'I took a one-week vacation in September to Door County'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.nature_and_outdoors"]
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Actively saving for a two-week Kyoto trip in cherry blossom season, targeting 2028; current savings at ~$1,200 in a dedicated bucket",
+        "ground_truth_label": "Saving for 2028 Kyoto cherry-blossom trip, ~$1,200 saved in dedicated bucket",
+        "behavioral_evidence_from_interview": ["Q62: 'saving for a trip to Kyoto someday, which is currently at $1,200 in a separate bucket'", "Q62: '2028 maybe. I want to go in cherry blossom season. Two weeks, real trip'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Best friend is Lauren, a dental hygienist, friends since 9th grade at Memorial High; daily contact, standing Wednesday wine nights, six-week pedicure cadence",
+        "ground_truth_label": "Best friend Lauren (dental hygienist, Memorial HS classmate), daily contact",
+        "behavioral_evidence_from_interview": ["Q07: 'My best friend is Lauren — we've been friends since ninth grade at Memorial. She's a dental hygienist, married, no kids yet. We talk daily'", "Q07: 'Wednesday night wine at her place... standing pedicure every six weeks'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Running crew consists of Becca, Priya, and Danielle from Madison Runners Club; Saturday long runs plus post-run brunch",
+        "ground_truth_label": "Running crew: Becca, Priya, Danielle; Saturday long runs and brunch",
+        "behavioral_evidence_from_interview": ["Q07: 'my running crew — Becca, Priya, and Danielle from the Madison Runners Club. We do Saturday long runs and brunch after'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Parents Frank and Teresa Alberti live 15 minutes away on the west side; mother phone contact every other day, Sunday family visits",
+        "ground_truth_label": "Parents Frank and Teresa, 15 min away, frequent contact",
+        "behavioral_evidence_from_interview": ["Q05: 'my parents Frank and Teresa still live in the house I grew up in on the west side, maybe fifteen minutes from my apartment'", "Q05: 'Phone call with my mom every other day'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Brother Anthony is 31, lives in Milwaukee with wife Jenna, son Luca (4), and daughter Sofia (~2); monthly visits and group texts",
+        "ground_truth_label": "Brother Anthony, 31, in Milwaukee with wife Jenna, son Luca (4), daughter Sofia (~2)",
+        "behavioral_evidence_from_interview": ["Q05: 'My brother Anthony's 31, lives in Milwaukee with his wife Jenna and their two kids — Luca who's four and Sofia who's almost two'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Grandfather Joe is 84, in assisted living in Middleton with atrial fibrillation managed by medication; biweekly Sunday visits with biscotti to watch sports; Korean War Army veteran",
+        "ground_truth_label": "Grandfather Joe, 84, Middleton assisted living, afib, Korean War vet",
+        "behavioral_evidence_from_interview": ["Q05: 'my grandpa Joe is still around, he's 84, in an assisted living place in Middleton'", "Q35: 'my grandpa Joe has a heart condition — afib, managed with meds'", "Q93: 'My grandpa Joe, Army, Korea'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Cousin Gianna (26, Rosa's daughter, works at dental lab) is a close companion — monthly brunch, occasional couch-crasher",
+        "ground_truth_label": "Cousin Gianna, 26, dental lab, monthly brunch partner",
+        "behavioral_evidence_from_interview": ["Q06: 'My cousin Gianna — Rosa's daughter — she's 26, we're close, she works at a dental lab'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Never married; wants 1-2 children around age 32-33 within a stable partnership",
+        "ground_truth_label": "Never married, wants 1-2 children at 32-33 in stable partnership",
+        "behavioral_evidence_from_interview": ["Q84: 'Never married'", "Q05: 'I want one or two, but not till I'm in a stable partnership... 32, 33 maybe'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Has six people she would call at 2am in an emergency",
+        "ground_truth_label": "Narrow-core social circle: 6 people callable at 2am",
+        "behavioral_evidence_from_interview": ["Q07: 'I have maybe six people I'd call at 2am if something went wrong'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Rents a one-bedroom apartment near High Point Road, 53717, for $1,185/month with a $45 increase next lease cycle",
+        "ground_truth_label": "1BR apartment, High Point Rd area, $1,185/mo, $45 increase upcoming",
+        "behavioral_evidence_from_interview": ["Q08: 'I pay $1,185 for the one-bedroom'", "Q58: 'Rent's going up $45 this cycle'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Has lived in current apartment for three years (signed June 2023)",
+        "ground_truth_label": "3 years in current apartment since June 2023",
+        "behavioral_evidence_from_interview": ["Q08: 'Three years this June'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "On waitlist at Dane County Humane Society for tabby cat adoption; delaying until supervisor promotion stabilizes work hours",
+        "ground_truth_label": "Waitlisted for tabby cat at Dane County Humane, delaying until promotion",
+        "behavioral_evidence_from_interview": ["Q11: 'I've been on a shelter waitlist at Dane County Humane for a tabby'", "Q11: 'I want to wait till I'm supervisor and my hours are more consistent'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Drives a paid-off 2016 Honda Civic",
+        "ground_truth_label": "Owns paid-off 2016 Honda Civic",
+        "behavioral_evidence_from_interview": ["Q43: 'my car's a 2016 Civic'", "Q63: 'Car was paid off in 2023'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Monthly budget review on the last Saturday of every month with bullet journal and bank statements",
+        "ground_truth_label": "Monthly budget reconciliation, last Saturday, journal + bank statements",
+        "behavioral_evidence_from_interview": ["Q17: 'I do a monthly budget review, last Saturday of the month, I sit down with my journal and my bank statements and reconcile everything'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Emergency fund at approximately 4 months of expenses, with a target of 6 months",
+        "ground_truth_label": "Emergency fund ~4 months expenses, target 6 months",
+        "behavioral_evidence_from_interview": ["Q62: 'The rainy-day fund is at about four months of expenses — I want six'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Pays herself first each paycheck: $400 to Ally HYSA and $100 to Fidelity Roth IRA via automation",
+        "ground_truth_label": "Pay-yourself-first: $400/paycheck to Ally, $100/paycheck to Roth",
+        "behavioral_evidence_from_interview": ["Q61: '$400 to Ally, $100 to the Roth, then I spend the rest. If it's not automated it doesn't happen'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Aspires to move to Schenk-Atwood or Tenney-Lapham neighborhoods closer to Madison isthmus when financially able",
+        "ground_truth_label": "Aspirational move to Schenk-Atwood or Tenney-Lapham neighborhoods",
+        "behavioral_evidence_from_interview": ["Q10: 'maybe Schenk-Atwood or Tenney-Lapham when I can afford it'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Fan of Wes Anderson films",
+        "ground_truth_label": "Wes Anderson film fan",
+        "behavioral_evidence_from_interview": ["seed arts_persona: 'classic cinematography of Wes Anderson'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.arts_and_culture"]
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Attended a Bon Iver concert at The Sylvee in Madison; felt guilty about the splurge for two weeks",
+        "ground_truth_label": "Attended Bon Iver concert at The Sylvee; guilt over spending",
+        "behavioral_evidence_from_interview": ["Q83: 'I bought concert tickets to Bon Iver at the Sylvee last year and felt guilty for two weeks'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.music", "preferences.arts_and_culture"]
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Solves Sudoku puzzles regularly; Thursday night reading-plus-Sudoku routine before bed",
+        "ground_truth_label": "Regular Sudoku habit, Thursday night routine",
+        "behavioral_evidence_from_interview": ["Q15: 'Thursday I usually do Sudoku and read for an hour before bed'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.hobbies_and_recreation"]
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Scrolls TikTok approximately 20 minutes per day for recipes and comedy; has screen-time limits enforced on phone",
+        "ground_truth_label": "TikTok ~20 min/day (recipes, comedy), screen-time limits enforced",
+        "behavioral_evidence_from_interview": ["Q48: 'TikTok I scroll maybe 20 minutes a day, recipes and dumb comedy'", "Q48: 'I have screen time limits set on my phone'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.technology", "preferences.media_and_information_diet"]
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Bullet journals in a Leuchtturm1917 dot grid using full Ryder Carroll method since 2020; nightly ~15-minute entry; archives all filled journals in a plastic bin under bed",
+        "ground_truth_label": "Bullet journalist: Leuchtturm1917 dot grid, Ryder Carroll method, since 2020, nightly",
+        "behavioral_evidence_from_interview": ["Q01: 'an actual Leuchtturm1917 with the dot grid, full Ryder Carroll method'", "Q15: 'I journal every night for like fifteen minutes'", "Q03: 'I keep all my old journals in a plastic bin under my bed'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Does twice-weekly strength training at Anytime Fitness (Tuesday/Thursday) since January 2026",
+        "ground_truth_label": "Strength training at Anytime Fitness, 2x/week (Tue/Thu), since Jan 2026",
+        "behavioral_evidence_from_interview": ["Q18: 'I also started a twice-weekly strength training thing at Anytime Fitness — Tuesday and Thursday afternoons'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.sports_and_fitness"]
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Earns $16.50/hour; shift supervisor promotion would bump to ~$19.75/hour plus monthly metrics bonus",
+        "ground_truth_label": "$16.50/hr current; $19.75/hr + bonus at supervisor",
+        "behavioral_evidence_from_interview": ["Q16: '$16.50 an hour right now. Supervisor would bump me to about $19.75 plus a small monthly bonus tied to store metrics'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Gross income approximately $2,840/month, net approximately $2,250 after taxes, insurance, and 401(k)",
+        "ground_truth_label": "Gross ~$2,840/mo, net ~$2,250/mo",
+        "behavioral_evidence_from_interview": ["Q72: 'Gross about $2,840, net about $2,250 after taxes, insurance premium, and 401(k)'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Works 38-40 hours/week, paid bi-weekly on Fridays via direct deposit to GHC Credit Union",
+        "ground_truth_label": "38-40 hrs/wk, bi-weekly Friday direct deposit to GHC Credit Union",
+        "behavioral_evidence_from_interview": ["Q68: '38 to 40'", "Q73: 'Bi-weekly, Fridays'", "Q73: 'GHC Credit Union'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Benefits include GHC HMO health insurance, 401(k) with 3% employer match (contributes 5%), 10 PTO days + 3 sick days, no paid family leave",
+        "ground_truth_label": "Benefits: GHC HMO, 401(k) 5%/3% match, 10 PTO + 3 sick, no family leave",
+        "behavioral_evidence_from_interview": ["Q76: 'GHC HMO, 401(k) with 3% match, 10 PTO + 3 sick, no paid family leave'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Workplace is non-unionized; would support unionization if organized",
+        "ground_truth_label": "Non-union workplace, pro-unionization",
+        "behavioral_evidence_from_interview": ["Q66: 'not unionized... I've thought about whether I'd support one and I think I probably would'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.community_and_civic"]
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Career ladder: crew member -> shift supervisor -> restaurant manager -> own small family-style diner",
+        "ground_truth_label": "Career trajectory: crew -> supervisor -> manager -> diner owner",
+        "behavioral_evidence_from_interview": ["Q01: 'trying to get promoted to shift supervisor this year, and the long game is I want to open a little diner someday'", "Q108: 'the diner, open and running, in or near Madison'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Enrolling Fall 2026 at Madison College part-time in hospitality management associate's program; first course is Intro to Hospitality Management",
+        "ground_truth_label": "Fall 2026 Madison College, hospitality management associate's, part-time",
+        "behavioral_evidence_from_interview": ["Q91: 'enrolled for fall 2026 at Madison College part-time'", "Q91: 'Intro to Hospitality Management'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Actively studying for ServSafe Manager certification (self-paced)",
+        "ground_truth_label": "Studying for ServSafe Manager cert, self-paced",
+        "behavioral_evidence_from_interview": ["Q92: 'I'm studying for ServSafe Manager but that's self-paced'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Uses Strava to track runs",
+        "ground_truth_label": "Tracks runs on Strava",
+        "behavioral_evidence_from_interview": ["Q48: 'I'm on Strava for my runs'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.technology"]
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Fan of Wisconsin Badgers basketball (winter), Milwaukee Brewers baseball (summer), and Green Bay Packers football (never misses a Sunday game)",
+        "ground_truth_label": "Wisconsin sports fan: Badgers basketball, Brewers baseball, Packers football",
+        "behavioral_evidence_from_interview": ["Q05: 'we watch the Packers or the Brewers depending on season'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Uses iPhone with screen-time limits enforced; scrolls Instagram and TikTok morning and before bed (~15 min each)",
+        "ground_truth_label": "iPhone user, screen-time limits, morning/bedtime scrolling ~15 min each",
+        "behavioral_evidence_from_interview": ["Q48: 'I have screen time limits set on my phone'", "Q48: 'Morning coffee and before bed, about 15 minutes each'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.media_and_information_diet"]
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Deleted Twitter/X in 2023",
+        "ground_truth_label": "Deleted Twitter/X in 2023",
+        "behavioral_evidence_from_interview": ["Q48: 'No Twitter/X, I deleted it in 2023'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.media_and_information_diet"]
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Provides unofficial IT support for parents' Wi-Fi and iPad via weekly FaceTime calls on Sundays",
+        "ground_truth_label": "Unofficial family IT support, weekly FaceTime for parents' tech issues",
+        "behavioral_evidence_from_interview": ["Q17: 'I'm the unofficial IT person for my parents, which means a FaceTime every Sunday about their Wi-Fi or their iPad'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Votes every presidential and midterm election in Dane County, mostly in-person; missed last spring primary due to work shift (regrets it)",
+        "ground_truth_label": "Consistent presidential/midterm voter, Dane County; missed one spring primary",
+        "behavioral_evidence_from_interview": ["Q23: 'I vote every presidential and every midterm'", "Q23: 'I skipped the last spring primary for state supreme court, which I feel bad about'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Made first political donation ever — $40 to local alderperson's campaign last fall",
+        "ground_truth_label": "First political donation: $40 to local alderperson campaign",
+        "behavioral_evidence_from_interview": ["Q25: 'I donated $40 to our alderperson's campaign last fall, which is the first political donation I've ever made'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Contributes approximately $100/month to grandfather Joe's assisted-living costs (symbolic contribution)",
+        "ground_truth_label": "Contributes ~$100/mo to grandfather's assisted living",
+        "behavioral_evidence_from_interview": ["Q40: 'about $100 a month. It's symbolic more than substantive, but it matters to me'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Strongly pro-choice",
+        "ground_truth_label": "Pro-choice",
+        "behavioral_evidence_from_interview": ["Q24: 'I'm pretty strongly pro-choice'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Pro-background-checks on guns; grew up around rifles in a locked cabinet with a hunting father; opposes AR-15-style weapons",
+        "ground_truth_label": "Pro-background-checks, moderate on guns, opposes AR-15s",
+        "behavioral_evidence_from_interview": ["Q24: 'my dad hunts, I grew up around rifles in a locked cabinet, but I think background checks are obvious and I don't get the AR-15 thing'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Pro-immigration, citing grandparent immigrant experience as formative",
+        "ground_truth_label": "Pro-immigration, informed by family immigrant history",
+        "behavioral_evidence_from_interview": ["Q24: 'On immigration I'm pro, my grandparents were immigrants'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Supports police accountability reforms and Madison's police oversight board; favors combined policing and mental-health co-response model over 'defund' approach",
+        "ground_truth_label": "Pro police reform, pro oversight board, anti-defund, pro mental-health co-response",
+        "behavioral_evidence_from_interview": ["Q27: 'local stuff, like our police oversight board in Madison, is where actual progress happens'", "Q25: 'let's fund training and mental health response together'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Skeptical of both parties on healthcare; deeply concerned about elder-care affordability (grandfather's assisted living costs ~$6,200/month)",
+        "ground_truth_label": "Bipartisan healthcare skepticism, elder-care affordability concern",
+        "behavioral_evidence_from_interview": ["Q25: 'I've also gotten more skeptical of both parties on healthcare. My grandpa's assisted living bills are insane'", "Q40: 'it's around $6,200 a month'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Admires Senator Tammy Baldwin",
+        "ground_truth_label": "Admires Senator Tammy Baldwin",
+        "behavioral_evidence_from_interview": ["Q96: 'Tammy Baldwin, our senator. She's the real deal for Wisconsin'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Favorite musicians are John Prine (lyrical storytelling) and Bon Iver (atmospheric indie folk); also listens to classic rock",
+        "ground_truth_label": "Favorite artists: John Prine, Bon Iver; also listens to classic rock",
+        "behavioral_evidence_from_interview": ["seed arts_persona: 'the lyrical storytelling of John Prine, the atmospheric indie folk of Bon Iver'", "Q83: Bon Iver concert at The Sylvee"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.arts_and_culture"]
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Wears Brooks Glycerin running shoes with custom insoles; also has trail-running shoes",
+        "ground_truth_label": "Brooks Glycerin + custom insoles; trail shoes",
+        "behavioral_evidence_from_interview": ["Q33: 'got new running shoes — Brooks Glycerin now — and custom insoles'", "Q07: 'Becca showed up in the same trail shoes as me'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.sports_and_fitness"]
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Standing six-week pedicure appointment with best friend Lauren",
+        "ground_truth_label": "Six-week pedicure cadence with Lauren",
+        "behavioral_evidence_from_interview": ["Q07: 'a standing pedicure every six weeks'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Second-generation Italian-American; paternal grandparents immigrated from Bari, Italy in the 1960s",
+        "ground_truth_label": "Second-gen Italian-American, grandparents from Bari, 1960s",
+        "behavioral_evidence_from_interview": ["Q01: 'my grandparents came over from Bari in the sixties'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Culturally Roman Catholic — baptized, confirmed at St. Maria Goretti parish; lapsed in practice, attends Mass only on Christmas Eve and Easter with family",
+        "ground_truth_label": "Culturally Catholic, lapsed, Christmas/Easter attendance only",
+        "behavioral_evidence_from_interview": ["Q47: 'I was raised Roman Catholic — St. Maria Goretti parish, baptized, confirmed'", "Q47: 'My family still goes on Christmas Eve and Easter, and I go with them. But I'd call myself a lapsed Catholic'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Practices Italian cemetery ritual of leaving bread and salt at grandmother's grave",
+        "ground_truth_label": "Italian cemetery ritual: bread and salt at Nonna's grave",
+        "behavioral_evidence_from_interview": ["Q44: 'Italian thing. You leave bread and salt'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.food_and_dining"]
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Aware of Italian jure sanguinis citizenship option but has not pursued it",
+        "ground_truth_label": "Eligible for Italian jure sanguinis citizenship, not pursued",
+        "behavioral_evidence_from_interview": ["Q86: 'I could get jure sanguinis but I haven't pursued it. It's on a list'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Born July 22, 1997 at Meriter Hospital, Madison, WI; lifelong Madison resident",
+        "ground_truth_label": "DOB July 22, 1997, Meriter Hospital, Madison; lifelong resident",
+        "behavioral_evidence_from_interview": ["Q85: 'July 22, 1997'", "Q87: 'Madison, Wisconsin. Meriter Hospital'", "Q87: '28 years in Madison'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.cultural_and_linguistic"]
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Spring 2020: breakup with Kyle (nearly 3-year relationship) during pandemic; chose to double down on food service career rather than pursue nursing school (mother's preference)",
+        "ground_truth_label": "2020 Kyle breakup + career-doubling-down crossroads",
+        "behavioral_evidence_from_interview": ["Q01: 'I broke up with a boyfriend of almost three years right before the pandemic, his name was Kyle'", "Q02: 'One path was moving back in with my parents and maybe going back to school for nursing... The other was doubling down on food service'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Grandmother Nonna died October 2022 after three years of vascular dementia; mother's benign breast lump scare same year",
+        "ground_truth_label": "Nonna's death October 2022 (vascular dementia); mom's breast lump scare 2023",
+        "behavioral_evidence_from_interview": ["Q35: 'Nonna had vascular dementia the last three years of her life... She passed in October 2022'", "Q35: 'my mom had a benign breast lump scare in 2023'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "November 2024: two-year anniversary grief episode for Nonna — cried in walk-in cooler at work, took half day, drove to cemetery in Middleton with bread and salt",
+        "ground_truth_label": "2024 Nonna anniversary grief episode: cried at work, cemetery visit",
+        "behavioral_evidence_from_interview": ["Q44: 'Last November... I cried at work on a Tuesday afternoon in the walk-in cooler... drove out to the cemetery in Middleton with a loaf of bread and sat there'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Childhood golden retriever named Biscuit, passed in 2019",
+        "ground_truth_label": "Childhood pet: golden retriever Biscuit, died 2019",
+        "behavioral_evidence_from_interview": ["Q99: 'A golden retriever named Biscuit. Passed in 2019'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Primary news sources are NPR (including Code Switch) and Wisconsin State Journal; uses Ballotpedia for down-ballot research",
+        "ground_truth_label": "News diet: NPR, Wisconsin State Journal, Ballotpedia",
+        "behavioral_evidence_from_interview": ["Q26: 'I listened to a lot of NPR Code Switch'", "Q23: 'I read the Wisconsin State Journal endorsement summaries and I look at Ballotpedia for down-ballot'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Instagram is primary social media; posts ~once/week (running photos, garden tomatoes, dinners); muted most news accounts",
+        "ground_truth_label": "Instagram primary social, ~weekly posts, muted news accounts",
+        "behavioral_evidence_from_interview": ["Q48: 'I use Instagram the most... I post maybe once a week'", "Q48: 'I muted most news accounts on Instagram'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "reprojected",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Classified as 'routinized working-class' demographic profile with upward mobility trajectory",
+        "ground_truth_label": "Upwardly mobile routinized working-class profile",
+        "behavioral_evidence_from_interview": ["Q01: career trajectory from counter to diner ownership", "Q61: disciplined savings on counter-worker wage", "Q91: planned Madison College enrollment"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Maintains multiple labeled sinking funds: car (~$900), holidays, tuition, Kyoto travel, and diner seed money",
+        "ground_truth_label": "Multiple labeled sinking funds: car, holidays, tuition, Kyoto, diner",
+        "behavioral_evidence_from_interview": ["Q60: 'I have a sinking fund in my savings account for car stuff specifically — about $900'", "Q62: 'Kyoto... currently at $1,200 in a separate bucket'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.home_and_lifestyle"]
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Has zero revolving credit-card debt; has not used credit card to cover expenses in two years, considers this a point of pride",
+        "ground_truth_label": "Zero credit-card debt, 2-year no-credit-card streak",
+        "behavioral_evidence_from_interview": ["Q60: 'I never put unexpected stuff on credit'", "Q60: 'Not in two years. That's a personal point of pride'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Shows clear loss aversion: felt guilty for two weeks after purchasing Bon Iver concert tickets",
+        "ground_truth_label": "Loss aversion pattern: guilt over discretionary spending",
+        "behavioral_evidence_from_interview": ["Q83: 'I bought concert tickets to Bon Iver at the Sylvee last year and felt guilty for two weeks'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "The 2020 Kyle breakup and GM Denise's promotion offer triggered a durable identity shift from 'job I'm killing time at' to 'career I actually own'",
+        "ground_truth_label": "2020 identity shift: from temporary job to owned career",
+        "behavioral_evidence_from_interview": ["Q02: 'That's when I stopped thinking of this as a job I was killing time at and started thinking of it as a career I could actually own'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.life_events_and_transitions"]
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Exhibits civic-economy behavior disproportionate to income: political donation, charitable giving, elder-care financial contribution, and GoFundMe participation on a counter-worker's wage",
+        "ground_truth_label": "Disproportionate civic-economy participation for income level",
+        "behavioral_evidence_from_interview": ["Q25: '$40 to our alderperson's campaign'", "Q29: 'Donated once to the Freedom Inc. local group'", "Q40: '$100 a month' to grandfather", "Q49: 'two or three GoFundMe' donations"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Expresses declining trust in national partisan media and performative online politics; high trust in local institutions (GHC, Public Health Madison, police oversight board, Senator Baldwin)",
+        "ground_truth_label": "High local institutional trust, declining national/online media trust",
+        "behavioral_evidence_from_interview": ["Q48: 'I muted most news accounts on Instagram... I got tired of being angry from a phone'", "Q42: 'My doctor, first. CDC and Public Health Madison and Dane County. NPR'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.media_and_information_diet"]
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Limited social-movement participation style: listener/reader, not marcher; did not march during 2020 protests but read, listened, and donated",
+        "ground_truth_label": "Listener/reader social-movement style, not activist/marcher",
+        "behavioral_evidence_from_interview": ["Q29: 'Didn't march. Donated once to the Freedom Inc. local group... Mostly a listener and a reader, not a loud voice'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "reprojected",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Top-decile conscientiousness with internal locus of control, evidenced by bullet journal discipline, opener-sleep regimen (lights out 9:15pm), CBT thought-records, and rigid budget rituals",
+        "ground_truth_label": "High conscientiousness, internal locus of control",
+        "behavioral_evidence_from_interview": ["Q15: 'I'm up at 4:15... 9pm, lights out by 9:15. I'm militant about it'", "Q45: 'Thought records. I still do them in my bullet journal'", "Q57: 'Bullet journal plus a spreadsheet I update Sunday nights'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "reprojected",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Emotional architecture is situational-reactive: two discrete depressive episodes (post-2020 breakup, post-2022 grandmother's death) with no chronic pattern, no psychotropic medication, and a measurable 2024-anniversary aftershock",
+        "ground_truth_label": "Situational-reactive emotional pattern, two depressive episodes, no chronic diagnosis",
+        "behavioral_evidence_from_interview": ["Q45: 'I've had mild depression, situational — after the breakup in 2020, after Nonna died in 2022'", "Q44: November 2024 anniversary grief episode"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "reprojected",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Core values explicitly articulated as family (terminal), consistency (instrumental), and competence (instrumental) — an unusually coherent motivational hierarchy for age 28",
+        "ground_truth_label": "Core values: family (terminal), consistency and competence (instrumental)",
+        "behavioral_evidence_from_interview": ["Q109: 'Family, consistency, and competence'", "Q109: 'Family. Without a doubt. The other two are how I show up for it'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-093",
+        "source": "reprojected",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Runs a 'wide-periphery, narrow-core' social graph with healthy differentiation from family of origin while maintaining tight instrumental support (caregiver coordination, monthly financial transfer)",
+        "ground_truth_label": "Wide-periphery, narrow-core social graph; healthy family differentiation",
+        "behavioral_evidence_from_interview": ["Q07: 'maybe six people I'd call at 2am'", "Q40: '$100 a month' to grandfather", "Q05: extensive family contact but independent living"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-094",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Displays future-oriented identity crystallization around the diner goal backed by concrete behavioral milestones (ServSafe, Madison College, supervisor promotion), suggesting strong ego-integrity and adaptive long-horizon agency",
+        "ground_truth_label": "Future-oriented identity crystallization: diner goal with concrete milestones",
+        "behavioral_evidence_from_interview": ["Q108: 'the diner, open and running'", "Q01: 'I've got a tab in my journal labeled Diner with a savings target'", "Q108: 'I know my own discipline. I know I save. I know I show up'"],
+        "duplicate_of": null,
+        "also_supported_by": ["preferences.life_events_and_transitions"]
+      },
+      {
+        "fact_id": "HF-095",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Father Frank is a Reagan-era Republican who votes Republican but is not MAGA; described as 'old-school Chamber of Commerce' type",
+        "ground_truth_label": "Father Frank is a non-MAGA Republican, Chamber-of-Commerce conservative",
+        "behavioral_evidence_from_interview": ["Q24: 'my dad's a Reagan-era Republican, votes Republican but he's not MAGA, he's more like old-school Chamber of Commerce'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-096",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Mother Teresa votes Democrat; sends Lent reminders and recipe/furniture Marketplace links",
+        "ground_truth_label": "Mother Teresa votes Democrat, sends recipes and Lent reminders",
+        "behavioral_evidence_from_interview": ["Q24: 'My mom votes Democrat'", "Q47: 'She still sends me a Lent reminder every year'", "Q05: 'Mom's a texter, she sends me recipes and Marketplace listings for furniture'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-097",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Donated to Freedom Inc. (Madison) during 2020 racial-justice movement, small amount",
+        "ground_truth_label": "Donated to Freedom Inc. Madison in 2020",
+        "behavioral_evidence_from_interview": ["Q29: 'Donated once to the Freedom Inc. local group in Madison, small amount'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-098",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Feels safe in her neighborhood; runs at 5:30am without discomfort; only incident was a neighbor's car break-in last fall",
+        "ground_truth_label": "Feels safe in neighborhood, runs early morning without issue",
+        "behavioral_evidence_from_interview": ["Q09: 'I feel safe. I run at 5:30 in the morning sometimes and I've never felt uncomfortable'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-099",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Opens the store on opener days: unlocks, disarms alarm, turns on equipment, sets up line, counts the safe, brews coffee; opener schedule is M/W/F, up at 4:15am, at store by 5:15am",
+        "ground_truth_label": "Store opener M/W/F: 4:15am wake, 5:15am arrival, full open routine",
+        "behavioral_evidence_from_interview": ["Q65: 'I open the store on opener days — unlock, disarm alarm, turn on equipment, set up the line, count the safe, brew coffee'", "Q15: 'I'm up at 4:15, at the store by 5:15, we open at 6'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-100",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Opener-day sleep discipline: lights out by 9:15pm on nights before 4:15am wakeups; describes herself as 'militant' about it",
+        "ground_truth_label": "9:15pm bedtime on opener nights, militant sleep discipline",
+        "behavioral_evidence_from_interview": ["Q15: '9pm, lights out by 9:15. I'm militant about it'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-101",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Once voted for a moderate Republican in a local county board race; otherwise votes Democrat reliably",
+        "ground_truth_label": "Cross-party voter: once voted Republican locally, otherwise reliable Democrat",
+        "behavioral_evidence_from_interview": ["Q95: 'I voted for a moderate Republican for a local office once, think it was a county board seat'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-102",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Skeptical of performative online leftism; prefers pragmatic local civic action to social-media politics",
+        "ground_truth_label": "Anti-performative politics, prefers pragmatic local action",
+        "behavioral_evidence_from_interview": ["Q24: 'I don't love a lot of the really-online lefty stuff — I think there's a performative element that turns me off. I'm practical. I want things to actually work'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-103",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Brother Anthony got a DUI in college in 2014; completed diversion program, now expunged",
+        "ground_truth_label": "Brother Anthony: 2014 college DUI, diversion program, expunged",
+        "behavioral_evidence_from_interview": ["Q20: 'My brother Anthony got a DUI in college, 2014. He did the diversion program, it's expunged now'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-104",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Coworker Jess had a drink thrown at her by a belligerent drive-thru customer; MPD responded; store now has a stronger de-escalation script",
+        "ground_truth_label": "Workplace incident: customer aggression at drive-thru, MPD response, new de-escalation protocol",
+        "behavioral_evidence_from_interview": ["Q21: 'a guy get belligerent in the drive-thru last year, threw a drink at Jess. We called MPD'"],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,137 @@
+SYSTEM:
+
+You are generating the five people with whom the subject persona most frequently
+exchanges personal text messages. The generation method is Persona-to-Persona
+(Ge et al., 2024), which derives new personas through interpersonal relationships
+anchored in an existing persona's documented life.
+
+This prompt is self-contained. All required data is included below.
+
+===============================================================================
+INPUT DATA
+===============================================================================
+
+CORRECTED EXTRACTED PROFILE (preferences + summaries, verified):
+{{INSERT_CORRECTED_EXTRACTED_PROFILE_JSON_HERE}}
+
+INTERVIEW TRANSCRIPT (for relationship evidence):
+{{INSERT_TRANSCRIPT_JSON_HERE}}
+
+===============================================================================
+TASK
+===============================================================================
+
+Generate the five people this persona most frequently exchanges PERSONAL text
+messages with. "Personal" means non-work communication that happens on a
+personal messenger (SMS, iMessage, WhatsApp, etc.), not communication on a
+company-owned encrypted messenger or professional channel.
+
+The five people should come from the persona's actual life as revealed in the
+interview. No rigid quota on relationship type — use the most plausible five
+given the interview evidence. For some personas this may be five family members;
+for others it may be a mix of family, close friends, and a neighbor. For personas
+with thin family ties, it may be friends and community contacts exclusively.
+
+Exclude professional contacts whose communication would realistically occur on a
+work-only channel and not appear in the subject's personal message history.
+Include a work contact only if the interview evidence indicates a genuine personal
+friendship that transcends the work relationship.
+
+===============================================================================
+REQUIREMENTS FOR EACH OF THE FIVE PEOPLE
+===============================================================================
+
+1. BASIC DEMOGRAPHICS
+   - Full name, age, gender, occupation, location, education
+   - Relationship to the subject (mother, close friend, neighbor, sibling, etc.)
+
+2. BACKGROUND
+   - How they first met the subject (or family connection)
+   - How long they have known each other
+   - Why they are close (shared values, experiences, proximity)
+
+3. PERSONALITY MINI-PROFILE
+   - Key personality traits (enough to generate a consistent text voice)
+   - Interests and hobbies
+   - Communication style (uses full sentences, slang, emoji, voice notes, etc.)
+
+4. SHARED ACTIVITIES WITH THE SUBJECT
+   - Recurring shared activities
+   - Group settings where they interact
+   - Frequency of in-person contact and messaging
+
+5. RECENT TEXT TOPICS (past 2-3 months)
+   - What they have been messaging about
+   - Any ongoing conversations, plans, or situations
+   - Any shared concerns, running jokes, or recurring themes
+
+===============================================================================
+CONSTRAINTS
+===============================================================================
+
+- Each of the five must be PLAUSIBLE given the subject's life and location.
+- Demographics must be realistic (ages, occupations, locations).
+- The five should not all share the same age, gender, or background — real
+  personal networks are diverse. If the interview evidence supports homogeneity
+  (e.g., a retiree whose close contacts are all similar-age neighbors), follow
+  the evidence.
+- Shared activities must overlap with the subject's preferences as documented
+  in the extracted profile.
+- For personas who are retired, not working, or have thin immediate family,
+  adjust naturally toward neighbors, community contacts, caregivers, or
+  longstanding friends.
+
+===============================================================================
+EVIDENCE REQUIREMENT
+===============================================================================
+
+Every person must cite specific evidence from the interview transcript (Q##
+references) that supports the relationship. If a person was explicitly named
+in the interview, use their documented details. If a person fills a relational
+role that was implied but not named in the interview, explain the inference
+and cite the supporting Q## evidence.
+
+===============================================================================
+OUTPUT FORMAT
+===============================================================================
+
+{
+  "social_circle_metadata": {
+    "participant_id": "{{participant_id}}",
+    "participant_name": "{{name}}",
+    "generation_date": "YYYY-MM-DD",
+    "method": "PersonaHub Persona-to-Persona (Ge et al., 2024)"
+  },
+
+  "social_circle": [
+    {
+      "name": "Full Name",
+      "relationship": "mother | close friend | sibling | neighbor | ...",
+      "demographics": {
+        "age": 0,
+        "gender": "female | male | non-binary",
+        "occupation": "...",
+        "location": "City, State",
+        "education": "..."
+      },
+      "background": {
+        "how_they_met": "...",
+        "years_known": 0,
+        "why_close": "..."
+      },
+      "personality_mini_profile": {
+        "key_traits": ["trait1", "trait2", "trait3"],
+        "interests": ["interest1", "interest2"],
+        "communication_style": "Description of how they text or talk."
+      },
+      "shared_activities": ["activity1", "activity2"],
+      "communication_frequency": "daily | 3-4x/week | weekly | monthly | ...",
+      "recent_text_topics": [
+        "Topic 1 with context.",
+        "Topic 2 with context.",
+        "Topic 3 with context."
+      ],
+      "evidence_from_interview": "Q## reference and direct quote or paraphrase proving this relationship."
+    }
+  ]
+}

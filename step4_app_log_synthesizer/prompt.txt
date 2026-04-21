@@ -1,0 +1,200 @@
+SYSTEM:
+
+You are generating implicit app log fragments for ONE hidden fact about a
+persona. This is the per-fact generation stage of a reverse-inferability
+pipeline: you produce 2-3 messenger or calendar fragments that encode the
+hidden fact through behaviors alone, never through explicit labels or
+categorical words.
+
+Each fragment is a small piece of content (a few messages in a messenger
+session, or one calendar event) that a downstream reviewer could read and
+infer the hidden fact from, when combined with the other fragments for the
+same fact.
+
+You will be called once per hidden fact. You do NOT see the full persona
+profile, the other hidden facts, the full app log, or the filler content.
+You see only this one hidden fact and the persona's corrected social circle.
+This scoping is deliberate — it prevents cross-contamination between facts
+and keeps each fact's evidence localized.
+
+This prompt is self-contained. All required data is inserted below.
+
+===============================================================================
+INPUT DATA
+===============================================================================
+
+HIDDEN FACT (one entry from corrected_extracted_profile.hidden_facts):
+{{INSERT_HIDDEN_FACT_JSON_HERE}}
+
+CORRECTED SOCIAL CIRCLE (from data_samples/input/{persona}_social_circle_
+verification.json, field: corrected_social_circle):
+{{INSERT_CORRECTED_SOCIAL_CIRCLE_JSON_HERE}}
+
+LOG WINDOW (the date range the app log covers):
+  start_date: {{LOG_START_DATE}}
+  end_date:   {{LOG_END_DATE}}
+
+PREVIOUSLY USED CONTACT COUNTS (a dict of contact name -> count of meaningful
+sessions already generated for this persona across all prior hidden facts,
+so you can balance the next fragment's contact selection):
+{{INSERT_CONTACT_USAGE_COUNTS_JSON_HERE}}
+
+===============================================================================
+BEHAVIORS, NEVER LABELS
+===============================================================================
+
+The single most important rule. Under NO circumstance may a fragment contain:
+
+- The clinical / categorical label in `hidden_fact.ground_truth_label`
+  or a close synonym.
+- Any word that directly names the condition, identity, or category that the
+  fact describes (e.g., if the fact is "Generalized Anxiety Disorder +
+  sertraline", fragments may not contain "anxiety", "GAD", "SSRI",
+  "antidepressant", "depression", "mental health", "therapist", "panic
+  attack", or any clinical synonym).
+- Diagnostic or explanatory language from a first-person narrator explaining
+  the fact ("I take my SSRI because of anxiety" is forbidden).
+
+Instead, express the fact through BEHAVIORS and CONTEXT:
+
+- Routine artifacts: medication pick-up at 7:15 AM; biweekly Thursday 3pm
+  video call; refill alert from Walgreens on the 14th.
+- Logistical artifacts: specific named items (Smith & Sons sertraline 50mg
+  generic is allowed as a product name on a pharmacy text, but the INFERENCE
+  must come from the pharmacy context — the fragment itself does not say
+  "for anxiety").
+- Relational artifacts: a family member's offhand supportive line; a friend
+  rescheduling because "Dr. Patel's slot moved"; a calendar entry "weekly
+  video w/ Dr. P" with no explanatory note.
+- Environmental artifacts: cross-app signals that only cohere when combined
+  — a chat says "picked up my Thursday pill" and the calendar has a
+  "Walgreens" event on the same Thursday.
+
+The test: if a reader saw just this fragment on its own, they should be able
+to guess the fact is plausible but not be CERTAIN. Two or three fragments
+together should make the inference clear.
+
+===============================================================================
+FRAGMENT DESIGN RULES
+===============================================================================
+
+Generate 2 or 3 fragments per hidden fact. Distribute them so:
+
+1. At least TWO DIFFERENT SOURCES are used. A source is a unique contact in
+   the social circle, OR the calendar. Never put all fragments for one fact
+   into one messenger thread.
+2. At least ONE fragment is a calendar event when the fact has a temporal
+   dimension (routine, appointment, recurring event). Otherwise messenger
+   fragments only are acceptable.
+3. CONCRETE DETAILS are preserved wherever the hidden_fact provides them:
+   - Dollar amounts (if the fact involves finances) — include the actual
+     number.
+   - Medication names, dosages (but never the reason for taking the med).
+   - Store names, street names, neighborhood names.
+   - Dates and times with specificity (not "next week" — "Thursday the 24th
+     at 6:30 AM").
+   - Named people outside the 5 social circle members (Dr. Patel, coworker
+     "Jamal from data team", neighbor "Mrs. Ito", cat "Oliver").
+4. CONTACT BALANCING: check the `contact_usage_counts` input. Prefer contacts
+   who have FEWER previous meaningful sessions for this persona, so the full
+   log doesn't skew one contact to 60%+. If every contact is balanced, use
+   the social circle member whose `shared_activities` or
+   `recent_text_topics` best matches this hidden fact's subcategory.
+5. TIMESTAMPS: realistic cadence. Messages within a session should have
+   intervals drawn from this distribution: 60% of gaps are 1-5 minutes,
+   25% are 5-15 minutes, 10% are 15-45 minutes, 5% are 1-24 hours
+   (cross-day replies). Never use uniform gaps.
+6. VOICE: each contact should sound like their `personality_mini_profile`
+   and `communication_style` in the social circle. No homogeneous voice.
+7. FRAGMENT ORDER: within the log window, fragments for a fact should
+   distribute across multiple days, not bunch on one day or at the end of
+   the window. If the fact is temporal (routine, recurring), spread the
+   2-3 fragments across at least 2 different weeks.
+
+===============================================================================
+WHAT FRAGMENTS MUST NOT CONTAIN
+===============================================================================
+
+- Explicit labels (see BEHAVIORS, NEVER LABELS above).
+- Meta-commentary about being a persona, a test, or a benchmark.
+- The fact_id, ground_truth_label, or any internal schema field in the text
+  itself. Those go in the fragment's metadata, not the content.
+- Session IDs, event IDs, or other pipeline artifacts in the user-visible
+  text.
+- Small-talk philosophy or essay-style reflection. Filler is generated
+  separately; this prompt produces meaningful fact-bearing content only.
+- Any two fragments that cite identical timestamps or near-identical
+  wording — duplicates will fail verification.
+
+===============================================================================
+OUTPUT FORMAT
+===============================================================================
+
+{
+  "fact_id": "HF-XXX",
+  "ground_truth_label": "{copied verbatim from the input hidden_fact}",
+  "fragments": [
+    {
+      "fragment_id": "HF-XXX-F1",
+      "type": "messenger | calendar",
+      "source": {
+        "contact_name": "social_circle member name (messenger only)",
+        "contact_relationship": "their relationship (messenger only)",
+        "event_category": "appointment | routine | social | errand | travel (calendar only)"
+      },
+      "date": "YYYY-MM-DD",
+      "messages": [
+        {
+          "time": "HH:MM",
+          "sender": "{persona first name} | {contact first name}",
+          "text": "message text — behavioral, no labels"
+        }
+      ],
+      "calendar_event": {
+        "start_time": "HH:MM",
+        "end_time": "HH:MM",
+        "title": "short event title — behavioral",
+        "location": "specific named place",
+        "participants": ["name", "name"],
+        "notes": "optional, brief, behavioral"
+      },
+      "implicit_signal_explanation": "1-2 sentences for the verifier: what
+        behavioral/contextual clue this fragment contributes to inferring
+        the hidden fact. Stripped from the final merged log."
+    }
+  ],
+  "contacts_used": ["list of contact names used across fragments"],
+  "calendar_used": true | false,
+  "dates_touched": ["YYYY-MM-DD", "YYYY-MM-DD"]
+}
+
+Include either `messages` OR `calendar_event` depending on `type`. The other
+field is null.
+
+===============================================================================
+PROCESS
+===============================================================================
+
+1. Read the hidden fact carefully. Identify:
+   - What concrete details are in the fact (medication names, dollar
+     amounts, dates, places, contacts)?
+   - What is the risk of accidentally using a forbidden clinical/categorical
+     word in the fragments?
+   - Which behaviors, routines, or artifacts would naturally surface the
+     fact over 2-3 weeks of normal messaging / calendar activity?
+2. Read the social circle. Identify:
+   - Which contacts have `shared_activities` or `recent_text_topics` that
+     make them natural participants in fragments for this fact.
+   - Which contacts have low previous session counts in
+     `contact_usage_counts` (rebalance opportunity).
+3. Decide: 2 or 3 fragments? Use 3 when the fact has multiple distinct
+   surfaces (e.g., medication + appointment + dietary adjustment). Use 2
+   when the fact is narrow (e.g., "shops at Rochester Public Market
+   Saturdays").
+4. Plan the source distribution: which fragment goes to which contact or
+   calendar, which dates.
+5. Draft each fragment. Verify as you write — every sentence in the text
+   field must pass the "no labels" test.
+6. Emit the output JSON.
+
+End of prompt.

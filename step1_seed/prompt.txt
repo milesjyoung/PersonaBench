@@ -1,0 +1,65 @@
+SELECTION SPECIFICATION — SEED PERSONA
+===============================================================================
+
+Source dataset: NVIDIA Nemotron-Personas-USA
+HuggingFace path: nvidia/Nemotron-Personas-USA
+Dataset card: https://huggingface.co/datasets/nvidia/Nemotron-Personas-USA
+
+===============================================================================
+TASK
+===============================================================================
+
+Select a single persona record from the source dataset and emit it as JSON. The
+record is the seed input for the interview step. No generation is required at
+this step — only dataset lookup and field pass-through.
+
+===============================================================================
+REQUIRED FIELDS IN THE EMITTED JSON
+===============================================================================
+
+- uuid
+- professional_persona
+- sports_persona
+- arts_persona
+- travel_persona
+- culinary_persona
+- persona
+- cultural_background
+- skills_and_expertise
+- skills_and_expertise_list
+- hobbies_and_interests
+- hobbies_and_interests_list
+- career_goals_and_ambitions
+- sex
+- age
+- marital_status
+- education_level
+- bachelors_field
+- occupation
+- city
+- state
+- zipcode
+- country
+
+All values pass through from the source record unchanged. No enrichment, no
+interpretation, no editing.
+
+===============================================================================
+SELECTION CRITERIA
+===============================================================================
+
+Persona records are selected by UUID lookup. The cohort for this benchmark is
+five fixed UUIDs corresponding to personas with distinct demographic and
+narrative profiles. Any downstream reproduction can substitute a different UUID
+to produce a different seed.
+
+===============================================================================
+OUTPUT FORMAT
+===============================================================================
+
+A single JSON object with the fields listed above. One file per persona, named
+using the pattern:
+
+  {first_name_lowercase}_{last_name_lowercase}_seed.json
+
+The file is written to data_samples/output/.

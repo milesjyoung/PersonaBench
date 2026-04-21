@@ -1,0 +1,59 @@
+name: DCO
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+  pull_request_target:
+    types: [opened, synchronize, reopened, edited]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  dco-check:
+    name: Signed-off-by required on every commit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out PR commits
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Verify DCO sign-off on each commit
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          base_sha="${{ github.event.pull_request.base.sha }}"
+          head_sha="${{ github.event.pull_request.head.sha }}"
+
+          echo "Checking commits in range ${base_sha}..${head_sha}"
+
+          missing=()
+          while IFS= read -r sha; do
+            [ -z "$sha" ] && continue
+            msg=$(git log -1 --format=%B "$sha")
+            if ! grep -qE '^[[:space:]]*Signed-off-by:[[:space:]]+.+<.+@.+>[[:space:]]*$' <<<"$msg"; then
+              author=$(git log -1 --format='%an <%ae>' "$sha")
+              short=$(git log -1 --format=%h "$sha")
+              missing+=("${short}  ${author}")
+            fi
+          done < <(git log --format=%H "${base_sha}..${head_sha}")
+
+          if [ ${#missing[@]} -ne 0 ]; then
+            echo
+            echo "::error::The following commits are missing a Signed-off-by line:"
+            for line in "${missing[@]}"; do
+              echo "  - ${line}"
+            done
+            echo
+            echo "Every commit must include a Developer Certificate of Origin sign-off."
+            echo "Add one by re-committing with:  git commit --amend -s   (for the last commit)"
+            echo "or re-sign all PR commits with: git rebase HEAD~N --signoff   (where N = number of commits)"
+            echo "See CONTRIBUTING.md and DCO.txt for details."
+            exit 1
+          fi
+
+          echo "All commits in this pull request have a valid Signed-off-by line."
