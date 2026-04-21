@@ -30,7 +30,13 @@ The current pipeline produces **5 personas end-to-end** for initial validation. 
 
 ## Getting started
 
-Run `generator.py` inside each step folder in order, from step1 through step6. Each step consumes the previous step's output from `data_samples/output/` and writes its own output to `data_samples/output/`. `Top_level_generator.py` at the repo root chains all six steps for a single persona.
+See [RUNNING.md](RUNNING.md) for three supported execution backends:
+
+- **Direct API** — `python Top_level_generator.py` with an Anthropic API key
+- **Vendor CLI** — `python openclaw_pipeline.py` running against a CLI subscription
+- **AI coding agent with subagents** — orchestrate inside Claude Code, CodenX, Antigravity, Cursor Agents, or any agent that exposes a Task / subagent tool
+
+All three produce equivalent outputs given the same seed and model.
 
 ## References
 
