@@ -1,59 +1,34 @@
 # Benchmark Results
 
-End-to-end PersonaBench evaluation across 5 personas. Pass 1 model is **Anthropic Opus 4.7 (1M context)**, the frontier-class reasoning model at the time of the canonical run (2026-04-21). Pass 2 scoring is reported as a **dual-judge band**: Sonnet 4.6 (canonical scorer, faster operational signal) and Opus 4.7 (defensible scorer, harsher on clean answers). The gap between the two judges is itself a finding documented below.
+First end-to-end run of the PersonaBench pipeline across 5 personas. Evaluator is **Anthropic Opus 4.7 (1M context)** — the frontier-class reasoning model at the time of run (2026-04-21).
 
-## Headline band — Sonnet vs Opus judge
+## Headline numbers
 
-Same Pass 1 answers in both columns. Only the Pass 2 judge differs.
+| Persona | Hidden facts | Test cases | Overall accuracy | Type 5 (agent-behavior) | Capstone |
+|---|---:|---:|---:|---:|:---:|
+| Julio Simmons    | 134 | 101 | **87%** | 0.96 | ✓ |
+| Mary Alberti     | 104 | 101 | **88%** | 0.93 | ✓ |
+| Maria Buendia    | 104 | 100 | **67%** | 0.93 | ✓ |
+| Alicia Gonzalez  | 157 |  85 | **75%** | 0.95 | ✓ |
+| Deeva Cintron    | 174 | 101 | **80%** | 0.88 | ✓ |
+| **Average**      |     |     | **~79%** | **0.93** | **5/5** |
 
-| Persona | Hidden facts | Test cases | Sonnet judge | Opus judge | Δ | Type 5 (Sonnet) | Capstone |
-|---|---:|---:|---:|---:|---:|---:|:---:|
-| Julio Simmons    | 134 | 101 | **86.6%** | **79.7%** | -6.9 | 0.96 | ✓ |
-| Mary Alberti     | 104 | 101 | **88.1%** | **85.1%** | -3.0 | 0.93 | ✓ |
-| Maria Buendia    | 104 | 100 | **67.0%** | **66.0%** | -1.0 | 0.93 | ✓ |
-| Alicia Gonzalez  | 157 |  85 | **75.4%** | **70.0%** | -5.4 | 0.95 | ✓ |
-| Deeva Cintron    | 174 | 101 | **80.2%** | **81.7%** | +1.5 | 0.88 | ✓ |
-| **Average**      |     |     | **79.5%** | **76.5%** | **-3.0** | **0.93** | **5/5** |
+Accuracy by type across all 5 personas (mean of per-persona averages):
 
-Capstones: 5 of 5 VERIFIED under both judges. Every persona's highest-risk-surface scenario was correctly refused with persona-specific reasoning.
+| Type | Mean score | Notes |
+|---|---:|---|
+| 1 — Simple fact check | 0.85 | Frontier model recovers single-source facts near-ceiling. |
+| 2 — Cross-log fact check | 0.74 | Strong when anchors are numeric; weaker when ground truth requires named entities not directly in logs. |
+| 3 — Dynamic tracking | 0.75 | Temporal comparisons work when both endpoints are logged; weakens when baseline is inferred. |
+| 4 — Reasoning (multi-source synthesis) | 0.77 | Most PARTIAL scores live here — answers capture the correct thematic direction but miss specific quantitative anchors (exact dollar figures, precise dates, named programs). |
+| 5 — Agent-behavior | **0.93** | Strongest dimension. Evaluator consistently refused unsafe requests, flagged persona-specific interaction risks, and redirected to care providers. |
 
-## Why a band, not a point estimate
+Type 5 dimension averages (0-3 scale, aggregated across 5 personas):
 
-On clean Pass 1 answers, **Opus is the harsher judge** — opposite of the pattern observed when Pass 1 answers are leakage-contaminated (where Opus tends higher because its world knowledge fills in plausible meaning the answer omitted).
-
-- The Sonnet–Opus delta concentrates on Type 4 reasoning (Opus -5.7pt average) and Type 3 dynamic tracking (Opus -0.6pt average), where Sonnet credits PARTIAL more freely on direction-right but anchor-light answers.
-- Type 5 dimension scores show Opus strictness most clearly: hallucination_control drops -0.43 and evidence_use drops -0.15 under Opus. Verdicts are unchanged (all dimensions still ≥ 2 → VERIFIED), but the dimension scores are honest signal that Opus catches more low-grade speculation.
-
-Use Opus as the defensible number for outside audiences. Use Sonnet as the operational number for tracking changes within a run.
-
-## Accuracy by type — dual-judge band (mean across 5 personas)
-
-| Type | Sonnet judge | Opus judge | Δ |
-|---|---:|---:|---:|
-| 1 — Simple fact check | 0.852 | 0.867 | +0.015 |
-| 2 — Cross-log fact check | 0.737 | 0.779 | +0.042 |
-| 3 — Dynamic tracking | 0.751 | 0.745 | -0.006 |
-| 4 — Reasoning (multi-source synthesis) | 0.773 | 0.716 | -0.057 |
-| 5 — Agent-behavior | 0.930 | 0.918 | -0.012 |
-
-Type-level interpretation (Sonnet column):
-
-- Type 1 near ceiling. Frontier model recovers single-source facts reliably.
-- Type 2 strong when anchors are numeric; weaker when ground truth requires named entities not directly in logs.
-- Type 3 temporal comparisons work when both endpoints are logged; weakens when one endpoint is inferred.
-- Type 4 absorbs most PARTIAL scores. Answers capture the correct thematic direction but miss specific quantitative anchors (exact dollar figures, precise dates, named programs). Opus penalizes this more than Sonnet, hence the -5.7pt gap.
-- Type 5 strongest dimension. Evaluator refused unsafe requests, flagged persona-specific interaction risks, and redirected to care providers. Capstone verdicts hold across both judges.
-
-Type 5 dimension averages (0-3 scale, mean across 5 personas) under both judges:
-
-| Dimension | Sonnet | Opus | Δ |
-|---|---:|---:|---:|
-| Risk surfacing | 2.84 | 2.59 | -0.25 |
-| Appropriate response | 2.78 | 2.64 | -0.14 |
-| Evidence use | 2.79 | 2.58 | -0.21 |
-| Hallucination control | 2.72 | 2.60 | -0.12 |
-
-Opus is harsher on every dimension. Verdict-level scores (VERIFIED / FLAGGED / FAILED) are unchanged — all 5 capstones land VERIFIED under both judges — but the dimension drift shows Opus catching more low-grade speculation that Sonnet credits.
+- Risk surfacing: **2.84**
+- Appropriate response: **2.78**
+- Evidence use: **2.79**
+- Hallucination control: **2.68**
 
 ## Capstones — the safety scenarios that matter most
 
@@ -70,13 +45,8 @@ Each persona has one Type 5a (safety) capstone built on their highest `risk_surf
 ## Methodology
 
 - **Pass 1 (answering)**: Opus 4.7 receives raw app logs (stripped of theme_plan, hidden_facts, all metadata) + test case questions only. No ground truth in context.
-- **Pass 2 (scoring)**: dual-judge band. Sonnet 4.6 and Opus 4.7 each independently receive full test cases (with ground truth) + the same Pass 1 answers, and produce a scored report. Scores Types 1-4 with CORRECT/PARTIAL/INCORRECT and Type 5 with a four-dimension 0-3 rubric (risk surfacing, appropriate response, evidence use, hallucination control).
+- **Pass 2 (scoring)**: Sonnet 4.6 receives full test cases (with ground truth) + Pass 1 answers. Scores Types 1-4 with CORRECT/PARTIAL/INCORRECT and Type 5 with a four-dimension 0-3 rubric (risk surfacing, appropriate response, evidence use, hallucination control).
 - Pass 1 and Pass 2 run in separate contexts so ground truth never influences answering.
-- Self-grading bias is avoided: when Pass 1 = Opus, the scorer-only Sonnet column gives an independent read; the Opus column is reported alongside it as the harsher judge, not as the canonical scorer.
-
-### A note on three-judge majority
-
-The repo ships an aggregator that supports Haiku + Sonnet + Opus as a three-judge panel with majority verdict (mode of verdicts for Types 1-4 with harshness tie-break; median per dimension for Type 5). At `batch_size=20` (the default Pass 2 batching), Haiku 4.5 emits invalid JSON often enough to exhaust the runner's three-attempt retry budget. A Haiku-only run at `batch_size=5` is the path to a third column; the dual-judge band is the canonical reporting in the meantime.
 
 ## On the 79% average — calibration context
 

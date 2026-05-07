@@ -173,24 +173,7 @@ def merge_app_log(
     template = fill(template, "{{LOG_END_DATE}}", log_end)
     template = fill(template, "{{INSERT_NEWS_EVENTS_JSON_HERE}}", news_events)
     raw = call_llm(client, model, template)
-    return sanitize_app_log(extract_json(raw))
-
-
-def sanitize_app_log(app_log: dict[str, Any]) -> dict[str, Any]:
-    """Defense-in-depth: strip per-session/per-event `source_fact_ids` so
-    Backend C orchestrators that hand the raw JSON to a Pass 1 subagent
-    cannot accidentally leak fact-anchored sessions to the evaluator.
-    Traceability is preserved via `cross_app_index` only.
-    """
-    messenger = app_log.get("messenger", {})
-    for bucket in ("meaningful_sessions", "filler_sessions", "sessions"):
-        for s in messenger.get(bucket, []) or []:
-            s.pop("source_fact_ids", None)
-    calendar = app_log.get("calendar", {})
-    if isinstance(calendar, dict):
-        for e in calendar.get("events", []) or []:
-            e.pop("source_fact_ids", None)
-    return app_log
+    return extract_json(raw)
 
 
 # ---- entry point ---------------------------------------------------------

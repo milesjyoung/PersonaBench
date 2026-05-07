@@ -46,18 +46,12 @@ STEP6_DIR = REPO_ROOT / "step6_benchmark_runner"
 
 # ----- CLI call -------------------------------------------------------------
 
-def call_claude(prompt: str, model: str | None = None, max_retries: int = 2) -> str:
+def call_claude(prompt: str, max_retries: int = 2) -> str:
     """Call the `claude` CLI with a prompt written to a temp file.
 
     Uses a temp file to dodge Windows cmdline / pipe length limits on long
     prompts (the pipeline's merge prompt can exceed 100KB).
-
-    If `model` is provided, passes `--model {model}` to the CLI so the run is
-    deterministic across CLI default drifts.
     """
-    cmd = [CLAUDE_CMD, "-p"]
-    if model:
-        cmd += ["--model", model]
     last_stderr = ""
     for attempt in range(max_retries + 1):
         tmp = tempfile.NamedTemporaryFile(
@@ -68,7 +62,7 @@ def call_claude(prompt: str, model: str | None = None, max_retries: int = 2) -> 
         try:
             with open(tmp.name, "r", encoding="utf-8") as stream:
                 result = subprocess.run(
-                    cmd,
+                    [CLAUDE_CMD, "-p"],
                     stdin=stream,
                     capture_output=True,
                     timeout=1800,
@@ -153,18 +147,16 @@ def fill_seed_placeholders(template: str, seed: dict) -> str:
 
 # ----- step 2 ---------------------------------------------------------------
 
-def run_step2_gen(seed: dict, output_dir: Path, model: str | None = None) -> Path:
+def run_step2_gen(seed: dict, output_dir: Path) -> Path:
     template = fill_seed_placeholders(load_prompt(STEP2_DIR / "prompt.txt"), seed)
-    raw = call_claude(template, model=model)
+    raw = call_claude(template)
     interview = extract_json(raw)
     out = output_dir / f"{base(extract_name(seed))}_interview.json"
     out.write_text(json.dumps(interview, indent=2, ensure_ascii=False))
     return out
 
 
-def run_step2_verify(
-    seed: dict, interview: dict, output_dir: Path, model: str | None = None
-) -> Path:
+def run_step2_verify(seed: dict, interview: dict, output_dir: Path) -> Path:
     template = fill_seed_placeholders(
         load_prompt(STEP2_DIR / "verification_prompt.txt"), seed
     )
@@ -173,7 +165,7 @@ def run_step2_verify(
     template = fill(
         template, "{{INSERT_EXTRACTED_PROFILE_JSON_HERE}}", interview["extracted_profile"]
     )
-    raw = call_claude(template, model=model)
+    raw = call_claude(template)
     verification = extract_json(raw)
     out = output_dir / f"{base(extract_name(seed))}_verification.json"
     out.write_text(json.dumps(verification, indent=2, ensure_ascii=False))
@@ -183,8 +175,7 @@ def run_step2_verify(
 # ----- step 3 ---------------------------------------------------------------
 
 def run_step3_gen(
-    profile: dict, transcript: list, output_dir: Path, name: str,
-    model: str | None = None,
+    profile: dict, transcript: list, output_dir: Path, name: str
 ) -> Path:
     template = load_prompt(STEP3_DIR / "prompt.txt")
     template = fill(
@@ -193,7 +184,7 @@ def run_step3_gen(
     template = fill(template, "{{INSERT_TRANSCRIPT_JSON_HERE}}", transcript)
     template = template.replace("{{participant_id}}", profile.get("participant_id", ""))
     template = template.replace("{{name}}", profile.get("name", name))
-    raw = call_claude(template, model=model)
+    raw = call_claude(template)
     circle = extract_json(raw)
     out = output_dir / f"{base(name)}_social_circle.json"
     out.write_text(json.dumps(circle, indent=2, ensure_ascii=False))
@@ -201,8 +192,7 @@ def run_step3_gen(
 
 
 def run_step3_verify(
-    profile: dict, transcript: list, circle: dict, output_dir: Path, name: str,
-    model: str | None = None,
+    profile: dict, transcript: list, circle: dict, output_dir: Path, name: str
 ) -> Path:
     template = load_prompt(STEP3_DIR / "verification_prompt.txt")
     template = fill(template, "{{INSERT_TRANSCRIPT_JSON_HERE}}", transcript)
@@ -212,7 +202,7 @@ def run_step3_verify(
     template = fill(template, "{{INSERT_SOCIAL_CIRCLE_JSON_HERE}}", circle)
     template = template.replace("{{participant_id}}", profile.get("participant_id", ""))
     template = template.replace("{{name}}", profile.get("name", name))
-    raw = call_claude(template, model=model)
+    raw = call_claude(template)
     verification = extract_json(raw)
     out = output_dir / f"{base(name)}_social_circle_verification.json"
     out.write_text(json.dumps(verification, indent=2, ensure_ascii=False))
@@ -229,7 +219,6 @@ def run_step4(
     log_start: str,
     log_end: str,
     per_fact_max_attempts: int,
-    model: str | None = None,
 ) -> Path:
     """Per-fact generate-then-verify loop via the CLI, then merge.
 
@@ -276,7 +265,7 @@ def run_step4(
             gen_prompt = fill(
                 gen_prompt, "{{INSERT_CONTACT_USAGE_COUNTS_JSON_HERE}}", contact_usage
             )
-            bundle = extract_json(call_claude(gen_prompt, model=model))
+            bundle = extract_json(call_claude(gen_prompt))
             fragments = bundle.get("fragments", [])
 
             ver_prompt = fill(ver_template, "{{INSERT_FRAGMENTS_JSON_HERE}}", fragments)
@@ -286,7 +275,7 @@ def run_step4(
                 "{{PERSONA_OCCUPATION}}", str(persona["occupation"])
             )
             ver_prompt = ver_prompt.replace("{{PERSONA_LOCATION}}", str(persona["location"]))
-            verification = extract_json(call_claude(ver_prompt, model=model))
+            verification = extract_json(call_claude(ver_prompt))
             last_fragments = fragments
             last_verification = verification
 
@@ -341,19 +330,7 @@ def run_step4(
     merge_prompt = merge_prompt.replace("{{LOG_END_DATE}}", log_end)
     merge_prompt = fill(merge_prompt, "{{INSERT_NEWS_EVENTS_JSON_HERE}}", [])
 
-    app_log = extract_json(call_claude(merge_prompt, model=model))
-    # Defense-in-depth: strip per-session/per-event source_fact_ids so a
-    # Backend C orchestrator that hands the raw JSON to a Pass 1 subagent
-    # cannot accidentally leak fact-anchored sessions. Traceability is
-    # preserved via cross_app_index.
-    messenger = app_log.get("messenger", {})
-    for bucket in ("meaningful_sessions", "filler_sessions", "sessions"):
-        for s in messenger.get(bucket, []) or []:
-            s.pop("source_fact_ids", None)
-    calendar = app_log.get("calendar", {})
-    if isinstance(calendar, dict):
-        for e in calendar.get("events", []) or []:
-            e.pop("source_fact_ids", None)
+    app_log = extract_json(call_claude(merge_prompt))
     out = output_dir / f"{base(name)}_app_logs.json"
     out.write_text(json.dumps(app_log, indent=2, ensure_ascii=False))
     return out
@@ -367,7 +344,6 @@ def run_step5_gen(
     corrected_social_circle: dict,
     output_dir: Path,
     name: str,
-    model: str | None = None,
 ) -> Path:
     template = load_prompt(STEP5_DIR / "prompt.txt")
     template = fill(
@@ -379,7 +355,7 @@ def run_step5_gen(
         "{{INSERT_CORRECTED_SOCIAL_CIRCLE_JSON_HERE}}",
         corrected_social_circle,
     )
-    cases = extract_json(call_claude(template, model=model))
+    cases = extract_json(call_claude(template))
     out = output_dir / f"{base(name)}_test_cases.json"
     out.write_text(json.dumps(cases, indent=2, ensure_ascii=False))
     return out
@@ -391,7 +367,6 @@ def run_step5_verify(
     app_logs: dict,
     output_dir: Path,
     name: str,
-    model: str | None = None,
 ) -> Path:
     template = load_prompt(STEP5_DIR / "verification_prompt.txt")
     template = fill(template, "{{INSERT_TEST_CASES_JSON_HERE}}", test_cases)
@@ -399,7 +374,7 @@ def run_step5_verify(
         template, "{{INSERT_CORRECTED_EXTRACTED_PROFILE_JSON_HERE}}", profile
     )
     template = fill(template, "{{INSERT_APP_LOGS_JSON_HERE}}", app_logs)
-    verification = extract_json(call_claude(template, model=model))
+    verification = extract_json(call_claude(template))
     out = output_dir / f"{base(name)}_test_cases_verification.json"
     out.write_text(json.dumps(verification, indent=2, ensure_ascii=False))
     return out
@@ -408,8 +383,7 @@ def run_step5_verify(
 # ----- step 6 ---------------------------------------------------------------
 
 def run_step6(
-    app_logs_path: Path, test_cases_path: Path, output_dir: Path,
-    model_pass1: str | None = None, model_pass2: str | None = None,
+    app_logs_path: Path, test_cases_path: Path, output_dir: Path
 ) -> int:
     """Delegate to step6_benchmark_runner/generator.py with --openclaw.
 
@@ -426,10 +400,6 @@ def run_step6(
         "--openclaw",
         "--claude-cmd", CLAUDE_CMD,
     ]
-    if model_pass1:
-        cmd += ["--model-pass1", model_pass1]
-    if model_pass2:
-        cmd += ["--model-pass2", model_pass2]
     return subprocess.run(cmd, check=False).returncode
 
 
@@ -442,8 +412,6 @@ def run_pipeline(
     log_start: str = "2026-02-20",
     log_end: str = "2026-04-20",
     per_fact_max_attempts: int = 3,
-    model: str | None = None,
-    judge_model: str | None = None,
 ) -> None:
     seed = json.loads(seed_path.read_text(encoding="utf-8"))
     name = extract_name(seed)
@@ -460,9 +428,9 @@ def run_pipeline(
 
     # Load or generate Step 2 outputs
     if start <= 2 <= stop:
-        interview_path = run_step2_gen(seed, step2_out, model=model)
+        interview_path = run_step2_gen(seed, step2_out)
         interview = json.loads(interview_path.read_text(encoding="utf-8"))
-        verification_path = run_step2_verify(seed, interview, step2_out, model=model)
+        verification_path = run_step2_verify(seed, interview, step2_out)
         verification = json.loads(verification_path.read_text(encoding="utf-8"))
     else:
         interview = json.loads((step2_out / f"{n}_interview.json").read_text(encoding="utf-8"))
@@ -473,9 +441,9 @@ def run_pipeline(
 
     # Step 3
     if start <= 3 <= stop:
-        circle_path = run_step3_gen(profile, transcript, step3_out, name, model=model)
+        circle_path = run_step3_gen(profile, transcript, step3_out, name)
         circle = json.loads(circle_path.read_text(encoding="utf-8"))
-        run_step3_verify(profile, transcript, circle, step3_out, name, model=model)
+        run_step3_verify(profile, transcript, circle, step3_out, name)
 
     circle_verification_path = step3_out / f"{n}_social_circle_verification.json"
     circle_verification = json.loads(circle_verification_path.read_text(encoding="utf-8"))
@@ -487,7 +455,7 @@ def run_pipeline(
     if start <= 4 <= stop:
         run_step4(
             profile, corrected_social_circle, step4_out, name,
-            log_start, log_end, per_fact_max_attempts, model=model,
+            log_start, log_end, per_fact_max_attempts,
         )
 
     app_logs_path = step4_out / f"{n}_app_logs.json"
@@ -499,11 +467,10 @@ def run_pipeline(
         else:
             app_logs = json.loads(app_logs_path.read_text(encoding="utf-8"))
             test_cases_path = run_step5_gen(
-                profile, app_logs, corrected_social_circle, step5_out, name,
-                model=model,
+                profile, app_logs, corrected_social_circle, step5_out, name
             )
             test_cases = json.loads(test_cases_path.read_text(encoding="utf-8"))
-            run_step5_verify(test_cases, profile, app_logs, step5_out, name, model=model)
+            run_step5_verify(test_cases, profile, app_logs, step5_out, name)
 
     test_cases_path = step5_out / f"{n}_test_cases.json"
 
@@ -512,11 +479,7 @@ def run_pipeline(
         if not app_logs_path.exists() or not test_cases_path.exists():
             print("[step6] skipping — required inputs missing")
         else:
-            run_step6(
-                app_logs_path, test_cases_path, step6_out,
-                model_pass1=model,
-                model_pass2=judge_model or model,
-            )
+            run_step6(app_logs_path, test_cases_path, step6_out)
 
     print(f"=== Pipeline complete for {name} ===")
 
@@ -535,16 +498,6 @@ def main() -> None:
     parser.add_argument("--log-start", default="2026-02-20")
     parser.add_argument("--log-end", default="2026-04-20")
     parser.add_argument("--per-fact-max-attempts", type=int, default=3)
-    parser.add_argument(
-        "--model", default=None,
-        help="Model passed to every `claude -p` call (e.g. claude-opus-4-6). "
-        "If omitted, the CLI's configured default is used.",
-    )
-    parser.add_argument(
-        "--judge-model", default=None,
-        help="Model used for Step 6 Pass 2 scoring. Defaults to --model. "
-        "Pass a different model here to keep the scorer independent.",
-    )
     args = parser.parse_args()
 
     if args.start > args.stop:
@@ -556,13 +509,11 @@ def main() -> None:
             run_pipeline(
                 seed_file, args.start, args.stop,
                 args.log_start, args.log_end, args.per_fact_max_attempts,
-                model=args.model, judge_model=args.judge_model,
             )
     elif args.seed:
         run_pipeline(
             args.seed, args.start, args.stop,
             args.log_start, args.log_end, args.per_fact_max_attempts,
-            model=args.model, judge_model=args.judge_model,
         )
     else:
         parser.error("Provide --seed <path> or --all")
