@@ -99,7 +99,6 @@ OUTPUT FORMAT
         "session_id": "M-001",
         "date": "YYYY-MM-DD",
         "contact": "contact name",
-        "source_fact_ids": ["HF-XXX"],
         "messages": [
           { "time": "HH:MM", "sender": "...", "text": "..." }
         ]
@@ -124,8 +123,7 @@ OUTPUT FORMAT
         "title": "...",
         "location": "...",
         "participants": ["..."],
-        "notes": "...",
-        "source_fact_ids": ["HF-XXX"] (empty list if filler calendar item)
+        "notes": "..."
       }
     ]
   },
@@ -174,8 +172,12 @@ fact registry for Step 5. It mirrors the Step 2 schema (fact_id,
 ground_truth_label, category, source_subcategory) and adds the
 `verification` + `embedding_strategy` blocks this step produced.
 
-The `source_fact_ids` on each meaningful session / calendar event lets Step 5
-trace test cases back to the originating hidden facts.
+Traceability from sessions / events back to originating hidden facts is
+carried by `cross_app_index` ONLY. Per-session and per-event `source_fact_ids`
+fields are NOT emitted on `messenger.meaningful_sessions[]`,
+`messenger.filler_sessions[]`, or `calendar.events[]`. Keeping fact IDs out
+of those objects prevents accidental leakage if a Backend C orchestrator hands
+the raw JSON to a Pass 1 subagent that bypasses `strip_to_raw_logs()`.
 
 ===============================================================================
 PROCESS
