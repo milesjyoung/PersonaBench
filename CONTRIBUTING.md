@@ -130,6 +130,8 @@ See the full [DCO text](DCO.txt) for details.
 5. For prompt modifications, include a before/after example of the prompt's output to demonstrate the effect.
 6. Respond to review feedback promptly.
 
+PRs that touch any prompt, generator, or sample data are reviewed under the bundle policy: prompt, data, and benchmark results approve or reject together. See [REVIEW.md](REVIEW.md) for what a reviewable bundle looks like and how cascading rejection works.
+
 ## License
 
 By contributing to PersonaBench, you agree that your contributions will be licensed under the [Apache 2.0 License](LICENSE).
