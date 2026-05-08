@@ -18,7 +18,7 @@ Wall time: 30 to 60 minutes. Outputs land in `step6_benchmark_runner/data_sample
 ## Prerequisites
 
 - Python 3.10 or newer
-- `pip install anthropic` (only if running with the API)
+- `pip install anthropic` (Anthropic) or `pip install openai` (OpenAI)
 - Repo cloned, working directory at the repo root
 
 ## Three ways to run
@@ -54,9 +54,27 @@ bash run_step.sh 4 julio_simmons           # one step
 
 To run all five personas, loop the persona names in the shell.
 
-### C. From inside a coding tool
+### C. OpenAI API
 
-Open the repo in Claude Code, Cursor, Antigravity, Codex, Continue, Cline, or Devin. Ask the tool to run:
+Set `OPENAI_API_KEY` and swap `call_llm()` in `step6_benchmark_runner/generator.py` to use the OpenAI SDK:
+
+```python
+from openai import OpenAI
+client = OpenAI()
+
+def call_llm(client, model, prompt):
+    response = client.chat.completions.create(
+        model=model,
+        messages=[{"role": "user", "content": prompt}]
+    )
+    return response.choices[0].message.content
+```
+
+Then run the same commands as A with `--model gpt-5.5 --verifier-model gpt-5.5`.
+
+### D. From inside a coding agent
+
+Open the repo in Codex, Claude Code, Cursor, Antigravity, Continue, Cline, or Devin. Ask the tool to run:
 
 ```
 bash run_pipeline.sh julio_simmons
@@ -64,9 +82,13 @@ bash run_pipeline.sh julio_simmons
 
 The tool's shell tool invokes the same scripts as B. To run a single step, ask it to run `bash run_step.sh <step> <persona>`.
 
+Non-interactive:
+- Codex: `codex exec "bash run_step.sh 6 julio_simmons"`
+- Claude Code: `claude -p "bash run_step.sh 6 julio_simmons"`
+
 ## Models
 
-Edit the `CONFIG` block at the top of `run_pipeline.sh` to change models. Use exact version strings (`claude-opus-4-7`), not aliases (`opus`). Aliases are rejected at parse time.
+Edit the `CONFIG` block at the top of `run_pipeline.sh` to change models. Use exact version strings (`claude-opus-4-7`, `gpt-5.5`, `gemini-2.5-pro`), not aliases (`opus`, `gpt`). Aliases are rejected at parse time.
 
 ## Reproducing the published numbers
 

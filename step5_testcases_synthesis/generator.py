@@ -24,7 +24,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
-import anthropic
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from llm import make_client, call_llm as _call_llm, check_api_key, SUPPORTED_PROVIDERS
 
 STEP_DIR = Path(__file__).parent
 PROMPT_PATH = STEP_DIR / "prompt.txt"
@@ -44,25 +45,8 @@ def fill_json(template: str, placeholder: str, payload: Any) -> str:
     )
 
 
-def call_llm(client: anthropic.Anthropic, model: str, prompt: str) -> str:
-    response = client.messages.create(
-        model=model,
-        max_tokens=64_000,
-        messages=[
-            {
-                "role": "user",
-                "content": [
-                    {
-                        "type": "text",
-                        "text": prompt,
-                        "cache_control": {"type": "ephemeral"},
-                    }
-                ],
-            }
-        ],
-    )
-    blocks = [b.text for b in response.content if b.type == "text"]
-    return "".join(blocks)
+def call_llm(client, model: str, prompt: str, provider: str = "anthropic") -> str:
+    return _call_llm(client, model, prompt, provider=provider)
 
 
 def extract_json(text: str) -> dict[str, Any]:
@@ -75,11 +59,12 @@ def extract_json(text: str) -> dict[str, Any]:
 
 
 def run_generation(
-    client: anthropic.Anthropic,
+    client,
     model: str,
     corrected_profile: dict[str, Any],
     app_logs: dict[str, Any],
     corrected_social_circle: dict[str, Any],
+    provider: str = "anthropic",
 ) -> dict[str, Any]:
     template = load_prompt(PROMPT_PATH)
     template = fill_json(
@@ -91,16 +76,17 @@ def run_generation(
         "{{INSERT_CORRECTED_SOCIAL_CIRCLE_JSON_HERE}}",
         corrected_social_circle,
     )
-    raw = call_llm(client, model, template)
+    raw = call_llm(client, model, template, provider=provider)
     return extract_json(raw)
 
 
 def run_verification(
-    client: anthropic.Anthropic,
+    client,
     model: str,
     test_cases: dict[str, Any],
     corrected_profile: dict[str, Any],
     app_logs: dict[str, Any],
+    provider: str = "anthropic",
 ) -> dict[str, Any]:
     template = load_prompt(VERIFICATION_PROMPT_PATH)
     template = fill_json(template, "{{INSERT_TEST_CASES_JSON_HERE}}", test_cases)
@@ -108,7 +94,7 @@ def run_verification(
         template, "{{INSERT_CORRECTED_EXTRACTED_PROFILE_JSON_HERE}}", corrected_profile
     )
     template = fill_json(template, "{{INSERT_APP_LOGS_JSON_HERE}}", app_logs)
-    raw = call_llm(client, model, template)
+    raw = call_llm(client, model, template, provider=provider)
     return extract_json(raw)
 
 
@@ -131,6 +117,7 @@ def run_step(
     output_dir: Path,
     model: str,
     max_iterations: int,
+    provider: str = "anthropic",
 ) -> int:
     corrected_profile_file = json.loads(profile_path.read_text(encoding="utf-8"))
     corrected_profile = corrected_profile_file["corrected_extracted_profile"]
@@ -138,7 +125,7 @@ def run_step(
     social_circle_file = json.loads(social_circle_path.read_text(encoding="utf-8"))
     corrected_social_circle = social_circle_file["corrected_social_circle"]
 
-    client = anthropic.Anthropic()
+    client = make_client(provider)
     output_dir.mkdir(parents=True, exist_ok=True)
 
     base_name = extract_base_name(profile_path)
@@ -148,7 +135,8 @@ def run_step(
     for attempt in range(1, max_iterations + 1):
         print(f"[attempt {attempt}/{max_iterations}] generating test cases for {base_name}")
         test_cases = run_generation(
-            client, model, corrected_profile, app_logs, corrected_social_circle
+            client, model, corrected_profile, app_logs, corrected_social_circle,
+            provider=provider,
         )
         test_cases_out.write_text(
             json.dumps(test_cases, indent=2, ensure_ascii=False), encoding="utf-8"
@@ -156,7 +144,8 @@ def run_step(
 
         print(f"[attempt {attempt}/{max_iterations}] verifying test cases for {base_name}")
         verification = run_verification(
-            client, model, test_cases, corrected_profile, app_logs
+            client, model, test_cases, corrected_profile, app_logs,
+            provider=provider,
         )
         verification_out.write_text(
             json.dumps(verification, indent=2, ensure_ascii=False), encoding="utf-8"
@@ -203,10 +192,13 @@ def main() -> None:
     )
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--max-iterations", type=int, default=DEFAULT_MAX_ITERATIONS)
+    parser.add_argument(
+        "--provider", default="anthropic", choices=SUPPORTED_PROVIDERS,
+    )
     args = parser.parse_args()
 
-    if "ANTHROPIC_API_KEY" not in os.environ:
-        print("ANTHROPIC_API_KEY is not set.", file=sys.stderr)
+    if not check_api_key(args.provider):
+        print(f"API key not set for provider {args.provider}.", file=sys.stderr)
         sys.exit(2)
 
     sys.exit(
@@ -217,6 +209,7 @@ def main() -> None:
             args.output,
             args.model,
             args.max_iterations,
+            provider=args.provider,
         )
     )
 

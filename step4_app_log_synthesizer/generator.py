@@ -22,7 +22,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
-import anthropic
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from llm import make_client, call_llm as _call_llm, check_api_key, SUPPORTED_PROVIDERS
 
 STEP_DIR = Path(__file__).parent
 PROMPT_PATH = STEP_DIR / "prompt.txt"
@@ -47,25 +48,8 @@ def fill(template: str, placeholder: str, payload: Any) -> str:
     )
 
 
-def call_llm(client: anthropic.Anthropic, model: str, prompt: str) -> str:
-    response = client.messages.create(
-        model=model,
-        max_tokens=32_000,
-        messages=[
-            {
-                "role": "user",
-                "content": [
-                    {
-                        "type": "text",
-                        "text": prompt,
-                        "cache_control": {"type": "ephemeral"},
-                    }
-                ],
-            }
-        ],
-    )
-    blocks = [b.text for b in response.content if b.type == "text"]
-    return "".join(blocks)
+def call_llm(client, model: str, prompt: str, provider: str = "anthropic") -> str:
+    return _call_llm(client, model, prompt, provider=provider)
 
 
 def extract_json(text: str) -> dict[str, Any]:
@@ -81,13 +65,14 @@ def extract_json(text: str) -> dict[str, Any]:
 
 
 def generate_fragments(
-    client: anthropic.Anthropic,
+    client,
     model: str,
     hidden_fact: dict[str, Any],
     social_circle: dict[str, Any],
     log_start: str,
     log_end: str,
     contact_usage: dict[str, int],
+    provider: str = "anthropic",
 ) -> dict[str, Any]:
     template = load_prompt(PROMPT_PATH)
     template = fill(template, "{{INSERT_HIDDEN_FACT_JSON_HERE}}", hidden_fact)
@@ -97,23 +82,29 @@ def generate_fragments(
     template = fill(template, "{{LOG_START_DATE}}", log_start)
     template = fill(template, "{{LOG_END_DATE}}", log_end)
     template = fill(template, "{{INSERT_CONTACT_USAGE_COUNTS_JSON_HERE}}", contact_usage)
-    raw = call_llm(client, model, template)
+    raw = call_llm(client, model, template, provider=provider)
     return extract_json(raw)
 
 
 def verify_fragments(
-    client: anthropic.Anthropic,
+    client,
     verifier_model: str,
     fragments: list[dict[str, Any]],
+    banned_token_set: list[str],
     persona: dict[str, Any],
+    provider: str = "anthropic",
 ) -> dict[str, Any]:
+    verifier_input = {
+        "fragments": fragments,
+        "banned_token_set": banned_token_set,
+    }
     template = load_prompt(VERIFICATION_PROMPT_PATH)
-    template = fill(template, "{{INSERT_FRAGMENTS_JSON_HERE}}", fragments)
+    template = fill(template, "{{INSERT_FRAGMENTS_JSON_HERE}}", verifier_input)
     template = fill(template, "{{PERSONA_NAME}}", persona["name"])
     template = fill(template, "{{PERSONA_AGE}}", str(persona["age"]))
     template = fill(template, "{{PERSONA_OCCUPATION}}", persona["occupation"])
     template = fill(template, "{{PERSONA_LOCATION}}", persona["location"])
-    raw = call_llm(client, verifier_model, template)
+    raw = call_llm(client, verifier_model, template, provider=provider)
     return extract_json(raw)
 
 
@@ -127,13 +118,18 @@ def fact_passed(
     target = (hidden_fact.get("ground_truth_label") or "").lower()
     if not recovered or not target:
         return False
-    # Cheap semantic proxy: significant token overlap.
+    # Cheap semantic proxy: any meaningful token overlap. The new Step 4
+    # prompts ban ground_truth_label tokens from fragments, so the verifier
+    # must paraphrase even when correct. A correct paraphrase ("daily SSRI
+    # at 100mg") carries 1-2 ground-truth tokens, so the threshold is 0.15.
+    # This is a hallucination safety net only; the verifier's RECOVERED
+    # verdict + structure_check + triviality_check do the real gate work.
     rec_tokens = set(re.findall(r"[a-z0-9]{3,}", recovered))
     tgt_tokens = set(re.findall(r"[a-z0-9]{3,}", target))
     if not tgt_tokens:
         return False
     overlap = len(rec_tokens & tgt_tokens) / len(tgt_tokens)
-    return overlap >= 0.4
+    return overlap >= 0.15
 
 
 def update_contact_usage(
@@ -147,7 +143,7 @@ def update_contact_usage(
 
 
 def merge_app_log(
-    client: anthropic.Anthropic,
+    client,
     model: str,
     verified_fragments: list[dict[str, Any]],
     hidden_facts: list[dict[str, Any]],
@@ -156,6 +152,7 @@ def merge_app_log(
     log_start: str,
     log_end: str,
     news_events: list[dict[str, Any]],
+    provider: str = "anthropic",
 ) -> dict[str, Any]:
     template = load_prompt(MERGE_PROMPT_PATH)
     template = fill(template, "{{PERSONA_NAME}}", persona["name"])
@@ -172,8 +169,25 @@ def merge_app_log(
     template = fill(template, "{{LOG_START_DATE}}", log_start)
     template = fill(template, "{{LOG_END_DATE}}", log_end)
     template = fill(template, "{{INSERT_NEWS_EVENTS_JSON_HERE}}", news_events)
-    raw = call_llm(client, model, template)
-    return extract_json(raw)
+    raw = call_llm(client, model, template, provider=provider)
+    return sanitize_app_log(extract_json(raw))
+
+
+def sanitize_app_log(app_log: dict[str, Any]) -> dict[str, Any]:
+    """Defense-in-depth: strip per-session/per-event `source_fact_ids` so
+    Backend C orchestrators that hand the raw JSON to a Pass 1 subagent
+    cannot accidentally leak fact-anchored sessions to the evaluator.
+    Traceability is preserved via `cross_app_index` only.
+    """
+    messenger = app_log.get("messenger", {})
+    for bucket in ("meaningful_sessions", "filler_sessions", "sessions"):
+        for s in messenger.get(bucket, []) or []:
+            s.pop("source_fact_ids", None)
+    calendar = app_log.get("calendar", {})
+    if isinstance(calendar, dict):
+        for e in calendar.get("events", []) or []:
+            e.pop("source_fact_ids", None)
+    return app_log
 
 
 # ---- entry point ---------------------------------------------------------
@@ -198,6 +212,7 @@ def run_step(
     per_fact_max_attempts: int,
     log_start: str,
     log_end: str,
+    provider: str = "anthropic",
 ) -> int:
     profile_file = json.loads(profile_path.read_text(encoding="utf-8"))
     corrected_profile = profile_file["corrected_extracted_profile"]
@@ -210,7 +225,7 @@ def run_step(
     if news_events_path and news_events_path.exists():
         news_events = json.loads(news_events_path.read_text(encoding="utf-8"))
 
-    client = anthropic.Anthropic()
+    client = make_client(provider)
     output_dir.mkdir(parents=True, exist_ok=True)
 
     base_name = profile_path.stem.replace("_verification", "")
@@ -238,10 +253,14 @@ def run_step(
             )
             bundle = generate_fragments(
                 client, model, hf, corrected_social_circle,
-                log_start, log_end, contact_usage,
+                log_start, log_end, contact_usage, provider=provider,
             )
             fragments = bundle.get("fragments", [])
-            verification = verify_fragments(client, verifier_model, fragments, persona)
+            banned_token_set = bundle.get("banned_token_set", []) or []
+            verification = verify_fragments(
+                client, verifier_model, fragments, banned_token_set, persona,
+                provider=provider,
+            )
             last_fragments = fragments
             last_verification = verification
             if fact_passed(verification, hf):
@@ -289,6 +308,7 @@ def run_step(
     app_log = merge_app_log(
         client, model, verified_fragments, hidden_facts,
         corrected_social_circle, persona, log_start, log_end, news_events,
+        provider=provider,
     )
     app_log_out.write_text(
         json.dumps(app_log, indent=2, ensure_ascii=False), encoding="utf-8"
@@ -326,10 +346,11 @@ def main() -> None:
     )
     parser.add_argument("--log-start", default="2026-02-20")
     parser.add_argument("--log-end", default="2026-04-20")
+    parser.add_argument("--provider", default="anthropic", choices=SUPPORTED_PROVIDERS)
     args = parser.parse_args()
 
-    if "ANTHROPIC_API_KEY" not in os.environ:
-        print("ANTHROPIC_API_KEY is not set.", file=sys.stderr)
+    if not check_api_key(args.provider):
+        print(f"API key for {args.provider} is not set.", file=sys.stderr)
         sys.exit(2)
 
     sys.exit(
@@ -343,6 +364,7 @@ def main() -> None:
             args.per_fact_max_attempts,
             args.log_start,
             args.log_end,
+            args.provider,
         )
     )
 
