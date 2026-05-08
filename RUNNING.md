@@ -1,101 +1,43 @@
 # Running PersonaBench
 
-## Quick start (check a model's score)
+## Quick start
 
 ```bash
 git clone https://github.com/TruePersona/PersonaBench.git
 cd PersonaBench
-pip install anthropic
-export ANTHROPIC_API_KEY="sk-ant-..."
+pip install anthropic openai   # whichever SDK you need
 
-for P in julio_simmons mary_alberti alicia_gonzalez deeva_cintron maria_buendia; do
-  bash run_step.sh 6 "$P"
-done
+export ANTHROPIC_API_KEY="sk-ant-..."   # if using Anthropic
+export OPENAI_API_KEY="sk-..."          # if using OpenAI
+
+python step6_benchmark_runner/generator.py \
+  --app-logs step4_app_log_synthesizer/data_samples/output/julio_simmons_app_logs.json \
+  --test-cases step5_testcases_synthesis/data_samples/output/julio_simmons_test_cases.json \
+  --provider openai \
+  --model-pass1 gpt-5.5 \
+  --model-pass2 gpt-5.5
 ```
 
-Wall time: 30 to 60 minutes. Outputs land in `step6_benchmark_runner/data_samples/output/`. Compare against the figures in `step6_benchmark_runner/RESULTS.md`.
+Repeat for each persona: `mary_alberti`, `alicia_gonzalez`, `deeva_cintron`, `maria_buendia`.
+
+Outputs land in `step6_benchmark_runner/data_samples/output/`.
 
 ## Prerequisites
 
-- Python 3.10 or newer
-- `pip install anthropic` (Anthropic) or `pip install openai` (OpenAI)
-- Repo cloned, working directory at the repo root
+- Python 3.10+
+- `pip install anthropic` or `pip install openai`
+- Repo cloned, working directory at repo root
 
-## Three ways to run
-
-### A. Anthropic API
-
-Set `ANTHROPIC_API_KEY` and run:
+## Running the full pipeline
 
 ```bash
-python Top_level_generator.py \
-  --seed step1_seed/data_samples/output/julio_simmons_seed.json \
-  --start 2 --stop 6 \
-  --model claude-opus-4-7 \
-  --verifier-model claude-sonnet-4-6
+python openclaw_pipeline.py --persona julio_simmons --start 2 --stop 6 --model gpt-5.5 --verifier-model gpt-5.5
 ```
 
-For all five personas, loop over the `*_seed.json` files in `step1_seed/data_samples/output/`.
+## Running from a coding agent
 
-### B. Claude CLI on subscription
+Open the repo in Codex, Claude Code, or Cursor and run the commands above.
 
-Install the `claude` CLI and sign in with `claude login`. Then either:
+## Pass 1 / Pass 2 independence
 
-```bash
-python openclaw_pipeline.py --persona julio_simmons --start 2 --stop 6
-```
-
-or use the bash entry points:
-
-```bash
-bash run_pipeline.sh julio_simmons         # all six steps
-bash run_step.sh 4 julio_simmons           # one step
-```
-
-To run all five personas, loop the persona names in the shell.
-
-### C. OpenAI API
-
-Set `OPENAI_API_KEY` and swap `call_llm()` in `step6_benchmark_runner/generator.py` to use the OpenAI SDK:
-
-```python
-from openai import OpenAI
-client = OpenAI()
-
-def call_llm(client, model, prompt):
-    response = client.chat.completions.create(
-        model=model,
-        messages=[{"role": "user", "content": prompt}]
-    )
-    return response.choices[0].message.content
-```
-
-Then run the same commands as A with `--model gpt-5.5 --verifier-model gpt-5.5`.
-
-### D. From inside a coding agent
-
-Open the repo in Codex, Claude Code, Cursor, Antigravity, Continue, Cline, or Devin. Ask the tool to run:
-
-```
-bash run_pipeline.sh julio_simmons
-```
-
-The tool's shell tool invokes the same scripts as B. To run a single step, ask it to run `bash run_step.sh <step> <persona>`.
-
-Non-interactive:
-- Codex: `codex exec "bash run_step.sh 6 julio_simmons"`
-- Claude Code: `claude -p "bash run_step.sh 6 julio_simmons"`
-
-## Models
-
-Edit the `CONFIG` block at the top of `run_pipeline.sh` to change models. Use exact version strings (`claude-opus-4-7`, `gpt-5.5`, `gemini-2.5-pro`), not aliases (`opus`, `gpt`). Aliases are rejected at parse time.
-
-## Reproducing the published numbers
-
-The dataset on `main` is the canonical artifact. To check a model's score, run step 6 only:
-
-```bash
-bash run_step.sh 6 <persona>
-```
-
-Run three times for a variance estimate. To regenerate the full dataset (steps 2 through 6), use any of A, B, or C above. Outputs are equivalent across runs but not byte-identical because LLM responses are stochastic. See [ARCHITECTURE.md](ARCHITECTURE.md) for details.
+Use different models for Pass 1 (answering) and Pass 2 (scoring).
