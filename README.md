@@ -34,13 +34,7 @@ The current pipeline produces **5 personas end-to-end** for initial validation. 
 
 ## Getting started
 
-See [RUNNING.md](RUNNING.md) for three supported execution backends:
-
-- **Direct API** — `python Top_level_generator.py` with an Anthropic API key
-- **Vendor CLI** — `python openclaw_pipeline.py` running against a CLI subscription
-- **AI coding agent with subagents** — orchestrate inside Claude Code, CodenX, Antigravity, Cursor Agents, or any agent that exposes a Task / subagent tool
-
-All three produce equivalent outputs given the same seed and model.
+See [RUNNING.md](RUNNING.md) for setup and usage. Supports Anthropic and OpenAI models.
 
 ## References
 
