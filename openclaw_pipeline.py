@@ -47,16 +47,18 @@ def run_generator(step_dir: Path, args: list[str]) -> int:
     return subprocess.run(cmd, check=False).returncode
 
 
-def run_step2(seed_path: Path, output_dir: Path, model: str | None) -> int:
+def run_step2(seed_path: Path, output_dir: Path, model: str | None, provider: str | None = None) -> int:
     args = ["--seed", str(seed_path), "--output", str(output_dir)]
     if model:
         args += ["--model", model]
+    if provider:
+        args += ["--provider", provider]
     return run_generator(STEP2_DIR, args)
 
 
 def run_step3(
     profile_path: Path, transcript_path: Path, output_dir: Path,
-    model: str | None,
+    model: str | None, provider: str | None = None,
 ) -> int:
     args = [
         "--profile", str(profile_path),
@@ -65,6 +67,8 @@ def run_step3(
     ]
     if model:
         args += ["--model", model]
+    if provider:
+        args += ["--provider", provider]
     return run_generator(STEP3_DIR, args)
 
 
@@ -72,6 +76,7 @@ def run_step4(
     profile_path: Path, social_circle_path: Path, output_dir: Path,
     model: str | None, verifier_model: str | None,
     per_fact_max_attempts: int, log_start: str, log_end: str,
+    provider: str | None = None,
 ) -> int:
     args = [
         "--profile", str(profile_path),
@@ -85,12 +90,14 @@ def run_step4(
         args += ["--model", model]
     if verifier_model:
         args += ["--verifier-model", verifier_model]
+    if provider:
+        args += ["--provider", provider]
     return run_generator(STEP4_DIR, args)
 
 
 def run_step5(
     profile_path: Path, app_logs_path: Path, social_circle_path: Path,
-    output_dir: Path, model: str | None,
+    output_dir: Path, model: str | None, provider: str | None = None,
 ) -> int:
     args = [
         "--profile", str(profile_path),
@@ -100,12 +107,15 @@ def run_step5(
     ]
     if model:
         args += ["--model", model]
+    if provider:
+        args += ["--provider", provider]
     return run_generator(STEP5_DIR, args)
 
 
 def run_step6(
     app_logs_path: Path, test_cases_path: Path, output_dir: Path,
     model_pass1: str | None, model_pass2: str | None,
+    provider: str | None = None,
 ) -> int:
     args = [
         "--app-logs", str(app_logs_path),
@@ -116,6 +126,8 @@ def run_step6(
         args += ["--model-pass1", model_pass1]
     if model_pass2:
         args += ["--model-pass2", model_pass2]
+    if provider:
+        args += ["--provider", provider]
     return run_generator(STEP6_DIR, args)
 
 
@@ -129,6 +141,7 @@ def run_pipeline(
     model: str | None = None,
     verifier_model: str | None = None,
     judge_model: str | None = None,
+    provider: str | None = None,
 ) -> None:
     seed = json.loads(seed_path.read_text(encoding="utf-8"))
     name = extract_name(seed)
@@ -146,7 +159,7 @@ def run_pipeline(
     # Step 2
     if start <= 2 <= stop:
         print("[step2] generating interview + verification")
-        rc = run_step2(seed_path, step2_out, model)
+        rc = run_step2(seed_path, step2_out, model, provider=provider)
         if rc != 0:
             print(f"[step2] failed with exit code {rc}")
             return
@@ -157,7 +170,7 @@ def run_pipeline(
     # Step 3
     if start <= 3 <= stop:
         print("[step3] generating social circle")
-        rc = run_step3(profile_path, interview_path, step3_out, model)
+        rc = run_step3(profile_path, interview_path, step3_out, model, provider=provider)
         if rc != 0:
             print(f"[step3] failed with exit code {rc}")
             return
@@ -171,6 +184,7 @@ def run_pipeline(
             profile_path, social_circle_path, step4_out,
             model, verifier_model,
             per_fact_max_attempts, log_start, log_end,
+            provider=provider,
         )
         if rc != 0:
             print(f"[step4] failed with exit code {rc}")
@@ -185,7 +199,7 @@ def run_pipeline(
             print("[step5] generating test cases")
             rc = run_step5(
                 profile_path, app_logs_path, social_circle_path,
-                step5_out, model,
+                step5_out, model, provider=provider,
             )
             if rc != 0:
                 print(f"[step5] failed with exit code {rc}")
@@ -202,6 +216,7 @@ def run_pipeline(
                 app_logs_path, test_cases_path, step6_out,
                 model_pass1=model,
                 model_pass2=judge_model or model,
+                provider=provider,
             )
             if rc != 0:
                 print(f"[step6] failed with exit code {rc}")
@@ -231,6 +246,7 @@ def main() -> None:
     parser.add_argument("--model", default="claude-opus-4-7")
     parser.add_argument("--verifier-model", default="claude-sonnet-4-6")
     parser.add_argument("--judge-model", default="claude-sonnet-4-6")
+    parser.add_argument("--provider", default="anthropic", choices=("anthropic", "openai"))
     args = parser.parse_args()
 
     if args.start > args.stop:
@@ -252,6 +268,7 @@ def main() -> None:
                 model=args.model,
                 verifier_model=args.verifier_model,
                 judge_model=args.judge_model,
+                provider=args.provider,
             )
     elif args.seed:
         run_pipeline(

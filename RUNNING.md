@@ -31,7 +31,7 @@ Outputs land in `step6_benchmark_runner/data_samples/output/`.
 ## Running the full pipeline
 
 ```bash
-python openclaw_pipeline.py --persona julio_simmons --start 2 --stop 6 --model gpt-5.5 --verifier-model gpt-5.5
+python openclaw_pipeline.py --persona julio_simmons --start 2 --stop 6 --provider openai --model gpt-5.5 --verifier-model gpt-5.5
 ```
 
 ## Running from a coding agent
