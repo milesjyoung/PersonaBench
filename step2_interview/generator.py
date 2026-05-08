@@ -24,7 +24,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
-import anthropic
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from llm import make_client, call_llm as _call_llm, check_api_key, SUPPORTED_PROVIDERS
 
 STEP_DIR = Path(__file__).parent
 PROMPT_PATH = STEP_DIR / "prompt.txt"
@@ -78,25 +79,8 @@ def fill_json_placeholder(template: str, placeholder: str, payload: Any) -> str:
     return template.replace(placeholder, serialized)
 
 
-def call_llm(client: anthropic.Anthropic, model: str, prompt: str) -> str:
-    response = client.messages.create(
-        model=model,
-        max_tokens=64_000,
-        messages=[
-            {
-                "role": "user",
-                "content": [
-                    {
-                        "type": "text",
-                        "text": prompt,
-                        "cache_control": {"type": "ephemeral"},
-                    }
-                ],
-            }
-        ],
-    )
-    blocks = [b.text for b in response.content if b.type == "text"]
-    return "".join(blocks)
+def call_llm(client, model: str, prompt: str, provider: str = "anthropic") -> str:
+    return _call_llm(client, model, prompt, provider=provider)
 
 
 def extract_json(text: str) -> dict[str, Any]:
@@ -109,18 +93,19 @@ def extract_json(text: str) -> dict[str, Any]:
 
 
 def run_generation(
-    client: anthropic.Anthropic, model: str, seed: dict[str, Any]
+    client, model: str, seed: dict[str, Any], provider: str = "anthropic"
 ) -> dict[str, Any]:
     prompt = fill_seed_placeholders(load_prompt(PROMPT_PATH), seed)
-    raw = call_llm(client, model, prompt)
+    raw = call_llm(client, model, prompt, provider=provider)
     return extract_json(raw)
 
 
 def run_verification(
-    client: anthropic.Anthropic,
+    client,
     model: str,
     seed: dict[str, Any],
     interview: dict[str, Any],
+    provider: str = "anthropic",
 ) -> dict[str, Any]:
     template = fill_seed_placeholders(load_prompt(VERIFICATION_PROMPT_PATH), seed)
     template = fill_json_placeholder(template, "{{INSERT_SEED_JSON_HERE}}", seed)
@@ -132,7 +117,7 @@ def run_verification(
         "{{INSERT_EXTRACTED_PROFILE_JSON_HERE}}",
         interview["extracted_profile"],
     )
-    raw = call_llm(client, model, template)
+    raw = call_llm(client, model, template, provider=provider)
     return extract_json(raw)
 
 
@@ -145,9 +130,10 @@ def run_step(
     output_dir: Path,
     model: str,
     max_iterations: int,
+    provider: str = "anthropic",
 ) -> int:
     seed = json.loads(seed_path.read_text(encoding="utf-8"))
-    client = anthropic.Anthropic()
+    client = make_client(provider)
     output_dir.mkdir(parents=True, exist_ok=True)
 
     base_name = seed_path.stem.replace("_seed", "")
@@ -159,11 +145,11 @@ def run_step(
 
     for attempt in range(1, max_iterations + 1):
         print(f"[attempt {attempt}/{max_iterations}] generating interview for {base_name}")
-        interview = run_generation(client, model, seed)
+        interview = run_generation(client, model, seed, provider=provider)
         interview_out.write_text(json.dumps(interview, indent=2, ensure_ascii=False))
 
         print(f"[attempt {attempt}/{max_iterations}] verifying interview for {base_name}")
-        verification = run_verification(client, model, seed, interview)
+        verification = run_verification(client, model, seed, interview, provider=provider)
         verification_out.write_text(json.dumps(verification, indent=2, ensure_ascii=False))
 
         verdict = overall_verdict(verification)
@@ -185,13 +171,14 @@ def main() -> None:
     )
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--max-iterations", type=int, default=DEFAULT_MAX_ITERATIONS)
+    parser.add_argument("--provider", default="anthropic", choices=SUPPORTED_PROVIDERS)
     args = parser.parse_args()
 
-    if "ANTHROPIC_API_KEY" not in os.environ:
-        print("ANTHROPIC_API_KEY is not set.", file=sys.stderr)
+    if not check_api_key(args.provider):
+        print(f"API key for {args.provider} is not set.", file=sys.stderr)
         sys.exit(2)
 
-    sys.exit(run_step(args.seed, args.output, args.model, args.max_iterations))
+    sys.exit(run_step(args.seed, args.output, args.model, args.max_iterations, args.provider))
 
 
 if __name__ == "__main__":

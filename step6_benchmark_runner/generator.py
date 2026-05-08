@@ -26,7 +26,8 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
-import anthropic
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from llm import make_client, call_llm as _shared_call_llm, check_api_key, SUPPORTED_PROVIDERS
 
 STEP_DIR = Path(__file__).parent
 PROMPT_PATH = STEP_DIR / "prompt.txt"
@@ -132,25 +133,8 @@ def strip_ground_truth(test_cases: dict[str, Any]) -> dict[str, Any]:
 
 # ----- LLM call ------------------------------------------------------------
 
-def call_llm(client: anthropic.Anthropic, model: str, prompt: str) -> str:
-    response = client.messages.create(
-        model=model,
-        max_tokens=64_000,
-        messages=[
-            {
-                "role": "user",
-                "content": [
-                    {
-                        "type": "text",
-                        "text": prompt,
-                        "cache_control": {"type": "ephemeral"},
-                    }
-                ],
-            }
-        ],
-    )
-    blocks = [b.text for b in response.content if b.type == "text"]
-    return "".join(blocks)
+def call_llm(client, model: str, prompt: str, provider: str = "anthropic") -> str:
+    return _shared_call_llm(client, model, prompt, provider=provider)
 
 
 def extract_json(text: str) -> dict[str, Any]:
@@ -201,7 +185,8 @@ def run_pass_1(
     raw_logs: str,
     test_cases_stripped: dict[str, Any],
     model: str,
-    client: anthropic.Anthropic | None,
+    client,
+    provider: str,
     use_openclaw: bool,
     openclaw_session_dir: Path | None,
     claude_cmd: str,
@@ -218,7 +203,7 @@ def run_pass_1(
         raw = call_via_openclaw(template, openclaw_session_dir, claude_cmd)
     else:
         assert client is not None
-        raw = call_llm(client, model, template)
+        raw = call_llm(client, model, template, provider=provider)
     return extract_json(raw)
 
 
@@ -226,7 +211,8 @@ def run_pass_2(
     test_cases_full: dict[str, Any],
     pass1_answers: dict[str, Any],
     model: str,
-    client: anthropic.Anthropic,
+    client,
+    provider: str = "anthropic",
 ) -> dict[str, Any]:
     sections = load_prompt_sections()
     template = fill(
@@ -235,7 +221,7 @@ def run_pass_2(
     template = fill(
         template, "{{INSERT_PASS_1_ANSWERS_JSON_HERE}}", pass1_answers
     )
-    raw = call_llm(client, model, template)
+    raw = call_llm(client, model, template, provider=provider)
     return extract_json(raw)
 
 
@@ -247,6 +233,7 @@ def run_step(
     output_dir: Path,
     model_pass1: str,
     model_pass2: str,
+    provider: str,
     use_openclaw: bool,
     claude_cmd: str,
 ) -> int:
@@ -264,7 +251,7 @@ def run_step(
     raw_logs_out.write_text(raw_logs, encoding="utf-8")
 
     openclaw_session_dir = None
-    client = anthropic.Anthropic()
+    client = make_client(provider)
     if use_openclaw:
         openclaw_session_dir = output_dir / ".openclaw_session"
 
@@ -274,6 +261,7 @@ def run_step(
         stripped,
         model_pass1,
         client=client,
+        provider=provider,
         use_openclaw=use_openclaw,
         openclaw_session_dir=openclaw_session_dir,
         claude_cmd=claude_cmd,
@@ -281,7 +269,7 @@ def run_step(
     pass1_out.write_text(json.dumps(pass1, indent=2, ensure_ascii=False), encoding="utf-8")
 
     print(f"[pass 2] scoring answers for {base_name}")
-    pass2 = run_pass_2(test_cases, pass1, model_pass2, client)
+    pass2 = run_pass_2(test_cases, pass1, model_pass2, client, provider=provider)
     pass2_out.write_text(json.dumps(pass2, indent=2, ensure_ascii=False), encoding="utf-8")
 
     accuracy = pass2.get("overall_accuracy", "unknown")
@@ -305,6 +293,10 @@ def main() -> None:
     parser.add_argument("--model-pass1", default=DEFAULT_MODEL)
     parser.add_argument("--model-pass2", default=DEFAULT_MODEL)
     parser.add_argument(
+        "--provider", default="anthropic", choices=SUPPORTED_PROVIDERS,
+        help="LLM provider: anthropic or openai.",
+    )
+    parser.add_argument(
         "--openclaw", action="store_true",
         help="Route Pass 1 through the claude CLI (OpenClaw-style) with "
         "session file isolation between test cases.",
@@ -317,12 +309,13 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    if not args.openclaw and "ANTHROPIC_API_KEY" not in os.environ:
-        print(
-            "ANTHROPIC_API_KEY is not set and --openclaw was not passed.",
-            file=sys.stderr,
-        )
-        sys.exit(2)
+    if not args.openclaw:
+        if args.provider == "anthropic" and "ANTHROPIC_API_KEY" not in os.environ:
+            print("ANTHROPIC_API_KEY is not set.", file=sys.stderr)
+            sys.exit(2)
+        if args.provider == "openai" and "OPENAI_API_KEY" not in os.environ:
+            print("OPENAI_API_KEY is not set.", file=sys.stderr)
+            sys.exit(2)
 
     sys.exit(
         run_step(
@@ -331,6 +324,7 @@ def main() -> None:
             args.output,
             args.model_pass1,
             args.model_pass2,
+            args.provider,
             args.openclaw,
             args.claude_cmd,
         )
