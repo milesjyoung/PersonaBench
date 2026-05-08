@@ -28,6 +28,16 @@ Outputs land in `step6_benchmark_runner/data_samples/output/`.
 - `pip install anthropic` or `pip install openai`
 - Repo cloned, working directory at repo root
 
+## Running a single step
+
+Use `--start` and `--stop` with the same step number:
+
+```bash
+python openclaw_pipeline.py --persona julio_simmons --start 4 --stop 4 --provider openai --model gpt-5.5 --verifier-model gpt-5.5
+```
+
+Steps: 2 (interview), 3 (social circle), 4 (app logs), 5 (test cases), 6 (benchmark).
+
 ## Running the full pipeline
 
 ```bash
