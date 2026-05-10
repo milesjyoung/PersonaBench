@@ -78,6 +78,23 @@ python generator.py \
 
 If a hidden fact fails the gate after `--per-fact-max-attempts` tries (default 3), the fragments are still merged into the log but the trace file records `passed: false` for that fact. Step 5's test case generator can choose to skip unrecoverable facts, and Step 6's final accuracy should be interpreted in that light.
 
+## Log window and filler ratio
+
+| Parameter | Default | Where set |
+|---|---|---|
+| Log window | March 1-31, 2026 (30 days) | `--log-start` / `--log-end` flags |
+| Filler ratio | 2.5 filler messages per 1 meaningful message | `merge_prompt.txt` |
+
+Filler is mundane logistics noise that the evaluator must sift through to find implicit behavioral signals. Without filler, the benchmark degenerates into a reading comprehension test. Changing either parameter requires regenerating Step 4 and downstream steps (5-6).
+
+## Verifying a successful run
+
+Check the trace file. Every hidden fact should show `"passed": true`:
+
+```bash
+python -c "import json; t=json.load(open('step4_app_log_synthesizer/data_samples/output/julio_simmons_app_logs_trace.json')); print(f'{sum(1 for x in t if x[\"passed\"])}/{len(t)} passed')"
+```
+
 ## Notes on reproducibility
 
 This step is clone-and-run. Given the same `hidden_facts` and `corrected_social_circle` inputs (both themselves reproducible from Step 2 and Step 3), the pipeline produces equivalent app logs. See [CONTRIBUTING.md](../CONTRIBUTING.md) for the repo's reproducibility philosophy.

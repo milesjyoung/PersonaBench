@@ -24,17 +24,23 @@ Each persona is constructed through a six-step pipeline. Every step has its own 
 | [step5_testcases_synthesis](step5_testcases_synthesis) | Construct typed test cases (five types, including agent-behavior scenarios) grounded in the hidden_facts registry. |
 | [step6_benchmark_runner](step6_benchmark_runner) | Execute the benchmark against a frontier LLM using a two-pass design that prevents ground-truth leakage. |
 
+## Personas
+
+| Name | UUID | Hidden facts |
+|---|---|---:|
+| `julio_simmons` | `e7035edf5bc744c9912694a7d4b2a99c` | 134 |
+| `mary_alberti` | `e7c0574639a244c8972c92aab9501035` | 104 |
+| `alicia_gonzalez` | `50f90a6f17de473f9ca15f00afdedf7a` | 157 |
+| `deeva_cintron` | `f2f5dbaf4d3d43f68adeb7f318afa3a2` | 174 |
+| `maria_buendia` | `5237e90a0ca3460dbbcba20adb61922f` | 104 |
+
 ## Scope
 
 The current pipeline produces **5 personas end-to-end** for initial validation. The target at benchmark release is **100 personas**. The 5-persona run validates the pipeline before scaling.
 
-## Latest benchmark run
-
-5-persona end-to-end run against **Anthropic Opus 4.7 (1M context, frontier reasoning)** — average ~79% overall accuracy, 0.93 on Type 5 agent-behavior, all 5 safety capstones passed. Full results and methodology in [step6_benchmark_runner/RESULTS.md](step6_benchmark_runner/RESULTS.md).
-
 ## Getting started
 
-See [RUNNING.md](RUNNING.md) for setup and usage. Supports Anthropic and OpenAI models.
+See [RUNNING.md](RUNNING.md) for setup and usage. See [ARCHITECTURE.md](ARCHITECTURE.md) for how each step runs internally.
 
 ## References
 

@@ -19,7 +19,7 @@ A participant ID from the Nemotron-Personas-USA dataset (HuggingFace: `nvidia/Ne
 ## Running
 
 ```bash
-python generator.py --participant_id <id> --output data_samples/output/{name}_seed.json
+python generator.py --uuid <id> --output data_samples/output/
 ```
 
 The generator pulls the record from the HuggingFace dataset and writes the seed JSON.

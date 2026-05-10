@@ -6,7 +6,7 @@ reverse-inferability gate. Your job is to:
 
 1. Generate FILLER content — mundane logistics, casual check-ins, weather,
    small errands, pet mentions — that surrounds the verified fragments at a
-   ratio of 3 filler units per 1 meaningful unit.
+   ratio of 2.5 filler units per 1 meaningful unit.
 2. Optionally weave in SURPRISES — real news events within the log window
    that a person might plausibly reference in conversation (e.g.,
    "did you see the Iran ceasefire thing", "the power was out on our
@@ -52,7 +52,7 @@ FILLER GENERATION RULES
 
 Filler is the background noise. Rules:
 
-1. RATIO: 3 filler messages/events per 1 meaningful fragment content unit.
+1. RATIO: 2.5 filler messages/events per 1 meaningful fragment content unit.
    Count message-by-message for messenger, event-by-event for calendar.
 2. REGISTER: mundane logistics. Plans, times, weather, food, pets, mild
    complaints, lost items, requests for reminders, running late, traffic,
@@ -160,7 +160,7 @@ OUTPUT FORMAT
     "approximate_tokens": 0,
     "meaningful_token_count": 0,
     "filler_token_count": 0,
-    "ratio_filler_to_meaningful": "3:1 | actual ratio if different"
+    "ratio_filler_to_meaningful": "2.5:1 | actual ratio if different"
   },
   "surprises_woven": [
     { "news_event_date": "YYYY-MM-DD", "referenced_in_session_id": "M-023" }
@@ -187,7 +187,7 @@ PROCESS
    session + calendar event skeleton.
 2. Merge fragments that share a date + contact into single messenger
    sessions where natural (don't force merges across unrelated fragments).
-3. Compute the filler budget: 3x the meaningful token count.
+3. Compute the filler budget: 2.5x the meaningful token count.
 4. Distribute filler across days and contacts to meet the temporal and
    contact balance rules.
 5. Weave in 0-3 news surprises near their dates.
