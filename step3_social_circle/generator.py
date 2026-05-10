@@ -24,13 +24,18 @@ from pathlib import Path
 from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from llm import make_client, call_llm as _call_llm, check_api_key, SUPPORTED_PROVIDERS
+from llm import (
+    API_BACKENDS, SUBSCRIPTION_BACKENDS, SUPPORTED_BACKENDS,
+    make_client, call_llm as _call_llm, call_subscription_cli,
+    check_api_key, provider_for_backend, default_model_for_backend,
+    SUPPORTED_PROVIDERS,
+)
 
 STEP_DIR = Path(__file__).parent
 PROMPT_PATH = STEP_DIR / "prompt.txt"
 VERIFICATION_PROMPT_PATH = STEP_DIR / "verification_prompt.txt"
 
-DEFAULT_MODEL = "claude-opus-4-6"
+DEFAULT_MODEL = None
 DEFAULT_MAX_ITERATIONS = 3
 
 
@@ -48,8 +53,35 @@ def fill_identity_placeholders(template: str, profile: dict[str, Any]) -> str:
     )
 
 
-def call_llm(client, model: str, prompt: str, provider: str = "anthropic") -> str:
+CLAUDE_CMD = os.environ.get("CLAUDE_CMD", "claude.cmd" if sys.platform == "win32" else "claude")
+CODEX_CMD = os.environ.get("CODEX_CMD", "codex.exe" if sys.platform == "win32" else "codex")
+
+
+def call_llm(client, model: str, prompt: str, provider: str = "anthropic",
+             backend: str = "anthropic-api") -> str:
+    if backend in SUBSCRIPTION_BACKENDS:
+        return call_subscription_cli(prompt, model, backend,
+                                     claude_cmd=CLAUDE_CMD, codex_cmd=CODEX_CMD)
     return _call_llm(client, model, prompt, provider=provider)
+
+
+def _fix_invalid_escapes(text: str) -> str:
+    valid = set('"\\/bfnrtu')
+    out = []
+    i = 0
+    while i < len(text):
+        if text[i] == "\\" and i + 1 < len(text):
+            if text[i + 1] in valid:
+                out.append(text[i])
+                out.append(text[i + 1])
+                i += 2
+            else:
+                out.append(text[i + 1])
+                i += 2
+        else:
+            out.append(text[i])
+            i += 1
+    return "".join(out)
 
 
 def extract_json(text: str) -> dict[str, Any]:
@@ -58,7 +90,11 @@ def extract_json(text: str) -> dict[str, Any]:
     start = payload.find("{")
     if start == -1:
         raise ValueError("No JSON object found in LLM output")
-    return json.loads(payload[start:])
+    raw = payload[start:]
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError:
+        return json.loads(_fix_invalid_escapes(raw))
 
 
 def run_generation(
@@ -67,6 +103,7 @@ def run_generation(
     profile: dict[str, Any],
     transcript: list[dict[str, Any]],
     provider: str = "anthropic",
+    backend: str = "anthropic-api",
 ) -> dict[str, Any]:
     template = load_prompt(PROMPT_PATH)
     template = fill_identity_placeholders(template, profile)
@@ -74,7 +111,7 @@ def run_generation(
         template, "{{INSERT_CORRECTED_EXTRACTED_PROFILE_JSON_HERE}}", profile
     )
     template = fill_json_placeholder(template, "{{INSERT_TRANSCRIPT_JSON_HERE}}", transcript)
-    raw = call_llm(client, model, template, provider=provider)
+    raw = call_llm(client, model, template, provider=provider, backend=backend)
     return extract_json(raw)
 
 
@@ -85,6 +122,7 @@ def run_verification(
     transcript: list[dict[str, Any]],
     social_circle: dict[str, Any],
     provider: str = "anthropic",
+    backend: str = "anthropic-api",
 ) -> dict[str, Any]:
     template = load_prompt(VERIFICATION_PROMPT_PATH)
     template = fill_identity_placeholders(template, profile)
@@ -95,7 +133,7 @@ def run_verification(
     template = fill_json_placeholder(
         template, "{{INSERT_SOCIAL_CIRCLE_JSON_HERE}}", social_circle
     )
-    raw = call_llm(client, model, template, provider=provider)
+    raw = call_llm(client, model, template, provider=provider, backend=backend)
     return extract_json(raw)
 
 
@@ -110,6 +148,7 @@ def run_step(
     model: str,
     max_iterations: int,
     provider: str = "anthropic",
+    backend: str = "anthropic-api",
 ) -> int:
     verification_bundle = json.loads(profile_path.read_text(encoding="utf-8"))
     profile = verification_bundle.get("corrected_extracted_profile", verification_bundle)
@@ -117,7 +156,7 @@ def run_step(
     interview = json.loads(transcript_path.read_text(encoding="utf-8"))
     transcript = interview.get("transcript", interview)
 
-    client = make_client(provider)
+    client = make_client(provider) if backend in API_BACKENDS else None
     output_dir.mkdir(parents=True, exist_ok=True)
 
     base_name = profile_path.stem.replace("_verification", "")
@@ -126,12 +165,12 @@ def run_step(
 
     for attempt in range(1, max_iterations + 1):
         print(f"[attempt {attempt}/{max_iterations}] generating social circle for {base_name}")
-        social_circle = run_generation(client, model, profile, transcript, provider=provider)
-        circle_out.write_text(json.dumps(social_circle, indent=2, ensure_ascii=False))
+        social_circle = run_generation(client, model, profile, transcript, provider=provider, backend=backend)
+        circle_out.write_text(json.dumps(social_circle, indent=2, ensure_ascii=False), encoding="utf-8")
 
         print(f"[attempt {attempt}/{max_iterations}] verifying social circle for {base_name}")
-        verification = run_verification(client, model, profile, transcript, social_circle, provider=provider)
-        verification_out.write_text(json.dumps(verification, indent=2, ensure_ascii=False))
+        verification = run_verification(client, model, profile, transcript, social_circle, provider=provider, backend=backend)
+        verification_out.write_text(json.dumps(verification, indent=2, ensure_ascii=False), encoding="utf-8")
 
         verdict = overall_verdict(verification)
         print(f"[attempt {attempt}/{max_iterations}] verdict: {verdict}")
@@ -163,14 +202,21 @@ def main() -> None:
     )
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--max-iterations", type=int, default=DEFAULT_MAX_ITERATIONS)
-    parser.add_argument("--provider", default="anthropic", choices=SUPPORTED_PROVIDERS)
+    parser.add_argument("--provider", default=None, choices=SUPPORTED_PROVIDERS)
+    parser.add_argument("--backend", default=None, choices=SUPPORTED_BACKENDS)
     args = parser.parse_args()
 
-    if not check_api_key(args.provider):
-        print(f"API key for {args.provider} is not set.", file=sys.stderr)
+    if args.backend is None:
+        args.backend = f"{args.provider or 'anthropic'}-api" if args.provider else os.environ.get("PERSONABENCH_BACKEND", "claude")
+    provider = provider_for_backend(args.backend, args.provider or "anthropic") if args.backend in API_BACKENDS else (args.provider or "anthropic")
+    if args.model is None:
+        args.model = default_model_for_backend(args.backend, "generator")
+
+    if args.backend in API_BACKENDS and not check_api_key(provider):
+        print(f"API key for {provider} is not set.", file=sys.stderr)
         sys.exit(2)
 
-    sys.exit(run_step(args.profile, args.transcript, args.output, args.model, args.max_iterations, args.provider))
+    sys.exit(run_step(args.profile, args.transcript, args.output, args.model, args.max_iterations, provider, args.backend))
 
 
 if __name__ == "__main__":

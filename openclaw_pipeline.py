@@ -40,6 +40,7 @@ from llm import (
     call_llm,
     call_subscription_cli,
     check_api_key,
+    default_model_for_backend,
     make_client,
     provider_for_backend,
 )
@@ -609,21 +610,16 @@ def main() -> None:
         args.backend = f"{args.provider or 'anthropic'}-api"
     provider = provider_for_backend(args.backend, args.provider or "anthropic") if args.backend in API_BACKENDS else (args.provider or "anthropic")
 
+    step6_only = args.start == 6 and args.stop == 6
     if args.model is None:
-        if args.backend in {"claude", "anthropic-api"}:
-            args.model = "claude-opus-4-7"
+        if step6_only:
+            args.model = default_model_for_backend(args.backend, "evaluator")
         else:
-            args.model = "gpt-5.5"
+            args.model = default_model_for_backend(args.backend, "generator")
     if args.verifier_model is None:
-        if args.backend in {"claude", "anthropic-api"}:
-            args.verifier_model = "claude-sonnet-4-6"
-        else:
-            args.verifier_model = "gpt-5"
+        args.verifier_model = default_model_for_backend(args.backend, "verifier")
     if args.judge_model is None:
-        if args.backend in {"claude", "anthropic-api"}:
-            args.judge_model = "claude-sonnet-4-6"
-        else:
-            args.judge_model = "gpt-5.4"
+        args.judge_model = default_model_for_backend(args.backend, "judge")
 
     # Reject obvious aliases. CLIs may resolve aliases internally but the
     # artifact metadata won't record which version was actually used, which

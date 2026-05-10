@@ -81,6 +81,22 @@ def check_api_key(provider: str) -> bool:
     return False
 
 
+def default_model_for_backend(backend: str, role: str = "generator") -> str:
+    if backend in {"claude", "anthropic-api"}:
+        if role in {"verifier", "judge"}:
+            return "claude-sonnet-4-6"
+        return "claude-opus-4-7"
+    if backend in {"codex", "openai-api"}:
+        if role == "evaluator":
+            return "gpt-5-mini"
+        if role == "judge":
+            return "gpt-5.4"
+        if role == "verifier":
+            return "gpt-5"
+        return "gpt-5.5"
+    raise ValueError(f"Unsupported backend: {backend}")
+
+
 def provider_for_backend(backend: str, provider: str = "anthropic") -> str:
     if backend == "anthropic-api":
         return "anthropic"
