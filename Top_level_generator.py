@@ -150,8 +150,8 @@ def run_pipeline(
     openclaw: bool,
     verifier_model: str = "claude-sonnet-4-6",
     per_fact_max_attempts: int = 3,
-    log_start: str = "2026-02-20",
-    log_end: str = "2026-04-20",
+    log_start: str = "2026-03-01",
+    log_end: str = "2026-03-31",
 ) -> int:
     base = seed_path.stem.replace("_seed", "")
 
@@ -217,8 +217,8 @@ def main() -> None:
         help="Independent model for Step 4's reverse-inferability gate.",
     )
     parser.add_argument("--per-fact-max-attempts", type=int, default=3)
-    parser.add_argument("--log-start", default="2026-02-20")
-    parser.add_argument("--log-end", default="2026-04-20")
+    parser.add_argument("--log-start", default="2026-03-01")
+    parser.add_argument("--log-end", default="2026-03-31")
     args = parser.parse_args()
 
     if args.start > args.stop:

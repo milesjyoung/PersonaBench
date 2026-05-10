@@ -73,7 +73,10 @@ def emit_seed(record: dict[str, Any], output_dir: Path) -> Path:
     seed = {f: record[f] for f in REQUIRED_FIELDS}
     output_dir.mkdir(parents=True, exist_ok=True)
     output_path = output_dir / derive_filename(record)
-    output_path.write_text(json.dumps(seed, indent=2, ensure_ascii=False))
+    output_path.write_text(
+        json.dumps(seed, indent=2, ensure_ascii=False),
+        encoding="utf-8",
+    )
     return output_path
 
 

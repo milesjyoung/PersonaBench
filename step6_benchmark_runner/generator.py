@@ -6,11 +6,11 @@ Pass 1: evaluator LLM sees raw app logs + questions only. No ground_truth in
 Pass 2: scorer LLM sees test cases (with ground_truth) + Pass 1 answers.
         Writes the final verification report.
 
-OpenClaw session isolation: when --openclaw is set, the runner deletes the
-target session file between each Pass 1 test case call so prior Q&A does not
-leak into the current context. When running against the Anthropic SDK
-directly, each test case is a fresh messages.create call, so isolation is
-inherent.
+Subscription backend isolation: when --backend claude or --backend codex is
+set, the runner deletes the target session directory between each model call
+so prior Q&A does not leak into the current context. When running against the
+Anthropic SDK directly, each test case is a fresh messages.create call, so
+isolation is inherent.
 """
 
 from __future__ import annotations
@@ -19,20 +19,26 @@ import argparse
 import json
 import os
 import re
-import shutil
-import subprocess
 import sys
-import tempfile
 from pathlib import Path
 from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from llm import make_client, call_llm as _shared_call_llm, check_api_key, SUPPORTED_PROVIDERS
+from llm import (
+    API_BACKENDS,
+    SUBSCRIPTION_BACKENDS,
+    call_llm,
+    call_subscription_cli,
+    check_api_key,
+    make_client,
+    provider_for_backend,
+)
 
 STEP_DIR = Path(__file__).parent
 PROMPT_PATH = STEP_DIR / "prompt.txt"
 
-DEFAULT_MODEL = "claude-opus-4-6"
+DEFAULT_MODEL = "claude-opus-4-7"
+DEFAULT_JUDGE_MODEL = "claude-sonnet-4-6"
 
 
 # ----- prompt splitting ----------------------------------------------------
@@ -131,52 +137,36 @@ def strip_ground_truth(test_cases: dict[str, Any]) -> dict[str, Any]:
     return stripped
 
 
-# ----- LLM call ------------------------------------------------------------
-
-def call_llm(client, model: str, prompt: str, provider: str = "anthropic") -> str:
-    return _shared_call_llm(client, model, prompt, provider=provider)
-
-
 def extract_json(text: str) -> dict[str, Any]:
     fenced = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, re.DOTALL)
     payload = fenced.group(1) if fenced else text
     start = payload.find("{")
     if start == -1:
         raise ValueError("No JSON object found in LLM output")
-    return json.loads(payload[start:])
-
-
-# ----- OpenClaw backend ---------------------------------------------------
-
-def call_via_openclaw(
-    prompt: str, openclaw_session_dir: Path, claude_cmd: str
-) -> str:
-    """Call the evaluator via the claude CLI, wiping the session dir first to
-    guarantee a cold context for this test case."""
-    if openclaw_session_dir.exists():
-        shutil.rmtree(openclaw_session_dir)
-    openclaw_session_dir.mkdir(parents=True, exist_ok=True)
-
-    with tempfile.NamedTemporaryFile(
-        mode="w", suffix=".txt", delete=False, encoding="utf-8"
-    ) as f:
-        f.write(prompt)
-        tmp_path = f.name
+    raw = payload[start:]
     try:
-        with open(tmp_path, "r", encoding="utf-8") as stream:
-            result = subprocess.run(
-                [claude_cmd, "-p"],
-                stdin=stream,
-                capture_output=True,
-                timeout=1800,
-            )
-        if result.returncode != 0:
-            raise RuntimeError(
-                f"claude CLI failed: {result.stderr.decode('utf-8', errors='replace')[:500]}"
-            )
-        return result.stdout.decode("utf-8", errors="replace").strip()
-    finally:
-        os.unlink(tmp_path)
+        return json.loads(raw)
+    except json.JSONDecodeError:
+        return json.loads(_fix_invalid_escapes(raw))
+
+
+def _fix_invalid_escapes(text: str) -> str:
+    valid = set('"\\/bfnrtu')
+    out = []
+    i = 0
+    while i < len(text):
+        if text[i] == "\\" and i + 1 < len(text):
+            if text[i + 1] in valid:
+                out.append(text[i])
+                out.append(text[i + 1])
+                i += 2
+            else:
+                out.append(text[i + 1])
+                i += 2
+        else:
+            out.append(text[i])
+            i += 1
+    return "".join(out)
 
 
 # ----- passes --------------------------------------------------------------
@@ -185,11 +175,11 @@ def run_pass_1(
     raw_logs: str,
     test_cases_stripped: dict[str, Any],
     model: str,
-    client,
+    client: Any | None,
+    backend: str,
     provider: str,
-    use_openclaw: bool,
-    openclaw_session_dir: Path | None,
     claude_cmd: str,
+    codex_cmd: str,
 ) -> dict[str, Any]:
     sections = load_prompt_sections()
     template = fill(sections["pass1"], "{{INSERT_RAW_LOGS_TEXT_HERE}}", raw_logs)
@@ -198,9 +188,10 @@ def run_pass_1(
         "{{INSERT_TEST_CASE_QUESTIONS_JSON_HERE}}",
         test_cases_stripped,
     )
-    if use_openclaw:
-        assert openclaw_session_dir is not None
-        raw = call_via_openclaw(template, openclaw_session_dir, claude_cmd)
+    if backend in SUBSCRIPTION_BACKENDS:
+        raw = call_subscription_cli(
+            template, model, backend, claude_cmd=claude_cmd, codex_cmd=codex_cmd
+        )
     else:
         assert client is not None
         raw = call_llm(client, model, template, provider=provider)
@@ -211,8 +202,11 @@ def run_pass_2(
     test_cases_full: dict[str, Any],
     pass1_answers: dict[str, Any],
     model: str,
-    client,
-    provider: str = "anthropic",
+    client: Any | None,
+    backend: str,
+    provider: str,
+    claude_cmd: str,
+    codex_cmd: str,
 ) -> dict[str, Any]:
     sections = load_prompt_sections()
     template = fill(
@@ -221,7 +215,13 @@ def run_pass_2(
     template = fill(
         template, "{{INSERT_PASS_1_ANSWERS_JSON_HERE}}", pass1_answers
     )
-    raw = call_llm(client, model, template, provider=provider)
+    if backend in SUBSCRIPTION_BACKENDS:
+        raw = call_subscription_cli(
+            template, model, backend, claude_cmd=claude_cmd, codex_cmd=codex_cmd
+        )
+    else:
+        assert client is not None
+        raw = call_llm(client, model, template, provider=provider)
     return extract_json(raw)
 
 
@@ -233,9 +233,10 @@ def run_step(
     output_dir: Path,
     model_pass1: str,
     model_pass2: str,
+    backend: str,
     provider: str,
-    use_openclaw: bool,
     claude_cmd: str,
+    codex_cmd: str,
 ) -> int:
     app_logs = json.loads(app_logs_path.read_text(encoding="utf-8"))
     test_cases = json.loads(test_cases_path.read_text(encoding="utf-8"))
@@ -250,10 +251,9 @@ def run_step(
     raw_logs_out = output_dir / f"{base_name}_app_logs_raw.txt"
     raw_logs_out.write_text(raw_logs, encoding="utf-8")
 
-    openclaw_session_dir = None
-    client = make_client(provider)
-    if use_openclaw:
-        openclaw_session_dir = output_dir / ".openclaw_session"
+    client = None
+    if backend in API_BACKENDS:
+        client = make_client(provider)
 
     print(f"[pass 1] answering {len(stripped['test_cases'])} cases for {base_name}")
     pass1 = run_pass_1(
@@ -261,15 +261,24 @@ def run_step(
         stripped,
         model_pass1,
         client=client,
+        backend=backend,
         provider=provider,
-        use_openclaw=use_openclaw,
-        openclaw_session_dir=openclaw_session_dir,
         claude_cmd=claude_cmd,
+        codex_cmd=codex_cmd,
     )
     pass1_out.write_text(json.dumps(pass1, indent=2, ensure_ascii=False), encoding="utf-8")
 
     print(f"[pass 2] scoring answers for {base_name}")
-    pass2 = run_pass_2(test_cases, pass1, model_pass2, client, provider=provider)
+    pass2 = run_pass_2(
+        test_cases,
+        pass1,
+        model_pass2,
+        client,
+        backend=backend,
+        provider=provider,
+        claude_cmd=claude_cmd,
+        codex_cmd=codex_cmd,
+    )
     pass2_out.write_text(json.dumps(pass2, indent=2, ensure_ascii=False), encoding="utf-8")
 
     accuracy = pass2.get("overall_accuracy", "unknown")
@@ -290,16 +299,24 @@ def main() -> None:
     parser.add_argument(
         "--output", type=Path, default=STEP_DIR / "data_samples" / "output",
     )
-    parser.add_argument("--model-pass1", default=DEFAULT_MODEL)
-    parser.add_argument("--model-pass2", default=DEFAULT_MODEL)
+    parser.add_argument("--model-pass1", default=None)
+    parser.add_argument("--model-pass2", default=None)
     parser.add_argument(
-        "--provider", default="anthropic", choices=SUPPORTED_PROVIDERS,
-        help="LLM provider: anthropic or openai.",
+        "--backend",
+        default="anthropic-api",
+        choices=API_BACKENDS + SUBSCRIPTION_BACKENDS,
+        help="Inference backend: anthropic-api uses ANTHROPIC_API_KEY; "
+        "openai-api uses OPENAI_API_KEY; claude and codex use logged-in CLIs.",
+    )
+    parser.add_argument(
+        "--provider",
+        default=None,
+        choices=("anthropic", "openai"),
+        help="Optional API provider override for compatibility.",
     )
     parser.add_argument(
         "--openclaw", action="store_true",
-        help="Route Pass 1 through the claude CLI (OpenClaw-style) with "
-        "session file isolation between test cases.",
+        help="Deprecated alias for --backend claude.",
     )
     parser.add_argument(
         "--claude-cmd",
@@ -307,15 +324,24 @@ def main() -> None:
             "CLAUDE_CMD", "claude.cmd" if sys.platform == "win32" else "claude"
         ),
     )
+    parser.add_argument(
+        "--codex-cmd",
+        default=os.environ.get("CODEX_CMD", "codex.exe" if sys.platform == "win32" else "codex"),
+    )
     args = parser.parse_args()
+    backend = "claude" if args.openclaw else args.backend
+    provider = provider_for_backend(backend, args.provider or "anthropic") if backend in API_BACKENDS else (args.provider or "anthropic")
+    if args.model_pass1 is None:
+        args.model_pass1 = DEFAULT_MODEL if backend in {"anthropic-api", "claude"} else "gpt-5-mini"
+    if args.model_pass2 is None:
+        args.model_pass2 = DEFAULT_JUDGE_MODEL if backend in {"anthropic-api", "claude"} else "gpt-5.4"
 
-    if not args.openclaw:
-        if args.provider == "anthropic" and "ANTHROPIC_API_KEY" not in os.environ:
-            print("ANTHROPIC_API_KEY is not set.", file=sys.stderr)
-            sys.exit(2)
-        if args.provider == "openai" and "OPENAI_API_KEY" not in os.environ:
-            print("OPENAI_API_KEY is not set.", file=sys.stderr)
-            sys.exit(2)
+    if backend in API_BACKENDS and not check_api_key(provider):
+        print(
+            f"{provider.upper()}_API_KEY is not set and no subscription backend was selected.",
+            file=sys.stderr,
+        )
+        sys.exit(2)
 
     sys.exit(
         run_step(
@@ -324,9 +350,10 @@ def main() -> None:
             args.output,
             args.model_pass1,
             args.model_pass2,
-            args.provider,
-            args.openclaw,
+            backend,
+            provider,
             args.claude_cmd,
+            args.codex_cmd,
         )
     )
 

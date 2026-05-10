@@ -22,6 +22,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from llm import make_client, call_llm as _call_llm, check_api_key, SUPPORTED_PROVIDERS
 
@@ -52,13 +54,36 @@ def call_llm(client, model: str, prompt: str, provider: str = "anthropic") -> st
     return _call_llm(client, model, prompt, provider=provider)
 
 
+def _fix_invalid_escapes(text: str) -> str:
+    VALID = set('"\\/bfnrtu')
+    out = []
+    i = 0
+    while i < len(text):
+        if text[i] == '\\' and i + 1 < len(text):
+            if text[i + 1] in VALID:
+                out.append(text[i])
+                out.append(text[i + 1])
+                i += 2
+            else:
+                out.append(text[i + 1])
+                i += 2
+        else:
+            out.append(text[i])
+            i += 1
+    return ''.join(out)
+
+
 def extract_json(text: str) -> dict[str, Any]:
     fenced = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, re.DOTALL)
     payload = fenced.group(1) if fenced else text
     start = payload.find("{")
     if start == -1:
         raise ValueError("No JSON object found in LLM output")
-    return json.loads(payload[start:])
+    raw = payload[start:]
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError:
+        return json.loads(_fix_invalid_escapes(raw))
 
 
 # ---- per-fact generation + verification ----------------------------------
@@ -288,10 +313,20 @@ def run_step(
                 "final_verification": last_verification,
             }
         )
+        trace_out.write_text(
+            json.dumps(trace, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
 
     trace_out.write_text(
         json.dumps(trace, indent=2, ensure_ascii=False), encoding="utf-8"
     )
+
+    fragments_out = output_dir / f"{base_name}_verified_fragments.json"
+    fragments_out.write_text(
+        json.dumps(verified_fragments, indent=2, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    print(f"[step4] saved {len(verified_fragments)} fragments to {fragments_out}")
 
     passed_count = sum(1 for t in trace if t["passed"])
     print(
@@ -305,11 +340,19 @@ def run_step(
         )
 
     print(f"[step4] merging fragments + filler for {persona['name']}")
-    app_log = merge_app_log(
-        client, model, verified_fragments, hidden_facts,
-        corrected_social_circle, persona, log_start, log_end, news_events,
-        provider=provider,
-    )
+    for merge_attempt in range(1, 4):
+        try:
+            app_log = merge_app_log(
+                client, model, verified_fragments, hidden_facts,
+                corrected_social_circle, persona, log_start, log_end,
+                news_events, provider=provider,
+            )
+            break
+        except Exception as e:
+            print(f"[step4] merge attempt {merge_attempt}/3 failed: {e}")
+            if merge_attempt == 3:
+                print("[step4] merge exhausted retries. Fragments saved to disk.")
+                return 1
     app_log_out.write_text(
         json.dumps(app_log, indent=2, ensure_ascii=False), encoding="utf-8"
     )
@@ -344,8 +387,8 @@ def main() -> None:
     parser.add_argument(
         "--per-fact-max-attempts", type=int, default=DEFAULT_PER_FACT_MAX_ATTEMPTS,
     )
-    parser.add_argument("--log-start", default="2026-02-20")
-    parser.add_argument("--log-end", default="2026-04-20")
+    parser.add_argument("--log-start", default="2026-03-01")
+    parser.add_argument("--log-end", default="2026-03-31")
     parser.add_argument("--provider", default="anthropic", choices=SUPPORTED_PROVIDERS)
     args = parser.parse_args()
 

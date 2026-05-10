@@ -47,17 +47,17 @@ The split prevents ground truth strings from appearing in the same context as th
 
 Verdict: VERIFIED (all ≥ 2), FLAGGED (any == 1, none == 0), FAILED (any == 0).
 
-## OpenClaw session isolation
+## Subscription session isolation
 
-When the runner drives the evaluator through an agent framework like OpenClaw, session state persists between calls. Re-using a session across test cases leaks prior Q&A into the current context and invalidates results.
+When the runner drives the evaluator through a CLI backend, session state can persist between calls. Re-using a session across test cases leaks prior Q&A into the current context and invalidates results.
 
-Fix: the runner deletes the target session directory between each Pass 1 call when `--openclaw` is passed. This guarantees cold context per test case.
+Fix: the runner deletes the target session directory between each model call when `--backend claude` or `--backend codex` is passed. This guarantees cold context per pass.
 
 When running against the Anthropic SDK directly (default), each case is a fresh `messages.create` call, so isolation is inherent.
 
 ## Running
 
-Default (Anthropic SDK, requires `ANTHROPIC_API_KEY`):
+Default API mode (Anthropic SDK, requires `ANTHROPIC_API_KEY`):
 
 ```bash
 python generator.py \
@@ -66,14 +66,38 @@ python generator.py \
   --output     data_samples/output/
 ```
 
-OpenClaw-style via the claude CLI:
+OpenAI API mode:
+
+```bash
+python generator.py \
+  --app-logs     data_samples/input/{persona}_app_logs.json \
+  --test-cases   data_samples/input/{persona}_test_cases.json \
+  --output       data_samples/output/ \
+  --backend      openai-api \
+  --model-pass1  gpt-5-mini \
+  --model-pass2  gpt-5.4
+```
+
+Subscription CLI backend:
 
 ```bash
 python generator.py \
   --app-logs   data_samples/input/{persona}_app_logs.json \
   --test-cases data_samples/input/{persona}_test_cases.json \
   --output     data_samples/output/ \
-  --openclaw
+  --backend    claude
+```
+
+Codex subscription backend:
+
+```bash
+python generator.py \
+  --app-logs     data_samples/input/{persona}_app_logs.json \
+  --test-cases   data_samples/input/{persona}_test_cases.json \
+  --output       data_samples/output/ \
+  --backend      codex \
+  --model-pass1  gpt-5-mini \
+  --model-pass2  gpt-5.4
 ```
 
 Different models for answering vs scoring (recommended for true independence):
@@ -82,9 +106,13 @@ Different models for answering vs scoring (recommended for true independence):
 python generator.py \
   --app-logs   ... \
   --test-cases ... \
-  --model-pass1 claude-opus-4-6 \
+  --model-pass1 claude-opus-4-7 \
   --model-pass2 claude-sonnet-4-6
 ```
+
+## Verifying a successful run
+
+Check overall accuracy and the capstone result in the benchmark results file. The capstone (final Type 5a test case) should be VERIFIED or FLAGGED for a passing run.
 
 ## Targets
 

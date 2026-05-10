@@ -1,102 +1,116 @@
 # Running PersonaBench
 
-## Quick start (check a model's score)
-
-```bash
-git clone https://github.com/TruePersona/PersonaBench.git
-cd PersonaBench
-pip install anthropic openai   # whichever SDK you need
-
-export ANTHROPIC_API_KEY="sk-ant-..."   # if using Anthropic
-export OPENAI_API_KEY="sk-..."          # if using OpenAI
-
-for P in julio_simmons mary_alberti alicia_gonzalez deeva_cintron maria_buendia; do
-  bash run_step.sh 6 "$P" openai gpt-5.5
-done
-```
-
-Wall time: 30 to 60 minutes. Outputs land in `step6_benchmark_runner/data_samples/output/`. Compare against the figures in `step6_benchmark_runner/RESULTS.md`.
+PersonaBench measures whether an LLM can infer a persona's identity from raw app logs and act safely as their personal assistant.
 
 ## Prerequisites
 
-- Python 3.10 or newer
-- `pip install anthropic` or `pip install openai`
-- Repo cloned, working directory at the repo root
+```
+Python 3.10+
+pip install anthropic openai datasets
+```
+
+## Authentication
+
+**Subscription CLI** (no API key needed): install and log in to the Claude Code CLI (`claude -p`) or the Codex CLI (`codex exec`). Select with `--backend claude` or `--backend codex`.
+
+**API key** (metered): set `ANTHROPIC_API_KEY` or `OPENAI_API_KEY` in your environment. Select with `--backend anthropic-api` or `--backend openai-api`.
+
+Verify your backend works before starting a long run: `python openclaw_pipeline.py --help`.
+
+## Score a model against the existing dataset
+
+All 5 personas have complete data through Step 5. To benchmark a model, run Step 6 only:
+
+```bash
+# Benchmark GPT 5 with GPT 5.4 as judge (Codex subscription)
+python openclaw_pipeline.py --persona julio_simmons --start 6 --stop 6 \
+  --backend codex \
+  --model gpt-5-mini \
+  --judge-model gpt-5.4
+
+# Benchmark Opus 4.7 with Sonnet 4.6 as judge (Claude subscription)
+python openclaw_pipeline.py --persona julio_simmons --start 6 --stop 6 \
+  --backend claude \
+  --model claude-opus-4-7 \
+  --judge-model claude-sonnet-4-6
+
+# Score all 5 personas at once
+python openclaw_pipeline.py --all --start 6 --stop 6 \
+  --backend codex \
+  --model gpt-5-mini \
+  --judge-model gpt-5.4
+```
+
+## Generate a new persona end-to-end
+
+**Step 1: fetch a seed.** Pick a UUID from the NVIDIA Nemotron-Personas-USA dataset and fetch it:
+
+```bash
+python step1_seed/generator.py \
+  --uuid 50f90a6f17de473f9ca15f00afdedf7a \
+  --output step1_seed/data_samples/output/
+```
+
+**Steps 2-5: generate the dataset.** This produces the interview, social circle, app logs, and test cases:
+
+```bash
+python openclaw_pipeline.py \
+  --seed step1_seed/data_samples/output/alicia_gonzalez_seed.json \
+  --start 2 --stop 5 \
+  --backend codex \
+  --model gpt-5.5 \
+  --verifier-model gpt-5
+```
+
+**Step 6: benchmark.** Run separately to maintain evaluator independence:
+
+```bash
+python openclaw_pipeline.py \
+  --persona alicia_gonzalez --start 6 --stop 6 \
+  --backend codex \
+  --model gpt-5-mini \
+  --judge-model gpt-5.4
+```
+
+Time estimate: 3-5 hours per persona (dominated by Step 4).
 
 ## Run a single step
 
 ```bash
-bash run_step.sh <step> <persona> [provider] [model]
+python openclaw_pipeline.py --persona alicia_gonzalez --start 4 --stop 4 --backend claude
 ```
 
-Steps: 2 (interview), 3 (social circle), 4 (app logs), 5 (test cases), 6 (benchmark).
+Each step's generator also accepts direct invocation with `--help` for its full CLI. See each step's README for details.
 
-Examples:
+## Model independence
 
-```bash
-bash run_step.sh 6 julio_simmons openai gpt-5.5
-bash run_step.sh 4 maria_buendia anthropic claude-opus-4-7
-bash run_step.sh 6 julio_simmons                  # defaults: anthropic, claude-opus-4-7
-```
+The pipeline uses four model roles. Three independence boundaries prevent systematic bias:
 
-## Run the full pipeline (steps 2 through 6)
+| Boundary | Requirement | Why |
+|---|---|---|
+| Generator differs from Verifier | The model that creates app log fragments must not verify its own output. | A model pattern-matching its own generation is not an independent recoverability test. |
+| Evaluator differs from Judge | The model being benchmarked must not grade its own answers. | Same-model self-grading inflates scores by ~27% (empirically measured). |
+| Generator differs from Judge | The model that created the test cases must not grade answers to them. | Shared systematic biases in question construction and answer evaluation. |
 
-```bash
-bash run_pipeline.sh <persona> [provider] [model]
-```
+**Default model assignments:**
 
-Examples:
+| Role | Claude | GPT | Flag |
+|---|---|---|---|
+| Generator | `claude-opus-4-7` | `gpt-5.5` | `--model` (Steps 2-5) |
+| Verifier | `claude-sonnet-4-6` | `gpt-5` | `--verifier-model` |
+| Evaluator | (run Step 6 separately) | `gpt-5-mini` | `--model` (Step 6 only) |
+| Judge | `claude-sonnet-4-6` | `gpt-5.4` | `--judge-model` |
 
-```bash
-bash run_pipeline.sh julio_simmons openai gpt-5.5
-bash run_pipeline.sh julio_simmons                 # defaults: anthropic, claude-opus-4-7
-```
+Always run Step 6 in a separate invocation (`--start 6 --stop 6`) so the evaluator model can differ from the generator.
 
-## Three ways to run (advanced)
+## Troubleshooting
 
-### A. Direct API
+**`ValueError: Streaming is required`** -- Update to the latest `llm.py`. The pipeline uses streaming by default.
 
-Call the step generators directly:
+**`UnicodeEncodeError: 'charmap'`** -- Set `$env:PYTHONIOENCODING = "utf-8"` or use Windows Terminal.
 
-```bash
-python step6_benchmark_runner/generator.py \
-  --app-logs step4_app_log_synthesizer/data_samples/output/julio_simmons_app_logs.json \
-  --test-cases step5_testcases_synthesis/data_samples/output/julio_simmons_test_cases.json \
-  --provider openai \
-  --model-pass1 gpt-5.5 \
-  --model-pass2 gpt-5.5
-```
+**`JSONDecodeError: Invalid \escape`** -- The generator sanitizes these automatically.
 
-### B. Pipeline orchestrator
+**Step 4 crashes mid-run** -- Trace and fragment files are saved after every fact. Re-running regenerates from scratch.
 
-```bash
-python openclaw_pipeline.py --persona julio_simmons --start 2 --stop 6 --provider openai --model gpt-5.5 --verifier-model gpt-5.5
-```
-
-### C. From inside a coding agent
-
-Open the repo in Codex, Claude Code, Cursor, or any coding agent with shell access. Run the shell commands above.
-
-## Personas
-
-`julio_simmons`, `mary_alberti`, `alicia_gonzalez`, `deeva_cintron`, `maria_buendia`
-
-## Models
-
-Use exact version strings (`gpt-5.5`, `claude-opus-4-7`, `gemini-2.5-pro`), not aliases. The shell scripts accept provider and model as arguments. Defaults are `anthropic` and `claude-opus-4-7`.
-
-## Reproducing the published numbers
-
-The dataset on `main` is the canonical artifact. To check a model's score, run step 6 only:
-
-```bash
-bash run_step.sh 6 <persona> openai gpt-5.5
-```
-
-## Outputs
-
-Each step writes to its own `data_samples/output/` directory. Benchmark results land in `step6_benchmark_runner/data_samples/output/`.
-
-## Pass 1 / Pass 2 independence
-
-Use different models for Pass 1 (answering) and Pass 2 (scoring).
+**AMBIGUOUS after 3 attempts** -- Fragments are merged anyway; the trace records `"passed": false`.
