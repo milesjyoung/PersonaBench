@@ -10,7 +10,7 @@
 #   bash run_step.sh <step> <persona> [backend] [model]
 #   bash run_step.sh 4 julio_simmons
 #   bash run_step.sh 6 alicia_gonzalez
-#   bash run_step.sh 6 julio_simmons codex gpt-5.5
+#   bash run_step.sh 6 julio_simmons codex gpt-5-mini
 #   bash run_step.sh 6 julio_simmons anthropic-api claude-opus-4-7
 #
 # Steps:
@@ -68,6 +68,13 @@ case "$BACKEND" in
     ;;
   *) echo "error: backend must be claude, codex, anthropic-api, or openai-api (got '${BACKEND}')" >&2; exit 2 ;;
 esac
+
+# Step 6 uses a smaller evaluator model by default.
+if [[ "$STEP" == "6" ]]; then
+  case "$BACKEND" in
+    codex|openai-api) DEFAULT_GENERATOR_MODEL="${MODEL_ARG:-gpt-5-mini}" ;;
+  esac
+fi
 
 GENERATOR_MODEL="${GENERATOR_MODEL:-${MODEL_ARG:-$DEFAULT_GENERATOR_MODEL}}"
 VERIFIER_MODEL="${VERIFIER_MODEL:-$DEFAULT_VERIFIER_MODEL}"

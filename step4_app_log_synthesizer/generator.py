@@ -25,15 +25,20 @@ from typing import Any
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from llm import make_client, call_llm as _call_llm, check_api_key, SUPPORTED_PROVIDERS
+from llm import (
+    API_BACKENDS, SUBSCRIPTION_BACKENDS, SUPPORTED_BACKENDS,
+    make_client, call_llm as _call_llm, call_subscription_cli,
+    check_api_key, provider_for_backend, default_model_for_backend,
+    SUPPORTED_PROVIDERS,
+)
 
 STEP_DIR = Path(__file__).parent
 PROMPT_PATH = STEP_DIR / "prompt.txt"
 VERIFICATION_PROMPT_PATH = STEP_DIR / "verification_prompt.txt"
 MERGE_PROMPT_PATH = STEP_DIR / "merge_prompt.txt"
 
-DEFAULT_MODEL = "claude-opus-4-6"
-DEFAULT_VERIFIER_MODEL = "claude-sonnet-4-6"  # cold, independent verifier
+DEFAULT_MODEL = None
+DEFAULT_VERIFIER_MODEL = None
 DEFAULT_PER_FACT_MAX_ATTEMPTS = 3
 DEFAULT_LOG_WINDOW_DAYS = 60
 
@@ -50,7 +55,15 @@ def fill(template: str, placeholder: str, payload: Any) -> str:
     )
 
 
-def call_llm(client, model: str, prompt: str, provider: str = "anthropic") -> str:
+CLAUDE_CMD = os.environ.get("CLAUDE_CMD", "claude.cmd" if sys.platform == "win32" else "claude")
+CODEX_CMD = os.environ.get("CODEX_CMD", "codex.exe" if sys.platform == "win32" else "codex")
+
+
+def call_llm(client, model: str, prompt: str, provider: str = "anthropic",
+             backend: str = "anthropic-api") -> str:
+    if backend in SUBSCRIPTION_BACKENDS:
+        return call_subscription_cli(prompt, model, backend,
+                                     claude_cmd=CLAUDE_CMD, codex_cmd=CODEX_CMD)
     return _call_llm(client, model, prompt, provider=provider)
 
 
@@ -98,6 +111,7 @@ def generate_fragments(
     log_end: str,
     contact_usage: dict[str, int],
     provider: str = "anthropic",
+    backend: str = "anthropic-api",
 ) -> dict[str, Any]:
     template = load_prompt(PROMPT_PATH)
     template = fill(template, "{{INSERT_HIDDEN_FACT_JSON_HERE}}", hidden_fact)
@@ -107,7 +121,7 @@ def generate_fragments(
     template = fill(template, "{{LOG_START_DATE}}", log_start)
     template = fill(template, "{{LOG_END_DATE}}", log_end)
     template = fill(template, "{{INSERT_CONTACT_USAGE_COUNTS_JSON_HERE}}", contact_usage)
-    raw = call_llm(client, model, template, provider=provider)
+    raw = call_llm(client, model, template, provider=provider, backend=backend)
     return extract_json(raw)
 
 
@@ -118,6 +132,7 @@ def verify_fragments(
     banned_token_set: list[str],
     persona: dict[str, Any],
     provider: str = "anthropic",
+    backend: str = "anthropic-api",
 ) -> dict[str, Any]:
     verifier_input = {
         "fragments": fragments,
@@ -129,7 +144,7 @@ def verify_fragments(
     template = fill(template, "{{PERSONA_AGE}}", str(persona["age"]))
     template = fill(template, "{{PERSONA_OCCUPATION}}", persona["occupation"])
     template = fill(template, "{{PERSONA_LOCATION}}", persona["location"])
-    raw = call_llm(client, verifier_model, template, provider=provider)
+    raw = call_llm(client, verifier_model, template, provider=provider, backend=backend)
     return extract_json(raw)
 
 
@@ -178,6 +193,7 @@ def merge_app_log(
     log_end: str,
     news_events: list[dict[str, Any]],
     provider: str = "anthropic",
+    backend: str = "anthropic-api",
 ) -> dict[str, Any]:
     template = load_prompt(MERGE_PROMPT_PATH)
     template = fill(template, "{{PERSONA_NAME}}", persona["name"])
@@ -194,7 +210,7 @@ def merge_app_log(
     template = fill(template, "{{LOG_START_DATE}}", log_start)
     template = fill(template, "{{LOG_END_DATE}}", log_end)
     template = fill(template, "{{INSERT_NEWS_EVENTS_JSON_HERE}}", news_events)
-    raw = call_llm(client, model, template, provider=provider)
+    raw = call_llm(client, model, template, provider=provider, backend=backend)
     return sanitize_app_log(extract_json(raw))
 
 
@@ -238,6 +254,7 @@ def run_step(
     log_start: str,
     log_end: str,
     provider: str = "anthropic",
+    backend: str = "anthropic-api",
 ) -> int:
     profile_file = json.loads(profile_path.read_text(encoding="utf-8"))
     corrected_profile = profile_file["corrected_extracted_profile"]
@@ -250,7 +267,7 @@ def run_step(
     if news_events_path and news_events_path.exists():
         news_events = json.loads(news_events_path.read_text(encoding="utf-8"))
 
-    client = make_client(provider)
+    client = make_client(provider) if backend in API_BACKENDS else None
     output_dir.mkdir(parents=True, exist_ok=True)
 
     base_name = profile_path.stem.replace("_verification", "")
@@ -278,13 +295,13 @@ def run_step(
             )
             bundle = generate_fragments(
                 client, model, hf, corrected_social_circle,
-                log_start, log_end, contact_usage, provider=provider,
+                log_start, log_end, contact_usage, provider=provider, backend=backend,
             )
             fragments = bundle.get("fragments", [])
             banned_token_set = bundle.get("banned_token_set", []) or []
             verification = verify_fragments(
                 client, verifier_model, fragments, banned_token_set, persona,
-                provider=provider,
+                provider=provider, backend=backend,
             )
             last_fragments = fragments
             last_verification = verification
@@ -345,7 +362,7 @@ def run_step(
             app_log = merge_app_log(
                 client, model, verified_fragments, hidden_facts,
                 corrected_social_circle, persona, log_start, log_end,
-                news_events, provider=provider,
+                news_events, provider=provider, backend=backend,
             )
             break
         except Exception as e:
@@ -389,11 +406,21 @@ def main() -> None:
     )
     parser.add_argument("--log-start", default="2026-03-01")
     parser.add_argument("--log-end", default="2026-03-31")
-    parser.add_argument("--provider", default="anthropic", choices=SUPPORTED_PROVIDERS)
+    parser.add_argument("--provider", default=None, choices=SUPPORTED_PROVIDERS)
+    parser.add_argument("--backend", default=None, choices=SUPPORTED_BACKENDS)
     args = parser.parse_args()
 
-    if not check_api_key(args.provider):
-        print(f"API key for {args.provider} is not set.", file=sys.stderr)
+    if args.backend is None:
+        args.backend = f"{args.provider or 'anthropic'}-api" if args.provider else os.environ.get("PERSONABENCH_BACKEND", "claude")
+    provider = provider_for_backend(args.backend, args.provider or "anthropic") if args.backend in API_BACKENDS else (args.provider or "anthropic")
+
+    if args.model is None:
+        args.model = default_model_for_backend(args.backend, "generator")
+    if args.verifier_model is None:
+        args.verifier_model = default_model_for_backend(args.backend, "verifier")
+
+    if args.backend in API_BACKENDS and not check_api_key(provider):
+        print(f"API key for {provider} is not set.", file=sys.stderr)
         sys.exit(2)
 
     sys.exit(
@@ -407,7 +434,8 @@ def main() -> None:
             args.per_fact_max_attempts,
             args.log_start,
             args.log_end,
-            args.provider,
+            provider,
+            args.backend,
         )
     )
 
