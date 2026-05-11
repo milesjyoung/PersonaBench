@@ -179,7 +179,254 @@ def update_contact_usage(
         contact_usage[name] = contact_usage.get(name, 0) + 1
 
 
-# ---- merge ---------------------------------------------------------------
+# ---- merge (deterministic assembly + per-contact filler LLM calls) -------
+
+
+FILLER_PROMPT_TEMPLATE = """Generate {count} filler messenger sessions between {persona_name} and {contact_name} spread across these dates: {dates}.
+
+Contact voice profile:
+- Relationship: {relationship}
+- Communication style: {comm_style}
+- Typical topics: {topics}
+
+Rules:
+- Each session is 2-6 mundane messages (3-15 words each).
+- Content: logistics, weather, food, pets, running late, errands, casual check-ins.
+- NO hidden facts, NO deep reflection, NO essay-style messages.
+- {contact_name}'s messages must match their voice profile above.
+- Vary openers across sessions. Do not recycle greetings.
+- Use realistic timestamps (HH:MM) within each session.
+
+Return a JSON array of sessions:
+[
+  {{
+    "date": "YYYY-MM-DD",
+    "contact": "{contact_name}",
+    "messages": [
+      {{"time": "HH:MM", "sender": "...", "text": "..."}}
+    ]
+  }}
+]
+
+Return ONLY the JSON array, no other text."""
+
+
+def _group_fragments_into_sessions(
+    fragments: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    messenger_groups: dict[str, list[dict[str, Any]]] = {}
+    calendar_events: list[dict[str, Any]] = []
+
+    for frag in fragments:
+        if frag.get("type") == "calendar" and frag.get("calendar_event"):
+            evt = dict(frag["calendar_event"])
+            evt["date"] = frag["date"]
+            calendar_events.append(evt)
+        elif frag.get("type") == "messenger" and frag.get("messages"):
+            key = f"{frag['date']}|{frag.get('source', {}).get('contact_name', 'unknown')}"
+            messenger_groups.setdefault(key, []).append(frag)
+
+    sessions = []
+    for key, frags in sorted(messenger_groups.items()):
+        date, contact = key.split("|", 1)
+        messages = []
+        for f in frags:
+            messages.extend(f.get("messages", []))
+        messages.sort(key=lambda m: m.get("time", ""))
+        sessions.append({
+            "date": date,
+            "contact": contact,
+            "messages": messages,
+        })
+
+    sessions.sort(key=lambda s: (s["date"], (s["messages"] or [{}])[0].get("time", "")))
+    calendar_events.sort(key=lambda e: (e.get("date", ""), e.get("start_time", "")))
+    return sessions, calendar_events
+
+
+def _compute_filler_budget(
+    meaningful_sessions: list[dict[str, Any]],
+    contacts: list[str],
+    ratio: float = 2.5,
+) -> dict[str, int]:
+    total_filler_sessions = max(1, int(len(meaningful_sessions) * ratio))
+
+    contact_meaningful = {}
+    for s in meaningful_sessions:
+        c = s.get("contact", "unknown")
+        contact_meaningful[c] = contact_meaningful.get(c, 0) + 1
+    total_meaningful = max(len(meaningful_sessions), 1)
+
+    budget: dict[str, int] = {}
+    for c in contacts:
+        share = contact_meaningful.get(c, 0) / total_meaningful
+        if share > 0.35:
+            budget[c] = max(1, int(total_filler_sessions * 0.15))
+        elif share < 0.10:
+            budget[c] = max(3, int(total_filler_sessions * 0.25))
+        else:
+            budget[c] = max(1, int(total_filler_sessions / len(contacts)))
+
+    assigned = sum(budget.values())
+    if assigned < total_filler_sessions and contacts:
+        budget[contacts[0]] += total_filler_sessions - assigned
+
+    return budget
+
+
+def _dates_for_contact(
+    meaningful_sessions: list[dict[str, Any]],
+    contact: str,
+    log_start: str,
+    log_end: str,
+) -> list[str]:
+    from datetime import date, timedelta
+    start = date.fromisoformat(log_start)
+    end = date.fromisoformat(log_end)
+    meaningful_dates = {
+        s["date"] for s in meaningful_sessions if s.get("contact") == contact
+    }
+    all_dates = []
+    d = start
+    while d <= end:
+        ds = d.isoformat()
+        if ds not in meaningful_dates:
+            all_dates.append(ds)
+        d += timedelta(days=1)
+    return all_dates
+
+
+def _generate_filler_for_contact(
+    client,
+    model: str,
+    persona_name: str,
+    contact: dict[str, Any],
+    count: int,
+    available_dates: list[str],
+    provider: str = "anthropic",
+    backend: str = "anthropic-api",
+) -> list[dict[str, Any]]:
+    contact_name = contact["name"]
+    relationship = contact.get("relationship", "friend")
+    personality = contact.get("personality_mini_profile", {})
+    comm_style = personality.get("communication_style", "casual texting")
+    topics = ", ".join(contact.get("recent_text_topics", [])[:3]) or "daily life"
+
+    sample_dates = available_dates[:count] if len(available_dates) >= count else (
+        available_dates * ((count // max(len(available_dates), 1)) + 1)
+    )[:count]
+    dates_str = ", ".join(sample_dates[:15])
+    if len(sample_dates) > 15:
+        dates_str += f" (and {len(sample_dates) - 15} more)"
+
+    prompt = FILLER_PROMPT_TEMPLATE.format(
+        count=count,
+        persona_name=persona_name,
+        contact_name=contact_name,
+        dates=dates_str,
+        relationship=relationship,
+        comm_style=comm_style,
+        topics=topics,
+    )
+
+    raw = call_llm(client, model, prompt, provider=provider, backend=backend)
+    fenced = re.search(r"```(?:json)?\s*(\[.*?\])\s*```", raw, re.DOTALL)
+    payload = fenced.group(1) if fenced else raw
+    start = payload.find("[")
+    if start == -1:
+        return []
+    raw_json = payload[start:]
+    try:
+        sessions = json.loads(raw_json)
+    except json.JSONDecodeError:
+        try:
+            sessions = json.loads(_fix_invalid_escapes(raw_json))
+        except json.JSONDecodeError:
+            return []
+
+    if not isinstance(sessions, list):
+        return []
+    for s in sessions:
+        s["contact"] = contact_name
+    return sessions
+
+
+def _build_hidden_facts_registry(
+    hidden_facts: list[dict[str, Any]],
+    trace: list[dict[str, Any]],
+    fragments: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    trace_by_id = {t["fact_id"]: t for t in trace}
+    frags_by_fact = {}
+    for f in fragments:
+        fid = f.get("source_fact_id", "")
+        frags_by_fact.setdefault(fid, []).append(f)
+
+    registry = []
+    for hf in hidden_facts:
+        fid = hf.get("fact_id", "")
+        t = trace_by_id.get(fid, {})
+        fact_frags = frags_by_fact.get(fid, [])
+
+        chat_signals = {}
+        calendar_signals = []
+        for f in fact_frags:
+            if f.get("type") == "messenger":
+                contact = f.get("source", {}).get("contact_name", "unknown")
+                chat_signals[contact] = f.get("implicit_signal_explanation", "")[:120]
+            elif f.get("type") == "calendar":
+                calendar_signals.append(f.get("implicit_signal_explanation", "")[:120])
+
+        registry.append({
+            "fact_id": fid,
+            "ground_truth_label": hf.get("ground_truth_label", ""),
+            "category": hf.get("category", ""),
+            "source_subcategory": hf.get("source_subcategory", ""),
+            "verification": {
+                "reverse_inferable": t.get("passed", False),
+                "recovered_label": (t.get("final_verification") or {}).get("candidate_label", ""),
+                "reviewer_model": "cold independent verifier",
+                "fragments_used": [f.get("fragment_id", "") for f in fact_frags],
+            },
+            "embedding_strategy": {
+                "chat_signals": chat_signals,
+                "calendar_signals": calendar_signals,
+            },
+        })
+    return registry
+
+
+def _build_cross_app_index(
+    meaningful_sessions: list[dict[str, Any]],
+    calendar_events: list[dict[str, Any]],
+    fragments: list[dict[str, Any]],
+) -> dict[str, dict[str, list[str]]]:
+    frags_by_date: dict[str, set] = {}
+    for f in fragments:
+        d = f.get("date", "")
+        fid = f.get("source_fact_id", "")
+        if d and fid:
+            frags_by_date.setdefault(d, set()).add(fid)
+
+    index: dict[str, dict[str, list[str]]] = {}
+    all_dates = set()
+    for s in meaningful_sessions:
+        all_dates.add(s.get("date", ""))
+    for e in calendar_events:
+        all_dates.add(e.get("date", ""))
+
+    for d in sorted(all_dates):
+        if not d:
+            continue
+        m_ids = [s["session_id"] for s in meaningful_sessions if s.get("date") == d]
+        e_ids = [e["event_id"] for e in calendar_events if e.get("date") == d]
+        hf_ids = sorted(frags_by_date.get(d, set()))
+        index[d] = {
+            "messenger_session_ids": m_ids,
+            "calendar_event_ids": e_ids,
+            "hidden_fact_ids_touched": hf_ids,
+        }
+    return index
 
 
 def merge_app_log(
@@ -194,24 +441,91 @@ def merge_app_log(
     news_events: list[dict[str, Any]],
     provider: str = "anthropic",
     backend: str = "anthropic-api",
+    trace: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
-    template = load_prompt(MERGE_PROMPT_PATH)
-    template = fill(template, "{{PERSONA_NAME}}", persona["name"])
-    template = fill(template, "{{PERSONA_AGE}}", str(persona["age"]))
-    template = fill(template, "{{PERSONA_OCCUPATION}}", persona["occupation"])
-    template = fill(template, "{{PERSONA_LOCATION}}", persona["location"])
-    template = fill(
-        template, "{{INSERT_VERIFIED_FRAGMENTS_JSON_HERE}}", verified_fragments
+    print("[merge] assembling fragments into sessions (deterministic)")
+    meaningful_sessions, calendar_events = _group_fragments_into_sessions(
+        verified_fragments
     )
-    template = fill(template, "{{INSERT_HIDDEN_FACTS_JSON_HERE}}", hidden_facts)
-    template = fill(
-        template, "{{INSERT_CORRECTED_SOCIAL_CIRCLE_JSON_HERE}}", social_circle
+
+    for i, s in enumerate(meaningful_sessions, 1):
+        s["session_id"] = f"M-{i:03d}"
+    for i, e in enumerate(calendar_events, 1):
+        e["event_id"] = f"E-{i:03d}"
+
+    contacts_list = social_circle.get("social_circle", social_circle.get("contacts", []))
+    contact_names = [c["name"] for c in contacts_list]
+
+    budget = _compute_filler_budget(meaningful_sessions, contact_names)
+    print(f"[merge] filler budget: {sum(budget.values())} sessions across {len(budget)} contacts")
+
+    filler_sessions: list[dict[str, Any]] = []
+    batch_size = 50
+    for contact_data in contacts_list:
+        cname = contact_data["name"]
+        count = budget.get(cname, 0)
+        if count == 0:
+            continue
+        available = _dates_for_contact(meaningful_sessions, cname, log_start, log_end)
+        contact_filler: list[dict[str, Any]] = []
+        remaining = count
+        batch_num = 0
+        while remaining > 0:
+            batch_num += 1
+            this_batch = min(remaining, batch_size)
+            print(f"[merge] {cname} batch {batch_num}: {this_batch} sessions ({remaining} remaining)")
+            sessions = _generate_filler_for_contact(
+                client, model, persona["name"], contact_data, this_batch, available,
+                provider=provider, backend=backend,
+            )
+            contact_filler.extend(sessions)
+            remaining -= this_batch
+        filler_sessions.extend(contact_filler)
+        print(f"[merge] got {len(contact_filler)} filler sessions for {cname}")
+
+    filler_sessions.sort(
+        key=lambda s: (s.get("date", ""), (s.get("messages") or [{}])[0].get("time", ""))
     )
-    template = fill(template, "{{LOG_START_DATE}}", log_start)
-    template = fill(template, "{{LOG_END_DATE}}", log_end)
-    template = fill(template, "{{INSERT_NEWS_EVENTS_JSON_HERE}}", news_events)
-    raw = call_llm(client, model, template, provider=provider, backend=backend)
-    return sanitize_app_log(extract_json(raw))
+    for i, s in enumerate(filler_sessions, 1):
+        s["session_id"] = f"F-{i:03d}"
+
+    print("[merge] building metadata")
+    hf_registry = _build_hidden_facts_registry(
+        hidden_facts, trace or [], verified_fragments
+    )
+    cross_app = _build_cross_app_index(
+        meaningful_sessions, calendar_events, verified_fragments
+    )
+
+    m_tokens = sum(len(json.dumps(s)) for s in meaningful_sessions) // 4
+    f_tokens = sum(len(json.dumps(s)) for s in filler_sessions) // 4
+    actual_ratio = f_tokens / max(m_tokens, 1)
+
+    app_log = {
+        "persona_name": persona["name"],
+        "log_window": {"start_date": log_start, "end_date": log_end},
+        "messenger": {
+            "meaningful_sessions": meaningful_sessions,
+            "filler_sessions": filler_sessions,
+        },
+        "calendar": {"events": calendar_events},
+        "hidden_facts": hf_registry,
+        "cross_app_index": cross_app,
+        "token_stats": {
+            "approximate_tokens": m_tokens + f_tokens,
+            "meaningful_token_count": m_tokens,
+            "filler_token_count": f_tokens,
+            "ratio_filler_to_meaningful": f"{actual_ratio:.1f}:1",
+        },
+        "surprises_woven": [],
+    }
+
+    print(
+        f"[merge] done: {len(meaningful_sessions)} meaningful, "
+        f"{len(filler_sessions)} filler, {len(calendar_events)} events, "
+        f"ratio {actual_ratio:.1f}:1"
+    )
+    return sanitize_app_log(app_log)
 
 
 def sanitize_app_log(app_log: dict[str, Any]) -> dict[str, Any]:
@@ -357,19 +671,12 @@ def run_step(
         )
 
     print(f"[step4] merging fragments + filler for {persona['name']}")
-    for merge_attempt in range(1, 4):
-        try:
-            app_log = merge_app_log(
-                client, model, verified_fragments, hidden_facts,
-                corrected_social_circle, persona, log_start, log_end,
-                news_events, provider=provider, backend=backend,
-            )
-            break
-        except Exception as e:
-            print(f"[step4] merge attempt {merge_attempt}/3 failed: {e}")
-            if merge_attempt == 3:
-                print("[step4] merge exhausted retries. Fragments saved to disk.")
-                return 1
+    app_log = merge_app_log(
+        client, model, verified_fragments, hidden_facts,
+        corrected_social_circle, persona, log_start, log_end,
+        news_events, provider=provider, backend=backend,
+        trace=trace,
+    )
     app_log_out.write_text(
         json.dumps(app_log, indent=2, ensure_ascii=False), encoding="utf-8"
     )
