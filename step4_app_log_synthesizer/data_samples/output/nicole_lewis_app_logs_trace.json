@@ -1,0 +1,1081 @@
+[
+  {
+    "fact_id": "HF-001",
+    "ground_truth_label": "Bilateral knee osteoarthritis; recent intra-articular cortisone injection right knee.",
+    "attempts": 2,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Bilateral knee pain/degenerative joint disease with a corticosteroid injection to the right knee on February 11, 2026 (Dr. Reyes, Illinois Bone & Joint, Morton Grove), with the right knee improving and the left knee still symptomatic",
+      "confidence": "HIGH",
+      "rationale": "F1 establishes a February 11 injection in the right knee plus ongoing left-side symptoms managed with ice; F2 confirms a six-week orthopedic follow-up (title 'f/u R') at the same clinic on March 19 — exactly ~six weeks post-injection; F3 has Linda ask about 'the right one' at the six-week mark, mention her own knee scope and brace, and Nicole confirm the left 'complains going down a curb' — the stairs/curb/scope/brace context in all three fragments triangulates the joint as the knee, and the bilateral asymmetry (right improved, left still painful) is consistent across all three.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": ""
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "February 11 injection date",
+          "Dr. Reyes",
+          "Illinois Bone & Joint Institute, 9000 Waukegan Rd, Morton Grove",
+          "Six-week follow-up on March 19",
+          "Right side injection / right side improving",
+          "Left side still symptomatic (stairs, curbs, ice after dog walk)"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-002",
+    "ground_truth_label": "Atorvastatin 20mg + ASA + vitamin D regimen.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole takes a daily regimen of atorvastatin 20mg + 81mg aspirin + vitamin D3 2000 IU for managed hypercholesterolemia / elevated cardiovascular risk, monitored semi-annually with fasting lipid labs by Dr. Patel (internist, Des Plaines)",
+      "confidence": "HIGH",
+      "rationale": "All three fragments independently surface the same three-drug combination (atorvastatin 20, 81mg aspirin, D3 2000) as a stable, bundled, 90-day-refill routine (F1, F3). The March 18 calendar entry (F2) shows a 6-month follow-up with an internist preceded by fasting labs and a pillbox review — the standard monitoring cadence for a statin patient with a cardiovascular risk indication. Atorvastatin is a cholesterol-lowering statin; 81mg aspirin is the canonical low-dose antiplatelet for cardiovascular protection; fasting labs align with lipid panel monitoring. No single fragment names the condition, but together they triangulate it precisely.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": ""
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "atorvastatin 20mg (exact dose)",
+          "81mg aspirin (exact dose)",
+          "vitamin D3 2000 IU (exact dose)",
+          "90-day refill cycle",
+          "Dr. Patel — North Shore Internal Medicine, 9301 Golf Rd, Des Plaines",
+          "6-month follow-up cadence",
+          "fasting labs drawn Friday March 13 before the March 18 appointment",
+          "Sunday-night pillbox fill routine",
+          "Karen Lewis-Brennan (sister-in-law) recently started a similar regimen"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-003",
+    "ground_truth_label": "Routine preventive care with Dr. Patel; colonoscopy fall 2025 unremarkable.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole Lewis recently had a routine colonoscopy performed by Dr. Patel at NorthShore University Health System, received an all-clear result with a ten-year follow-up interval, and maintains a deliberate annual preventive care appointment with Dr. Patel at NorthShore each September (fasting, early-morning slot).",
+      "confidence": "HIGH",
+      "rationale": "F2 contains unmistakable colonoscopy-specific markers — bowel prep ('prep day is the worst day,' 'the jug,' popsicle tip), sedation recovery (Daniel drove her home, slept the afternoon), same-day portal results, and the ten-year clean interval — without naming the procedure. F1 and F3 jointly establish a long-standing annual September cadence with Dr. Patel at NorthShore, where Nicole books early (7:30am fasting slot) and the coordinator already knows her routine, suggesting the colonoscopy is part of or adjacent to this recurring annual preventive habit.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": ""
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Dr. Patel at NorthShore",
+          "Annual September appointment, same week each year",
+          "Preferred 7:30am fasting slot",
+          "Colonoscopy result: all clear, ten-year follow-up",
+          "Daniel (husband) drove Nicole home post-procedure",
+          "NorthShore patient portal had results by Thursday",
+          "Bowel prep markers: 'prep day,' 'the jug,' popsicles-in-freezer tip",
+          "Named coordinator who accommodates long-lead bookings"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-004",
+    "ground_truth_label": "Normotensive, normoglycemic.",
+    "attempts": 3,
+    "passed": false,
+    "final_verification": {
+      "candidate_label": "Nicole Lewis has consistently healthy metabolic and cardiovascular markers — blood pressure 118/76 and A1C 5.4 — confirmed at her annual physical with Dr. Reyes in March 2026",
+      "confidence": "HIGH",
+      "rationale": "HF-004-F2 surfaces a specific BP reading (118/76) reported to her husband as routine and unchanged from the prior year, establishing long-term cardiovascular normalcy. HF-004-F3 surfaces A1C 5.4 (well below pre-diabetic threshold) eight days later when lab results return, with Dr. Reyes endorsing her current habits — both values together triangulate a clean annual metabolic panel with no disease flags.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": ""
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "BP 118/76 on 2026-03-10",
+          "'same as last year' — signals multi-year consistency",
+          "A1C 5.4 returned 2026-03-18",
+          "'everything else in range' — panel-wide confirmation",
+          "Dr. Reyes at Morton Grove Family Medicine, 6201 Dempster St",
+          "Contrast with Linda's A1C 5.9 anchors clinical meaning without labeling Nicole's value"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-005",
+    "ground_truth_label": "Vaccine-adherent.",
+    "attempts": 3,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole Lewis maintains a proactive, multi-vaccine adult immunization schedule coordinated with her PCP (Dr. Chen): a two-part series split across spring (March) and fall (October), plus a separate annual vaccine in September, all administered at her local Walgreens pharmacy",
+      "confidence": "HIGH",
+      "rationale": "HF-005-F1 establishes a pharmacist appointment on March 17 with a second dose already calendared for October, plus a third vaccine inquiry on Dr. Chen's recommendation. HF-005-F2 confirms the Walgreens injection visit via prep notes ('short-sleeve under cardigan', insurance card). HF-005-F3 closes the loop: sore right arm same evening, Nicole describing the exact cadence to Gail — 'one in spring, one in fall, plus the annual in September' — and framing it as a deliberate schedule from her PCP.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": "No fragment names a specific vaccine (flu, RSV, COVID, etc.). The evidence is entirely behavioral: injection prep, split-dose scheduling, sore arm, pharmacist venue, PCP-driven calendar. All three fragments are clean."
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Walgreens, 8650 W Dempster St, Morton Grove",
+          "March 17 2026 appointment, 09:15–09:45",
+          "Second dose calendared for October",
+          "Annual vaccine in September",
+          "PCP: Dr. Chen (December physical referenced)",
+          "Sore right arm same evening as injection",
+          "A third/newer vaccine mentioned by Dr. Chen, now available at Walgreens without a clinic visit"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-006",
+    "ground_truth_label": "Institutionalist medical-information diet.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole trusts exactly four health information sources — her physician (Dr. Rasmussen), the CDC, Mayo Clinic, and peer-reviewed journals (JAMA) — and consistently routes health questions to these sources while ignoring wellness podcasts and anecdotal advice",
+      "confidence": "HIGH",
+      "rationale": "All three fragments show the same behavioral pattern: HF-006-F1 shows Nicole ignoring Megan's podcast recommendation and redirecting to Dr. Rasmussen and Mayo Clinic; HF-006-F2 shows Nicole arriving at her physical with JAMA and CDC materials she flagged herself; HF-006-F3 shows Nicole spontaneously sharing a CDC URL plus a JAMA review sourced from Dr. Rasmussen to answer Linda's vaccine question. The same four sources — physician, CDC, Mayo Clinic, JAMA — recur across all three independently generated fragments with no wellness/anecdotal alternatives ever entertained.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": "No fragment names the underlying preference directly. The implicit_signal_explanation metadata fields use the phrase 'trusted sources' but those are outside the fragment payload. Within the actual messages and calendar notes, the fact is conveyed entirely through behavioral redirection and source selection — never through a stated label or categorical claim."
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Dr. Rasmussen at NorthShore Internal Medicine, 9650 Gross Point Rd, Skokie",
+          "JAMA 2024 statin review, pp. 3–5 flagged",
+          "CDC adult immunization schedule",
+          "Mayo Clinic osteoarthritis overview",
+          "cdc.gov/vaccines/vpd/shingles/public/shingrix.html",
+          "Shingrix 2-to-6-month dose spacing confirmed by Dr. Rasmussen",
+          "Longevity Lab pod ep. 47 (Megan's recommendation — declined)"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-007",
+    "ground_truth_label": "Intermittent sleep aids; recently adopted Calm meditation routine.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole manages intermittent sleep difficulties with a nightly Calm app routine (15 min at 9:45 PM, lights out by 10:15 PM) and occasional melatonin 3 mg, a regimen she deliberately established in the first week of March 2026",
+      "confidence": "HIGH",
+      "rationale": "F2 encodes the exact routine (Calm, 15 min, pre-10:15 bedtime) as a recurring calendar block; F3 has Nicole explain to her niece that she started this routine 'the first week of March' and reserves sleep stories for 'rougher nights'; F1 anchors the intermittent (not nightly) melatonin use by her framing that 'one bottle lasts ages' — together the three fragments triangulate a specific, self-managed sleep-hygiene regimen with a known start date and two distinct tools used at different thresholds.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": ""
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "melatonin 3 mg, store-brand, one bottle per extended period",
+          "Calm app, 'Daily Calm' track + Tamara Levitt sleep story on harder nights",
+          "15-minute session starting at 9:45 PM",
+          "lights-out target of 10:15 PM",
+          "routine start date: first week of March 2026",
+          "Mariano's as purchase location"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-008",
+    "ground_truth_label": "Selective, evidence-skeptical alternative-medicine use.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole takes fish oil (1000 mg) and turmeric as a daily, evidence-based supplement routine for chronic knee/joint pain, while actively rejecting alternative or unproven wellness products",
+      "confidence": "HIGH",
+      "rationale": "HF-008-F1 establishes a recurring, same-knee pain history with two failed acupuncture trials (2019, 2022) and a preference for conventional cortisone. HF-008-F2 shows fish oil 1000 mg and turmeric as routine 'refills' alongside a dismissal of a 'mushroom complex' at the same errand. HF-008-F3 closes the loop: Nicole explicitly contrasts a rejected unproven product with 'the two things I take that actually have studies behind them' — the unlabeled fish oil and turmeric from F2 — confirming they are her deliberate, evidence-filtered joint-health regimen.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": ""
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "fish oil 1000 mg (refill, Mariano's Morton Grove)",
+          "turmeric caps (refill, same errand)",
+          "acupuncture tried in 2019 and 2022, same knee, ~$85/session, ~1-week relief each round",
+          "cortisone injection February 2026, 6+ weeks of relief",
+          "mushroom complex product rejected: $68/bottle, zero clinical data, testimonial-only",
+          "calendar date 2026-03-14 anchors supplement purchase as routine"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-009",
+    "ground_truth_label": "Subclinical anxiety, managed via routine.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole manages a chronic anxiety or mood-regulation condition through an unusually rigid, sequenced daily and weekly routine that she treats as non-negotiable scaffolding rather than preference.",
+      "confidence": "HIGH",
+      "rationale": "F1 shows a pre-dawn walk scripted to the minute with a fixed follow-on sequence ('same loop… coffee + crossword') framed as protected time. F3 has Nicole name her toolkit explicitly as 'small things in the same order every day' and credit that sequence — not therapy, medication, or social support — for keeping her 'even' under pressure; she prescribes the identical intervention to a struggling niece. F2 shows she will accommodate a time shift but treats the weekday itself as immovable ('the day I can't move'), and her close friend registers this rigidity as a long-standing, known trait. All three fragments describe the same underlying phenomenon: routine functioning as regulation, not convenience.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": "No fragment names a clinical category. 'Routine-as-regulation' and 'what it's bearing' appear only in the implicit_signal_explanation metadata fields, not in any message or calendar text that a benchmark evaluator would see. The actual content stays entirely behavioral."
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "6:15 AM walk start time",
+          "Harrer Park loop, Morton Grove",
+          "Winston (dog's name)",
+          "coffee + crossword on porch as scripted follow-on",
+          "'Before D is up' (partner Daniel, inferred from Megan's relationship note)",
+          "Tuesday knitting group — day non-negotiable, time flexible",
+          "index card daily task list",
+          "dishwasher-before-dog-out sequencing rule"
+        ],
+        "missing_specificity": "The fragments do not name the underlying condition (anxiety disorder, depression, ADHD, or grief-adjacent dysregulation), only its behavioral signature. The inference is specific about the mechanism and its centrality but cannot resolve the diagnosis from these fragments alone."
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-010",
+    "ground_truth_label": "Past brief course of psychotherapy.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole Lewis had a brief course of therapy (~3 months, spring 2011) with Dr. M. Halverson (Dempster office) following her mother's death, and is now actively considering returning to the same practitioner for a few sessions after a difficult February 2026",
+      "confidence": "HIGH",
+      "rationale": "All three fragments converge on the same named practitioner (Dr. M. Halverson, Dempster office) and the same two-episode arc: a completed ~3-month engagement in spring 2011 tied to her mother's death (F1, corroborated by Daniel in F3), and a present-day deliberation about re-engaging — documented as a solo calendar task in F2 ('Maybe just a consult') and explicitly voiced to Daniel in F3 ('A few sessions, maybe. February has sat heavier than I let on'). The consistency of the named provider, the 2011 anchor, and the current re-approach leave no competing interpretation.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": "All three fragments stay strictly behavioral. F1 uses 'went to someone' and 'she still practices.' F2 uses 'consult.' F3 uses 'calling Halverson's office' and 'a few sessions.' No fragment ever names therapy, counseling, mental health, or any clinical category — the inference requires connecting the recurring named practitioner, the appointment-slot framing, and the emotional triggers."
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Dr. M. Halverson",
+          "Dempster office",
+          "spring 2011 (~3 months)",
+          "mother's death as the original trigger",
+          "February 2026 as current emotional trigger",
+          "calendar reminder dated 2026-03-15",
+          "Daniel's corroboration ('She was a help in \\'11')"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-011",
+    "ground_truth_label": "Moderate alcohol use; non-smoker; substance-naïve.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole Lewis drinks one glass of Pinot Noir on weeknights and approximately two glasses on Saturday evenings as a steady, moderate household routine — purchasing roughly two bottles per week, primarily Decoy or equivalent Pinot Noir, from Binny's on recurring Saturday errands.",
+      "confidence": "HIGH",
+      "rationale": "HF-011-F1 establishes the two-bottle-per-week cadence ('one for dinner tomorrow and one for the week'). HF-011-F2 corroborates with a recurring Saturday errand calendar entry listing 'Decoy Pinot x2' at Binny's alongside groceries, indicating habitual restocking. HF-011-F3 closes the loop with Nicole's own words: 'One is plenty for me on a weeknight — Saturday's different,' directly mapping the weeknight-one / Saturday-two rhythm that the purchase volume implies.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": ""
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Decoy Pinot Noir (brand and varietal)",
+          "La Crema as acceptable substitute under $18",
+          "Binny's Niles as the preferred wine retailer",
+          "Two bottles per purchase cycle / per week",
+          "One glass on weeknights, two on Saturday evenings",
+          "Recurring Saturday morning errand pairing Mariano's + Binny's",
+          "Tom (Karen's husband) also used as an ad-hoc proxy buyer"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-012",
+    "ground_truth_label": "Precise recipe-based home cooking.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole Lewis is a methodical, recipe-anchored home cook who plans meals in staged components (batch-frozen sauces, fresh-rolled pasta), cooks from named sources (Hazan, Smitten Kitchen), documents exact ratios in her calendar, and makes deliberate, technique-driven modifications to recipes while knowing when to follow them verbatim.",
+      "confidence": "HIGH",
+      "rationale": "All three fragments converge on the same behavioral signature: HF-012-F1 shows pre-portioned frozen bolognese, 00 flour, and a fixed prep-to-table cadence; HF-012-F2 confirms a 3.5-hour blocked prep window with exact béchamel ratios (4tbsp butter / 4tbsp flour / 3c whole milk) and a specified nine-layer count written into calendar notes; HF-012-F3 shows Nicole naming a source recipe (Smitten Kitchen), articulating precise modifications (halved cream, two extra inches of ginger, roast-not-boil technique), and distinguishing dishes she adapts from those she follows exactly — together these form a coherent, specific portrait of a disciplined, source-driven cook.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": ""
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Hazan bolognese (named author)",
+          "00 flour",
+          "Béchamel ratios: 4tbsp butter / 4tbsp flour / 3c whole milk / nutmeg",
+          "Nine layers (lasagna)",
+          "3.5-hour blocked prep window (13:00–16:30)",
+          "Bolognese thawing since Friday night (pre-portioned, frozen)",
+          "Smitten Kitchen (named source)",
+          "Carrot-ginger soup: halved cream, added two full inches of ginger, roast-not-boil technique",
+          "Ratatouille from same book — followed exactly, no shortcuts"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-013",
+    "ground_truth_label": "Weekly indulgence: blueberry crumble with vanilla ice cream.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole has a recurring Saturday baking routine centered on blueberry crumble served warm with vanilla bean ice cream — a recognized household staple that Daniel reliably finishes and that her social circle associates with her",
+      "confidence": "HIGH",
+      "rationale": "HF-013-F1 shows family already asking for the recipe after a call mention, implying prior familiarity; HF-013-F2 shows a dedicated Saturday afternoon calendar block with precision prep notes (oven timing, ice cream pull time), indicating an established routine not a one-off; HF-013-F3 confirms recurrence — Gail's 'the BLUEBERRY one??' reaction treats it as instantly recognizable, and Nicole's aside that 'Daniel inhales it warm with the ice cream' anchors the pairing and the household consumption pattern. Together they describe a firmly established personal baking signature, not a coincidence.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": ""
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "blueberry crumble (specific dish)",
+          "vanilla bean ice cream (specific flavor/type)",
+          "Trader Joe's as the source of the ice cream",
+          "Saturday afternoons as the recurring timing",
+          "oven-on at 1:25, ice cream pulled at 1:50–2:00 (prep precision)",
+          "Daniel as the primary in-household consumer",
+          "Gail Sandoval and Jess/Megan as people who associate this dish with Nicole"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-014",
+    "ground_truth_label": "Recurring biweekly Thursday lunch with Linda.",
+    "attempts": 2,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole Lewis has a biweekly Thursday lunch with her best friend Linda Petrowski at The Cottage in Park Ridge, IL — a standing ritual lasting ~25 years (since George W. Bush's first term, ~2001), always in the window booth, with French onion soup as a default order",
+      "confidence": "HIGH",
+      "rationale": "F2's calendar event explicitly anchors the cadence ('Repeats every 2 weeks on Thursday'), venue (The Cottage, Park Ridge), and participants; F3 lands exactly 14 days after F2's March 12 event (March 26 would be next Thursday — March 25 is the two-week advance confirmation), confirming the pattern behaviorally. Linda's aside in F3 — 'We have been doing this lunch since George W. was in his first term' — dates the tradition to ~2001–2005, yielding ~20–25 years of continuous recurrence.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [
+          "HF-014-F2"
+        ],
+        "notes": "HF-014-F2's calendar notes field reads 'Repeats every 2 weeks on Thursday' — this states the cadence outright rather than requiring it to be inferred from behavioral signals. The other two fragments earn the fact through repetition and Linda's offhand duration reference, but F2 makes the biweekly Thursday recurrence trivially obvious on its own. The calendar entry is not a 'clinical label' failure, but it does short-circuit the inferential work the fragments are supposed to demand."
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Linda Petrowski (name and relationship: best friend)",
+          "The Cottage, Park Ridge (venue)",
+          "Every 2 weeks on Thursday (cadence)",
+          "12:00–13:30 (time window)",
+          "Window booth (seating preference)",
+          "French onion soup (Nicole's default order for Linda)",
+          "~2001 start date ('George W. was in his first term')",
+          "Saturday crossword puzzle as a shared side ritual"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-015",
+    "ground_truth_label": "Grocery + farmer's market routines.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole does her regular weekly household grocery shopping at Mariano's (6700 Dempster St, Morton Grove) on weekday mid-mornings (~10:30–11:30), and supplements with the Morton Grove village hall Saturday farmers market as a standing weekly stop during its June–October season",
+      "confidence": "HIGH",
+      "rationale": "HF-015-F1 and HF-015-F2 both place Nicole at Mariano's on Dempster for routine weekday mid-morning runs (~2 miles from home, 45-minute blocks), where she manages the full household shopping list. HF-015-F3 shows her tracking the Morton Grove village hall Saturday morning farmers market's June–October cadence with vendor-level familiarity ('rhubarb lady', 'honey guy'), establishing the seasonal second leg of a two-venue grocery routine.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": ""
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Mariano's, 6700 Dempster St, Morton Grove",
+          "~2-mile drive from home on Waukegan",
+          "mid-morning weekday window (10:30–11:30)",
+          "Morton Grove village hall Saturday farmers market",
+          "Season: first Saturday after Memorial Day through October",
+          "Named vendors: 'rhubarb lady', 'honey guy'"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-016",
+    "ground_truth_label": "Biweekly Sunday family-dinner hosting.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole hosts her sister-in-law Karen and Karen's husband Tom for dinner every other Sunday at home — Nicole cooks roast chicken (herb-garden rosemary, in at 2:15, carve at 5), Karen brings salad, Tom brings wine, and Karen and Nicole knit together during the pre-meal window; arrival is consistently 3pm",
+      "confidence": "HIGH",
+      "rationale": "F1 (2026-03-12) shows Nicole and Karen planning a Sunday gathering with exact contribution splits (roast chicken / arugula-pear salad / malbec) and a 3pm arrival tied to post-mass timing, plus Nicole noting 'knitting time before we sit down.' F2 (2026-03-15) is the calendar confirmation of that exact event: 3–7:30pm, 'Carve at 5,' same participants. F3 (2026-03-29) — two Sundays later — repeats the identical structure (3pm arrival, bird in at 2:15, 'carving closer to 5 like always,' Karen's knitting materials) with Daniel and Nicole treating it as automatic routine, establishing the every-other-Sunday cadence.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": "All three fragments express the routine entirely through behavioral signals: specific food prep times, contribution assignments, logistics messages, and repeated pattern across two events. No fragment names the gathering as a 'recurring dinner,' 'biweekly tradition,' or any other categorical label in the actual message/event text. The implicit_signal_explanation fields are pipeline metadata, not fragment content, and are not evaluated here."
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Karen Lewis-Brennan (Daniel's sister) and Tom as guests",
+          "Every-other-Sunday cadence (March 15 and March 29)",
+          "3pm arrival, post-mass",
+          "Roast chicken with rosemary from Nicole's garden",
+          "Bird in oven at 2:15, carve at 5pm",
+          "Karen: arugula-and-pear salad; Tom: malbec from Binny's",
+          "Nicole and Karen knit together (shawl; second skein) during pre-meal window",
+          "Daniel sets table and pours wine when guests arrive"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-017",
+    "ground_truth_label": "Sep 2025 Oregon Coast trip.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole and her partner Daniel took a multi-night Oregon Coast road trip in the second week of September 2025, staying one splurge night at the Stephanie Inn near Cannon Beach / Haystack Rock and several nights at a budget inn in Yachats, with stops at Pelican Brewing (Pacific City) and Mo's Chowder (Newport) along Highway 101",
+      "confidence": "HIGH",
+      "rationale": "All three fragments converge on the same trip: F1 has Nicole detailing the Stephanie Inn, Yachats, Pelican Brewing, and Mo's to Linda and confirming 'second week' September timing; F2 is a calendar errand to pick up a 'Sept album — Haystack Rock + Yachats' photo book for a hallway frame 'Daniel wants done before Easter'; F3 has Megan asking about 'the PNW thing you and uncle Daniel just did,' with Nicole again naming the Stephanie Inn and Ocean Cove Inn in Yachats and the second week of September. No competing interpretation accounts for all three fragments.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": "F3 contains the phrase 'the PNW thing' (Megan's words) and 'the Stephanie Inn' and 'Yachats' are named place-nouns, but no fragment applies a categorical label like 'Oregon Coast vacation' or 'travel event.' All naming occurs through behavior — giving recommendations, picking up prints, answering logistics questions — rather than a direct statement of the fact. Clean."
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Stephanie Inn (Cannon Beach / Haystack Rock area)",
+          "Ocean Cove Inn in Yachats",
+          "Yachats, Oregon (3 nights at cheaper property per F1)",
+          "Haystack Rock",
+          "Pelican Brewing, Pacific City",
+          "Mo's Chowder, Newport",
+          "Highway 101 corridor",
+          "Second week of September (2025, six months prior to March 2026 fragments)",
+          "Daniel (partner / 'uncle Daniel' per Megan)",
+          "Walgreens Dempster St, Morton Grove (photo pickup, 2026-03-14)",
+          "Hallway frame to be finished before Easter"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-018",
+    "ground_truth_label": "Kyoto-2031 sub-account at $4.2K.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole Lewis and her husband Daniel are saving for a cherry-blossom-season trip to Kyoto, Japan in late March–early April 2031, using a dedicated monthly savings sub-account ($350/month since 2023, balance $4,200 as of March 2026)",
+      "confidence": "HIGH",
+      "rationale": "All three fragments triangulate the same fact: HF-018-F1 names the 'Kyoto-2031 sub-account' and the $350 monthly transfer in a budget-review calendar note; HF-018-F2 (Daniel) confirms the $4,200 balance, the $350/month cadence, and a Q4-2030 target with JAL airfare as the variable; HF-018-F3 (Megan) independently elicits Nicole saying they're aiming for the cherry-blossom window in late March–early April 2031, have been saving since 2023, and currently hold $4,200 — matching the husband's figures exactly.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": ""
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Destination: Kyoto, Japan",
+          "Target window: late March – early April 2031 (cherry blossom season)",
+          "Monthly contribution: $350",
+          "Current balance (March 2026): $4,200",
+          "Savings start date: 2023",
+          "Account label: 'Kyoto-2031 sub-account'",
+          "Airline variable: JAL fare swings",
+          "Specific landmark mentioned: Philosopher's Path"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-019",
+    "ground_truth_label": "Spreadsheet-based travel budgeting.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole Lewis actively saves for a Kyoto, Japan trip using a structured household budget spreadsheet with per-destination columns, currently holding $11,275 toward that goal via monthly deposits, while also maintaining a 'maybes' tab for speculative future trips (e.g., Galena, IL)",
+      "confidence": "HIGH",
+      "rationale": "HF-019-F2 provides the clearest anchor: a named 'Kyoto column' with a running balance ($11,275 after a $425 March deposit), a JAL business-class fare estimate cell, and a 'ryokan row' — all inside a shared ledger Nicole and Daniel update on a monthly cadence. HF-019-F1 corroborates by showing 'Kyoto line' as a standing agenda item in their first-Sunday budget review. HF-019-F3 extends the picture: Linda's 'OF COURSE you have a Galena column' and Nicole's disclosure of a 'maybes tab' holding Galena since 2024 confirm this is a multi-destination categorized tracker, not a one-off note — with Kyoto as the live, funded trip and others queued speculatively.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": ""
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "$11,275 current Kyoto column balance",
+          "$425 monthly deposit (March installment)",
+          "Q1 target of $11,000 by April (exceeded)",
+          "JAL business-class fare, bumped +$200",
+          "'ryokan row' being priced two ways before locking",
+          "First-Sunday-of-month budget review cadence",
+          "Galena column open since 2024 ('maybes' tab)",
+          "Aldrich B&B on Bench Street, Galena — $215/$185 nightly, second weekend of October"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-020",
+    "ground_truth_label": "Past trips: Vermont, Napa, Scotland.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole and her husband Daniel have a shared history of intentional, memorable leisure travel as a couple — including a ~3-week Scotland Highlands driving trip (2014), a Vermont fall-foliage driving trip (first week of October, Stowe/Woodstock area), and a Napa Valley wine-country trip tied to their 25th wedding anniversary (~2015)",
+      "confidence": "HIGH",
+      "rationale": "All three fragments show Nicole recalling specific past trips taken with Daniel, each anchored with concrete place names, dates, and sensory detail (Eilean Donan/Stirling castles in HF-020-F1; maple foliage pulls-over in Stowe/Woodstock in HF-020-F2; Stags Leap tasting and '25th anniversary' framing in HF-020-F3). No single fragment covers all trips; taken jointly they converge on a single fact: Nicole and Daniel are/were avid travel partners with a documented multi-trip history spanning international and domestic destinations.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": ""
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Eilean Donan Castle",
+          "Stirling Castle",
+          "~3-week driving trip, 2014, Scottish Highlands",
+          "Stowe, Vermont",
+          "Woodstock, Vermont",
+          "first week of October (foliage peak)",
+          "Napa Valley",
+          "Stags Leap tasting",
+          "25th wedding anniversary (~2015, 11 years before 2026)"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-021",
+    "ground_truth_label": "Annual PTO usage = 2 weeks.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole Lewis's full annual paid-time-off allotment is exactly two weeks, taken as a fall Oregon coast block (Sept 28–Oct 2) and a Christmas home stretch (Dec 21–25), mirroring her 2025 usage and constituting the entirety of her discretionary weekday absence budget.",
+      "confidence": "HIGH",
+      "rationale": "HF-021-F2 is the load-bearing fragment: Nicole explicitly tells her sister-in-law she 'burned through everything I had last year on the Oregon week and the Christmas week,' then says she wants to protect those same two stretches this year — equating two named blocks with her total supply. HF-021-F1 corroborates by having Daniel note 'a third would just mean I redo the basement again,' anchoring the ceiling at two. HF-021-F3 clinches it operationally: a personal reminder to 'Submit fall + December dates in HR portal' with the note 'those are the only two blocks,' confirming these are formal employer-approved requests that exhaust her annual allotment.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": "No fragment uses categorical terms like 'PTO,' 'vacation days,' or 'annual leave.' The closest to direct is HF-021-F3's 'HR portal' and 'only two blocks,' but that still names the behavior (submitting two blocks) rather than the underlying fact (finite annual allotment). All three fragments communicate through narrative and incidental detail, not labels."
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Fall block: Sept 28 – Oct 2 (Oregon coast), plus flanking weekends = nine days door-to-door",
+          "December block: Dec 21 – Dec 25",
+          "Total: exactly two blocks, described as mirroring 2025",
+          "Submission venue: HR portal",
+          "Declined a Thursday (April 23) weekday trip citing exhaustion of the same budget last year"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-022",
+    "ground_truth_label": "Spouse Daniel: retired math teacher, tutor, library volunteer.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Daniel Lewis (Nicole's husband) maintains a dual weekly routine: Saturday morning volunteer shifts at Morton Grove Public Library (10 am–2 pm) and weekday afternoon home-based math tutoring sessions (Algebra II, SAT prep, precalculus) with local students",
+      "confidence": "HIGH",
+      "rationale": "HF-022-F1 and HF-022-F3 together establish a recurring Saturday library block (same location, same hours, Daniel as sole participant, noted as a 'shift'); HF-022-F2 shows a named student (Caleb) arriving at the family kitchen on a weekday afternoon for Algebra II/SAT prep with Daniel, and HF-022-F3 confirms the pattern is ongoing — Karen's family already treat Daniel as a math resource, and Nicole notes his weekday afternoons are 'mostly booked.'",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": ""
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Daniel Lewis (named person)",
+          "Morton Grove Public Library, 6140 Lincoln Ave (named location)",
+          "Saturday 10:00–14:00 recurring block",
+          "Student named Caleb",
+          "Subjects: Algebra II, SAT prep, precalculus",
+          "Weekday afternoons as his booked teaching window",
+          "Home kitchen as tutoring venue"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-023",
+    "ground_truth_label": "Niece Megan, public defender, Madison.",
+    "attempts": 2,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole's niece Megan Brennan is in a live-in romantic partnership with a woman named Jess; they live together in Madison, WI (Dane County), and Nicole holds a standing first-Sunday-of-the-month FaceTime call with them as a household unit.",
+      "confidence": "HIGH",
+      "rationale": "F1 establishes the monthly first-Sunday FaceTime cadence with Megan and Jess and treats Jess as a fixed co-participant, not an occasional guest. F2 confirms Jess and Megan share a home in Madison (Jess heating up food there after Megan's courthouse day), and F3 has Karen consistently treat 'Megan + Jess' as an inseparable couple-unit planning travel, logistics, and dietary preferences together — with Tom and Karen planning to 'drive up to Madison to see them.'",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": "No fragment uses categorical labels such as 'girlfriend,' 'partner,' 'couple,' or 'romantic.' The partnership is entirely inferred from behavioral signals: shared home, coordinated travel, dietary planning together, and inclusion in the standing family call as a unit."
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Megan Brennan — niece (Daniel's sister Karen's daughter)",
+          "Jess — live-in partner, name only (no surname given)",
+          "Madison, WI / Dane County courthouse — Megan's work and residence location",
+          "First Sunday of the month — standing FaceTime cadence",
+          "June 12–14 anniversary visit (Megan putting in for June 12 Friday off)",
+          "Karen Lewis-Brennan and Tom — plan Madison visit Memorial Day weekend",
+          "Jess eats dairy — dietary detail establishing household specificity"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-024",
+    "ground_truth_label": "Karen and Tom in Glenview.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole's sister-in-law Karen Lewis-Brennan and her husband Tom live in Glenview, IL, approximately 15 minutes' drive from Nicole's home in Morton Grove",
+      "confidence": "HIGH",
+      "rationale": "F1 has Karen say 'our block here in glenview' while describing her own street; F2 shows Nicole's calendar blocking 30 minutes at 'Karen & Tom's, Glenview' with a 9:30 departure and 10:30 return, implying ~15 min each way from Morton Grove; F3 has Karen's daughter Megan independently call it 'the house in glenview' and place both Karen and Tom there, corroborating all three fragments on the same address.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": ""
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Karen Lewis-Brennan (Daniel's sister)",
+          "Tom Brennan (Karen's husband)",
+          "Glenview, IL",
+          "~15 min drive from Nicole's home (Morton Grove)",
+          "Bennison's (local bakery Daniel passes on the way, further anchoring geography)",
+          "Megan and Jess driving 'down' from Madison — consistent with Glenview being south of Madison on the I-90/94 corridor"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-025",
+    "ground_truth_label": "Distant tie to brother-in-law Mark.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Daniel Lewis (Nicole's husband) has an estranged or severely distant relationship with his brother Mark — no direct voice contact in ~4 years, communication routed through a sibling intermediary (Karen), and engagement limited to major life events (funerals, weddings)",
+      "confidence": "HIGH",
+      "rationale": "F1 shows Mark contacting Daniel's sister Karen rather than Daniel directly, falsely claiming Daniel's email is unknown after 20 years — a clear avoidance signal. F3 confirms the last voice call between Daniel and Mark was at their father's funeral 'almost four years ago,' that annual Christmas cards recycle old photos (including a dog dead since 2021), and that reaching Mark requires Karen as a go-between. F2 reinforces this by showing a sibling phone call requires a formal 20-minute blocked calendar slot with a voicemail fallback — behavior inconsistent with a functional sibling relationship.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": "All three fragments remain behavioral throughout. No fragment uses 'estranged,' 'distant,' or any categorical relationship label in the visible message or event content. The implicit_signal_explanation metadata fields describe behavioral patterns rather than naming a clinical or categorical fact, so they do not constitute leaks."
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Mark lives in Phoenix",
+          "Last voice conversation: father's funeral, ~4 years ago",
+          "Christmas card reused same photo across multiple years; dog in photo died 2021",
+          "Mark's address: 1487 W Glendale Ave, Phoenix 85021 (sourced through Karen, not Mark directly)",
+          "Scheduled call blocked on calendar: 2026-03-14, 11:00–11:20, with voicemail fallback",
+          "Occasion forcing contact: Tina + Marcus October wedding in Phoenix",
+          "Mark responds to Karen within a day but does not return Daniel's calls"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-026",
+    "ground_truth_label": "Tuesday-evening knitting group, ~9 years.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole Lewis has been a member of a six-person weekly Tuesday-evening knitting group for approximately nine years, meeting at Three Bags Full yarn shop in Northbrook, IL (6:30–8:30 pm), with members Bev, Gail, Marta, Ellen, and Sue; she serves as the group's informal treasurer, maintaining the shared yarn-fund spreadsheet.",
+      "confidence": "HIGH",
+      "rationale": "F1 names all five co-members, places the group on Tuesday evenings, anchors tenure at nine years ('nine years of Tuesdays'), and shows Nicole managing money-tracking ('bringing the spreadsheet'). F2 confirms the exact venue (Three Bags Full, Northbrook), the recurring 6:30 pm Tuesday slot, the same six participants, and Nicole's treasurer role ('yarn-fund printouts'). F3 provides independent corroboration from Nicole's best friend Linda, who references 'almost a decade of Tuesday evenings at that shop' and teases Nicole about yarn purchases — converging on the same location, duration, and habitual pattern without Nicole stating it herself.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": "No fragment names a categorical label such as 'knitting club member' or 'club treasurer.' All three convey the fact through observable behaviors: a WhatsApp exchange about logistics, a calendar entry with natural notes, and a friend's teasing text. The inference requires assembling details across fragments rather than reading a single explicit statement."
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Group members: Bev, Gail, Marta, Ellen, Sue (F1, F2)",
+          "Venue: Three Bags Full yarn shop, Northbrook (F2, F3)",
+          "Meeting time: Tuesday evenings, 6:30–8:30 pm (F1, F2)",
+          "Group duration: ~9 years (F1: 'nine years of Tuesdays'; F3: 'almost a decade')",
+          "Nicole's role: manages yarn-fund spreadsheet, prints copies for the group (F1, F2)",
+          "Yarn brand purchased: Madelinetosh (F2, F3)",
+          "Nicole's partner named Daniel (F3)"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-027",
+    "ground_truth_label": "Inner circle: Father James, Diane.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole is a trusted, long-standing core volunteer at Saint Martha's Catholic Church (Morton Grove), actively involved in the parish bereavement ministry and maintaining a close personal standing relationship with the pastor, Fr. James — distinct from ordinary parish membership",
+      "confidence": "HIGH",
+      "rationale": "All three fragments converge on Fr. James as a recurring figure in Nicole's routine: F1 shows a private, one-on-one weekday coffee in the rectory kitchen (not a committee meeting), with Nicole bringing a baked good and a ministry document; F2 shows her making a solo detour to the rectory to collect a folder he left for her — normalized by Daniel's flat 'Understood'; F3 places Fr. James in the same small-circle informal orbit (dropping a donation box at Nicole and Diane's senior-center setup). The bereavement-ministry list in F1 anchors the specific ministry role; the private rectory-kitchen slot anchors the trusted personal standing.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": ""
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Fr. James (named pastor)",
+          "Saint Martha's rectory kitchen (specific location)",
+          "bereavement-ministry list (specific ministry named)",
+          "second cinnamon loaf (personal gift, signals standing relationship)",
+          "Diane (named senior-center contact)",
+          "Morton Grove Senior Center, multipurpose room",
+          "standing two-person setup routine dating at least to February 2026",
+          "Fr. James dropping donation box at the senior-center event (~11:00)"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-028",
+    "ground_truth_label": "Work friendships with Maria and Kayla.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole has two close, durable coworker friendships — with Maria (25-year peer, June milestone) and Kayla (newer aide Nicole is mentoring) — that have been integrated into her personal and household social life through reciprocal care, shared hobbies, and family-level hospitality.",
+      "confidence": "HIGH",
+      "rationale": "All three fragments converge on the same two named coworkers in consistently non-obligatory contexts: Fragment 1 shows a celebratory off-shift dinner chosen by Maria for Kayla's professional milestone; Fragment 2 shows Nicole hand-knitting a major lace project as a 25-year tenure gift for Maria and actively recruiting Kayla into her personal Tuesday knitting circle; Fragment 3 shows Nicole cooking and delivering food to Kayla during a family health crisis, trading shifts with Maria to repay a personal favor from the week of Mr. Henderson's funeral, and her husband extending Cubs tickets to Maria — placing both women inside the household's reciprocal care network.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": ""
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Maria — 25-year work anniversary milestone in June 2026",
+          "Kayla — CNA recertification pass; late shift Tuesdays through April; mother began chemo on a Tuesday",
+          "Hackney's on Harms, Glenview — shared dinner venue on 2026-03-06",
+          "Lace shawl (Stephen West pattern) hand-knit by Nicole for Maria",
+          "Tuesday knitting group with Gail Sandoval; Kayla being recruited in",
+          "Shift swap: Nicole's Monday for Maria's Sunday; Maria had covered week of Mr. Henderson's funeral",
+          "Daniel invited Maria to Cubs/Reds, May 10",
+          "Chicken and dumplings delivered to Kayla's home"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-029",
+    "ground_truth_label": "Daniel's post-retirement identity adjustment.",
+    "attempts": 3,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole's husband Daniel, a former math teacher who left the classroom ~2024, had a prolonged difficult adjustment lasting roughly two years, and has since settled into a structured post-career routine of private tutoring (multiple regular paying students with their own bookkeeping) and a weekly Saturday library volunteer shift at Morton Grove Public Library",
+      "confidence": "HIGH",
+      "rationale": "F1 establishes the Saturday library shift as a recurring calendar anchor; F2 shows tutoring as a financially tracked, multi-student practice (Tyler, Maya, prepayments logged to a ledger, 'three more between now and Friday'); F3 from Daniel's sister Karen supplies the before/after arc — math department classroom bins sitting unopened in the garage for ~two years, Daniel unable to open 'that side door' as recently as spring 2025, with Karen and Nicole both explicitly attributing his visible recovery to 'the tutoring kids and the Saturday shifts.'",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": "F3 references 'the math dept bins from his old classroom,' which surfaces his former profession (classroom math teacher) through physical artifact rather than a categorical label — borderline explicit on the prior-career detail, but no clinical or diagnostic label is used anywhere. The emotional difficulty during the transition is rendered entirely through behavior (refusing to open a door, bins sitting for two years) with no psychological label attached."
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Morton Grove Public Library, 6140 Lincoln Ave — Saturday 10:00–13:00 shift",
+          "Named tutoring students: Tyler, Maya",
+          "Maya's mother prepaid through May",
+          "'Three more between now and Friday' — structured weekly tutoring load",
+          "Nicole tracks payments in a ledger on Sundays",
+          "'Math dept bins from his old classroom' in the garage",
+          "'Two years of stepping around those bins' (~2024 departure from teaching)",
+          "Last spring (spring 2025) Daniel still wouldn't open 'that side door'",
+          "Karen and Tom cleared the bins on 2026-03-28"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-030",
+    "ground_truth_label": "Megan in regular therapy for secondary trauma.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole's niece Megan Brennan has a recurring weekly Wednesday therapy appointment with Dr. Linden — tied to occupational stress from her heavy professional caseload — which Nicole actively monitors and supports, and which the broader family (Karen) treats as a protective fixture Megan must not cancel.",
+      "confidence": "HIGH",
+      "rationale": "F1 establishes Nicole has a standing personal calendar reminder to text Megan *after* every Wednesday 'Dr. L' slot, with a note to keep it non-pushy — implying she knows the appointments are emotionally weighted. F2 has Megan explicitly naming 'dr linden weds' as her lifeline after a brutal court morning, and framing Dr. Linden as 'the only person I can actually unload the case stuff with' — establishing the appointments as occupational-stress therapy. F3 has Karen (Megan's mother) fretting about Megan repeatedly trying to skip the Wednesday slot, linking her worry directly to Megan's caseload being 'too much'; Nicole reassures Karen by confirming Megan kept the appointment. All three fragments converge on the same fact from three angles: Nicole's support role, Megan's own voice, and the wider family's anxiety.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": "No fragment uses the words 'therapy,' 'therapist,' 'mental health,' 'psychologist,' or any clinical label. The professional role of Dr. Linden is recoverable only through inference (recurring emotional-processing appointment, framed as 'unloading,' tied to caseload stress, with family monitoring attendance). All three fragments are clean on the behaviors-not-labels standard."
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Dr. Linden (full surname in F2 and F3; abbreviated 'Dr. L' in F1)",
+          "Wednesday evening slot (6 pm per F1 notes; F3 confirms a time shift from 5 to 6)",
+          "Megan Brennan (niece via Karen Lewis-Brennan)",
+          "Multiple near-cancellations — 'third time this month' per Karen in F3",
+          "Megan's court/caseload context as the stressor driving the support need",
+          "Nicole's calendar reminder dated 2026-03-04; messenger exchanges on 2026-03-13 and 2026-03-24"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-031",
+    "ground_truth_label": "Paid-off Morton Grove home (purchased 1997, mortgage retired 2019).",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole and Daniel Lewis own their Morton Grove home outright (mortgage paid off circa 2019), having purchased it in 1997 for $195K; they pay Cook County property taxes directly from a self-managed savings sub-account rather than through any lender escrow",
+      "confidence": "HIGH",
+      "rationale": "F2 is the keystone: Nicole says 'We finished doing that math seven years ago' (i.e., ~2019) immediately after Linda describes a neighbor 'paying zero to the bank on a place worth six figures more than they bought it for,' then adds 'I have not regretted a single quarterly tax bill since' — together these confirm outright ownership without a servicer. F1 corroborates mechanically: Nicole pays $6,287 directly to the Cook County Treasurer from a dedicated 'tax savings sub-account,' the exact arrangement of someone with no escrow-holding lender. F3 adds long-term occupancy color (Maple Street, 1958 build, lived there 'the whole time'), consistent with the 1997 purchase.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": ""
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "1997 purchase price: $195K",
+          "Current auto-estimate: ~$451K",
+          "Payoff inferred circa 2019 ('seven years ago' from March 2026)",
+          "First property-tax installment: $6,287 paid 2026-03-03",
+          "Payment source: dedicated 'tax savings sub-account' (no escrow)",
+          "House build year: 1958; street: Maple, Morton Grove",
+          "Cook County Treasurer as direct payee"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-032",
+    "ground_truth_label": "Two-person + dog household.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole and Daniel Lewis are a childless couple whose household consists solely of the two of them and their 7-year-old beagle mix, Winston — no children, adult or otherwise, are part of the home.",
+      "confidence": "HIGH",
+      "rationale": "All three fragments converge on household composition through absence: F1 lists only 'Nicole' and 'Daniel' as participants at a family vet appointment; F2 shows a two-adult domestic routine organized entirely around one dependent (Winston, medication/dinner/walk) with no other household members implied; F3 is the most explicit anchor — Megan counts 'the four of us + the small beast' (herself, Jess, Nicole, Daniel, Winston), and the offer of the guest room 'same setup as Easter' implies it is habitually unoccupied. The pattern is triangulated, not asserted.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": ""
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Winston: 7-year-old beagle mix",
+          "Winston on apoquel (prescription allergy medication)",
+          "Annual vet: Dr. Ramirez, Morton Grove Animal Hospital, 8930 Waukegan Rd, 2026-03-12 09:30–10:30",
+          "January bloodwork referenced as prior record",
+          "Guest room available without displacing anyone — confirmed 'same setup as Easter'",
+          "Household head count by Megan: exactly four adults + dog at a family event"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-033",
+    "ground_truth_label": "Daily 6:15am Harrer Park dog walk.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole Lewis has a daily early-morning dog walk with her dog Winston at Harrer Park (Morton Grove, IL), following the south perimeter/loop route, departing ~6:10–6:15am and returning by ~7:00–7:10am",
+      "confidence": "HIGH",
+      "rationale": "F1 (calendar, 2026-03-11) shows a recurring 06:15–07:00 block titled 'Winston — Harrer perimeter' with prep notes ('leash + poop bags by door, leave 6:10'). F2 (2026-03-07) independently corroborates via Gail's unprompted reference to Nicole returning from 'Harrer with Winston' at ~7:11am and asking about the 'south loop crowd.' F3 (2026-03-24) closes the triangle: Linda's opening 'pre-Winston' at 05:51am and Nicole's 'About to leash up in ten / back by seven' match the same ~6:15 start and ~7:00 return window across three separate dates.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": "All three fragments signal the routine behaviorally. F1's calendar title ('Winston — Harrer perimeter') and prep note ('leash + poop bags') are explicit about the walk's logistics but do not name the routine as a categorical label — they read as a personal calendar shorthand, not a clinical or taxonomic term. F2 and F3 use third-party behavioral corroboration ('south loop crowd', 'pre-Winston', 'leash up in ten') without ever labeling the habit."
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Dog's name: Winston",
+          "Park name: Harrer Park",
+          "Park entrance: south gate, Lehigh Ave",
+          "Route descriptor: south perimeter loop / tennis-court side",
+          "Departure time: ~6:10–6:15am",
+          "Return time: ~7:00–7:10am",
+          "Corroborating dates: 2026-03-07, 2026-03-11, 2026-03-24"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-034",
+    "ground_truth_label": "5:30am-10pm sleep schedule.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole Lewis is a consistent early riser who wakes by ~5:30–5:35 AM and goes to bed by ~9:45–10:00 PM — a sleep schedule she has maintained for at least 33 years",
+      "confidence": "HIGH",
+      "rationale": "HF-034-F1 shows coffee scheduled for 5:35 and the dog walk starting at 6:15, establishing the morning anchor. HF-034-F3 confirms Nicole is actively texting at 05:38–05:45 with coffee 'almost gone' while her husband sleeps an 'another hour,' and her best friend explicitly notes '33 years and you're still up before the birds.' HF-034-F2 closes the loop on bedtime: Nicole signs off a lively text thread at 21:46 with 'heading up,' drawing a 'like clockwork' remark from her friend — together the three fragments triangulate both ends of a disciplined early-bird sleep window.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": "HF-034-F3 contains 'up before the birds' and 'figured you'd see this at dawn anyway,' which are colloquial characterizations that make the early-rising pattern fairly clear from that fragment alone. However, they are voiced as casual friend-to-friend dialogue rather than a clinical or categorical label, so they do not constitute a hard leak. No fragment names the fact directly as a sleep disorder, schedule type, or categorical routine label."
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Wake anchor: coffee on at 5:35 AM (HF-034-F1 calendar note)",
+          "Active texting at 05:38–05:45 with coffee nearly finished (HF-034-F3)",
+          "Husband Daniel still asleep at 05:42, gets 'another hour' (HF-034-F3)",
+          "Evening sign-off at 21:46–21:48 with 'heading up' (HF-034-F2)",
+          "Friend's '33 years' duration marker (HF-034-F3)",
+          "Location: Austin Park, Morton Grove; dog named Winston (HF-034-F1)"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-035",
+    "ground_truth_label": "Monthly spreadsheet budget review (1st Sunday).",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole and her husband Daniel maintain a recurring first-Sunday-of-the-month household finance review, conducted at the kitchen table with a shared spreadsheet that tracks a Kyoto savings sub-account, property-tax escrow, Mariano's grocery spending, Comcast, and Visa charges.",
+      "confidence": "HIGH",
+      "rationale": "F1 places the session on March 1 (first Sunday of March); F2's reference to 'the 5th' anchors the next occurrence to April 5 (first Sunday of April), establishing the cadence explicitly; F3 has Gail treat 'Sunday was the spreadsheet evening with Daniel' as a known, unremarkable fixture — third-party confirmation of a standing routine. All three fragments reference the same named line items (Kyoto sub-account, escrow) across different dates and communication channels.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": "F3 contains Gail's phrase 'finance sit-down,' which is colloquial and descriptive but not a formal categorical label. Calendar title 'Spreadsheet w/ Daniel — kitchen table' names the medium (spreadsheet) but not the ritual category. Neither rises to leaking the fact directly. All fragments are behaviorally clean."
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "First Sunday of each month cadence (March 1 in F1; April 5 implied by 'the 5th' in F2; prior Sunday March 1 referenced in F3)",
+          "Kyoto sub-account — $300 Vanguard auto-transfer",
+          "Property-tax escrow — $200 Vanguard auto-transfer",
+          "Mariano's grocery totals (pre-printed)",
+          "Comcast statement (February, retrieved from recycle bin)",
+          "Visa statement including AAA renewal fee",
+          "Winston vet YTD line item",
+          "Location: kitchen table, Morton Grove home"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-036",
+    "ground_truth_label": "Seasonal vegetable garden.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole Lewis runs a structured annual indoor vegetable seed-starting practice each spring — heirloom tomatoes (Brandywine, Sungold, Cherokee Purple), peppers (jalapeño, poblano), and basil — using a basement grow-light bench, timed to the local frost window in Morton Grove, IL, with enough volume to share starts with family.",
+      "confidence": "HIGH",
+      "rationale": "All three fragments converge on this behavior without contradiction: HF-036-F1 establishes frost-aware planting timing and surplus production for family (Genovese basil for Karen); HF-036-F2 confirms the specific cultivar list and a solo recurring Saturday block in the basement dated to mid-March; HF-036-F3 shows real-time seedling-stage tracking ('second set of true leaves') and cultivar-specific heat knowledge (basil timing), which only fits someone actively managing an indoor grow operation across multiple species.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": "All three fragments are clean. No fragment uses a categorical label like 'gardener' or 'hobby gardener.' HF-036-F2's calendar title ('Sow seeds under shop light — basement bench') is descriptive-behavioral, not a taxonomy label. The inference must be assembled across all three."
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Cultivars: Brandywine, Sungold, Cherokee Purple (tomatoes); jalapeño, poblano (peppers); Genovese basil",
+          "Setup: basement bench with shop light / grow lights",
+          "Outdoor transplant timing: after Mother's Day weekend (local frost rule, Morton Grove IL)",
+          "Basil start delay: first week of April (heat requirement)",
+          "Date of sowing: 2026-03-14 (Saturday, 09:00–11:00)",
+          "Progress milestone: Sungold second true leaves by 2026-03-22",
+          "Volume: grows surplus basil starts for sister-in-law Karen"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-037",
+    "ground_truth_label": "Household division of labor.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole and her partner Daniel divide household labor along clear lines: Nicole owns pet care (vet appointments, dog supplies for their senior dog Winston), while Daniel owns weekend cooking and all vehicle/yard maintenance (car servicing, mower blade sharpening).",
+      "confidence": "HIGH",
+      "rationale": "HF-037-F1 places Nicole as the sole attendee and note-writer for Winston's vet visit, signaling she carries the pet-care column. HF-037-F2 has Nicole explicitly describe herself as a bystander ('he does the batter, I just hand him the berries') while Daniel works the stove on a Saturday morning. HF-037-F3 shows Daniel independently managing the Subaru's maintenance and mower servicing in a single errand run — framed as his normal routine ('fifteen years, why would he change'). Together the three fragments triangulate a stable, role-divided household rather than any single event.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": ""
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Winston (dog's name)",
+          "Dr. Howell (vet)",
+          "Niles Animal Hospital",
+          "'senior kibble' (Winston's age bracket)",
+          "Daniel (partner's name)",
+          "Saturday pancakes with blueberries",
+          "Subaru (vehicle make)",
+          "Bob's on Waukegan (mechanic shop, family-run, 15-year loyalty)",
+          "oil change + tire rotation",
+          "mower blade sharpening",
+          "The Cottage (Nicole and Linda's lunch spot)"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  },
+  {
+    "fact_id": "HF-038",
+    "ground_truth_label": "Spielberg classics as comfort viewing.",
+    "attempts": 1,
+    "passed": true,
+    "final_verification": {
+      "candidate_label": "Nicole and Daniel Lewis maintain a standing Spielberg-film re-watch rotation; Schindler's List in particular functions as Nicole's personal sleep/anxiety reset — a pattern her close friend recognises as longstanding",
+      "confidence": "HIGH",
+      "rationale": "F1 places a calendar block for Raiders (Spielberg) on 7 Mar with the note 'Daniel's pick from the shelf,' establishing a shelf-based re-watch habit. F2 (15 Mar) shows Nicole reporting a full Schindler's List re-watch the prior evening and linking it to the first solid night of sleep in two weeks; Linda's reply ('I will never understand why it settles you… but it clearly does') confirms the pattern is repeated and well-known to close friends. F3 (24 Mar) has Nicole citing Close Encounters as part of 'the regular rotation Daniel keeps,' listing E.T. and Jaws as queued titles, and noting she has 'lost count' of viewings — anchoring her personal history with Spielberg to childhood (age ~12 when Close Encounters released in 1977).",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [],
+        "notes": ""
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          "Film titles: Raiders of the Lost Ark, Schindler's List, Close Encounters of the Third Kind, E.T., Jaws",
+          "Participants: Nicole Lewis, Daniel Lewis",
+          "F1 calendar block: 19:30–21:45 on 2026-03-07 at home (living room)",
+          "F2: Nicole slept through the night for the first time in ~two weeks after Schindler's List",
+          "F3: Nicole was ~12 when Close Encounters released (1977); Jaws slated for 'next month' (~April 2026)",
+          "Linda Petrowski (best friend) recognises the Schindler's List calming pattern as recurring"
+        ],
+        "missing_specificity": ""
+      },
+      "verdict": "RECOVERED"
+    }
+  }
+]
