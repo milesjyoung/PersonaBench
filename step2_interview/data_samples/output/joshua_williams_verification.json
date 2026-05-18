@@ -1,0 +1,2506 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "33fab35062c94a3a986db018cf7ad130",
+      "name": "Joshua Williams",
+      "verification_date": "2026-05-16"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age, sex, and Long Beach location match the interview's DOB, gendered self-description, and birthplace/current residence.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed age, sex, city, state, zipcode",
+              "source_b_ref": "Q85, Q87, Q89",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward DOB March 12, 2000 and Long Beach birthplace."
+            },
+            {
+              "id": 2,
+              "text": "Seed marital status never_married is consistent with the interview reporting never married, no partner, no children, and living alone.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed marital_status",
+              "source_b_ref": "Q05, Q11, Q51, Q84",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward no children, no cohabiting partner, and one-person household."
+            },
+            {
+              "id": 3,
+              "text": "Seed graduate education and postsecondary teacher occupation match the master's degree and lecturer role in the interview.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed education_level, occupation, bachelors_field",
+              "source_b_ref": "Q65, Q90, Q91",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward master's field, Cal State Long Beach, and not currently enrolled."
+            },
+            {
+              "id": 4,
+              "text": "Seed cultural background is consistent with the interview's African American identity, non-Hispanic origin, Southern family roots, and Black Baptist upbringing.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q01, Q47, Q88, Q89, Q94",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward Black Baptist Christian identification and Southern roots in Louisiana and South Carolina."
+            },
+            {
+              "id": 5,
+              "text": "The interview adds family-of-origin details not present in seed demographics, including parents' names, sister, grandmother, and parents' occupations.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed demographic fields",
+              "source_b_ref": "Q05, Q98-Q107",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward immediate family composition and parental education/work history."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 5
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Top-level age, gender, location, education, and occupation in the profile faithfully match the interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q85-Q90, Q65",
+              "source_b_ref": "corrected_extracted_profile top-level fields",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile correctly records that Joshua is never married, has no partner living with him, and has no children.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q05, Q51-Q55, Q84",
+              "source_b_ref": "preferences.social_and_relationships, preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The demographer summary correctly captures his one-person rented household and stable two-parent family background.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q51-Q55, Q98-Q107",
+              "source_b_ref": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "The profile includes his master's degree and lecturer occupation, consistent with the interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q65, Q90",
+              "source_b_ref": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "The draft profile underrepresents DOB, birthplace, family member names, parental education, and rental duration.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q05, Q58, Q85-Q87, Q100-Q107",
+              "source_b_ref": "preferences.social_and_relationships, preferences.home_and_lifestyle, preferences.life_events_and_transitions",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT",
+              "gap_resolution": "Add these demographic details to the corrected preferences."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Marital status, social relationships, and household preferences all consistently describe a never-married person living alone without children.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "top-level marital_status",
+              "field_b": "preferences.social_and_relationships, preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Family closeness in social preferences does not contradict living alone; the profile distinguishes nearby relatives from household members.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships",
+              "field_b": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Education, occupation, and work-and-career preferences consistently describe a master's-level postsecondary humanities lecturer.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "top-level education and occupation",
+              "field_b": "preferences.work_and_career, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "DOB March 12, 2000 and Long Beach birthplace are substantive demographic facts missing from the draft preferences.",
+              "gap": true,
+              "interview_ref": "Q85, Q87",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add DOB and birthplace."
+            },
+            {
+              "id": 2,
+              "text": "Family member names and roles are missing: parents Angela and Darryl, sister Maya, and grandmother Lillian.",
+              "gap": true,
+              "interview_ref": "Q05",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add named immediate family relationships."
+            },
+            {
+              "id": 3,
+              "text": "Parents' education and occupations are not fully represented in preferences.",
+              "gap": true,
+              "interview_ref": "Q100-Q107",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add father's some-college/logistics background and mother's associate degree/school-district administrative role."
+            },
+            {
+              "id": 4,
+              "text": "His U.S. birth, no military service, and no current school enrollment are absent from the preference profile.",
+              "gap": true,
+              "interview_ref": "Q86, Q91-Q93",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add U.S. birth, no current enrollment, and no Armed Forces service."
+            },
+            {
+              "id": 5,
+              "text": "The draft lacks rental duration and neighborhood specifics near El Dorado Park and the university.",
+              "gap": true,
+              "interview_ref": "Q08, Q58",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add neighborhood context and that he has rented the apartment a little over two years."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 5
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed description of a meticulous, predictable, practice-oriented person matches his list-making, budgeting, calendar blocking, and planned decision-making.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed professional_persona, persona",
+              "source_b_ref": "Q03, Q15-Q18, Q57",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward explicit planning tools and routines."
+            },
+            {
+              "id": 2,
+              "text": "Seed cycling and fitness routine is consistent with interview reports of three weekly rides, strength training, and occasional basketball.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed sports_persona",
+              "source_b_ref": "Q15, Q31-Q33",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward exact days, accountability, and knee-management details."
+            },
+            {
+              "id": 3,
+              "text": "Seed culinary curiosity and Southern cooking match the interview's spending on groceries, seafood, spices, gumbo, and collards.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed culinary_persona",
+              "source_b_ref": "Q17, Q56-Q60",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward grocery costs and pantry coping behavior."
+            },
+            {
+              "id": 4,
+              "text": "Seed phrase 'student-budget' conflicts literally with interview statements that he is not enrolled and works as a lecturer, but the broader point is a modest early-career academic budget.",
+              "verdict": "inconsistent",
+              "gap": true,
+              "source_a_ref": "seed travel_persona",
+              "source_b_ref": "Q72, Q81, Q91",
+              "action": "REINTERPRET_SEED",
+              "resolution": "Interpret 'student-budget' as a modest early-career academic budget rather than current student status.",
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward income precarity and travel-budget constraints."
+            },
+            {
+              "id": 5,
+              "text": "Seed grant and tenure ambitions align with interview goals, while the interview adds union coverage, monthly pay, benefits, and contract uncertainty.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed career_goals_and_ambitions",
+              "source_b_ref": "Q66, Q72-Q83, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward job-risk and compensation details."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 1,
+            "gaps": 5
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Health routines in the profile accurately reflect cycling, strength training, cooking, preventive care, and knee management.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q31-Q33, Q41-Q42",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile captures careful spending and savings only generally; interview-specific income, rent, debt, savings, and emergency capacity are missing.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q56-Q64, Q72-Q83",
+              "source_b_ref": "preferences.home_and_lifestyle, preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT",
+              "gap_resolution": "Add key financial amounts and coping patterns."
+            },
+            {
+              "id": 3,
+              "text": "Food and dining preferences faithfully reflect Southern and Creole home cooking, brunch, coffee, and budget tradeoffs.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q17, Q38, Q56-Q60",
+              "source_b_ref": "preferences.food_and_dining",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "The travel profile is accurate but omits the approximate $1,200 already saved for research travel.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q62",
+              "source_b_ref": "preferences.travel",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT",
+              "gap_resolution": "Add the $1,200 research-travel savings amount."
+            },
+            {
+              "id": 5,
+              "text": "The technology profile accurately captures spreadsheet and banking-app expense tracking.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q57",
+              "source_b_ref": "preferences.technology",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Financial caution in the summaries is internally consistent with preferences describing rent pressure, savings, and avoidance of credit-card interest.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.behavioral_economist",
+              "field_b": "preferences.home_and_lifestyle, preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Enjoying quality groceries and brunch is consistent with reducing discretionary spending when expenses rise.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.food_and_dining",
+              "field_b": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Regular cycling is consistent with mild tendinitis because the profile describes management rather than exercise incapacity.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness",
+              "field_b": "preferences.sports_and_fitness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Specific monthly budget facts are missing: rent about $1,850, last-month spending about $3,450, usual spending $3,100-$3,200, gross pay about $4,700, and take-home about $3,650.",
+              "gap": true,
+              "interview_ref": "Q56-Q57, Q72-Q74",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add financial amounts to home/lifestyle and work/career."
+            },
+            {
+              "id": 2,
+              "text": "Debt and savings details are missing: about $28,000 in student loans, $280 monthly payment, under three months of savings, goal of six months, and ability to cover $400.",
+              "gap": true,
+              "interview_ref": "Q61-Q64, Q82",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add debt, emergency fund, and emergency-spending facts."
+            },
+            {
+              "id": 3,
+              "text": "Work contract and compensation rhythm are underrepresented: monthly pay, faculty union contract, benefits, one main job, and 45-50 hour semester weeks.",
+              "gap": true,
+              "interview_ref": "Q66-Q78",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add employment structure and benefit details."
+            },
+            {
+              "id": 4,
+              "text": "Summer low-income coping behavior is missing: reducing spending, using savings, cooking more, taking one paid curriculum workshop, and avoiding unplanned travel.",
+              "gap": true,
+              "interview_ref": "Q81",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add seasonal income vulnerability and coping."
+            },
+            {
+              "id": 5,
+              "text": "Delayed dental care due to out-of-pocket cost is a meaningful health-finance tradeoff missing from the health profile.",
+              "gap": true,
+              "interview_ref": "Q36",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add delayed dental care due to cost."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 5
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed emphasis on Black history, civil-rights achievements, mentoring, and cultural equity is consistent with his progressive racial-justice politics.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q23-Q30, Q95-Q96",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward party identity and civic behaviors."
+            },
+            {
+              "id": 2,
+              "text": "Seed conflict-resolution and cultural-competency teaching align with interview descriptions of structured classroom treatment of race and policing.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed skills_and_expertise",
+              "source_b_ref": "Q20, Q26-Q29, Q65",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed Long Beach community attachment matches interview focus on local elections, housing, public safety, and school board/city council races.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed city/state and cultural_background",
+              "source_b_ref": "Q23-Q25",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward local policy priorities."
+            },
+            {
+              "id": 4,
+              "text": "Seed African American identity is consistent with his support for Black Lives Matter and his own cautious experiences with policing.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q20-Q22, Q26-Q30",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward personal law-enforcement experience."
+            },
+            {
+              "id": 5,
+              "text": "Seed academic role is consistent with interview statements that higher education shaped his implementation-focused view of institutions.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed occupation, skills_and_expertise",
+              "source_b_ref": "Q24-Q25",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward conditional institutional trust."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 4
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile correctly describes him as a progressive Democrat who votes in major and local elections.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23, Q95-Q96",
+              "source_b_ref": "preferences.community_and_civic, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile accurately captures support for Black Lives Matter, peaceful protests, donations, and teaching about race and policing.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q26-Q30",
+              "source_b_ref": "preferences.community_and_civic, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Personal law-enforcement experiences are underrepresented in the draft preferences.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q20-Q22",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT",
+              "gap_resolution": "Add traffic stops, campus police caution, cousin misdemeanor, and detained friend."
+            },
+            {
+              "id": 4,
+              "text": "Party closeness and strength are present in the summary but should be represented in community preferences as testable facts.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q95-Q96",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT",
+              "gap_resolution": "Add strongly Democratic, progressive, and much closer to Democratic Party."
+            },
+            {
+              "id": 5,
+              "text": "The political scientist summary accurately captures conditional trust in government and universities.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q24-Q25",
+              "source_b_ref": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Community-and-civic preferences align with the political scientist summary's account of progressive voting, racial justice, and institutional accountability.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Cultural-and-linguistic identity is internally consistent with community commitments to Black students, Black Lives Matter, and Black cultural memory.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.cultural_and_linguistic",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Conditional trust in government is consistent with voting regularly; the profile frames voting as baseline civic action rather than full institutional trust.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.political_scientist",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Traffic stops and his father's safety instructions for police encounters are missing.",
+              "gap": true,
+              "interview_ref": "Q20",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add two traffic stops and learned hands-visible/calm narration behavior."
+            },
+            {
+              "id": 2,
+              "text": "Cousin misdemeanor situation and friend detained at a protest are missing.",
+              "gap": true,
+              "interview_ref": "Q22",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add justice-system proximity facts."
+            },
+            {
+              "id": 3,
+              "text": "Specific party identity details are missing from preferences: fairly strong Democrat, progressive Democrat, much closer to Democratic Party, and almost always Democratic in partisan races.",
+              "gap": true,
+              "interview_ref": "Q95-Q96",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add party closeness and voting pattern."
+            },
+            {
+              "id": 4,
+              "text": "Local issue priorities need fuller representation: housing affordability, education funding, and public safety definition.",
+              "gap": true,
+              "interview_ref": "Q24",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add local issue priorities."
+            },
+            {
+              "id": 5,
+              "text": "Family responses to race and policing are missing, including father's stories, sister's activism, and older relatives' caution.",
+              "gap": true,
+              "interview_ref": "Q30",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add family political-response pattern."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 5
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed reserved yet assertive, meticulous persona is consistent with interview descriptions of quiet observation, lists, overplanning, and structured work.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed professional_persona, persona",
+              "source_b_ref": "Q01, Q03, Q45",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward anxiety-linked overpreparation."
+            },
+            {
+              "id": 2,
+              "text": "Seed arts identity is consistent with poetry, bullet journaling, photography, jazz, and spoken-word interests in the interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed arts_persona, hobbies_and_interests",
+              "source_b_ref": "Q01, Q07, Q43, Q48",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed cycling routine matches the interview and is psychologically enriched by his description of rides as grounding.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed sports_persona",
+              "source_b_ref": "Q15, Q31-Q32, Q43",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward emotional-regulation role of cycling."
+            },
+            {
+              "id": 4,
+              "text": "Seed mentions chess puzzles, overstocked spices, and color-coded slides; interview confirms chess, many spices, and color-coded slide decks.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed persona",
+              "source_b_ref": "Q11, Q65",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Interview adds clinically relevant emotional facts absent from seed: work-related anxiety, therapy, stress-related sleep disruption, and low periods.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona fields",
+              "source_b_ref": "Q43-Q45, Q50",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward emotional well-being details."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The psychologist summary accurately represents conscientiousness, structure, reflectiveness, reservedness, and creative outlets.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01, Q03, Q11, Q43",
+              "source_b_ref": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Anxiety and therapy appear in the summary but need fuller representation in health preferences.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q43-Q45, Q50",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT",
+              "gap_resolution": "Add work-related anxiety, monthly therapy, no major depression diagnosis, and withdrawal during low periods."
+            },
+            {
+              "id": 3,
+              "text": "Religion and spirituality are only partially represented; the interview gives attendance frequency, prayer use, and distance from church politics.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q47, Q94",
+              "source_b_ref": "preferences.cultural_and_linguistic, preferences.music",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT",
+              "gap_resolution": "Add religious attendance, prayer, and Black church social-justice meaning."
+            },
+            {
+              "id": 4,
+              "text": "Social media boundaries are partially captured, but the profile omits that he does not accept current students and does not seek personal support online.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q48-Q49",
+              "source_b_ref": "preferences.media_and_information_diet",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT",
+              "gap_resolution": "Add student-boundary and support-seeking boundaries."
+            },
+            {
+              "id": 5,
+              "text": "Core values from the final interview answer are only summarized and should be explicit in preferences.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q109",
+              "source_b_ref": "preferences.cultural_and_linguistic, preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT",
+              "gap_resolution": "Add integrity, family, community, meaning through language, Black cultural memory, and quiet."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 4
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Reserved personality and small social circle are consistent with civic engagement because the profile describes selective, relational engagement rather than social withdrawal.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.psychologist",
+              "field_b": "preferences.community_and_civic, preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Need for predictability is consistent with creative outlets; the profile repeatedly pairs structure with poetry, photography, cooking, and music.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.hobbies_and_recreation",
+              "field_b": "preferences.arts_and_culture, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Anxiety and overwork are internally consistent with high functioning because the profile describes coping systems and support rather than incapacity.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness",
+              "field_b": "preferences.work_and_career, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Current therapy frequency and anxiety presentation are missing from health preferences.",
+              "gap": true,
+              "interview_ref": "Q45",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add monthly therapy and anxiety signs such as lists, tight shoulders, email checking, and replaying conversations."
+            },
+            {
+              "id": 2,
+              "text": "The midterm rough-patch story and sister's practical support are missing as relational coping evidence.",
+              "gap": true,
+              "interview_ref": "Q44",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add sister as key emotional support during stress."
+            },
+            {
+              "id": 3,
+              "text": "Religious attendance, prayer, gospel, and Black church social-justice tradition are underrepresented.",
+              "gap": true,
+              "interview_ref": "Q47, Q94",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add Christian/Black Baptist identity, attendance once or twice monthly, and prayer."
+            },
+            {
+              "id": 4,
+              "text": "The profile omits private support-seeking and current-student social media boundaries.",
+              "gap": true,
+              "interview_ref": "Q48-Q49",
+              "should_be_in": "preferences.media_and_information_diet",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add he calls direct relationships rather than seeking support online and does not accept current students on personal accounts."
+            },
+            {
+              "id": 5,
+              "text": "His explicit values are missing as preference facts: integrity, family, community, meaning through language, Black cultural memory, and quiet.",
+              "gap": true,
+              "interview_ref": "Q109",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add core values to cultural and social preferences."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 5
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No FLAG_FOR_REVIEW findings remain. One seed phrase was reinterpreted, and substantive interview gaps were added to the corrected profile.",
+    "final_status": "Verification completed with revisions; the corrected profile is ready for downstream use."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "33fab35062c94a3a986db018cf7ad130",
+    "name": "Joshua Williams",
+    "age": 26,
+    "gender": "Male",
+    "marital_status": "never married; not living with a romantic partner; no children",
+    "location": "Long Beach, CA 90815",
+    "education": "Master's degree in English with a focus on African American literature and cultural studies",
+    "occupation": "Postsecondary humanities lecturer",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Joshua prioritizes structured health routines, especially cycling, strength training, cooking at home, and preventive care.",
+        "details": [
+          "Cycles three mornings per week. Evidence: Q15, Q31",
+          "Does functional strength training twice weekly. Evidence: Q17, Q31",
+          "Manages left-knee patellar tendinitis with physical therapy exercises. Evidence: Q33",
+          "Deals with work-related anxiety and attends therapy about once a month when scheduling works. Evidence: Q45",
+          "Supports vaccination and uses doctors, public health agencies, and medical professionals as trusted sources. Evidence: Q41, Q42",
+          "Delayed dental care before because out-of-pocket cost felt burdensome. Evidence: Q36"
+        ],
+        "evidence": "Q31-Q45"
+      },
+      "food_and_dining": {
+        "summary": "He enjoys home cooking rooted in Southern and Creole traditions, with occasional brunch and coffee outings.",
+        "details": [
+          "Cooks gumbo, jambalaya, collard greens, rice, beans, and seafood-based meals. Evidence: Q01, Q17, Q60",
+          "Spent about $450 on groceries last month partly because he bought seafood and restocked spices. Evidence: Q56",
+          "Occasionally goes to brunch and drinks socially in moderation. Evidence: Q38, Q60",
+          "Uses pantry meals such as rice, beans, lentils, canned tomatoes, frozen shrimp, and greens when cutting spending. Evidence: Q60",
+          "Food costs surprise him because quality ingredients in Southern California add up. Evidence: Q57"
+        ],
+        "evidence": "Q17, Q38, Q56-Q60"
+      },
+      "travel": {
+        "summary": "Joshua prefers planned, culturally meaningful travel and is saving for a research-oriented Ghana trip.",
+        "details": [
+          "Wants to travel to Ghana for oral history and diaspora research. Evidence: Q62, Q108",
+          "Has saved about $1,200 toward research travel. Evidence: Q62",
+          "Avoids unnecessary travel when income is low or reimbursements are delayed. Evidence: Q59, Q81",
+          "Sees travel as connected to research, cultural memory, and professional goals. Evidence: Q62, Q108"
+        ],
+        "evidence": "Q59, Q62, Q81, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "He keeps a small, steady social circle and is close to his parents, sister, grandmother, and a few friends.",
+        "details": [
+          "Never married, has no partner, and has no children. Evidence: Q05, Q84",
+          "Is close to parents Angela and Darryl Williams. Evidence: Q05",
+          "Texts almost every day with his younger sister Maya. Evidence: Q05",
+          "His grandmother Lillian is the family historian and has shared oral histories with him. Evidence: Q05",
+          "Maintains friendships through chess, cycling, coffee, teaching conversations, and arts events. Evidence: Q07",
+          "Calls his sister first when something important happens because she listens without immediately fixing it. Evidence: Q05, Q44"
+        ],
+        "evidence": "Q05-Q07, Q44, Q84"
+      },
+      "home_and_lifestyle": {
+        "summary": "Joshua lives alone in a modest one-bedroom apartment and values quiet, order, books, and work-friendly space.",
+        "details": [
+          "Lives alone in a one-bedroom apartment in Long Beach. Evidence: Q11, Q51",
+          "Is solely responsible for rent and household expenses. Evidence: Q55",
+          "Pays about $1,850 in monthly rent. Evidence: Q56",
+          "Has lived in the apartment a little over two years. Evidence: Q58",
+          "Lives near El Dorado Park and the university in the 90815 area. Evidence: Q08",
+          "Could cover a $400 emergency from savings. Evidence: Q82"
+        ],
+        "evidence": "Q08-Q14, Q51-Q58, Q82"
+      },
+      "entertainment": {
+        "summary": "His entertainment is reflective and culturally oriented: jazz, spoken word, books, basketball, baseball, chess, and small gatherings.",
+        "details": [
+          "Watches Lakers and Dodgers games with family or for enjoyment. Evidence: Q05",
+          "Attends small jazz or spoken-word events and follows bookstores and venues online. Evidence: Q07, Q48",
+          "Plays chess with Marcus at a cafe about twice a month. Evidence: Q07"
+        ],
+        "evidence": "Q05, Q07, Q48"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Joshua's hobbies combine structure, reflection, and creativity.",
+        "details": [
+          "Keeps a bullet journal for lectures, poems, deadlines, and personal organization. Evidence: Q01, Q17",
+          "Takes urban street photographs. Evidence: Q01, Q48",
+          "Plays occasional basketball on Wednesday nights. Evidence: Q15, Q31",
+          "Volunteers as a high school tutor twice a month. Evidence: Q17",
+          "Writes poems that no one has to grade as an emotional outlet. Evidence: Q43"
+        ],
+        "evidence": "Q01, Q15-Q17, Q43, Q48"
+      },
+      "work_and_career": {
+        "summary": "Joshua is a humanities lecturer focused on rigorous teaching, digital pedagogy, mentoring, grant-writing, and community-based scholarship.",
+        "details": [
+          "Teaches composition, cultural narratives, and African American literature. Evidence: Q16, Q65",
+          "Uses Canvas, Zoom, Google Docs, library databases, citation managers, and color-coded slide decks. Evidence: Q16, Q65",
+          "Aims for a secure academic position, publication, and a multi-year community research grant. Evidence: Q108",
+          "Usually works around 45 to 50 hours per week during the semester. Evidence: Q68",
+          "His lecturer position is covered by a faculty union contract. Evidence: Q66",
+          "Receives about $4,700 gross pay and about $3,650 take-home pay in a typical academic month. Evidence: Q72, Q74",
+          "Has one main job and is paid monthly. Evidence: Q70-Q73"
+        ],
+        "evidence": "Q16, Q65-Q83, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Arts and culture are central to his identity, especially African American literature, oral history, poetry, photography, jazz, and spoken word.",
+        "details": [
+          "Studies and teaches African American literature and cultural narratives. Evidence: Q01, Q65",
+          "Writes poems and short reflective pieces in a bullet journal. Evidence: Q01, Q43, Q109",
+          "Uses photography and Instagram to engage with street scenes, bookstores, poetry events, and jazz venues. Evidence: Q48",
+          "Wants to publish a book connecting literature, oral history, and Black community memory. Evidence: Q108"
+        ],
+        "evidence": "Q01, Q43, Q48, Q65, Q108-Q109"
+      },
+      "sports_and_fitness": {
+        "summary": "He is a disciplined cyclist and casual basketball player who follows Los Angeles sports.",
+        "details": [
+          "Rides with the Long Beach Cycling Club three mornings weekly, usually Tuesday, Thursday, and Saturday. Evidence: Q15",
+          "Leaves for cycling around 6:15 a.m. on riding days. Evidence: Q15",
+          "Occasionally plays basketball on Wednesday nights. Evidence: Q15, Q31",
+          "Watches Lakers and Dodgers games with family. Evidence: Q05"
+        ],
+        "evidence": "Q05, Q15, Q31"
+      },
+      "nature_and_outdoors": {
+        "summary": "Joshua uses the Long Beach shoreline, bike paths, and El Dorado Park for exercise and mental clarity.",
+        "details": [
+          "Cycles along the shoreline and values access to bike paths. Evidence: Q01, Q08, Q15",
+          "Visits El Dorado Park to clear his head. Evidence: Q08",
+          "Finds early morning rides emotionally grounding. Evidence: Q43"
+        ],
+        "evidence": "Q01, Q08, Q15, Q43"
+      },
+      "technology": {
+        "summary": "He uses technology pragmatically for teaching, organization, social media boundaries, and research.",
+        "details": [
+          "Uses Canvas, Zoom, Google Docs, citation tools, and library databases in teaching and research. Evidence: Q16, Q65",
+          "Tracks spending with a spreadsheet and banking app. Evidence: Q57",
+          "Uses Instagram, Facebook, LinkedIn, and limited Twitter/X with deliberate boundaries. Evidence: Q48",
+          "Uses calendar blocks and keeps email closed during protected writing time. Evidence: Q18"
+        ],
+        "evidence": "Q16, Q18, Q48, Q57, Q65"
+      },
+      "community_and_civic": {
+        "summary": "Joshua is civically engaged through voting, tutoring, racial justice work, mentoring, and community-based scholarship.",
+        "details": [
+          "Votes in major and local elections and studies voter guides and candidate statements. Evidence: Q23",
+          "Identifies as a fairly strong progressive Democrat. Evidence: Q95",
+          "Is much closer to the Democratic Party than the Republican Party. Evidence: Q96",
+          "Prioritizes racial justice, public education, labor protections, affordable housing, health care access, and the arts. Evidence: Q24",
+          "Attended peaceful protests and donated small amounts to bail and community organizations. Evidence: Q29",
+          "Has been pulled over twice and learned to keep his hands visible and speak calmly during police encounters. Evidence: Q20",
+          "Volunteers as a high school tutor and mentors Black and first-generation students. Evidence: Q17, Q65"
+        ],
+        "evidence": "Q17, Q20, Q23-Q30, Q65, Q95-Q96"
+      },
+      "music": {
+        "summary": "Joshua connects deeply with gospel, jazz, and soulful vocal music.",
+        "details": [
+          "Grew up singing in a Black Baptist church choir. Evidence: Q01, Q47",
+          "Listens to Gregory Porter and values music with a gospel feeling. Evidence: Q39, Q47",
+          "Follows jazz venues and attends intimate music events. Evidence: Q07, Q48"
+        ],
+        "evidence": "Q01, Q07, Q39, Q47, Q48"
+      },
+      "fashion_and_appearance": {
+        "summary": "The interview gives little direct evidence about his fashion preferences, beyond a practical lifestyle shaped by teaching, cycling, and professional settings.",
+        "details": [
+          "Keeps bike gear at home, implying functional cycling apparel and equipment are part of his routine. Evidence: Q11",
+          "Works in classrooms and professional academic settings, but no specific clothing style is described. Evidence: Q16, Q65"
+        ],
+        "evidence": "Q11, Q16, Q65"
+      },
+      "cultural_and_linguistic": {
+        "summary": "Joshua identifies as African American, non-Hispanic, with Southern family roots and strong ties to Black cultural memory.",
+        "details": [
+          "Identifies as Black or African American and not Hispanic, Latinx, or Spanish origin. Evidence: Q88, Q89",
+          "Was born in Long Beach, California on March 12, 2000. Evidence: Q85, Q87",
+          "Was born in the United States and has not lived outside the U.S. Evidence: Q86",
+          "Family roots are in Louisiana and South Carolina, with gospel, storytelling, and Southern food traditions. Evidence: Q01, Q86",
+          "Identifies as Christian from a Black Baptist background and attends church about once or twice a month. Evidence: Q47, Q94",
+          "Values integrity, family, community, language, Black cultural memory, and quiet. Evidence: Q109"
+        ],
+        "evidence": "Q01, Q47, Q85-Q89, Q94, Q109"
+      },
+      "life_events_and_transitions": {
+        "summary": "Major transitions include choosing local teaching and community-based scholarship over immediately leaving for a PhD, completing graduate education, and building an adult life in Long Beach.",
+        "details": [
+          "Chose to teach locally and build oral history research instead of immediately entering an out-of-state PhD program. Evidence: Q02, Q03",
+          "Completed a master's degree and became a postsecondary humanities lecturer. Evidence: Q01, Q90",
+          "Grandmother's health scare influenced his decision-making and family responsibilities. Evidence: Q02, Q35",
+          "Lived with both parents and younger sister Maya in Long Beach when he was 16. Evidence: Q97-Q99",
+          "His mother has an associate degree and worked as a school-district administrative assistant. Evidence: Q101-Q104",
+          "His father completed some college and worked in port logistics. Evidence: Q100, Q105-Q107"
+        ],
+        "evidence": "Q01-Q04, Q35, Q90, Q97-Q107"
+      },
+      "media_and_information_diet": {
+        "summary": "He consumes information through voter guides, public health sources, academic channels, social media used selectively, and trusted professional networks.",
+        "details": [
+          "Reads voter guides, endorsements, and candidate statements before voting. Evidence: Q23",
+          "Trusts doctors, CDC, county public health, and university health communications for vaccine information. Evidence: Q42",
+          "Uses Instagram for arts and community life, Facebook for family and church, LinkedIn professionally, and Twitter/X less than before for academic news. Evidence: Q48",
+          "Does not accept current students on personal social media accounts. Evidence: Q48",
+          "Does not usually use social media for personal emotional or financial support. Evidence: Q49"
+        ],
+        "evidence": "Q23, Q42, Q48-Q49"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Joshua Williams is a 26-year-old Black or African American man born and raised in Long Beach, California, where he still lives alone in a rented one-bedroom apartment (Q84-Q89, Q51-Q55). He has never been married, has no children, and is not cohabiting with a partner (Q05, Q84). He completed a master's degree in English focused on African American literature and cultural studies and works as a postsecondary humanities lecturer (Q65, Q90). His family of origin was a stable two-parent household with a younger sister, a school-district administrative assistant mother, and a father employed in port logistics (Q98-Q107).",
+      "behavioral_economist": "Joshua shows high future orientation, planning, and loss aversion: he budgets carefully, automates savings, tracks expenses, avoids carrying credit card debt, and treats academic precarity as a major risk (Q57, Q61-Q64, Q83). His choices favor identity-consistent investments, including teaching, community research, cycling, books, and saving for Ghana-related oral history work (Q62, Q65, Q108). He responds to uncertainty by creating structure through calendars, spreadsheets, bullet journals, and planned routines (Q03, Q15-Q18). Peer accountability matters in health behavior, especially the cycling club, while family expectations and community obligations shape career and civic choices (Q31-Q32, Q05, Q23).",
+      "political_scientist": "Joshua is a strongly Democratic, progressive voter who participates in major and local elections and views voting as a baseline civic responsibility (Q23, Q95-Q96). His political priorities include racial justice, public education, labor protections, affordable housing, health care access, and institutional accountability (Q24-Q25). He supports Black Lives Matter, attended peaceful protests, donated to community organizations, and integrates race, policing, and history into teaching in a structured way (Q26-Q30). His institutional trust is conditional: he believes government and universities can do good, but only with budgets, transparency, oversight, and implementation beyond symbolic language (Q24-Q25).",
+      "psychologist": "Joshua presents as conscientious, structured, reflective, and reserved, with a strong need for predictability balanced by creative outlets like poetry, photography, music, and cooking (Q01, Q03, Q11, Q43). He experiences work-related anxiety and manages it through therapy, exercise, lists, calendar blocks, family support, and quiet routines (Q43-Q45, Q50). His self-concept is organized around being a scholar-mentor rooted in Black cultural memory and Long Beach community life (Q01, Q65, Q109). Relationally, he maintains a small but stable support network and values consistency, integrity, family, and community over broad social visibility (Q05-Q07, Q109)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Joshua cycles three mornings per week.",
+        "ground_truth_label": "cycles three mornings per week",
+        "behavioral_evidence_from_interview": [
+          "Q15: cycles with the Long Beach Cycling Club three mornings a week",
+          "Q31: cycling three mornings a week"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Joshua does functional strength training twice weekly.",
+        "ground_truth_label": "strength training twice weekly",
+        "behavioral_evidence_from_interview": [
+          "Q17: strength training twice a week",
+          "Q31: strength training two days a week"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Joshua manages left-knee patellar tendinitis with physical therapy exercises.",
+        "ground_truth_label": "left knee patellar tendinitis managed with PT exercises",
+        "behavioral_evidence_from_interview": [
+          "Q33: patellar tendinitis in my left knee",
+          "Q33: still do the exercises at home"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Joshua deals with work-related anxiety and attends therapy about once a month when scheduling works.",
+        "ground_truth_label": "work-related anxiety with monthly therapy",
+        "behavioral_evidence_from_interview": [
+          "Q45: I deal with anxiety, mostly work-related",
+          "Q45: therapy about once a month when scheduling works"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Joshua supports vaccination and relies on doctors, public health agencies, and medical professionals for vaccine information.",
+        "ground_truth_label": "pro-vaccination and medical-source trust",
+        "behavioral_evidence_from_interview": [
+          "Q41: I am pro-vaccination",
+          "Q42: trust my primary care doctor, the CDC, county public health updates"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Joshua delayed dental care because out-of-pocket cost felt burdensome.",
+        "ground_truth_label": "delayed dental care due to cost",
+        "behavioral_evidence_from_interview": [
+          "Q36: delayed dental care before because the out-of-pocket cost felt annoying",
+          "Q36: watching money that month"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Joshua cooks gumbo, jambalaya, collard greens, rice, beans, and seafood-based meals.",
+        "ground_truth_label": "Southern and Creole home cooking",
+        "behavioral_evidence_from_interview": [
+          "Q17: gumbo, jambalaya, or greens with smoked turkey",
+          "Q60: rice, beans, lentils, canned tomatoes, frozen shrimp"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Joshua spent about $450 on groceries last month partly because he bought seafood and restocked spices.",
+        "ground_truth_label": "last-month groceries about $450 with seafood and spices",
+        "behavioral_evidence_from_interview": [
+          "Q56: around $450",
+          "Q56: bought seafood and restocked spices"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Joshua occasionally goes to brunch and drinks socially in moderation.",
+        "ground_truth_label": "occasional brunch and moderate social drinking",
+        "behavioral_evidence_from_interview": [
+          "Q38: drink socially, maybe one or two drinks",
+          "Q38: last weekend at brunch, I had one mimosa"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Joshua uses pantry meals when cutting spending.",
+        "ground_truth_label": "pantry meals as budget coping",
+        "behavioral_evidence_from_interview": [
+          "Q60: more pantry meals",
+          "Q60: rice, beans, lentils, canned tomatoes, frozen shrimp if I have it, and greens"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Joshua finds food costs surprising because quality ingredients in Southern California add up.",
+        "ground_truth_label": "quality ingredients drive food costs",
+        "behavioral_evidence_from_interview": [
+          "Q57: Food",
+          "Q57: quality ingredients in Southern California add up"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Joshua wants to travel to Ghana for oral history and diaspora research.",
+        "ground_truth_label": "Ghana oral history research travel goal",
+        "behavioral_evidence_from_interview": [
+          "Q62: eventually a Ghana trip tied to oral history work",
+          "Q108: travel to Ghana for research"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Joshua has saved about $1,200 toward research travel.",
+        "ground_truth_label": "research travel savings about $1,200",
+        "behavioral_evidence_from_interview": [
+          "Q62: Around $1,200 so far"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Joshua avoids unnecessary travel when income is low or reimbursements are delayed.",
+        "ground_truth_label": "avoids travel under budget strain",
+        "behavioral_evidence_from_interview": [
+          "Q59: reimbursement can lag",
+          "Q81: avoided travel that was not already planned"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Joshua sees travel as connected to research, cultural memory, and professional goals.",
+        "ground_truth_label": "travel tied to research and cultural memory",
+        "behavioral_evidence_from_interview": [
+          "Q62: research travel",
+          "Q108: oral history proposal and grant application"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Joshua has never been married, has no partner, and has no children.",
+        "ground_truth_label": "never married, no partner, no children",
+        "behavioral_evidence_from_interview": [
+          "Q05: I do not have a partner right now, and I do not have children",
+          "Q84: I have never been married"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Joshua is close to parents Angela and Darryl Williams.",
+        "ground_truth_label": "close to parents Angela and Darryl",
+        "behavioral_evidence_from_interview": [
+          "Q05: My parents, Angela and Darryl Williams, live in Long Beach",
+          "Q05: I usually see them on Sundays"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Joshua texts almost every day with his younger sister Maya.",
+        "ground_truth_label": "daily contact with sister Maya",
+        "behavioral_evidence_from_interview": [
+          "Q05: My younger sister Maya is 23",
+          "Q05: we text almost every day"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Joshua's grandmother Lillian is the family historian who shares oral histories.",
+        "ground_truth_label": "grandmother Lillian family historian",
+        "behavioral_evidence_from_interview": [
+          "Q05: My grandmother Lillian is in her late seventies",
+          "Q05: she is the family historian"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Joshua maintains friendships through chess, cycling, coffee, teaching conversations, and arts events.",
+        "ground_truth_label": "small steady activity-based friendships",
+        "behavioral_evidence_from_interview": [
+          "Q07: Marcus... play chess",
+          "Q07: Alina... teaching problems",
+          "Q07: people from the Long Beach Cycling Club"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Joshua calls his sister first when something important happens because she listens without immediately fixing it.",
+        "ground_truth_label": "sister as first emotional support",
+        "behavioral_evidence_from_interview": [
+          "Q05: Usually my sister first",
+          "Q05: knows how to listen without immediately fixing it"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Joshua lives alone in a one-bedroom apartment in Long Beach.",
+        "ground_truth_label": "lives alone in Long Beach one-bedroom",
+        "behavioral_evidence_from_interview": [
+          "Q11: I live by myself in a one-bedroom apartment",
+          "Q51: living alone in a one-bedroom apartment in Long Beach"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Joshua is solely responsible for rent and household expenses.",
+        "ground_truth_label": "sole household expense responsibility",
+        "behavioral_evidence_from_interview": [
+          "Q55: I am responsible for my rent and household expenses"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Joshua pays about $1,850 in monthly rent.",
+        "ground_truth_label": "monthly rent about $1,850",
+        "behavioral_evidence_from_interview": [
+          "Q56: rent, about $1,850"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Joshua has lived in his apartment a little over two years.",
+        "ground_truth_label": "rented current apartment a little over two years",
+        "behavioral_evidence_from_interview": [
+          "Q58: A little over two years"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Joshua lives near El Dorado Park and the university in the 90815 area.",
+        "ground_truth_label": "90815 near El Dorado Park and university",
+        "behavioral_evidence_from_interview": [
+          "Q08: in the 90815 area",
+          "Q08: near enough to El Dorado Park and the university"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Joshua could cover a $400 emergency from savings.",
+        "ground_truth_label": "can cover $400 emergency from savings",
+        "behavioral_evidence_from_interview": [
+          "Q82: I could cover a $400 emergency from savings"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Joshua watches Lakers and Dodgers games with family or for enjoyment.",
+        "ground_truth_label": "Lakers and Dodgers viewer",
+        "behavioral_evidence_from_interview": [
+          "Q05: watch a Dodgers or Lakers game if one is on"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Joshua attends small jazz or spoken-word events and follows bookstores and venues online.",
+        "ground_truth_label": "small jazz and spoken-word entertainment",
+        "behavioral_evidence_from_interview": [
+          "Q07: small jazz sets",
+          "Q48: poetry events, bookstores, jazz venues"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Joshua plays chess with Marcus at a cafe about twice a month.",
+        "ground_truth_label": "twice-monthly cafe chess with Marcus",
+        "behavioral_evidence_from_interview": [
+          "Q07: Marcus... play chess at a cafe maybe twice a month"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Joshua keeps a bullet journal for lectures, poems, deadlines, and personal organization.",
+        "ground_truth_label": "bullet journal for work and creative organization",
+        "behavioral_evidence_from_interview": [
+          "Q01: keep a bullet journal",
+          "Q17: keep a bullet journal"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Joshua takes urban street photographs.",
+        "ground_truth_label": "urban street photography hobby",
+        "behavioral_evidence_from_interview": [
+          "Q48: street photos",
+          "Q01: camera lenses"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Joshua plays occasional basketball on Wednesday nights.",
+        "ground_truth_label": "occasional Wednesday basketball",
+        "behavioral_evidence_from_interview": [
+          "Q15: play basketball some Wednesdays",
+          "Q31: occasional basketball on Wednesday nights"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Joshua volunteers as a high school tutor twice a month.",
+        "ground_truth_label": "twice-monthly high school tutoring",
+        "behavioral_evidence_from_interview": [
+          "Q17: volunteer as a tutor for high school students twice a month"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Joshua writes poems that no one has to grade as an emotional outlet.",
+        "ground_truth_label": "private poetry as emotional outlet",
+        "behavioral_evidence_from_interview": [
+          "Q43: writing poems that no one has to grade"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Joshua teaches composition, cultural narratives, and African American literature.",
+        "ground_truth_label": "teaches composition, cultural narratives, and African American literature",
+        "behavioral_evidence_from_interview": [
+          "Q16: teach composition, cultural narratives, and African American literature",
+          "Q65: teaches college students how to read, write, interpret culture"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Joshua uses Canvas, Zoom, Google Docs, library databases, citation managers, and color-coded slide decks.",
+        "ground_truth_label": "academic digital tools and color-coded slides",
+        "behavioral_evidence_from_interview": [
+          "Q16: designing digital materials in Canvas",
+          "Q65: Canvas, Zoom, Google Docs, library databases, citation managers"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Joshua aims for a secure academic position, publication, and a multi-year community research grant.",
+        "ground_truth_label": "secure academic position and grant ambition",
+        "behavioral_evidence_from_interview": [
+          "Q108: more secure academic position",
+          "Q108: publish a book",
+          "Q108: secure a multi-year grant"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Joshua usually works around 45 to 50 hours per week during the semester.",
+        "ground_truth_label": "45 to 50 semester work hours",
+        "behavioral_evidence_from_interview": [
+          "Q68: Usually around 45 to 50 hours a week during the semester"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Joshua's lecturer position is covered by a faculty union contract.",
+        "ground_truth_label": "faculty union contract coverage",
+        "behavioral_evidence_from_interview": [
+          "Q66: my lecturer position is covered by a faculty union contract"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Joshua receives about $4,700 gross pay and about $3,650 take-home pay in a typical academic month.",
+        "ground_truth_label": "monthly gross $4,700 and take-home $3,650",
+        "behavioral_evidence_from_interview": [
+          "Q72: gross pay last month was about $4,700",
+          "Q72: take-home was closer to $3,650"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Joshua has one main job and is paid monthly.",
+        "ground_truth_label": "one main job paid monthly",
+        "behavioral_evidence_from_interview": [
+          "Q70: I have one main job",
+          "Q73: I get paid monthly"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Joshua studies and teaches African American literature and cultural narratives.",
+        "ground_truth_label": "African American literature and cultural narratives focus",
+        "behavioral_evidence_from_interview": [
+          "Q01: master's degree focused on African American literature and oral history",
+          "Q65: African American cultural narratives"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Joshua writes poems and short reflective pieces in a bullet journal.",
+        "ground_truth_label": "poetry and reflective writing",
+        "behavioral_evidence_from_interview": [
+          "Q01: started writing little poems and journal entries",
+          "Q01: lectures, poems, and grocery lists"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Joshua uses photography and Instagram to engage with street scenes, bookstores, poetry events, and jazz venues.",
+        "ground_truth_label": "Instagram arts and street photography engagement",
+        "behavioral_evidence_from_interview": [
+          "Q48: Instagram the most, mostly for photography, poetry events, bookstores, jazz venues",
+          "Q48: street photos"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Joshua wants to publish a book connecting literature, oral history, and Black community memory.",
+        "ground_truth_label": "book goal linking literature, oral history, and Black memory",
+        "behavioral_evidence_from_interview": [
+          "Q108: publish a book that connects literature, oral history, and Black community memory"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Joshua rides with the Long Beach Cycling Club on Tuesday, Thursday, and Saturday mornings.",
+        "ground_truth_label": "Long Beach Cycling Club Tuesday Thursday Saturday rides",
+        "behavioral_evidence_from_interview": [
+          "Q15: usually Tuesday, Thursday, and Saturday"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Joshua leaves for cycling around 6:15 a.m. on riding days.",
+        "ground_truth_label": "6:15 a.m. cycling departure",
+        "behavioral_evidence_from_interview": [
+          "Q15: leaving around 6:15 a.m."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Joshua occasionally plays basketball on Wednesday nights.",
+        "ground_truth_label": "occasional Wednesday night basketball",
+        "behavioral_evidence_from_interview": [
+          "Q15: play basketball some Wednesdays",
+          "Q31: occasional basketball on Wednesday nights"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Joshua watches Lakers and Dodgers games with family.",
+        "ground_truth_label": "watches Lakers and Dodgers with family",
+        "behavioral_evidence_from_interview": [
+          "Q05: watch a Dodgers or Lakers game if one is on"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Joshua cycles along the Long Beach shoreline and values access to bike paths.",
+        "ground_truth_label": "shoreline cycling and bike path access",
+        "behavioral_evidence_from_interview": [
+          "Q01: cycle along the shoreline",
+          "Q08: bike path toward the beach"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Joshua visits El Dorado Park to clear his head.",
+        "ground_truth_label": "El Dorado Park for mental clarity",
+        "behavioral_evidence_from_interview": [
+          "Q08: El Dorado Park when I want to clear my head"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Joshua finds early morning rides emotionally grounding.",
+        "ground_truth_label": "early rides as emotional grounding",
+        "behavioral_evidence_from_interview": [
+          "Q43: Riding early in the morning"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Joshua uses Canvas, Zoom, Google Docs, citation tools, and library databases in teaching and research.",
+        "ground_truth_label": "teaching and research technology stack",
+        "behavioral_evidence_from_interview": [
+          "Q16: Canvas",
+          "Q65: Canvas, Zoom, Google Docs, library databases, citation managers"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Joshua tracks spending with a spreadsheet and banking app.",
+        "ground_truth_label": "spreadsheet and banking app spending tracking",
+        "behavioral_evidence_from_interview": [
+          "Q57: in a spreadsheet and in my banking app"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Joshua uses Instagram, Facebook, LinkedIn, and limited Twitter/X with deliberate boundaries.",
+        "ground_truth_label": "bounded social media use",
+        "behavioral_evidence_from_interview": [
+          "Q48: I use Instagram the most",
+          "Q48: Twitter or X less than I used to",
+          "Q48: Facebook is mostly family",
+          "Q48: LinkedIn is professional"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Joshua uses calendar blocks and keeps email closed during protected writing time.",
+        "ground_truth_label": "calendar-blocked writing time with email closed",
+        "behavioral_evidence_from_interview": [
+          "Q18: block it on my calendar",
+          "Q18: leave my email closed for the first hour"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Joshua votes in major and local elections and studies voter guides and candidate statements.",
+        "ground_truth_label": "regular voter who researches ballots",
+        "behavioral_evidence_from_interview": [
+          "Q23: vote in every major election and almost every local election",
+          "Q23: read voter guides... candidate statements"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Joshua identifies as a fairly strong progressive Democrat.",
+        "ground_truth_label": "fairly strong progressive Democrat",
+        "behavioral_evidence_from_interview": [
+          "Q95: Democrat, and fairly strongly",
+          "Q95: progressive Democrat is probably the best description"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Joshua is much closer to the Democratic Party than the Republican Party.",
+        "ground_truth_label": "closer to Democratic Party",
+        "behavioral_evidence_from_interview": [
+          "Q96: Much closer to the Democratic Party"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Joshua prioritizes racial justice, public education, labor protections, affordable housing, health care access, and the arts.",
+        "ground_truth_label": "progressive policy priorities",
+        "behavioral_evidence_from_interview": [
+          "Q24: racial justice, public education, labor protections, affordable housing, health care access, and the arts"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Joshua attended peaceful protests and donated small amounts to bail and community organizations.",
+        "ground_truth_label": "peaceful protest attendance and small donations",
+        "behavioral_evidence_from_interview": [
+          "Q29: attended peaceful protests",
+          "Q29: donated small amounts to bail and community organizations"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Joshua has been pulled over twice and learned to keep his hands visible and speak calmly during police encounters.",
+        "ground_truth_label": "two traffic stops and cautious police encounter behavior",
+        "behavioral_evidence_from_interview": [
+          "Q20: pulled over twice",
+          "Q20: keep my hands visible, speak calmly, and narrate movements"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Joshua volunteers as a high school tutor and mentors Black and first-generation students.",
+        "ground_truth_label": "community tutoring and student mentoring",
+        "behavioral_evidence_from_interview": [
+          "Q17: volunteer as a tutor for high school students",
+          "Q65: mentor students, especially Black students and first-generation students"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Joshua grew up singing in a Black Baptist church choir.",
+        "ground_truth_label": "Black Baptist choir upbringing",
+        "behavioral_evidence_from_interview": [
+          "Q01: sang in the church choir",
+          "Q47: raised in a Black Baptist church, sang in the choir"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Joshua listens to Gregory Porter and values music with a gospel feeling.",
+        "ground_truth_label": "Gregory Porter and gospel-inflected music",
+        "behavioral_evidence_from_interview": [
+          "Q39: listened to Gregory Porter",
+          "Q47: jazz vocalists like Gregory Porter who carry that church feeling"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Joshua follows jazz venues and attends intimate music events.",
+        "ground_truth_label": "jazz venue and intimate music event interest",
+        "behavioral_evidence_from_interview": [
+          "Q07: small jazz sets",
+          "Q48: jazz venues"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Joshua keeps bike gear at home, implying functional cycling apparel and equipment are part of his routine.",
+        "ground_truth_label": "functional cycling gear at home",
+        "behavioral_evidence_from_interview": [
+          "Q11: a corner where I keep my bike gear"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "The interview does not describe a specific clothing style for Joshua beyond professional academic and cycling contexts.",
+        "ground_truth_label": "no specific clothing style described",
+        "behavioral_evidence_from_interview": [
+          "Q16: work in classrooms and office space",
+          "Q65: lecturer role and teaching duties"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Joshua identifies as Black or African American and not Hispanic, Latinx, or Spanish origin.",
+        "ground_truth_label": "Black non-Hispanic identity",
+        "behavioral_evidence_from_interview": [
+          "Q88: not of Hispanic, Latinx, or Spanish origin",
+          "Q89: identify as Black or African American"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Joshua was born in Long Beach, California on March 12, 2000.",
+        "ground_truth_label": "born March 12, 2000 in Long Beach",
+        "behavioral_evidence_from_interview": [
+          "Q85: My date of birth is March 12, 2000",
+          "Q87: born in Long Beach, California"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Joshua was born in the United States and has not lived outside the U.S.",
+        "ground_truth_label": "U.S.-born with no residence outside U.S.",
+        "behavioral_evidence_from_interview": [
+          "Q86: born in the United States",
+          "Q86: No, only traveled"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Joshua's family roots are in Louisiana and South Carolina, with gospel, storytelling, and Southern food traditions.",
+        "ground_truth_label": "Southern African American family roots",
+        "behavioral_evidence_from_interview": [
+          "Q01: roots in Louisiana and South Carolina",
+          "Q01: gospel music, Sunday dinners, stories about the South"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Joshua identifies as Christian from a Black Baptist background and attends church about once or twice a month.",
+        "ground_truth_label": "Christian Black Baptist identity with monthly church attendance",
+        "behavioral_evidence_from_interview": [
+          "Q47: identify as Christian, loosely Baptist",
+          "Q47: attend maybe once or twice a month"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Joshua values integrity, family, community, language, Black cultural memory, and quiet.",
+        "ground_truth_label": "core values: integrity, family, community, language, Black memory, quiet",
+        "behavioral_evidence_from_interview": [
+          "Q109: value integrity, family, community",
+          "Q109: ability to make meaning through language",
+          "Q109: Black cultural memory",
+          "Q109: value quiet"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Joshua chose to teach locally and build oral history research instead of immediately entering an out-of-state PhD program.",
+        "ground_truth_label": "local teaching over immediate out-of-state PhD",
+        "behavioral_evidence_from_interview": [
+          "Q02: chose to teach locally and build a research project around oral histories",
+          "Q03: definitely conscious"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Joshua completed a master's degree and became a postsecondary humanities lecturer.",
+        "ground_truth_label": "master's degree and lecturer transition",
+        "behavioral_evidence_from_interview": [
+          "Q01: completed a master's degree",
+          "Q90: completed a master's degree",
+          "Q65: postsecondary humanities lecturer"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Joshua's grandmother's health scare influenced his decision-making and family responsibilities.",
+        "ground_truth_label": "grandmother health scare shaped decisions",
+        "behavioral_evidence_from_interview": [
+          "Q02: grandmother had a health scare",
+          "Q35: health scare during my master's program"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Joshua lived with both parents and younger sister Maya in Long Beach when he was 16.",
+        "ground_truth_label": "two-parent Long Beach household at age 16",
+        "behavioral_evidence_from_interview": [
+          "Q97: lived in Long Beach, California",
+          "Q98: lived with both my mother and father",
+          "Q99: lived with my younger sister Maya"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Joshua's mother has an associate degree and worked as a school-district administrative assistant.",
+        "ground_truth_label": "mother associate degree and school district administrative assistant",
+        "behavioral_evidence_from_interview": [
+          "Q101: mom completed an associate degree",
+          "Q103: administrative assistant in the school district"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Joshua's father completed some college and worked in port logistics.",
+        "ground_truth_label": "father some college and port logistics work",
+        "behavioral_evidence_from_interview": [
+          "Q100: dad completed some college",
+          "Q106: worked in logistics connected to the Port of Long Beach"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Joshua reads voter guides, endorsements, and candidate statements before voting.",
+        "ground_truth_label": "researched voting information diet",
+        "behavioral_evidence_from_interview": [
+          "Q23: read voter guides, endorsements... and candidate statements"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Joshua trusts doctors, CDC, county public health, and university health communications for vaccine information.",
+        "ground_truth_label": "trusted vaccine information sources",
+        "behavioral_evidence_from_interview": [
+          "Q42: primary care doctor, the CDC, county public health updates",
+          "Q42: university health communications"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Joshua uses Instagram for arts and community life, Facebook for family and church, LinkedIn professionally, and Twitter/X less than before for academic news.",
+        "ground_truth_label": "platform-specific social media use",
+        "behavioral_evidence_from_interview": [
+          "Q48: Instagram the most",
+          "Q48: Facebook is mostly family, church people",
+          "Q48: LinkedIn is professional",
+          "Q48: Twitter or X less than I used to"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Joshua does not accept current students on personal social media accounts.",
+        "ground_truth_label": "does not accept current students on personal accounts",
+        "behavioral_evidence_from_interview": [
+          "Q48: I do not accept current students on personal accounts"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Joshua does not usually use social media for personal emotional or financial support.",
+        "ground_truth_label": "does not seek personal support on social media",
+        "behavioral_evidence_from_interview": [
+          "Q49: do not usually use social media for personal emotional or financial support"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "reprojected",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Joshua is a 26-year-old man.",
+        "ground_truth_label": "26-year-old male",
+        "behavioral_evidence_from_interview": [
+          "Q85: turned 26 in March",
+          "Q89: Black man identity implied across interview"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Joshua budgets carefully and avoids carrying credit card debt.",
+        "ground_truth_label": "careful budgeting and avoids credit card debt",
+        "behavioral_evidence_from_interview": [
+          "Q57: track spending closely",
+          "Q60: try not to put small surprises on a credit card unless I can pay it off immediately"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Joshua automates savings and wants to increase his emergency fund from under three months to six months.",
+        "ground_truth_label": "automated savings with six-month emergency fund goal",
+        "behavioral_evidence_from_interview": [
+          "Q61: automate a transfer each payday",
+          "Q61: a little under three months",
+          "Q61: like to get to six"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Joshua treats academic precarity as a major financial and career risk.",
+        "ground_truth_label": "academic precarity risk sensitivity",
+        "behavioral_evidence_from_interview": [
+          "Q61: academic work can feel unpredictable",
+          "Q83: one bad institutional decision could shake it"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "reprojected",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Joshua responds to uncertainty by creating structure through calendars, spreadsheets, bullet journals, and planned routines.",
+        "ground_truth_label": "structure-seeking under uncertainty",
+        "behavioral_evidence_from_interview": [
+          "Q03: make lists, compare outcomes",
+          "Q17: routines keep obligations from floating loose",
+          "Q57: spreadsheet and banking app"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Joshua views voting as a baseline civic responsibility.",
+        "ground_truth_label": "voting as baseline civic duty",
+        "behavioral_evidence_from_interview": [
+          "Q23: Voting is not the whole of civic life",
+          "Q23: baseline responsibility"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-093",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Joshua's institutional trust is conditional on budgets, transparency, oversight, and concrete implementation.",
+        "ground_truth_label": "conditional institutional trust",
+        "behavioral_evidence_from_interview": [
+          "Q24: government can do meaningful good",
+          "Q24: pressure on it and make the implementation concrete",
+          "Q25: ask where the budget is, who is accountable"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-094",
+        "source": "reprojected",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Joshua manages anxiety through therapy, exercise, lists, calendar blocks, family support, and quiet routines.",
+        "ground_truth_label": "multi-modal anxiety coping",
+        "behavioral_evidence_from_interview": [
+          "Q43: cycling, sister, therapy, writing poems helped",
+          "Q45: therapy has helped",
+          "Q50: schedule exercise, limit late-night scrolling, ask for help"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-095",
+        "source": "reprojected",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Joshua balances a strong need for predictability with creative outlets like poetry, photography, music, and cooking.",
+        "ground_truth_label": "predictability balanced with creativity",
+        "behavioral_evidence_from_interview": [
+          "Q03: like flexibility once the structure is already there",
+          "Q43: cycling, cooking, and writing kept me grounded",
+          "Q48: photography, poetry events, bookstores, jazz venues"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-096",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Joshua's self-concept is organized around being a scholar-mentor rooted in Black cultural memory and Long Beach community life.",
+        "ground_truth_label": "scholar-mentor rooted in Black memory and Long Beach",
+        "behavioral_evidence_from_interview": [
+          "Q01: stay in Long Beach shaped my research and teaching",
+          "Q65: mentor Black students and first-generation students",
+          "Q109: value Black cultural memory"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}
