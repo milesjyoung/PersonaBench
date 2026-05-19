@@ -1,0 +1,2370 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "936fd3acebd04fd590581d75ab42b7c2",
+      "name": "Harvey Lee",
+      "verification_date": "2026-05-19"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age, sex, education, occupation, marital status, and Houston location are confirmed by interview answers.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed age/sex/education_level/occupation/city/state/zipcode/marital_status",
+              "source_b_ref": "Q84-Q91",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed does not specify race or Hispanic origin; interview adds Asian American and not Hispanic/Latinx/Spanish origin.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed demographic fields",
+              "source_b_ref": "Q88-Q89",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 3,
+              "text": "Seed describes Houston multicultural upbringing; interview confirms Houston residence, diversity, food, festivals, and mostly English at home.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "cultural_background",
+              "source_b_ref": "Q08, Q28, Q88",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 4,
+              "text": "Seed omits household composition; interview establishes a stable three-person household with mother and father only.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed household omitted",
+              "source_b_ref": "Q05-Q06, Q11-Q14, Q51-Q54",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile correctly states Harvey is a 9-year-old male elementary school student in Houston, TX 77018.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q84-Q91",
+              "source_b_ref": "top-level profile fields",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures the three-person household with both parents and no temporary residents.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q11-Q14, Q51-Q54",
+              "source_b_ref": "preferences.home_and_lifestyle; summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Interview specifies full-time public elementary school enrollment, but the preferences do not include public school.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q91",
+              "source_b_ref": "preferences.work_and_career; top-level education",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 4,
+              "text": "Interview says no pet lives with the household; profile omits this household fact.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q51",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Top-level occupation, work_and_career, and demographer summary consistently describe him as not in the workforce and a student.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "occupation; preferences.work_and_career",
+              "field_b": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Household facts in home_and_lifestyle and social_and_relationships align with the summary's three-person household.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.home_and_lifestyle; preferences.social_and_relationships",
+              "field_b": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Cultural_and_linguistic and summaries.demographer both identify him as Asian American, loosely Christian, and mostly English-speaking.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.cultural_and_linguistic",
+              "field_b": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview adds that Harvey was born in Houston, Texas in 2016 and was born in the United States.",
+              "gap": true,
+              "interview_ref": "Q85-Q87",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add birth year, U.S. birth, and Houston birthplace to cultural_and_linguistic details."
+            },
+            {
+              "id": 2,
+              "text": "Interview states Harvey has no siblings living with him.",
+              "gap": true,
+              "interview_ref": "Q06",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add no siblings in household to social_and_relationships details."
+            },
+            {
+              "id": 3,
+              "text": "Interview states no pet lives with the household.",
+              "gap": true,
+              "interview_ref": "Q51",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add no household pet to home_and_lifestyle details."
+            },
+            {
+              "id": 4,
+              "text": "Interview indicates the family probably rents, though Harvey is not fully sure.",
+              "gap": true,
+              "interview_ref": "Q58",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add cautious housing-tenure detail: Harvey thinks his parents rent, but is not completely sure."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes organized, imaginative building; interview confirms persistence, sorting, routines, and project completion.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "professional_persona; skills_and_expertise",
+              "source_b_ref": "Q01-Q03, Q11, Q43-Q44",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed mentions modest weekend-only travel budget; interview confirms family budget limits and delayed purchases but does not specifically repeat weekend-only travel budgeting.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "travel_persona",
+              "source_b_ref": "Q56-Q64, Q83",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 3,
+              "text": "Seed culinary preferences match interview statements about pizza, sushi rolls, and pancakes.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "culinary_persona",
+              "source_b_ref": "Q17, Q32",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed says he balances organized practice with spontaneous play; interview confirms soccer, basketball drills, and informal play after games.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "sports_persona",
+              "source_b_ref": "Q01, Q07, Q15",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile captures Harvey's delayed gratification around LEGO, books, and art supplies.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q60-Q64, Q83",
+              "source_b_ref": "summaries.behavioral_economist; preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures mastery motivation through Scratch debugging and project planning.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q02-Q03, Q44, Q50",
+              "source_b_ref": "preferences.life_events_and_transitions; summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Interview says he responds to budget constraints by designing wanted items on paper; profile mentions waiting but not the paper-design coping strategy.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q60, Q62",
+              "source_b_ref": "preferences.hobbies_and_recreation; summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 4,
+              "text": "Interview says screen time limits and bedtime rules shape behavior; profile includes screen-time limits but could more explicitly include bedtime as a constraint.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q17-Q18, Q31-Q32, Q43",
+              "source_b_ref": "preferences.health_and_wellness; summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Savings behavior in summaries.behavioral_economist is consistent with financial details about saving gift money and delaying purchases.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.behavioral_economist",
+              "field_b": "preferences.work_and_career; media_and_information_diet",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Health, sports, and lifestyle preferences consistently describe an active child without major health limitations.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness",
+              "field_b": "preferences.sports_and_fitness; preferences.nature_and_outdoors",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Technology and hobbies consistently describe Scratch, Minecraft, tablet drawing, and LEGO as supervised or age-appropriate activities.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.technology",
+              "field_b": "preferences.hobbies_and_recreation; preferences.media_and_information_diet",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview adds that Harvey distinguishes needs from wants and has not gone without necessities.",
+              "gap": true,
+              "interview_ref": "Q64, Q83",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add needs-versus-wants financial learning to home_and_lifestyle or work_and_career details."
+            },
+            {
+              "id": 2,
+              "text": "Interview adds that he uses lists, sketches, and breaks to manage overload.",
+              "gap": true,
+              "interview_ref": "Q44, Q50",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add lists, sketches, and breaks as coping/planning strategies."
+            },
+            {
+              "id": 3,
+              "text": "Interview adds that he is learning to save some gift money rather than spend it all immediately.",
+              "gap": true,
+              "interview_ref": "Q61-Q62",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add child-level saving and delayed gratification detail."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed emphasizes kindness and community involvement; interview confirms fairness, kindness, schools, parks, libraries, and community safety as civic concerns.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "cultural_background",
+              "source_b_ref": "Q23-Q30, Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed lacks explicit party identity; interview adds no party identification due to age.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed politics omitted",
+              "source_b_ref": "Q95-Q96",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 3,
+              "text": "Seed describes multicultural Houston; interview confirms this as the basis for his views on respect and race.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "cultural_background",
+              "source_b_ref": "Q26-Q28",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed omits law enforcement experience; interview adds limited, school- and traffic-related contact with police.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed law enforcement omitted",
+              "source_b_ref": "Q20-Q22",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately states he cannot vote and has no party identification.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23, Q95-Q96",
+              "source_b_ref": "preferences.community_and_civic; summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures age-appropriate views on race, policing, and Black Lives Matter.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q26-Q30",
+              "source_b_ref": "preferences.community_and_civic; summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Interview says he has no close arrest exposure; profile omits this law-enforcement boundary.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q22",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 4,
+              "text": "Interview says sirens make him a little nervous; profile does not mention this response.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q21",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Community_and_civic and political_scientist summary consistently describe child-level civic awareness rather than adult political ideology.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Media_and_information_diet and community_and_civic consistently place political information sources in parents, school, and adult discussion.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.media_and_information_diet",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview adds that Harvey would vote for playground shade, better school lunches, and more library books if children could vote locally.",
+              "gap": true,
+              "interview_ref": "Q23",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add child-level local priorities."
+            },
+            {
+              "id": 2,
+              "text": "Interview adds that he has not attended protests or posted about race/policing issues.",
+              "gap": true,
+              "interview_ref": "Q29",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add non-participation in protests/posts and reliance on listening/asking parents."
+            },
+            {
+              "id": 3,
+              "text": "Interview adds that he views taxes only generally as money grown-ups pay for public things.",
+              "gap": true,
+              "interview_ref": "Q75",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add basic child-level understanding of taxes."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed's description of boundless imagination and disciplined building is supported by interview accounts of LEGO, Scratch, drawing, and persistence.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "persona; professional_persona",
+              "source_b_ref": "Q01-Q04, Q43",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed mentions occasionally losing track of bedtime; interview confirms he needs bedtime reminders and wants one more minute on projects.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "persona",
+              "source_b_ref": "Q03, Q31-Q32, Q43",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed lists creative storytelling and flexible problem solving; interview confirms problem-solving through Scratch, lists, and project breakdowns.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "skills_and_expertise",
+              "source_b_ref": "Q02-Q03, Q44, Q50",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed does not specify emotional worries; interview adds normal worries about tests, soccer performance, lateness, and presentations.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed emotional well-being omitted",
+              "source_b_ref": "Q43-Q45",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile captures his maker identity, creativity, and conscientious organization.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01-Q04, Q65, Q108",
+              "source_b_ref": "preferences.hobbies_and_recreation; summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures coping through drawing, building, reading, music, lists, and support instead of substances or social media.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q38-Q39, Q43-Q50",
+              "source_b_ref": "summaries.psychologist; preferences.music; preferences.media_and_information_diet",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Interview mentions stomach discomfort and faster talking when nervous; profile summarizes worry but omits these concrete anxiety cues.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q45",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 4,
+              "text": "Interview adds that family stress appears as shorter answers, more reminders, and rushing; profile does not include this family-emotional detail.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q46",
+              "source_b_ref": "preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Hobbies, technology, arts, and work_and_career consistently support a creative maker self-concept.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.hobbies_and_recreation; preferences.technology; preferences.arts_and_culture",
+              "field_b": "preferences.work_and_career; summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Health_and_wellness and psychologist summary consistently report normal child worries without diagnosed depression or anxiety.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Music and entertainment preferences are internally consistent with his use of soundtracks and imaginative media for emotional regulation.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.music",
+              "field_b": "preferences.entertainment",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview adds that Harvey feels happiest when he has time to make things and family is not rushing.",
+              "gap": true,
+              "interview_ref": "Q43",
+              "should_be_in": "preferences.hobbies_and_recreation",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add making time and unhurried family context as emotional well-being supports."
+            },
+            {
+              "id": 2,
+              "text": "Interview adds that he talks to his mom first when upset, but asks his dad about building or game problems.",
+              "gap": true,
+              "interview_ref": "Q05",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add differentiated parental support roles."
+            },
+            {
+              "id": 3,
+              "text": "Interview adds that he values being taken seriously even though he is a child.",
+              "gap": true,
+              "interview_ref": "Q109",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add need for respect and being taken seriously."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No substantive contradictions or review-level conflicts were found. Several interview-supported gaps were carried forward into the corrected profile.",
+    "final_status": "Corrected profile is ready for downstream use with added demographic, household, civic, financial-learning, coping, and emotional-context details."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "936fd3acebd04fd590581d75ab42b7c2",
+    "name": "Harvey Lee",
+    "age": 9,
+    "gender": "Male",
+    "marital_status": "never married",
+    "location": "Houston, TX 77018",
+    "education": "full-time public elementary school student; completed third-grade-level work; less than 9th grade completed",
+    "occupation": "not in workforce; elementary school student",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Generally healthy child who stays active through sports, relies on parents and doctors for care, and dislikes shots while accepting vaccines.",
+        "details": [
+          {
+            "detail": "Plays soccer and basketball drills as regular physical activity.",
+            "evidence": "Q31"
+          },
+          {
+            "detail": "Has occasional allergies and normal childhood illnesses but no major diagnosis or broken bones.",
+            "evidence": "Q33"
+          },
+          {
+            "detail": "Trusts parents, doctor, and school health adults for vaccine information.",
+            "evidence": "Q41-Q42"
+          },
+          {
+            "detail": "Needs bedtime reminders because he may keep drawing, building, or using the tablet past his limit.",
+            "evidence": "Q03, Q17, Q31-Q32"
+          },
+          {
+            "detail": "Gets nervous about tests, soccer mistakes, lateness, and class presentations; nervousness can feel like a weird stomach and faster talking.",
+            "evidence": "Q45"
+          },
+          {
+            "detail": "Uses ordinary care and home supports such as allergy medicine managed by parents, rest, water, warm tea with honey, soup, and shower steam.",
+            "evidence": "Q37-Q39"
+          }
+        ],
+        "evidence": "Q31-Q42, Q45"
+      },
+      "food_and_dining": {
+        "summary": "Enjoys homemade and family-centered foods, especially pepperoni pizza, blueberry pancakes, sushi rolls, Tex-Mex, barbecue, and snacks after school.",
+        "details": [
+          {
+            "detail": "Favorite indulgent food is pepperoni pizza with extra mozzarella.",
+            "evidence": "Q32"
+          },
+          {
+            "detail": "Likes avocado-cucumber sushi rolls, fruit, and cucumber slices.",
+            "evidence": "Q32"
+          },
+          {
+            "detail": "Helps with pancakes and homemade pizza, especially on weekends.",
+            "evidence": "Q17"
+          },
+          {
+            "detail": "Associates Houston with tacos, barbecue, and diverse food options.",
+            "evidence": "Q08"
+          },
+          {
+            "detail": "Family meals, weekend pancakes, pizza night, and eating together improve family mood and feel like treats.",
+            "evidence": "Q46, Q83"
+          }
+        ],
+        "evidence": "Q08, Q17, Q32, Q46, Q83"
+      },
+      "travel": {
+        "summary": "Interested in educational travel but currently grounded in family-budget weekend outings, museums, parks, and local Houston activities.",
+        "details": [
+          {
+            "detail": "Wants to visit the Exploratorium in San Francisco and Natural History Museum in London.",
+            "evidence": "Q108"
+          },
+          {
+            "detail": "Enjoys museums, parks, libraries, and mural-rich places near Houston.",
+            "evidence": "Q08"
+          },
+          {
+            "detail": "Has not traveled outside the United States but wants to visit London someday.",
+            "evidence": "Q86"
+          }
+        ],
+        "evidence": "Q08, Q86, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "Family-centered child with close ties to parents, grandparents, cousins, school friends, soccer teammates, and teachers.",
+        "details": [
+          {
+            "detail": "Lives with mother and father and relies on them for emotional support, routines, and transportation.",
+            "evidence": "Q05, Q11"
+          },
+          {
+            "detail": "Has no siblings living with him; cousins sometimes feel sibling-like during long visits.",
+            "evidence": "Q06"
+          },
+          {
+            "detail": "Usually talks to his mother first when upset, but asks his father about building or game problems.",
+            "evidence": "Q05"
+          },
+          {
+            "detail": "Has school friends who share drawing and imaginative play interests.",
+            "evidence": "Q07"
+          },
+          {
+            "detail": "Sees soccer teammates at practices and Saturday games.",
+            "evidence": "Q07, Q15"
+          },
+          {
+            "detail": "Values family, kindness, friends, fairness, asking questions, and being taken seriously even as a child.",
+            "evidence": "Q109"
+          },
+          {
+            "detail": "Family stress shows up as shorter answers, more reminders, and rushing; dinner, pancakes, or movies help the mood.",
+            "evidence": "Q46"
+          }
+        ],
+        "evidence": "Q05-Q07, Q46, Q109"
+      },
+      "home_and_lifestyle": {
+        "summary": "Lives with both parents in Houston, follows school-night routines, helps with small chores, and uses home as a creative workspace.",
+        "details": [
+          {
+            "detail": "Household consists of Harvey, his mother, and his father, with no temporary members.",
+            "evidence": "Q11-Q14, Q51-Q54"
+          },
+          {
+            "detail": "No pet lives in the household.",
+            "evidence": "Q51"
+          },
+          {
+            "detail": "Uses living room and bedroom for LEGO building, drawing, reading, and projects.",
+            "evidence": "Q11"
+          },
+          {
+            "detail": "Has chores including clearing dishes, organizing school materials, and keeping LEGO pieces from spreading too far.",
+            "evidence": "Q11, Q17"
+          },
+          {
+            "detail": "Thinks his parents probably rent the home, but he is not completely sure because adults handle housing expenses.",
+            "evidence": "Q58"
+          },
+          {
+            "detail": "Has not gone without necessities such as food, school supplies, medicine, clothes, or a safe place to sleep.",
+            "evidence": "Q64, Q83"
+          }
+        ],
+        "evidence": "Q11-Q17, Q51-Q54, Q58, Q64, Q83"
+      },
+      "entertainment": {
+        "summary": "Prefers creative and imaginative entertainment including Studio Ghibli films, Minecraft, LEGO videos, Scratch tutorials, animation clips, reading, and family movies.",
+        "details": [
+          {
+            "detail": "Watches LEGO builds, Scratch tutorials, animation clips, Minecraft ideas, and sports highlights with permission.",
+            "evidence": "Q48"
+          },
+          {
+            "detail": "Inspired by Studio Ghibli-style animation and wants to learn animation.",
+            "evidence": "Q108"
+          },
+          {
+            "detail": "Reads fantasy and science fiction and uses books to relax.",
+            "evidence": "Q01, Q43"
+          },
+          {
+            "detail": "Family movies are one way his family improves the household mood.",
+            "evidence": "Q46"
+          }
+        ],
+        "evidence": "Q01, Q43, Q46, Q48, Q108"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Highly creative maker whose hobbies include LEGO cityscapes, drawing characters, Scratch programming, Minecraft, reading, short stories, comics, and simple science experiments.",
+        "details": [
+          {
+            "detail": "Builds elaborate LEGO cities with roads, hospitals, and space towers.",
+            "evidence": "Q01"
+          },
+          {
+            "detail": "Programs simple Scratch games and sees coding as a major turning point.",
+            "evidence": "Q02"
+          },
+          {
+            "detail": "Draws superheroes, robots, creatures, monsters, and fantasy characters.",
+            "evidence": "Q07, Q38"
+          },
+          {
+            "detail": "Uses notebooks to save project ideas when busy.",
+            "evidence": "Q18"
+          },
+          {
+            "detail": "Feels happiest when he has time to make things and his family is not rushing.",
+            "evidence": "Q43"
+          },
+          {
+            "detail": "When he has to wait to buy something, he may design it on paper or draw the desired item to see if he still wants it later.",
+            "evidence": "Q60, Q62"
+          }
+        ],
+        "evidence": "Q01-Q04, Q07, Q18, Q38, Q43, Q60, Q62"
+      },
+      "work_and_career": {
+        "summary": "Not in the workforce; frames school as his current responsibility and imagines future careers in animation, game design, robotics, space, or creative technology.",
+        "details": [
+          {
+            "detail": "Identifies student as his current occupation-like role.",
+            "evidence": "Q65"
+          },
+          {
+            "detail": "Attends public elementary school full time.",
+            "evidence": "Q91"
+          },
+          {
+            "detail": "Has no paid job, wages, union coverage, taxes, or work benefits.",
+            "evidence": "Q66-Q76"
+          },
+          {
+            "detail": "Aspirations include animator, game designer, astronaut, robotics builder, or creative tool inventor.",
+            "evidence": "Q108"
+          },
+          {
+            "detail": "Saves small amounts of birthday, holiday, gift, or chore money for LEGO, books, markers, sketchbooks, and art supplies.",
+            "evidence": "Q57, Q61-Q62, Q73"
+          },
+          {
+            "detail": "Is learning to delay spending, compare choices, and distinguish wants from needs.",
+            "evidence": "Q60-Q64, Q83"
+          }
+        ],
+        "evidence": "Q57, Q61-Q76, Q83, Q91, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Strong arts orientation shaped by drawing, comics, animation, murals, museums, and multicultural Houston life.",
+        "details": [
+          {
+            "detail": "Draws fantastical characters and wants to animate them.",
+            "evidence": "Q01, Q108"
+          },
+          {
+            "detail": "Values art class and receives encouragement from his art teacher.",
+            "evidence": "Q07"
+          },
+          {
+            "detail": "Notices murals around Houston and appreciates the city's diverse cultural scene.",
+            "evidence": "Q08"
+          },
+          {
+            "detail": "Inspired by Studio Ghibli animation and comic-style storytelling.",
+            "evidence": "Q108"
+          },
+          {
+            "detail": "Wants to learn animation skills such as walk cycles and expressions.",
+            "evidence": "Q108"
+          }
+        ],
+        "evidence": "Q01, Q07, Q08, Q108"
+      },
+      "sports_and_fitness": {
+        "summary": "Active youth athlete who plays club soccer, attends basketball drills, enjoys casual backyard play, and follows Seattle baseball and football teams.",
+        "details": [
+          {
+            "detail": "Plays soccer with practices during season and Saturday games.",
+            "evidence": "Q07, Q15"
+          },
+          {
+            "detail": "Attends weekend basketball drills.",
+            "evidence": "Q01, Q15"
+          },
+          {
+            "detail": "Watches Mariners or Seahawks highlights with his dad.",
+            "evidence": "Q48"
+          },
+          {
+            "detail": "Sports routines shift his free time and reduce after-school building time during soccer season.",
+            "evidence": "Q18"
+          },
+          {
+            "detail": "Wants to keep playing soccer and improve at basketball.",
+            "evidence": "Q108"
+          }
+        ],
+        "evidence": "Q01, Q07, Q15, Q18, Q48, Q108"
+      },
+      "nature_and_outdoors": {
+        "summary": "Enjoys parks, outdoor sports, shaded play areas, and nature outings, but Houston heat, traffic, mosquitoes, and busy roads limit independent outdoor activity.",
+        "details": [
+          {
+            "detail": "Likes parks and places to ride bikes with an adult.",
+            "evidence": "Q08"
+          },
+          {
+            "detail": "Would improve neighborhood sidewalks and shaded play areas.",
+            "evidence": "Q10"
+          },
+          {
+            "detail": "Finds summer heat and mosquitoes challenging.",
+            "evidence": "Q10"
+          },
+          {
+            "detail": "Feels mostly safe outside with parents but is not allowed to go far alone, especially near busy streets or after dark.",
+            "evidence": "Q09"
+          }
+        ],
+        "evidence": "Q08-Q10"
+      },
+      "technology": {
+        "summary": "Strong interest in kid-accessible technology, including Scratch coding, drawing apps, Minecraft, tablets, and possible future creative software or robotics.",
+        "details": [
+          {
+            "detail": "Learned Scratch and built a rocket game using arrow keys.",
+            "evidence": "Q02"
+          },
+          {
+            "detail": "Uses drawing apps and tablet-based school or creative tools with parental limits.",
+            "evidence": "Q48"
+          },
+          {
+            "detail": "Wants to invent a drawing tablet app that turns sketches into game characters.",
+            "evidence": "Q108"
+          },
+          {
+            "detail": "Father's technology or engineering work influences his coding and building interests.",
+            "evidence": "Q106"
+          },
+          {
+            "detail": "Would like a Scratch and animation class at school, the library, or a museum.",
+            "evidence": "Q04"
+          }
+        ],
+        "evidence": "Q02, Q04, Q48, Q106, Q108"
+      },
+      "community_and_civic": {
+        "summary": "Child-level civic orientation centered on fairness, schools, parks, libraries, safety, kindness, and listening to people.",
+        "details": [
+          {
+            "detail": "Cannot vote but understands voting through classroom choices and family election discussions.",
+            "evidence": "Q23"
+          },
+          {
+            "detail": "Would vote for more playground shade, better school lunches, and more library books if kids could vote on local issues.",
+            "evidence": "Q23"
+          },
+          {
+            "detail": "Believes schools should have good books and supplies and parks should be clean and safe.",
+            "evidence": "Q24"
+          },
+          {
+            "detail": "Responds to race and policing issues by listening and asking parents questions.",
+            "evidence": "Q26-Q30"
+          },
+          {
+            "detail": "Has not joined protests or posted about race and policing issues.",
+            "evidence": "Q29"
+          },
+          {
+            "detail": "Has no close experience with arrests and mainly sees police at school events, traffic, the rodeo, or community places.",
+            "evidence": "Q20-Q22"
+          },
+          {
+            "detail": "Sirens make him a little nervous because he wonders what happened.",
+            "evidence": "Q21"
+          },
+          {
+            "detail": "Understands taxes only generally as money grown-ups pay for public things.",
+            "evidence": "Q75"
+          }
+        ],
+        "evidence": "Q20-Q30, Q75"
+      },
+      "music": {
+        "summary": "Prefers instrumental film soundtracks, especially music that fuels imagination and emotional regulation.",
+        "details": [
+          {
+            "detail": "Listens to Hans Zimmer and John Williams soundtracks to make difficult moments feel adventurous.",
+            "evidence": "Q38"
+          },
+          {
+            "detail": "Uses music as a calming and imaginative aid.",
+            "evidence": "Q38, Q43"
+          }
+        ],
+        "evidence": "Q38, Q43"
+      },
+      "fashion_and_appearance": {
+        "summary": "Limited evidence; appearance preferences are not central, though school clothes and shoes are part of back-to-school family spending.",
+        "details": [
+          {
+            "detail": "Notices back-to-school spending includes clothes and shoes.",
+            "evidence": "Q59"
+          }
+        ],
+        "evidence": "Q59"
+      },
+      "cultural_and_linguistic": {
+        "summary": "Asian American, English-speaking Houston child growing up in a multicultural urban environment with exposure to Texan, Southern, Tex-Mex, and diverse festival cultures.",
+        "details": [
+          {
+            "detail": "Identifies as Asian American and not Hispanic, Latinx, or Spanish origin.",
+            "evidence": "Q88-Q89"
+          },
+          {
+            "detail": "Speaks mostly English at home.",
+            "evidence": "Q88"
+          },
+          {
+            "detail": "Was born in the United States in Houston, Texas, in 2016.",
+            "evidence": "Q85-Q87"
+          },
+          {
+            "detail": "Experiences Houston as culturally diverse through food, festivals, languages, and neighborhoods.",
+            "evidence": "Q08, Q28"
+          },
+          {
+            "detail": "Loosely identifies as Christian through family context.",
+            "evidence": "Q47, Q94"
+          },
+          {
+            "detail": "Has not lived outside the United States.",
+            "evidence": "Q86"
+          }
+        ],
+        "evidence": "Q08, Q28, Q47, Q85-Q94"
+      },
+      "life_events_and_transitions": {
+        "summary": "Major child-life transitions include starting school, learning Scratch, joining organized sports, building major creative projects, and becoming more organized around school responsibilities.",
+        "details": [
+          {
+            "detail": "Learning Scratch was a crossroads that shifted his self-concept toward game design and animation.",
+            "evidence": "Q02-Q03"
+          },
+          {
+            "detail": "Starting school and joining sports are major routine anchors.",
+            "evidence": "Q01, Q15"
+          },
+          {
+            "detail": "Has become better at lists, planning, and breaking projects into steps.",
+            "evidence": "Q44, Q50"
+          },
+          {
+            "detail": "A major memory is finishing a large LEGO city with roads, a hospital, and a space tower before partially cleaning it up.",
+            "evidence": "Q01"
+          },
+          {
+            "detail": "Uses snacks, short walks, ten minutes of LEGO, or quick sketches as breaks when stressed.",
+            "evidence": "Q50"
+          }
+        ],
+        "evidence": "Q01-Q04, Q44, Q50"
+      },
+      "media_and_information_diet": {
+        "summary": "Uses parent-supervised digital media focused on creative learning and sports; relies on parents, teachers, doctors, and school adults for serious information.",
+        "details": [
+          {
+            "detail": "Does not have personal Facebook, Instagram, or Twitter accounts.",
+            "evidence": "Q48-Q49"
+          },
+          {
+            "detail": "Watches creative tutorials, LEGO builds, Scratch tips, Minecraft ideas, animation clips, and sports highlights with permission.",
+            "evidence": "Q48"
+          },
+          {
+            "detail": "Relies on parents and doctors for vaccine and health information.",
+            "evidence": "Q42"
+          },
+          {
+            "detail": "Receives political and social issue information mainly through adults, school, and family discussion.",
+            "evidence": "Q23-Q30"
+          },
+          {
+            "detail": "Does not use social media for emotional or financial support; instead asks parents, teachers, or friends.",
+            "evidence": "Q49"
+          }
+        ],
+        "evidence": "Q23-Q30, Q42, Q48-Q49"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Harvey Lee is a 9-year-old Asian American boy living in Houston, Texas, with both parents in a three-person household, with no spouse, children, lodgers, or temporary residents (Q51-Q55, Q84, Q88-Q89). He is enrolled full time in public elementary school and has completed less than ninth grade, with school serving as his primary institutional setting (Q90-Q92). His household appears stable and parent-supported, though he has limited knowledge of adult finances, taxes, insurance, and parental education details (Q56-Q64, Q74-Q76, Q100-Q107). He identifies loosely as Christian through family context and speaks mostly English at home (Q47, Q88, Q94).",
+      "behavioral_economist": "Harvey shows strong future orientation for a child, saving birthday or gift money for LEGO, books, and art supplies while learning to delay purchases and distinguish wants from needs (Q60-Q64, Q83). His choices are motivated by creative payoff, mastery, and visible progress, as seen in persisting with Scratch debugging and breaking school projects into steps (Q02-Q03, Q44, Q50). He responds to constraints such as bedtime, screen-time limits, sports schedules, and family budgets by planning in notebooks or reusing existing materials (Q17-Q18, Q48, Q60). Peer and adult encouragement matter: teachers, parents, and teammates shape his participation in art, coding, schoolwork, and sports (Q04-Q07, Q106).",
+      "political_scientist": "Harvey is pre-voting age and has no party identification, but he has an emerging civic frame organized around fairness, schools, parks, libraries, safety, and kindness (Q23-Q24, Q95-Q96). His institutional trust is child-centered: he trusts parents, teachers, doctors, and school adults more than abstract political systems (Q30, Q42). On race, racism, Black Lives Matter, and policing, he expresses age-appropriate awareness through fairness and anti-bullying language rather than adult policy positions (Q26-Q30). His community attachment is local and experiential, rooted in Houston's multicultural food, festivals, parks, museums, traffic, heat, and neighborhood life (Q08-Q10, Q28).",
+      "psychologist": "Harvey presents as imaginative, conscientious, curious, and organized, with a strong maker identity built around LEGO, drawing, Scratch, science, and storytelling (Q01-Q04, Q65, Q108). He regulates frustration through drawing, building, reading, music, lists, and parental support rather than substances or social media (Q38-Q39, Q43-Q45, Q49-Q50). His self-concept combines creativity and competence: he likes solving problems, preserving project ideas, and being taken seriously even as a child (Q02-Q03, Q18, Q109). Emotionally, he reports normal child worries about school, tests, presentations, bedtime, and performance, with no diagnosed depression or anxiety in the interview evidence (Q43-Q46)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Harvey plays soccer and attends basketball drills as regular physical activity.",
+        "ground_truth_label": "regular youth sports activity",
+        "behavioral_evidence_from_interview": [
+          "Q31: I play soccer, do basketball drills, and run around outside when it is not too hot."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.sports_and_fitness"
+        ]
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Harvey has occasional allergies and normal childhood illnesses but no major diagnosis or broken bones.",
+        "ground_truth_label": "minor health issues only",
+        "behavioral_evidence_from_interview": [
+          "Q33: Nothing really big. I have not broken a bone.",
+          "Q33: allergies bother me sometimes."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Harvey trusts his parents, doctor, school nurses, and teachers for vaccine information.",
+        "ground_truth_label": "trusted health information from adults",
+        "behavioral_evidence_from_interview": [
+          "Q42: trusted sources are my parents, my doctor, and school nurses or teachers."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Harvey dislikes shots but accepts vaccines because his parents and doctor say they help.",
+        "ground_truth_label": "vaccine acceptance despite shot anxiety",
+        "behavioral_evidence_from_interview": [
+          "Q41: I do not like shots, but I know vaccines are supposed to keep people from getting really sick.",
+          "Q41: Yes, because my parents and doctor say they help."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Harvey needs bedtime reminders because he may keep drawing, building, or using the tablet past his limit.",
+        "ground_truth_label": "bedtime self-regulation challenge",
+        "behavioral_evidence_from_interview": [
+          "Q31: I need reminders to go to bed because I can stay up drawing or building.",
+          "Q17: I am supposed to charge my tablet and stop using it when time is up."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Harvey worries about tests, soccer mistakes, being late, and class presentations.",
+        "ground_truth_label": "normal child performance worries",
+        "behavioral_evidence_from_interview": [
+          "Q45: I do worry sometimes about tests, messing up in soccer, or being late.",
+          "Q45: I can get nervous before presenting in class."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Harvey's nervousness can feel like a weird stomach and faster talking.",
+        "ground_truth_label": "somatic nervousness cues",
+        "behavioral_evidence_from_interview": [
+          "Q45: My stomach feels weird and I talk faster."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Harvey does not smoke, drink alcohol, use marijuana, or use other substances.",
+        "ground_truth_label": "no substance use",
+        "behavioral_evidence_from_interview": [
+          "Q38: I am nine, so I do not smoke or drink alcohol.",
+          "Q39: I do not use marijuana or anything like that."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Harvey's favorite indulgent food is pepperoni pizza with extra mozzarella.",
+        "ground_truth_label": "pepperoni pizza preference",
+        "behavioral_evidence_from_interview": [
+          "Q32: Pepperoni pizza with extra mozzarella."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Harvey likes avocado-cucumber sushi rolls, fruit, and cucumber slices.",
+        "ground_truth_label": "healthy food preferences",
+        "behavioral_evidence_from_interview": [
+          "Q32: Avocado cucumber sushi rolls, fruit, and cucumber slices."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Harvey helps with pancakes and homemade pizza, especially on weekends.",
+        "ground_truth_label": "family cooking participation",
+        "behavioral_evidence_from_interview": [
+          "Q17: I also help with simple cooking sometimes, like mixing pancake batter or putting toppings on pizza."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Harvey associates Houston with tacos, barbecue, and diverse food options.",
+        "ground_truth_label": "Houston food diversity awareness",
+        "behavioral_evidence_from_interview": [
+          "Q08: places where you can get tacos or barbecue.",
+          "Q08: lots of different kinds of people and food."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.cultural_and_linguistic"
+        ]
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Harvey wants to visit the Exploratorium in San Francisco and the Natural History Museum in London.",
+        "ground_truth_label": "educational travel aspirations",
+        "behavioral_evidence_from_interview": [
+          "Q108: I want to visit the Exploratorium in San Francisco and the Natural History Museum in London."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Harvey has not traveled outside the United States but wants to visit London someday.",
+        "ground_truth_label": "no international travel yet",
+        "behavioral_evidence_from_interview": [
+          "Q86: No, but I want to visit London someday."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Harvey lives with his mother and father and relies on them for routines, transportation, and emotional support.",
+        "ground_truth_label": "two-parent household support",
+        "behavioral_evidence_from_interview": [
+          "Q05: My mom and dad are the most important family I live with.",
+          "Q11: Right now it is me, my mom, and my dad."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Harvey has no siblings living with him.",
+        "ground_truth_label": "no resident siblings",
+        "behavioral_evidence_from_interview": [
+          "Q06: No brothers or sisters live with me."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Harvey usually talks to his mother first when upset and asks his father about building or game problems.",
+        "ground_truth_label": "differentiated parental support",
+        "behavioral_evidence_from_interview": [
+          "Q05: Usually my mom first, but if it is about building or a game problem I ask my dad."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Harvey has school friends who share drawing and imaginative play interests.",
+        "ground_truth_label": "creative peer friendships",
+        "behavioral_evidence_from_interview": [
+          "Q07: My best school friend likes drawing monsters and robots too."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Harvey sees soccer teammates at practices and Saturday games.",
+        "ground_truth_label": "sports peer network",
+        "behavioral_evidence_from_interview": [
+          "Q07: I know kids from practices on Tuesdays and games on Saturdays."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Harvey values family, imagination, kindness, learning, friends, fairness, questions, and being taken seriously.",
+        "ground_truth_label": "core relational and personal values",
+        "behavioral_evidence_from_interview": [
+          "Q109: I value my family most, and also imagination, kindness, and learning.",
+          "Q109: I like when people take my ideas seriously even if I am a kid."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Harvey's household consists of Harvey, his mother, and his father, with no temporary members.",
+        "ground_truth_label": "stable three-person household",
+        "behavioral_evidence_from_interview": [
+          "Q12: Everyone who lives here is permanent.",
+          "Q51: I live with my mom and dad in Houston."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "No pet lives in Harvey's household.",
+        "ground_truth_label": "no household pet",
+        "behavioral_evidence_from_interview": [
+          "Q51: No pet that lives with us."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Harvey uses the living room and bedroom for LEGO building, drawing, reading, and projects.",
+        "ground_truth_label": "home creative workspace",
+        "behavioral_evidence_from_interview": [
+          "Q11: The living room if I am building LEGO and my room if I am reading or drawing."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Harvey's chores include clearing dishes, organizing school materials, and keeping LEGO pieces from spreading too far.",
+        "ground_truth_label": "age-appropriate household chores",
+        "behavioral_evidence_from_interview": [
+          "Q11: I have chores like putting away my school stuff, keeping my LEGO bins from taking over the floor, and helping set the table.",
+          "Q17: Clearing my plate and putting my shoes and backpack where they belong."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Harvey thinks his parents probably rent their home, but he is not completely sure.",
+        "ground_truth_label": "uncertain renter household",
+        "behavioral_evidence_from_interview": [
+          "Q58: I think my parents rent, but I am not totally sure."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Harvey has not gone without necessities such as food, school supplies, medicine, clothes, or a safe place to sleep.",
+        "ground_truth_label": "basic needs met",
+        "behavioral_evidence_from_interview": [
+          "Q64: I have not gone without things I needed like food, school supplies, or medicine.",
+          "Q83: I have what I need: food, school, clothes, a home, and activities."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Harvey watches LEGO builds, Scratch tutorials, animation clips, Minecraft ideas, and sports highlights with permission.",
+        "ground_truth_label": "supervised creative digital entertainment",
+        "behavioral_evidence_from_interview": [
+          "Q48: LEGO builds, Scratch tutorials, animation clips, and sometimes Mariners or Seahawks highlights with my dad."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.media_and_information_diet"
+        ]
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Harvey is inspired by Studio Ghibli-style animation and wants to learn animation.",
+        "ground_truth_label": "Studio Ghibli-inspired animation interest",
+        "behavioral_evidence_from_interview": [
+          "Q108: I want to learn animation so my characters can move like in Studio Ghibli movies."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.arts_and_culture"
+        ]
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Harvey reads fantasy and science fiction and uses books to relax.",
+        "ground_truth_label": "fantasy and science fiction reading",
+        "behavioral_evidence_from_interview": [
+          "Q01: my favorite parts are reading time.",
+          "Q43: Drawing, reading, or sorting LEGO pieces."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Harvey builds elaborate LEGO cities with roads, hospitals, and space towers.",
+        "ground_truth_label": "LEGO city building",
+        "behavioral_evidence_from_interview": [
+          "Q01: finishing a big LEGO city on the living room floor with roads, a hospital, and a space tower."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Harvey programs simple Scratch games and sees coding as a major turning point.",
+        "ground_truth_label": "Scratch coding hobby",
+        "behavioral_evidence_from_interview": [
+          "Q02: I made a tiny space game where the rocket moved with arrow keys.",
+          "Q02: maybe I could be a game designer or animator when I grow up."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.technology",
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Harvey draws superheroes, robots, creatures, monsters, and fantasy characters.",
+        "ground_truth_label": "fantastical character drawing",
+        "behavioral_evidence_from_interview": [
+          "Q07: drawing monsters and robots.",
+          "Q38: Usually a superhero, robot, or creature with armor."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Harvey uses notebooks to save project ideas when he is busy.",
+        "ground_truth_label": "idea preservation habit",
+        "behavioral_evidence_from_interview": [
+          "Q18: I save ideas in a notebook so I can build them later."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Harvey feels happiest when he has time to make things and his family is not rushing.",
+        "ground_truth_label": "creative time supports mood",
+        "behavioral_evidence_from_interview": [
+          "Q43: I feel happiest when I have time to make things and when my family is not rushing."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Harvey identifies student as his current occupation-like role.",
+        "ground_truth_label": "student role",
+        "behavioral_evidence_from_interview": [
+          "Q65: My occupation is student, if that counts."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Harvey attends public elementary school full time.",
+        "ground_truth_label": "full-time public elementary enrollment",
+        "behavioral_evidence_from_interview": [
+          "Q91: Yes, I am enrolled in elementary school.",
+          "Q91: Public school."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Harvey has no paid job, wages, union coverage, taxes, or work benefits.",
+        "ground_truth_label": "not in workforce",
+        "behavioral_evidence_from_interview": [
+          "Q67: Zero weeks for paid work.",
+          "Q75: No, I did not file taxes because I am a child.",
+          "Q76: I do not have a workplace or job benefits."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Harvey's aspirations include animator, game designer, astronaut, robotics builder, or creative tool inventor.",
+        "ground_truth_label": "creative STEM career aspirations",
+        "behavioral_evidence_from_interview": [
+          "Q108: I might be an animator, game designer, astronaut, or someone who builds robots and creative tools for kids."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Harvey saves small amounts of birthday, holiday, gift, or chore money for LEGO, books, markers, sketchbooks, and art supplies.",
+        "ground_truth_label": "child savings for creative purchases",
+        "behavioral_evidence_from_interview": [
+          "Q61: I have a little savings, like birthday money or money from relatives.",
+          "Q62: I saved for small LEGO sets, markers, and books."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Harvey is learning to delay spending, compare choices, and distinguish wants from needs.",
+        "ground_truth_label": "child financial self-control",
+        "behavioral_evidence_from_interview": [
+          "Q83: To save, compare choices, and not ask for everything at once.",
+          "Q64: that is different from needing it."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Harvey draws fantastical characters and wants to animate them.",
+        "ground_truth_label": "drawing and animation interest",
+        "behavioral_evidence_from_interview": [
+          "Q01: I draw characters that could be in cartoons or comic books.",
+          "Q108: I want to learn animation."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Harvey values art class and receives encouragement from his art teacher.",
+        "ground_truth_label": "art teacher encouragement",
+        "behavioral_evidence_from_interview": [
+          "Q07: My art teacher is important because she says tiny details can make a drawing feel alive."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Harvey notices murals around Houston and appreciates the city's diverse cultural scene.",
+        "ground_truth_label": "Houston mural and culture appreciation",
+        "behavioral_evidence_from_interview": [
+          "Q08: sometimes a local museum or a place with murals.",
+          "Q08: I notice murals."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Harvey plays soccer with practices during season and Saturday games.",
+        "ground_truth_label": "organized youth soccer",
+        "behavioral_evidence_from_interview": [
+          "Q15: Tuesdays are often soccer practice in season, and Saturdays can be games."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Harvey attends weekend basketball drills.",
+        "ground_truth_label": "weekend basketball drills",
+        "behavioral_evidence_from_interview": [
+          "Q01: on weekends I do basketball drills at the community center."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Harvey watches Seattle Mariners or Seattle Seahawks highlights with his dad.",
+        "ground_truth_label": "Mariners and Seahawks fan exposure",
+        "behavioral_evidence_from_interview": [
+          "Q48: sometimes Mariners or Seahawks highlights with my dad."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Soccer season reduces Harvey's after-school LEGO time.",
+        "ground_truth_label": "sports schedule constrains creative time",
+        "behavioral_evidence_from_interview": [
+          "Q18: When soccer starts, I have practice and games, so there is less time for LEGO after school."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Harvey likes parks and places to ride bikes with an adult.",
+        "ground_truth_label": "supervised outdoor recreation",
+        "behavioral_evidence_from_interview": [
+          "Q08: there are parks and places to ride a bike if an adult comes with me."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Harvey would improve his neighborhood with more sidewalks and shaded play areas.",
+        "ground_truth_label": "sidewalk and shade preference",
+        "behavioral_evidence_from_interview": [
+          "Q10: More sidewalks and more shaded places to play."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.community_and_civic"
+        ]
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Houston summer heat and mosquitoes are challenging for Harvey.",
+        "ground_truth_label": "Houston climate barrier",
+        "behavioral_evidence_from_interview": [
+          "Q10: The hard part is traffic, heat, and sometimes mosquitoes."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Harvey learned Scratch and built a rocket game using arrow keys.",
+        "ground_truth_label": "Scratch rocket game",
+        "behavioral_evidence_from_interview": [
+          "Q02: I made a tiny space game where the rocket moved with arrow keys."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Harvey uses drawing apps and tablet-based school or creative tools with parental limits.",
+        "ground_truth_label": "supervised tablet use",
+        "behavioral_evidence_from_interview": [
+          "Q48: I also use a tablet for drawing apps and school things.",
+          "Q48: My parents care about screen time."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Harvey wants to invent a drawing tablet app that turns sketches into game characters.",
+        "ground_truth_label": "creative app invention goal",
+        "behavioral_evidence_from_interview": [
+          "Q108: A drawing tablet app that turns sketches into game characters."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Harvey's father's technology or engineering work influences his coding and building interests.",
+        "ground_truth_label": "father influence on STEM interests",
+        "behavioral_evidence_from_interview": [
+          "Q106: Yes, it makes me interested in building, coding, and science."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Harvey cannot vote but understands voting through classroom choices and family election discussions.",
+        "ground_truth_label": "pre-voting civic exposure",
+        "behavioral_evidence_from_interview": [
+          "Q23: I cannot vote because I am nine.",
+          "Q23: At school we sometimes do pretend voting."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Harvey would vote for more playground shade, better school lunches, and more library books if kids could vote locally.",
+        "ground_truth_label": "child local policy priorities",
+        "behavioral_evidence_from_interview": [
+          "Q23: More playground shade, better school lunches, and more library books."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Harvey believes schools should have good books and supplies and parks should be clean and safe.",
+        "ground_truth_label": "schools and parks civic priorities",
+        "behavioral_evidence_from_interview": [
+          "Q24: schools should have good books and art supplies, and parks should be clean."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Harvey responds to race and policing issues by listening and asking parents questions.",
+        "ground_truth_label": "age-appropriate race and policing engagement",
+        "behavioral_evidence_from_interview": [
+          "Q29: I mostly listen and ask my parents questions."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Harvey has not joined protests or posted about race and policing issues.",
+        "ground_truth_label": "no protest or posting participation",
+        "behavioral_evidence_from_interview": [
+          "Q29: I have not joined protests or posted about it."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Harvey has no close experience with arrests and mainly sees police at school events, traffic, the rodeo, or community places.",
+        "ground_truth_label": "limited law enforcement exposure",
+        "behavioral_evidence_from_interview": [
+          "Q20: I have not had serious experiences with police.",
+          "Q22: I do not know anyone close to me who has been arrested."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Harvey has no party identification and does not feel closer to either major party.",
+        "ground_truth_label": "no party identification",
+        "behavioral_evidence_from_interview": [
+          "Q95: I do not think of myself as Democrat, Republican, or Independent.",
+          "Q96: I do not think of myself as closer to either party."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Harvey listens to Hans Zimmer and John Williams soundtracks to make difficult moments feel adventurous.",
+        "ground_truth_label": "instrumental soundtrack coping",
+        "behavioral_evidence_from_interview": [
+          "Q38: Hans Zimmer or John Williams soundtracks."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Harvey uses music as a calming and imaginative aid.",
+        "ground_truth_label": "music emotional regulation",
+        "behavioral_evidence_from_interview": [
+          "Q38: movie music because it makes things feel like an adventure instead of just a bad day."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Harvey notices that back-to-school spending includes clothes and shoes.",
+        "ground_truth_label": "school clothing expense awareness",
+        "behavioral_evidence_from_interview": [
+          "Q59: Back-to-school costs more because of supplies and clothes.",
+          "Q59: sometimes shoes."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Harvey identifies as Asian American and not Hispanic, Latinx, or Spanish origin.",
+        "ground_truth_label": "Asian American; not Hispanic",
+        "behavioral_evidence_from_interview": [
+          "Q88: No, I do not identify as Hispanic, Latinx, or Spanish origin.",
+          "Q89: I identify as Asian American."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Harvey speaks mostly English at home.",
+        "ground_truth_label": "English home language",
+        "behavioral_evidence_from_interview": [
+          "Q88: No, mostly English."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Harvey was born in the United States in Houston, Texas, in 2016.",
+        "ground_truth_label": "U.S.-born Houston child born in 2016",
+        "behavioral_evidence_from_interview": [
+          "Q85: I was born in 2016.",
+          "Q86: Yes, I was born in the United States.",
+          "Q87: Houston, Texas."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Harvey experiences Houston as culturally diverse through food, festivals, languages, and neighborhoods.",
+        "ground_truth_label": "multicultural Houston exposure",
+        "behavioral_evidence_from_interview": [
+          "Q28: I hear different languages and see different foods and festivals."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Harvey loosely identifies as Christian through family context.",
+        "ground_truth_label": "loose Christian identification",
+        "behavioral_evidence_from_interview": [
+          "Q47: Christian, kind of because that is what my family is around.",
+          "Q94: Christian, loosely, because of my family."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Learning Scratch was a crossroads that shifted Harvey's self-concept toward game design and animation.",
+        "ground_truth_label": "Scratch as identity turning point",
+        "behavioral_evidence_from_interview": [
+          "Q02: After that I started thinking maybe I could be a game designer or animator when I grow up."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Starting school and joining sports are major routine anchors in Harvey's life.",
+        "ground_truth_label": "school and sports routine anchors",
+        "behavioral_evidence_from_interview": [
+          "Q01: Big events for me are starting school.",
+          "Q15: Tuesdays are often soccer practice in season, and Saturdays can be games."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Harvey has become better at lists, planning, and breaking projects into steps.",
+        "ground_truth_label": "stepwise planning improvement",
+        "behavioral_evidence_from_interview": [
+          "Q44: Breaking it into steps helps more than just staring at the whole project.",
+          "Q50: I have gotten better at using lists and taking breaks."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist",
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Harvey does not have personal Facebook, Instagram, or Twitter accounts.",
+        "ground_truth_label": "no personal social media accounts",
+        "behavioral_evidence_from_interview": [
+          "Q48: I do not have my own Facebook, Instagram, or Twitter because I am nine."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Harvey receives political and social issue information mainly through adults, school, and family discussion.",
+        "ground_truth_label": "adult-mediated civic information",
+        "behavioral_evidence_from_interview": [
+          "Q30: My parents talk about fairness and being respectful.",
+          "Q30: My teachers mostly talk about kindness, history, and everyone belonging."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Harvey does not use social media for emotional or financial support and instead asks parents, teachers, or friends.",
+        "ground_truth_label": "offline support seeking",
+        "behavioral_evidence_from_interview": [
+          "Q49: No, I do not use social media for support. I ask my parents, teachers, or friends."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "reprojected",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Harvey has no spouse, children, lodgers, boarders, employees, or temporary residents.",
+        "ground_truth_label": "no spouse children or nonfamily household members",
+        "behavioral_evidence_from_interview": [
+          "Q84: I have never been married, and I do not live with a romantic partner.",
+          "Q52: No babies or small children in our house.",
+          "Q54: No."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Harvey has limited knowledge of adult finances, taxes, insurance, and parental education details.",
+        "ground_truth_label": "limited child knowledge of adult household administration",
+        "behavioral_evidence_from_interview": [
+          "Q56: I do not know exact money stuff.",
+          "Q74: I do not know my household income.",
+          "Q100: I think my dad went to college, but I do not know the exact degree."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "reprojected",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Harvey presents as imaginative, conscientious, curious, and organized.",
+        "ground_truth_label": "imaginative conscientious curious organized traits",
+        "behavioral_evidence_from_interview": [
+          "Q01: I could make whole cities.",
+          "Q65: Keeping project materials organized and reading carefully.",
+          "Q109: imagination, kindness, and learning."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "reprojected",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Harvey's self-concept combines creativity and competence through solving problems, preserving ideas, and wanting to be taken seriously.",
+        "ground_truth_label": "creative competent self-concept",
+        "behavioral_evidence_from_interview": [
+          "Q02: it felt like solving a puzzle.",
+          "Q18: I save ideas in a notebook.",
+          "Q109: I like when people take my ideas seriously."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "HF-020",
+          "HF-033"
+        ]
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Harvey's institutional trust is child-centered, focused on parents, teachers, doctors, and school adults.",
+        "ground_truth_label": "child-centered institutional trust",
+        "behavioral_evidence_from_interview": [
+          "Q30: My parents talk about fairness and being respectful.",
+          "Q42: trusted sources are my parents, my doctor, and school nurses or teachers."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "HF-003",
+          "HF-074"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,2245 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "7e06c31e971047deb6fbf21e94a4814d",
+      "name": "Angel Lopez",
+      "verification_date": "2026-05-19"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age, sex, marital status, education, occupation, and location match the interview: Angel is a 9-year-old girl in North Las Vegas, never married, enrolled in elementary school, and not in paid work.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed age/sex/marital_status/education_level/occupation/city/state/zipcode",
+              "source_b_ref": "Q01, Q65-Q73, Q84, Q90-Q92",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Interview enriches seed household data by naming parents Elena and Carlos, brother Mateo, and abuela Rosa as permanent household members.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed demographic and cultural_background fields",
+              "source_b_ref": "Q05, Q11, Q51",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward named household members and permanent multigenerational household composition."
+            },
+            {
+              "id": 3,
+              "text": "Seed says Spanish-heritage family speaks Spanish at home and celebrates Dia de los Muertos; interview confirms Hispanic/Spanish origin, Spanish-English household language, Catholic affiliation, and Dia de los Muertos traditions.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q01, Q05, Q47, Q88, Q94",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Interview adds place-of-birth and date-of-birth details absent from seed: born in Las Vegas, Nevada, United States, birthday August 14, 2016.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed age/country/location fields",
+              "source_b_ref": "Q85-Q87",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward birth date and birthplace as interview-enriched demographic facts."
+            },
+            {
+              "id": 5,
+              "text": "Seed does not specify housing tenure; interview says Angel thinks the family rents because adults talk about rent rather than mortgage.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed household/location fields",
+              "source_b_ref": "Q58",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward likely renter status with child-level uncertainty."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile top-line demographics match the interview: age 9, female, North Las Vegas, completed third grade and currently in fourth grade, student and not paid worker.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q84-Q92, Q65-Q73",
+              "source_b_ref": "corrected_extracted_profile age/gender/location/education/occupation",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures household composition but omits that all members are permanent and that no lodgers, boarders, employees, or absent usual residents are present.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q12-Q14, Q53-Q54",
+              "source_b_ref": "preferences.social_and_relationships, preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add permanence/no lodgers/no absent members to home_and_lifestyle details."
+            },
+            {
+              "id": 3,
+              "text": "Profile summary correctly states Hispanic/Spanish-origin bilingual Catholic household; interview additionally gives race-form response as White and Hispanic/Latina.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q88-Q89, Q94",
+              "source_b_ref": "preferences.cultural_and_linguistic, summaries.demographer",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add White and Hispanic/Latina race-form identification to cultural_and_linguistic details."
+            },
+            {
+              "id": 4,
+              "text": "Profile demographer summary states dependence on parents' earnings from clinic front-desk work and auto repair, matching interview details about both parents' jobs.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q74, Q103-Q107",
+              "source_b_ref": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Top-level occupation, work_and_career, and demographer summary all consistently describe Angel as a student not in the paid workforce.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "occupation, preferences.work_and_career",
+              "field_b": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Household composition is consistent across social_and_relationships, home_and_lifestyle, and the demographer summary.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships",
+              "field_b": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Cultural_and_linguistic and arts_and_culture consistently treat Dia de los Muertos, Catholic practice, and Spanish-language family life as related but distinct cultural domains.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.cultural_and_linguistic",
+              "field_b": "preferences.arts_and_culture",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview states Angel's birthday is August 14, 2016, but the profile does not include date of birth.",
+              "gap": true,
+              "interview_ref": "Q85",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add date-of-birth detail to life_events_and_transitions."
+            },
+            {
+              "id": 2,
+              "text": "Interview states Angel was born in Las Vegas, Nevada, and has always lived in Nevada as far as she knows.",
+              "gap": true,
+              "interview_ref": "Q86-Q87",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add U.S./Las Vegas birthplace and Nevada residence continuity to home_and_lifestyle."
+            },
+            {
+              "id": 3,
+              "text": "Interview gives likely rental status and child-level uncertainty about housing finances.",
+              "gap": true,
+              "interview_ref": "Q55, Q58",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add that the family likely rents and parents handle housing expenses."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes organized project planning; interview repeatedly confirms planner use, lists, sticky notes, and project planning.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed persona, skills_and_expertise",
+              "source_b_ref": "Q02, Q15, Q17, Q50, Q62",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed describes competitive problem solving; interview confirms competition in soccer, science fair goals, and a desire to improve after setbacks.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed professional_persona, sports_persona, persona",
+              "source_b_ref": "Q02, Q44, Q108-Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Interview enriches seed by showing budget awareness, delayed gratification, and savings behavior through piggy bank, allowance, library substitution, and waiting on wants.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed career_goals_and_ambitions/persona",
+              "source_b_ref": "Q56-Q64, Q81-Q83",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward child-level financial awareness and savings behavior."
+            },
+            {
+              "id": 4,
+              "text": "Seed describes emotional stability in collaborative challenges; interview confirms calm preparation and coping but adds fatigue from busy schedules.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed skills_and_expertise",
+              "source_b_ref": "Q43-Q45, Q50",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward fatigue from busier activity schedule as a behavioral constraint."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile captures planning, checklists, planner use, and goal charts, matching interview evidence.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q15, Q17, Q50, Q61-Q62",
+              "source_b_ref": "preferences.home_and_lifestyle, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures child-level distinction between wants and needs but underrepresents specific family coping behaviors such as packed snacks, eating at home, and waiting until payday.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q60, Q64, Q81-Q83",
+              "source_b_ref": "preferences.food_and_dining, preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add budget-coping routines to food_and_dining and home_and_lifestyle."
+            },
+            {
+              "id": 3,
+              "text": "Profile captures saving for LEGO and books but omits birthday money, allowance irregularity, piggy bank, possible kids savings account, and progress-bar tracking.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q61-Q62, Q72-Q73",
+              "source_b_ref": "preferences.home_and_lifestyle, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add child savings and allowance details to home_and_lifestyle."
+            },
+            {
+              "id": 4,
+              "text": "Profile represents adult encouragement accurately through Ms. Patel and Coach Ramirez, matching interview statements.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q02-Q04, Q07, Q44",
+              "source_b_ref": "preferences.social_and_relationships, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Home_and_lifestyle planning behavior aligns with behavioral_economist summary and does not conflict with entertainment or hobbies.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.home_and_lifestyle",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Food preferences for sugary cereal and pizza are consistent with health_and_wellness noting need for more hydration and vegetables.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.food_and_dining",
+              "field_b": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Work_and_career and finance-related claims are consistent: Angel has no job income but may receive irregular allowance.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career",
+              "field_b": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview includes specific routines for preparing the night before: packing backpack, checking planner, and placing cleats by the door.",
+              "gap": true,
+              "interview_ref": "Q17",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add night-before preparation routine."
+            },
+            {
+              "id": 2,
+              "text": "Interview includes family expense seasonality: summer electricity, back-to-school supplies/clothes, holidays, and soccer-season costs.",
+              "gap": true,
+              "interview_ref": "Q59",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add family budget seasonality."
+            },
+            {
+              "id": 3,
+              "text": "Interview includes coping with extra expenses by using library books, packed snacks, and delaying LEGO or art supplies.",
+              "gap": true,
+              "interview_ref": "Q60, Q81",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add concrete expense-coping behaviors."
+            },
+            {
+              "id": 4,
+              "text": "Interview says a $400 emergency would be stressful and handled by parents, with car repair, doctor bill, or home repair as imagined examples.",
+              "gap": true,
+              "interview_ref": "Q82",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add child-level emergency expense awareness."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed cultural background describes community festivals blending Hispanic and American influences; interview confirms local festivals, music, food, and family/community participation.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q08, Q10",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Interview adds nonpartisan child civic identity, inability to vote, and class-vote understanding, which seed does not address.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed demographic fields",
+              "source_b_ref": "Q23, Q95-Q96",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward nonpartisan, too-young-to-vote civic status."
+            },
+            {
+              "id": 3,
+              "text": "Interview adds child-level law-enforcement exposure through school safety lesson and festival traffic/lost-kid role, absent from seed.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona fields",
+              "source_b_ref": "Q20-Q22",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward limited, safety-oriented law-enforcement exposure."
+            },
+            {
+              "id": 4,
+              "text": "Interview confirms seed's community-helping ambitions through fairness concerns around schools, health care, parks, language respect, recycling, and water.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed career_goals_and_ambitions",
+              "source_b_ref": "Q24-Q30, Q108-Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures Angel as unable to vote, nonpartisan, and fairness-oriented.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23-Q25, Q95-Q96",
+              "source_b_ref": "preferences.community_and_civic, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures Black Lives Matter and race awareness at a child level, matching interview framing around bullying, listening, equal treatment, and language/name respect.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q26-Q30",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile captures institutional trust in family, teachers, doctors, and school settings but omits that she would look for family first before asking police for help if separated.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q20-Q21",
+              "source_b_ref": "summaries.political_scientist, preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add limited safety-oriented police contact and family-first help-seeking to community_and_civic."
+            },
+            {
+              "id": 4,
+              "text": "Profile captures local community attachment but omits requested neighborhood improvements such as more shade and cleaner playgrounds.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q08-Q10",
+              "source_b_ref": "preferences.nature_and_outdoors, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Already partly covered in nature_and_outdoors; ensure cleaner playgrounds and shade remain explicit."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Community_and_civic, nature_and_outdoors, and technology consistently connect water conservation, heat, parks, and practical science.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "preferences.nature_and_outdoors, preferences.technology",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Cultural_and_linguistic pride aligns with community_and_civic concerns about language respect and anti-bullying.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.cultural_and_linguistic",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "No profile section assigns Angel a political party; this is internally consistent with her age and nonpartisan summary.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview includes specific law-enforcement experiences: school bike/crossing-safety talk and festival police helping with traffic and lost children.",
+              "gap": true,
+              "interview_ref": "Q20-Q21",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add concrete law-enforcement exposure details."
+            },
+            {
+              "id": 2,
+              "text": "Interview says no one close to Angel has been arrested.",
+              "gap": true,
+              "interview_ref": "Q22",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add absence of close arrest experience."
+            },
+            {
+              "id": 3,
+              "text": "Interview reports Angel has spoken up against a child making fun of another child's lunch.",
+              "gap": true,
+              "interview_ref": "Q29",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add concrete peer fairness intervention."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed portrays Angel as curious, practical, methodical, and competitive; interview confirms this through toy disassembly, LEGO engineering, STEM club planning, and soccer competition.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed professional_persona, persona",
+              "source_b_ref": "Q01-Q03, Q43-Q44, Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed states emotional stability under collaborative challenges; interview confirms she gets nervous but prepares, calms once started, and rebounds after mistakes.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed skills_and_expertise",
+              "source_b_ref": "Q43-Q45",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Interview enriches seed by naming coping strategies: drawing, reading, soccer, LEGO, talking to mother, breathing, organizing papers, and checklists.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona/skills_and_expertise",
+              "source_b_ref": "Q38, Q43-Q45, Q50",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward specific coping repertoire."
+            },
+            {
+              "id": 4,
+              "text": "Interview adds relational sensitivity toward Mateo and abuela, including annoyance at sibling boundary-crossing and worry over abuela's knee pain.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed cultural_background/persona",
+              "source_b_ref": "Q35, Q43",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward sibling and grandmother-related emotional details."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile psychologist summary faithfully represents curiosity, organization, competitiveness, emotional stability, and problem-solving identity.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01-Q03, Q43-Q45, Q108-Q109",
+              "source_b_ref": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures coping through drawing, reading, planning, talking to mother, and physical activity, matching interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q38-Q45, Q50",
+              "source_b_ref": "preferences.arts_and_culture, preferences.home_and_lifestyle, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile hobbies summary mentions chess-like strategy, but the interview transcript does not discuss chess; this appears inherited from seed rather than interview.",
+              "verdict": "inconsistent",
+              "gap": true,
+              "source_a_ref": "full interview transcript",
+              "source_b_ref": "preferences.hobbies_and_recreation.summary",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "DROP",
+              "resolution": "Update hobbies_and_recreation.summary to remove 'chess-like strategy' and refer to strategic problem-solving only."
+            },
+            {
+              "id": 4,
+              "text": "Profile omits that Angel denies depression/anxiety diagnoses while acknowledging normal nervousness and schedule worry.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q45",
+              "source_b_ref": "preferences.health_and_wellness, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add no depression/anxiety diagnosis and preparation-oriented worry to health_and_wellness."
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 1,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Competitive sports identity and fairness/good-teammate values are complementary rather than contradictory.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.sports_and_fitness",
+              "field_b": "preferences.community_and_civic, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Entertainment notes staying up reading while health/wellness notes generally healthy functioning; occasional late reading is not a health contradiction.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.entertainment",
+              "field_b": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Music preference summary mentions Billie Eilish, but no preference detail or interview evidence supports it; seed contains it, but the extracted interview profile should not present it as interview-derived.",
+              "verdict": "inconsistent",
+              "gap": true,
+              "field_a": "preferences.music.summary",
+              "field_b": "preferences.music.details/evidence",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "DROP",
+              "resolution": "Update music.summary to remove 'Billie Eilish' and retain supported church music, Latin dance/family music, and Hamilton."
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 1,
+            "gaps": 1
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview includes a specific emotional setback: missing a penalty kick, wanting to cry, returning to play, then reframing the mistake as data.",
+              "gap": true,
+              "interview_ref": "Q44",
+              "should_be_in": "preferences.sports_and_fitness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add the penalty-kick resilience story to sports_and_fitness details."
+            },
+            {
+              "id": 2,
+              "text": "Interview says Angel gets quiet and sharpens pencils too much when stressed.",
+              "gap": true,
+              "interview_ref": "Q45",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add stress signal detail to health_and_wellness."
+            },
+            {
+              "id": 3,
+              "text": "Interview includes substance nonuse and coping alternatives, including no smoking, drinking, marijuana, or self-managed medicine.",
+              "gap": true,
+              "interview_ref": "Q38-Q39",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add age-appropriate substance nonuse and parent-managed medication."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "The profile is broadly consistent with the seed and interview, but several interview-supported gaps were filled and two unsupported preference-summary phrases were corrected. No FLAG_FOR_REVIEW findings remain.",
+    "final_status": "Corrected profile is ready for downstream use with revisions applied and hidden_facts generated."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "7e06c31e971047deb6fbf21e94a4814d",
+    "name": "Angel Lopez",
+    "age": 9,
+    "gender": "Female",
+    "marital_status": "Never married; no romantic partner",
+    "location": "North Las Vegas, NV 89031",
+    "education": "Completed third grade; enrolled full time in elementary school, currently fourth grade",
+    "occupation": "Student; not in paid workforce",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Generally healthy child who stays active through soccer, dance, PE, and outdoor play; has mild allergies and needs reminders for hydration and vegetables.",
+        "details": [
+          "Plays soccer, attends Latin dance, and does backyard ball touches for fitness (Q15, Q17, Q31).",
+          "Reports occasional allergies treated with parent-managed allergy medicine (Q31, Q39).",
+          "Vaccinated and trusts parents, doctor, clinic, and school nurse for health guidance (Q41, Q42).",
+          "Had a minor soccer ankle twist last year that was not broken and returned to normal after rest and ice (Q33).",
+          "Denies depression or anxiety diagnoses but gets nervous before presentations or games and uses preparation to manage worry (Q43-Q45).",
+          "Does not smoke, drink, use marijuana, or manage medicine independently; parents control medicines (Q38-Q39).",
+          "Notices stress through getting quiet and over-sharpening pencils, while coping through drawing, reading, soccer, LEGO, lists, and talking to her mother (Q38, Q45, Q50).",
+          "Abuela Rosa has knee pain, and Angel helps reduce trip risks and brings items from the pantry or helps set the table (Q35).",
+          "Family uses home comfort remedies such as chamomile tea, honey with lemon, and soup for minor illness while using doctors for serious issues (Q37)."
+        ],
+        "evidence": "Q31-Q45, Q50"
+      },
+      "food_and_dining": {
+        "summary": "Enjoys kid-friendly and Spanish-family foods, with a preference for sweet or cheesy foods over vegetables.",
+        "details": [
+          "Likes cereal, extra-cheese pizza, smoothies, cucumbers with lime, carrots with ranch, churros, paella, and family meals (Q05, Q32, Q83).",
+          "Acknowledges she would often choose sugary cereal or pizza before vegetables (Q31, Q32).",
+          "Family cooks at home to manage expenses and gathers around traditional foods (Q05, Q81).",
+          "Packed snacks and eating at home are family strategies when money is tight or expenses are high (Q60, Q81)."
+        ],
+        "evidence": "Q05, Q31, Q32, Q60, Q81, Q83"
+      },
+      "travel": {
+        "summary": "Family-guided aspirational traveler interested in museums, history, and nature destinations.",
+        "details": [
+          "Wants to visit the Natural History Museum in New York, Rome, and the Great Barrier Reef (Q108).",
+          "Mentions extra money would go toward visiting New York's Natural History Museum (Q83)."
+        ],
+        "evidence": "Q83, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "Close to immediate family, abuela, cousins, school friends, soccer teammates, coach, and STEM teacher.",
+        "details": [
+          "Lives with parents Elena and Carlos, brother Mateo, and abuela Rosa (Q05, Q11, Q51).",
+          "Best friends are Sofia and Mia; Sofia shares soccer and Mia shares STEM/coding interests (Q07).",
+          "Important adults include Coach Ramirez and Ms. Patel (Q07).",
+          "Cousins Lucia and Diego live nearby in Las Vegas, with Lucia especially close because they draw characters together (Q06).",
+          "Usually goes to her mother when upset and sometimes to abuela for comfort, hugs, and hot chocolate (Q05).",
+          "Spends time with Mateo, reads adventure books to him, and sometimes helps him choose clothes or find his preschool folder (Q05, Q19)."
+        ],
+        "evidence": "Q05-Q07, Q11, Q19, Q51"
+      },
+      "home_and_lifestyle": {
+        "summary": "Structured home life centered on school, chores, projects, family meals, and shared Spanish-language household routines.",
+        "details": [
+          "Uses the kitchen table and room table for LEGO and science projects (Q11).",
+          "Has chores including clearing dishes, feeding fish, and cleaning project/LEGO areas (Q11, Q17).",
+          "Uses a color-coded planner and sticky notes to manage busy routines (Q15, Q17, Q50).",
+          "Packs her backpack at night, checks her planner, and places soccer cleats by the door as part of her preparation routine (Q17).",
+          "Everyone in the household is permanent, no usual resident is away, and there are no lodgers, boarders, employees, or live-in helpers (Q12-Q14, Q53-Q54).",
+          "Sometimes cousins, especially Lucia, sleep over during holidays or some weekends (Q13).",
+          "Was born in Las Vegas, Nevada, and has lived in Nevada as far as she knows (Q86-Q87, Q97).",
+          "Family likely rents their house, and parents handle rent or other household expenses while Angel does not pay bills (Q55, Q58).",
+          "Family expenses fluctuate with summer air conditioning, back-to-school supplies and clothes, holidays, and soccer-season costs (Q59).",
+          "Family copes with extra expenses by using library books, packing snacks, eating at home, delaying toys or supplies, and waiting until payday for extras (Q60, Q81).",
+          "Angel saves birthday money and allowance in a piggy bank and possibly a parent-managed kids savings account, sometimes tracking goals with a progress bar (Q61-Q62).",
+          "A $400 emergency would be handled by her parents and would feel stressful to Angel because it sounds like a large amount (Q82)."
+        ],
+        "evidence": "Q11-Q17, Q50, Q53-Q62, Q81-Q82, Q86-Q87, Q97"
+      },
+      "entertainment": {
+        "summary": "Enjoys reading adventure and mystery books, LEGO building, drawing, soccer videos, science videos, and family-approved YouTube Kids content.",
+        "details": [
+          "Reads adventure and mystery books and sometimes stays up reading (Q01, Q15).",
+          "Watches soccer highlights, LEGO builds, science experiments, drawing tutorials, and Hamilton songs with parental rules (Q48).",
+          "Builds LEGO cities, rockets, stadiums, and pretend businesses (Q01, Q70)."
+        ],
+        "evidence": "Q01, Q15, Q48, Q70"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Highly active in STEM club, soccer, Latin dance, Scratch coding, LEGO engineering, reading, painting, drawing, strategic problem-solving, and home experiments.",
+        "details": [
+          "Joined STEM club and works on Scratch coding and science fair ideas (Q02, Q18, Q43).",
+          "Plays midfield on the Riverdale Rovers youth soccer team and practices regularly (Q01, Q15, Q17).",
+          "Builds intricate LEGO models and conducts home experiments (Q01, Q11).",
+          "Takes Latin dance on Thursdays and has had to adapt when dance class moved later (Q15, Q18).",
+          "Enjoys drawing creatures and character sketches with friends and cousins (Q06, Q07)."
+        ],
+        "evidence": "Q01, Q02, Q06, Q07, Q15, Q17, Q18, Q43"
+      },
+      "work_and_career": {
+        "summary": "Not employed; identifies current occupation as student and aspires to become a scientist-engineer, doctor, or teacher helping her community.",
+        "details": [
+          "Reports zero paid work, zero jobs, and no employment income (Q67-Q73).",
+          "Describes student duties as school, homework, group work, assignments, and responsibility (Q65).",
+          "Future goals include scientist-engineer, bilingual doctor, or teacher (Q01, Q108).",
+          "Mother works at a clinic front desk, and father works as an auto mechanic; both parents work for pay (Q74, Q103-Q107).",
+          "Angel does not file taxes and does not have job benefits because she is a child/student (Q75-Q76)."
+        ],
+        "evidence": "Q01, Q65, Q67-Q76, Q103-Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Enjoys drawing, painting, character sketches, family cultural traditions, and theatrical music.",
+        "details": [
+          "Draws characters and uses drawing to cope with stress (Q38, Q50).",
+          "Celebrates Dia de los Muertos with photos, marigolds, foods, and family stories (Q05, Q47).",
+          "Enjoys Hamilton songs and drawing tutorials (Q48).",
+          "Values culture, Spanish, food, music, and traditions because they make her feel connected (Q109)."
+        ],
+        "evidence": "Q05, Q38, Q47, Q48, Q50, Q109"
+      },
+      "sports_and_fitness": {
+        "summary": "Competitive youth soccer midfielder who follows women's soccer, practices often, and uses sport for confidence and emotional regulation.",
+        "details": [
+          "Plays midfield on Riverdale Rovers and has practices and Saturday games (Q01, Q15).",
+          "Does ball touches almost daily and follows US Women's National Team clips (Q17, Q48).",
+          "Learned resilience after missing a penalty kick, returning to play, making a good pass, and later reframing the mistake as data (Q44).",
+          "Coach Ramirez helps her with passing, field awareness, and not rushing back after injury (Q07, Q33)."
+        ],
+        "evidence": "Q01, Q07, Q15, Q17, Q33, Q44, Q48"
+      },
+      "nature_and_outdoors": {
+        "summary": "Enjoys parks, playgrounds, sunsets, and outdoor soccer, while noticing heat, shade, water conservation, and desert conditions.",
+        "details": [
+          "Neighborhood life includes parks, mountains in the distance, and bright sunsets (Q08).",
+          "Wants more shade and cleaner playgrounds (Q10).",
+          "Cares about saving water and designs science ideas around heat and cooling (Q24, Q108).",
+          "Summer heat affects outdoor play and practice, leading the family to play outside earlier or later in the day (Q08, Q32)."
+        ],
+        "evidence": "Q08, Q10, Q24, Q32, Q108"
+      },
+      "technology": {
+        "summary": "Strong early interest in Scratch coding, robotics, LEGO engineering, science experiments, and practical invention.",
+        "details": [
+          "Uses Scratch in STEM club and helped fix a sprite bug (Q43).",
+          "Wants to build robots, apps, and solar-powered cooling shelters (Q108).",
+          "Influenced by father's mechanic problem-solving and home prototypes (Q05, Q106).",
+          "Science fair idea includes testing which recycled material keeps a mini house cooler in the sun (Q18)."
+        ],
+        "evidence": "Q05, Q18, Q43, Q106, Q108"
+      },
+      "community_and_civic": {
+        "summary": "Too young to vote but has fairness-oriented civic views about schools, health care, parks, language respect, race, and community resources.",
+        "details": [
+          "Cannot vote but understands class voting and adult voting as choosing leaders/rules (Q23).",
+          "Cares about good schools, clean parks, water conservation, and fair treatment of bilingual families (Q24).",
+          "Has child-level awareness of Black Lives Matter, racism, policing, bullying, and respect (Q26-Q30).",
+          "Has not had major personal police contact; saw a school safety talk about bike helmets/crossing streets and police helping with traffic and lost children at a festival (Q20-Q21).",
+          "Does not know anyone close who has been arrested (Q22).",
+          "Would look for family first if separated but could ask someone official for help if needed (Q21).",
+          "Has spoken up when a child made fun of another child's lunch and tells a teacher if teasing continues (Q26, Q29).",
+          "Parents frame civic issues through schools, roads, health care, respect, safety, and fairness rather than party identification (Q23, Q30, Q95-Q96)."
+        ],
+        "evidence": "Q20-Q30, Q95-Q96"
+      },
+      "music": {
+        "summary": "Likes family/church music, Latin dance music, Hamilton-adjacent content, and soccer/video music through supervised media use.",
+        "details": [
+          "Mentions Hamilton songs among videos she watches (Q48).",
+          "Religion includes liking church music (Q47).",
+          "Family uses music to calm down and connect (Q46).",
+          "Participates in Latin dance classes, implying regular exposure to dance music (Q15, Q47)."
+        ],
+        "evidence": "Q15, Q46-Q48"
+      },
+      "fashion_and_appearance": {
+        "summary": "Limited evidence; appearance preferences mainly relate to practical school, dance, and soccer needs.",
+        "details": [
+          "Needs soccer cleats and washed soccer gear for practices and games (Q05, Q57).",
+          "Back-to-school expenses include clothes (Q59)."
+        ],
+        "evidence": "Q05, Q57, Q59"
+      },
+      "cultural_and_linguistic": {
+        "summary": "Bilingual Spanish-English Hispanic/Spanish-origin child in a Spanish-speaking household with Catholic and Dia de los Muertos traditions.",
+        "details": [
+          "Speaks Spanish at home and English mostly at school (Q01, Q07, Q88).",
+          "Identifies as Hispanic and Spanish origin, Latina, and White/Hispanic on race forms (Q88, Q89).",
+          "Catholic family traditions include church on holidays and Dia de los Muertos remembrance (Q47, Q94).",
+          "Feels proud of being bilingual and sometimes helps translate small things for abuela or reads signs in both languages (Q28).",
+          "Wants people to respect names, languages, food, and traditions, and disliked a classmate copying Spanish words in a silly voice (Q28)."
+        ],
+        "evidence": "Q01, Q07, Q28, Q47, Q88, Q89, Q94"
+      },
+      "life_events_and_transitions": {
+        "summary": "Key child life events include joining STEM club, balancing soccer and STEM, winning a class science fair, and developing confidence presenting bilingually.",
+        "details": [
+          "Crossroads was choosing to try STEM club while continuing soccer (Q02, Q03).",
+          "Class science fair success with plant-growing experiment and presentations in English and Spanish were major confidence events (Q01).",
+          "Recent routine changed due to more serious soccer season, science fair planning, and later dance class (Q18).",
+          "Birthday is August 14, 2016, and she was 9 at the time of interview (Q85).",
+          "Starting soccer was one of her major remembered life events (Q01)."
+        ],
+        "evidence": "Q01-Q03, Q18, Q85"
+      },
+      "media_and_information_diet": {
+        "summary": "No independent social media; uses supervised YouTube Kids, family phone content, school computer tools, and trusted adults for information.",
+        "details": [
+          "No Facebook, Instagram, TikTok, Twitter account due to parental age rules (Q48, Q49).",
+          "Watches YouTube Kids or videos with parents: soccer, LEGO, science, drawing, Hamilton (Q48).",
+          "Health information comes from parents, doctor, mom's clinic, and school nurse rather than social media (Q42).",
+          "Parents set screen time limits and require her to ask before clicking new videos (Q48).",
+          "Uses school computer tools and Scratch, but does not consider that social media (Q48)."
+        ],
+        "evidence": "Q42, Q48, Q49"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Angel Lopez is a 9-year-old Hispanic/Spanish-origin girl living in North Las Vegas, Nevada, with both parents, a younger brother, and her grandmother (Q05, Q11, Q51, Q88). She is never married, has no partner or children, and is enrolled full time in elementary school after completing third grade (Q84, Q90-Q92). Her household is bilingual Spanish-English, Catholic, and shaped by family traditions such as Dia de los Muertos and Spanish-language home life (Q01, Q47, Q94). She is not in the paid workforce and depends on her parents’ earnings from clinic front-desk work and auto repair (Q65-Q74, Q103-Q107).",
+      "behavioral_economist": "Angel shows strong planning behavior for a child: she uses a color-coded planner, sticky notes, checklists, and goal charts to manage school, soccer, STEM club, and savings (Q15, Q17, Q50, Q61-Q62). Her choices are motivated by curiosity, competition, family approval, and tangible goals like LEGO sets, books, science fair projects, and soccer improvement (Q02, Q44, Q61, Q108). She has child-level budget awareness, distinguishing wants from needs and delaying purchases when family money is tight (Q60, Q64, Q83). Peer and adult encouragement strongly influence her participation, especially Ms. Patel’s invitation to STEM club and Coach Ramirez’s soccer guidance (Q02, Q07).",
+      "political_scientist": "Angel is too young to vote and has no party identification, but she expresses an emerging civic orientation around fairness, schools, health care, parks, water conservation, and respect for bilingual families (Q23-Q25, Q95-Q96). Her institutional trust is strongest in family, teachers, doctors, school nurses, and structured school/community settings (Q20, Q36, Q42). She has child-level awareness of racism, Black Lives Matter, and policing, framed through bullying, listening, safety, and equal treatment (Q26-Q30). Her community attachment is local and practical, centered on North Las Vegas parks, school, festivals, family networks, and neighborhood safety (Q08-Q10).",
+      "psychologist": "Angel presents as curious, organized, competitive, and emotionally stable, with a strong problem-solving identity built around STEM, LEGO engineering, soccer, and reading (Q01-Q03, Q43, Q108). She copes with stress through planning, drawing, reading, talking to her mother, and physical activity rather than avoidance or substances (Q38-Q45, Q50). Her self-concept combines bilingual cultural pride, family loyalty, fairness, and achievement motivation (Q28, Q47, Q109). She responds to setbacks, such as missing a penalty kick, by reframing mistakes as learning data and returning to effortful practice (Q44)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Angel stays active through soccer, Latin dance, PE, and backyard ball touches.",
+        "ground_truth_label": "Active child fitness routine",
+        "behavioral_evidence_from_interview": [
+          "Q31: Soccer drills, games, dance class, PE, and backyard ball touches.",
+          "Q17: For soccer I do touches with the ball in the backyard almost every day."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Angel has occasional allergies treated with parent-managed allergy medicine.",
+        "ground_truth_label": "Mild allergies with parent-managed medicine",
+        "behavioral_evidence_from_interview": [
+          "Q31: I have allergies when there is dust or pollen.",
+          "Q39: The most recent was allergy medicine because my nose was itchy after practice."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Angel is vaccinated and trusts her parents, doctor, clinic, and school nurse for vaccine and health guidance.",
+        "ground_truth_label": "Vaccine trust in adults and medical institutions",
+        "behavioral_evidence_from_interview": [
+          "Q41: I get vaccines because my parents and doctor say they help.",
+          "Q42: My parents, my doctor, and my mom's clinic are the people I trust."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Angel had a minor soccer ankle twist last year that was not broken and recovered after rest and ice.",
+        "ground_truth_label": "Minor past ankle injury",
+        "behavioral_evidence_from_interview": [
+          "Q33: I twisted my ankle a little during soccer last year, but it was not broken.",
+          "Q33: I had to rest and ice it."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Angel denies depression or anxiety diagnoses but gets nervous before presentations or games.",
+        "ground_truth_label": "No reported depression/anxiety diagnosis",
+        "behavioral_evidence_from_interview": [
+          "Q45: I do not think I have depression or anxiety like a diagnosis.",
+          "Q45: I get nervous before presentations or games."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Angel does not smoke, drink, use marijuana, or manage medicine independently.",
+        "ground_truth_label": "No substance use; parent-controlled medicine",
+        "behavioral_evidence_from_interview": [
+          "Q38: No, I do not smoke or drink.",
+          "Q39: No marijuana or anything like that.",
+          "Q39: My parents keep it."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Angel copes with stress through drawing, reading, soccer, LEGO, lists, and talking to her mother.",
+        "ground_truth_label": "Non-substance coping repertoire",
+        "behavioral_evidence_from_interview": [
+          "Q38: I draw, read, kick a soccer ball, build LEGO, or talk to my mom.",
+          "Q50: I cope by using my planner, making checklists, drawing, reading, and practicing soccer."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Angel notices stress when she gets quiet and sharpens pencils too much.",
+        "ground_truth_label": "Stress signal: quiet and pencil sharpening",
+        "behavioral_evidence_from_interview": [
+          "Q45: My mom, because I get quiet and sharpen pencils too much."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Angel worries about her abuela Rosa's knee pain and helps reduce trip risks and household strain.",
+        "ground_truth_label": "Concern for grandmother's knee pain",
+        "behavioral_evidence_from_interview": [
+          "Q35: Sometimes my abuela has knee pain.",
+          "Q35: My parents remind Mateo and me to pick up toys so she does not trip."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Angel's family uses chamomile tea, honey with lemon, and soup for minor illness while using doctors for serious issues.",
+        "ground_truth_label": "Home remedies plus formal medical care",
+        "behavioral_evidence_from_interview": [
+          "Q37: My abuela makes teas, like chamomile, and honey with lemon when my throat hurts.",
+          "Q37: But if it is serious, my parents take us to the doctor."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Angel likes cereal, extra-cheese pizza, smoothies, cucumbers with lime, carrots with ranch, churros, paella, and family meals.",
+        "ground_truth_label": "Preferred foods",
+        "behavioral_evidence_from_interview": [
+          "Q32: Fruit, smoothies, cucumbers with lime, and sometimes carrots with ranch.",
+          "Q05: Abuela Rosa... cooks Spanish food like paella sometimes.",
+          "Q83: Get my family churros."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Angel would often choose sugary cereal or pizza before vegetables.",
+        "ground_truth_label": "Prefers sweet/cheesy foods over vegetables",
+        "behavioral_evidence_from_interview": [
+          "Q31: I need to eat more vegetables because I would pick cereal or pizza first.",
+          "Q32: Sugary cereal and extra cheese pizza."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Angel's family cooks at home and gathers around traditional foods.",
+        "ground_truth_label": "Home cooking and traditional family meals",
+        "behavioral_evidence_from_interview": [
+          "Q05: Abuela Rosa... cooks Spanish food like paella sometimes.",
+          "Q81: Then we eat at home."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Packed snacks and eating at home are family strategies when money is tight.",
+        "ground_truth_label": "Food budgeting strategy",
+        "behavioral_evidence_from_interview": [
+          "Q60: We used library books, packed snacks...",
+          "Q81: Then we eat at home, pack snacks, and wait on buying extras."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Angel wants to visit the Natural History Museum in New York, Rome, and the Great Barrier Reef.",
+        "ground_truth_label": "Aspirational travel destinations",
+        "behavioral_evidence_from_interview": [
+          "Q108: I want to travel with my family to the Natural History Museum in New York, Rome, and someday the Great Barrier Reef."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Angel would use extra money to visit New York's Natural History Museum.",
+        "ground_truth_label": "Extra-money travel priority",
+        "behavioral_evidence_from_interview": [
+          "Q83: Visit the Natural History Museum in New York."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Angel lives with her mother Elena, father Carlos, younger brother Mateo, and abuela Rosa.",
+        "ground_truth_label": "Household composition",
+        "behavioral_evidence_from_interview": [
+          "Q51: I live with my mom Elena, my dad Carlos, my little brother Mateo, and my abuela Rosa."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Angel's best friends are Sofia and Mia; Sofia shares soccer and Mia shares STEM/coding.",
+        "ground_truth_label": "Best friends and shared activities",
+        "behavioral_evidence_from_interview": [
+          "Q07: My best friends are Sofia and Mia.",
+          "Q07: Sofia is on my soccer team... Mia is in STEM club and likes coding games in Scratch with me."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Coach Ramirez and Ms. Patel are important adults in Angel's life.",
+        "ground_truth_label": "Important nonfamily adult mentors",
+        "behavioral_evidence_from_interview": [
+          "Q07: My coach, Coach Ramirez, is important...",
+          "Q07: Ms. Patel is important because she lets me borrow science books."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Angel is especially close to cousin Lucia because they draw characters together.",
+        "ground_truth_label": "Close cousin relationship",
+        "behavioral_evidence_from_interview": [
+          "Q06: Yes, especially Lucia because she likes drawing characters with me."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Angel usually seeks her mother first when upset and sometimes goes to abuela for comfort.",
+        "ground_truth_label": "Primary emotional support sources",
+        "behavioral_evidence_from_interview": [
+          "Q05: Usually my mom first, and sometimes my abuela if I want a hug and hot chocolate."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Angel spends time with Mateo, reads to him, and sometimes helps with his preschool routine.",
+        "ground_truth_label": "Sibling caretaking and companionship",
+        "behavioral_evidence_from_interview": [
+          "Q05: He likes when I read adventure books to him.",
+          "Q19: Sometimes I help him choose clothes or find his preschool folder."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Angel uses the kitchen table and a small room table for LEGO and science projects.",
+        "ground_truth_label": "Home project spaces",
+        "behavioral_evidence_from_interview": [
+          "Q11: At the kitchen table or a little table in my room."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Angel's chores include clearing dishes, feeding the fish, and cleaning project or LEGO areas.",
+        "ground_truth_label": "Child household chores",
+        "behavioral_evidence_from_interview": [
+          "Q11: Mine are clearing dishes, feeding our small fish, and trying to keep my experiment table clean.",
+          "Q11: Cleaning up tiny LEGO pieces..."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Angel uses a color-coded planner, sticky notes, and checklists to manage routines.",
+        "ground_truth_label": "Planner-based organization",
+        "behavioral_evidence_from_interview": [
+          "Q15: I use a planner with colors.",
+          "Q17: I also remind myself with sticky notes.",
+          "Q50: I cope by using my planner, making checklists..."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Angel prepares at night by packing her backpack, checking her planner, and placing soccer cleats by the door.",
+        "ground_truth_label": "Night-before preparation routine",
+        "behavioral_evidence_from_interview": [
+          "Q17: I pack my backpack at night, check my planner, and put my soccer cleats by the door."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "All full-time household members are permanent, with no lodgers, live-in employees, or usual residents away.",
+        "ground_truth_label": "Stable household membership",
+        "behavioral_evidence_from_interview": [
+          "Q12: Everyone is permanent right now.",
+          "Q53: No.",
+          "Q54: No."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Cousins, especially Lucia, sometimes sleep over during holidays or some weekends.",
+        "ground_truth_label": "Occasional cousin sleepovers",
+        "behavioral_evidence_from_interview": [
+          "Q13: Sometimes cousins sleep over...",
+          "Q13: Lucia, my cousin."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Angel was born in Las Vegas, Nevada, and has lived in Nevada as far as she knows.",
+        "ground_truth_label": "Nevada-born and Nevada-raised",
+        "behavioral_evidence_from_interview": [
+          "Q87: Las Vegas, Nevada.",
+          "Q86: Have you always lived in Nevada? Yes, as far as I know."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Angel's family likely rents their house, and her parents handle household expenses.",
+        "ground_truth_label": "Likely renter household; parents manage bills",
+        "behavioral_evidence_from_interview": [
+          "Q58: I think we rent our house.",
+          "Q55: My mom and dad handle that."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Family expenses rise with summer air conditioning, back-to-school needs, holidays, and soccer season.",
+        "ground_truth_label": "Seasonal household expense fluctuation",
+        "behavioral_evidence_from_interview": [
+          "Q59: In summer electricity is higher...",
+          "Q59: At back-to-school time there are supplies and clothes.",
+          "Q59: Soccer season also adds costs..."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Angel's family manages tight money by using library books, delaying extras, packing snacks, and eating at home.",
+        "ground_truth_label": "Family expense coping behaviors",
+        "behavioral_evidence_from_interview": [
+          "Q60: We used library books, packed snacks, and sometimes waited to buy extra LEGO or art supplies.",
+          "Q81: Then we eat at home, pack snacks, and wait on buying extras."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Angel saves birthday money and allowance in a piggy bank and possibly a parent-managed kids savings account.",
+        "ground_truth_label": "Child savings behavior",
+        "behavioral_evidence_from_interview": [
+          "Q61: I have a little piggy bank and maybe a kids savings account my parents started.",
+          "Q61: I save birthday money and allowance."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Angel uses a planner goal and progress bar to help wait for purchases.",
+        "ground_truth_label": "Goal tracking for delayed gratification",
+        "behavioral_evidence_from_interview": [
+          "Q62: Writing the goal in my planner and drawing a little progress bar."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Angel personally does not have $400 and expects her parents would handle an emergency expense.",
+        "ground_truth_label": "Child-level emergency expense awareness",
+        "behavioral_evidence_from_interview": [
+          "Q82: I personally do not have $400.",
+          "Q82: My parents would handle an emergency."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Angel reads adventure and mystery books and sometimes stays up reading.",
+        "ground_truth_label": "Adventure/mystery reading habit",
+        "behavioral_evidence_from_interview": [
+          "Q01: I like... reading mystery books.",
+          "Q15: Unless I am reading and my mom catches me with the lamp on."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Angel watches supervised videos about soccer, LEGO, science experiments, drawing, and Hamilton.",
+        "ground_truth_label": "Supervised video interests",
+        "behavioral_evidence_from_interview": [
+          "Q48: Soccer highlights, drawing tutorials, LEGO builds, or science experiments.",
+          "Q48: US Women's National Team clips... and sometimes Hamilton songs."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Angel builds LEGO cities, rockets, stadiums, and pretend businesses.",
+        "ground_truth_label": "LEGO imaginative construction",
+        "behavioral_evidence_from_interview": [
+          "Q01: I build LEGO cities, rockets, and soccer stadiums.",
+          "Q70: Sometimes a LEGO bakery or science lab."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Angel joined STEM club and works on Scratch coding and science fair ideas.",
+        "ground_truth_label": "STEM club and Scratch participation",
+        "behavioral_evidence_from_interview": [
+          "Q02: I had to choose between joining STEM club or only doing soccer.",
+          "Q18: STEM club started working on science fair ideas.",
+          "Q43: I helped my STEM group fix a Scratch bug."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Angel plays midfield on the Riverdale Rovers and practices regularly.",
+        "ground_truth_label": "Regular youth soccer participation",
+        "behavioral_evidence_from_interview": [
+          "Q01: I play midfield on the Riverdale Rovers soccer team.",
+          "Q17: Ball in the backyard almost every day."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Angel builds intricate LEGO models and conducts home experiments.",
+        "ground_truth_label": "LEGO engineering and home experiments",
+        "behavioral_evidence_from_interview": [
+          "Q01: I build LEGO cities, rockets, and soccer stadiums.",
+          "Q11: Kitchen table cannot become a laboratory forever."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Angel takes Latin dance on Thursdays and adjusted when the class moved later.",
+        "ground_truth_label": "Latin dance participation",
+        "behavioral_evidence_from_interview": [
+          "Q15: Thursdays I have Latin dance.",
+          "Q18: My dance class moved a little later."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Angel reports zero paid work, zero jobs, and no employment income.",
+        "ground_truth_label": "Not in paid workforce",
+        "behavioral_evidence_from_interview": [
+          "Q67: Zero weeks for paid work.",
+          "Q68: Zero paid work hours.",
+          "Q72: I got no job money."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Angel describes her student duties as school, homework, group work, assignments, responsibility, and chores.",
+        "ground_truth_label": "Student role duties",
+        "behavioral_evidence_from_interview": [
+          "Q65: The most important duties are listening, trying hard, finishing assignments, working with groups...",
+          "Q65: I also help at home with chores."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Angel wants to become a scientist-engineer, bilingual doctor, or teacher who helps her community.",
+        "ground_truth_label": "Future helping career aspirations",
+        "behavioral_evidence_from_interview": [
+          "Q01: I want to be a scientist-engineer, or maybe a doctor or teacher who helps people in my community.",
+          "Q108: I might be a scientist-engineer, doctor, or teacher."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Angel's mother works at a clinic front desk and her father works as an auto mechanic.",
+        "ground_truth_label": "Parents' occupations",
+        "behavioral_evidence_from_interview": [
+          "Q103: My mom works at a clinic front desk.",
+          "Q106: My dad is an auto mechanic."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Angel draws characters and uses drawing to cope with stress.",
+        "ground_truth_label": "Drawing as hobby and coping tool",
+        "behavioral_evidence_from_interview": [
+          "Q38: When I feel stressed I draw...",
+          "Q50: Drawing characters..."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Angel celebrates Dia de los Muertos with photos, marigolds, favorite foods, and family stories.",
+        "ground_truth_label": "Dia de los Muertos tradition",
+        "behavioral_evidence_from_interview": [
+          "Q05: We celebrate Dia de los Muertos with photos and marigolds.",
+          "Q47: We remember family who died with photos and favorite foods."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Angel values culture, Spanish, food, music, and traditions because they make her feel connected.",
+        "ground_truth_label": "Cultural connectedness values",
+        "behavioral_evidence_from_interview": [
+          "Q109: I also value my culture, Spanish, food, music, and traditions because they make me feel connected."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Angel plays midfield on Riverdale Rovers, practices on Mondays and Wednesdays, and may have Saturday games.",
+        "ground_truth_label": "Soccer team schedule",
+        "behavioral_evidence_from_interview": [
+          "Q01: I play midfield on the Riverdale Rovers soccer team.",
+          "Q15: Mondays and Wednesdays I usually have soccer practice.",
+          "Q15: Saturdays can be soccer games."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Angel follows US Women's National Team clips.",
+        "ground_truth_label": "USWNT media interest",
+        "behavioral_evidence_from_interview": [
+          "Q48: US Women's National Team clips."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Angel missed a penalty kick, returned to play, made a good pass, and reframed the mistake as learning data.",
+        "ground_truth_label": "Resilience after sports setback",
+        "behavioral_evidence_from_interview": [
+          "Q44: One rough time was when I missed a penalty kick.",
+          "Q44: I went back in and made a good pass later.",
+          "Q44: Mistakes are data."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Angel's neighborhood life includes parks, distant mountains, and bright pink and orange sunsets.",
+        "ground_truth_label": "Neighborhood outdoor setting",
+        "behavioral_evidence_from_interview": [
+          "Q08: Schools, parks, and lots of families.",
+          "Q08: I can see mountains in the distance, and the sunsets are bright pink and orange."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Angel wants more shade and cleaner playgrounds in her area.",
+        "ground_truth_label": "Desired neighborhood improvements",
+        "behavioral_evidence_from_interview": [
+          "Q10: More shade, cleaner playgrounds..."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Angel cares about saving water and designing heat or cooling-related science solutions.",
+        "ground_truth_label": "Desert sustainability concern",
+        "behavioral_evidence_from_interview": [
+          "Q24: I care about recycling and saving water because we live where it is dry and hot.",
+          "Q108: A small solar-powered cooling shelter for playgrounds or bus stops."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Angel uses Scratch in STEM club and helped fix a sprite bug.",
+        "ground_truth_label": "Early Scratch coding skill",
+        "behavioral_evidence_from_interview": [
+          "Q43: I helped my STEM group fix a Scratch bug and we got the sprite moving correctly."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Angel wants to build robots, apps, and a solar-powered cooling shelter.",
+        "ground_truth_label": "Technology invention goals",
+        "behavioral_evidence_from_interview": [
+          "Q108: I hope I get really good at coding and can build robots or apps.",
+          "Q108: A small solar-powered cooling shelter for playgrounds or bus stops."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Angel's father influences her engineering interests through mechanic problem-solving and prototypes.",
+        "ground_truth_label": "Father's mechanic influence",
+        "behavioral_evidence_from_interview": [
+          "Q05: He helps me make cardboard prototypes for science projects.",
+          "Q106: He can solve problems with his hands."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Angel is considering a science fair project testing recycled materials for cooling a mini house in the sun.",
+        "ground_truth_label": "Recycled-material cooling experiment idea",
+        "behavioral_evidence_from_interview": [
+          "Q18: Maybe testing which recycled material keeps a mini house cooler in the sun."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Angel cannot vote but understands class and adult voting as choosing leaders or rules.",
+        "ground_truth_label": "Too young to vote; basic voting understanding",
+        "behavioral_evidence_from_interview": [
+          "Q23: I cannot vote because I am 9.",
+          "Q23: Voting is how adults choose leaders and rules."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Angel cares about schools, clean parks, water conservation, health care, and fair treatment of bilingual families.",
+        "ground_truth_label": "Fairness-oriented civic concerns",
+        "behavioral_evidence_from_interview": [
+          "Q24: Kids should have good schools, doctors should help people, parks should be clean...",
+          "Q24: Everyone should be able to speak their language and not get teased."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Angel has child-level awareness of Black Lives Matter, racism, policing, bullying, listening, safety, and equal treatment.",
+        "ground_truth_label": "Child-level race and policing awareness",
+        "behavioral_evidence_from_interview": [
+          "Q26: I have heard about Black Lives Matter...",
+          "Q27: People want to be safe and treated the same.",
+          "Q30: My friends mostly talk about kindness and bullying."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Angel has limited safety-oriented police contact through a school safety lesson and festival police presence.",
+        "ground_truth_label": "Limited law-enforcement exposure",
+        "behavioral_evidence_from_interview": [
+          "Q20: Once an officer came to school to talk about bike helmets and crossing streets.",
+          "Q21: At a festival I saw police helping with traffic and lost kids."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Angel does not know anyone close to her who has been arrested.",
+        "ground_truth_label": "No close arrest experience",
+        "behavioral_evidence_from_interview": [
+          "Q22: No, I do not know anyone close to me who got arrested."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Angel has spoken up when a child made fun of another child's lunch and would tell a teacher if teasing continued.",
+        "ground_truth_label": "Peer fairness intervention",
+        "behavioral_evidence_from_interview": [
+          "Q29: I told a kid not to make fun of another kid's lunch.",
+          "Q26: I try to say that is not nice, or I tell a teacher if it keeps happening."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Angel has no political party identification and is not close to either major party.",
+        "ground_truth_label": "Nonpartisan child identity",
+        "behavioral_evidence_from_interview": [
+          "Q95: I do not have a political party because I am 9 and cannot vote.",
+          "Q96: I am not close to either party right now."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Angel watches Hamilton songs in supervised media.",
+        "ground_truth_label": "Hamilton music interest",
+        "behavioral_evidence_from_interview": [
+          "Q48: Sometimes Hamilton songs."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Angel likes church music and family uses music to calm down and connect.",
+        "ground_truth_label": "Church and family music role",
+        "behavioral_evidence_from_interview": [
+          "Q47: I like lighting candles and the music.",
+          "Q46: Food, music, jokes, and getting chores done."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Angel needs soccer cleats and washed soccer gear for practices and games.",
+        "ground_truth_label": "Practical soccer clothing needs",
+        "behavioral_evidence_from_interview": [
+          "Q05: Makes sure I have my soccer things washed.",
+          "Q57: Last month had soccer registration and new cleats."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Back-to-school expenses include clothes.",
+        "ground_truth_label": "School clothing expense",
+        "behavioral_evidence_from_interview": [
+          "Q59: At back-to-school time there are supplies and clothes."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Angel speaks Spanish at home and mostly English at school.",
+        "ground_truth_label": "Bilingual Spanish-English language context",
+        "behavioral_evidence_from_interview": [
+          "Q01: At home we speak Spanish a lot... and at school I mostly speak English.",
+          "Q88: Spanish and English, but a lot of Spanish."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Angel identifies as Hispanic and Spanish origin, Latina, and White/Hispanic on race forms.",
+        "ground_truth_label": "Hispanic/Spanish-origin Latina identity",
+        "behavioral_evidence_from_interview": [
+          "Q88: Yes, Hispanic and Spanish origin.",
+          "Q89: White and Hispanic/Latina."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Angel's family is Catholic and attends church sometimes, especially on holidays or special family times.",
+        "ground_truth_label": "Catholic family affiliation",
+        "behavioral_evidence_from_interview": [
+          "Q47: We are Catholic.",
+          "Q94: Catholic."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Angel is proud of being bilingual and sometimes helps translate small things for abuela.",
+        "ground_truth_label": "Bilingual pride and translation help",
+        "behavioral_evidence_from_interview": [
+          "Q28: Yes. I like helping translate small things for abuela."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Angel wants respect for names, languages, food, and traditions and disliked someone mocking Spanish words.",
+        "ground_truth_label": "Language and cultural respect value",
+        "behavioral_evidence_from_interview": [
+          "Q28: I want people to respect names, languages, food, and traditions.",
+          "Q28: Once someone copied Spanish words in a silly voice, and I did not like it."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Angel's crossroads was choosing to try STEM club while continuing soccer.",
+        "ground_truth_label": "STEM club versus soccer crossroads",
+        "behavioral_evidence_from_interview": [
+          "Q02: It was when I had to choose between joining STEM club or only doing soccer after school.",
+          "Q03: I think I made a choice."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Angel won a small class science fair with a plant-growing experiment and became braver presenting in English and Spanish.",
+        "ground_truth_label": "Science fair and bilingual presentation confidence",
+        "behavioral_evidence_from_interview": [
+          "Q01: Winning a small class science fair with a plant-growing experiment.",
+          "Q01: Getting brave enough to present in English and Spanish at school."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Angel's routine recently changed because soccer became more serious, science fair planning increased, and dance moved later.",
+        "ground_truth_label": "Recent activity schedule intensification",
+        "behavioral_evidence_from_interview": [
+          "Q18: Soccer practice got more serious...",
+          "Q18: STEM club started working on science fair ideas...",
+          "Q18: My dance class moved a little later."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Angel's birthday is August 14, 2016, and she was 9 at the time of interview.",
+        "ground_truth_label": "Date of birth",
+        "behavioral_evidence_from_interview": [
+          "Q85: My birthday is August 14, 2016.",
+          "Q85: So you are 9 today? Yes."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Angel has no Facebook, Instagram, TikTok, or Twitter account because her parents say she is too young.",
+        "ground_truth_label": "No independent social media",
+        "behavioral_evidence_from_interview": [
+          "Q48: I do not have my own Facebook, Instagram, or TikTok because my parents say I am too young.",
+          "Q49: No, I do not use Facebook or Twitter."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Angel uses YouTube Kids or parent-supervised videos for soccer, LEGO, science, drawing, and Hamilton content.",
+        "ground_truth_label": "Supervised video media use",
+        "behavioral_evidence_from_interview": [
+          "Q48: Sometimes I watch YouTube Kids or videos with my parents...",
+          "Q48: Soccer highlights, drawing tutorials, LEGO builds, or science experiments."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Angel gets health information from parents, doctor, her mother's clinic, and the school nurse rather than social media.",
+        "ground_truth_label": "Trusted health information sources",
+        "behavioral_evidence_from_interview": [
+          "Q42: My parents, my doctor, and my mom's clinic are the people I trust.",
+          "Q42: At school, the nurse also explains health things.",
+          "Q42: No, I am not really on social media."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Angel's parents set screen time limits and require her to ask before clicking new videos.",
+        "ground_truth_label": "Parental screen rules",
+        "behavioral_evidence_from_interview": [
+          "Q48: Yes, time limits and I have to ask before clicking new videos."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "reprojected",
+        "source_subcategory": "preferences.education",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Angel is enrolled full time in elementary school after completing third grade.",
+        "ground_truth_label": "Full-time fourth-grade elementary student",
+        "behavioral_evidence_from_interview": [
+          "Q90: I have completed third grade and I am in elementary school.",
+          "Q91: Yes. Full time? Yes."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Angel's institutional trust is strongest in family, teachers, doctors, school nurses, and structured school/community settings.",
+        "ground_truth_label": "High trust in family, school, and medical adults",
+        "behavioral_evidence_from_interview": [
+          "Q20: It felt normal, like a safety lesson.",
+          "Q36: My parents handle appointments.",
+          "Q42: My parents, my doctor, and my mom's clinic are the people I trust."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Angel's community attachment is centered on North Las Vegas parks, school, festivals, family networks, and neighborhood safety.",
+        "ground_truth_label": "Local practical community attachment",
+        "behavioral_evidence_from_interview": [
+          "Q08: Schools, parks, and lots of families.",
+          "Q10: My school, soccer, family close by, and fun festivals.",
+          "Q09: I feel mostly safe when I am with my family."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "reprojected",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Angel has a strong problem-solving identity built around STEM, LEGO engineering, soccer, and reading.",
+        "ground_truth_label": "Problem-solving self-concept",
+        "behavioral_evidence_from_interview": [
+          "Q01: I liked taking apart toys to see how they worked.",
+          "Q02: I made a plan first instead of just taping stuff everywhere.",
+          "Q109: I am curious, competitive, and I care about my people."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "reprojected",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Angel's self-concept combines family loyalty, fairness, achievement motivation, and bilingual cultural pride.",
+        "ground_truth_label": "Family-centered achievement and fairness identity",
+        "behavioral_evidence_from_interview": [
+          "Q28: I like helping translate small things for abuela.",
+          "Q109: I value my family the most.",
+          "Q109: I also value learning, being fair, trying hard..."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}
