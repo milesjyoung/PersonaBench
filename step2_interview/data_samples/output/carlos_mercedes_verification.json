@@ -1,0 +1,2213 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "eb8035087b1141ffa7520b6ca7f90235",
+      "name": "Carlos Mercedes",
+      "verification_date": "2026-05-19"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age 77 and male sex are confirmed by date of birth and demographic answers.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed age, sex",
+              "source_b_ref": "Q85, Q89",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 2,
+              "text": "Seed marital status married_present is confirmed and enriched with wife Elena and marriage over forty-five years.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed marital_status",
+              "source_b_ref": "Q05, Q84",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 3,
+              "text": "Seed location Edmonds, WA 98020 is consistent with interview residence in Edmonds, Washington near the waterfront.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed city/state/zipcode",
+              "source_b_ref": "Q08, Q51",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 4,
+              "text": "Seed education and not-in-workforce occupation are confirmed by bachelor's degree in education and retired status.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed education_level, occupation",
+              "source_b_ref": "Q16, Q67, Q90",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 4
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile correctly captures household as Carlos and Elena only, with adult children outside the home.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q05, Q11, Q51",
+              "source_b_ref": "marital_status; preferences.social_and_relationships; preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile correctly captures owned Edmonds home with small remaining mortgage.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q58",
+              "source_b_ref": "preferences.home_and_lifestyle; summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile captures education and retired K-12 bilingual educator career accurately.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q16, Q65, Q90",
+              "source_b_ref": "education; occupation; preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile omits birthplace, immigration year, and first U.S. settlement pathway outside cultural category details.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q86, Q87",
+              "source_b_ref": "top-level profile; preferences.life_events_and_transitions",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Marital status, social relationships, home lifestyle, and demographer summary consistently describe living with wife Elena only.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "marital_status; preferences.home_and_lifestyle",
+              "field_b": "preferences.social_and_relationships; summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Occupation field and work/career category consistently distinguish retirement from unpaid volunteer mentoring.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "occupation",
+              "field_b": "preferences.work_and_career; summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview gives children's names, locations, and occupations, which are only partly represented.",
+              "gap": true,
+              "interview_ref": "Q05",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add that daughter Marisol lives in Shoreline and works in health administration, while son Javier lives in Portland and teaches music part time with community arts work."
+            },
+            {
+              "id": 2,
+              "text": "Interview details migration path: born in Oaxaca de Juarez and came to live in the U.S. in 1972 after a brief time in California.",
+              "gap": true,
+              "interview_ref": "Q86, Q87",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add birthplace Oaxaca de Juarez and 1972 migration with brief California period before Seattle-area settlement."
+            },
+            {
+              "id": 3,
+              "text": "Interview provides childhood household and parental education details absent from profile.",
+              "gap": true,
+              "interview_ref": "Q98, Q99, Q100, Q101",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add that at age 16 he lived with both parents, siblings, and sometimes a grandmother or cousin; both parents had primary schooling."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes relaxed financial habits; interview confirms he is relaxed about small purchases while Elena tracks finances more closely.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona",
+              "source_b_ref": "Q57, Q61, Q83",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 2,
+              "text": "Seed describes laid-back flexibility and occasional missed deadlines; interview confirms paperwork was sometimes close and retirement workshops flow organically.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "professional_persona",
+              "source_b_ref": "Q78",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed describes senior-discount and modest travel preferences; interview supports budget- and health-constrained travel planning.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "travel_persona",
+              "source_b_ref": "Q60, Q62, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 4,
+              "text": "Seed describes competitive bird-spotting; interview confirms regular birdwatching but does not explicitly state seasonal record competition.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "sports_persona",
+              "source_b_ref": "Q15, Q43",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "DROP"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately represents his emergency strategy: use savings or checking rather than borrowing.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q60, Q82",
+              "source_b_ref": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile correctly captures home cooking and reduced restaurant spending during budget pressure.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q60, Q81",
+              "source_b_ref": "preferences.food_and_dining",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile omits concrete household income and spending amounts from the interview.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q57, Q74",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT"
+            },
+            {
+              "id": 4,
+              "text": "Profile accurately describes modest hobby spending on art supplies, photo printing, and birding books.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q57, Q61, Q83",
+              "source_b_ref": "summaries.behavioral_economist; preferences.hobbies_and_recreation",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Travel, finances, and behavioral summary consistently portray discretionary travel as secondary to medical, home, and family contingencies.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.travel",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Food, home, and finance-related claims consistently show family meals as valued but adjustable under budget pressure.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.food_and_dining",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Monthly spending of about $5,200 last month and $4,500-$4,800 usually is absent from preferences.",
+              "gap": true,
+              "interview_ref": "Q57",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add monthly spending amounts and reasons last month was higher."
+            },
+            {
+              "id": 2,
+              "text": "Household monthly income around $6,200 from Social Security and retirement income is absent from preferences.",
+              "gap": true,
+              "interview_ref": "Q72, Q74",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add retirement income sources and approximate monthly household income."
+            },
+            {
+              "id": 3,
+              "text": "Debt position is absent: small mortgage, credit cards paid monthly, no student, family, car, or medical debt.",
+              "gap": true,
+              "interview_ref": "Q63",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add current debt profile."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed's bilingual cultural liaison and community-work profile is confirmed by interview civic and educational engagement.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "skills_and_expertise",
+              "source_b_ref": "Q16, Q21, Q65",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 2,
+              "text": "Seed does not state party identification; interview enriches with moderately strong Democratic identification.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed demographic/persona fields",
+              "source_b_ref": "Q95, Q96",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 3,
+              "text": "Seed's community exhibition ambition is consistent with interview's Edmonds Community Center folk art exhibit goal.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "career_goals_and_ambitions",
+              "source_b_ref": "Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed does not mention law enforcement attitudes; interview adds cautious, language-access-informed views.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona fields",
+              "source_b_ref": "Q20, Q21, Q27",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures regular voting and attention to local school, library, city council, and levy races.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23",
+              "source_b_ref": "preferences.community_and_civic; summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures Democratic, progressive, institution-oriented political identity in the political summary.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q24, Q95, Q96",
+              "source_b_ref": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile captures BLM/racial justice response, including local gathering and donations.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q26, Q29, Q30",
+              "source_b_ref": "preferences.community_and_civic; summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile omits his nuanced law enforcement experience: limited contact, extra caution as Mexican immigrant, and translation for a parent.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q20, Q21, Q22",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Community/civic and media/information categories align with political summary's mainstream, institution-trusting profile.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic; preferences.media_and_information_diet",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Racial justice engagement is internally consistent as measured activism rather than high-intensity activism.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Views on democracy, January 6, election denial, courts, and truth are absent from preferences.",
+              "gap": true,
+              "interview_ref": "Q25",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add concern about democratic institutions and election denial."
+            },
+            {
+              "id": 2,
+              "text": "Specific political information sources are present, but his dislike of slogans and anger on television is underrepresented.",
+              "gap": true,
+              "interview_ref": "Q24",
+              "should_be_in": "preferences.media_and_information_diet",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add preference for practical, non-slogan political discussion and fatigue with angry television coverage."
+            },
+            {
+              "id": 3,
+              "text": "Police-reform preferences are absent: accountability, mental health response, de-escalation, and data on stops and force.",
+              "gap": true,
+              "interview_ref": "Q27",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add specific policing reform preferences."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes calm curiosity and lifelong teaching identity, which interview repeatedly confirms.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "persona; professional_persona",
+              "source_b_ref": "Q01, Q43, Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed's solitary nature is consistent with interview preference for small groups and comfort alone.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "sports_persona; persona",
+              "source_b_ref": "Q07",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed implies resilience; interview enriches this with grief response through watercolor, conversation, and routine.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "persona",
+              "source_b_ref": "Q43, Q44, Q45, Q50",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 4,
+              "text": "Seed's competitive drive appears in birdwatching and high-impact exhibitions; interview supports purpose and persistence but less explicit competitiveness.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "professional_persona; sports_persona",
+              "source_b_ref": "Q15, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "DROP"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures coping through walking, painting, cooking, prayer, music, and conversations.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q38, Q43, Q44, Q45, Q50",
+              "source_b_ref": "summaries.psychologist; preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures selective sociality and small-circle preferences.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q07",
+              "source_b_ref": "preferences.social_and_relationships; summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile omits no formal depression or anxiety diagnosis and past brief counseling.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q45",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT"
+            },
+            {
+              "id": 4,
+              "text": "Profile captures values of dignity, memory, education, family continuity, and curiosity.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q108, Q109",
+              "source_b_ref": "summaries.psychologist; preferences.life_events_and_transitions",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Health, nature, hobbies, religion, and psychology summary consistently describe routines as emotional regulation.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness; preferences.nature_and_outdoors; preferences.hobbies_and_recreation",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile consistently presents Carlos as reflective and quiet, not socially isolated.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview says his past-year mood is steady, reflective, sometimes worried, and not hopeless.",
+              "gap": true,
+              "interview_ref": "Q43",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add emotional well-being detail about steady mood with age-related melancholy but no hopelessness."
+            },
+            {
+              "id": 2,
+              "text": "Interview identifies warning sign for emotional reset: stopping reading or painting and only watching news.",
+              "gap": true,
+              "interview_ref": "Q45",
+              "should_be_in": "preferences.media_and_information_diet",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add news overconsumption as a warning sign and evening news limit."
+            },
+            {
+              "id": 3,
+              "text": "Interview gives explicit values: family, dignity, memory, education, beauty, practical kindness, curiosity.",
+              "gap": true,
+              "interview_ref": "Q109",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add explicit values list."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No contradictions required human review, but several interview-supported gaps were added to the corrected profile.",
+    "final_status": "Corrected profile is ready for downstream use with summaries preserved verbatim and hidden facts generated."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "eb8035087b1141ffa7520b6ca7f90235",
+    "name": "Carlos Mercedes",
+    "age": 77,
+    "gender": "Male",
+    "marital_status": "Married, living with wife Elena",
+    "location": "Edmonds, WA 98020",
+    "education": "Bachelor's degree in education, with additional professional coursework",
+    "occupation": "Retired K-12 bilingual educator and curriculum developer; informal volunteer mentor and cultural arts workshop leader",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Prefers low-impact, preventive health habits and trusts conventional medical care while retaining family remedies.",
+        "details": [
+          "Walks and birdwatches in the morning, does gentle yoga weekly, and manages knee arthritis by choosing flatter trails (Q15, Q18, Q31, Q33).",
+          "Takes blood pressure medication and follows doctor-recommended vaccines (Q31, Q41).",
+          "Uses chamomile tea, soups, herbs, rest, and prayer as informal complementary care while still relying on doctors (Q37).",
+          "Has no depression or anxiety diagnosis, but manages worry and sadness through routines, Elena, outdoor walks, and making things with his hands (Q43, Q45, Q50).",
+          "Uses Medicare, supplemental coverage, retirement income, and savings for health care; long-term care costs worry him more than ordinary appointments (Q36, Q40)."
+        ],
+        "evidence": "Q15, Q31, Q33, Q36, Q37, Q40, Q41, Q43, Q45, Q50"
+      },
+      "food_and_dining": {
+        "summary": "Enjoys cooking traditional Mexican food, especially for family gatherings, using garden herbs and regional ingredients.",
+        "details": [
+          "Cooks mole, tamales, pozole, and family meals, often with cilantro, oregano, and chilies from the garden (Q17, Q32, Q56).",
+          "Photographs plated food and posts occasional food photos online (Q48).",
+          "Prefers home cooking and cuts restaurant meals when expenses rise (Q60, Q81).",
+          "Cooking is mostly his household responsibility, especially weekend meals and family gatherings (Q17)."
+        ],
+        "evidence": "Q17, Q32, Q48, Q56, Q60, Q81"
+      },
+      "travel": {
+        "summary": "Prefers modest, culturally rich travel with nature and history rather than crowded tourist experiences.",
+        "details": [
+          "Dreams of visiting Rioja and possibly returning to Kyoto with Elena if health and budget allow (Q62, Q108).",
+          "Postpones travel when extra expenses arise (Q60).",
+          "Values senior-stage travel that fits physical limits and finances (Q108)."
+        ],
+        "evidence": "Q60, Q62, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "Maintains a small but meaningful circle centered on spouse, adult children, grandchildren, retired teachers, and a few hobby friends.",
+        "details": [
+          "Married to Elena for more than forty-five years and lives with her in Edmonds (Q05, Q51, Q84).",
+          "Has adult children Marisol in Shoreline and Javier in Portland, plus grandchildren who visit occasionally (Q05, Q13).",
+          "Marisol works in health administration; Javier teaches music part time and does community arts work (Q05).",
+          "Meets retired teacher Bill for coffee on Thursdays and prefers one-on-one or small-group socializing (Q07).",
+          "Keeps in touch with younger sister Teresa in Oaxaca every week or two, mostly by phone or WhatsApp (Q06)."
+        ],
+        "evidence": "Q05, Q06, Q07, Q13, Q51, Q84"
+      },
+      "home_and_lifestyle": {
+        "summary": "Lives a quiet retired life in an owned Edmonds home with routines around gardening, cooking, reading, art, and family.",
+        "details": [
+          "Owns home with a small remaining mortgage and plans to stay as long as health allows (Q58).",
+          "Shares the household only with Elena; no lodgers, boarders, or temporary residents (Q11, Q12, Q51, Q54).",
+          "Keeps a small art room with paints, photos, lesson-plan boxes, and folk art pieces (Q11).",
+          "Household spending was around $5,200 last month and is usually closer to $4,500 to $4,800 (Q57).",
+          "Household income is around $6,200 monthly from Social Security and retirement income for Carlos and Elena (Q72, Q74).",
+          "Current debts are a small remaining mortgage and credit cards paid monthly, with no student, family, car, or medical debt (Q63)."
+        ],
+        "evidence": "Q11, Q12, Q51, Q54, Q57, Q58, Q63, Q72, Q74"
+      },
+      "entertainment": {
+        "summary": "Enjoys sports broadcasts, old movies, reading, music, photography, and limited television news.",
+        "details": [
+          "Watches Mariners and Seahawks games with Elena and family (Q05, Q15, Q50).",
+          "Limits evening news and replaces it with music, reading, photo editing, or sports (Q50).",
+          "Reads poetry and philosophy as part of home routine (Q15, Q45)."
+        ],
+        "evidence": "Q05, Q15, Q45, Q50"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Hobbies are solitary, creative, and observational: watercolor, birdwatching, gardening, photography, reading, and cooking.",
+        "details": [
+          "Paints watercolors, especially landscapes and memory-based images (Q01, Q44).",
+          "Birdwatches regularly and tracks nearby sightings (Q15).",
+          "Works with digital photography and organizes old images (Q18, Q48).",
+          "Gardens herbs and flowers and uses gardening as part of household routine (Q17, Q31)."
+        ],
+        "evidence": "Q01, Q15, Q17, Q18, Q31, Q44, Q48"
+      },
+      "work_and_career": {
+        "summary": "Identity remains strongly tied to bilingual education, curriculum development, mentoring teachers, and cultural heritage pedagogy.",
+        "details": [
+          "Was a K-12 bilingual educator and curriculum developer focused on Spanish-English learners (Q65).",
+          "Mentored teachers, translated materials, wrote grants, and organized cultural workshops and exhibitions (Q65).",
+          "Now volunteers five to eight hours weekly in mentoring and workshop preparation (Q16, Q68).",
+          "His teaching career was often covered by a teachers' union or employee association contract (Q66)."
+        ],
+        "evidence": "Q16, Q65, Q66, Q68"
+      },
+      "arts_and_culture": {
+        "summary": "Strongly values Mexican folk art, textiles, pottery, watercolor, photography, and community exhibitions.",
+        "details": [
+          "Grew up in a family of textile and pottery artisans in Oaxaca (Q01, Q103, Q106).",
+          "Hopes to create a rotating Mexican folk art exhibit at Edmonds Community Center (Q108).",
+          "Uses art and storytelling in teaching and family memory (Q65, Q108).",
+          "The planned exhibit would include textiles, pottery, photos, student work, family stories, and English-Spanish explanations (Q108)."
+        ],
+        "evidence": "Q01, Q65, Q103, Q106, Q108"
+      },
+      "sports_and_fitness": {
+        "summary": "Follows Seattle sports and uses gentle movement, walking, yoga, and birdwatching as fitness.",
+        "details": [
+          "Follows Seattle Mariners and Seattle Seahawks (Q05, Q15, Q50).",
+          "Does weekly gentle yoga at Seattle Athletic Club (Q15).",
+          "Uses birdwatching hikes as regular low-impact exercise (Q15, Q31).",
+          "Uses walking poles on uneven ground and chooses flatter trails because of knee pain (Q33)."
+        ],
+        "evidence": "Q05, Q15, Q31, Q33, Q50"
+      },
+      "nature_and_outdoors": {
+        "summary": "Nature is central to well-being, spirituality, exercise, and daily rhythm.",
+        "details": [
+          "Walks local trails with binoculars between 8 and 10 on dry mornings (Q15).",
+          "Feels spiritually connected to birds and the water (Q47).",
+          "Prefers Edmonds partly because of waterfront access, trails, and marine air (Q08, Q10)."
+        ],
+        "evidence": "Q08, Q10, Q15, Q47"
+      },
+      "technology": {
+        "summary": "Uses technology selectively for family communication, photography, social media, and information verification.",
+        "details": [
+          "Uses WhatsApp with relatives in Mexico and phone/video calls with family (Q06, Q48).",
+          "Uses Facebook lightly and Instagram for photography, watercolor artists, museums, food, and bird photos (Q48).",
+          "Uses a digital camera, phone, laptop, and basic editing software for photography (Q18)."
+        ],
+        "evidence": "Q06, Q18, Q48"
+      },
+      "community_and_civic": {
+        "summary": "Civically engaged through voting, education advocacy, community arts, donations, and local gatherings.",
+        "details": [
+          "Votes regularly by mail and studies voter guides, especially for school board, library, city council, and levies (Q23).",
+          "Attended a local Edmonds racial justice gathering and donated modestly (Q26, Q29).",
+          "Volunteers as a teacher mentor and cultural workshop organizer (Q16, Q65, Q108).",
+          "Identifies as a moderate to progressive Democrat and prioritizes education, immigrant rights, health care, labor, environment, and civil rights (Q24, Q95, Q96).",
+          "Has become more concerned about democracy, election denial, attacks on courts and truth, and attacks on teachers and libraries (Q25).",
+          "Supports policing reforms such as accountability, mental health response, de-escalation, and honest data on stops and force (Q27).",
+          "Has limited direct police contact but is aware that accent, age, and skin color shape encounters; he once translated informally for a parent after a traffic issue (Q20, Q21)."
+        ],
+        "evidence": "Q16, Q20, Q21, Q23, Q24, Q25, Q26, Q27, Q29, Q65, Q95, Q96, Q108"
+      },
+      "music": {
+        "summary": "Music tastes are shaped by Mexican heritage, classical guitar, family, and reflective home life.",
+        "details": [
+          "Uses guitar music as a coping strategy (Q38).",
+          "Son Javier teaches music and connects politics to music and youth arts access (Q05, Q30).",
+          "Replaces evening news with music among other calming activities (Q50)."
+        ],
+        "evidence": "Q05, Q30, Q38, Q50"
+      },
+      "fashion_and_appearance": {
+        "summary": "No strong evidence of fashion preferences; appearance is not a salient topic in the interview.",
+        "details": [],
+        "evidence": "No substantive evidence"
+      },
+      "cultural_and_linguistic": {
+        "summary": "Mexican, Latino, bilingual, and Oaxacan identity are central to family life, teaching, religion, food, and civic values.",
+        "details": [
+          "Born in Oaxaca de Juarez, Mexico, came to the U.S. in 1972, and identifies as Mexican/Latino and mestizo (Q86, Q87, Q88, Q89).",
+          "Speaks Spanish with Elena and relatives and used Spanish-English bilingual teaching professionally (Q65, Q88).",
+          "Observes Dia de los Muertos with altar, photos, candles, marigolds, food, and remembrance (Q47).",
+          "At age 16 he lived with both parents, siblings, and sometimes a grandmother or cousin in Oaxaca de Juarez (Q97, Q98, Q99).",
+          "Both parents had primary schooling and worked as artisans, his mother as a textile weaver and his father as a potter (Q100, Q101, Q102, Q103, Q105, Q106)."
+        ],
+        "evidence": "Q47, Q65, Q86, Q87, Q88, Q89, Q97, Q98, Q99, Q100, Q101, Q102, Q103, Q105, Q106"
+      },
+      "life_events_and_transitions": {
+        "summary": "Major transitions include migration from Oaxaca to the U.S., choosing bilingual education, marriage, raising children, retirement, and aging into volunteer mentorship.",
+        "details": [
+          "Moved from Mexico to the U.S. in 1972, spent time in California briefly, and then settled in the Seattle area and Pacific Northwest (Q01, Q86).",
+          "Made a defining choice around 1974 or 1975 to stay and become an educator for immigrant children (Q02, Q03).",
+          "Retired from paid education work but continues mentoring and cultural arts projects (Q16, Q65, Q108).",
+          "Hopes to finish a family memoir titled 'Clay, Chalk, and Rain' about Oaxaca, teaching, migration, and students who changed him (Q108).",
+          "Values family, dignity, memory, education, beauty in ordinary things, practical kindness, and curiosity (Q109)."
+        ],
+        "evidence": "Q01, Q02, Q03, Q16, Q65, Q86, Q108, Q109"
+      },
+      "media_and_information_diet": {
+        "summary": "Relies on mainstream, official, and local sources while avoiding social media rumor and online arguments.",
+        "details": [
+          "Gets political information from NPR, local newspapers, voter guides, PBS, and some Spanish-language news online (Q24).",
+          "Uses doctor, CDC, Washington State health guidance, and pharmacists for vaccine information (Q42).",
+          "Avoids rumors and arguments on Facebook and limits evening news after 7 p.m. (Q42, Q48, Q50).",
+          "Dislikes political slogans and anger on television, preferring practical discussion (Q24).",
+          "Recognizes that watching only news while stopping reading or painting is a warning sign that he needs to reset (Q45)."
+        ],
+        "evidence": "Q24, Q42, Q45, Q48, Q50"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Carlos Mercedes is a 77-year-old married Latino man living in Edmonds, Washington, with his wife Elena; they own their home with a small remaining mortgage and no other permanent household members (Q51, Q58, Q84). He was born in Oaxaca de Juarez, Oaxaca, Mexico, in 1948 and migrated to the United States in 1972, later building a stable middle-class life through public education work (Q85, Q86, Q87). He has a bachelor's degree in education and is retired from K-12 bilingual teaching and curriculum development (Q65, Q90). His household income is retirement-based, including Social Security and pension income, and he reports financial stability with caution around medical and long-term care risks (Q74, Q83).",
+      "behavioral_economist": "Carlos displays moderate risk aversion and strong habit-based decision-making: he votes consistently, maintains health routines, keeps savings for emergencies, and delays discretionary spending when bills spike (Q23, Q31, Q60, Q62). His choices are identity-laden, especially around education, Mexican heritage, family meals, and community arts, which means he is willing to spend time and some money on symbolic and relational goods (Q17, Q48, Q108). He is present-oriented in small purchases such as books, art supplies, and family meals, but his wife Elena provides budgeting discipline and long-term financial structure (Q57, Q61, Q83). He responds to uncertainty by preserving flexibility, using savings rather than debt, and reducing travel or hobbies before necessities (Q60, Q63, Q82).",
+      "political_scientist": "Carlos is a moderately strong Democrat with progressive views on education, immigration, health care, labor, environment, civil rights, and democratic institutions (Q24, Q95, Q96). His civic behavior is consistent: he votes regularly, studies voter guides, and pays close attention to local offices and school-related measures (Q23). He expresses institutional trust in public schools, libraries, health agencies, doctors, and election processes, while remaining critical of policing systems and political attacks on teachers and democracy (Q25, Q27, Q42). His response to racial justice issues is engaged but measured, involving family discussion, a local gathering, modest donations, and reading recommendations rather than high-intensity activism (Q26, Q29, Q30).",
+      "psychologist": "Carlos presents as calm, reflective, curious, conscientious in relational duties, and somewhat flexible or relaxed around deadlines and small spending (Q16, Q57, Q78). His self-concept is organized around being a teacher, cultural transmitter, husband, father, artist, and observer of nature (Q01, Q65, Q109). He copes with sadness and aging through routines, walking, painting, cooking, prayer, music, and close conversation with Elena and trusted friends (Q43, Q44, Q45, Q50). He is socially selective rather than isolated, preferring small groups and meaningful one-on-one conversations over large gatherings (Q07). His motivational architecture centers on dignity, memory, education, family continuity, and making heritage usable for younger generations (Q108, Q109)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Carlos walks and birdwatches in the morning.",
+        "ground_truth_label": "Morning walking and birdwatching routine",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'Most mornings I wake around 6:30... On dry mornings I walk or hike with binoculars, usually between 8 and 10.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.nature_and_outdoors"
+        ]
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Carlos does gentle yoga weekly.",
+        "ground_truth_label": "Weekly gentle yoga",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'Once a week I go to gentle yoga at the Seattle Athletic Club.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.sports_and_fitness"
+        ]
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Carlos manages knee arthritis by choosing flatter trails.",
+        "ground_truth_label": "Knee arthritis accommodation",
+        "behavioral_evidence_from_interview": [
+          "Q33: 'The main thing has been knee arthritis becoming more noticeable... I choose flatter trails.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.sports_and_fitness"
+        ]
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Carlos takes medication for blood pressure.",
+        "ground_truth_label": "Blood pressure medication",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'Yes, medication for blood pressure.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Carlos follows doctor-recommended vaccines.",
+        "ground_truth_label": "Pro-vaccine behavior",
+        "behavioral_evidence_from_interview": [
+          "Q41: 'I am pro-vaccine... flu, COVID, shingles, and other recommended vaccines seriously.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Carlos uses chamomile tea, soups, herbs, rest, and prayer as complementary care while relying on doctors.",
+        "ground_truth_label": "Complementary family remedies with conventional medicine",
+        "behavioral_evidence_from_interview": [
+          "Q37: 'We use Western medicine, absolutely... manzanilla tea, and rest have their place.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Carlos has no diagnosis of depression or anxiety.",
+        "ground_truth_label": "No diagnosed depression or anxiety",
+        "behavioral_evidence_from_interview": [
+          "Q45: 'I have not been diagnosed with depression or anxiety.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Carlos manages worry and sadness through routines, Elena, outdoor walks, and making things with his hands.",
+        "ground_truth_label": "Routine-based emotional coping",
+        "behavioral_evidence_from_interview": [
+          "Q45: 'My way is to keep routines, talk with Elena, walk outside, and make something with my hands.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Carlos uses Medicare, supplemental coverage, retirement income, and savings for health care costs.",
+        "ground_truth_label": "Medicare and supplemental coverage",
+        "behavioral_evidence_from_interview": [
+          "Q40: 'Medicare, supplemental insurance, retirement income, and some savings cover most needs.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Long-term care costs worry Carlos more than ordinary appointments.",
+        "ground_truth_label": "Long-term care financial concern",
+        "behavioral_evidence_from_interview": [
+          "Q40: 'Long-term care worries me more than ordinary appointments.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Carlos cooks mole, tamales, pozole, and family meals.",
+        "ground_truth_label": "Traditional Mexican cooking",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'cook mole and pozole'",
+          "Q05: 'simple masa dishes'",
+          "Q56: 'ingredients for mole'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Carlos uses cilantro, oregano, and chilies from his garden in cooking.",
+        "ground_truth_label": "Garden herbs in cooking",
+        "behavioral_evidence_from_interview": [
+          "Q17: 'herbs like cilantro, oregano, and chilies'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Carlos photographs plated food and posts occasional food photos online.",
+        "ground_truth_label": "Food photography and posting",
+        "behavioral_evidence_from_interview": [
+          "Q48: 'sometimes to post food or bird photos'",
+          "Q48: 'A photo of pozole and a short note about oregano from the garden.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Carlos prefers home cooking and cuts restaurant meals when expenses rise.",
+        "ground_truth_label": "Home cooking under budget pressure",
+        "behavioral_evidence_from_interview": [
+          "Q60: 'fewer restaurant meals'",
+          "Q81: 'cook at home'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Cooking is mostly Carlos's household responsibility.",
+        "ground_truth_label": "Primary household cook",
+        "behavioral_evidence_from_interview": [
+          "Q17: 'Cooking is mostly mine, especially weekend meals and family gatherings.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Carlos dreams of visiting Rioja with Elena if health and budget allow.",
+        "ground_truth_label": "Rioja travel goal",
+        "behavioral_evidence_from_interview": [
+          "Q108: 'I would like Elena and me to visit Rioja if our bodies and budget allow.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Carlos may return to Kyoto with Elena if they can do it comfortably.",
+        "ground_truth_label": "Possible Kyoto return",
+        "behavioral_evidence_from_interview": [
+          "Q62: 'maybe returning to Kyoto with Elena if we can do it comfortably.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Carlos postpones travel when extra expenses arise.",
+        "ground_truth_label": "Travel postponed for expenses",
+        "behavioral_evidence_from_interview": [
+          "Q60: 'postponing a short trip.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Carlos has been married to Elena for more than forty-five years.",
+        "ground_truth_label": "Long-term marriage to Elena",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'more than forty-five years'",
+          "Q84: 'I am currently married and living with my wife, Elena.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Carlos and Elena live together in Edmonds.",
+        "ground_truth_label": "Lives with wife in Edmonds",
+        "behavioral_evidence_from_interview": [
+          "Q51: 'I live with my wife, Elena, in Edmonds.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.home_and_lifestyle",
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Carlos has an adult daughter, Marisol, who lives in Shoreline and works in health administration.",
+        "ground_truth_label": "Daughter Marisol in Shoreline health administration",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'Our daughter Marisol lives in Shoreline and works in health administration.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Carlos has an adult son, Javier, who lives in Portland and teaches music part time while doing community arts work.",
+        "ground_truth_label": "Son Javier in Portland music and arts",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'Our son Javier lives in Portland and teaches music part time while doing community arts work.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.music"
+        ]
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Carlos's grandchildren visit occasionally but do not live with him.",
+        "ground_truth_label": "Occasional grandchild visits",
+        "behavioral_evidence_from_interview": [
+          "Q13: 'Our grandchildren may stay a night'",
+          "Q52: 'Grandchildren visit... only visits.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Carlos meets retired science teacher Bill for coffee on Thursdays.",
+        "ground_truth_label": "Weekly coffee with Bill",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'A retired science teacher named Bill. We meet for coffee on Thursdays.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Carlos prefers one-on-one or small-group socializing.",
+        "ground_truth_label": "Small-group social preference",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'Mostly one-on-one or in small groups. Big parties tire me out after an hour.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Carlos speaks with his younger sister Teresa in Oaxaca every week or two.",
+        "ground_truth_label": "Regular contact with sister Teresa",
+        "behavioral_evidence_from_interview": [
+          "Q06: 'My younger sister Teresa in Oaxaca. We speak every week or two.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Carlos owns his home with a small remaining mortgage.",
+        "ground_truth_label": "Owned home with small mortgage",
+        "behavioral_evidence_from_interview": [
+          "Q58: 'We own our home with a small remaining mortgage, nearly paid off.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Carlos plans to stay in his home as long as health allows.",
+        "ground_truth_label": "Aging in place preference",
+        "behavioral_evidence_from_interview": [
+          "Q58: 'As long as health allows. We may downsize later.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Only Carlos and Elena are permanent members of the household.",
+        "ground_truth_label": "Two-person household",
+        "behavioral_evidence_from_interview": [
+          "Q12: 'Everyone is permanent. It is only Elena and me.'",
+          "Q51: 'No one else lives with us permanently.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Carlos has no lodgers, boarders, employees, or live-in caregivers.",
+        "ground_truth_label": "No nonfamily household residents",
+        "behavioral_evidence_from_interview": [
+          "Q54: 'No lodgers, boarders, or employees.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Carlos keeps an art room with paints, photos, lesson-plan boxes, and folk art pieces.",
+        "ground_truth_label": "Home art room",
+        "behavioral_evidence_from_interview": [
+          "Q11: 'a small room with paints, photographs, lesson-plan boxes... and folk art pieces.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Carlos's household usually spends about $4,500 to $4,800 per month.",
+        "ground_truth_label": "Usual monthly spending 4500-4800",
+        "behavioral_evidence_from_interview": [
+          "Q57: 'A more normal month is closer to $4,500 to $4,800.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Carlos's household income is around $6,200 per month from Social Security and retirement income.",
+        "ground_truth_label": "Monthly retirement income around 6200",
+        "behavioral_evidence_from_interview": [
+          "Q74: 'Around $6,200... combining Social Security and retirement income.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Carlos has no student loans, family loans, car loan, or medical debt.",
+        "ground_truth_label": "No major nonmortgage debt",
+        "behavioral_evidence_from_interview": [
+          "Q63: 'No student loans, no family loans, and no car loan right now.'",
+          "Q63: 'No medical debt.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Carlos watches Mariners and Seahawks games with Elena and family.",
+        "ground_truth_label": "Seattle sports viewing",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'gather for... Seahawks games'",
+          "Q15: 'watching the Mariners or Seahawks depending on the season.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.sports_and_fitness"
+        ]
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Carlos limits evening news and replaces it with music, reading, photo editing, or sports.",
+        "ground_truth_label": "Evening news limitation",
+        "behavioral_evidence_from_interview": [
+          "Q50: 'I try to stop by 7 in the evening.'",
+          "Q50: 'Music, reading, photo editing, or a game on television.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.media_and_information_diet"
+        ]
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Carlos reads poetry and philosophy as part of his home routine.",
+        "ground_truth_label": "Poetry and philosophy reading",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'reading poetry or philosophy'",
+          "Q45: 'When I stop reading or painting...'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Carlos paints watercolors, including landscapes and memory-based images.",
+        "ground_truth_label": "Watercolor painting hobby",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'paint watercolors'",
+          "Q44: 'I made a small watercolor of the school garden.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.arts_and_culture"
+        ]
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Carlos regularly tracks nearby bird sightings.",
+        "ground_truth_label": "Bird sighting tracking",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'check the weather and birds reported nearby.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Carlos works with digital photography and organizes old images.",
+        "ground_truth_label": "Digital photography hobby",
+        "behavioral_evidence_from_interview": [
+          "Q18: 'spent more time with digital photography, organizing old images and learning simple editing.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.technology"
+        ]
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Carlos gardens herbs and flowers.",
+        "ground_truth_label": "Herb and flower gardening",
+        "behavioral_evidence_from_interview": [
+          "Q17: 'I help manage the garden, especially herbs like cilantro, oregano, and chilies.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Carlos was a K-12 bilingual educator and curriculum developer focused on Spanish-English learners.",
+        "ground_truth_label": "Retired K-12 bilingual educator",
+        "behavioral_evidence_from_interview": [
+          "Q65: 'I was a K-12 educator, mainly a bilingual teacher and curriculum developer.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Carlos mentored teachers, translated materials, wrote grants, and organized cultural workshops and exhibitions.",
+        "ground_truth_label": "Education leadership duties",
+        "behavioral_evidence_from_interview": [
+          "Q65: 'mentored teachers, translated materials... organized cultural workshops and exhibitions'",
+          "Q65: 'I also wrote grants.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Carlos volunteers five to eight hours weekly in mentoring and workshop preparation.",
+        "ground_truth_label": "Volunteer mentoring hours",
+        "behavioral_evidence_from_interview": [
+          "Q16: 'maybe five to eight hours in a normal week'",
+          "Q68: 'Usually five to eight hours.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.community_and_civic"
+        ]
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Much of Carlos's teaching career was covered by a teachers' union or employee association contract.",
+        "ground_truth_label": "Union-covered teaching career",
+        "behavioral_evidence_from_interview": [
+          "Q66: 'much of my teaching career was covered by a teachers' union or employee association contract.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Carlos grew up in a family of textile and pottery artisans in Oaxaca.",
+        "ground_truth_label": "Oaxacan artisan family background",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'My father worked with pottery and my mother wove textiles.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.cultural_and_linguistic"
+        ]
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Carlos hopes to create a rotating Mexican folk art exhibit at Edmonds Community Center.",
+        "ground_truth_label": "Mexican folk art exhibit goal",
+        "behavioral_evidence_from_interview": [
+          "Q108: 'help create a rotating Mexican folk art exhibit at the Edmonds Community Center.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.community_and_civic"
+        ]
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Carlos uses art and storytelling in teaching and family memory.",
+        "ground_truth_label": "Art-storytelling pedagogy",
+        "behavioral_evidence_from_interview": [
+          "Q65: 'A folklore unit where students interviewed elders, made drawings, and wrote bilingual stories.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Carlos's planned community exhibit would include textiles, pottery, photos, student work, family stories, and bilingual explanations.",
+        "ground_truth_label": "Bilingual folk art exhibit contents",
+        "behavioral_evidence_from_interview": [
+          "Q108: 'Textiles, pottery, photos, student work, family stories, and explanations in English and Spanish.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Carlos follows the Seattle Mariners and Seattle Seahawks.",
+        "ground_truth_label": "Seattle Mariners and Seahawks fan",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'watching the Mariners or Seahawks depending on the season.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.entertainment"
+        ]
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Carlos uses birdwatching hikes as regular low-impact exercise.",
+        "ground_truth_label": "Birdwatching as exercise",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'I walk, birdwatch, do gentle yoga'",
+          "Q15: 'walk or hike with binoculars'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.health_and_wellness"
+        ]
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Carlos walks local trails with binoculars between 8 and 10 on dry mornings.",
+        "ground_truth_label": "Dry-morning trail walks",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'On dry mornings I walk or hike with binoculars, usually between 8 and 10.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Carlos feels spiritually connected to birds and water.",
+        "ground_truth_label": "Nature spirituality",
+        "behavioral_evidence_from_interview": [
+          "Q47: 'I also feel spiritual in nature, watching birds or standing near the water.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Carlos values Edmonds for waterfront access, trails, marine air, beauty, and quiet.",
+        "ground_truth_label": "Edmonds nature access preference",
+        "behavioral_evidence_from_interview": [
+          "Q08: 'near enough to the water that I can feel the marine air'",
+          "Q10: 'beauty, quiet, and access to nature'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Carlos uses WhatsApp with relatives in Mexico.",
+        "ground_truth_label": "WhatsApp family communication",
+        "behavioral_evidence_from_interview": [
+          "Q06: 'mostly keep in touch by phone and WhatsApp.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Carlos uses Facebook lightly for family, former colleagues, community events, and art groups.",
+        "ground_truth_label": "Light Facebook use",
+        "behavioral_evidence_from_interview": [
+          "Q48: 'I use Facebook lightly for family, former colleagues, community events, and some art groups.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Carlos uses Instagram mainly for photography, watercolor artists, museums, and occasional food or bird posts.",
+        "ground_truth_label": "Instagram visual arts use",
+        "behavioral_evidence_from_interview": [
+          "Q48: 'I use Instagram mostly to look at photography, watercolor artists, museums... post food or bird photos.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Carlos uses a digital camera, phone, laptop, and basic editing software for photography.",
+        "ground_truth_label": "Digital photography tools",
+        "behavioral_evidence_from_interview": [
+          "Q18: 'A digital camera, my phone, and basic editing software on a laptop.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Carlos votes regularly by mail and studies voter guides.",
+        "ground_truth_label": "Regular mail voter",
+        "behavioral_evidence_from_interview": [
+          "Q23: 'I vote regularly... In Washington it is easy with mail ballots... with the voter guide.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist",
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Carlos takes school board, library, city council, and levy votes seriously.",
+        "ground_truth_label": "Local education-focused voting",
+        "behavioral_evidence_from_interview": [
+          "Q23: 'I take school board, library, city council, and levy votes seriously.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Carlos attended one local Edmonds racial justice gathering and donated modestly.",
+        "ground_truth_label": "Measured racial justice participation",
+        "behavioral_evidence_from_interview": [
+          "Q29: 'attended one local gathering, donated modestly'",
+          "Q29: 'In Edmonds, a small peaceful event downtown.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Carlos identifies as a moderate to progressive Democrat.",
+        "ground_truth_label": "Moderate-progressive Democrat",
+        "behavioral_evidence_from_interview": [
+          "Q24: 'I would describe myself as a moderate to progressive Democrat.'",
+          "Q95: 'I usually think of myself as a Democrat, moderately strong.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Carlos prioritizes education, immigrant rights, health care, labor, environment, and civil rights in politics.",
+        "ground_truth_label": "Progressive policy priorities",
+        "behavioral_evidence_from_interview": [
+          "Q24: 'public schools, libraries, health care, immigrant rights, environmental protection, and fair wages'",
+          "Q95: 'schools, immigrants, health care, labor, environment, and civil rights.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Carlos has become more concerned about democracy, election denial, attacks on courts and truth, and attacks on teachers and libraries.",
+        "ground_truth_label": "Democratic institution concern",
+        "behavioral_evidence_from_interview": [
+          "Q25: 'more concerned about democracy itself'",
+          "Q25: 'January 6 attack, election denial... attacks on teachers and libraries.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Carlos supports police accountability, mental health response, de-escalation, and honest data on stops and force.",
+        "ground_truth_label": "Police reform preferences",
+        "behavioral_evidence_from_interview": [
+          "Q27: 'Better accountability, mental health response, de-escalation, and honest data about stops and force.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Carlos has limited direct police contact but feels accent, age, and skin color can shape encounters.",
+        "ground_truth_label": "Cautious law enforcement stance",
+        "behavioral_evidence_from_interview": [
+          "Q20: 'limited direct contact'",
+          "Q20: 'encounters can feel different depending on accent, age, and skin color.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Carlos once translated informally for a parent after a minor traffic issue near school.",
+        "ground_truth_label": "Informal language-access support",
+        "behavioral_evidence_from_interview": [
+          "Q21: 'translating informally for a parent after a minor traffic issue near school.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Carlos uses guitar music as a coping strategy.",
+        "ground_truth_label": "Guitar music coping",
+        "behavioral_evidence_from_interview": [
+          "Q38: 'When I am troubled I walk, cook, paint, or listen to guitar music.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Carlos's son Javier teaches music and connects politics to music and youth arts access.",
+        "ground_truth_label": "Family music and arts connection",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'Javier... teaches music part time'",
+          "Q30: 'Javier connects it to music, arts access, and youth programs.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Carlos was born in Oaxaca de Juarez, Oaxaca, Mexico.",
+        "ground_truth_label": "Born in Oaxaca de Juarez",
+        "behavioral_evidence_from_interview": [
+          "Q87: 'I was born in Oaxaca de Juarez, Oaxaca, Mexico.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Carlos first came to live in the United States in 1972.",
+        "ground_truth_label": "1972 U.S. migration",
+        "behavioral_evidence_from_interview": [
+          "Q86: 'first came to live in the U.S. in 1972.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.life_events_and_transitions",
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Carlos identifies as Mexican, Latino, and mestizo.",
+        "ground_truth_label": "Mexican Latino mestizo identity",
+        "behavioral_evidence_from_interview": [
+          "Q88: 'I am Mexican and Latino.'",
+          "Q89: 'I identify as Latino and mestizo.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Carlos speaks Spanish with Elena and relatives and used Spanish-English bilingual teaching professionally.",
+        "ground_truth_label": "Spanish-English bilingual life",
+        "behavioral_evidence_from_interview": [
+          "Q88: 'Spanish part of daily life... especially with Elena and relatives.'",
+          "Q65: 'children learning in Spanish and English.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Carlos observes Dia de los Muertos with altar, photos, candles, marigolds, food, and remembrance.",
+        "ground_truth_label": "Dia de los Muertos practice",
+        "behavioral_evidence_from_interview": [
+          "Q47: 'The Dia de los Muertos altar, with photos, candles, marigolds, and food for remembrance.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "At age 16 Carlos lived in Oaxaca de Juarez with both parents, siblings, and sometimes a grandmother or cousin.",
+        "ground_truth_label": "Adolescent Oaxaca household",
+        "behavioral_evidence_from_interview": [
+          "Q97: 'When I was 16, I lived in Oaxaca de Juarez'",
+          "Q98: 'I lived with both my mother and father.'",
+          "Q99: 'siblings, and at times a grandmother or cousin'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Carlos's mother had primary schooling and worked as a textile weaver.",
+        "ground_truth_label": "Mother primary-schooled textile weaver",
+        "behavioral_evidence_from_interview": [
+          "Q101: 'primary schooling'",
+          "Q102: 'worked for pay as an artisan weaver.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Carlos's father had primary schooling and worked as a potter and artisan.",
+        "ground_truth_label": "Father primary-schooled potter",
+        "behavioral_evidence_from_interview": [
+          "Q100: 'My father completed only primary school.'",
+          "Q105: 'worked for pay as a potter and artisan.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Carlos spent time in California briefly before settling in the Seattle area.",
+        "ground_truth_label": "Brief California period before Seattle",
+        "behavioral_evidence_from_interview": [
+          "Q86: 'I spent time in California briefly, then settled in the Seattle area.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Around 1974 or 1975 Carlos made a defining choice to stay in the United States and become an educator for immigrant children.",
+        "ground_truth_label": "1974-1975 decision to stay and teach",
+        "behavioral_evidence_from_interview": [
+          "Q02: 'Around 1974 or 1975.'",
+          "Q03: 'I made a conscious promise to myself that I would stay and teach.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Carlos is retired from paid education work but continues mentoring and cultural arts projects.",
+        "ground_truth_label": "Retired but active mentor",
+        "behavioral_evidence_from_interview": [
+          "Q16: 'I am retired and not in the workforce now... Now I volunteer informally.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.work_and_career",
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Carlos hopes to finish a family memoir titled 'Clay, Chalk, and Rain.'",
+        "ground_truth_label": "Memoir goal Clay Chalk and Rain",
+        "behavioral_evidence_from_interview": [
+          "Q108: \"Maybe 'Clay, Chalk, and Rain.'\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Carlos values family, dignity, memory, education, beauty in ordinary things, practical kindness, and curiosity.",
+        "ground_truth_label": "Core values",
+        "behavioral_evidence_from_interview": [
+          "Q109: 'I value family, dignity, memory, education, and beauty in ordinary things.'",
+          "Q109: 'I value kindness that is practical... staying curious.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Carlos gets political information from NPR, local newspapers, voter guides, PBS, and some Spanish-language news online.",
+        "ground_truth_label": "Mainstream political information sources",
+        "behavioral_evidence_from_interview": [
+          "Q24: 'NPR, local newspapers, voter guides, PBS, and sometimes Spanish-language news online.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Carlos uses his doctor, CDC, Washington State health guidance, and pharmacists for vaccine information.",
+        "ground_truth_label": "Official vaccine information sources",
+        "behavioral_evidence_from_interview": [
+          "Q42: 'My primary doctor, the CDC website, Washington State health guidance, and pharmacists.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Carlos avoids Facebook rumors and online arguments.",
+        "ground_truth_label": "Avoids online rumor and argument",
+        "behavioral_evidence_from_interview": [
+          "Q42: 'I avoid rumors on Facebook or forwarded messages unless I can verify them.'",
+          "Q48: 'I do not argue online if I can avoid it.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Carlos dislikes political slogans and anger on television.",
+        "ground_truth_label": "Anti-slogan, low-conflict media preference",
+        "behavioral_evidence_from_interview": [
+          "Q24: 'I am not a person who wants slogans for everything, and I do get tired of anger on television.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Carlos recognizes that only watching news while stopping reading or painting is a warning sign that he needs to reset.",
+        "ground_truth_label": "News overconsumption warning sign",
+        "behavioral_evidence_from_interview": [
+          "Q45: 'When I stop reading or painting and only watch news, I know I need to reset.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Carlos is 77 years old.",
+        "ground_truth_label": "Age 77",
+        "behavioral_evidence_from_interview": [
+          "Q85: 'That makes you 77 today, correct?' 'Yes, 77.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "reprojected",
+        "source_subcategory": "preferences.education_and_work",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Carlos completed a bachelor's degree in education.",
+        "ground_truth_label": "Bachelor's degree in education",
+        "behavioral_evidence_from_interview": [
+          "Q90: 'I completed a bachelor's degree.'",
+          "Q90: 'Field of study? Education.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Elena provides more budgeting discipline and long-term financial structure than Carlos.",
+        "ground_truth_label": "Spouse-led budgeting discipline",
+        "behavioral_evidence_from_interview": [
+          "Q57: 'Elena tracks it closely. I am more relaxed and need reminders.'",
+          "Q61: 'Elena is better at preserving it than I am.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Carlos can cover a $400 emergency from savings or checking without borrowing.",
+        "ground_truth_label": "Can cover $400 emergency",
+        "behavioral_evidence_from_interview": [
+          "Q82: 'We could cover a $400 emergency from savings or checking.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Carlos trusts public schools, libraries, health agencies, doctors, and election processes while remaining critical of policing systems.",
+        "ground_truth_label": "Institutional trust with policing critique",
+        "behavioral_evidence_from_interview": [
+          "Q24: 'public institutions matter when they treat people with respect.'",
+          "Q27: 'systems can protect themselves instead of the public.'",
+          "Q42: 'My primary doctor, the CDC website, Washington State health guidance...'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-093",
+        "source": "reprojected",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Carlos experienced grief after a retired teacher friend died and returned to himself through watercolor and conversation.",
+        "ground_truth_label": "Grief processed through art and conversation",
+        "behavioral_evidence_from_interview": [
+          "Q44: 'A retired teacher friend died last fall... I made a small watercolor... and that helped me return to myself.'",
+          "Q44: 'Elena, Bill, and another retired teacher. We shared stories over coffee.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}

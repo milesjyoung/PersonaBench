@@ -1,0 +1,2237 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "7b6f7aa59bbc4e3e86e20bf7b8c8ef06",
+      "name": "Mildred Wilson",
+      "verification_date": "2026-05-19"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age 47 and female sex are confirmed by the interview date of birth and gendered self-presentation.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed age, sex",
+              "source_b_ref": "Q85",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Seed location Ypsilanti, MI 48197 is confirmed by birth, current residence, and neighborhood descriptions in Ypsilanti.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed city, state, zipcode",
+              "source_b_ref": "Q08, Q51, Q87",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Seed never-married status is confirmed and enriched: she is not cohabiting, has no children, and is not seriously dating.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed marital_status",
+              "source_b_ref": "Q05, Q84",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward no children, no cohabiting partner, and not seriously dating into social_and_relationships."
+            },
+            {
+              "id": 4,
+              "text": "Seed graduate education in education and occupation as security/gambling surveillance officer are confirmed.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed education_level, bachelors_field, occupation",
+              "source_b_ref": "Q16, Q65, Q90",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 5,
+              "text": "Seed cultural background is confirmed and enriched with U.S.-born status, non-Hispanic identity, Baptist practice, and family Great Migration history.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q01, Q86-Q89, Q94",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward U.S.-born, non-Hispanic, Black/African-American, Baptist identity into cultural_and_linguistic."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures her age, race, Ypsilanti residence, graduate education, occupation, single status, and rented solo household.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q51-Q58, Q84-Q90",
+              "source_b_ref": "top-level fields, summaries.demographer, preferences.home_and_lifestyle",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Profile states no temporary household members, but the interview notes a niece may rarely stay one night a few times a year.",
+              "verdict": "inconsistent",
+              "gap": true,
+              "source_a_ref": "Q13",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Update home_and_lifestyle detail to say she lives alone with no usual or temporary household members, while a niece may rarely stay one planned night a few times a year."
+            },
+            {
+              "id": 3,
+              "text": "Profile covers mother, siblings, nieces, nephews, and no children, matching interview family structure.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q05-Q06",
+              "source_b_ref": "preferences.social_and_relationships",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 4,
+              "text": "Profile omits father deceased and father's continuing influence on work ethic.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q06",
+              "source_b_ref": "preferences.life_events_and_transitions",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add father's death and influence on steadiness and work ethic to life_events_and_transitions."
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 1,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Top-level marital status, social preferences, and demographer summary all agree she is never married, not cohabiting, and has no children.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "top-level marital_status",
+              "field_b": "preferences.social_and_relationships, summaries.demographer",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Home-and-lifestyle and demographer summary both describe a rented solo household where she pays expenses herself.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.home_and_lifestyle",
+              "field_b": "summaries.demographer",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Cultural_and_linguistic, arts_and_culture, and demographer summary consistently describe African-American Midwest/Great Migration and Black church roots.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.cultural_and_linguistic",
+              "field_b": "preferences.arts_and_culture, summaries.demographer",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview gives date of birth, June 14, 1978, which is absent from the profile.",
+              "gap": true,
+              "interview_ref": "Q85",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add date of birth June 14, 1978 to life_events_and_transitions."
+            },
+            {
+              "id": 2,
+              "text": "Interview states she has no pets, which is absent from the profile.",
+              "gap": true,
+              "interview_ref": "Q14",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add no pets to home_and_lifestyle."
+            },
+            {
+              "id": 3,
+              "text": "Interview details childhood household: both parents, younger brother, younger sister, grandparents nearby.",
+              "gap": true,
+              "interview_ref": "Q97-Q99",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add childhood household structure to life_events_and_transitions."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes meticulous planning, and the interview confirms planner use, lists, budgeting, and planned career decisions.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed persona, travel_persona",
+              "source_b_ref": "Q03, Q15, Q57",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Seed mentions balancing travel with family budget constraints, and interview confirms travel funds, emergency savings priority, and early planning.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed travel_persona",
+              "source_b_ref": "Q61, Q62",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Seed career ambition toward shift manager and consultancy is confirmed and enriched with CPP exam funding, leadership development, and onboarding curriculum.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed career_goals_and_ambitions",
+              "source_b_ref": "Q62, Q65, Q108",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward CPP costs, leadership development, and onboarding curriculum into work_and_career."
+            },
+            {
+              "id": 4,
+              "text": "Seed suggests disciplined efficiency and forgetting downtime; interview confirms she blocked off a no-errands evening after irritability and household forgetfulness.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona",
+              "source_b_ref": "Q18, Q50",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward scheduled blank time and overcommitment warning signs into health_and_wellness."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures automatic savings, budgeting, delayed spending, and emergency savings.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q57-Q64, Q82",
+              "source_b_ref": "summaries.behavioral_economist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Profile omits income, monthly spending, debt, and ability to cover a $400 emergency, all important economic facts.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q57, Q63, Q72-Q74, Q82",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add financial management details to home_and_lifestyle."
+            },
+            {
+              "id": 3,
+              "text": "Profile captures health behavior tradeoffs but omits shift work disrupting sleep and comfort food temptation after surveillance shifts.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q32",
+              "source_b_ref": "preferences.health_and_wellness, preferences.food_and_dining",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add shift-work sleep disruption to health_and_wellness and comfort-food temptation to food_and_dining."
+            },
+            {
+              "id": 4,
+              "text": "Profile correctly depicts her as career-oriented with long time horizons and practical advancement goals.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q62, Q65, Q108",
+              "source_b_ref": "preferences.work_and_career, summaries.behavioral_economist",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Travel, home/lifestyle, and behavioral summary consistently show budget-conscious planning rather than impulsive spending.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.travel",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Health, food, and sports subcategories consistently show preventive behavior with bounded indulgence, not contradictory health patterns.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness",
+              "field_b": "preferences.food_and_dining, preferences.sports_and_fitness",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Work_and_career and behavioral summary align on CPP, shift manager goals, and consulting aspirations.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile lacks the specific monthly income and spending figures.",
+              "gap": true,
+              "interview_ref": "Q57, Q72-Q74",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add about $4,600 gross, $3,400 take-home, and usual spending $2,800-$2,900 with last month about $3,100."
+            },
+            {
+              "id": 2,
+              "text": "Profile lacks debt details: small student loan and credit card paid down monthly.",
+              "gap": true,
+              "interview_ref": "Q63",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add current debt details to home_and_lifestyle."
+            },
+            {
+              "id": 3,
+              "text": "Profile lacks tax and benefit details: filed federal and Michigan taxes with software and has employer health insurance, PTO, sick time, and retirement contributions.",
+              "gap": true,
+              "interview_ref": "Q75-Q76",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add tax filing and job benefits to work_and_career."
+            },
+            {
+              "id": 4,
+              "text": "Profile lacks no SNAP, housing voucher, SSI, or similar benefits.",
+              "gap": true,
+              "interview_ref": "Q80",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add no public assistance benefits to home_and_lifestyle."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed Black Midwest community roots are confirmed by interview emphasis on Black churches, Great Migration family history, and local Black cultural events.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q01, Q08, Q28",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Seed community support and church involvement are confirmed and enriched with regular voting, tutoring, and church civic networks.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed cultural_background, hobbies_and_interests",
+              "source_b_ref": "Q19, Q23, Q47",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward voting, tutoring, and church civic participation into community_and_civic."
+            },
+            {
+              "id": 3,
+              "text": "Seed security role is consistent with interview's nuanced view of public safety and police accountability.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed occupation, skills_and_expertise",
+              "source_b_ref": "Q20, Q26, Q27",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward public safety plus accountability stance into community_and_civic."
+            },
+            {
+              "id": 4,
+              "text": "Seed does not state party identity, while interview provides Democrat, center-left, regular voter details without contradiction.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed data",
+              "source_b_ref": "Q23-Q25, Q95-Q96",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward Democratic identification and voting behavior into community_and_civic."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures regular voting, local election attention, and pragmatic Democratic identification.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23-Q25, Q95-Q96",
+              "source_b_ref": "preferences.community_and_civic, summaries.political_scientist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Profile captures BLM and police reform views but omits her direct family concern about traffic stops involving young Black men.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q21, Q26-Q27",
+              "source_b_ref": "summaries.political_scientist, preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add family traffic-stop concerns and support for body cameras/de-escalation to community_and_civic."
+            },
+            {
+              "id": 3,
+              "text": "Profile omits her media sources for politics only partly; media_and_information_diet includes the key sources.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q24",
+              "source_b_ref": "preferences.media_and_information_diet",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 4,
+              "text": "Profile omits her view that not every problem should be handed to police and that mental health, housing, youth support, and jobs connect to safety.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q27",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add broader community-safety view to community_and_civic."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Community_and_civic and political summary consistently describe practical Democratic views and local civic engagement.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Technology/media and political summary align on official sources, local news, and cautious use of social media.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.media_and_information_diet",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Work_and_career public safety role does not conflict with support for police reform; profile frames both as safety with oversight.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview gives specific policy priorities not fully listed in preferences: reproductive rights, unions, voting rights, public schools, health care, labor, and worker protections.",
+              "gap": true,
+              "interview_ref": "Q24-Q25",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add specific policy priorities to community_and_civic."
+            },
+            {
+              "id": 2,
+              "text": "Interview states she attended one local gathering but mostly responds through voting, mentoring, and conversations.",
+              "gap": true,
+              "interview_ref": "Q29",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add activism style to community_and_civic."
+            },
+            {
+              "id": 3,
+              "text": "Interview includes worries about backlash against teaching honest history.",
+              "gap": true,
+              "interview_ref": "Q28",
+              "should_be_in": "preferences.arts_and_culture",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add concern about honest Black history teaching to arts_and_culture."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed portrays routine-loving discipline, and interview repeatedly confirms conscientious planning and list-making.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed persona",
+              "source_b_ref": "Q01, Q15, Q57",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Seed notes quiet yearning for simple pleasures, and interview confirms peace in gardening, quilting, music, porch sitting, and ordinary beauty.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona",
+              "source_b_ref": "Q18, Q43, Q109",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward ordinary pleasures and emotional grounding into health_and_wellness and music."
+            },
+            {
+              "id": 3,
+              "text": "Seed church, music, and quilting identity are confirmed by interview as emotional regulation and cultural continuity.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed arts_persona, hobbies_and_interests",
+              "source_b_ref": "Q43, Q47, Q50",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 4,
+              "text": "Seed mentoring identity is confirmed and psychologically enriched by her self-concept as someone combining education and security skills.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed professional_persona",
+              "source_b_ref": "Q02, Q04",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward combined educator/security self-concept into work_and_career."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately represents her coping through prayer, music, movement, gardening, quilting, and trusted conversations rather than substances.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q38-Q39, Q43-Q50",
+              "source_b_ref": "summaries.psychologist, preferences.health_and_wellness",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Profile omits that she is open to counseling if stress became unmanageable.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q45",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add openness to counseling if needed to health_and_wellness."
+            },
+            {
+              "id": 3,
+              "text": "Profile captures overfunctioning but does not include her specific warning signs: poor sleep, impatience, and skipping meals.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q45",
+              "source_b_ref": "summaries.psychologist, preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add warning signs to health_and_wellness."
+            },
+            {
+              "id": 4,
+              "text": "Profile accurately captures her private help-seeking style and limited public disclosure online.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q49",
+              "source_b_ref": "preferences.media_and_information_diet, summaries.psychologist",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Health, music, arts, and psychologist summary consistently describe music, prayer, movement, quilting, and gardening as coping supports.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness",
+              "field_b": "preferences.music, preferences.arts_and_culture, summaries.psychologist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Social_and_relationships and psychologist summary consistently show she relies on trusted one-on-one relationships rather than broad public disclosure.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Work_and_career ambition and health/wellness need for downtime are psychologically compatible, not contradictory.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career",
+              "field_b": "preferences.health_and_wellness",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview includes a recent emotional episode where she cried in her car and delegated tasks after calling Denise.",
+              "gap": true,
+              "interview_ref": "Q44",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add delegation after stress episode as a coping lesson to health_and_wellness."
+            },
+            {
+              "id": 2,
+              "text": "Interview states her values: faith, family, integrity, community, steadiness, responsibility, and showing up consistently.",
+              "gap": true,
+              "interview_ref": "Q109",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add core relational values to social_and_relationships."
+            },
+            {
+              "id": 3,
+              "text": "Interview says she limits late-night news scrolling to reduce stress.",
+              "gap": true,
+              "interview_ref": "Q50",
+              "should_be_in": "preferences.media_and_information_diet",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add limit on late-night news scrolling to media_and_information_diet."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No unresolved FLAG_FOR_REVIEW findings were found. One minor profile inconsistency and multiple meaningful omissions were corrected or carried forward.",
+    "final_status": "Corrected profile is ready for downstream use with summaries preserved verbatim and hidden_facts generated."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "7b6f7aa59bbc4e3e86e20bf7b8c8ef06",
+    "name": "Mildred Wilson",
+    "age": 47,
+    "gender": "Female",
+    "marital_status": "Never married; not cohabiting with a romantic partner; not seriously dating",
+    "location": "Ypsilanti, MI 48197",
+    "education": "Graduate degree in education",
+    "occupation": "Casino surveillance officer / security professional",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Prefers practical preventive health, regular movement, vaccination, home cooking, and mainstream medical advice.",
+        "details": [
+          "Uses jogging, walking, softball, gardening, stretching, and low-impact cardio to stay active (Q31, Q32).",
+          "Supports vaccination and trusts doctors, county health department, CDC, and pharmacists (Q41, Q42).",
+          "Uses home remedies like ginger tea and Epsom salt soaks alongside regular medicine, not instead of it (Q37).",
+          "Manages knee stiffness, eye strain, and family blood-pressure risk with movement, lower sodium, sleep protection, exams, and breaks (Q31, Q33, Q34).",
+          "Does not smoke, drinks wine only occasionally, does not use marijuana or other substances, and uses OTC pain relievers cautiously when needed (Q38, Q39).",
+          "Copes with stress through routines, prayer, movement, music, gardening, quilting, trusted conversations, scheduled blank time, and delegating when overwhelmed (Q38, Q43-Q45, Q50).",
+          "Recognizes stress warning signs such as poor sleep, impatience, skipping meals, and irritability, and is open to counseling if stress became unmanageable (Q18, Q45)."
+        ],
+        "evidence": "Q18, Q31-Q45, Q50"
+      },
+      "food_and_dining": {
+        "summary": "Enjoys home cooking, garden produce, and occasional Southern comfort food.",
+        "details": [
+          "Cooks rosemary-garlic roasted chicken, vegetables, soups, and tomato bruschetta (Q17, Q32).",
+          "Enjoys shrimp and grits, collard greens, cornbread, peach cobbler, and pound cake as comfort foods (Q32, Q05).",
+          "Hosts or contributes to church choir potlucks (Q17, Q44).",
+          "Prepares vegetables ahead on Sundays and uses garden produce to support health and budgeting (Q32, Q59).",
+          "After long surveillance shifts, comfort food can be more tempting than exercise (Q32)."
+        ],
+        "evidence": "Q05, Q17, Q32, Q44, Q59"
+      },
+      "travel": {
+        "summary": "Likes planned road trips, historic sites, and occasional vineyard getaways within a careful budget.",
+        "details": [
+          "Maintains a small travel fund for road trips to historic sites (Q62).",
+          "Enjoys wine occasionally during vineyard trips (Q38).",
+          "Plans trips early and prioritizes rainy-day savings before travel spending (Q61, Q62)."
+        ],
+        "evidence": "Q38, Q61, Q62"
+      },
+      "social_and_relationships": {
+        "summary": "Single, family-centered, and sustained by church friends, siblings, nieces, nephews, coworkers, and activity groups.",
+        "details": [
+          "Never married, no children, not cohabiting, not seriously dating (Q05, Q84).",
+          "Checks on mother several times weekly and helps with appointments (Q05, Q35).",
+          "Maintains close ties with choir friends Denise and Ruth, softball friends, running group members, and coworker Carla (Q07, Q77).",
+          "Has a younger brother in the Ann Arbor area and a sister near Detroit, and is an involved aunt to nieces and nephews (Q05).",
+          "Values faith, family, integrity, community, steadiness, responsibility, and showing up consistently (Q109).",
+          "Usually calls Denise first and then her sister when something goes wrong (Q07)."
+        ],
+        "evidence": "Q05-Q07, Q35, Q77, Q84, Q109"
+      },
+      "home_and_lifestyle": {
+        "summary": "Lives alone in an organized rented home in Ypsilanti and values quiet routines.",
+        "details": [
+          "Lives alone with no usual household members, no lodgers, no partner, no children, no pets, and no one using her address (Q11-Q14, Q51-Q55).",
+          "A niece may rarely stay one planned night a few times a year, but nobody else lives with her (Q13).",
+          "Rents her home and pays expenses herself (Q55, Q58).",
+          "Keeps uniforms, quilting supplies, planner, and garden materials organized (Q11, Q15).",
+          "Usually spends about $2,800 to $2,900 monthly; one recent month was about $3,100 because of a car repair (Q57).",
+          "Receives about $4,600 gross and roughly $3,400 take-home monthly from her job, with no regular other household income (Q72-Q74).",
+          "Has a small student loan balance and a credit card she pays down monthly; she receives no SNAP, housing voucher, SSI, or similar benefits (Q63, Q80).",
+          "Could cover a $400 emergency from savings but would feel it and rebuild afterward (Q82)."
+        ],
+        "evidence": "Q11-Q15, Q51-Q58, Q63, Q72-Q74, Q80, Q82"
+      },
+      "entertainment": {
+        "summary": "Entertainment centers on music, quilting, reading, local sports, church events, and occasional games.",
+        "details": [
+          "Listens to Aretha Franklin and classic soul while relaxing (Q18).",
+          "Follows Detroit sports casually and participates in softball (Q07, Q31).",
+          "Reads Black history and biographies (Q01, Q28).",
+          "Enjoys quiet porch time, quilting, reading, and music on unscheduled evenings (Q18)."
+        ],
+        "evidence": "Q01, Q07, Q18, Q28, Q31"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Gardening, quilting, choir, reading, tutoring, softball, and jogging are central hobbies.",
+        "details": [
+          "Grows tomatoes, herbs, greens, peppers, basil, and rosemary (Q08, Q32).",
+          "Quilts with Ruth and draws meaning from family quilting traditions (Q01, Q07).",
+          "Volunteers tutoring middle-school students (Q15, Q19).",
+          "Tutors mostly reading comprehension, writing, and study habits once a week during the school year (Q19).",
+          "Uses the library and community events as part of family and youth support (Q05, Q61)."
+        ],
+        "evidence": "Q01, Q05, Q07, Q08, Q15, Q19, Q32, Q61"
+      },
+      "work_and_career": {
+        "summary": "Career-oriented casino surveillance officer aiming for shift manager, CPP credential, and eventual security-training consulting.",
+        "details": [
+          "Monitors CCTV, documents incidents, handles access-control concerns, and coordinates with floor security (Q16, Q65).",
+          "Mentors newer officers and wants to formalize onboarding curriculum (Q16, Q65, Q108).",
+          "Plans to pursue CPP and leadership development (Q62, Q108).",
+          "Works one paid casino surveillance job, usually 40 hours weekly with occasional overtime and shifts including evenings, weekends, and holidays (Q16, Q67-Q71, Q78).",
+          "Has employer benefits including health insurance, paid time off, sick time, and retirement contributions (Q76).",
+          "Filed federal and Michigan taxes using tax software and received a modest refund (Q75).",
+          "Her role is not covered by a union contract, though she generally supports unions if workers want one (Q66).",
+          "Sees herself as combining education and security skills rather than having wasted her education degree (Q02, Q90)."
+        ],
+        "evidence": "Q02, Q16, Q62, Q65-Q78, Q90, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Strongly connected to African-American cultural traditions through quilting, church music, storytelling, and Black history.",
+        "details": [
+          "Identifies with Great Migration family history and Black community traditions (Q01, Q28).",
+          "Uses quilts, music, and Black history books to preserve fuller cultural stories (Q28).",
+          "Sings in church choir and values gospel and soul music (Q47).",
+          "Worries about backlash against teaching honest history (Q28)."
+        ],
+        "evidence": "Q01, Q28, Q47"
+      },
+      "sports_and_fitness": {
+        "summary": "Participates in adult softball and jogging while adapting activity for knee health.",
+        "details": [
+          "Has friends from YMCA softball and Ann Arbor Women's Running Club (Q07).",
+          "Uses walking intervals and low-impact cardio due to knee stiffness (Q18, Q31).",
+          "Occasionally takes ibuprofen after softball soreness (Q39).",
+          "Does not jog alone after dark for safety reasons (Q09)."
+        ],
+        "evidence": "Q07, Q09, Q18, Q31, Q39"
+      },
+      "nature_and_outdoors": {
+        "summary": "Enjoys urban gardening, porch sitting, farmers markets, and outdoor exercise.",
+        "details": [
+          "Maintains a small garden with tomatoes, herbs, greens, and peppers (Q08).",
+          "Finds peace in early mornings in the garden (Q43).",
+          "Uses garden produce to support healthy cooking and budgeting (Q32, Q59).",
+          "Shops at farmers markets when she can and sometimes uses local Black-owned food vendors at community events (Q08)."
+        ],
+        "evidence": "Q08, Q32, Q43, Q59"
+      },
+      "technology": {
+        "summary": "Uses technology pragmatically for work surveillance, budgeting, social connection, and information, with privacy caution.",
+        "details": [
+          "Works extensively with CCTV systems and surveillance documentation (Q16, Q65).",
+          "Uses a spreadsheet and paper planner for budget tracking (Q57).",
+          "Uses Facebook and Instagram but is careful about privacy because of work (Q48).",
+          "Uses direct deposit and budgets by paycheck (Q73)."
+        ],
+        "evidence": "Q16, Q48, Q57, Q65, Q73"
+      },
+      "community_and_civic": {
+        "summary": "Deeply civic-minded through voting, church, tutoring, community events, and concern for local services.",
+        "details": [
+          "Votes regularly, including local elections, and studies sample ballots (Q23).",
+          "Volunteers tutoring middle-school students (Q19).",
+          "Cares about youth programs, housing costs, road maintenance, and local business support (Q24).",
+          "Identifies as a fairly strong but pragmatic Democrat and is closer to the Democratic Party (Q95, Q96).",
+          "Supports civil rights, public schools, health care, labor protections, voting rights, reproductive rights, unions, worker protections, and neighborhood investment (Q24, Q25).",
+          "Supports police accountability, de-escalation, transparency, body cameras, consequences for misconduct, and community investment beyond policing (Q20-Q27).",
+          "Has talked with family, friends, and church members about race and policing, attended one local gathering, and mainly responds through voting, mentoring, and community conversations (Q29)."
+        ],
+        "evidence": "Q19, Q20-Q29, Q95, Q96"
+      },
+      "music": {
+        "summary": "Music is a daily source of faith, emotional regulation, and cultural connection.",
+        "details": [
+          "Sings alto in a Baptist church choir and attends rehearsal when work permits (Q47).",
+          "Listens to Aretha Franklin and classic soul for relaxation (Q18).",
+          "Values gospel hymns and strong alto arrangements (Q47).",
+          "Feels peaceful during choir when the harmonies settle in (Q43)."
+        ],
+        "evidence": "Q18, Q43, Q47"
+      },
+      "fashion_and_appearance": {
+        "summary": "Limited evidence; appearance preferences are practical and work-oriented.",
+        "details": [
+          "Keeps work uniforms organized and ready (Q11).",
+          "Delayed replacing shoes for budget reasons, suggesting practical spending priorities (Q64).",
+          "Uses better shoes to help manage knee discomfort during activity (Q31)."
+        ],
+        "evidence": "Q11, Q31, Q64"
+      },
+      "cultural_and_linguistic": {
+        "summary": "African-American, non-Hispanic, U.S.-born, rooted in Midwest Black church and Great Migration heritage.",
+        "details": [
+          "Identifies as Black or African-American and not Hispanic/Latinx/Spanish origin (Q88, Q89).",
+          "Born in Ypsilanti, Michigan and identifies strongly as a Michigander (Q86, Q87).",
+          "Family history is tied to the Great Migration and Black church/community traditions (Q01, Q28).",
+          "Identifies religiously as Christian, Baptist, and is active in a congregation (Q47, Q94)."
+        ],
+        "evidence": "Q01, Q28, Q47, Q86-Q89, Q94"
+      },
+      "life_events_and_transitions": {
+        "summary": "Major transition was moving from education toward casino surveillance while preserving her training identity.",
+        "details": [
+          "Graduate education in education shaped her training and mentoring approach (Q01, Q90).",
+          "Chose casino surveillance as a conscious career pivot after recognizing her fit for monitoring and training (Q02, Q03).",
+          "Father's death remains influential in her sense of steadiness and work ethic (Q06).",
+          "Was born on June 14, 1978, in Ypsilanti, Michigan (Q85, Q87).",
+          "At age 16, lived in Ypsilanti with both parents and younger brother and sister, with grandparents nearby but not in the home (Q97-Q99).",
+          "Her mother worked as a school administrative assistant and her father worked in facilities maintenance, shaping her organization, patience, dependability, and attention to detail (Q100-Q107)."
+        ],
+        "evidence": "Q01-Q06, Q85, Q87, Q90, Q97-Q107"
+      },
+      "media_and_information_diet": {
+        "summary": "Uses local news, public sources, official health sources, Facebook, and Instagram while avoiding random social media for serious decisions.",
+        "details": [
+          "Gets political information from local news, NPR, Michigan Radio, official county election pages, and trusted conversations (Q24).",
+          "Trusts doctors, county health department, CDC, and pharmacists for vaccine information (Q42).",
+          "Uses Facebook for family, church, community events, and Instagram for quilts, gardens, and recipes (Q48).",
+          "Does not usually ask publicly for emotional or financial support online and calls people directly for real help (Q49).",
+          "Limits late-night news scrolling to manage stress (Q50)."
+        ],
+        "evidence": "Q24, Q42, Q48-Q50"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Mildred Wilson is a 47-year-old Black/African-American woman born and living in Ypsilanti, Michigan, with no spouse, cohabiting partner, or children (Q84-Q89). She has a graduate degree in education and works full time as a casino surveillance officer, living alone in a rented household where she pays expenses herself (Q55, Q58, Q65, Q90). Her life course shows strong continuity with family, church, and Midwest Black community institutions, including Great Migration family history and Baptist church participation (Q01, Q47).",
+      "behavioral_economist": "Mildred is a disciplined planner with high loss aversion around housing, debt, health costs, and emergency savings (Q57-Q64, Q82). She uses routines, automatic transfers, spreadsheets, cooking at home, gardening, and delayed discretionary spending to manage uncertainty (Q57, Q61). Her career decisions show long time horizons: she is investing in CPP certification and supervisory advancement before moving toward consulting (Q62, Q65, Q108). Social identity and duty also shape choices, especially voting, church service, tutoring, and elder support (Q19, Q23, Q35).",
+      "political_scientist": "Mildred is a regular voter and fairly strong Democrat, though she evaluates local candidates pragmatically (Q23, Q95, Q96). Her political priorities include civil rights, public schools, health care, labor protections, voting rights, worker protections, police accountability, and neighborhood investment (Q24-Q28). She supports Black Lives Matter concerns and police reform while also valuing public safety through her own security work (Q20, Q26, Q27). Her civic life is rooted in church, tutoring, local elections, and community problem-solving rather than performative politics (Q19, Q23, Q29).",
+      "psychologist": "Mildred presents as conscientious, routine-oriented, emotionally contained, and highly responsible, with a tendency to overfunction for family, church, and work (Q15, Q43, Q44). Her coping style relies on structure, prayer, music, movement, gardening, quilting, and trusted one-on-one conversations rather than substances or public disclosure (Q38, Q39, Q43-Q50). She has no stated clinical depression diagnosis, but acknowledges stress and occasional anxiety when overcommitted (Q45). Her self-concept integrates steadiness, competence, faith, cultural continuity, and care for others (Q01, Q47, Q109)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Mildred uses jogging, walking, softball, gardening, stretching, and low-impact cardio to stay active.",
+        "ground_truth_label": "Uses varied low-impact physical activity",
+        "behavioral_evidence_from_interview": [
+          "Q31 Overall I am in decent health. I try to stay active with jogging, softball, gardening, and walking.",
+          "Q18 I have added more intentional low-impact cardio."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Mildred supports vaccination and trusts doctors, county health department, CDC, and pharmacists for vaccine information.",
+        "ground_truth_label": "Pro-vaccination with medical-source trust",
+        "behavioral_evidence_from_interview": [
+          "Q41 I support vaccination.",
+          "Q42 My primary doctor, the county health department, CDC information, and pharmacists I trust."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Mildred uses home remedies such as ginger tea, honey, steam, Epsom salt soaks, and prayer alongside regular medicine.",
+        "ground_truth_label": "Complementary home remedies alongside mainstream medicine",
+        "behavioral_evidence_from_interview": [
+          "Q37 Mostly home remedies alongside regular medicine, not instead of it."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Mildred manages knee stiffness, eye strain, and blood-pressure risk with movement, lower sodium, sleep protection, exams, and breaks.",
+        "ground_truth_label": "Manages mild health risks preventively",
+        "behavioral_evidence_from_interview": [
+          "Q31 I have some knee stiffness and eye strain from screen work, and I watch my blood pressure.",
+          "Q33 My doctor told me to keep moving, reduce sodium, and protect my sleep."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Mildred does not smoke, drinks wine only occasionally, does not use marijuana or other substances, and uses OTC pain relievers cautiously.",
+        "ground_truth_label": "Low substance use and cautious medication use",
+        "behavioral_evidence_from_interview": [
+          "Q38 I do not smoke.",
+          "Q39 I do not use marijuana or other substances."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Mildred copes with stress through routines, prayer, movement, music, gardening, quilting, trusted conversations, scheduled blank time, and delegation.",
+        "ground_truth_label": "Structured non-substance coping style",
+        "behavioral_evidence_from_interview": [
+          "Q38 I cope by singing, quilting, walking, praying, or calling someone who knows me.",
+          "Q50 I am coping better by scheduling blank time and asking for help sooner."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Mildred recognizes stress warning signs including poor sleep, impatience, skipping meals, and irritability.",
+        "ground_truth_label": "Recognizes stress warning signs",
+        "behavioral_evidence_from_interview": [
+          "Q45 Poor sleep, impatience, and skipping meals.",
+          "Q18 I got irritable over small things."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Mildred is open to counseling if stress became unmanageable.",
+        "ground_truth_label": "Open to counseling if needed",
+        "behavioral_evidence_from_interview": [
+          "Q45 Not recently, but I am open to it if stress became unmanageable."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Mildred cooks rosemary-garlic roasted chicken, vegetables, soups, and tomato bruschetta.",
+        "ground_truth_label": "Cooks herb-forward home meals",
+        "behavioral_evidence_from_interview": [
+          "Q17 Roasted chicken with rosemary and garlic, vegetables, soups, and tomato bruschetta."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Mildred enjoys shrimp and grits, collard greens, cornbread, peach cobbler, and pound cake as comfort foods.",
+        "ground_truth_label": "Enjoys Southern comfort foods",
+        "behavioral_evidence_from_interview": [
+          "Q32 Shrimp and grits, collard greens, cornbread, and sometimes a slice of pound cake.",
+          "Q05 I am known for bringing peach cobbler or roasted chicken."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Mildred hosts or contributes to church choir potlucks.",
+        "ground_truth_label": "Participates in church potluck cooking",
+        "behavioral_evidence_from_interview": [
+          "Q17 I keep up with church choir responsibilities, including quarterly potlucks.",
+          "Q44 I was responsible for a choir potluck list."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Mildred prepares vegetables ahead on Sundays and uses garden produce to support health and budgeting.",
+        "ground_truth_label": "Meal-preps vegetables from garden",
+        "behavioral_evidence_from_interview": [
+          "Q32 Preparing vegetables ahead on Sundays.",
+          "Q59 I buy gifts gradually and freeze garden produce."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Mildred keeps a small travel fund for road trips to historic sites.",
+        "ground_truth_label": "Saves for historic-site road trips",
+        "behavioral_evidence_from_interview": [
+          "Q62 Yes, a small fund for road trips to historic sites."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Mildred occasionally drinks wine during vineyard trips or dinner.",
+        "ground_truth_label": "Occasional wine on vineyard trips",
+        "behavioral_evidence_from_interview": [
+          "Q38 I may have a glass of wine at a vineyard trip or dinner."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Mildred plans trips early and prioritizes emergency savings before travel spending.",
+        "ground_truth_label": "Budget-first travel planning",
+        "behavioral_evidence_from_interview": [
+          "Q61 planning trips early.",
+          "Q62 Rainy day first, then certification costs and travel."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Mildred has never married, has no children, is not cohabiting, and is not seriously dating.",
+        "ground_truth_label": "Never married, no children, no partner in household",
+        "behavioral_evidence_from_interview": [
+          "Q05 I have never been married, I am not living with a partner, and I do not have children.",
+          "Q84 I have never been married, and I am not living with a romantic partner."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Mildred checks on her aging mother several times weekly and helps with appointments, medication questions, and rides.",
+        "ground_truth_label": "Provides regular elder support to mother",
+        "behavioral_evidence_from_interview": [
+          "Q05 I check on her several times a week.",
+          "Q35 I help with appointments, medication questions, and rides."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Mildred has close ties with choir friends Denise and Ruth, softball friends, running group members, and coworker Carla.",
+        "ground_truth_label": "Maintains church, activity, and coworker friendships",
+        "behavioral_evidence_from_interview": [
+          "Q07 There is Denise, who sings alto next to me, and Ruth, who quilts with me twice a month.",
+          "Q77 Carla, a senior officer."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Mildred has a younger brother in the Ann Arbor area and a sister near Detroit and is an involved aunt to nieces and nephews.",
+        "ground_truth_label": "Close sibling and aunt relationships",
+        "behavioral_evidence_from_interview": [
+          "Q05 I have a younger brother in the Ann Arbor area and a sister near Detroit.",
+          "Q05 I am an auntie, and I take that role seriously."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Mildred values faith, family, integrity, community, steadiness, responsibility, and showing up consistently.",
+        "ground_truth_label": "Core values of faith, family, integrity, community, and steadiness",
+        "behavioral_evidence_from_interview": [
+          "Q109 I value faith, family, integrity, community, and steadiness.",
+          "Q109 Responsibility.",
+          "Q109 Showing up consistently."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Mildred lives alone with no usual household members, no lodgers, no partner, no children, no pets, and no one using her address.",
+        "ground_truth_label": "Solo household with no pets or lodgers",
+        "behavioral_evidence_from_interview": [
+          "Q11 I live alone.",
+          "Q14 No pets.",
+          "Q54 No."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Mildred's niece may rarely stay one planned night a few times a year, but nobody else lives with her.",
+        "ground_truth_label": "Rare planned niece overnight visits",
+        "behavioral_evidence_from_interview": [
+          "Q13 My niece may stay one night once in a while, but that is rare.",
+          "Q13 Maybe a few times a year."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Mildred rents her home and pays household expenses herself.",
+        "ground_truth_label": "Renter paying own household expenses",
+        "behavioral_evidence_from_interview": [
+          "Q58 I rent.",
+          "Q55 I pay my household expenses myself."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Mildred keeps uniforms, quilting supplies, planner, and garden materials organized.",
+        "ground_truth_label": "Organized household routines",
+        "behavioral_evidence_from_interview": [
+          "Q11 My place is small but organized.",
+          "Q15 Writing in my planner before bed."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Mildred usually spends about $2,800 to $2,900 monthly, with one recent month about $3,100 due to a car repair.",
+        "ground_truth_label": "Monthly spending around $2,800-$3,100",
+        "behavioral_evidence_from_interview": [
+          "Q57 Last month was around $3,100 because of the car repair.",
+          "Q57 Usually I spend closer to $2,800 to $2,900."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Mildred receives about $4,600 gross and roughly $3,400 take-home monthly from her job, with no regular other income.",
+        "ground_truth_label": "Monthly income about $4,600 gross and $3,400 net",
+        "behavioral_evidence_from_interview": [
+          "Q72 About $4,600 gross, roughly $3,400 take-home.",
+          "Q74 No regular other income."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Mildred has a small remaining student loan balance and a credit card she pays down monthly.",
+        "ground_truth_label": "Small student loan and managed credit card debt",
+        "behavioral_evidence_from_interview": [
+          "Q63 I have a small remaining student loan balance and a credit card I pay down monthly."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Mildred receives no SNAP, food stamps, housing voucher, SSI, or similar public assistance benefits.",
+        "ground_truth_label": "No public assistance benefits",
+        "behavioral_evidence_from_interview": [
+          "Q80 No, I do not receive those benefits."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Mildred could cover a $400 emergency from savings but would feel the cost and rebuild afterward.",
+        "ground_truth_label": "Can cover $400 emergency from savings",
+        "behavioral_evidence_from_interview": [
+          "Q82 I could cover $400 from savings, but I would feel it."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Mildred listens to Aretha Franklin and classic soul while relaxing.",
+        "ground_truth_label": "Relaxation through Aretha Franklin and classic soul",
+        "behavioral_evidence_from_interview": [
+          "Q18 Quilt, read, listen to Aretha Franklin, or sit on the porch."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Mildred follows Detroit sports casually and participates in softball.",
+        "ground_truth_label": "Casual Detroit sports fan and softball participant",
+        "behavioral_evidence_from_interview": [
+          "Q07 friends from the YMCA softball league.",
+          "Q31 I try to stay active with jogging, softball, gardening, and walking."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Mildred reads Black history and biographies.",
+        "ground_truth_label": "Reads Black history and biographies",
+        "behavioral_evidence_from_interview": [
+          "Q28 Through church music, family stories, Black history books.",
+          "Q01 reading Black history."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Mildred grows tomatoes, herbs, greens, peppers, basil, and rosemary.",
+        "ground_truth_label": "Urban vegetable and herb gardening",
+        "behavioral_evidence_from_interview": [
+          "Q08 I grow tomatoes, basil, rosemary, greens, and peppers."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Mildred quilts with Ruth and draws meaning from family quilting traditions.",
+        "ground_truth_label": "Quilting as social and family tradition",
+        "behavioral_evidence_from_interview": [
+          "Q07 Ruth, who quilts with me twice a month.",
+          "Q01 My grandmother told family stories while quilting."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Mildred volunteers tutoring middle-school students.",
+        "ground_truth_label": "Volunteer middle-school tutor",
+        "behavioral_evidence_from_interview": [
+          "Q15 Thursdays I tutor middle-school students at the community center.",
+          "Q19 Usually once a week during the school year."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist",
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Mildred tutors reading comprehension, writing, and study habits during the school year.",
+        "ground_truth_label": "Tutors literacy and study skills",
+        "behavioral_evidence_from_interview": [
+          "Q19 Mostly reading comprehension, writing, and study habits."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Mildred monitors CCTV, documents incidents, handles access-control concerns, and coordinates with floor security.",
+        "ground_truth_label": "Casino surveillance duties",
+        "behavioral_evidence_from_interview": [
+          "Q16 I monitor CCTV feeds, document incidents.",
+          "Q65 coordinating with floor security, and preserving accurate records."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Mildred mentors newer officers and wants to formalize onboarding curriculum.",
+        "ground_truth_label": "Mentors officers and wants onboarding curriculum",
+        "behavioral_evidence_from_interview": [
+          "Q16 I also mentor newer officers.",
+          "Q108 a real onboarding curriculum in place for new officers."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Mildred plans to pursue CPP certification and leadership development.",
+        "ground_truth_label": "Pursues CPP and leadership advancement",
+        "behavioral_evidence_from_interview": [
+          "Q62 CPP study materials and exam fees.",
+          "Q108 Finish CPP study planning and ask my manager about leadership development."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Mildred works one paid casino surveillance job, usually 40 hours weekly with occasional overtime and shifts including evenings, weekends, and holidays.",
+        "ground_truth_label": "Full-time casino surveillance schedule",
+        "behavioral_evidence_from_interview": [
+          "Q68 Usually 40 hours, sometimes a little overtime.",
+          "Q78 casinos require nights, weekends, and holiday coverage."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Mildred has employer benefits including health insurance, paid time off, sick time, and retirement contributions.",
+        "ground_truth_label": "Has employer benefits",
+        "behavioral_evidence_from_interview": [
+          "Q76 Benefits include health insurance, paid time off, sick time, and retirement contributions."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Mildred filed federal and Michigan taxes using tax software and received a modest refund.",
+        "ground_truth_label": "Filed taxes with software",
+        "behavioral_evidence_from_interview": [
+          "Q75 Yes, I filed federal and Michigan taxes.",
+          "Q75 Tax software."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Mildred's role is not union-covered, though she generally supports a union if workers want one.",
+        "ground_truth_label": "Nonunion role with general union support",
+        "behavioral_evidence_from_interview": [
+          "Q66 My role is not covered by a union contract.",
+          "Q66 Generally yes, if workers wanted it."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Mildred sees herself as combining education and security skills rather than wasting her education degree.",
+        "ground_truth_label": "Integrated educator-security identity",
+        "behavioral_evidence_from_interview": [
+          "Q02 I stopped thinking of myself as someone who had detoured and started seeing myself as someone combining two skill sets.",
+          "Q90 Yes, in training and mentoring."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Mildred identifies with Great Migration family history and Black community traditions.",
+        "ground_truth_label": "Great Migration and Black community identity",
+        "behavioral_evidence_from_interview": [
+          "Q01 My grandparents came north through that Great Migration story.",
+          "Q28 I also see resilience in Black communities."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Mildred uses quilts, music, and Black history books to preserve fuller cultural stories.",
+        "ground_truth_label": "Preserves Black cultural stories through arts and history",
+        "behavioral_evidence_from_interview": [
+          "Q28 Through church music, family stories, Black history books, quilts."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Mildred sings in church choir and values gospel and soul music.",
+        "ground_truth_label": "Church choir and gospel/soul music",
+        "behavioral_evidence_from_interview": [
+          "Q47 I sing in my local church choir.",
+          "Q47 Gospel hymns and arrangements with strong alto parts."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Mildred worries about backlash against teaching honest history.",
+        "ground_truth_label": "Concerned about backlash against honest history education",
+        "behavioral_evidence_from_interview": [
+          "Q28 Backlash against teaching honest history."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Mildred has friends from the YMCA softball league and Ann Arbor Women's Running Club.",
+        "ground_truth_label": "YMCA softball and women's running group connections",
+        "behavioral_evidence_from_interview": [
+          "Q07 friends from the YMCA softball league and a few women I jog with through the Ann Arbor Women's Running Club."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Mildred uses walking intervals and low-impact cardio because of knee stiffness.",
+        "ground_truth_label": "Adapts fitness for knee stiffness",
+        "behavioral_evidence_from_interview": [
+          "Q18 I jog shorter distances and mix in walking.",
+          "Q31 I have some knee stiffness."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Mildred occasionally takes ibuprofen after softball soreness.",
+        "ground_truth_label": "Occasional ibuprofen after softball",
+        "behavioral_evidence_from_interview": [
+          "Q39 The most recent was ibuprofen after a softball game."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Mildred does not jog alone after dark for safety reasons.",
+        "ground_truth_label": "Avoids jogging alone after dark",
+        "behavioral_evidence_from_interview": [
+          "Q09 I bring my porch light on early and do not jog alone after dark."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Mildred maintains a small garden with tomatoes, herbs, greens, and peppers.",
+        "ground_truth_label": "Maintains small urban garden",
+        "behavioral_evidence_from_interview": [
+          "Q08 I have a little garden space."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Mildred finds peace in early mornings in the garden.",
+        "ground_truth_label": "Garden as peaceful space",
+        "behavioral_evidence_from_interview": [
+          "Q43 Early morning in the garden."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Mildred shops at farmers markets when she can and sometimes uses local Black-owned food vendors at community events.",
+        "ground_truth_label": "Farmers market and Black-owned vendor shopping",
+        "behavioral_evidence_from_interview": [
+          "Q08 the farmers market when I can, and sometimes local Black-owned food vendors."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Mildred works extensively with CCTV systems and surveillance documentation.",
+        "ground_truth_label": "CCTV and documentation technology use",
+        "behavioral_evidence_from_interview": [
+          "Q16 I monitor CCTV feeds, document incidents.",
+          "Q65 watching CCTV, identifying suspicious behavior, documenting incidents."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Mildred uses a spreadsheet and paper planner for budget tracking.",
+        "ground_truth_label": "Spreadsheet and planner budgeting",
+        "behavioral_evidence_from_interview": [
+          "Q57 Yes, with a spreadsheet and a paper planner."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Mildred uses Facebook and Instagram but is careful about privacy because of work.",
+        "ground_truth_label": "Privacy-conscious Facebook and Instagram use",
+        "behavioral_evidence_from_interview": [
+          "Q48 I use Facebook the most.",
+          "Q48 I am careful about privacy because of my work."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Mildred uses direct deposit and budgets by paycheck.",
+        "ground_truth_label": "Direct deposit and paycheck budgeting",
+        "behavioral_evidence_from_interview": [
+          "Q73 Direct deposit? Yes.",
+          "Q73 Do you budget by paycheck? Yes."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Mildred votes regularly, including in local elections, and studies sample ballots.",
+        "ground_truth_label": "Regular local voter",
+        "behavioral_evidence_from_interview": [
+          "Q23 I vote regularly, including local elections.",
+          "Q23 I read my sample ballot."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Mildred cares about youth programs, housing costs, road maintenance, and local business support.",
+        "ground_truth_label": "Local policy priorities",
+        "behavioral_evidence_from_interview": [
+          "Q24 Youth programs, road maintenance, housing costs, and support for small local businesses."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Mildred identifies as a fairly strong but pragmatic Democrat and is closer to the Democratic Party.",
+        "ground_truth_label": "Fairly strong pragmatic Democrat",
+        "behavioral_evidence_from_interview": [
+          "Q95 I think of myself as a Democrat, fairly strong but not blind.",
+          "Q96 Closer to the Democratic Party."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Mildred supports civil rights, public schools, health care, labor protections, voting rights, reproductive rights, unions, worker protections, and neighborhood investment.",
+        "ground_truth_label": "Center-left policy priorities",
+        "behavioral_evidence_from_interview": [
+          "Q24 I support unions, training programs, voting rights, reproductive rights, and public schools.",
+          "Q25 worker protections."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Mildred supports police accountability, de-escalation, transparency, body cameras, consequences for misconduct, and community investment beyond policing.",
+        "ground_truth_label": "Supports police reform and community safety investment",
+        "behavioral_evidence_from_interview": [
+          "Q21 it made me support de-escalation and body cameras.",
+          "Q27 Mental health, housing, youth support, and jobs all connect to safety."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Mildred has talked with family, friends, and church members about race and policing, attended one local gathering, and mainly responds through voting, mentoring, and community conversations.",
+        "ground_truth_label": "Community conversation and voting-oriented activism",
+        "behavioral_evidence_from_interview": [
+          "Q29 I have talked with family, friends, and church members.",
+          "Q29 I attended one local gathering, but mostly I respond through voting, mentoring, and community conversations."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Mildred sings alto in a Baptist church choir and attends rehearsal when work permits.",
+        "ground_truth_label": "Alto in Baptist church choir",
+        "behavioral_evidence_from_interview": [
+          "Q47 I sing in my local church choir.",
+          "Q47 Tuesday choir rehearsal when work allows."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Mildred values gospel hymns and strong alto arrangements.",
+        "ground_truth_label": "Prefers gospel hymns with strong alto parts",
+        "behavioral_evidence_from_interview": [
+          "Q47 Gospel hymns and arrangements with strong alto parts."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Mildred feels peaceful during choir when the harmonies settle in.",
+        "ground_truth_label": "Choir harmonies as emotional grounding",
+        "behavioral_evidence_from_interview": [
+          "Q43 during choir when the harmonies settle in."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Mildred keeps work uniforms organized and ready.",
+        "ground_truth_label": "Organized work uniforms",
+        "behavioral_evidence_from_interview": [
+          "Q11 work uniforms by the laundry area."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Mildred delayed replacing shoes for budget reasons.",
+        "ground_truth_label": "Delays shoe replacement for budget discipline",
+        "behavioral_evidence_from_interview": [
+          "Q64 I did delay dental work and put off replacing some shoes."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Mildred uses better shoes to help manage knee discomfort during activity.",
+        "ground_truth_label": "Uses supportive shoes for knee health",
+        "behavioral_evidence_from_interview": [
+          "Q31 Stretching, better shoes, walking intervals."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Mildred identifies as Black or African-American and not Hispanic, Latinx, or Spanish origin.",
+        "ground_truth_label": "Black/African-American, non-Hispanic",
+        "behavioral_evidence_from_interview": [
+          "Q88 No.",
+          "Q89 Black or African-American."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Mildred was born in Ypsilanti, Michigan and strongly identifies as a Michigander.",
+        "ground_truth_label": "Ypsilanti-born Michigander",
+        "behavioral_evidence_from_interview": [
+          "Q87 Ypsilanti, Michigan.",
+          "Q87 Absolutely."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Mildred identifies religiously as Christian, Baptist, and is active in a congregation.",
+        "ground_truth_label": "Active Baptist Christian",
+        "behavioral_evidence_from_interview": [
+          "Q94 Christian, Baptist.",
+          "Q47 Faith is important to me."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer",
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Mildred's graduate education in education shaped her training and mentoring approach.",
+        "ground_truth_label": "Education degree informs mentoring",
+        "behavioral_evidence_from_interview": [
+          "Q90 A graduate degree in education.",
+          "Q90 Yes, in training and mentoring."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Mildred consciously chose casino surveillance as a career pivot after recognizing her fit for monitoring and training.",
+        "ground_truth_label": "Conscious education-to-surveillance career pivot",
+        "behavioral_evidence_from_interview": [
+          "Q02 My biggest crossroads came when I left the straight education track.",
+          "Q03 It was a conscious choice."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Mildred's father's death remains influential in her sense of steadiness and work ethic.",
+        "ground_truth_label": "Father's death and work ethic influence",
+        "behavioral_evidence_from_interview": [
+          "Q06 My father passed some years back.",
+          "Q06 being steady, practical, and taking pride in work."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Mildred was born on June 14, 1978, in Ypsilanti, Michigan.",
+        "ground_truth_label": "Born June 14, 1978 in Ypsilanti",
+        "behavioral_evidence_from_interview": [
+          "Q85 June 14, 1978.",
+          "Q87 Ypsilanti, Michigan."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "At age 16, Mildred lived in Ypsilanti with both parents and her younger brother and sister, with grandparents nearby but not in the home.",
+        "ground_truth_label": "Two-parent Ypsilanti childhood household with siblings",
+        "behavioral_evidence_from_interview": [
+          "Q97 Ypsilanti, Michigan.",
+          "Q98 Yes, I lived with both my mother and father.",
+          "Q99 My younger brother and sister lived with us."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Mildred's mother worked as a school administrative assistant and modeled organization and patience.",
+        "ground_truth_label": "Mother was school administrative assistant",
+        "behavioral_evidence_from_interview": [
+          "Q103 She worked as an administrative assistant in a school office.",
+          "Q103 Organization and patience."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Mildred's father worked in facilities maintenance and modeled dependability and attention to detail.",
+        "ground_truth_label": "Father was facilities maintenance worker",
+        "behavioral_evidence_from_interview": [
+          "Q106 He worked in facilities maintenance.",
+          "Q106 Dependability and attention to detail."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Mildred gets political information from local news, NPR, Michigan Radio, official county election pages, and trusted conversations.",
+        "ground_truth_label": "Local and public-source political information diet",
+        "behavioral_evidence_from_interview": [
+          "Q24 Local news, NPR, Michigan Radio, official county election pages, and conversations with people I trust."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Mildred uses Facebook for family, church, community events, and photos, and Instagram for quilting patterns, garden ideas, and recipes.",
+        "ground_truth_label": "Facebook community use and Instagram hobby browsing",
+        "behavioral_evidence_from_interview": [
+          "Q48 I use Facebook the most for family, church announcements, community events, and photos.",
+          "Q48 I look at Instagram for quilting patterns, garden ideas, and recipes."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Mildred does not usually ask publicly for emotional or financial support online and calls people directly for real help.",
+        "ground_truth_label": "Private direct help-seeking style",
+        "behavioral_evidence_from_interview": [
+          "Q49 I do not usually ask publicly for emotional or financial support online.",
+          "Q49 if I need real help I call people directly."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Mildred limits late-night news scrolling to manage stress.",
+        "ground_truth_label": "Limits late-night news scrolling",
+        "behavioral_evidence_from_interview": [
+          "Q50 I also limit late-night news scrolling."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "reprojected",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Mildred acknowledges stress and occasional anxiety when overcommitted but does not report clinical depression.",
+        "ground_truth_label": "Stress and occasional anxiety without stated clinical depression",
+        "behavioral_evidence_from_interview": [
+          "Q45 I would not say I have clinical depression.",
+          "Q45 I do have stress and occasional anxiety, mostly when I overcommit."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Mildred has long time horizons for career advancement, moving from CPP certification to supervisory advancement and eventual consulting.",
+        "ground_truth_label": "Long-term career planning",
+        "behavioral_evidence_from_interview": [
+          "Q108 I hope to be a shift manager in surveillance, with my CPP credential finished.",
+          "Q108 Long term, I would like to consult on security training."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Mildred values public safety through her security work while also supporting Black Lives Matter concerns and police reform.",
+        "ground_truth_label": "Public safety plus police reform stance",
+        "behavioral_evidence_from_interview": [
+          "Q26 I work in safety, so I know order matters, but I also know unchecked authority can hurt people.",
+          "Q27 Do you support police reform? Yes."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "HF-064"
+        ]
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "reprojected",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Mildred tends to overfunction for family, church, and work.",
+        "ground_truth_label": "Tendency to overfunction",
+        "behavioral_evidence_from_interview": [
+          "Q43 sometimes I carry too many responsibilities without admitting I am tired.",
+          "Q44 I was tired of being the organized one."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "reprojected",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Mildred's life course shows continuity with family, church, and Midwest Black community institutions.",
+        "ground_truth_label": "Continuity with family, church, and Midwest Black institutions",
+        "behavioral_evidence_from_interview": [
+          "Q01 church, school, and showing up for people were just part of life.",
+          "Q47 Church is worship, but it is also community, history, music, and accountability."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "HF-045",
+          "HF-074"
+        ]
+      }
+    ]
+  }
+}
