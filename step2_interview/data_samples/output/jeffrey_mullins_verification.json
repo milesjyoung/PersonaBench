@@ -1,0 +1,2573 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "12db3addfc034417adf1a75d8d68aa86",
+      "name": "Jeffrey Mullins",
+      "verification_date": "2026-05-20"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age 36, sex male, and married status match the interview's date of birth, self-identified gendered references, and repeated statements that he lives with his wife Emily.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.age, seed.sex, seed.marital_status",
+              "source_b_ref": "Q05, Q51, Q84, Q85",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed location in Defiance, Missouri is consistent with the interview; the interview enriches this with birthplace in Washington, Missouri and long-term rootedness in St. Charles County.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.city, seed.state, seed.zipcode",
+              "source_b_ref": "Q08, Q10, Q86, Q87, Q97",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed education and occupation align with the interview: bachelor's degree in a STEM-related field and USPS mail carrier work in St. Charles County.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.education_level, seed.bachelors_field, seed.occupation",
+              "source_b_ref": "Q01, Q16, Q65, Q90",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed cultural background describing white Midwestern Protestant roots is consistent with the interview's white non-Hispanic identification and culturally Protestant upbringing.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q47, Q88, Q89, Q94",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Seed implies a settled married household but does not specify housing tenure, pets, or childlessness; the interview adds that he and Emily own a mortgaged home, have no children, and currently have no pets.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.marital_status, seed.persona",
+              "source_b_ref": "Q11, Q19, Q52, Q58",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The extracted profile accurately reflects Jeffrey as a married man living with wife Emily in Defiance, with no children or other household members.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q05, Q11-Q14, Q51-Q55, Q84",
+              "source_b_ref": "marital_status, location, preferences.social_and_relationships, preferences.home_and_lifestyle, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile correctly captures his bachelor's degree, STEM-related background, and USPS mail carrier occupation.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01, Q16, Q65, Q90",
+              "source_b_ref": "education, occupation, preferences.work_and_career, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The cultural_and_linguistic section faithfully captures white, non-Hispanic, culturally Protestant identity and Missouri upbringing.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q47, Q87-Q89, Q94, Q97",
+              "source_b_ref": "preferences.cultural_and_linguistic, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "The profile omits specific demographic enrichment from the interview, including birthplace in Washington, Missouri, marriage duration, homeownership duration, and absence of pets.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q11, Q58, Q84, Q87",
+              "source_b_ref": "preferences.home_and_lifestyle, preferences.cultural_and_linguistic, preferences.life_events_and_transitions",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "The demographer summary's statement that the household relies on two full-time incomes is supported by the interview, but Emily's full-time employment is not represented in the preferences layer and should be carried there for canonical completeness.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q74",
+              "source_b_ref": "summaries.demographer vs. preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "home_and_lifestyle and social_and_relationships are internally consistent: both describe a two-person household with wife Emily, no children, and a steady domestic rhythm.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.home_and_lifestyle",
+              "field_b": "preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "cultural_and_linguistic and summaries.demographer are internally consistent on white non-Hispanic Midwestern Protestant background.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.cultural_and_linguistic",
+              "field_b": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "life_events_and_transitions and work_and_career align: both describe the post-college turn toward USPS and future ambitions in supervision or operations.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.life_events_and_transitions",
+              "field_b": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The interview provides birthplace and stronger rootedness detail that are missing from the profile.",
+              "gap": true,
+              "interview_ref": "Q86, Q87, Q97",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add that he was born in Washington, Missouri, grew up mainly in Defiance/St. Charles County, and has lived mostly in Missouri."
+            },
+            {
+              "id": 2,
+              "text": "The interview gives household details absent from the profile, including no pets, shared expenses adjusted by income, and Emily's full-time employment.",
+              "gap": true,
+              "interview_ref": "Q11, Q51, Q55, Q74",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add no current pets, roughly shared household expenses adjusted by income and bills, and that the household relies on two full-time incomes."
+            },
+            {
+              "id": 3,
+              "text": "Marriage and housing tenure are substantive life-course markers missing from the profile.",
+              "gap": true,
+              "interview_ref": "Q58, Q84",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add that he has been married about seven years and has owned the home about six years."
+            },
+            {
+              "id": 4,
+              "text": "Family structure is complete on spouse and brother, but the aging-parent care stage could be represented more explicitly as a demographic role.",
+              "gap": true,
+              "interview_ref": "Q35",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add that he helps aging parents with errands and appointments a couple times a month."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed portrayal of data-driven route optimization is strongly confirmed by the interview's emphasis on timing, route notes, loading order, scanner use, and pattern tracking.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.professional_persona, seed.skills_and_expertise",
+              "source_b_ref": "Q02, Q16, Q18, Q65",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed note about hands-on vehicle maintenance aligns with the interview's repeated references to basic car maintenance and lessons learned from his father.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.professional_persona, seed.skills_and_expertise",
+              "source_b_ref": "Q01 follow-up, Q17, Q56",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed mention of occasional impulsive gear purchases matches the interview's admission that camera gear tempts him and that he delays such purchases when expenses rise.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q60, Q61, Q64",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed framing of a disciplined outlook with mild health quirks is consistent with the interview's steady budgeting habits and practical management of knee pain, back tightness, and fatigue.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q31-Q40, Q57, Q61, Q83",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Seed culinary persona is consistent with the interview's concrete cooking behavior around ribs, salads, soups, sourdough, and practical lunch packing.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.culinary_persona",
+              "source_b_ref": "Q15, Q17",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The profile accurately captures his budgeting discipline, emergency savings orientation, and tendency to cut discretionary spending when costs rise.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q57, Q60-Q64, Q82-Q83",
+              "source_b_ref": "preferences.home_and_lifestyle, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile correctly represents his gear-purchase temptation as constrained rather than reckless, consistent with delaying a lens and trimming hobby spending.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q60, Q61, Q64",
+              "source_b_ref": "preferences.hobbies_and_recreation, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The extracted profile captures his preference for practical public-service work over status-oriented STEM desk work.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q02-Q04",
+              "source_b_ref": "preferences.work_and_career, preferences.life_events_and_transitions, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Several financially relevant behaviors from the interview are missing from preferences: spreadsheet budgeting, keeping around three months of expenses in savings, using overtime to offset shocks, and being able to cover a $400 emergency.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q57, Q60, Q61, Q82",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "The profile underrepresents how scheduling constraints and fatigue shape his health, food, and exercise choices, even though these are central behavioral tradeoffs in the interview.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q15, Q18, Q32, Q78",
+              "source_b_ref": "preferences.health_and_wellness, preferences.food_and_dining, preferences.sports_and_fitness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "health_and_wellness, sports_and_fitness, and work_and_career are mutually consistent: he remains active while managing wear-and-tear rather than avoiding activity altogether.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness",
+              "field_b": "preferences.sports_and_fitness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "home_and_lifestyle and summaries.behavioral_economist are internally consistent on disciplined budgeting, savings, and delayed discretionary purchases.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.home_and_lifestyle",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "travel and finances-related claims are internally consistent: Iceland is presented as a long-term dream while smaller trips are postponed during tighter months.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.travel",
+              "field_b": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The interview contains explicit household money-management behaviors not fully represented in the profile.",
+              "gap": true,
+              "interview_ref": "Q57, Q61, Q82",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add spreadsheet budgeting, roughly three months of emergency savings, and ability to absorb a $400 emergency from savings."
+            },
+            {
+              "id": 2,
+              "text": "The interview shows that overtime is a coping mechanism for extra expenses and that he cuts eating out and hobby spending when costs rise.",
+              "gap": true,
+              "interview_ref": "Q60, Q81",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add that he uses overtime and trims discretionary spending to manage unexpected costs."
+            },
+            {
+              "id": 3,
+              "text": "The interview gives more detail on constraint-driven health and food choices, including irregular lunch breaks, convenience-food temptation, and sleep as a vulnerable habit.",
+              "gap": true,
+              "interview_ref": "Q15, Q32, Q50",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add that fatigue, irregular breaks, and late-night phone use can undermine sleep and healthy eating."
+            },
+            {
+              "id": 4,
+              "text": "The interview shows that schedule predictability is asymmetric: predictable start times but uncertain end times, which affects planning and energy allocation.",
+              "gap": true,
+              "interview_ref": "Q16, Q68, Q78",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add that his workday starts are predictable but end times vary with volume, weather, and staffing."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed emphasis on public service and community compassion is consistent with the interview's repeated references to responsibility, voting, volunteering, and serving neighborhoods through USPS work.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.professional_persona, seed.persona",
+              "source_b_ref": "Q02, Q23-Q24, Q65-Q66",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed cultural background says he was raised open-minded toward diverse perspectives; this aligns with the interview's moderate, listening-oriented approach to race, policing, and inequality.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q24-Q30",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed mention of community art projects and outreach is consistent with the interview's senior-center volunteering and aspiration to start free arts workshops.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona, seed.career_goals_and_ambitions",
+              "source_b_ref": "Q07, Q17, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "The interview adds much more precise political identity than the seed, including moderate independent status with a slight Democratic lean and pro-labor commitments.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.persona, seed.cultural_background",
+              "source_b_ref": "Q23-Q30, Q95-Q96",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The profile accurately captures regular voting, issue-focused ballot research, union-oriented respect for public institutions, and a moderate independent identity leaning Democratic.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23-Q25, Q66, Q95-Q96",
+              "source_b_ref": "preferences.community_and_civic, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile correctly represents his response to race and policing as thoughtful, somewhat affected, and expressed mainly through conversations, learning, and modest local donations rather than protest participation.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q26-Q30",
+              "source_b_ref": "summaries.political_scientist, preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The interview includes more explicit policy content than the preferences layer currently shows, especially skepticism of privatizing public services and support for accountability tools like body cameras and transparent investigations.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q25, Q27",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "The media-and-information profile is broadly faithful but misses his use of local history and long-form interviews to think about race and the St. Louis region.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q28",
+              "source_b_ref": "preferences.media_and_information_diet",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "The profile's localist civic orientation is well supported by the interview's emphasis on roads, schools, libraries, emergency services, and neighbors checking in during storms.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q08-Q10, Q23-Q24",
+              "source_b_ref": "preferences.community_and_civic, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "community_and_civic and media_and_information_diet are internally consistent: his civic engagement is paired with practical, non-performative information habits and avoidance of online shouting matches.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "preferences.media_and_information_diet",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "work_and_career and summaries.political_scientist are internally consistent in linking USPS employment and union membership to institutional trust and concern about bureaucratic inefficiency.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "community_and_civic and cultural_and_linguistic are internally consistent: culturally Protestant service values coexist with moderate independent politics and discomfort with religion used as a political weapon.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "preferences.cultural_and_linguistic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The interview provides more specific civic behaviors than the profile currently records, including small donations to local community groups and selective participation in primaries.",
+              "gap": true,
+              "interview_ref": "Q23, Q29",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add small local donations and occasional primary voting when the ballot matters."
+            },
+            {
+              "id": 2,
+              "text": "The interview gives a more developed view of policing accountability than the profile presently includes.",
+              "gap": true,
+              "interview_ref": "Q27",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add support for clear rules, transparent investigations, body-camera policies, and consequences for abuse of authority."
+            },
+            {
+              "id": 3,
+              "text": "The interview includes a distinct anti-privatization shift in his political thinking tied to USPS experience.",
+              "gap": true,
+              "interview_ref": "Q25",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add that he has become more skeptical of privatizing public services after working inside USPS."
+            },
+            {
+              "id": 4,
+              "text": "His information diet around race includes local history about segregation and housing in the St. Louis region, which is missing from the profile.",
+              "gap": true,
+              "interview_ref": "Q28",
+              "should_be_in": "preferences.media_and_information_diet",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add local history, long-form interviews, and reporting on segregation and housing as part of his learning."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed description of curiosity and compassion matches the interview's interest in books, art, coding, community projects, and careful support of family and coworkers.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona, seed.hobbies_and_interests",
+              "source_b_ref": "Q01, Q07, Q17, Q108-Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed statement that he mediates workplace conflicts and mentors newer carriers is confirmed by the interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.professional_persona",
+              "source_b_ref": "Q03 follow-up, Q65, Q77",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed portrayal of a disciplined, compassionate outlook aligns with the interview's self-description around reliability, service, modesty, and practical competence.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q01, Q43-Q45, Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed mention of mild health quirks and creative renewal is consistent with the interview's knee/back issues and use of photography, hiking, cycling, and reading for emotional reset.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona, seed.arts_persona",
+              "source_b_ref": "Q31-Q33, Q43-Q45",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "The interview adds psychologically important formative material not explicit in the seed, such as learning from his father not to panic when something breaks and choosing fit over prestige after college.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q01 follow-up, Q02-Q04",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The profile faithfully captures his mild anxiety under stress, coping through routine and activity, and tendency to rely on a small trusted network.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q43-Q45, Q49-Q50",
+              "source_b_ref": "preferences.health_and_wellness, preferences.social_and_relationships, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The extracted profile accurately represents his identity as disciplined, systems-minded, dependable, and service-oriented.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01-Q04, Q109",
+              "source_b_ref": "summaries.psychologist, summaries.behavioral_economist, preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The interview contains more specific stress signatures than the profile currently records, including becoming quiet, detail-focused, sleeping lighter, and feeling over-responsible.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q43-Q45",
+              "source_b_ref": "preferences.health_and_wellness, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "The interview shows a stronger relational role for Emily as his main emotional regulator and reality-check when he starts spiraling, which is only partially reflected in the profile.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q05, Q44, Q45, Q49",
+              "source_b_ref": "preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "The draft profile's music section is thin relative to the interview, which uses music mainly as a decompression aid rather than as a major identity domain.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q43",
+              "source_b_ref": "preferences.music",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "psychologist summary and health_and_wellness are internally consistent: no major diagnosed condition is paired with mild stress-related anxiety and practical coping routines.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.psychologist",
+              "field_b": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "social_and_relationships and summaries.psychologist are internally consistent in showing preference for a small, steady, low-drama support network.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "arts_and_culture, nature_and_outdoors, and health_and_wellness are internally consistent: photography, hiking, and outdoor time function both as hobbies and as emotion-regulation tools.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.arts_and_culture",
+              "field_b": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The interview provides specific stress expressions and coping sequences missing from the profile.",
+              "gap": true,
+              "interview_ref": "Q43-Q45, Q50",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add that under stress he gets quiet, overly detail-focused, sleeps lighter, and limits doom-scrolling/late-night phone use to cope."
+            },
+            {
+              "id": 2,
+              "text": "The interview includes a clear formative lesson from his father about slowing down and understanding systems when something breaks.",
+              "gap": true,
+              "interview_ref": "Q01 follow-up",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add the childhood maintenance lesson as a formative event shaping his systems-minded coping style."
+            },
+            {
+              "id": 3,
+              "text": "The profile is missing that Emily often notices his stress before he verbalizes it and helps him distinguish urgent from non-urgent problems.",
+              "gap": true,
+              "interview_ref": "Q43-Q45",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add Emily's role as his primary emotional sounding board and stress monitor."
+            },
+            {
+              "id": 4,
+              "text": "The interview provides explicit core values and one self-identified struggle: patience is hardest when systems are inefficient or people are careless.",
+              "gap": true,
+              "interview_ref": "Q109",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add his stated values of reliability, compassion, curiosity, and service, plus difficulty with patience."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No contradictions required FLAG_FOR_REVIEW. The draft profile was broadly accurate, but multiple substantive interview details were missing from preferences, especially demographic enrichment, financial coping behavior, civic specifics, and stress/coping details. Those gaps were carried forward into the corrected profile.",
+    "final_status": "Verified and corrected. The profile is internally coherent and ready for downstream use after the documented enrichments."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "12db3addfc034417adf1a75d8d68aa86",
+    "name": "Jeffrey Mullins",
+    "age": 36,
+    "gender": "Male",
+    "marital_status": "Married, living with wife Emily",
+    "location": "Defiance, MO 63341",
+    "education": "Bachelor's degree in a STEM-related field",
+    "occupation": "USPS postal service mail carrier in St. Charles County",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to the verification report above.",
+      "health_and_wellness": {
+        "summary": "Jeffrey values practical health maintenance through activity, stretching, sleep, and preventive care.",
+        "details": [
+          "Stays active through a physically demanding mail carrier job, cycling, hiking, and occasional basketball. Evidence: Q31, Q32",
+          "Manages knee soreness, lower back tightness, allergies, and foot pain with stretching, better shoes, OTC pain medicine, and checkups. Evidence: Q31, Q33, Q39",
+          "Generally pro-vaccine and trusts doctors, CDC, local health departments, and hospital systems. Evidence: Q41, Q42",
+          "Stress tends to show up as fatigue, getting quiet, over-focusing on details, lighter sleep, and mild anxiety during high-volume periods. Evidence: Q43, Q45",
+          "He has become more intentional about recovery by stretching, protecting sleep, reducing late-night scrolling, and using walks, cycling, reading, and photo editing to reset. Evidence: Q18, Q32, Q43, Q50"
+        ],
+        "evidence": "Q18, Q31-Q45, Q50"
+      },
+      "food_and_dining": {
+        "summary": "He enjoys home cooking, barbecue, sourdough, salads, and practical packed lunches.",
+        "details": [
+          "Cooks ribs, grilled chicken, soups, salads, and sourdough experiments. Evidence: Q17",
+          "Packs leftovers, fruit, granola bars, and water for work lunches. Evidence: Q15",
+          "Cuts back on eating out when managing expenses. Evidence: Q60, Q81",
+          "Irregular lunch breaks and fatigue after long route days make convenience food a recurring temptation. Evidence: Q32, Q59"
+        ],
+        "evidence": "Q15, Q17, Q32, Q59, Q60, Q81"
+      },
+      "travel": {
+        "summary": "He prefers modest road trips and photography-oriented travel, with a dream of visiting Iceland for a photo workshop.",
+        "details": [
+          "Enjoys river photography and short drives tied to outdoor scenery and culture. Evidence: Q08, Q15",
+          "Wants to attend a spring photography workshop in Iceland for volcanic landscapes and dramatic light. Evidence: Q62",
+          "Postponed a weekend trip during tighter budget months. Evidence: Q64",
+          "Takes occasional drives into St. Louis for museums or concerts with Emily. Evidence: Q05"
+        ],
+        "evidence": "Q05, Q08, Q62, Q64"
+      },
+      "social_and_relationships": {
+        "summary": "Jeffrey has a small, stable social circle centered on his wife, family, close friends, coworkers, and volunteering.",
+        "details": [
+          "Married to Emily, who is his primary emotional partner and household teammate. Evidence: Q05, Q51",
+          "Maintains relationships with parents and younger brother Mark. Evidence: Q05, Q06",
+          "Has close friends through work, board games, cycling, and volunteering. Evidence: Q07",
+          "Relies on a small trusted network rather than a large social circle, and prefers steady low-drama friendships. Evidence: Q07, Q49",
+          "Sees his parents about twice a month and helps them with errands, appointments, and practical tasks as they age. Evidence: Q05, Q35",
+          "Emily often notices his stress before he says it and is the first person he turns to when he feels overloaded. Evidence: Q43-Q45, Q49"
+        ],
+        "evidence": "Q05-Q07, Q35, Q43-Q45, Q49, Q51"
+      },
+      "home_and_lifestyle": {
+        "summary": "He prefers a quiet, rooted, modest home life in rural-small-town Defiance.",
+        "details": [
+          "Owns a home with a mortgage and is slowly improving it. Evidence: Q58",
+          "Lives only with wife Emily; no children, roommates, or pets. Evidence: Q11-Q14, Q51-Q54",
+          "Values routines, budgeting, house projects, cooking, and quiet evenings. Evidence: Q15, Q17, Q55",
+          "Shares household expenses with Emily roughly evenly, adjusted by income and bills, and usually tracks payments himself. Evidence: Q55",
+          "The household relies on two full-time incomes, a savings account, and retirement savings through work. Evidence: Q61, Q74",
+          "Uses a spreadsheet budget, keeps roughly three months of expenses in savings, and could cover a $400 emergency from savings. Evidence: Q57, Q61, Q82",
+          "When expenses rise, he trims eating out and hobby purchases and may pick up overtime. Evidence: Q60, Q81",
+          "Feels rooted in Defiance for its quiet, neighborliness, and access to nature, despite the inconvenience of driving for most errands. Evidence: Q08-Q10"
+        ],
+        "evidence": "Q08-Q10, Q11-Q18, Q51-Q58, Q61, Q74, Q81-Q83"
+      },
+      "entertainment": {
+        "summary": "Entertainment is low-key: sports, board games, reading, photography editing, and occasional museums or concerts.",
+        "details": [
+          "Plays board games like Ticket to Ride, Wingspan, Catan, and cooperative games. Evidence: Q07",
+          "Watches Cardinals and Blues games. Evidence: Q05, Q06",
+          "Reads science fiction and edits photos while listening to music. Evidence: Q43",
+          "Sometimes goes into St. Louis for museums or concerts with Emily. Evidence: Q05"
+        ],
+        "evidence": "Q05-Q07, Q43"
+      },
+      "hobbies_and_recreation": {
+        "summary": "His core hobbies are photography, hiking, cycling, sketching, reading science fiction, electronics tinkering, sourdough, and board games.",
+        "details": [
+          "Practices photography around the Missouri River, local streets, and ordinary community scenes. Evidence: Q08, Q17",
+          "Hikes the Katy Trail and cycles with a YMCA group. Evidence: Q15, Q18",
+          "Tinkers with coding, electronics tutorials, and camera gear. Evidence: Q48, Q61",
+          "Enjoys board-game nights with friends once or twice a month. Evidence: Q07",
+          "Keeps a sourdough starter and experiments with baking on slower weekends. Evidence: Q15, Q17"
+        ],
+        "evidence": "Q07, Q08, Q15, Q17, Q18, Q48, Q61"
+      },
+      "work_and_career": {
+        "summary": "Jeffrey is committed to USPS public service and wants to move toward operations management and data-enhanced routing.",
+        "details": [
+          "Works as a USPS mail carrier handling sorting, scanning, delivery, customer service, safety, and route timing. Evidence: Q16, Q65",
+          "Mentors newer carriers and values union protections. Evidence: Q65, Q66",
+          "Wants a logistics credential and data analytics night courses as steps toward supervision or operations work. Evidence: Q108",
+          "Has been with USPS about nine years, usually works around 42 to 48 hours a week, and depends on a predictable morning start with less predictable end times. Evidence: Q68, Q76, Q78",
+          "Finds the job rewarding because it is physical, mentally organized, community-facing, and lets him improve complex days through better routing decisions. Evidence: Q02, Q16"
+        ],
+        "evidence": "Q02, Q16, Q65-Q78, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "He values visual art, photography, museums, sketching, and community arts access.",
+        "details": [
+          "Uses Instagram to follow photographers, local artists, museums, and outdoor photography. Evidence: Q48",
+          "Wants to create free community arts workshops for children and seniors. Evidence: Q108",
+          "Uses photography and sketching as renewal and emotional regulation. Evidence: Q17, Q43",
+          "Enjoys local art projects and occasional museum trips into St. Louis. Evidence: Q01, Q05"
+        ],
+        "evidence": "Q01, Q05, Q17, Q43, Q48, Q108"
+      },
+      "sports_and_fitness": {
+        "summary": "He follows St. Louis sports and maintains fitness through hiking, cycling, and occasional basketball.",
+        "details": [
+          "Roots for the St. Louis Cardinals and St. Louis Blues. Evidence: Q05, Q06",
+          "Joined a YMCA cycling group and tries to ride weekly. Evidence: Q18",
+          "Avoids overdoing pickup basketball because of knee pain. Evidence: Q31, Q33",
+          "Exercises mostly on weekends and on some weeknights when schedule and joint pain cooperate. Evidence: Q15"
+        ],
+        "evidence": "Q05, Q06, Q15, Q18, Q31, Q33"
+      },
+      "nature_and_outdoors": {
+        "summary": "Nature is central to his leisure and emotional regulation, especially the Missouri River and Katy Trail.",
+        "details": [
+          "Enjoys river sunrises, wooded roads, nearby trails, and Missouri River scenery. Evidence: Q08",
+          "Uses walks, hiking, and outdoor photography to reset emotionally. Evidence: Q43, Q44",
+          "Lives in Defiance partly because of quiet, nature, and neighborliness. Evidence: Q08, Q10",
+          "Pays close attention to weather, deer on the roads, and rural driving conditions because they affect both safety and daily life. Evidence: Q09, Q21"
+        ],
+        "evidence": "Q08-Q10, Q21, Q43, Q44"
+      },
+      "technology": {
+        "summary": "He has a practical, STEM-influenced interest in technology, logistics data, camera gear, coding, and electronics.",
+        "details": [
+          "Uses route patterns, scanner data, and personal notes to optimize delivery. Evidence: Q65",
+          "Uses Reddit and YouTube for camera reviews, electronics tinkering, coding, and sourdough troubleshooting. Evidence: Q48",
+          "Plans to study data analytics and apply technology-enhanced routing. Evidence: Q108",
+          "Keeps household budgeting in a spreadsheet and approaches problems in a systems-oriented way. Evidence: Q57, Q109"
+        ],
+        "evidence": "Q48, Q57, Q65, Q108, Q109"
+      },
+      "community_and_civic": {
+        "summary": "Jeffrey is civically engaged through voting, public service, union membership, volunteering, and neighborly responsibility.",
+        "details": [
+          "Votes regularly and researches ballot issues affecting schools, roads, libraries, and public services. Evidence: Q23, Q24",
+          "Volunteers at a senior center with donation drives and craft workshops. Evidence: Q07, Q17",
+          "Believes in public institutions, labor protections, and practical local governance. Evidence: Q24, Q66",
+          "Usually prepares for elections with sample ballots, local news, and sometimes the League of Women Voters guide; he votes in some primaries depending on the ballot. Evidence: Q23",
+          "Has become more pro-labor and more skeptical of privatizing public services through working inside USPS. Evidence: Q24, Q25",
+          "Thinks race, policing, and inequality deserve serious attention and favors accountability tools such as clear rules, transparent investigations, body cameras, and consequences for abuse. Evidence: Q26-Q28",
+          "Responds to racial justice concerns mainly through private conversations, continued learning, and small donations to local community groups rather than protest participation. Evidence: Q29, Q30",
+          "Practices everyday local civic responsibility through neighbor check-ins, storm awareness, and watching for packages and suspicious activity. Evidence: Q08, Q09"
+        ],
+        "evidence": "Q07-Q09, Q23-Q30, Q66"
+      },
+      "music": {
+        "summary": "Music appears mainly as a quiet support for relaxation and photo editing.",
+        "details": [
+          "Uses music while editing photos to decompress. Evidence: Q43",
+          "Occasionally pairs concerts in St. Louis with outings with Emily. Evidence: Q05"
+        ],
+        "evidence": "Q05, Q43"
+      },
+      "fashion_and_appearance": {
+        "summary": "There is limited interview evidence about fashion; appearance choices are mostly practical and work-oriented.",
+        "details": [
+          "Prioritizes good shoes for knee and foot health during mail delivery. Evidence: Q31, Q33",
+          "Uses practical, weather-ready work clothing by implication from carrier duties and route conditions. Evidence: Q16, Q65"
+        ],
+        "evidence": "Q16, Q31, Q33, Q65"
+      },
+      "cultural_and_linguistic": {
+        "summary": "He identifies as white, non-Hispanic, Midwestern American, with a culturally Protestant background.",
+        "details": [
+          "Born in Washington, Missouri, and grew up mainly around Defiance and St. Charles County. Evidence: Q87, Q97",
+          "Identifies as white and not Hispanic, Latinx, or Spanish origin. Evidence: Q88, Q89",
+          "Raised with mainline Protestant Christian influence but is not a regular churchgoer. Evidence: Q47, Q94",
+          "Has lived mostly in Missouri and identifies strongly with Missouri River country more than with one city. Evidence: Q86, Q87"
+        ],
+        "evidence": "Q47, Q86-Q89, Q94, Q97"
+      },
+      "life_events_and_transitions": {
+        "summary": "Major life transitions include choosing USPS after college, marrying Emily, buying a home, and developing career goals in operations.",
+        "details": [
+          "Chose USPS after realizing a conventional STEM desk career did not fit his temperament. Evidence: Q02, Q03",
+          "Married Emily and built a steady household in Defiance. Evidence: Q05, Q84",
+          "Owns a home with a mortgage and wants to move into USPS supervision or operations. Evidence: Q58, Q108",
+          "Has been married about seven years and has owned the home about six years. Evidence: Q58, Q84",
+          "A formative childhood memory was learning from his father to slow down, study the system, and not panic when something breaks. Evidence: Q01 follow-up",
+          "Values reliability, compassion, curiosity, and service, and says patience is hardest when systems are inefficient or people are careless. Evidence: Q109"
+        ],
+        "evidence": "Q01-Q05, Q58, Q84, Q108, Q109"
+      },
+      "media_and_information_diet": {
+        "summary": "He consumes practical, moderate information from credible health sources, local news, sample ballots, photography media, and limited social platforms.",
+        "details": [
+          "Uses Instagram for photography and Facebook for family/community updates. Evidence: Q48",
+          "Avoids political comment fights and outrage clips. Evidence: Q48, Q49",
+          "Uses doctors, CDC, local health departments, and hospital systems for vaccine information. Evidence: Q42",
+          "Reads sample ballots, local news, and voter guides before elections. Evidence: Q23",
+          "Uses Reddit and YouTube for hobby learning and troubleshooting. Evidence: Q48",
+          "Has tried to read more about race through news reporting, long-form interviews, and local history about segregation and housing in the St. Louis region. Evidence: Q28"
+        ],
+        "evidence": "Q23, Q28, Q42, Q48, Q49"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Jeffrey Mullins is a 36-year-old white, non-Hispanic married man living in Defiance, Missouri, with his wife Emily and no children or roommates (Q51-Q55, Q84-Q89). He has a bachelor's degree in a STEM-related field and works full-time as a USPS mail carrier in St. Charles County (Q16, Q65, Q90). His household is economically stable, owning a mortgaged home and relying on two full-time incomes, with moderate savings and no public assistance (Q58, Q61, Q74, Q80). His life-course profile reflects a rooted Midwestern adult household with strong family ties, public-sector employment, and aging-parent responsibilities (Q05, Q35, Q97-Q107).",
+      "behavioral_economist": "Jeffrey shows high conscientiousness around budgeting, savings, and route efficiency, using spreadsheets, emergency funds, and practical optimization to reduce uncertainty (Q57, Q61, Q65, Q82). He is moderately risk-averse financially, able to absorb a $400 shock but cautious about health, home, and car repair risks (Q59-Q64, Q82-Q83). He has a known temptation toward camera gear purchases, but manages it by delaying purchases when expenses rise (Q60-Q61). His choices are shaped by stable routines, public-service identity, and a preference for long-term security over short-term status (Q02-Q04, Q66, Q108).",
+      "political_scientist": "Jeffrey is a regular voter and moderate Independent who leans somewhat Democratic, especially on labor, health care, public services, environmental stewardship, and social issues (Q23-Q24, Q95-Q96). His USPS employment and union membership increase his institutional attachment to public service while also making him attentive to bureaucratic inefficiency (Q24, Q65-Q66). He is concerned about race, policing, and inequality, responding mainly through private conversations, learning, and modest local donations rather than protest participation (Q26-Q30). His civic orientation is localist, practical, and community-service oriented (Q07, Q17, Q23, Q108).",
+      "psychologist": "Jeffrey presents as disciplined, compassionate, modest, and systems-minded, with a self-concept organized around reliability, service, and practical competence (Q01-Q04, Q109). He regulates stress through routines, photography, hiking, cycling, talking with Emily, and reducing social media exposure (Q43-Q45, Q50). He reports mild anxiety during high-stress periods but no major diagnosed mental health condition, and he tends to become quiet, detail-focused, and over-responsible under strain (Q43-Q45). Relationally, he relies on a small trusted network and prefers steady, low-drama connection over broad social exposure (Q05-Q07, Q49)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Jeffrey stays active through his physically demanding USPS mail carrier job.",
+        "ground_truth_label": "Physical activity through work",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'wear-and-tear stuff that comes with carrying mail'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Jeffrey cycles as part of maintaining his health.",
+        "ground_truth_label": "Cycling for fitness",
+        "behavioral_evidence_from_interview": [
+          "Q18: 'I also joined a YMCA cycling group'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Jeffrey hikes as part of staying healthy.",
+        "ground_truth_label": "Hiking for fitness",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'Saturdays might be cycling, hiking the Katy Trail'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Jeffrey occasionally plays basketball but manages it carefully.",
+        "ground_truth_label": "Occasional basketball",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'not overdoing pickup basketball'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Jeffrey has recurring knee soreness.",
+        "ground_truth_label": "Recurring knee pain",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'knee soreness'",
+          "Q33: 'knee pain that flared'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Jeffrey experiences lower back tightness.",
+        "ground_truth_label": "Lower back tightness",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'lower back tightness'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Jeffrey has seasonal allergies.",
+        "ground_truth_label": "Seasonal allergies",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'Mild seasonal allergies'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Jeffrey sometimes has foot pain from work demands.",
+        "ground_truth_label": "Occasional foot pain",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'occasional foot pain'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Jeffrey manages pain with stretching.",
+        "ground_truth_label": "Uses stretching for pain management",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'manage it with stretching'",
+          "Q18: 'more deliberate about stretching'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Jeffrey uses better shoes to manage knee and foot issues.",
+        "ground_truth_label": "Supportive footwear for joint health",
+        "behavioral_evidence_from_interview": [
+          "Q33: 'Better shoes... helped the knee'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Jeffrey uses over-the-counter pain medication for soreness.",
+        "ground_truth_label": "OTC pain medication use",
+        "behavioral_evidence_from_interview": [
+          "Q39: 'I use over-the-counter ibuprofen or acetaminophen for soreness'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Jeffrey gets annual checkups and seeks extra care if something does not improve.",
+        "ground_truth_label": "Annual preventive medical care",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'Annual checkup, plus extra if something does not improve'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Jeffrey is generally pro-vaccine.",
+        "ground_truth_label": "Pro-vaccine orientation",
+        "behavioral_evidence_from_interview": [
+          "Q41: 'I am generally pro-vaccine'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Jeffrey trusts doctors, CDC information, local health departments, and major hospital systems for vaccine information.",
+        "ground_truth_label": "Trusted medical information sources",
+        "behavioral_evidence_from_interview": [
+          "Q42: 'I trust my doctor, CDC information, local health departments, and major hospital systems'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Stress makes Jeffrey tired.",
+        "ground_truth_label": "Stress manifests as fatigue",
+        "behavioral_evidence_from_interview": [
+          "Q43: 'felt mostly stable, but tired'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "When overwhelmed, Jeffrey gets quiet.",
+        "ground_truth_label": "Quiet under stress",
+        "behavioral_evidence_from_interview": [
+          "Q43: 'I do get quiet when overwhelmed'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Stress makes Jeffrey overly focused on details.",
+        "ground_truth_label": "Detail fixation under stress",
+        "behavioral_evidence_from_interview": [
+          "Q43 follow-up: 'I get overly focused on details'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Stress causes Jeffrey to sleep lighter.",
+        "ground_truth_label": "Lighter sleep under stress",
+        "behavioral_evidence_from_interview": [
+          "Q43 follow-up: 'sleep lighter'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Jeffrey experiences mild anxiety during high-stress periods.",
+        "ground_truth_label": "Mild situational anxiety",
+        "behavioral_evidence_from_interview": [
+          "Q45: 'I have mild anxiety during high-stress periods'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Jeffrey limits doom-scrolling and late-night phone use to cope better with stress.",
+        "ground_truth_label": "Reduces phone-driven stress",
+        "behavioral_evidence_from_interview": [
+          "Q45: 'limiting doom-scrolling'",
+          "Q50: 'Sleep. I realized the phone was making my stress worse'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Jeffrey cooks ribs at home.",
+        "ground_truth_label": "Home barbecue cooking",
+        "behavioral_evidence_from_interview": [
+          "Q17: 'ribs when I have time'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Jeffrey often cooks grilled chicken.",
+        "ground_truth_label": "Regular grilled chicken cooking",
+        "behavioral_evidence_from_interview": [
+          "Q17 follow-up: 'Grilled chicken'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Jeffrey makes soups and salads at home.",
+        "ground_truth_label": "Soup and salad cooking",
+        "behavioral_evidence_from_interview": [
+          "Q17 follow-up: 'salads, soups'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Jeffrey experiments with sourdough.",
+        "ground_truth_label": "Sourdough hobby cooking",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'Sundays are slower... sourdough'",
+          "Q17 follow-up: 'sourdough experiments'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Jeffrey usually packs leftovers for lunch.",
+        "ground_truth_label": "Leftovers for work lunch",
+        "behavioral_evidence_from_interview": [
+          "Q15 follow-up: 'Usually leftovers'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Jeffrey packs fruit, a granola bar, and water with lunch.",
+        "ground_truth_label": "Practical packed lunch items",
+        "behavioral_evidence_from_interview": [
+          "Q15 follow-up: 'fruit, a granola bar, and plenty of water'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Jeffrey cuts back on eating out when money is tighter.",
+        "ground_truth_label": "Reduces restaurant spending under budget pressure",
+        "behavioral_evidence_from_interview": [
+          "Q60: 'cut back on eating out'",
+          "Q81: 'spending less on eating out'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Fatigue and irregular lunch breaks make convenience food tempting for Jeffrey.",
+        "ground_truth_label": "Convenience-food temptation under fatigue",
+        "behavioral_evidence_from_interview": [
+          "Q32: 'The hard part is fatigue, irregular lunch breaks, and being tempted by convenience food'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Jeffrey likes short drives tied to outdoor scenery and culture.",
+        "ground_truth_label": "Scenery-and-culture road trips",
+        "behavioral_evidence_from_interview": [
+          "Q08: 'shoot photos by the river'",
+          "Q05 follow-up: 'drive into St. Louis for a museum or concert'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Jeffrey wants to attend a spring photography workshop in Iceland.",
+        "ground_truth_label": "Dream trip to Iceland photo workshop",
+        "behavioral_evidence_from_interview": [
+          "Q62: 'I would love to do a spring photography workshop in Iceland someday'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Jeffrey is drawn to Iceland's volcanic landscapes, dramatic light, and weather.",
+        "ground_truth_label": "Iceland motivation: landscapes and light",
+        "behavioral_evidence_from_interview": [
+          "Q62 follow-up: 'The volcanic landscapes, light, and dramatic weather would be amazing to photograph'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Jeffrey postponed a weekend trip when money was tighter.",
+        "ground_truth_label": "Defers travel under financial pressure",
+        "behavioral_evidence_from_interview": [
+          "Q64 follow-up: 'a weekend trip'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Jeffrey is married to Emily.",
+        "ground_truth_label": "Married to Emily",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'I am married to Emily'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Emily is Jeffrey's main emotional support person.",
+        "ground_truth_label": "Primary emotional partner is Emily",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'She is my main person, honestly'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Jeffrey keeps in regular touch with his parents.",
+        "ground_truth_label": "Regular contact with parents",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'I see them every couple of weeks'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Jeffrey has a younger brother named Mark.",
+        "ground_truth_label": "Younger brother Mark",
+        "behavioral_evidence_from_interview": [
+          "Q06: 'I have one younger brother, Mark'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Jeffrey prefers a small, steady social circle over a large one.",
+        "ground_truth_label": "Small trusted social network",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'I have a few close friends rather than a big social circle'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Aaron is a coworker Jeffrey sometimes hikes with.",
+        "ground_truth_label": "Friendship with coworker Aaron",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'There is Aaron, a coworker I hike with sometimes'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Jeffrey and Emily play board games with friends Mike and Tricia once or twice a month.",
+        "ground_truth_label": "Regular board-game nights with friends",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'Mike and Tricia... once or twice a month'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Jeffrey helps his aging parents with errands and appointments a couple times a month.",
+        "ground_truth_label": "Aging-parent support role",
+        "behavioral_evidence_from_interview": [
+          "Q35: 'I help with errands and appointments when I can'",
+          "Q35 follow-up: 'A couple times a month'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Emily often notices Jeffrey's stress before he verbalizes it.",
+        "ground_truth_label": "Partner detects stress early",
+        "behavioral_evidence_from_interview": [
+          "Q43: 'Emily can usually tell when I am carrying stress before I say it'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Jeffrey and Emily own their home with a mortgage.",
+        "ground_truth_label": "Owner-occupied mortgaged home",
+        "behavioral_evidence_from_interview": [
+          "Q58: 'We own our home with a mortgage'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Jeffrey lives only with Emily.",
+        "ground_truth_label": "Two-person household",
+        "behavioral_evidence_from_interview": [
+          "Q11: 'It is just me and Emily in the house'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Jeffrey and Emily do not have children.",
+        "ground_truth_label": "No children",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'We do not have children'",
+          "Q52: 'No babies or children'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Jeffrey and Emily do not currently have pets.",
+        "ground_truth_label": "No current pets",
+        "behavioral_evidence_from_interview": [
+          "Q11 follow-up: 'No pets right now'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Jeffrey and Emily share cooking, cleaning, and bills.",
+        "ground_truth_label": "Shared household responsibilities",
+        "behavioral_evidence_from_interview": [
+          "Q11: 'We share cooking, cleaning, and bills'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Jeffrey usually tracks household payments and budget details.",
+        "ground_truth_label": "Primary household budget tracker",
+        "behavioral_evidence_from_interview": [
+          "Q55 follow-up: 'I usually track them'",
+          "Q57 follow-up: 'I use a spreadsheet'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Household expenses are shared roughly evenly but adjusted by income and bills.",
+        "ground_truth_label": "Flexible cost sharing by income",
+        "behavioral_evidence_from_interview": [
+          "Q55 follow-up: 'Roughly, adjusted by income and bills'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Jeffrey's household has a savings account and retirement savings through work.",
+        "ground_truth_label": "Savings and retirement accounts",
+        "behavioral_evidence_from_interview": [
+          "Q61: 'We have a savings account and retirement savings through work'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Jeffrey keeps around three months of expenses in savings if nothing big hits.",
+        "ground_truth_label": "Three-month emergency cushion",
+        "behavioral_evidence_from_interview": [
+          "Q61 follow-up: 'Around three months if nothing big hits'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Jeffrey could cover a $400 emergency from savings.",
+        "ground_truth_label": "Can absorb $400 emergency",
+        "behavioral_evidence_from_interview": [
+          "Q82: 'We could cover a $400 emergency from savings'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "When extra expenses hit, Jeffrey cuts back on hobby purchases and eating out.",
+        "ground_truth_label": "Discretionary cuts under financial pressure",
+        "behavioral_evidence_from_interview": [
+          "Q60: 'cut back on eating out and hobby purchases'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Jeffrey sometimes picks up overtime to cope with extra expenses.",
+        "ground_truth_label": "Uses overtime to manage shocks",
+        "behavioral_evidence_from_interview": [
+          "Q60: 'I also picked up some overtime'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Jeffrey likes Defiance for its quiet, neighborliness, and nearby nature.",
+        "ground_truth_label": "Prefers quiet rooted home setting",
+        "behavioral_evidence_from_interview": [
+          "Q08: 'home still feels quieter'",
+          "Q10: 'The upside is quiet, nature, and a real sense of neighborliness'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Jeffrey plays Ticket to Ride.",
+        "ground_truth_label": "Enjoys Ticket to Ride",
+        "behavioral_evidence_from_interview": [
+          "Q07 follow-up: 'Ticket to Ride'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Jeffrey plays Wingspan and Catan.",
+        "ground_truth_label": "Enjoys strategy board games",
+        "behavioral_evidence_from_interview": [
+          "Q07 follow-up: 'Wingspan, Catan'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Jeffrey watches Cardinals games.",
+        "ground_truth_label": "Cardinals fan",
+        "behavioral_evidence_from_interview": [
+          "Q05 follow-up: 'watch Cardinals'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Jeffrey watches Blues games.",
+        "ground_truth_label": "Blues fan",
+        "behavioral_evidence_from_interview": [
+          "Q05 follow-up: 'or Blues games'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Jeffrey reads science-fiction.",
+        "ground_truth_label": "Science-fiction reader",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'reading sci-fi'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Jeffrey edits photos while listening to music to relax.",
+        "ground_truth_label": "Photo editing as low-key entertainment",
+        "behavioral_evidence_from_interview": [
+          "Q43 follow-up: 'an hour editing photos with music on'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Jeffrey photographs the Missouri River and ordinary community scenes.",
+        "ground_truth_label": "Local documentary-style photography",
+        "behavioral_evidence_from_interview": [
+          "Q17: 'look for river light or interesting street scenes'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Jeffrey hikes the Katy Trail.",
+        "ground_truth_label": "Katy Trail hiking",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'hiking the Katy Trail'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Jeffrey rides with a YMCA cycling group about once a week when schedule and weather allow.",
+        "ground_truth_label": "Weekly YMCA group cycling when possible",
+        "behavioral_evidence_from_interview": [
+          "Q18 follow-up: 'Usually once a week when the weather and work schedule line up'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Jeffrey uses Reddit and YouTube for electronics tinkering and coding tutorials.",
+        "ground_truth_label": "Online hobby learning for electronics and coding",
+        "behavioral_evidence_from_interview": [
+          "Q48: 'Reddit and YouTube for camera reviews, electronics tinkering'",
+          "Q92 follow-up: 'online tutorials for coding'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Jeffrey works as a USPS mail carrier in St. Charles County.",
+        "ground_truth_label": "USPS mail carrier occupation",
+        "behavioral_evidence_from_interview": [
+          "Q16: 'I am a USPS mail carrier in St. Charles County'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Jeffrey's job includes sorting and casing mail, scanning packages, loading the vehicle, and delivering letters and parcels.",
+        "ground_truth_label": "Core mail-carrier duties",
+        "behavioral_evidence_from_interview": [
+          "Q65: 'sorting and casing mail, scanning packages, loading the vehicle efficiently, delivering letters and parcels'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Jeffrey values accuracy, reliability, time management, and customer service in his work.",
+        "ground_truth_label": "Core work values",
+        "behavioral_evidence_from_interview": [
+          "Q65: 'The important duties are accuracy, reliability, time management, and customer service'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Jeffrey mentors newer carriers.",
+        "ground_truth_label": "Mentors newer carriers",
+        "behavioral_evidence_from_interview": [
+          "Q65: 'I mentor newer carriers when I can'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Jeffrey is covered by a union contract and is a union member.",
+        "ground_truth_label": "Union member at USPS",
+        "behavioral_evidence_from_interview": [
+          "Q66: 'Yes'",
+          "Q66 follow-up: 'Yes'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Jeffrey has been with USPS about nine years.",
+        "ground_truth_label": "Nine years at USPS",
+        "behavioral_evidence_from_interview": [
+          "Q76: 'I have been with USPS about nine years'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Jeffrey usually works about 42 to 48 hours per week.",
+        "ground_truth_label": "Typical weekly hours 42-48",
+        "behavioral_evidence_from_interview": [
+          "Q68: 'Usually around 42 to 48 hours'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Jeffrey wants to move into a supervisory or operations role and pursue logistics and analytics training.",
+        "ground_truth_label": "Career goal: USPS operations leadership",
+        "behavioral_evidence_from_interview": [
+          "Q108: 'move into a supervisory or operations role'",
+          "Q108: 'get a logistics credential and maybe take data analytics night classes'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Jeffrey uses Instagram to follow photographers and local artists.",
+        "ground_truth_label": "Follows art accounts on Instagram",
+        "behavioral_evidence_from_interview": [
+          "Q48: 'I use Instagram mostly for photography and following local artists'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Jeffrey wants to help start free arts workshops for kids and seniors in Defiance.",
+        "ground_truth_label": "Goal of community arts workshops",
+        "behavioral_evidence_from_interview": [
+          "Q108: 'start or help start a community arts program in Defiance, especially for kids and seniors'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Photography and sketching help Jeffrey emotionally reset.",
+        "ground_truth_label": "Art as emotional regulation",
+        "behavioral_evidence_from_interview": [
+          "Q43: 'Photography... help me reset'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Jeffrey roots for the St. Louis Cardinals.",
+        "ground_truth_label": "St. Louis Cardinals fan",
+        "behavioral_evidence_from_interview": [
+          "Q05 follow-up: 'watch Cardinals'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Jeffrey roots for the St. Louis Blues.",
+        "ground_truth_label": "St. Louis Blues fan",
+        "behavioral_evidence_from_interview": [
+          "Q05 follow-up: 'or Blues games'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Jeffrey enjoys Missouri River scenery and river sunrises.",
+        "ground_truth_label": "Attachment to Missouri River landscape",
+        "behavioral_evidence_from_interview": [
+          "Q08: 'the Missouri River... nearby'",
+          "Q08: 'shoot photos by the river'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Jeffrey uses walks by the river to recover from stress.",
+        "ground_truth_label": "River walks for emotional reset",
+        "behavioral_evidence_from_interview": [
+          "Q43 follow-up: 'A walk by the river'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Weather and deer on the roads are salient everyday concerns in Jeffrey's area.",
+        "ground_truth_label": "Rural environmental safety concerns",
+        "behavioral_evidence_from_interview": [
+          "Q09: 'weather, deer on the roads'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Jeffrey uses scanner data and his own route notes to improve delivery efficiency.",
+        "ground_truth_label": "Uses data and notes for route optimization",
+        "behavioral_evidence_from_interview": [
+          "Q65 follow-up: 'scanners and USPS systems, plus my own notes about patterns and problem stops'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Jeffrey uses Reddit and YouTube for camera reviews.",
+        "ground_truth_label": "Online camera review consumption",
+        "behavioral_evidence_from_interview": [
+          "Q48: 'Reddit and YouTube for camera reviews'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Jeffrey keeps his household budget in a spreadsheet.",
+        "ground_truth_label": "Spreadsheet budgeting",
+        "behavioral_evidence_from_interview": [
+          "Q57 follow-up: 'Yes, I use a spreadsheet'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Jeffrey votes regularly in presidential, state, and local elections.",
+        "ground_truth_label": "Regular voter",
+        "behavioral_evidence_from_interview": [
+          "Q23: 'I vote regularly'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Jeffrey reads sample ballots, local news, and sometimes the League of Women Voters guide before voting.",
+        "ground_truth_label": "Election research habits",
+        "behavioral_evidence_from_interview": [
+          "Q23 follow-up: 'I read sample ballots, local news, and sometimes the League of Women Voters guide'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Jeffrey volunteers at a senior center once or twice a month.",
+        "ground_truth_label": "Senior-center volunteer",
+        "behavioral_evidence_from_interview": [
+          "Q07 follow-up: 'Usually once or twice a month'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Jeffrey helps with donation drives and craft workshops at the senior center.",
+        "ground_truth_label": "Volunteer tasks at senior center",
+        "behavioral_evidence_from_interview": [
+          "Q17 follow-up: 'donation drives, craft workshops'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Jeffrey describes himself as a moderate independent who leans a little Democratic.",
+        "ground_truth_label": "Moderate independent with slight Democratic lean",
+        "behavioral_evidence_from_interview": [
+          "Q24: 'a moderate independent who leans a little Democratic'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Jeffrey has become more pro-labor and more skeptical of privatizing public services.",
+        "ground_truth_label": "Pro-labor and anti-privatization shift",
+        "behavioral_evidence_from_interview": [
+          "Q25: 'I have become more pro-labor and more skeptical of privatizing public services'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Jeffrey thinks race, policing, and inequality deserve serious attention.",
+        "ground_truth_label": "Concerned about race and policing issues",
+        "behavioral_evidence_from_interview": [
+          "Q27: 'the core issues deserve serious attention'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Jeffrey supports body-camera policies, transparent investigations, and consequences for abuse of authority.",
+        "ground_truth_label": "Supports policing accountability measures",
+        "behavioral_evidence_from_interview": [
+          "Q27 follow-up: 'body camera policies, and consequences when authority is abused'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Jeffrey has responded to racial justice concerns mainly through conversations, learning, and small donations rather than protests.",
+        "ground_truth_label": "Private/conversational civic response to racial justice",
+        "behavioral_evidence_from_interview": [
+          "Q29: 'talked with family and close friends'",
+          "Q29: 'donated small amounts to local community groups'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-093",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Jeffrey and his neighbors check in during storms and watch for packages or suspicious activity.",
+        "ground_truth_label": "Neighborly mutual monitoring",
+        "behavioral_evidence_from_interview": [
+          "Q08 follow-up: 'watch for packages'",
+          "Q09 follow-up: 'neighbors text if something seems off'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-094",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Jeffrey uses music while editing photos to decompress.",
+        "ground_truth_label": "Music as decompression aid",
+        "behavioral_evidence_from_interview": [
+          "Q43 follow-up: 'editing photos with music on'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-095",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Jeffrey prioritizes good shoes because of knee and foot strain from work.",
+        "ground_truth_label": "Supportive shoes prioritized",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'decent shoes'",
+          "Q33: 'Better shoes'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-096",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Jeffrey was born in Washington, Missouri.",
+        "ground_truth_label": "Birthplace: Washington, Missouri",
+        "behavioral_evidence_from_interview": [
+          "Q87: 'Washington, Missouri'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-097",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Jeffrey grew up mainly around Defiance and St. Charles County.",
+        "ground_truth_label": "Raised in Defiance/St. Charles County",
+        "behavioral_evidence_from_interview": [
+          "Q87 follow-up: 'I grew up mainly around Defiance and St. Charles County'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-098",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Jeffrey identifies as white American and not Hispanic, Latinx, or Spanish origin.",
+        "ground_truth_label": "White non-Hispanic identity",
+        "behavioral_evidence_from_interview": [
+          "Q88: 'No'",
+          "Q89: 'White'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-099",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Jeffrey describes himself as culturally Protestant rather than highly observant.",
+        "ground_truth_label": "Culturally Protestant identity",
+        "behavioral_evidence_from_interview": [
+          "Q47: 'culturally Protestant'",
+          "Q94: 'Protestant Christian culturally, but not very observant'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-100",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "After college, Jeffrey realized a conventional STEM desk career did not fit his temperament.",
+        "ground_truth_label": "Post-college rejection of desk-job path",
+        "behavioral_evidence_from_interview": [
+          "Q02: 'desk job... felt disconnected from people'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-101",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Choosing USPS was a major crossroads in Jeffrey's life.",
+        "ground_truth_label": "USPS as defining life crossroads",
+        "behavioral_evidence_from_interview": [
+          "Q02: 'A real crossroads was after college'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-102",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Jeffrey has been married about seven years.",
+        "ground_truth_label": "Married about seven years",
+        "behavioral_evidence_from_interview": [
+          "Q84 follow-up: 'About seven years'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-103",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Jeffrey and Emily have owned their home about six years.",
+        "ground_truth_label": "Homeownership tenure about six years",
+        "behavioral_evidence_from_interview": [
+          "Q58 follow-up: 'About six years'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-104",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "A formative childhood lesson from Jeffrey's father was not to panic when something breaks but to study the system and work through it.",
+        "ground_truth_label": "Formative systems-thinking lesson from father",
+        "behavioral_evidence_from_interview": [
+          "Q01 follow-up: 'you slow down, look at the system, and work through it'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-105",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Jeffrey values reliability, compassion, curiosity, and service most in life.",
+        "ground_truth_label": "Core values: reliability, compassion, curiosity, service",
+        "behavioral_evidence_from_interview": [
+          "Q109: 'I value reliability, compassion, curiosity, and service'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-106",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Patience is the value Jeffrey finds hardest to live when systems are inefficient or people are careless.",
+        "ground_truth_label": "Struggles most with patience",
+        "behavioral_evidence_from_interview": [
+          "Q109 follow-up: 'Patience'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-107",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Jeffrey uses Instagram mostly for photography and following local artists and museums.",
+        "ground_truth_label": "Instagram for photography/art content",
+        "behavioral_evidence_from_interview": [
+          "Q48: 'I use Instagram mostly for photography and following local artists, museums'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-108",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Jeffrey uses Facebook for family updates, community posts, and events.",
+        "ground_truth_label": "Facebook for family/community information",
+        "behavioral_evidence_from_interview": [
+          "Q48: 'Facebook is more for family updates, community posts, and events'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-109",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Jeffrey avoids political comment fights and outrage clips online.",
+        "ground_truth_label": "Avoids online political conflict content",
+        "behavioral_evidence_from_interview": [
+          "Q48 follow-up: 'Political comment fights and outrage clips'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-110",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Jeffrey uses Reddit and YouTube for troubleshooting and hobby information.",
+        "ground_truth_label": "Reddit/YouTube for practical learning",
+        "behavioral_evidence_from_interview": [
+          "Q48: 'I have used Reddit and YouTube for camera reviews, electronics tinkering, and sourdough troubleshooting'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-111",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Jeffrey reads local history, reporting, and long-form interviews about race and the St. Louis region.",
+        "ground_truth_label": "Uses local history/reporting to learn about race",
+        "behavioral_evidence_from_interview": [
+          "Q28 follow-up: 'News reporting, long-form interviews, and some local history about segregation and housing in the St. Louis region'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-112",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Jeffrey's household does not receive public assistance benefits such as SNAP, housing vouchers, SSI, unemployment, or disability payments.",
+        "ground_truth_label": "No public assistance benefits",
+        "behavioral_evidence_from_interview": [
+          "Q80: 'No, we do not receive those benefits'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-113",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Emily works full-time, making the household a two-full-time-income household.",
+        "ground_truth_label": "Two full-time earners in household",
+        "behavioral_evidence_from_interview": [
+          "Q74 follow-up: 'Yes, she works full-time'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-114",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Jeffrey is moderately risk-averse financially and feels stable but cautious rather than fully secure.",
+        "ground_truth_label": "Moderate financial risk aversion",
+        "behavioral_evidence_from_interview": [
+          "Q83: 'I feel stable but cautious'",
+          "Q82: 'I would not enjoy it, but it would not break us'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-115",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Jeffrey prefers long-term fit and security over chasing status or impressive job titles.",
+        "ground_truth_label": "Long-term security over status",
+        "behavioral_evidence_from_interview": [
+          "Q03: 'stop chasing what sounded impressive and try what actually fit my temperament'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-116",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Working for USPS gives Jeffrey an attachment to public service institutions while making him sensitive to bureaucratic inefficiency.",
+        "ground_truth_label": "Institutional attachment tempered by inefficiency awareness",
+        "behavioral_evidence_from_interview": [
+          "Q24: 'respect for public institutions'",
+          "Q24: 'big systems can be inefficient'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-117",
+        "source": "reprojected",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Jeffrey prefers steady, low-drama connection over broad social exposure.",
+        "ground_truth_label": "Prefers low-drama relationships",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'steady friendships where you can pick up a conversation without forcing it'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}

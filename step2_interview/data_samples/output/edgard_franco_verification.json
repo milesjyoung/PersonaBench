@@ -1,0 +1,2392 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "1afcaffea5f54c999356ee4e30956065",
+      "name": "Edgard Franco",
+      "verification_date": "2026-05-19"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age, sex, and marital status match the interview: Edgard is a 33-year-old male who is currently married and living with his wife.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.age, seed.sex, seed.marital_status",
+              "source_b_ref": "Q05, Q51, Q84, Q85",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed geography matches the interview: he was born in Evansville, grew up there, and currently lives in Evansville ZIP 47715.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.city, seed.state, seed.zipcode, seed.country",
+              "source_b_ref": "Q08, Q85-Q87, Q97",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed education and current occupation match the interview: he has a STEM bachelor's degree and is currently not in the workforce after prior data analyst work.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.education_level, seed.bachelors_field, seed.occupation",
+              "source_b_ref": "Q01, Q16, Q65, Q90",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "The interview adds household structure details not explicit in the seed: no children, no roommates, one younger sister, and parents living nearby.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.marital_status and demographic fields",
+              "source_b_ref": "Q05-Q06, Q11-Q14, Q19, Q51-Q55",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Seed cultural background as white, non-Hispanic, German and Irish Midwestern lineage matches the interview's direct demographic self-identification.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q86, Q88, Q89, Q94",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The extracted profile correctly states that Edgard is married, lives with his spouse, and resides in Evansville, IN 47715.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q05, Q08, Q51, Q84",
+              "source_b_ref": "marital_status, location, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The extracted profile correctly captures his STEM bachelor's degree and current not-in-workforce status with prior data analyst background.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q16, Q65, Q90",
+              "source_b_ref": "education, occupation, preferences.work_and_career, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The extracted profile underrepresents specific household composition facts from the interview, including no children, no roommates, rental status, and nearby parents/sister.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q05-Q06, Q11-Q14, Q19, Q51-Q58",
+              "source_b_ref": "preferences.social_and_relationships, preferences.home_and_lifestyle, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "The cultural_and_linguistic section faithfully captures white, non-Hispanic, German/Irish, culturally Christian to agnostic identity.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q47, Q86, Q88, Q89, Q94",
+              "source_b_ref": "preferences.cultural_and_linguistic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "The demographer summary correctly notes that the household is financially modest but not in acute crisis, supported by the interview's descriptions of savings, debt, and one steadier income.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q61-Q64, Q74, Q83",
+              "source_b_ref": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The demographer summary, social_and_relationships, and home_and_lifestyle all agree that Edgard lives with his wife in Evansville and has a stable two-person household.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.demographer",
+              "field_b": "preferences.social_and_relationships / preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The work_and_career preference and demographer summary consistently describe him as formerly employed in data analysis and currently outside the formal workforce.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career",
+              "field_b": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The profile is internally thin rather than contradictory on household composition because some two-person household facts appear in summaries but not across multiple relevant preference sections.",
+              "verdict": "consistent",
+              "gap": true,
+              "field_a": "preferences.social_and_relationships",
+              "field_b": "preferences.home_and_lifestyle / summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The interview specifies that the household intentionally has no children for now because of career and money timing.",
+              "gap": true,
+              "interview_ref": "Q05, Q19, Q51-Q52",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add a detail stating that Edgard and his wife intentionally do not have children yet because they want more career and financial stability."
+            },
+            {
+              "id": 2,
+              "text": "The interview states that he has one younger sister in southern Indiana and sees his parents a couple of times per month.",
+              "gap": true,
+              "interview_ref": "Q05-Q06",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add family network details covering nearby parents, a younger sister, and practical family contact patterns."
+            },
+            {
+              "id": 3,
+              "text": "Rental status and shared-expense structure are present but should be more explicit as part of current household reality.",
+              "gap": true,
+              "interview_ref": "Q55, Q58",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add that the couple rents and shares expenses, with the wife's income carrying more at present."
+            },
+            {
+              "id": 4,
+              "text": "The interview adds that family roots are long-term local and that he has only brief school-related periods away from Evansville.",
+              "gap": true,
+              "interview_ref": "Q87, Q97",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add local rootedness and limited residential mobility to the cultural/demographic profile."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed career goals about moving from technical analysis toward UX research, interactive media, and a freelance studio align closely with the interview's career transition narrative.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.professional_persona, seed.career_goals_and_ambitions",
+              "source_b_ref": "Q02-Q04, Q16, Q65, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed persona says he is curious, solitary, and lets projects linger; the interview repeatedly confirms spontaneity, missed deadlines, tinkering, and procrastination.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q03, Q15, Q17, Q18, Q43-Q45",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed sports persona describing irregular routines matches the interview's uneven exercise habits and irregular Hoosier Runners attendance.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.sports_persona",
+              "source_b_ref": "Q07, Q18, Q31-Q32, Q50",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed culinary persona matches the interview's experimental home cooking, risotto and ramen habits, and pizza fallback after tiring work sessions.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.culinary_persona",
+              "source_b_ref": "Q05, Q32, Q56, Q60",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "The interview adds more explicit financial risk-management behavior than the seed, including budget spreadsheets, delaying discretionary spending, and using savings carefully.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.career_goals_and_ambitions and seed.persona",
+              "source_b_ref": "Q55-Q64, Q81-Q83",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The behavioral_economist summary accurately captures intrinsic motivation, deadline weakness, and present-biased tinkering behavior from the interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q03, Q18, Q44",
+              "source_b_ref": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile correctly describes household budgeting, savings use, and reduced discretionary spending as responses to employment uncertainty.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q60-Q64, Q81-Q83",
+              "source_b_ref": "preferences.work_and_career, preferences.life_events_and_transitions, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The extracted profile underplays his reliance on spouse-imposed accountability, especially around bills, spreadsheets, and realistic timelines.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q05, Q18, Q44, Q55, Q57, Q81",
+              "source_b_ref": "preferences.social_and_relationships, preferences.life_events_and_transitions",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "The profile correctly notes that health insurance and emergency bills loom large in his decision-making after leaving regular employment.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q25, Q36, Q40, Q82-Q83",
+              "source_b_ref": "summaries.behavioral_economist, preferences.community_and_civic, preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "The profile misses some explicit small-scale coping-with-scarcity behaviors such as selling unused camera accessories and halting random project-component purchases.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q60, Q81",
+              "source_b_ref": "preferences.hobbies_and_recreation, preferences.work_and_career, preferences.life_events_and_transitions",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Health_and_wellness, sports_and_fitness, and psychologist summary all align on inconsistency rather than incapacity: he can exercise but struggles with routine.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness / preferences.sports_and_fitness",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Work_and_career and life_events_and_transitions are consistent in showing a voluntary but financially stressful shift from stable employment to exploratory portfolio work.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career",
+              "field_b": "preferences.life_events_and_transitions / summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The profile is internally incomplete on household incentive structure because spouse accountability appears strongly in the summary but less clearly in preferences.",
+              "verdict": "consistent",
+              "gap": true,
+              "field_a": "summaries.behavioral_economist",
+              "field_b": "preferences.social_and_relationships / preferences.life_events_and_transitions",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The interview includes concrete spending-control behaviors: cutting eating out, travel, hobby purchases, and random components when money is tight.",
+              "gap": true,
+              "interview_ref": "Q56, Q60, Q81",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add explicit budget-tightening behaviors and discretionary spending cuts during the career transition."
+            },
+            {
+              "id": 2,
+              "text": "He sold unused camera accessories to cope with extra expenses, a meaningful revealed-preference behavior under financial strain.",
+              "gap": true,
+              "interview_ref": "Q60",
+              "should_be_in": "preferences.hobbies_and_recreation",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add that he liquidated some unused hobby gear to free cash during tighter months."
+            },
+            {
+              "id": 3,
+              "text": "The interview shows he prefers flexibility creatively but emotionally prefers steady pay and real deadlines.",
+              "gap": true,
+              "interview_ref": "Q73, Q78, Q108",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add a detail that he wants remote or hybrid work with flexible blocks but real deadlines, collaborators, and reliable income."
+            },
+            {
+              "id": 4,
+              "text": "The interview specifies that a $400 emergency is manageable but would reduce the household cushion and likely come from savings or a quickly paid card.",
+              "gap": true,
+              "interview_ref": "Q82",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "DROP",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed cultural background emphasizes Midwestern community involvement and openness to new ideas, which matches the interview's pragmatic center-left politics and local civic attachment.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q23-Q30, Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed persona as solitary but community-aware aligns with the interview's selective civic participation: voting in major elections, attending one local protest event, and preferring small conversations over public activism.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q23, Q26-Q30",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The interview enriches the seed with specific political identity data: Independent, Democratic-leaning, center-left, evidence-oriented, and skeptical of performative politics.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.cultural_background and general persona fields",
+              "source_b_ref": "Q23-Q30, Q95-Q96",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed does not mention law-enforcement experiences, while the interview adds routine traffic-stop experiences and awareness of racial asymmetry in policing.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed data overall",
+              "source_b_ref": "Q20-Q22, Q26-Q30",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The political_scientist summary accurately captures his Democratic-leaning Independent identity and selective voting habits.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23-Q25, Q95-Q96",
+              "source_b_ref": "summaries.political_scientist, preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile correctly represents his systemic understanding of racism and modest but real response to Black Lives Matter issues.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q26-Q30",
+              "source_b_ref": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The extracted profile underrepresents his selective trust pattern regarding law enforcement: routine personal treatment but explicit recognition that his white identity shaped that experience.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q20-Q22, Q26",
+              "source_b_ref": "preferences.community_and_civic, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "The community_and_civic preference captures issue interests but is missing his usual in-person voting mode and tendency to miss municipal primaries when distracted or traveling.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q23",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "The media_and_information_diet section is consistent with his distrust of online political conflict and preference for local reporting and longer-form materials.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q26, Q28, Q48",
+              "source_b_ref": "preferences.media_and_information_diet, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Community_and_civic, media_and_information_diet, and political_scientist summary all consistently portray selective institutional trust and aversion to performative politics.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic / preferences.media_and_information_diet",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Cultural_and_linguistic and political_scientist summary are internally consistent in linking white Midwestern identity with reflective awareness of privilege rather than denial of race salience.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.cultural_and_linguistic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The profile is internally incomplete on policing-specific attitudes because those claims are stronger in the summary than in the civic preference details.",
+              "verdict": "consistent",
+              "gap": true,
+              "field_a": "summaries.political_scientist",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The interview includes that he usually votes in person and tends to miss smaller municipal primaries when distracted or traveling.",
+              "gap": true,
+              "interview_ref": "Q23",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add voting mode and inconsistency pattern for local primaries."
+            },
+            {
+              "id": 2,
+              "text": "He explicitly says he has become more skeptical of tech solutionism and more interested in libraries, clinics, mutual aid, and infrastructure.",
+              "gap": true,
+              "interview_ref": "Q25",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add a detail that his civic outlook shifted toward practical local institutions and away from pure tech-solution narratives."
+            },
+            {
+              "id": 3,
+              "text": "The interview states that he attended one local gathering and donated a small amount during heightened race-and-policing activism.",
+              "gap": true,
+              "interview_ref": "Q26, Q29",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add limited but concrete participation behavior: one local event, small donations, and private conversation."
+            },
+            {
+              "id": 4,
+              "text": "His law-enforcement perspective includes awareness that his treatment as a white man in Indiana is not universal.",
+              "gap": true,
+              "interview_ref": "Q20, Q26",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add a detail about racialized awareness of policing asymmetry."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed persona describing a curious, solitary tinkerer balancing precision and spontaneity is strongly confirmed by the interview's self-narrative.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q01-Q03, Q15, Q43-Q45, Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed hobbies and arts persona match the interview's introverted but creative leisure style: digital painting, guitar in private, galleries, tabletop storytelling, and solitary hiking.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.arts_persona, seed.hobbies_and_interests",
+              "source_b_ref": "Q07, Q15, Q17, Q38, Q47-Q48, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The interview enriches the seed by making his anxiety, avoidance, and shame around unfinished work more explicit than the seed summary does.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q33, Q43-Q46, Q50",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed family culture of modesty and work ethic fits the interview's internalized values of reliability, modest usefulness, and dislike of making a big production out of oneself.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q01, Q05, Q24, Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The psychologist summary accurately characterizes him as introverted, curious, technically analytical, aesthetically motivated, and loyal but solitary.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01, Q05-Q07, Q109",
+              "source_b_ref": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile correctly captures anxiety, avoidance, inconsistent routine, and mixed coping strategies under self-directed conditions.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q31-Q33, Q43-Q45, Q50",
+              "source_b_ref": "preferences.health_and_wellness, preferences.life_events_and_transitions, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The entertainment summary includes a specific 'Jim Jarmusch-style cinema' claim that is not stated in the interview transcript.",
+              "verdict": "inconsistent",
+              "gap": true,
+              "source_a_ref": "Q07, Q15, Q48",
+              "source_b_ref": "preferences.entertainment",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Revise preferences.entertainment.summary to remove the unsupported Jim Jarmusch-specific wording and describe independent films more generally."
+            },
+            {
+              "id": 4,
+              "text": "The fashion_and_appearance summary is speculative rather than interview-grounded and should avoid unsupported personality-to-style inference.",
+              "verdict": "inconsistent",
+              "gap": true,
+              "source_a_ref": "No direct interview evidence",
+              "source_b_ref": "preferences.fashion_and_appearance",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Change preferences.fashion_and_appearance.summary to 'No clear fashion or appearance preferences stated in the interview.'"
+            },
+            {
+              "id": 5,
+              "text": "The profile understates his comparison-driven social media distress and embarrassment after missed deadlines, which are psychologically important self-evaluative cues.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q43-Q45, Q48",
+              "source_b_ref": "preferences.media_and_information_diet, preferences.life_events_and_transitions",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 2,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Health_and_wellness, nature_and_outdoors, and psychologist summary coherently describe outdoor activity as both physical exercise and emotional regulation.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness / preferences.nature_and_outdoors",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Social_and_relationships and psychologist summary are consistent in presenting a small, activity-based social world centered on his wife and a few close friends.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Entertainment and fashion_and_appearance contain the only notable internal quality issues because one is overly specific and the other speculative, but these are correctable without affecting the rest of the profile.",
+              "verdict": "inconsistent",
+              "gap": true,
+              "field_a": "preferences.entertainment / preferences.fashion_and_appearance",
+              "field_b": "interview-grounded preference sections overall",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Use only interview-supported language in entertainment and replace speculative fashion content with a no-direct-evidence summary."
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 1,
+            "gaps": 1
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The interview includes explicit shame, embarrassment, and self-critique after missing a self-imposed portfolio deadline.",
+              "gap": true,
+              "interview_ref": "Q44",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add a detail about the missed portfolio deadline leading to embarrassment, a serious conversation with his wife, and smaller-goal restructuring."
+            },
+            {
+              "id": 2,
+              "text": "He describes social media as useful for discovery but harmful for comparison, which is psychologically salient.",
+              "gap": true,
+              "interview_ref": "Q43, Q48",
+              "should_be_in": "preferences.media_and_information_diet",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add that social media fuels procrastination and unhealthy comparison, especially around creative careers."
+            },
+            {
+              "id": 3,
+              "text": "The interview specifies that he has considered therapy but is not in regular therapy and is not formally diagnosed with depression.",
+              "gap": true,
+              "interview_ref": "Q33, Q45",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add mental-health-treatment status: discussed anxiety with a doctor, considered therapy, not in regular therapy, no prescribed psychiatric medication."
+            },
+            {
+              "id": 4,
+              "text": "He describes his ideal future self as more reliable without becoming rigid, a meaningful motivational and self-regulatory target.",
+              "gap": true,
+              "interview_ref": "Q108",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add that he wants greater reliability and deadline follow-through without losing spontaneity."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "The draft profile was largely accurate, but several interview-grounded gaps required carry-forward or enrichment, and two profile statements required partial updates because they were unsupported or speculative. No FLAG_FOR_REVIEW findings remain.",
+    "final_status": "Verification completed with revisions applied. The corrected extracted profile below is ready for downstream use as the canonical version."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "1afcaffea5f54c999356ee4e30956065",
+    "name": "Edgard Franco",
+    "age": 33,
+    "gender": "Male",
+    "marital_status": "married, living with spouse",
+    "location": "Evansville, IN 47715",
+    "education": "Bachelor's degree in a STEM field",
+    "occupation": "Not currently in workforce; former data analyst pursuing UX research and interactive media development",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction must trace back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Generally healthy but inconsistent; values hiking, running, home cooking, vaccines, and evidence-based care while managing stress, sleep issues, and career-related anxiety.",
+        "details": [
+          "Runs or hikes one to four times weekly depending on routine, motivation, and weather, and uses outdoor exercise as a major coping tool (Q31, Q32, Q50).",
+          "Pro-vaccine and trusts doctors, the CDC, major hospital systems, and science journalism linked to evidence (Q41, Q42).",
+          "Uses cooking, exercise, walks, guitar, and breathing exercises to manage stress rather than smoking or heavy drinking (Q37, Q38, Q50).",
+          "Has no major chronic illness but deals with inconsistent sleep, stress, neck and wrist soreness, and career-related anxiety (Q31, Q33, Q34, Q45).",
+          "Has discussed anxiety with a doctor, has considered therapy, is not in regular therapy, and does not take prescribed mental health medication (Q33, Q39, Q45).",
+          "Sometimes delays non-urgent care such as dental work or eye exams because of cost and insurance concerns (Q36, Q40)."
+        ],
+        "evidence": "Q31-Q42, Q45, Q50"
+      },
+      "food_and_dining": {
+        "summary": "Experimental home cook who likes ramen, mushroom risotto, rice bowls, fermented flavors, and occasional pizza when tired.",
+        "details": [
+          "Often cooks dinner and names mushroom risotto, ramen, and rice bowls as regular or aspirational meals (Q05, Q32).",
+          "Cuts restaurant spending first when money is tight and cooks at home to save money (Q56, Q60, Q81).",
+          "Admits late-night project work can lead to ordering pizza or eating badly the next day (Q32).",
+          "Handles much of the household cooking and treats cooking as both practical care and stress regulation (Q11, Q17, Q38)."
+        ],
+        "evidence": "Q05, Q11, Q17, Q32, Q38, Q56, Q60, Q81"
+      },
+      "travel": {
+        "summary": "Budget-conscious spontaneous road-tripper who likes Chicago architecture, hiking destinations, and dreams of photographing Kyoto.",
+        "details": [
+          "Drives to Chicago when he wants more architecture, arts exposure, or a larger cultural scene (Q10, Q60).",
+          "Has paused bigger trips during tighter financial periods and prioritizes small road trips instead (Q60, Q62).",
+          "Wants to photograph Kyoto someday but has only traveled domestically so far (Q86, Q108).",
+          "Likes last-minute drives with a camera as a form of recreation and creative reset (Q15)."
+        ],
+        "evidence": "Q10, Q15, Q60, Q62, Q86, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "Married, closest to his wife, and maintains a small activity-based friend circle through tabletop gaming, running, art events, and nearby family ties.",
+        "details": [
+          "Lives with his wife and describes her as his closest relationship and practical household partner (Q05, Q11, Q51).",
+          "He and his wife intentionally do not have children yet because they want more career and financial stability first (Q05, Q19, Q51-Q52).",
+          "Keeps a small tabletop gaming group that meets about twice a month and has a close friend, Marcus, from that circle (Q07).",
+          "Sees his parents a couple of times a month, helps them with practical tasks, and has one younger sister in southern Indiana with whom he texts and occasionally meets (Q05, Q06, Q17).",
+          "Most friendships are activity-based and balanced with a strong need for solitude (Q07, Q109).",
+          "Marriage has pushed him to communicate more directly instead of disappearing into projects for hours (Q05, Q46)."
+        ],
+        "evidence": "Q05-Q07, Q11, Q17, Q19, Q46, Q51-Q52, Q109"
+      },
+      "home_and_lifestyle": {
+        "summary": "Rents in a practical east-side Evansville area; home life includes project bins, cooking, repairs, camera parts, and shared household routines shaped by convenience and affordability.",
+        "details": [
+          "Rents with his wife in the 47715 area and would like an eventual house with garage or workshop space (Q08, Q58, Q108).",
+          "Handles cooking, tech fixes, and small repairs at home, while his wife is steadier with scheduling, paperwork, laundry, and bills (Q05, Q11, Q17, Q55, Q57).",
+          "Neighborhood choice emphasizes convenience to groceries, hardware, coffee, restaurants, and downtown or riverfront access (Q08).",
+          "The household is stable and two-person only, with no children, roommates, boarders, or temporary members (Q11-Q14, Q51-Q54).",
+          "He and his wife share expenses, but her income is carrying more of the household load right now (Q55, Q74)."
+        ],
+        "evidence": "Q05, Q08, Q11-Q14, Q17, Q51-Q58, Q74, Q108"
+      },
+      "entertainment": {
+        "summary": "Enjoys independent films, tabletop roleplaying, science fiction, philosophy, YouTube technical videos, and occasional sports viewing.",
+        "details": [
+          "Attends film screenings and watches movies with his wife, often favoring independent or arts-oriented fare (Q05, Q15).",
+          "Runs tabletop storytelling games with friends and does scenario and map prep before sessions (Q07, Q17).",
+          "Reads science fiction and philosophy and trades sci-fi books with a close friend (Q07).",
+          "Uses YouTube for technical troubleshooting, cooking, and gear research (Q48).",
+          "Grew up watching Colts games on Sundays with family and still has occasional sports-viewing habits in the background (Q01)."
+        ],
+        "evidence": "Q01, Q05, Q07, Q15, Q17, Q48"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Tinkers with Arduino, restores vintage cameras, digital paints, plays acoustic guitar privately, cooks, hikes, runs, and leads tabletop games.",
+        "details": [
+          "Builds Arduino and sensor-based installations for portfolio and art projects (Q02, Q16).",
+          "Collects and repairs camera gear, follows photography accounts, and sometimes sells unused accessories when finances are tight (Q48, Q60).",
+          "Prepares tabletop scenarios and maps and often runs the story for friends (Q17).",
+          "Practices digital painting, sketches, and plays guitar quietly in private (Q15, Q38).",
+          "Uses hobbies as both identity expression and stress relief rather than pure consumption (Q38, Q43, Q109)."
+        ],
+        "evidence": "Q02, Q15-Q17, Q38, Q43, Q48, Q60, Q109"
+      },
+      "work_and_career": {
+        "summary": "Former data analyst with Python, MATLAB, visualization, and communication skills seeking UX research or interactive media work and an eventual freelance studio.",
+        "details": [
+          "Former work involved cleaning data, scripting, dashboards, visualizations, and explaining findings to nontechnical audiences (Q16, Q65).",
+          "Currently is not earning regular pay and is building a portfolio while applying slowly to UX researcher, data visualization, and interactive media roles (Q16, Q69-Q72).",
+          "Wants stable creative-technical work and eventually a small freelance studio serving local businesses, nonprofits, or arts groups (Q65, Q108).",
+          "Prefers remote or hybrid work with flexible blocks, but also wants real deadlines, collaborators, and more reliable income than project drift provides (Q73, Q78, Q108).",
+          "Values translating messy technical information into visuals and plain language and is actively building UX research and portfolio-storytelling skills (Q65).",
+          "Worked roughly 20 to 25 weeks of paid formal work in the past year before transitioning out, with unpaid portfolio and prototype work afterward (Q67, Q68)."
+        ],
+        "evidence": "Q16, Q65, Q67-Q73, Q78, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Active in the local indie arts scene and drawn to photography talks, gallery openings, digital painting, interactive installations, and visual storytelling.",
+        "details": [
+          "Attends gallery openings, local art events, and photography talks (Q07, Q15).",
+          "Builds interactive light or sensor pieces and wants to make data-driven installations (Q02, Q108).",
+          "Uses Instagram for artists, photographers, galleries, camera repair accounts, and design references (Q48).",
+          "Feels Evansville can be culturally small at times and seeks bigger-city art and architecture stimulation through travel (Q10)."
+        ],
+        "evidence": "Q02, Q07, Q10, Q15, Q48, Q108"
+      },
+      "sports_and_fitness": {
+        "summary": "Follows Indiana teams, participates irregularly in Hoosier Runners, hikes, trail-runs, and occasionally plays pickup basketball.",
+        "details": [
+          "Runs with Hoosier Runners irregularly and uses it to impose at least one fixed activity on his week (Q07, Q18).",
+          "Hikes and runs for both health and emotional reset (Q31, Q50).",
+          "Grew up watching Colts games and played some pickup basketball in the past (Q01).",
+          "Exercise patterns are inconsistent and depend on weather, motivation, and project intensity rather than a strict training routine (Q31, Q32)."
+        ],
+        "evidence": "Q01, Q07, Q18, Q31, Q32, Q50"
+      },
+      "nature_and_outdoors": {
+        "summary": "Finds hiking and trail running emotionally grounding and treats outdoor time as reflection, spiritual calm, and stress regulation.",
+        "details": [
+          "Hiking feels more spiritually grounding than formal religious service (Q47).",
+          "Outdoor exercise is his strongest coping strategy and resets him better than scrolling online (Q50).",
+          "Values living near roads that can get him toward hiking areas and out of town quickly (Q08).",
+          "Long walks and trail time help him recover perspective after emotionally difficult moments (Q44, Q50)."
+        ],
+        "evidence": "Q08, Q44, Q47, Q50"
+      },
+      "technology": {
+        "summary": "Technically adept with Python, MATLAB, Arduino-style prototyping, data visualization, electronics troubleshooting, and digital creative tools.",
+        "details": [
+          "Uses Python and MATLAB for data analysis and visualization (Q16, Q65).",
+          "Builds Arduino sensor prototypes and interactive installations (Q02, Q16).",
+          "Uses Reddit and YouTube for technical troubleshooting and gear research (Q48).",
+          "Handles household tech problems and small repair-oriented troubleshooting at home and for parents (Q11, Q17, Q35).",
+          "Has become more skeptical of pure tech solutionism even while remaining strongly pro-technology in craft and work (Q25)."
+        ],
+        "evidence": "Q02, Q11, Q16-Q17, Q25, Q35, Q48, Q65"
+      },
+      "community_and_civic": {
+        "summary": "Moderately civically engaged; votes in major elections, values local institutions, arts funding, trails, public services, and practical community supports, and holds a center-left civic outlook.",
+        "details": [
+          "Votes in presidential and usually midterm elections, usually in person, but sometimes misses municipal primaries or smaller local races when distracted or traveling (Q23).",
+          "Is interested in local transit, arts funding, trails, affordability, libraries, clinics, mutual aid, and other practical institutions that improve daily life (Q24, Q25).",
+          "Generally votes Democratic but identifies more as an Independent with center-left, evidence-based politics than as a party loyalist (Q24, Q95, Q96).",
+          "Responded to Black Lives Matter-era issues mainly by listening, reading, talking privately, attending one local gathering, and donating small amounts rather than becoming a public organizer (Q26-Q30).",
+          "Recognizes that his limited and routine experiences with policing were shaped by being a white man in Indiana and supports more accountability and non-police crisis-response options (Q20, Q26, Q27)."
+        ],
+        "evidence": "Q20-Q30, Q95-Q96"
+      },
+      "music": {
+        "summary": "Private acoustic guitar player who uses quiet music-making as reflection and emotional regulation.",
+        "details": [
+          "Plays guitar quietly to cope with stress and to spend time privately rather than perform publicly (Q38).",
+          "Values music and quiet ritual elements even though formal religion is not central in his life (Q47)."
+        ],
+        "evidence": "Q38, Q47"
+      },
+      "fashion_and_appearance": {
+        "summary": "No clear fashion or appearance preferences stated in the interview.",
+        "details": [],
+        "evidence": "No strong direct evidence in transcript"
+      },
+      "cultural_and_linguistic": {
+        "summary": "White, non-Hispanic American from Evansville with German and Irish Midwest ancestry and a culturally Christian background, now agnostic.",
+        "details": [
+          "Identifies as white and not Hispanic, Latinx, or Spanish origin (Q88, Q89).",
+          "Reports German and Irish ancestors in Midwest family lineage (Q86, Q88).",
+          "Was born in Evansville, grew up there, and has only lived elsewhere briefly for school-related periods (Q86, Q87, Q97).",
+          "Was raised around culturally Protestant Christianity but identifies as agnostic or no religion now (Q47, Q94).",
+          "Carries a Midwestern family ethic of modesty, practicality, and work without seeing himself as strongly church-affiliated (Q01, Q47, Q109)."
+        ],
+        "evidence": "Q01, Q47, Q86-Q89, Q94, Q97, Q109"
+      },
+      "life_events_and_transitions": {
+        "summary": "His major transition is leaving conventional data analysis work to pursue UX research, interactive media, and freelance creative-technical work while navigating anxiety, money pressure, and a push toward more reliable habits.",
+        "details": [
+          "Stepped away from the safer analyst track after feeling stuck in maintenance-style work and wanting a more human and visual direction (Q02).",
+          "Is currently rebuilding routine, portfolio, and career direction without the external structure of a regular job (Q16, Q18).",
+          "Marriage and household finances strongly shape the transition and force practical conversations about timelines, bills, and risk (Q05, Q18, Q83).",
+          "Responded to tighter finances by cutting eating out, travel, hobby purchases, and random components, and by using some savings carefully (Q60, Q81).",
+          "Missing a self-imposed portfolio deadline led to embarrassment, a serious conversation with his wife, and a shift toward smaller weekly goals (Q44).",
+          "Hopes to become more reliable and less avoidant without becoming rigid or losing his spontaneous creative side (Q43-Q45, Q108)."
+        ],
+        "evidence": "Q02-Q05, Q16, Q18, Q43-Q45, Q60, Q81, Q83, Q108"
+      },
+      "media_and_information_diet": {
+        "summary": "Uses Instagram for art and design discovery, Facebook for events and family, Reddit and YouTube for technical learning, and trusted medical and local reporting sources for practical information, while avoiding online political conflict and comparison spirals.",
+        "details": [
+          "Instagram is a daily source for artists, photographers, galleries, cameras, and design references (Q48).",
+          "Facebook is mainly for events, family updates, and local groups rather than frequent posting (Q48).",
+          "Reddit and YouTube are used for technical troubleshooting, cooking, and gear research (Q48).",
+          "Avoids political arguments online and prefers local reporting, long-form essays, and multiple-source checking for civic and health claims (Q26, Q42, Q48).",
+          "Finds social media useful for discovery but harmful for procrastination and comparison, especially around idealized creative careers (Q43, Q48)."
+        ],
+        "evidence": "Q26, Q42, Q43, Q48"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Edgard Franco is a 33-year-old white non-Hispanic man born and living in Evansville, Indiana, with German and Irish Midwestern ancestry (Q85-Q89). He is married, lives with his wife, has no children, and rents his home in the 47715 area (Q05, Q51, Q58). He has a STEM bachelor's degree and is currently not in the workforce after leaving data analyst work to pursue UX research and interactive media (Q16, Q65, Q90). His household is financially modest but not in acute crisis, relying mainly on his wife’s income while managing savings, student debt, and some credit card balance (Q61-Q64, Q74, Q83).",
+      "behavioral_economist": "Edgard shows high curiosity and creative intrinsic motivation but weaker deadline discipline and present-biased project behavior, repeatedly describing unfinished portfolio work and late-night tinkering (Q03, Q18, Q44). He accepts short-term financial risk to pursue better identity fit in work, but his household responds to uncertainty with budgeting, reduced discretionary spending, and savings use (Q60-Q62, Q81). He is loss-aware around health insurance, emergency bills, and fragile savings, especially after leaving stable employment (Q36, Q82, Q83). Peer and spouse influence matter: his wife’s spreadsheet discipline and practical questions shape his financial and career choices (Q05, Q55, Q81).",
+      "political_scientist": "Edgard is a center-left, Democratic-leaning Independent who votes in presidential and usually midterm elections but is less consistent in local primaries (Q23, Q95, Q96). His politics emphasize health care, civil rights, climate, education, affordability, arts funding, trails, and practical local institutions rather than strong partisan identity (Q24, Q25). He is sympathetic to Black Lives Matter concerns, sees racism as systemic, and has responded through listening, small donations, one local event, and private conversations rather than sustained activism (Q26-Q30). His institutional trust is selective: he values evidence-based sources and local practical infrastructure while distrusting performative politics and online conflict (Q24, Q42, Q48).",
+      "psychologist": "Edgard presents as introverted, curious, technically analytical, and aesthetically motivated, with a self-concept built around bridging data, craft, and visual storytelling (Q01, Q65, Q109). He is prone to anxiety, avoidance, and inconsistent routines, especially under ambiguous self-directed work conditions (Q43-Q45). His coping strategies include hiking, trail running, cooking, quiet guitar, tinkering, and talking with his wife, though he also recognizes procrastination and late-night work as maladaptive patterns (Q38, Q44, Q50). Relationally, he is loyal but solitary, relying most on his wife and a small circle of activity-based friends (Q05-Q07, Q109)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "He runs or hikes one to four times weekly depending on routine, motivation, and weather.",
+        "ground_truth_label": "Exercise frequency is variable but recurring",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"Anywhere from once to four times a week\"",
+          "Q32: \"It is easy when I have a scheduled run, a hike planned\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.sports_and_fitness"
+        ]
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "He uses outdoor exercise as a major coping tool.",
+        "ground_truth_label": "Outdoor exercise is a primary coping strategy",
+        "behavioral_evidence_from_interview": [
+          "Q50: \"Exercise outdoors. A trail run resets me better than scrolling.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.nature_and_outdoors",
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "He is pro-vaccine.",
+        "ground_truth_label": "Pro-vaccine orientation",
+        "behavioral_evidence_from_interview": [
+          "Q41: \"I am generally pro-vaccine.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "He trusts doctors, the CDC, major hospital systems, and science journalism linked to evidence.",
+        "ground_truth_label": "Trusts evidence-based medical information sources",
+        "behavioral_evidence_from_interview": [
+          "Q42: \"I trust my doctor, the CDC, major hospital systems, and science journalists who link back to actual studies.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "He uses cooking, exercise, walks, guitar, and breathing exercises to manage stress.",
+        "ground_truth_label": "Uses non-substance coping strategies",
+        "behavioral_evidence_from_interview": [
+          "Q37: \"I have tried mindfulness apps and breathing exercises\"",
+          "Q38: \"Walk, cook, play guitar quietly\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "He does not smoke and is not a heavy drinker.",
+        "ground_truth_label": "Low-risk tobacco and alcohol behavior",
+        "behavioral_evidence_from_interview": [
+          "Q38: \"I do not smoke. I drink socially... but I am not a heavy drinker.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "He has no major chronic illness.",
+        "ground_truth_label": "No known major chronic illness",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"no major chronic illness that I know of\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "He deals with inconsistent sleep, stress, neck soreness, wrist soreness, and career-related anxiety.",
+        "ground_truth_label": "Minor physical strain and anxiety affect well-being",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"My weak spots are sleep, stress... neck and wrist soreness\"",
+          "Q45: \"I struggle with anxiety, mostly career and money-related\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "He has discussed anxiety with a doctor and has considered therapy.",
+        "ground_truth_label": "Has considered mental health treatment",
+        "behavioral_evidence_from_interview": [
+          "Q33: \"I have discussed it with a doctor\"",
+          "Q45: \"I have considered therapy\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "He is not in regular therapy and does not take prescribed mental health medication.",
+        "ground_truth_label": "No regular therapy or psychiatric medication",
+        "behavioral_evidence_from_interview": [
+          "Q33: \"I am not in regular therapy.\"",
+          "Q39: \"Any prescribed mental health medication? No.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "He sometimes delays non-urgent care such as dental work or eye exams because of cost and insurance concerns.",
+        "ground_truth_label": "Delays non-urgent care due to cost",
+        "behavioral_evidence_from_interview": [
+          "Q36: \"I have delayed things like dental work or a non-urgent appointment\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "He regularly cooks mushroom risotto, ramen, and rice bowls.",
+        "ground_truth_label": "Prefers ambitious home-cooked comfort meals",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"maybe mushroom risotto or ramen if I am ambitious\"",
+          "Q32: \"Rice bowls, ramen with vegetables, or mushroom risotto\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "He cuts restaurant spending first when money is tight.",
+        "ground_truth_label": "Reduces dining out under financial pressure",
+        "behavioral_evidence_from_interview": [
+          "Q56: \"What do you cut first? Eating out\"",
+          "Q60: \"We cut discretionary spending\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Late-night project work can lead him to order pizza or eat badly the next day.",
+        "ground_truth_label": "Project intensity disrupts eating habits",
+        "behavioral_evidence_from_interview": [
+          "Q32: \"stay up late working on a prototype and then order pizza the next day\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "He does much of the household cooking.",
+        "ground_truth_label": "Primary household cook",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"I cook more\"",
+          "Q17: \"Cooking... is most yours\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "He drives to Chicago for architecture, arts exposure, and a bigger cultural scene.",
+        "ground_truth_label": "Uses Chicago trips for cultural and architectural stimulation",
+        "behavioral_evidence_from_interview": [
+          "Q10: \"I drive to Chicago or other cities when I need a bigger art or architecture fix.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "He paused bigger trips during tighter financial periods and prioritizes smaller road trips instead.",
+        "ground_truth_label": "Travel is constrained by budget",
+        "behavioral_evidence_from_interview": [
+          "Q60: \"delayed a Chicago trip\"",
+          "Q62: \"travel... is on pause except small road trips\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "He wants to photograph Kyoto someday.",
+        "ground_truth_label": "Aspirational Kyoto photography trip",
+        "behavioral_evidence_from_interview": [
+          "Q108: \"I still want to photograph Kyoto someday.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "He has only traveled domestically so far.",
+        "ground_truth_label": "No international travel history yet",
+        "behavioral_evidence_from_interview": [
+          "Q86: \"No, only traveled domestically so far.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "He lives with his wife and considers her his closest relationship.",
+        "ground_truth_label": "Wife is primary attachment figure",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"My wife is the person I am closest to\"",
+          "Q51: \"I live with my wife.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "He and his wife intentionally do not have children yet because they want more stability first.",
+        "ground_truth_label": "No children by intentional timing choice",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"We do not have children, which is intentional for now\"",
+          "Q19: \"We would need more stability first.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "He has a small tabletop gaming group that meets about twice a month.",
+        "ground_truth_label": "Small recurring gaming friend group",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"four of us who meet about twice a month\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Marcus from tabletop gaming is one of the friends he spends the most time with.",
+        "ground_truth_label": "Marcus is a close friend",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"Probably my friend Marcus from tabletop gaming.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "He sees his parents a couple of times a month and helps them with practical tasks.",
+        "ground_truth_label": "Maintains regular practical contact with parents",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"I see them maybe a couple times a month\"",
+          "Q17: \"if they need help with a device or something around the house\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "He has one younger sister in southern Indiana and stays in touch by text and occasional coffee meetups.",
+        "ground_truth_label": "Has a nearby younger sister",
+        "behavioral_evidence_from_interview": [
+          "Q06: \"I have one younger sister\"",
+          "Q06: \"We text memes... and sometimes meet for coffee.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "His friendships are mostly activity-based and balanced with a strong need for solitude.",
+        "ground_truth_label": "Activity-based social style with high solitude need",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"most of my friendships are built around a shared activity\"",
+          "Q07: \"I need a lot of alone time\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Marriage has pushed him to communicate more directly instead of disappearing into projects.",
+        "ground_truth_label": "Marriage increases communicative accountability",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"marriage has taught me to actually say what is going on instead of disappearing into a project\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "He rents with his wife in Evansville's 47715 area.",
+        "ground_truth_label": "Rents in Evansville 47715",
+        "behavioral_evidence_from_interview": [
+          "Q08: \"We live in Evansville, in the 47715 area\"",
+          "Q58: \"We rent.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "He wants an eventual house with a garage or workshop space.",
+        "ground_truth_label": "Future aspiration for workshop-capable home",
+        "behavioral_evidence_from_interview": [
+          "Q108: \"maybe a house with a garage or spare room for a real workshop\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "He handles cooking, tech fixes, and small repairs at home.",
+        "ground_truth_label": "Practical repair-and-cooking role in household",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"I handle a lot of cooking, tech fixes, and small repairs\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "His wife is steadier with scheduling, paperwork, laundry, and bill tracking.",
+        "ground_truth_label": "Wife is primary organizer and bill tracker",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"she is much more steady with calendars and bills than I am\"",
+          "Q55: \"Mostly my wife\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "He values neighborhood convenience to groceries, hardware stores, coffee, restaurants, and downtown access.",
+        "ground_truth_label": "Prefers practical, convenient neighborhood access",
+        "behavioral_evidence_from_interview": [
+          "Q08: \"I can get to hardware stores, groceries, and coffee without planning much\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "The household is a stable two-person household with no children, roommates, boarders, or temporary residents.",
+        "ground_truth_label": "Stable two-person household",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"It is just me and my wife\"",
+          "Q54: \"No lodgers, boarders, or employees.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "He and his wife share expenses, but her income carries more of the load right now.",
+        "ground_truth_label": "Uneven household contribution due to his transition",
+        "behavioral_evidence_from_interview": [
+          "Q55: \"My wife and I share expenses, with her income carrying more right now.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "He attends film screenings and watches movies with his wife, often favoring independent or arts-oriented films.",
+        "ground_truth_label": "Enjoys independent or arts-oriented film viewing",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"watching movies\"",
+          "Q15: \"a film screening\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "He runs tabletop storytelling games and prepares scenarios and maps before sessions.",
+        "ground_truth_label": "Active tabletop game master role",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"I often run the story, so I write scenarios and maps.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.hobbies_and_recreation"
+        ]
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "He reads science fiction and philosophy.",
+        "ground_truth_label": "Reads science fiction and philosophy",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"We trade sci-fi books\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "He uses YouTube for technical troubleshooting, cooking, and gear research.",
+        "ground_truth_label": "Uses YouTube for practical learning and research",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"I use Reddit and YouTube for technical troubleshooting, cooking, and gear research.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.media_and_information_diet"
+        ]
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "He builds Arduino and sensor-based installations for portfolio and art projects.",
+        "ground_truth_label": "Builds interactive prototype installations",
+        "behavioral_evidence_from_interview": [
+          "Q02: \"building little Arduino light pieces at home\"",
+          "Q16: \"experimenting with interactive media\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.arts_and_culture",
+          "preferences.technology"
+        ]
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "He collects and repairs camera gear.",
+        "ground_truth_label": "Vintage camera gear hobby",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"saving old cameras from garage sales\"",
+          "Q48: \"camera repair accounts\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "He has sold unused camera accessories to free up cash during tighter months.",
+        "ground_truth_label": "Liquidates hobby gear under budget pressure",
+        "behavioral_evidence_from_interview": [
+          "Q60: \"I also sold a couple unused camera accessories.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "He practices digital painting, sketches, and quiet private guitar playing.",
+        "ground_truth_label": "Private creative arts practice",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"I sketch\"",
+          "Q38: \"play guitar quietly\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.music"
+        ]
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "His former work centered on cleaning data, writing scripts, building dashboards and visualizations, and explaining findings to nontechnical audiences.",
+        "ground_truth_label": "Former data analyst responsibilities",
+        "behavioral_evidence_from_interview": [
+          "Q65: \"I cleaned datasets, wrote scripts in Python and MATLAB, made charts and dashboards\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "He is not currently earning regular pay and is slowly applying to UX researcher, data visualization, and interactive media roles.",
+        "ground_truth_label": "Currently unpaid and job searching slowly",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"Slowly, yes.\"",
+          "Q72: \"essentially $0 in the past month\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "He wants stable creative-technical work and eventually a small freelance studio serving local businesses, nonprofits, or arts groups.",
+        "ground_truth_label": "Aims for creative-technical career plus studio",
+        "behavioral_evidence_from_interview": [
+          "Q65: \"Ideally I would build small installations or tools for local businesses, nonprofits, or arts groups.\"",
+          "Q108: \"a small freelance studio on the side\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "seed.professional_persona"
+        ]
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "He prefers remote or hybrid work with flexible blocks but also wants real deadlines, collaborators, and reliable income.",
+        "ground_truth_label": "Prefers flexible structure with accountability",
+        "behavioral_evidence_from_interview": [
+          "Q78: \"The ideal job would have flexible blocks but real deadlines and collaborators.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "He sees translating messy technical information into visuals and plain language as one of his strongest skills.",
+        "ground_truth_label": "Strength in accessible technical communication",
+        "behavioral_evidence_from_interview": [
+          "Q65: \"Translating messy technical information into visuals and plain language.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "He worked roughly 20 to 25 weeks of paid formal work in the past year before transitioning out.",
+        "ground_truth_label": "Partial-year paid employment in past year",
+        "behavioral_evidence_from_interview": [
+          "Q67: \"Roughly around 20 to 25 weeks\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "He attends gallery openings, local art events, and photography talks.",
+        "ground_truth_label": "Participates in local indie arts scene",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"gallery openings\"",
+          "Q15: \"a gallery opening\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "He wants to create data-driven interactive installations.",
+        "ground_truth_label": "Artistic goal is interactive data-driven installation work",
+        "behavioral_evidence_from_interview": [
+          "Q02: \"small installation using sensors and projected visuals\"",
+          "Q108: \"building data-driven installations\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.work_and_career"
+        ]
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "He uses Instagram to follow artists, photographers, galleries, and design references.",
+        "ground_truth_label": "Uses Instagram for arts discovery",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"I use Instagram the most, mainly for artists, photographers, galleries... and design references.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.media_and_information_diet"
+        ]
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "He sometimes finds Evansville culturally too small and seeks bigger-city stimulation.",
+        "ground_truth_label": "Perceives local arts scene as limited compared with larger cities",
+        "behavioral_evidence_from_interview": [
+          "Q10: \"it can feel culturally smaller than what I want sometimes\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "He participates irregularly in Hoosier Runners and uses it to add weekly structure.",
+        "ground_truth_label": "Irregular running-club participation",
+        "behavioral_evidence_from_interview": [
+          "Q18: \"I also started running with the club more often to give myself at least one fixed thing each week.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "He hikes and runs for health and emotional reset.",
+        "ground_truth_label": "Fitness activity doubles as mood regulation",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"I can hike and run when I keep a routine\"",
+          "Q50: \"A trail run resets me better than scrolling.\""
+        ],
+        "duplicate_of": "HF-002",
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "He grew up watching Colts games and played some pickup basketball.",
+        "ground_truth_label": "Background sports fandom and casual basketball",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"watched Colts games on Sundays\"",
+          "Q01: \"I did play some pickup basketball\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "His exercise depends on weather, motivation, and project intensity rather than a fixed training routine.",
+        "ground_truth_label": "No strict training routine",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"depending on weather, motivation\"",
+          "Q32: \"consistency is\" the barrier"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Hiking feels more spiritually grounding to him than formal religious service.",
+        "ground_truth_label": "Outdoors serve a spiritual grounding function",
+        "behavioral_evidence_from_interview": [
+          "Q47: \"Hiking feels more spiritually grounding to me than a formal service.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Living near roads that get him toward hiking areas is part of what he likes about his location.",
+        "ground_truth_label": "Values quick access to outdoor areas",
+        "behavioral_evidence_from_interview": [
+          "Q08: \"not far from roads that get me out toward hiking areas\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Long walks and trail time help him recover perspective after difficult emotional moments.",
+        "ground_truth_label": "Uses walks and trails for emotional recalibration",
+        "behavioral_evidence_from_interview": [
+          "Q44: \"I went for a long walk afterward\"",
+          "Q50: \"A trail run resets me better than scrolling.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "He uses Python and MATLAB for data analysis and visualization.",
+        "ground_truth_label": "Python and MATLAB proficiency",
+        "behavioral_evidence_from_interview": [
+          "Q65: \"wrote scripts in Python and MATLAB\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "He builds Arduino sensor prototypes and interactive installations.",
+        "ground_truth_label": "Arduino prototyping skill",
+        "behavioral_evidence_from_interview": [
+          "Q02: \"Arduino light pieces\"",
+          "Q16: \"interactive media\""
+        ],
+        "duplicate_of": "HF-039",
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "He uses Reddit and YouTube for technical troubleshooting and gear research.",
+        "ground_truth_label": "Uses practical online technical forums and video resources",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"I use Reddit and YouTube for technical troubleshooting... and gear research.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.media_and_information_diet"
+        ]
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "He handles household tech problems and helps his parents with devices and online systems.",
+        "ground_truth_label": "Family tech-fix role",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"household tech issues\"",
+          "Q35: \"help them understand online portals and forms\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "He has become more skeptical of pure tech solutionism.",
+        "ground_truth_label": "Skeptical of tech solutionism",
+        "behavioral_evidence_from_interview": [
+          "Q25: \"I have also become more skeptical of tech solutionism.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.community_and_civic"
+        ]
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "He votes in presidential and usually midterm elections, usually in person, but sometimes misses smaller local primaries or races.",
+        "ground_truth_label": "Inconsistent but real voter participation",
+        "behavioral_evidence_from_interview": [
+          "Q23: \"I vote in presidential elections and usually midterms\"",
+          "Q23: \"Usually in person.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "He cares about local transit, arts funding, trails, affordability, libraries, clinics, mutual aid, and practical institutions.",
+        "ground_truth_label": "Civic priorities emphasize practical local institutions",
+        "behavioral_evidence_from_interview": [
+          "Q24: \"transit, arts funding, trails\"",
+          "Q25: \"mutual aid, libraries, clinics, and boring infrastructure\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "He identifies as an Independent who leans Democratic and is generally center-left.",
+        "ground_truth_label": "Democratic-leaning Independent",
+        "behavioral_evidence_from_interview": [
+          "Q24: \"center-left or progressive-leaning independent\"",
+          "Q95: \"Independent who leans Democratic\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "He responded to Black Lives Matter-era issues mainly by listening, reading, private discussion, attending one local gathering, and donating small amounts.",
+        "ground_truth_label": "Low-publicity but supportive response to BLM issues",
+        "behavioral_evidence_from_interview": [
+          "Q26: \"I attended one local gathering\"",
+          "Q29: \"talked with friends and my wife... and donated small amounts\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "He recognizes that his routine and limited police interactions were shaped by being a white man in Indiana.",
+        "ground_truth_label": "Reflective awareness of racial asymmetry in policing",
+        "behavioral_evidence_from_interview": [
+          "Q20: \"my own experience as a white guy in Indiana is not universal\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "He plays guitar quietly and privately as a stress-management activity.",
+        "ground_truth_label": "Private guitar playing for emotional regulation",
+        "behavioral_evidence_from_interview": [
+          "Q38: \"play guitar quietly\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "He values music and quiet ritual despite not being religiously observant.",
+        "ground_truth_label": "Music has reflective and quasi-ritual value",
+        "behavioral_evidence_from_interview": [
+          "Q47: \"a soft spot for ritual, music, and quiet spaces\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "He identifies as white and not Hispanic, Latinx, or Spanish origin.",
+        "ground_truth_label": "White non-Hispanic identity",
+        "behavioral_evidence_from_interview": [
+          "Q88: \"No\"",
+          "Q89: \"I identify as white.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "His family lineage is mostly German and Irish and rooted in the Midwest.",
+        "ground_truth_label": "German and Irish Midwestern ancestry",
+        "behavioral_evidence_from_interview": [
+          "Q86: \"Older family lineage from German and Irish ancestors\"",
+          "Q88: \"Mostly German and Irish Midwest family background.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "He was born in Evansville, grew up there, and has only lived elsewhere briefly for school-related periods.",
+        "ground_truth_label": "Long-term Evansville rootedness",
+        "behavioral_evidence_from_interview": [
+          "Q87: \"I was born in Evansville, Indiana.\"",
+          "Q87: \"Only briefly for school-related periods\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "He was raised around culturally Protestant Christianity but now identifies as agnostic or no religion.",
+        "ground_truth_label": "Culturally Christian upbringing with agnostic adult identity",
+        "behavioral_evidence_from_interview": [
+          "Q47: \"broadly Christian, culturally Protestant\"",
+          "Q94: \"Agnostic.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "He carries a Midwestern ethic of modesty, practicality, and work without strong church affiliation.",
+        "ground_truth_label": "Internalized Midwestern modesty and practicality",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"do not make a big production out of yourself\"",
+          "Q109: \"modest usefulness\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "He left the safer analyst track because he wanted work with a more human and visual direction.",
+        "ground_truth_label": "Voluntary career transition toward human-centered creative work",
+        "behavioral_evidence_from_interview": [
+          "Q02: \"I wanted work with a human and visual side, not just spreadsheets.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "He is rebuilding routine, portfolio, and career direction without the external structure of a regular job.",
+        "ground_truth_label": "Self-directed transition with weak structure",
+        "behavioral_evidence_from_interview": [
+          "Q18: \"structure does not magically appear\"",
+          "Q43: \"not working formally messes with identity and money\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Marriage and household finances shape the transition and force practical conversations about timelines, bills, and risk.",
+        "ground_truth_label": "Career change is negotiated within marriage and budget constraints",
+        "behavioral_evidence_from_interview": [
+          "Q02: \"My wife and I talked a lot about money and timing\"",
+          "Q18: \"talk more explicitly about money and house routines\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "He responded to tighter finances by cutting eating out, travel, hobby purchases, and random project components, and by using savings carefully.",
+        "ground_truth_label": "Uses discretionary spending cuts to manage transition risk",
+        "behavioral_evidence_from_interview": [
+          "Q60: \"We cut discretionary spending, delayed a Chicago trip\"",
+          "Q81: \"stopped buying random project components\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Missing a self-imposed portfolio deadline led to embarrassment, a serious conversation with his wife, and a shift toward smaller weekly goals.",
+        "ground_truth_label": "Missed deadline triggered self-correction toward smaller goals",
+        "behavioral_evidence_from_interview": [
+          "Q44: \"I felt embarrassed and childish\"",
+          "Q44: \"I started making weekly goals smaller\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "He wants to become more reliable and less avoidant without becoming rigid or losing spontaneity.",
+        "ground_truth_label": "Aims for reliability without rigidity",
+        "behavioral_evidence_from_interview": [
+          "Q108: \"more reliable without becoming rigid\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Instagram is his most-used social platform and a daily source for art, photography, and design discovery.",
+        "ground_truth_label": "Heavy Instagram use for creative discovery",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"I use Instagram the most\"",
+          "Q48: \"Daily\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "He uses Facebook mainly for events, family updates, and local groups rather than frequent posting.",
+        "ground_truth_label": "Facebook used as a utility platform",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"I have Facebook mostly for events, family updates, and local groups, but I do not post much.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "He avoids political arguments online and prefers local reporting, long-form essays, and multiple-source checking.",
+        "ground_truth_label": "Avoids online political conflict and checks multiple sources",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"I try to avoid political arguments online\"",
+          "Q42: \"If something sounds dramatic, I look for multiple sources.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Social media is useful for discovery but harmful for procrastination and comparison, especially around idealized creative careers.",
+        "ground_truth_label": "Social media drives comparison and procrastination",
+        "behavioral_evidence_from_interview": [
+          "Q43: \"Comparing myself to people online\"",
+          "Q48: \"Social media is useful for discovery but terrible for comparison.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.demographer",
+        "claim": "He has a STEM bachelor's degree.",
+        "ground_truth_label": "Bachelor's degree in a STEM field",
+        "behavioral_evidence_from_interview": [
+          "Q90: \"I completed a bachelor's degree in a STEM field.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "reprojected",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": "summaries.demographer",
+        "claim": "He is a 33-year-old man born and living in Evansville, Indiana.",
+        "ground_truth_label": "Male age 33, born and living in Evansville",
+        "behavioral_evidence_from_interview": [
+          "Q85: \"My date of birth is September 14, 1992\"",
+          "Q87: \"I was born in Evansville, Indiana.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "reprojected",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "He shows weaker deadline discipline and present-biased project behavior.",
+        "ground_truth_label": "Deadline weakness and present bias",
+        "behavioral_evidence_from_interview": [
+          "Q03: \"deadlines are my weak spot\"",
+          "Q44: \"I stayed up until 2 a.m. trying to fix a demo\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "reprojected",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "He accepts short-term financial risk to pursue better identity fit in work.",
+        "ground_truth_label": "Accepts financial risk for identity-congruent work",
+        "behavioral_evidence_from_interview": [
+          "Q02: \"I decided to step away\"",
+          "Q83: \"I am aware that I am choosing some risk in pursuit of better-fitting work\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "reprojected",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "He is especially sensitive to health insurance loss and emergency medical bills after leaving stable employment.",
+        "ground_truth_label": "Loss-aware about health coverage and medical costs",
+        "behavioral_evidence_from_interview": [
+          "Q25: \"Leaving regular employment and comparing health insurance options definitely pushed it.\"",
+          "Q40: \"A large medical bill would be stressful.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "He sees racism as systemic rather than solved by individual goodwill.",
+        "ground_truth_label": "Views racism as systemic",
+        "behavioral_evidence_from_interview": [
+          "Q27: \"Systems can produce unfair outcomes even when individuals think they are being reasonable.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-093",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "He distrusts performative politics from either side, especially online.",
+        "ground_truth_label": "Distrusts performative politics",
+        "behavioral_evidence_from_interview": [
+          "Q24: \"I distrust performative politics from either side, especially online.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-094",
+        "source": "reprojected",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "He is prone to avoidance under ambiguous self-directed work conditions.",
+        "ground_truth_label": "Avoidant under ambiguity",
+        "behavioral_evidence_from_interview": [
+          "Q45: \"I know what it is like to get stuck and avoid messages or tasks.\"",
+          "Q43: \"moving sticky notes around and avoiding the hard part\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-095",
+        "source": "reprojected",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "His self-concept is built around bridging data, craft, and visual storytelling.",
+        "ground_truth_label": "Identity integrates technical and artistic modes",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"the way data can tell a story visually\"",
+          "Q109: \"making things that help people see differently\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}
