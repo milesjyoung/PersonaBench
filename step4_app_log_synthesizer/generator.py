@@ -40,7 +40,7 @@ MERGE_PROMPT_PATH = STEP_DIR / "merge_prompt.txt"
 DEFAULT_MODEL = None
 DEFAULT_VERIFIER_MODEL = None
 DEFAULT_PER_FACT_MAX_ATTEMPTS = 3
-DEFAULT_LOG_WINDOW_DAYS = 60
+DEFAULT_LOG_WINDOW_DAYS = 30
 
 
 def load_prompt(path: Path) -> str:
@@ -59,12 +59,12 @@ CLAUDE_CMD = os.environ.get("CLAUDE_CMD", "claude.cmd" if sys.platform == "win32
 CODEX_CMD = os.environ.get("CODEX_CMD", "codex.exe" if sys.platform == "win32" else "codex")
 
 
-def call_llm(client, model: str, prompt: str, provider: str = "anthropic",
+def call_llm(client, model: str, prompt: str, gpt_reasoning: str, provider: str = "anthropic",
              backend: str = "anthropic-api") -> str:
     if backend in SUBSCRIPTION_BACKENDS:
-        return call_subscription_cli(prompt, model, backend,
+        return call_subscription_cli(prompt, model, backend, gpt_reasoning,
                                      claude_cmd=CLAUDE_CMD, codex_cmd=CODEX_CMD)
-    return _call_llm(client, model, prompt, provider=provider)
+    return _call_llm(client, model, prompt, gpt_reasoning, provider=provider)
 
 
 def _fix_invalid_escapes(text: str) -> str:
@@ -110,6 +110,7 @@ def generate_fragments(
     log_start: str,
     log_end: str,
     contact_usage: dict[str, int],
+    gpt_reasoning: str,
     provider: str = "anthropic",
     backend: str = "anthropic-api",
 ) -> dict[str, Any]:
@@ -121,7 +122,7 @@ def generate_fragments(
     template = fill(template, "{{LOG_START_DATE}}", log_start)
     template = fill(template, "{{LOG_END_DATE}}", log_end)
     template = fill(template, "{{INSERT_CONTACT_USAGE_COUNTS_JSON_HERE}}", contact_usage)
-    raw = call_llm(client, model, template, provider=provider, backend=backend)
+    raw = call_llm(client, model, template, gpt_reasoning, provider=provider, backend=backend)
     return extract_json(raw)
 
 
@@ -131,6 +132,7 @@ def verify_fragments(
     fragments: list[dict[str, Any]],
     banned_token_set: list[str],
     persona: dict[str, Any],
+    gpt_reasoning: str,
     provider: str = "anthropic",
     backend: str = "anthropic-api",
 ) -> dict[str, Any]:
@@ -144,7 +146,7 @@ def verify_fragments(
     template = fill(template, "{{PERSONA_AGE}}", str(persona["age"]))
     template = fill(template, "{{PERSONA_OCCUPATION}}", persona["occupation"])
     template = fill(template, "{{PERSONA_LOCATION}}", persona["location"])
-    raw = call_llm(client, verifier_model, template, provider=provider, backend=backend)
+    raw = call_llm(client, verifier_model, template, gpt_reasoning, provider=provider, backend=backend)
     return extract_json(raw)
 
 
@@ -303,6 +305,7 @@ def _generate_filler_for_contact(
     contact: dict[str, Any],
     count: int,
     available_dates: list[str],
+    gpt_reasoning: str,
     provider: str = "anthropic",
     backend: str = "anthropic-api",
 ) -> list[dict[str, Any]]:
@@ -329,7 +332,7 @@ def _generate_filler_for_contact(
         topics=topics,
     )
 
-    raw = call_llm(client, model, prompt, provider=provider, backend=backend)
+    raw = call_llm(client, model, prompt, gpt_reasoning, provider=provider, backend=backend)
     fenced = re.search(r"```(?:json)?\s*(\[.*?\])\s*```", raw, re.DOTALL)
     payload = fenced.group(1) if fenced else raw
     start = payload.find("[")
@@ -439,6 +442,7 @@ def merge_app_log(
     log_start: str,
     log_end: str,
     news_events: list[dict[str, Any]],
+    gpt_reasoning: str,
     provider: str = "anthropic",
     backend: str = "anthropic-api",
     trace: list[dict[str, Any]] | None = None,
@@ -475,7 +479,7 @@ def merge_app_log(
             this_batch = min(remaining, batch_size)
             print(f"[merge] {cname} batch {batch_num}: {this_batch} sessions ({remaining} remaining)")
             sessions = _generate_filler_for_contact(
-                client, model, persona["name"], contact_data, this_batch, available,
+                client, model, persona["name"], contact_data, this_batch, available, gpt_reasoning,
                 provider=provider, backend=backend,
             )
             contact_filler.extend(sessions)
@@ -567,6 +571,7 @@ def run_step(
     per_fact_max_attempts: int,
     log_start: str,
     log_end: str,
+    gpt_reasoning: str,
     provider: str = "anthropic",
     backend: str = "anthropic-api",
 ) -> int:
@@ -609,13 +614,14 @@ def run_step(
             )
             bundle = generate_fragments(
                 client, model, hf, corrected_social_circle,
-                log_start, log_end, contact_usage, provider=provider, backend=backend,
+                log_start, log_end, contact_usage, gpt_reasoning, 
+                provider=provider, backend=backend,
             )
             fragments = bundle.get("fragments", [])
             banned_token_set = bundle.get("banned_token_set", []) or []
             verification = verify_fragments(
                 client, verifier_model, fragments, banned_token_set, persona,
-                provider=provider, backend=backend,
+                gpt_reasoning, provider=provider, backend=backend,
             )
             last_fragments = fragments
             last_verification = verification
@@ -674,7 +680,7 @@ def run_step(
     app_log = merge_app_log(
         client, model, verified_fragments, hidden_facts,
         corrected_social_circle, persona, log_start, log_end,
-        news_events, provider=provider, backend=backend,
+        news_events, gpt_reasoning, provider=provider, backend=backend,
         trace=trace,
     )
     app_log_out.write_text(
@@ -713,6 +719,11 @@ def main() -> None:
     )
     parser.add_argument("--log-start", default="2026-03-01")
     parser.add_argument("--log-end", default="2026-03-31")
+    parser.add_argument(
+        "--gpt-reasoning",
+        default="high",
+        help="OpenAI model (openai-api, codex) reasoning effort.",
+    )
     parser.add_argument("--provider", default=None, choices=SUPPORTED_PROVIDERS)
     parser.add_argument("--backend", default=None, choices=SUPPORTED_BACKENDS)
     args = parser.parse_args()
@@ -741,6 +752,7 @@ def main() -> None:
             args.per_fact_max_attempts,
             args.log_start,
             args.log_end,
+            args.gpt_reasoning,
             provider,
             args.backend,
         )

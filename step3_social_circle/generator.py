@@ -57,12 +57,12 @@ CLAUDE_CMD = os.environ.get("CLAUDE_CMD", "claude.cmd" if sys.platform == "win32
 CODEX_CMD = os.environ.get("CODEX_CMD", "codex.exe" if sys.platform == "win32" else "codex")
 
 
-def call_llm(client, model: str, prompt: str, provider: str = "anthropic",
+def call_llm(client, model: str, prompt: str, gpt_reasoning: str, provider: str = "anthropic",
              backend: str = "anthropic-api") -> str:
     if backend in SUBSCRIPTION_BACKENDS:
-        return call_subscription_cli(prompt, model, backend,
+        return call_subscription_cli(prompt, model, backend, gpt_reasoning,
                                      claude_cmd=CLAUDE_CMD, codex_cmd=CODEX_CMD)
-    return _call_llm(client, model, prompt, provider=provider)
+    return _call_llm(client, model, prompt, gpt_reasoning, provider=provider)
 
 
 def _fix_invalid_escapes(text: str) -> str:
@@ -102,6 +102,7 @@ def run_generation(
     model: str,
     profile: dict[str, Any],
     transcript: list[dict[str, Any]],
+    gpt_reasoning: str,
     provider: str = "anthropic",
     backend: str = "anthropic-api",
 ) -> dict[str, Any]:
@@ -111,7 +112,7 @@ def run_generation(
         template, "{{INSERT_CORRECTED_EXTRACTED_PROFILE_JSON_HERE}}", profile
     )
     template = fill_json_placeholder(template, "{{INSERT_TRANSCRIPT_JSON_HERE}}", transcript)
-    raw = call_llm(client, model, template, provider=provider, backend=backend)
+    raw = call_llm(client, model, template, gpt_reasoning, provider=provider, backend=backend)
     return extract_json(raw)
 
 
@@ -121,6 +122,7 @@ def run_verification(
     profile: dict[str, Any],
     transcript: list[dict[str, Any]],
     social_circle: dict[str, Any],
+    gpt_reasoning: str,
     provider: str = "anthropic",
     backend: str = "anthropic-api",
 ) -> dict[str, Any]:
@@ -133,7 +135,7 @@ def run_verification(
     template = fill_json_placeholder(
         template, "{{INSERT_SOCIAL_CIRCLE_JSON_HERE}}", social_circle
     )
-    raw = call_llm(client, model, template, provider=provider, backend=backend)
+    raw = call_llm(client, model, template, gpt_reasoning, provider=provider, backend=backend)
     return extract_json(raw)
 
 
@@ -147,6 +149,7 @@ def run_step(
     output_dir: Path,
     model: str,
     max_iterations: int,
+    gpt_reasoning: str,
     provider: str = "anthropic",
     backend: str = "anthropic-api",
 ) -> int:
@@ -165,11 +168,11 @@ def run_step(
 
     for attempt in range(1, max_iterations + 1):
         print(f"[attempt {attempt}/{max_iterations}] generating social circle for {base_name}")
-        social_circle = run_generation(client, model, profile, transcript, provider=provider, backend=backend)
+        social_circle = run_generation(client, model, profile, transcript, gpt_reasoning, provider=provider, backend=backend)
         circle_out.write_text(json.dumps(social_circle, indent=2, ensure_ascii=False), encoding="utf-8")
 
         print(f"[attempt {attempt}/{max_iterations}] verifying social circle for {base_name}")
-        verification = run_verification(client, model, profile, transcript, social_circle, provider=provider, backend=backend)
+        verification = run_verification(client, model, profile, transcript, social_circle, gpt_reasoning, provider=provider, backend=backend)
         verification_out.write_text(json.dumps(verification, indent=2, ensure_ascii=False), encoding="utf-8")
 
         verdict = overall_verdict(verification)
@@ -202,6 +205,11 @@ def main() -> None:
     )
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--max-iterations", type=int, default=DEFAULT_MAX_ITERATIONS)
+    parser.add_argument(
+        "--gpt-reasoning",
+        default="high",
+        help="OpenAI model (openai-api, codex) reasoning effort.",
+    )
     parser.add_argument("--provider", default=None, choices=SUPPORTED_PROVIDERS)
     parser.add_argument("--backend", default=None, choices=SUPPORTED_BACKENDS)
     args = parser.parse_args()
@@ -216,7 +224,7 @@ def main() -> None:
         print(f"API key for {provider} is not set.", file=sys.stderr)
         sys.exit(2)
 
-    sys.exit(run_step(args.profile, args.transcript, args.output, args.model, args.max_iterations, provider, args.backend))
+    sys.exit(run_step(args.profile, args.transcript, args.output, args.model, args.max_iterations, args.gpt_reasoning, provider, args.backend))
 
 
 if __name__ == "__main__":
