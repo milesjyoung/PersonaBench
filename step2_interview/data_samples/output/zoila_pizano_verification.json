@@ -1,0 +1,2468 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "3bab1a650de445ae88ec28c5536282b2",
+      "name": "Zoila Pizano",
+      "verification_date": "2026-05-20"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age 19, female sex, never-married status, El Paso TX 79938 residence, and high school education are all confirmed by the interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed age/sex/marital_status/education_level/city/state/zipcode",
+              "source_b_ref": "Q84-Q91",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed occupation of not_in_workforce is confirmed by repeated statements that she has no paid job, no wages, and zero paid work weeks.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed occupation",
+              "source_b_ref": "Q16, Q67-Q73",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed identifies Zoila as first-generation Mexican-American raised in El Paso; the interview confirms U.S. birth, El Paso birth/residence, Mexican-American/Latina identity, and bilingual English/Spanish life.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q01, Q86-Q89",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "The interview enriches household composition beyond the seed by naming parents Maribel and Rogelio, brother Mateo age 13, and a nearby maternal grandmother who is not in the household.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona/cultural_background",
+              "source_b_ref": "Q05, Q11, Q51-Q52",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry household names, brother age, and grandmother-nearby status into corrected social/home facts."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The profile accurately captures age, marital status, education, location, household, and lack of paid employment.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q05, Q11, Q51-Q58, Q84-Q92",
+              "source_b_ref": "top-level fields; preferences.home_and_lifestyle; summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile captures that Zoila lives with parents and brother, rents, and contributes through chores, cooking, errands, translation, and sibling support.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q11, Q17, Q55, Q58",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The interview provides date of birth, U.S. birthplace, and lifelong El Paso residence; these are not explicit in preferences, though partly reflected in summaries.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q85-Q87",
+              "source_b_ref": "preferences.cultural_and_linguistic; summaries.demographer",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add DOB, U.S. birth, El Paso birth, and lifelong El Paso residence to cultural_and_linguistic details."
+            },
+            {
+              "id": 4,
+              "text": "The interview includes parents' education and work histories, which are absent from the preference subcategories.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q100-Q107",
+              "source_b_ref": "preferences.home_and_lifestyle; preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add parents' high school education and service/warehouse-delivery work background to home_and_lifestyle."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Top-level occupation, work_and_career, and demographer summary all consistently state not in paid workforce while acknowledging unpaid volunteer and portfolio work.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "occupation; preferences.work_and_career",
+              "field_b": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Home_and_lifestyle and social_and_relationships consistently describe a household of parents and brother, no partner, no children, and grandmother nearby rather than co-resident.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.home_and_lifestyle",
+              "field_b": "preferences.social_and_relationships; summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Date of birth September 14, 2006 is substantive demographic information missing from preferences.",
+              "gap": true,
+              "interview_ref": "Q85",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail: Date of birth is September 14, 2006."
+            },
+            {
+              "id": 2,
+              "text": "She was born in the United States, specifically El Paso, Texas, and has lived only in El Paso.",
+              "gap": true,
+              "interview_ref": "Q86-Q87",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail: Born in El Paso, Texas, born in the U.S., and has lived only in El Paso."
+            },
+            {
+              "id": 3,
+              "text": "Both parents completed high school and worked for pay while she was growing up; mother in food service/cashier/customer service and father in warehouse/delivery work.",
+              "gap": true,
+              "interview_ref": "Q100-Q107",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail summarizing parents' education and work backgrounds."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes meticulous planning with spontaneous creative bursts; interview confirms planners, checklists, deadlines, late-night creative bursts, and occasional procrastination.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed persona/professional_persona",
+              "source_b_ref": "Q02, Q15, Q18, Q50, Q78",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed career goals of community college, graphic design, museum/nonprofit/community arts work are confirmed in interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed career_goals_and_ambitions",
+              "source_b_ref": "Q01, Q16, Q91, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Interview adds financial constraints and liquidity limits not detailed in seed, including dependence on parents, tight household budget, and difficulty covering a $400 emergency.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona/career_goals_and_ambitions",
+              "source_b_ref": "Q56-Q64, Q81-Q83",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry financial constraint details into corrected profile."
+            },
+            {
+              "id": 4,
+              "text": "Seed says she balances organized timelines with spontaneous creative bursts; interview clarifies that too much flexibility can become procrastination.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed professional_persona/persona",
+              "source_b_ref": "Q18, Q50, Q78",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry procrastination/flexibility risk into corrected work and life-transition facts."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The behavioral economist summary accurately captures limited liquidity, small savings, and difficulty with a $400 emergency.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q61-Q62, Q82",
+              "source_b_ref": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile correctly represents adaptive cutbacks during tight months: eating out, clothes, coffee, comics, and art supplies.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q60, Q81",
+              "source_b_ref": "preferences.food_and_dining; preferences.fashion_and_appearance; summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The interview includes no personal debt, no credit card, no tax filing, and no current SNAP/housing/SSI benefits; these finance-relevant facts are not explicit in preferences.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q63, Q75, Q80",
+              "source_b_ref": "preferences.work_and_career; preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add no personal loans/credit card debt, no tax filing, and no personal/known household public assistance to work_and_career or home_and_lifestyle."
+            },
+            {
+              "id": 4,
+              "text": "The interview gives household spending and income estimates that are absent from preferences.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q57, Q74",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add household monthly spending estimate $3,200-$3,800 and income estimate $4,000-$5,000 before deductions."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Work_and_career's lack of wages is consistent with finance descriptions of personal low income, small savings, and family support.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Travel goals and finance details are internally consistent: Oaxaca is a travel dream and savings goal, not an already completed trip.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.travel",
+              "field_b": "preferences.work_and_career; summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Household spending is estimated around $3,200 to $3,800 monthly, with rent, utilities, groceries, gas, car insurance, and school costs as major expenses.",
+              "gap": true,
+              "interview_ref": "Q56-Q57",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add household spending estimate and major expense categories."
+            },
+            {
+              "id": 2,
+              "text": "Household income is guessed around $4,000 to $5,000 before deductions, mostly from parents' work.",
+              "gap": true,
+              "interview_ref": "Q74",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add household income estimate and source."
+            },
+            {
+              "id": 3,
+              "text": "She has no personal student loans, credit card debt, credit card, tax filing history, regular paycheck, or current benefits.",
+              "gap": true,
+              "interview_ref": "Q63, Q73, Q75, Q80",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add these personal financial-status facts to work_and_career."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed bilingual border-community framing is confirmed by interview references to El Paso, Spanish/English switching, immigration, and border policing.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed cultural_background/persona",
+              "source_b_ref": "Q01, Q20, Q28",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed community workshop and outreach orientation is confirmed by library volunteering, youth art programming, mural work, and local arts funding concerns.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed professional_persona/arts_persona",
+              "source_b_ref": "Q16, Q24-Q25, Q65",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Interview adds explicit political behavior and identity: voted in 2024, independent-leaning Democrat, closer to Democratic Party.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona/cultural_background",
+              "source_b_ref": "Q23, Q95-Q96",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry voting and party-leaning facts into corrected civic facts."
+            },
+            {
+              "id": 4,
+              "text": "Interview adds law-enforcement attitudes shaped by Border Patrol checkpoints and nervousness during stops; seed does not address this.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q20-Q22",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry law-enforcement attitude and no-arrest facts into corrected civic/cultural facts."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The profile accurately captures voting in 2024 and desire to become a consistent voter.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile accurately captures her independent-leaning Democratic identity and issue priorities.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q24, Q95-Q96",
+              "source_b_ref": "summaries.political_scientist; preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The profile includes racial justice awareness and online sharing, but omits that she did not attend big protests because of family concerns and transportation.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q29",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add no big protest participation due to family concerns and transportation."
+            },
+            {
+              "id": 4,
+              "text": "The profile references law enforcement and Border Patrol in cultural context but omits no serious personal law-enforcement experience and no immediate-family arrests.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q20-Q22",
+              "source_b_ref": "preferences.community_and_civic; preferences.cultural_and_linguistic",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add no serious personal law-enforcement experience, no arrest, and no immediate-family arrests."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Community_and_civic and political_scientist summary are consistent about local civic trust and skepticism toward national politicians.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Cultural_and_linguistic and community_and_civic are consistent in linking border identity, bilingualism, immigration, policing, and race.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.cultural_and_linguistic",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "She did not join big protests, partly because of family concerns and transportation, but talked with friends and shared resources online.",
+              "gap": true,
+              "interview_ref": "Q29",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add protest nonparticipation reason to community_and_civic."
+            },
+            {
+              "id": 2,
+              "text": "She says asking for accountability is not the same as hating every individual officer.",
+              "gap": true,
+              "interview_ref": "Q27",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add nuanced policing accountability view."
+            },
+            {
+              "id": 3,
+              "text": "She has no serious personal law-enforcement experience, has not been arrested, no police have come to her home, and no close family or friends have been arrested.",
+              "gap": true,
+              "interview_ref": "Q20-Q22",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add personal and family law-enforcement exposure facts."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes a curious bilingual art-lover with planning and spontaneous creativity; interview confirms creative identity, bilingual life, and mixed structure/procrastination pattern.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed persona",
+              "source_b_ref": "Q01-Q03, Q15, Q18, Q50",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed devotion to family traditions is confirmed by childhood altars, papel picado, grandmother stories, Catholic traditions, and family-centered life.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed persona/cultural_background",
+              "source_b_ref": "Q01, Q05, Q47, Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Interview adds anxiety-like overthinking, stress somatization, guilt, and feeling unanchored after graduation, which are not explicit in seed.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona",
+              "source_b_ref": "Q31, Q33-Q35, Q43-Q45",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry anxiety-like coping and transition stress into corrected profile."
+            },
+            {
+              "id": 4,
+              "text": "Interview adds relational style: prefers small groups, relies on mother, cousin, and close friends, and avoids public emotional disclosure unless serious.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona",
+              "source_b_ref": "Q06-Q07, Q44, Q49",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry close-circle support style into corrected social/psychological facts."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The profile accurately captures anxiety-like overthinking without formal diagnosis and adaptive coping through journaling, art, yoga, hiking, cooking, planning, and social support.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q34, Q38, Q43-Q50",
+              "source_b_ref": "preferences.health_and_wellness; summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile accurately captures identity anchored in art, Mexican-American heritage, community usefulness, and family.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01, Q47, Q65, Q108-Q109",
+              "source_b_ref": "preferences.arts_and_culture; preferences.cultural_and_linguistic; summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The interview says therapy was considered but cost and not knowing where to start make it hard; this is missing from preferences.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q45",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add therapy considered but cost/navigation barriers prevent regular therapy."
+            },
+            {
+              "id": 4,
+              "text": "The interview identifies scrolling for inspiration as a coping strategy that backfires; the profile mentions over-scrolling generally but not the coping-backfire framing.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q50",
+              "source_b_ref": "preferences.technology; preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add scrolling for inspiration becomes avoidance."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Health_and_wellness, technology, and life_events consistently portray stress management as planner-based and creative, with scrolling and procrastination as risks.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness; preferences.technology",
+              "field_b": "preferences.life_events_and_transitions; summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Social_and_relationships and psychologist summary consistently describe small trusted circles and family-centered support.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "She has considered therapy, but cost and knowing where to start make it hard; she has not started regular therapy.",
+              "gap": true,
+              "interview_ref": "Q33, Q45",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add therapy barrier detail."
+            },
+            {
+              "id": 2,
+              "text": "She identifies writing a short list and doing the easiest task first as her best coping strategy.",
+              "gap": true,
+              "interview_ref": "Q50",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add best coping strategy detail."
+            },
+            {
+              "id": 3,
+              "text": "Her mother helps by validating fear without letting her spiral, and Alina provides portfolio accountability.",
+              "gap": true,
+              "interview_ref": "Q44",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add emotional support roles of mother and Alina."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No contradictions required partial correction or review. Several interview details were missing from preference subcategories and were added as enrichment.",
+    "final_status": "Verified and corrected profile is ready for downstream use."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "3bab1a650de445ae88ec28c5536282b2",
+    "name": "Zoila Pizano",
+    "age": 19,
+    "gender": "Female",
+    "marital_status": "Never married; not cohabiting with a romantic partner",
+    "location": "El Paso, TX 79938",
+    "education": "High school diploma; not currently enrolled; planning community college for graphic design or visual communication",
+    "occupation": "Not in paid workforce; aspiring graphic design student, muralist, and volunteer youth art helper",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Generally healthy, manages stress through journaling, yoga, hiking, and art; pro-vaccine and uses informal family remedies for minor issues.",
+        "details": [
+          "Reports no major medical condition and occasional headaches/anxiety tied to screens and deadlines (Q31).",
+          "Exercises through hiking, yoga, walking, and occasional track drills two to three times weekly (Q31, Q32).",
+          "Uses journaling, yoga, hikes, and planned art blocks to cope with stress (Q45, Q50).",
+          "Supports vaccination and trusts doctors, pharmacists, CDC, and clinic information (Q41, Q42).",
+          "Uses family remedies such as manzanilla tea, honey-lime, vapor rub, caldo, and aloe for minor illness (Q37).",
+          "Does not have a regular doctor, uses clinics when needed, and has delayed minor care because of cost/coverage concerns (Q31, Q36).",
+          "Has considered therapy but has not started regular therapy because cost and knowing where to start are barriers (Q33, Q45).",
+          "Says writing a short list and doing the easiest thing first is the coping strategy that works best, while scrolling for inspiration can become avoidance (Q50)."
+        ],
+        "evidence": "Q31-Q42, Q45, Q50"
+      },
+      "food_and_dining": {
+        "summary": "Prefers home-cooked Mexican and Mexican-American family food with modern twists; budget-conscious and cooks as both responsibility and comfort.",
+        "details": [
+          "Family cooks at home often, which she sees as helping health and saving money (Q32, Q60).",
+          "Likes fish tacos with tamarind glaze, pozole with extra vegetables, and chiles rellenos with quinoa filling (Q32, Q17).",
+          "Cuts back on eating out when expenses rise (Q60).",
+          "Uses cooking and chopping food as a calming coping activity (Q38)."
+        ],
+        "evidence": "Q17, Q32, Q38, Q60"
+      },
+      "travel": {
+        "summary": "Wants low-budget, culturally focused travel connected to art, especially Oaxaca; has experience with regional art travel.",
+        "details": [
+          "Hopes to travel to Oaxaca for embroidery or textile study (Q108).",
+          "Saves for school, art tools, and travel dreams including Oaxaca (Q61, Q62).",
+          "Values travel that connects art, culture, and family heritage (Q108).",
+          "Has road-tripped to Santa Fe for art fairs according to the seed persona, consistent with her regional art-travel orientation."
+        ],
+        "evidence": "Q61, Q62, Q108; seed travel_persona"
+      },
+      "social_and_relationships": {
+        "summary": "Family-centered, unmarried, no children, with a small close friend circle built around art, photography, and emotional support.",
+        "details": [
+          "Lives with parents Maribel and Rogelio and younger brother Mateo; grandmother nearby is important (Q05, Q11, Q51).",
+          "Never married, no romantic partner, and no children (Q05, Q84).",
+          "Closest friends are Alina and Jess; cousin Lety is like an older sister (Q06, Q07).",
+          "Prefers one-on-one or small groups over large parties (Q07).",
+          "Uses private messages to seek emotional support from Alina, Jess, or Lety (Q49).",
+          "Her mother helps by validating fear while pushing her to take the next step, and Alina helps with portfolio accountability (Q44)."
+        ],
+        "evidence": "Q05-Q07, Q44, Q49, Q84"
+      },
+      "home_and_lifestyle": {
+        "summary": "Lives in a rented east El Paso household with parents and brother; contributes through chores, cooking, translation, and sibling help.",
+        "details": [
+          "Household rents in east El Paso/79938 and includes Zoila, both parents, and her younger brother (Q08, Q11, Q51, Q58).",
+          "No temporary household members, lodgers, or people away (Q12-Q14, Q52-Q54).",
+          "Parents share rent and household expenses while Zoila contributes chores, cooking, errands, and brother support (Q55, Q17).",
+          "Bedroom doubles as art storage with canvases, markers, and thrifted frames (Q11).",
+          "Household spending is estimated around $3,200 to $3,800 monthly, with rent, utilities, groceries, gas, car insurance, and school costs as major expenses (Q56, Q57).",
+          "Household income is guessed around $4,000 to $5,000 before deductions, mostly from her parents' work (Q74).",
+          "Both parents completed high school and worked for pay while she was growing up; her mother worked in food service/cashier/customer service and her father in warehouse/delivery work (Q100-Q107)."
+        ],
+        "evidence": "Q08, Q11-Q14, Q17, Q51-Q58, Q74, Q100-Q107"
+      },
+      "entertainment": {
+        "summary": "Enjoys graphic novels, shows with family or brother, social media tutorials, and soccer on TV.",
+        "details": [
+          "Reads and discusses graphic novels with friend Jess (Q07).",
+          "Watches shows with her younger brother (Q05).",
+          "Uses TikTok for entertainment and tutorials, while trying not to overuse it (Q48).",
+          "Watches El Paso Locomotive FC on TV during weekends (Q15)."
+        ],
+        "evidence": "Q05, Q07, Q15, Q48"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Creative hobbies dominate: sketching, murals, photography, journaling, graphic novels, library youth art, and hiking.",
+        "details": [
+          "Spends time sketching, painting, working in Illustrator/Photoshop, and building a portfolio (Q01, Q15, Q65).",
+          "Volunteers with youth art programming and pop-up exhibitions at the library (Q01, Q02, Q16, Q65).",
+          "Hikes with a photography club and photographs murals/street art (Q07, Q15).",
+          "Journals at night and uses art as emotional regulation (Q15, Q45, Q50)."
+        ],
+        "evidence": "Q01, Q02, Q07, Q15, Q16, Q45, Q50, Q65"
+      },
+      "work_and_career": {
+        "summary": "Not currently employed; career goals center on graphic design, murals, museum/nonprofit outreach, and culturally grounded arts education.",
+        "details": [
+          "Officially not in paid workforce and earned no wages last month (Q16, Q69-Q73).",
+          "Plans to enroll at El Paso Community College for graphic design or visual communication (Q91, Q108).",
+          "Wants eventual work with a museum, nonprofit, library, community arts program, or freelance illustration (Q108).",
+          "Values bilingual outreach and youth art education through volunteer roles (Q65).",
+          "Would consider part-time work at a library, museum, print shop, or coffee shop if compatible with school/art (Q16).",
+          "Personally has no student loans, credit card debt, credit card, regular paycheck, tax filing history, or current public benefits (Q63, Q73, Q75, Q80)."
+        ],
+        "evidence": "Q16, Q63, Q65, Q69-Q75, Q80, Q91, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Art is central to identity, rooted in Mexican-American memory, Frida-like symbolism, murals, Día de los Muertos, and community storytelling.",
+        "details": [
+          "Childhood included Día de los Muertos altars, papel picado, family traditions, and bilingual home life (Q01).",
+          "Uses symbols such as marigolds, hands, saints, mirrors, and memory in art (Q47).",
+          "Works with murals, youth art programming, pop-up exhibitions, and bilingual outreach (Q02, Q65).",
+          "Wants art to make Mexican-American families feel seen and respected (Q01, Q108).",
+          "Uses Adobe Illustrator, Photoshop, sketchbooks, acrylic paint, markers, and phone photography (Q65)."
+        ],
+        "evidence": "Q01, Q02, Q47, Q65, Q108"
+      },
+      "sports_and_fitness": {
+        "summary": "Casually active through hiking, yoga, walking, sprint drills, and watching local soccer.",
+        "details": [
+          "Hikes with a photography club on weekends when weather allows (Q07, Q15).",
+          "Practices occasional yoga downtown for stress and stretching (Q18).",
+          "Counts walking, yoga, track drills, and hikes as exercise two to three times weekly (Q31).",
+          "Follows El Paso Locomotive FC on TV (Q15)."
+        ],
+        "evidence": "Q07, Q15, Q18, Q31"
+      },
+      "nature_and_outdoors": {
+        "summary": "Enjoys desert landscapes, mountain views, and hiking, though heat and car dependence limit outdoor activity.",
+        "details": [
+          "Appreciates seeing the mountains and desert light in El Paso (Q08, Q10).",
+          "Hikes in or near the Franklin Mountains with photography friends when it is not too hot (Q07, Q15).",
+          "Avoids hiking during extreme heat (Q32).",
+          "Values better sidewalks, walking paths, and transportation access (Q08, Q10)."
+        ],
+        "evidence": "Q07, Q08, Q10, Q15, Q32"
+      },
+      "technology": {
+        "summary": "Comfortable with digital art, social media, online forms, and design software; uses technology creatively but worries about over-scrolling.",
+        "details": [
+          "Uses Adobe Illustrator and Photoshop for design and portfolio work (Q01, Q65).",
+          "Helps parents with online portals, official English forms, school messages, bills, and health paperwork (Q17, Q36).",
+          "Uses Instagram for art, photography, events, and process videos; TikTok for tutorials and entertainment (Q48).",
+          "Recognizes scrolling can become avoidance and comparison (Q48, Q50)."
+        ],
+        "evidence": "Q01, Q17, Q36, Q48, Q50, Q65"
+      },
+      "community_and_civic": {
+        "summary": "Civically oriented through voting, library volunteering, bilingual outreach, racial justice awareness, and belief in local arts infrastructure.",
+        "details": [
+          "Voted in 2024 and wants to become a consistent voter (Q23).",
+          "Cares about libraries, city budgets, school decisions, youth programs, and local arts funding (Q24, Q25).",
+          "Volunteers with library youth art programming and community mural projects (Q16, Q65).",
+          "Responded to racial justice issues through conversations and online resource sharing (Q26-Q30).",
+          "Trusts local organizers, teachers, librarians, and people who show up more than national politicians (Q24).",
+          "Did not join big protests, partly because of family concerns and transportation, and believes accountability is not the same as hating every individual officer (Q27, Q29).",
+          "Has had no serious personal law-enforcement experience, has not been arrested, no police have come to her home, and no immediate family or close friends have been arrested (Q20-Q22)."
+        ],
+        "evidence": "Q16, Q20-Q30, Q65"
+      },
+      "music": {
+        "summary": "Eclectic music taste mixing indie electronica and Mexican/regional sounds; music supports art-making and family life.",
+        "details": [
+          "Sketches and journals at night while listening to Tycho or norteño music (Q15).",
+          "Uses music, coffee, and lists to get moving when stressed (Q34).",
+          "Family relief includes food, music, soccer, and movies together (Q46)."
+        ],
+        "evidence": "Q15, Q34, Q46"
+      },
+      "fashion_and_appearance": {
+        "summary": "Limited evidence, but she likes expressive small purchases such as earrings and clothes while cutting them first when money is tight.",
+        "details": [
+          "Cousin Lety gives advice about clothes (Q06).",
+          "Avoids buying clothes when money is tight (Q81).",
+          "Is tempted by earrings, sketchbooks, coffee, and used graphic novels (Q62)."
+        ],
+        "evidence": "Q06, Q62, Q81"
+      },
+      "cultural_and_linguistic": {
+        "summary": "First-generation Mexican-American, bilingual English/Spanish, Catholic-influenced, and deeply shaped by El Paso border culture.",
+        "details": [
+          "Born in El Paso and identifies as first-generation Mexican-American/Latina (Q86-Q88).",
+          "Date of birth is September 14, 2006; she was born in the United States and has lived only in El Paso (Q85-Q87).",
+          "Speaks Spanish at home and uses bilingual communication with family and outreach settings (Q01, Q65, Q88).",
+          "Raised Catholic with traditions including Our Lady of Guadalupe, candles, prayers, and Día de los Muertos (Q47).",
+          "Race categories feel imperfect; identifies as Mexican-American/Latina and may mark White or some other race on forms (Q89).",
+          "Border-city life shapes her awareness of language, immigration, identity, and policing (Q20, Q28)."
+        ],
+        "evidence": "Q01, Q20, Q28, Q47, Q65, Q85-Q89"
+      },
+      "life_events_and_transitions": {
+        "summary": "Recent transition from high school to a gap year is the central life-course shift, with a conscious choice to pursue art and community college.",
+        "details": [
+          "Graduated high school in 2025 and is currently not enrolled (Q90-Q92).",
+          "After graduation, chose a gap year, home support, volunteer art work, and portfolio preparation rather than immediate full-time retail work (Q02).",
+          "Felt unanchored after graduation and had to create her own structure (Q18, Q43, Q44).",
+          "Plans next transition into EPCC and later museum studies or cultural arts management (Q91, Q108)."
+        ],
+        "evidence": "Q02, Q18, Q43, Q44, Q90-Q92, Q108"
+      },
+      "media_and_information_diet": {
+        "summary": "Uses Instagram, TikTok, Facebook, voter guides, trusted medical sources, and online creators; skeptical of unsupported influencer claims.",
+        "details": [
+          "Instagram is primary for art, photography, murals, local events, and process videos (Q48).",
+          "TikTok is used for tutorials and entertainment but not trusted for medical decisions (Q42, Q48).",
+          "Facebook is mainly for family birthdays and relatives' posts (Q48).",
+          "Uses voter guides, teacher advice, and online research for elections (Q23).",
+          "Trusts doctors, pharmacists, CDC, clinic information, and direct medical advice for vaccine information (Q42)."
+        ],
+        "evidence": "Q23, Q42, Q48"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Zoila Pizano is a 19-year-old never-married Mexican-American/Latina woman born and living in El Paso, Texas, specifically the east side/79938 area (Q84-Q89, Q97). She has a high school diploma, graduated in 2025, is not currently enrolled in school, and is planning community college for graphic design or visual communication (Q90-Q92). She lives in a rented household with both parents, Maribel and Rogelio, and her 13-year-old brother Mateo, with no children or partner (Q05, Q11, Q51-Q58). She is not in the paid workforce and depends economically on her parents while contributing unpaid household, translation, sibling, and volunteer art labor (Q16-Q17, Q55, Q65-Q73).",
+      "behavioral_economist": "Zoila shows strong future orientation but limited liquidity: she saves small amounts for school, art tools, and Oaxaca travel, while a $400 emergency would nearly wipe out her personal cushion (Q61-Q62, Q82). Her decisions balance identity investment and financial constraint, most clearly in choosing a gap year and portfolio-building over immediate full-time retail work (Q02, Q83). She responds to uncertainty with lists, planners, deadlines, and social accountability, but procrastination and comparison on social media can undermine follow-through (Q18, Q34, Q48, Q50). Household spending is cautious and adaptive, with cutbacks on eating out, clothes, coffee, comics, and art supplies during tight months (Q56-Q64, Q81).",
+      "political_scientist": "Zoila is a young first-time voter who voted in 2024 and identifies as independent-leaning Democratic, closer to Democrats than Republicans but not strongly partisan (Q23, Q95-Q96). Her political priorities include immigration, education, health care, reproductive rights, LGBTQ respect, workers, arts funding, libraries, and local youth programs (Q24-Q25). She has moderate institutional skepticism toward politicians but relatively high trust in local organizers, teachers, librarians, doctors, pharmacists, and community workers (Q24, Q42). Her views on race and policing are shaped by Black Lives Matter, Mexican-American identity, bilingual border life, and awareness of Border Patrol and checkpoints (Q20-Q30).",
+      "psychologist": "Zoila presents as creative, conscientious when externally structured, family-oriented, and identity-driven, with a self-concept anchored in art, Mexican-American heritage, and community usefulness (Q01, Q02, Q65, Q109). She reports anxiety-like overthinking and procrastination without a formal diagnosis, especially after losing the structure of high school (Q43-Q45). Her coping strategies are mostly adaptive: journaling, sketching, hiking, yoga, music, cooking, planning, and seeking support from her mother, cousin, and close friends (Q34, Q38, Q44-Q50). Relationally, she prefers small trusted circles, values showing up for family, and negotiates independence with guilt and gratitude while still living at home (Q05-Q07, Q83, Q109)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Zoila reports no major medical condition.",
+        "ground_truth_label": "No major medical condition",
+        "behavioral_evidence_from_interview": [
+          "Q31: Overall I am healthy. I do not have a major medical condition."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Zoila gets occasional headaches related to dehydration, screen time, or laptop work.",
+        "ground_truth_label": "Occasional screen/dehydration headaches",
+        "behavioral_evidence_from_interview": [
+          "Q31: I get headaches sometimes when I skip water or stare at screens too long.",
+          "Q39: probably for a headache after working too long on my laptop."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Zoila experiences anxiety when deadlines and unknowns pile up but has no formal anxiety diagnosis.",
+        "ground_truth_label": "Anxiety-like symptoms without formal diagnosis",
+        "behavioral_evidence_from_interview": [
+          "Q31: I get anxious when deadlines pile up.",
+          "Q45: I would say anxiety, but I have not been formally diagnosed."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Zoila exercises through hikes, walking, yoga, and track drills about two to three times weekly.",
+        "ground_truth_label": "Exercises two to three times weekly",
+        "behavioral_evidence_from_interview": [
+          "Q31: Maybe two or three times a week if you count hikes, walking, yoga, or track drills."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Zoila uses journaling, yoga, hikes, and planned art blocks to cope with stress.",
+        "ground_truth_label": "Adaptive stress coping through journaling/yoga/hiking/art",
+        "behavioral_evidence_from_interview": [
+          "Q50: I started using journaling, yoga, hikes, and planned art blocks more intentionally."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Zoila is generally pro-vaccine and had routine vaccines and COVID shots.",
+        "ground_truth_label": "Pro-vaccine",
+        "behavioral_evidence_from_interview": [
+          "Q41: I am generally pro-vaccine. I had routine vaccines and COVID shots."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Zoila trusts doctors, pharmacists, CDC, clinic information, and direct medical advice for vaccine information.",
+        "ground_truth_label": "Trusted medical vaccine sources",
+        "behavioral_evidence_from_interview": [
+          "Q42: Doctors, pharmacists, the CDC website... school or clinic information."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Zoila uses informal family remedies such as manzanilla tea, honey-lime, vapor rub, caldo, and aloe for minor illness.",
+        "ground_truth_label": "Uses informal family remedies",
+        "behavioral_evidence_from_interview": [
+          "Q37: Teas for stomachaches, vapor rub, caldo... aloe.",
+          "Q37: Manzanilla tea for stomach stress and honey-lime for a sore throat."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Zoila does not have her own regular doctor and uses clinics when needed.",
+        "ground_truth_label": "No regular doctor; uses clinics",
+        "behavioral_evidence_from_interview": [
+          "Q31: Not really my own regular doctor. We use clinics when needed."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Zoila has delayed care for minor issues because of cost and uncertainty about insurance coverage.",
+        "ground_truth_label": "Delayed minor care due to cost/coverage",
+        "behavioral_evidence_from_interview": [
+          "Q36: costs make everyone pause before going.",
+          "Q36: I have delayed care for minor things."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Zoila has considered therapy but has not started regular therapy because of cost and uncertainty about where to start.",
+        "ground_truth_label": "Therapy considered but not started",
+        "behavioral_evidence_from_interview": [
+          "Q45: Yes, but cost and knowing where to start make it hard.",
+          "Q33: I did not start regular therapy."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Zoila says writing a short list and doing the easiest thing first is her best coping strategy.",
+        "ground_truth_label": "Best coping strategy: list plus easiest task",
+        "behavioral_evidence_from_interview": [
+          "Q50: Writing a short list and doing the easiest thing first."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Zoila does not smoke, does not really drink, and does not use marijuana or other substances.",
+        "ground_truth_label": "No smoking/drinking/substance use",
+        "behavioral_evidence_from_interview": [
+          "Q38: I do not smoke, and I do not really drink.",
+          "Q39: I do not use marijuana or other substances."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Zoila's family cooks at home often, which she sees as good for health and saving money.",
+        "ground_truth_label": "Home cooking for health and savings",
+        "behavioral_evidence_from_interview": [
+          "Q32: my family cooks at home a lot.",
+          "Q60: We cut back on eating out."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Zoila likes fish tacos with tamarind glaze and cabbage.",
+        "ground_truth_label": "Likes tamarind-glazed fish tacos",
+        "behavioral_evidence_from_interview": [
+          "Q32: Fish tacos with tamarind glaze and cabbage."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Zoila likes pozole with extra vegetables.",
+        "ground_truth_label": "Likes vegetable-heavy pozole",
+        "behavioral_evidence_from_interview": [
+          "Q32: pozole with extra vegetables."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Zoila cooks chiles rellenos with quinoa filling when she is in a creative mood.",
+        "ground_truth_label": "Makes quinoa chiles rellenos",
+        "behavioral_evidence_from_interview": [
+          "Q17: chiles rellenos with quinoa filling."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Zoila cuts back on eating out when expenses rise.",
+        "ground_truth_label": "Cuts eating out under budget pressure",
+        "behavioral_evidence_from_interview": [
+          "Q60: We cut back on eating out."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Zoila uses cooking and chopping food as a calming coping activity.",
+        "ground_truth_label": "Cooking as coping",
+        "behavioral_evidence_from_interview": [
+          "Q38: I stress-bake or help cook because chopping things calms me down."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Zoila hopes to travel to Oaxaca for embroidery or textile study.",
+        "ground_truth_label": "Oaxaca textile-study goal",
+        "behavioral_evidence_from_interview": [
+          "Q108: I want to travel to Oaxaca for embroidery or textile study."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Zoila saves for school, art tools, and travel dreams including Oaxaca.",
+        "ground_truth_label": "Saves for school/art/Oaxaca",
+        "behavioral_evidence_from_interview": [
+          "Q61: Community college costs, a better tablet, and maybe Oaxaca someday.",
+          "Q62: saving is for school, art tools, and travel dreams."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Zoila values travel that connects art, culture, and family heritage.",
+        "ground_truth_label": "Culturally focused art travel preference",
+        "behavioral_evidence_from_interview": [
+          "Q108: a life where my art, family, culture, and work are connected."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Zoila has road-tripped to Santa Fe for art fairs according to the seed persona.",
+        "ground_truth_label": "Santa Fe art-fair road trip",
+        "behavioral_evidence_from_interview": [
+          "seed travel_persona: has already road-tripped to Santa Fe for its art fairs."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Zoila lives with her parents Maribel and Rogelio and younger brother Mateo.",
+        "ground_truth_label": "Lives with parents and brother",
+        "behavioral_evidence_from_interview": [
+          "Q51: I live with my mom Maribel, my dad Rogelio, and my younger brother Mateo."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Zoila's younger brother Mateo is thirteen.",
+        "ground_truth_label": "Brother age 13",
+        "behavioral_evidence_from_interview": [
+          "Q52: My brother Mateo, thirteen."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Zoila's maternal grandmother lives nearby and is important but is not in the household.",
+        "ground_truth_label": "Nearby grandmother, not household member",
+        "behavioral_evidence_from_interview": [
+          "Q05: my grandma on my mom's side, who lives nearby.",
+          "Q51: No, she lives nearby."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Zoila has never been married, is not dating or cohabiting, and has no children.",
+        "ground_truth_label": "Never married, no partner, no children",
+        "behavioral_evidence_from_interview": [
+          "Q84: I have never been married, and I am not living with a romantic partner.",
+          "Q05: I do not have a partner and I do not have children."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Zoila's closest friends are Alina and Jess.",
+        "ground_truth_label": "Closest friends Alina and Jess",
+        "behavioral_evidence_from_interview": [
+          "Q07: My closest friends are Alina and Jess."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Zoila's cousin Lety is like an older sister and gives advice.",
+        "ground_truth_label": "Close cousin Lety",
+        "behavioral_evidence_from_interview": [
+          "Q06: I am close with one cousin, Lety, who is almost like an older sister.",
+          "Q06: Advice about school, clothes, and when I am overthinking."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Zoila prefers one-on-one or small-group socializing over large parties.",
+        "ground_truth_label": "Prefers small groups",
+        "behavioral_evidence_from_interview": [
+          "Q07: One-on-one or small groups. Big parties drain me."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Zoila seeks emotional support through private messages to Alina, Jess, or Lety rather than public posts.",
+        "ground_truth_label": "Private-message emotional support",
+        "behavioral_evidence_from_interview": [
+          "Q49: Emotional support, yes, but more through private messages.",
+          "Q49: Alina, Jess, or my cousin Lety."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Zoila's mother validates her fear while encouraging her to take the next step.",
+        "ground_truth_label": "Mother as grounded emotional support",
+        "behavioral_evidence_from_interview": [
+          "Q44: My mom not dismissing me, but also not letting me spiral forever."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Alina helps Zoila with portfolio accountability.",
+        "ground_truth_label": "Alina provides portfolio accountability",
+        "behavioral_evidence_from_interview": [
+          "Q44: Alina later. She helped me pick three portfolio pieces to improve."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Zoila's household rents a home in east El Paso in the 79938 area.",
+        "ground_truth_label": "Rents in east El Paso 79938",
+        "behavioral_evidence_from_interview": [
+          "Q08: I live on the east side of El Paso, in the 79938 area.",
+          "Q58: We rent our home."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Zoila's household has no temporary members, lodgers, live-in employees, or household members away.",
+        "ground_truth_label": "Stable household composition",
+        "behavioral_evidence_from_interview": [
+          "Q12: Everyone living here is permanent.",
+          "Q53: No.",
+          "Q54: No."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Zoila's parents share rent and household expenses.",
+        "ground_truth_label": "Parents pay household expenses",
+        "behavioral_evidence_from_interview": [
+          "Q55: My parents share the household expenses."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Zoila contributes to the household through chores, cooking, errands, translation, and brother support rather than regular money.",
+        "ground_truth_label": "Unpaid household contribution",
+        "behavioral_evidence_from_interview": [
+          "Q55: Not regularly.",
+          "Q55: chores, cooking, errands, and helping my brother.",
+          "Q17: I also help translate or explain online forms."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Zoila's bedroom doubles as art storage for canvases, markers, and thrifted frames.",
+        "ground_truth_label": "Bedroom used as art storage",
+        "behavioral_evidence_from_interview": [
+          "Q11: my room... becomes an art storage room because I keep canvases, markers, and thrifted frames there."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Zoila estimates household monthly spending at about $3,200 to $3,800.",
+        "ground_truth_label": "Household monthly spending $3,200-$3,800",
+        "behavioral_evidence_from_interview": [
+          "Q57: probably around $3,200 to $3,800 for the household."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Major household expenses include rent, utilities, groceries, gas, car insurance, and school-related costs.",
+        "ground_truth_label": "Major household expense categories",
+        "behavioral_evidence_from_interview": [
+          "Q56: rent, utilities, groceries, gas, car insurance, and my brother's school-related costs."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Zoila estimates household income at about $4,000 to $5,000 before deductions, mostly from her parents' work.",
+        "ground_truth_label": "Household monthly income $4,000-$5,000 pre-deduction",
+        "behavioral_evidence_from_interview": [
+          "Q74: around $4,000 to $5,000 before everything is taken out, mostly from my parents' work."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Both of Zoila's parents completed high school and did not have college degrees.",
+        "ground_truth_label": "Parents' education: high school, no college degree",
+        "behavioral_evidence_from_interview": [
+          "Q100: High school, as far as I know.",
+          "Q101: High school. No college degree."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Zoila's mother worked in food service and later cashier/customer service work while Zoila was growing up.",
+        "ground_truth_label": "Mother worked food service/cashier/customer service",
+        "behavioral_evidence_from_interview": [
+          "Q103: food service and later as a cashier/customer service worker."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Zoila's father worked in warehouse and delivery-related jobs while Zoila was growing up.",
+        "ground_truth_label": "Father worked warehouse/delivery",
+        "behavioral_evidence_from_interview": [
+          "Q106: warehouse and delivery-related work."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Zoila reads and discusses graphic novels with Jess.",
+        "ground_truth_label": "Graphic novels with Jess",
+        "behavioral_evidence_from_interview": [
+          "Q07: Jess likes graphic novels."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Zoila watches shows with her younger brother.",
+        "ground_truth_label": "Watches shows with brother",
+        "behavioral_evidence_from_interview": [
+          "Q05: We watch shows."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Zoila uses TikTok for entertainment and tutorials but tries not to overuse it.",
+        "ground_truth_label": "TikTok for entertainment/tutorials with overuse concern",
+        "behavioral_evidence_from_interview": [
+          "Q48: I use TikTok more for entertainment and tutorials, but I try not to get trapped."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Zoila watches El Paso Locomotive FC on TV during weekends.",
+        "ground_truth_label": "Watches El Paso Locomotive FC",
+        "behavioral_evidence_from_interview": [
+          "Q15: watching El Paso Locomotive FC on TV."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Zoila spends time sketching, painting, using Illustrator/Photoshop, and building a portfolio.",
+        "ground_truth_label": "Creative portfolio hobbies",
+        "behavioral_evidence_from_interview": [
+          "Q01: building a portfolio.",
+          "Q65: Adobe Illustrator, Photoshop, sketchbooks, acrylic paint, markers."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Zoila volunteers with youth art programming and pop-up exhibitions at the library.",
+        "ground_truth_label": "Library youth art volunteering",
+        "behavioral_evidence_from_interview": [
+          "Q02: library youth art program needed volunteers for a pop-up exhibition.",
+          "Q16: unpaid volunteer work with youth art programming."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Zoila hikes with a photography club and photographs murals or street art.",
+        "ground_truth_label": "Hiking and mural photography",
+        "behavioral_evidence_from_interview": [
+          "Q07: Alina is into photography, and we hike or go look for murals together.",
+          "Q15: hiking with the photography club."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Zoila journals at night and uses art as emotional regulation.",
+        "ground_truth_label": "Journaling and art for regulation",
+        "behavioral_evidence_from_interview": [
+          "Q15: I journal at night and usually sketch.",
+          "Q45: Journaling, yoga, hiking, and art help."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Zoila is officially not in the paid workforce and earned no wages last month.",
+        "ground_truth_label": "Not in paid workforce; no wages last month",
+        "behavioral_evidence_from_interview": [
+          "Q16: I am not in the paid workforce right now.",
+          "Q72: From jobs, nothing. I did not receive wages last month."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Zoila plans to enroll at El Paso Community College for graphic design or visual communication.",
+        "ground_truth_label": "EPCC graphic design/visual communication plan",
+        "behavioral_evidence_from_interview": [
+          "Q91: El Paso Community College.",
+          "Q91: Graphic design or visual communication."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Zoila wants eventual work with a museum, nonprofit, library, community arts program, or freelance illustration.",
+        "ground_truth_label": "Arts/museum/nonprofit career goal",
+        "behavioral_evidence_from_interview": [
+          "Q108: paid work connected to art, maybe with a museum, nonprofit, library, or community arts program.",
+          "Q70: Yes, for illustration and design."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Zoila values bilingual outreach and youth art education through volunteer roles.",
+        "ground_truth_label": "Bilingual youth art outreach",
+        "behavioral_evidence_from_interview": [
+          "Q65: I also help with bilingual outreach because some parents prefer Spanish."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Zoila would consider part-time work at a library, museum, print shop, or coffee shop if compatible with school and art.",
+        "ground_truth_label": "Conditional part-time work interest",
+        "behavioral_evidence_from_interview": [
+          "Q16: maybe at a library, museum, print shop, or coffee shop."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Zoila personally has no student loans, credit card debt, or credit card.",
+        "ground_truth_label": "No personal debt or credit card",
+        "behavioral_evidence_from_interview": [
+          "Q63: I personally do not have student loans or credit card debt.",
+          "Q63: No, not yet."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Zoila has no regular paycheck and has never filed taxes because she has not had income requiring it.",
+        "ground_truth_label": "No regular pay or tax filing history",
+        "behavioral_evidence_from_interview": [
+          "Q73: I do not get paid regularly.",
+          "Q75: No, I did not file taxes last year."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Zoila personally does not receive SNAP, housing voucher payments, SSI, or similar benefits and does not think her household currently receives them.",
+        "ground_truth_label": "No personal/known household public benefits",
+        "behavioral_evidence_from_interview": [
+          "Q80: I personally do not receive those benefits. I do not think our household currently receives them."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Zoila's childhood included Día de los Muertos altars, papel picado, family traditions, and bilingual home life.",
+        "ground_truth_label": "Mexican-American family art traditions",
+        "behavioral_evidence_from_interview": [
+          "Q01: Día de los Muertos altars.",
+          "Q01 follow-up: Making papel picado with my mom and grandma."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Zoila uses symbols such as marigolds, hands, saints, mirrors, and memory in her art.",
+        "ground_truth_label": "Spiritual-memory symbolism in art",
+        "behavioral_evidence_from_interview": [
+          "Q47: marigolds, hands, saints, mirrors, and memory."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Zoila works with murals, youth art programming, pop-up exhibitions, and bilingual outreach.",
+        "ground_truth_label": "Community mural and youth art work",
+        "behavioral_evidence_from_interview": [
+          "Q02: pop-up exhibition.",
+          "Q65: sketching mural ideas, preparing materials for youth workshops."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Zoila wants her art to make Mexican-American families feel seen and respected.",
+        "ground_truth_label": "Art for Mexican-American visibility",
+        "behavioral_evidence_from_interview": [
+          "Q01: murals that make Mexican-American families feel seen.",
+          "Q108: families see their stories respected."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Zoila uses Adobe Illustrator, Photoshop, sketchbooks, acrylic paint, markers, and phone photography.",
+        "ground_truth_label": "Core art tools",
+        "behavioral_evidence_from_interview": [
+          "Q65: Adobe Illustrator, Photoshop, sketchbooks, acrylic paint, markers, and my phone camera."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Zoila hikes with a photography club on weekends when weather allows.",
+        "ground_truth_label": "Weekend photography-club hikes",
+        "behavioral_evidence_from_interview": [
+          "Q15: hiking with the photography club if the weather is okay."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Zoila practices occasional downtown yoga for stress and stretching.",
+        "ground_truth_label": "Occasional yoga",
+        "behavioral_evidence_from_interview": [
+          "Q18: yoga once in a while downtown, mostly for stress and stretching."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Zoila counts walking, yoga, track drills, and hikes as exercise.",
+        "ground_truth_label": "Casual mixed exercise modes",
+        "behavioral_evidence_from_interview": [
+          "Q31: hikes, walking, yoga, or track drills."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Zoila appreciates El Paso's mountains and desert light.",
+        "ground_truth_label": "Appreciates desert/mountain landscape",
+        "behavioral_evidence_from_interview": [
+          "Q08: You can see the mountains in the distance, which I love.",
+          "Q10: family, culture, food, and the desert light."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Zoila hikes in or near the Franklin Mountains with photography friends when it is not too hot.",
+        "ground_truth_label": "Franklin Mountains hiking when weather permits",
+        "behavioral_evidence_from_interview": [
+          "Q07: the Franklin Mountains if it is not too hot."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Zoila avoids hiking during extreme El Paso heat.",
+        "ground_truth_label": "Heat limits outdoor activity",
+        "behavioral_evidence_from_interview": [
+          "Q32: If it is 100 degrees, I am not hiking."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Zoila wants better sidewalks, safer walking paths, buses, and transportation access.",
+        "ground_truth_label": "Values walkability and transit improvements",
+        "behavioral_evidence_from_interview": [
+          "Q10: Better buses, safer walking paths.",
+          "Q08: not always sidewalks that feel nice for walking."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Zoila uses Adobe Illustrator and Photoshop for design and portfolio work.",
+        "ground_truth_label": "Uses Adobe design software",
+        "behavioral_evidence_from_interview": [
+          "Q01: Adobe Illustrator and Photoshop.",
+          "Q65: Adobe Illustrator, Photoshop."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Zoila helps her parents with online portals, official English forms, school messages, bills, and health paperwork.",
+        "ground_truth_label": "Family digital/form translation helper",
+        "behavioral_evidence_from_interview": [
+          "Q17: help translate or explain online forms to my parents.",
+          "Q36: I help with online portals or English paperwork."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Zoila uses Instagram for art, photography, local events, process videos, and murals.",
+        "ground_truth_label": "Instagram for art/events",
+        "behavioral_evidence_from_interview": [
+          "Q48: Instagram the most for art, photography, murals, and keeping up with local events."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Zoila recognizes that scrolling can become avoidance and worsen comparison.",
+        "ground_truth_label": "Scrolling as avoidance/comparison risk",
+        "behavioral_evidence_from_interview": [
+          "Q48: Social media helps me find art opportunities, but it also makes comparison worse.",
+          "Q50: Scrolling for inspiration. It becomes avoidance."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Zoila voted in 2024 and wants to become a consistent voter.",
+        "ground_truth_label": "Voted in 2024; wants voting consistency",
+        "behavioral_evidence_from_interview": [
+          "Q23: I voted in 2024.",
+          "Q23: I want to be consistent."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Zoila cares about libraries, city budgets, school decisions, youth programs, and local arts funding.",
+        "ground_truth_label": "Local arts/library civic priorities",
+        "behavioral_evidence_from_interview": [
+          "Q25: city budgets and school decisions affect real programs.",
+          "Q24: funding for arts and libraries."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Zoila volunteers with library youth art programming and community mural projects.",
+        "ground_truth_label": "Civic participation through art volunteering",
+        "behavioral_evidence_from_interview": [
+          "Q16: volunteer work with youth art programming and occasional community mural projects."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Zoila responded to racial justice issues through conversations and online resource sharing.",
+        "ground_truth_label": "Racial justice engagement through talk and sharing",
+        "behavioral_evidence_from_interview": [
+          "Q29: I mostly talked with friends and shared resources online."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Zoila trusts local organizers, teachers, librarians, and people who show up more than national politicians.",
+        "ground_truth_label": "Local trust over national politicians",
+        "behavioral_evidence_from_interview": [
+          "Q24: I trust local community organizers, teachers, librarians, and people who actually show up."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Zoila did not join big protests because of family concerns and transportation.",
+        "ground_truth_label": "No big protest participation",
+        "behavioral_evidence_from_interview": [
+          "Q29: I did not join big protests, partly because of family concerns and transportation."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Zoila believes asking for police accountability is not the same as hating every individual officer.",
+        "ground_truth_label": "Nuanced police accountability view",
+        "behavioral_evidence_from_interview": [
+          "Q27: asking for accountability is not the same as hating every individual officer."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Zoila has no serious personal law-enforcement experience, has not been arrested, no police have come to her home, and no immediate family or close friends have been arrested.",
+        "ground_truth_label": "No close arrest or serious police exposure",
+        "behavioral_evidence_from_interview": [
+          "Q20: I have not had a serious personal experience with law enforcement.",
+          "Q20: I have not been arrested.",
+          "Q22: No one in my immediate family has been arrested.",
+          "Q22: No close friends arrested."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Zoila sketches and journals at night while listening to Tycho or norteño music.",
+        "ground_truth_label": "Tycho/norteño while sketching",
+        "behavioral_evidence_from_interview": [
+          "Q15: sketch while listening to Tycho or norteño music."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Zoila uses music, coffee, and lists to get moving when stressed.",
+        "ground_truth_label": "Music/coffee/lists activation strategy",
+        "behavioral_evidence_from_interview": [
+          "Q34: A list, coffee, music."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Zoila's family finds relief through food, music, family visits, soccer, and movies.",
+        "ground_truth_label": "Family relief through food/music/media",
+        "behavioral_evidence_from_interview": [
+          "Q46: Food, music, family visits, and watching soccer or movies together."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Zoila gets clothes advice from her cousin Lety.",
+        "ground_truth_label": "Lety gives clothes advice",
+        "behavioral_evidence_from_interview": [
+          "Q06: Advice about school, clothes, and when I am overthinking."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Zoila avoids buying clothes when money is tight.",
+        "ground_truth_label": "Cuts clothes spending when tight",
+        "behavioral_evidence_from_interview": [
+          "Q81: Clothes, comics, coffee out, and extra art supplies."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Zoila is tempted by earrings, sketchbooks, coffee, and used graphic novels.",
+        "ground_truth_label": "Small purchase temptations",
+        "behavioral_evidence_from_interview": [
+          "Q62: Coffee, sketchbooks, earrings, and used graphic novels."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Zoila was born in El Paso and identifies as first-generation Mexican-American/Latina.",
+        "ground_truth_label": "El Paso-born first-generation Mexican-American Latina",
+        "behavioral_evidence_from_interview": [
+          "Q87: El Paso, Texas.",
+          "Q88: Mexican-American and Latina.",
+          "Q86: Yes, first-generation Mexican-American."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Zoila's date of birth is September 14, 2006.",
+        "ground_truth_label": "DOB 2006-09-14",
+        "behavioral_evidence_from_interview": [
+          "Q85: September 14, 2006."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-093",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Zoila was born in the United States and has lived only in El Paso.",
+        "ground_truth_label": "U.S.-born lifelong El Paso resident",
+        "behavioral_evidence_from_interview": [
+          "Q86: Yes, I was born in the United States.",
+          "Q87: No, only El Paso."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-094",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Zoila speaks Spanish at home and uses bilingual communication with family and outreach settings.",
+        "ground_truth_label": "Bilingual English/Spanish",
+        "behavioral_evidence_from_interview": [
+          "Q01: at home we spoke Spanish a lot.",
+          "Q88: bilingual English and Spanish.",
+          "Q65: bilingual outreach."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-095",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Zoila was raised Catholic with traditions including Our Lady of Guadalupe, candles, prayers, funerals, baptisms, and Día de los Muertos.",
+        "ground_truth_label": "Cultural/spiritual Catholic identity",
+        "behavioral_evidence_from_interview": [
+          "Q47: raised Catholic.",
+          "Q47: candles, prayers, Our Lady of Guadalupe, funerals, baptisms, and Día de los Muertos."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-096",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Zoila finds race categories imperfect and may mark White or some other race on forms.",
+        "ground_truth_label": "Ambivalent official race categories",
+        "behavioral_evidence_from_interview": [
+          "Q89: on forms I usually mark White or some other race, depending on the options.",
+          "Q89: the categories do not always fit."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-097",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Zoila's border-city life shapes her awareness of language, immigration, identity, policing, and Border Patrol.",
+        "ground_truth_label": "Border identity shapes civic awareness",
+        "behavioral_evidence_from_interview": [
+          "Q20: In El Paso, you are aware of Border Patrol too.",
+          "Q28: being Mexican-American in El Paso means I am in a majority-Latino place."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-098",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Zoila graduated high school in 2025 and is not currently enrolled in school.",
+        "ground_truth_label": "Graduated high school 2025; not enrolled",
+        "behavioral_evidence_from_interview": [
+          "Q90: High school diploma. Q90 follow-up: 2025.",
+          "Q91: Not currently."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-099",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "After graduation, Zoila chose a gap year focused on home support, volunteer art work, and portfolio preparation instead of immediate full-time retail work.",
+        "ground_truth_label": "Gap year for portfolio/community art",
+        "behavioral_evidence_from_interview": [
+          "Q02: decided to take a gap year, help at home, volunteer, and prepare for El Paso Community College."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-100",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Zoila felt unanchored after graduation and had to create her own structure.",
+        "ground_truth_label": "Post-graduation unanchored transition",
+        "behavioral_evidence_from_interview": [
+          "Q18: my schedule became less structured.",
+          "Q43: Graduating felt good, but then I felt kind of unanchored."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-101",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Zoila plans to transition into EPCC and later museum studies or cultural arts management.",
+        "ground_truth_label": "EPCC then museum/cultural arts management goal",
+        "behavioral_evidence_from_interview": [
+          "Q108: associate's degree in graphic design or visual communication.",
+          "Q108: transfer later for museum studies or cultural arts management."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-102",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Zoila primarily uses Instagram for art, photography, murals, local events, and process videos.",
+        "ground_truth_label": "Instagram primary platform",
+        "behavioral_evidence_from_interview": [
+          "Q48: I use Instagram the most for art, photography, murals, and keeping up with local events."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-103",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Zoila uses TikTok for tutorials and entertainment but does not trust it for medical decisions.",
+        "ground_truth_label": "TikTok for tutorials, not medicine",
+        "behavioral_evidence_from_interview": [
+          "Q48: TikTok more for entertainment and tutorials.",
+          "Q42: I do not trust TikTok for medical decisions."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-104",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Zoila uses Facebook mainly for family birthdays and relatives' posts.",
+        "ground_truth_label": "Facebook for family",
+        "behavioral_evidence_from_interview": [
+          "Q48: Facebook is more for family, like birthdays and relatives sharing things."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-105",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Zoila used voter guides, teacher advice, and online research to learn about the ballot.",
+        "ground_truth_label": "Election information sources",
+        "behavioral_evidence_from_interview": [
+          "Q23: I used voter guides, talked to my teacher, and looked things up online."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-106",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Zoila identifies as independent-leaning Democratic, closer to Democrats than Republicans but not strongly partisan.",
+        "ground_truth_label": "Independent-leaning Democrat",
+        "behavioral_evidence_from_interview": [
+          "Q95: leaning Democrat, but not strongly attached.",
+          "Q96: Closer to the Democratic Party."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-107",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Zoila's political priorities include immigration, education, health care, reproductive rights, LGBTQ respect, workers, arts funding, libraries, and local youth programs.",
+        "ground_truth_label": "Progressive/local-service political priorities",
+        "behavioral_evidence_from_interview": [
+          "Q24: immigration, education, health care, reproductive rights, LGBTQ people... arts and libraries.",
+          "Q25: city budgets and school decisions affect real programs."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-108",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Zoila has strong future orientation but limited liquidity, with a few hundred dollars in personal cushion.",
+        "ground_truth_label": "Future-oriented but limited liquidity",
+        "behavioral_evidence_from_interview": [
+          "Q61: A few hundred dollars, not enough for a major emergency.",
+          "Q82: $400 would be hard... nearly wipe me out."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-109",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "A $400 emergency would be difficult for Zoila personally and would nearly wipe out her savings.",
+        "ground_truth_label": "$400 emergency is personally difficult",
+        "behavioral_evidence_from_interview": [
+          "Q82: Personally, $400 would be hard... it would nearly wipe me out."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-110",
+        "source": "reprojected",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Zoila's self-concept is anchored in art, Mexican-American heritage, and community usefulness.",
+        "ground_truth_label": "Art/heritage/community self-concept",
+        "behavioral_evidence_from_interview": [
+          "Q109: I value family, culture, creativity, and being useful to my community.",
+          "Q65: aspiring graphic design student, muralist, and volunteer art helper."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-111",
+        "source": "reprojected",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Zoila negotiates independence with guilt and gratitude while living at home.",
+        "ground_truth_label": "Dependent but motivated and guilty/grateful",
+        "behavioral_evidence_from_interview": [
+          "Q83: grateful that I can live at home... dependent and sometimes guilty."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}
