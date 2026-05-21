@@ -1,0 +1,2126 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "aaf89abde4ca4d27b4014264a0cf76c6",
+      "name": "Kweku Cooper",
+      "verification_date": "2026-05-19"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed lists Kweku as male, age 40; interview confirms male identity context and a March 14, 1986 birthdate making him 40.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed sex, age",
+              "source_b_ref": "Q20, Q85",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward exact date of birth from Q85 into life_events_and_transitions."
+            },
+            {
+              "id": 2,
+              "text": "Seed places him in Blountstown, FL 32424; interview says he was born, raised, and currently lives in Blountstown, Florida.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed city/state/zipcode",
+              "source_b_ref": "Q01, Q08, Q51, Q87",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward that he was born in Blountstown and has not moved away."
+            },
+            {
+              "id": 3,
+              "text": "Seed says never married; interview confirms never married, no current partner, no children, and living alone.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed marital_status",
+              "source_b_ref": "Q05, Q11, Q51, Q84",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward no children and single-person household responsibility."
+            },
+            {
+              "id": 4,
+              "text": "Seed says high school education and retail salesperson; interview confirms high school diploma, no college credits, and full-time retail sales work.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed education_level, occupation",
+              "source_b_ref": "Q16, Q65, Q90",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward no completed college credits and workplace training only."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 4
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile demographics match interview: 40-year-old African-American man in Blountstown, never married, no children, living alone.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q05, Q11, Q51, Q84-Q89",
+              "source_b_ref": "profile top-level fields; summaries.demographer",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Profile correctly describes full-time retail work at a regional department store with ten years of tenure.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q16, Q65, Q76",
+              "source_b_ref": "preferences.work_and_career; summaries.demographer",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Profile states he rents a modest house and pays household costs himself, matching interview answers.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q55-Q58",
+              "source_b_ref": "preferences.home_and_lifestyle; summaries.demographer",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 4,
+              "text": "Profile omits several family-structure specifics: mother nearby, father deceased, older sister in Marianna with two children, younger brother near Tallahassee.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q05-Q06",
+              "source_b_ref": "preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add these immediate-family details to social_and_relationships."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Top-level marital status, social_and_relationships, home_and_lifestyle, and demographer summary all agree he is never married, not cohabiting, and lives alone.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "profile top-level marital_status; preferences.social_and_relationships",
+              "field_b": "preferences.home_and_lifestyle; summaries.demographer",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Education, work_and_career, and behavioral_economist summary agree that he chose work after high school and now seeks short business training rather than a completed college degree.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "profile top-level education; preferences.work_and_career",
+              "field_b": "preferences.life_events_and_transitions; summaries.behavioral_economist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Home_and_lifestyle and travel both frame him as budget-conscious and locally rooted, not as a frequent long-distance traveler.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.home_and_lifestyle",
+              "field_b": "preferences.travel",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview gives date of birth, U.S. birth, no residence outside the U.S., and no international travel; profile only includes age and location.",
+              "gap": true,
+              "interview_ref": "Q85-Q87",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add DOB, U.S.-born status, and no international travel to life_events_and_transitions/travel."
+            },
+            {
+              "id": 2,
+              "text": "Interview says his mother has diabetes and blood pressure issues and he helps with rides, medicine, groceries, and reminders.",
+              "gap": true,
+              "interview_ref": "Q35, Q40",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add mother caregiving responsibilities to social_and_relationships and health_and_wellness."
+            },
+            {
+              "id": 3,
+              "text": "Interview specifies household has no lodgers, boarders, employees, temporary residents, or people away from home.",
+              "gap": true,
+              "interview_ref": "Q12-Q14, Q51-Q55",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add a concise household-composition detail."
+            }
+          ],
+          "summary": {
+            "present": 3,
+            "missing": 3
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed depicts frugal financial habits; interview confirms budgeting by notebook and bank app, saving every payday, avoiding borrowing, and controlled credit use.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona, career_goals_and_ambitions",
+              "source_b_ref": "Q57, Q60-Q63, Q82-Q83",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward specific savings, debt, and emergency-expense behaviors."
+            },
+            {
+              "id": 2,
+              "text": "Seed says he is competitive and sales-target oriented; interview confirms he tracks sales numbers and wants management to notice his performance.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "professional_persona",
+              "source_b_ref": "Q16, Q18, Q65",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward his recent habit of documenting stock issues and sales numbers."
+            },
+            {
+              "id": 3,
+              "text": "Seed says he balances modest budget with nature-rich travel; interview confirms travel ambitions are future-oriented and constrained by budget, work, and family proximity.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "travel_persona",
+              "source_b_ref": "Q10, Q78, Q108",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 4,
+              "text": "Seed says he considers supervisory and multi-store management; interview adds possible small convenience-store entrepreneurship.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "career_goals_and_ambitions",
+              "source_b_ref": "Q01, Q25, Q62, Q108",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward convenience-store seed-money, licensing, and inventory-software learning goals."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile captures precautionary budgeting, savings, debt aversion, and $400 emergency capacity consistent with the interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q57, Q61-Q63, Q82-Q83",
+              "source_b_ref": "summaries.behavioral_economist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Profile captures work incentives and promotion motives, including sales targets and management aspirations.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q16, Q18, Q65, Q108",
+              "source_b_ref": "preferences.work_and_career",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Profile health section captures cost-conscious care but omits job insurance, copays, deductibles, and pharmacy-price comparison.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q36, Q40",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add health-cost coping details to health_and_wellness."
+            },
+            {
+              "id": 4,
+              "text": "Profile food section includes pantry stretching but omits cutting eating out, tools, and fishing extras when money is tight.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q56, Q60, Q81",
+              "source_b_ref": "preferences.food_and_dining; preferences.hobbies_and_recreation",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add spending-cut behavior to home_and_lifestyle or food_and_dining."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Financial prudence appears consistently across food, travel, technology, home, and behavioral summary sections.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.food_and_dining; preferences.travel; preferences.home_and_lifestyle",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Career ambition and current modest financial constraints are compatible: profile presents short courses and promotion as incremental mobility steps.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career; preferences.life_events_and_transitions",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Technology use is internally consistent with pragmatic budgeting and work habits rather than high-consumption gadget identity.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.technology",
+              "field_b": "preferences.media_and_information_diet; summaries.behavioral_economist",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview gives exact monthly spending and income: about $2,250 last month, usual $2,000-$2,100, and $2,750 take-home pay.",
+              "gap": true,
+              "interview_ref": "Q57, Q72, Q74",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add basic monthly budget and take-home income facts to home_and_lifestyle."
+            },
+            {
+              "id": 2,
+              "text": "Interview identifies current debts: no student loans, credit card balance under $1,000, truck loan almost paid down, no family debt.",
+              "gap": true,
+              "interview_ref": "Q63",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add debt details to home_and_lifestyle."
+            },
+            {
+              "id": 3,
+              "text": "Interview says he uses extra shifts, savings, pantry meals, and reduced gas/hobby spending to manage low-income months.",
+              "gap": true,
+              "interview_ref": "Q60, Q81",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add financial coping tactics."
+            }
+          ],
+          "summary": {
+            "present": 3,
+            "missing": 3
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed emphasizes rural Deep South African-American community and church traditions; interview confirms these as foundations of civic identity.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "cultural_background",
+              "source_b_ref": "Q01, Q47, Q88-Q89",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Seed says he volunteers one-on-one tutoring; interview confirms selective community service at the community center.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "hobbies_and_interests",
+              "source_b_ref": "Q01, Q17",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward tutoring frequency of about every other Wednesday when schedule permits."
+            },
+            {
+              "id": 3,
+              "text": "Seed does not specify party identity; interview adds moderate Democratic/Democratic-leaning identification.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona fields",
+              "source_b_ref": "Q23-Q25, Q95-Q96",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward party identification and voting pattern."
+            },
+            {
+              "id": 4,
+              "text": "Seed does not specify policing views; interview adds cautious, accountability-oriented views shaped by being a Black man in a small Southern town.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "cultural_background",
+              "source_b_ref": "Q20-Q30",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward police-accountability and public-safety balance."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately states he votes in presidential elections and most midterms with growing local-government attention.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23-Q25",
+              "source_b_ref": "preferences.community_and_civic; summaries.political_scientist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Profile accurately describes him as moderate Democratic-leaning and skeptical of performative partisan conflict.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q24-Q25, Q95-Q96",
+              "source_b_ref": "summaries.political_scientist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Profile captures Black Lives Matter concerns and his preference for accountability plus public safety.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q26-Q30",
+              "source_b_ref": "summaries.political_scientist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 4,
+              "text": "Profile omits specific reforms he supports: body cameras used consistently, better training, review boards, and removing officers with repeated complaints.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q27",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add specific policing reform preferences to community_and_civic."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Community_and_civic, cultural_and_linguistic, and political summary consistently frame him as community-attached but low-profile rather than activist.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic; preferences.cultural_and_linguistic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Media_and_information_diet and political summary agree he avoids social media political fights and prefers direct trusted conversations.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.media_and_information_diet",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Police accountability and public safety positions are not contradictory; profile correctly presents them as coexisting priorities.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.political_scientist",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview includes law-enforcement experiences: traffic stops, workplace calls for theft/disorderly customers, deputies after storms, and a cousin searched without charges.",
+              "gap": true,
+              "interview_ref": "Q20-Q22",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add lived law-enforcement experiences to community_and_civic."
+            },
+            {
+              "id": 2,
+              "text": "Interview says he usually votes early because his work schedule is unpredictable.",
+              "gap": true,
+              "interview_ref": "Q23",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add early-voting preference."
+            },
+            {
+              "id": 3,
+              "text": "Interview says he keeps politics light at work unless discussion is respectful or someone says something clearly wrong.",
+              "gap": true,
+              "interview_ref": "Q24, Q29",
+              "should_be_in": "preferences.media_and_information_diet",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add restrained workplace political expression."
+            }
+          ],
+          "summary": {
+            "present": 3,
+            "missing": 3
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes him as solitary and precision-oriented; interview confirms he needs quiet after retail work and values patience, precision, and doing work right.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "persona, hobbies_and_interests",
+              "source_b_ref": "Q11, Q43, Q109",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Seed describes skepticism; interview confirms he verifies dramatic posts, product authenticity, health information, and political promises.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "professional_persona, persona",
+              "source_b_ref": "Q24, Q42, Q65",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward skepticism as cross-domain cognitive style."
+            },
+            {
+              "id": 3,
+              "text": "Seed describes spontaneous adaptability; interview confirms troubleshooting stock issues and adapting work/family/tutoring around rotating shifts.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "professional_persona",
+              "source_b_ref": "Q16, Q17, Q78",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 4,
+              "text": "Seed says competitive drive; interview confirms chess, sales goals, and management ambitions as controlled competitive outlets.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "professional_persona, persona",
+              "source_b_ref": "Q16, Q18, Q43, Q108",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately characterizes him as conscientious, independent, skeptical, and precision-oriented.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q11, Q42, Q65, Q109",
+              "source_b_ref": "summaries.psychologist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Profile accurately captures coping through fishing, restoration, cooking, budgeting, and chess rather than substances.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q38-Q45, Q50",
+              "source_b_ref": "summaries.psychologist; preferences.health_and_wellness",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Profile captures stress/restlessness but omits that he has no diagnosed depression or anxiety and would consider help if symptoms worsened.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q45",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add mental-health diagnostic and help-seeking details to health_and_wellness."
+            },
+            {
+              "id": 4,
+              "text": "Profile omits the holiday conflict story where he cooled down by fishing, apologized for tone, and still presented correct inventory numbers.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q44",
+              "source_b_ref": "preferences.life_events_and_transitions",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add this as an emotional-regulation example."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Solitude is presented consistently as restorative rather than social isolation because family obligations and small trusted ties are also present.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships; preferences.home_and_lifestyle",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Competitive drive is internally consistent with controlled outlets: sales goals, chess, and management preparation rather than impulsive risk-taking.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.entertainment; preferences.work_and_career",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Skepticism appears consistently as verification-oriented and pragmatic, not as generalized institutional rejection.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.media_and_information_diet; preferences.health_and_wellness",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview says turning 40 makes him measure his life, feel steady but restless, and worry about still working floor shifts at 50.",
+              "gap": true,
+              "interview_ref": "Q43",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add age-40 career reassessment and restlessness."
+            },
+            {
+              "id": 2,
+              "text": "Interview says he tends to hold feelings in and overthinks money and work conversations at night.",
+              "gap": true,
+              "interview_ref": "Q45",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add overthinking and emotional-reticence details."
+            },
+            {
+              "id": 3,
+              "text": "Interview says he is private about religion and social support, preferring family or trusted friends over public posts.",
+              "gap": true,
+              "interview_ref": "Q47-Q49",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add privacy and direct-support preference."
+            }
+          ],
+          "summary": {
+            "present": 3,
+            "missing": 3
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No contradictions requiring review were found. Several interview-supported gaps required enrichment, and one music evidence issue was corrected by distinguishing seed-supported blues/folk from interview-confirmed gospel.",
+    "final_status": "Corrected profile is ready for downstream use with added gap coverage and generated hidden_facts registry."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "aaf89abde4ca4d27b4014264a0cf76c6",
+    "name": "Kweku Cooper",
+    "age": 40,
+    "gender": "Male",
+    "marital_status": "Never married; not living with a romantic partner; no children",
+    "location": "Blountstown, FL 32424",
+    "education": "High school diploma; no completed college credits; workplace trainings only",
+    "occupation": "Retail sales associate at a regional department store",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Generally functional health with a practical, cost-conscious approach; prefers moderate activity over formal exercise.",
+        "details": [
+          "Describes health as decent, with borderline blood pressure concerns and no major disability. Evidence: Q31",
+          "Stays active through retail work, fishing, walking, and occasional pickup softball rather than gym training. Evidence: Q31, Q32",
+          "Uses clinics and trusted medical sources but sometimes delays dental or routine care due to cost. Evidence: Q36",
+          "Uses job insurance when needed, budgets for copays, compares pharmacy prices, and worries about deductibles or major medical bills. Evidence: Q36, Q40",
+          "Has no diagnosed depression or anxiety, but sometimes overthinks money and work conversations and tends to hold feelings in. Evidence: Q45",
+          "Does not smoke, drinks only occasionally, avoids marijuana and other drugs, and uses over-the-counter pain medicine cautiously. Evidence: Q38, Q39",
+          "Helps monitor his mother's diabetes and blood pressure needs through reminders, rides, groceries, and medicine pickup. Evidence: Q35"
+        ],
+        "evidence": "Q31-Q42, Q45"
+      },
+      "food_and_dining": {
+        "summary": "Competent home cook rooted in Southern foodways, seafood, frugality, and practical meal planning.",
+        "details": [
+          "Frequently cooks catfish, rice, greens, shrimp and grits, and baked pork shoulder. Evidence: Q17, Q32",
+          "Uses pantry staples such as rice, beans, grits, canned tomatoes, frozen fish, and greens during tight weeks. Evidence: Q81",
+          "Associates family and culture with church dinners, fish fries, collard greens, cornbread, and Southern cooking. Evidence: Q01, Q103",
+          "Cuts eating out first when money is tight and plans groceries around bills and payday. Evidence: Q56, Q60, Q81"
+        ],
+        "evidence": "Q01, Q17, Q32, Q56, Q60, Q81, Q103"
+      },
+      "travel": {
+        "summary": "Prefers modest, nature-rich and history-oriented road trips over luxury travel.",
+        "details": [
+          "Wants fishing trips to the Florida Keys, historical travel to Savannah, and eventual travel to the Scottish Highlands for landscape and woodworking interests. Evidence: Q108",
+          "Has not traveled outside the United States. Evidence: Q86",
+          "Current travel is limited by budget, work schedule, and family proximity. Evidence: Q10, Q78, Q108"
+        ],
+        "evidence": "Q10, Q78, Q86, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "Solitary but not isolated; maintains strong family ties and a small trusted circle.",
+        "details": [
+          "Never married, no children, not currently dating or cohabiting. Evidence: Q05, Q84",
+          "Checks on his mother regularly and sees sister, nieces/nephews, brother, cousins, and church-linked family networks. Evidence: Q05, Q06",
+          "Closest friend is Marcus, often connected through quiet fishing trips. Evidence: Q07",
+          "His mother lives nearby; his father died a few years ago; his older sister lives in Marianna with two children; and his younger brother lives closer to Tallahassee. Evidence: Q05, Q06",
+          "Helps his mother with groceries, small house tasks, appointments, rides, medicine pickup, and phone reminders. Evidence: Q05, Q35",
+          "Prefers direct support from family or trusted friends rather than public social media support. Evidence: Q49"
+        ],
+        "evidence": "Q05-Q07, Q35, Q49, Q84"
+      },
+      "home_and_lifestyle": {
+        "summary": "Lives alone in a modest rental, values quiet, order, self-sufficiency, and a garage workspace.",
+        "details": [
+          "Lives alone in a two-bedroom rental house in Blountstown. Evidence: Q11, Q51",
+          "Uses the garage for furniture restoration with clamps, sandpaper, tools, and old chairs. Evidence: Q11",
+          "Prefers living alone after customer-facing retail work because he needs quiet. Evidence: Q11",
+          "Has no lodgers, boarders, employees, temporary residents, regular overnight guests, or household members away from home. Evidence: Q12-Q14, Q51-Q55",
+          "Pays rent and utilities himself, spent about $2,250 last month, and usually spends about $2,000 to $2,100 a month. Evidence: Q55-Q57",
+          "Household take-home income is about $2,750 per month because he lives alone and has no other household income. Evidence: Q72, Q74",
+          "Has no student loans, a credit card balance under $1,000, a truck loan almost paid down, and no family debt. Evidence: Q63",
+          "Manages extra expenses by using savings, cutting discretionary purchases, stretching groceries, reducing gas use, and seeking extra shifts. Evidence: Q60, Q81"
+        ],
+        "evidence": "Q11-Q14, Q51-Q58, Q60, Q63, Q72, Q74, Q81"
+      },
+      "entertainment": {
+        "summary": "Enjoys sports viewing, online chess, reading, YouTube, and low-key media consumption.",
+        "details": [
+          "Plays online chess and has recently cut back on late-night chess to protect sleep. Evidence: Q18",
+          "Reads historical fiction and biographies, especially African-American and Southern figures. Evidence: Q01",
+          "Watches Rays and Jaguars content and highlights on YouTube. Evidence: Q48"
+        ],
+        "evidence": "Q01, Q18, Q48"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Hobbies emphasize patience, precision, solitude, and tangible outcomes.",
+        "details": [
+          "Often fishes the Apalachicola River, usually alone or with Marcus. Evidence: Q07, Q38",
+          "Restores vintage wooden furniture in his garage. Evidence: Q01, Q11",
+          "Plays online chess and volunteers in one-on-one tutoring at the community center. Evidence: Q01, Q17",
+          "Tutors about every other Wednesday evening depending on his work schedule. Evidence: Q17"
+        ],
+        "evidence": "Q01, Q07, Q11, Q17, Q38"
+      },
+      "work_and_career": {
+        "summary": "Experienced retail salesperson aiming for supervisory management and possibly entrepreneurship.",
+        "details": [
+          "Has about ten years at a regional department store. Evidence: Q16, Q76",
+          "Duties include customer service, inventory, returns, merchandising, price corrections, cash register backup, and loss prevention awareness. Evidence: Q16, Q65",
+          "Wants supervisor or assistant manager role, later possibly multi-store management or a small convenience store. Evidence: Q01, Q108",
+          "Works about 38 to 40 hours a week across rotating retail shifts, with occasional holiday overtime. Evidence: Q16, Q68",
+          "Recently began writing down stock issues and sales numbers so management sees his supervisory readiness. Evidence: Q18",
+          "Informally trains newer workers on stock checks, returns, and avoiding register mistakes. Evidence: Q65"
+        ],
+        "evidence": "Q01, Q16, Q18, Q65, Q68, Q76, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Draws cultural meaning from African-American Southern history, storytelling, biographies, gospel, blues, and woodworking craftsmanship.",
+        "details": [
+          "Reads biographies and historical fiction about African-American Southern figures. Evidence: Q01",
+          "Was shaped by Black Baptist church traditions, gospel music, homecomings, and community gatherings. Evidence: Q47",
+          "Connects woodworking and timber craftsmanship to his father and rural North Florida. Evidence: Q106, Q107",
+          "Seed profile supports additional interest in blues legends and folk storytellers, while interview evidence directly confirms gospel and church music. Evidence: seed arts_persona, Q47"
+        ],
+        "evidence": "Q01, Q47, Q106, Q107; seed arts_persona"
+      },
+      "sports_and_fitness": {
+        "summary": "Sports life is relaxed and consistency-oriented, centered on fishing, softball, and team fandom.",
+        "details": [
+          "Follows the Tampa Bay Rays and Jacksonville Jaguars. Evidence: Q06, Q48",
+          "Occasionally plays pickup softball and uses fishing/walking as preferred activity. Evidence: Q31",
+          "Participates loosely in fishing circles such as Riverbend Anglers Club. Evidence: Q07"
+        ],
+        "evidence": "Q06, Q07, Q31, Q48"
+      },
+      "nature_and_outdoors": {
+        "summary": "Strong preference for river settings, fishing, woods, and low-key outdoor solitude.",
+        "details": [
+          "Frequently fishes near the Apalachicola River. Evidence: Q07, Q38",
+          "Values Blountstown partly for river access and familiar rural land. Evidence: Q08, Q10",
+          "Uses early morning fishing as emotional regulation. Evidence: Q44"
+        ],
+        "evidence": "Q07, Q08, Q10, Q38, Q44"
+      },
+      "technology": {
+        "summary": "Uses technology pragmatically for work, budgeting, chess, videos, and marketplace browsing.",
+        "details": [
+          "Uses point-of-sale systems and inventory processes at work. Evidence: Q16, Q65",
+          "Uses a bank app and written notebook to track money. Evidence: Q57",
+          "Uses Facebook Marketplace, YouTube, online chess, and limited social media. Evidence: Q48",
+          "Is considering online business management or inventory analytics courses but has not formally enrolled. Evidence: Q18, Q91-Q92"
+        ],
+        "evidence": "Q16, Q18, Q48, Q57, Q65, Q91-Q92"
+      },
+      "community_and_civic": {
+        "summary": "Quietly community-attached, votes fairly regularly, volunteers selectively, and follows local issues.",
+        "details": [
+          "Votes in presidential elections and most midterms, with growing interest in local elections. Evidence: Q23",
+          "Volunteers at the community center in one-on-one tutoring. Evidence: Q01, Q17",
+          "Maintains ties through church, family gatherings, neighbors, and small-town mutual awareness. Evidence: Q08, Q47",
+          "Usually votes early because his retail schedule is unpredictable. Evidence: Q23",
+          "Identifies as a moderate Democrat or Democratic-leaning voter, closer to the Democratic Party but not blindly partisan. Evidence: Q95, Q96",
+          "Supports police accountability measures such as consistent body-camera use, better training, real review boards, and removing officers with repeated complaints. Evidence: Q27",
+          "Has had traffic stops, workplace calls to law enforcement, positive storm-related deputy assistance, and concern about a cousin's search without charges. Evidence: Q20-Q22"
+        ],
+        "evidence": "Q01, Q08, Q17, Q20-Q23, Q27, Q47, Q95-Q96"
+      },
+      "music": {
+        "summary": "Music taste is rooted in gospel, blues, and folk storytelling.",
+        "details": [
+          "Identifies gospel music as part of his Black Baptist upbringing. Evidence: Q47",
+          "Seed profile supports blues and folk listening; interview evidence mainly confirms gospel and church music. Evidence: seed arts_persona, Q47",
+          "Uses music more as heritage and atmosphere than as a primary social activity. Evidence: Q47"
+        ],
+        "evidence": "Q47; seed arts_persona"
+      },
+      "fashion_and_appearance": {
+        "summary": "Limited direct evidence; presentation appears practical, clean, and work-appropriate.",
+        "details": [
+          "Mother taught him to show up clean, on time, and respectful. Evidence: Q01",
+          "Retail work requires professional customer-facing presentation. Evidence: Q16, Q65",
+          "No evidence of fashion as a major hobby or identity area. Evidence: Q65"
+        ],
+        "evidence": "Q01, Q16, Q65"
+      },
+      "cultural_and_linguistic": {
+        "summary": "African-American rural Deep South identity rooted in Calhoun County, church, family, Southern food, and resilience.",
+        "details": [
+          "Identifies as Black or African-American and not Hispanic/Latinx/Spanish origin. Evidence: Q88, Q89",
+          "Raised in Blountstown, Florida, and lived there at age 16. Evidence: Q87, Q97",
+          "Raised in and still identifies with the Black Baptist church tradition. Evidence: Q47, Q94",
+          "Was born in the United States and has not lived outside the United States. Evidence: Q86"
+        ],
+        "evidence": "Q47, Q86-Q89, Q94, Q97"
+      },
+      "life_events_and_transitions": {
+        "summary": "Key life transitions include choosing work over college, father's death, career reassessment at age 40, and management ambitions.",
+        "details": [
+          "Chose immediate retail work after high school instead of community college. Evidence: Q02, Q03",
+          "Father's death continues to influence furniture work and values. Evidence: Q05",
+          "Recent transition involves preparing for management and considering business training. Evidence: Q18, Q108",
+          "Born March 14, 1986, in Blountstown, Florida. Evidence: Q85, Q87",
+          "Turning 40 has made him feel steady but restless and question whether he wants to still work floor shifts at 50. Evidence: Q43",
+          "During a holiday work conflict, he used sunrise fishing to cool down, then apologized for his tone while still presenting correct inventory numbers. Evidence: Q44"
+        ],
+        "evidence": "Q02, Q03, Q05, Q18, Q43-Q44, Q85, Q87, Q108"
+      },
+      "media_and_information_diet": {
+        "summary": "Selective, skeptical media user who prefers practical information and avoids online conflict.",
+        "details": [
+          "Uses Facebook for family, local events, Marketplace, and fishing groups but posts little. Evidence: Q48",
+          "Uses YouTube for restoration videos, sports highlights, and chess content. Evidence: Q48",
+          "Trusts clinics, pharmacists, public health sources, and verification over dramatic social media posts. Evidence: Q42",
+          "Avoids political comment fights online and keeps politics light at work unless discussion is respectful or something clearly wrong is said. Evidence: Q24, Q29, Q48"
+        ],
+        "evidence": "Q24, Q29, Q42, Q48, Q49"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Kweku Cooper is a 40-year-old African-American man living alone in a rented house in Blountstown, Florida, where he was also born and raised (Q11, Q51, Q87, Q89). He has never been married, has no children, and is not cohabiting with a romantic partner (Q05, Q84). His education is a high school diploma, and his main labor-market position is full-time retail sales work with about ten years at a regional department store (Q16, Q65, Q76, Q90). His household is single-person and economically modest but stable, with rent, utilities, vehicle costs, and groceries as core expenses (Q55-Q58, Q72-Q74).",
+      "behavioral_economist": "Kweku shows strong loss aversion and precautionary budgeting: he tracks expenses, treats savings like a bill, avoids unnecessary debt, and could cover a $400 emergency but would feel the strain (Q57, Q61-Q63, Q82). His decisions prioritize stability, autonomy, and tangible returns, as seen in choosing work after high school and now considering short business courses for management mobility (Q02, Q18, Q108). He responds to incentives at work through sales goals and promotion prospects, but remains skeptical of vague promises from employers or politicians (Q16, Q24, Q65). His time preferences are practical: immediate bills come first, but he maintains long-term ambitions around supervision, home ownership, and possibly a convenience store (Q62, Q83, Q108).",
+      "political_scientist": "Kweku is a moderate Democratic-leaning voter who participates in presidential elections and most midterms, with increasing attention to local government (Q23-Q25, Q95-Q96). His political views are shaped by working-class economics, rural underinvestment, health care access, racial fairness, and distrust of performative partisan conflict (Q24, Q25). He supports police accountability and takes Black Lives Matter concerns seriously, while also wanting effective public safety in his community (Q26-Q30). His civic style is quiet and relational rather than activist: he talks with family and trusted friends, volunteers one-on-one, and avoids social media conflict (Q17, Q29, Q48-Q49).",
+      "psychologist": "Kweku presents as conscientious, independent, skeptical, and precision-oriented, with a strong preference for solitude after socially demanding retail work (Q11, Q42, Q65, Q109). He regulates stress through fishing, furniture restoration, cooking, budgeting, and online chess rather than substance use or public emotional disclosure (Q38-Q45, Q50). His self-concept centers on steadiness, competence, self-respect, and doing work correctly, and he is motivated by the wish to be seen as management-capable without losing autonomy (Q18, Q65, Q83, Q109). Relationally, he is loyal but bounded, maintaining family obligations and a small trusted circle while protecting quiet personal space (Q05-Q07, Q11)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kweku describes his health as decent.",
+        "ground_truth_label": "Self-rated health is decent",
+        "behavioral_evidence_from_interview": [
+          "Q31: Overall I would say my health is decent."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kweku has had borderline blood pressure concerns but no daily blood pressure medication.",
+        "ground_truth_label": "Borderline blood pressure, no daily medication",
+        "behavioral_evidence_from_interview": [
+          "Q31: My blood pressure has been borderline at times.",
+          "Q33: I have not been put on daily medicine."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kweku has no major disability or serious diagnosis that prevents him from working.",
+        "ground_truth_label": "No work-limiting disability",
+        "behavioral_evidence_from_interview": [
+          "Q31: No major disability or serious diagnosis that keeps me from working.",
+          "Q34: My health has not stopped me from working long term."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kweku stays active through retail work, fishing, walking, and occasional pickup softball rather than gym exercise.",
+        "ground_truth_label": "Moderate informal physical activity",
+        "behavioral_evidence_from_interview": [
+          "Q31: I am not a gym person, but I stay active at work.",
+          "Q31: Fishing, walking by the river, and occasional pickup softball."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kweku sometimes delays dental and routine care because of cost.",
+        "ground_truth_label": "Cost-related delayed care",
+        "behavioral_evidence_from_interview": [
+          "Q36: I have delayed dental work because it was expensive.",
+          "Q36: I have also waited out minor things longer than I should because I did not want a bill."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kweku uses job health insurance but budgets for copays and worries about deductibles or major medical bills.",
+        "ground_truth_label": "Insured but cost-conscious health care use",
+        "behavioral_evidence_from_interview": [
+          "Q40: I use my job insurance when I need to, and I budget for copays.",
+          "Q40: Medical costs worry me, especially if something major happened."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kweku has no diagnosed depression or anxiety but sometimes overthinks money and work conversations.",
+        "ground_truth_label": "No diagnosis; stress and overthinking",
+        "behavioral_evidence_from_interview": [
+          "Q45: I would not say I have been diagnosed with depression or anxiety.",
+          "Q45: Running numbers in my head at night or replaying a work conversation."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kweku does not smoke, drinks only occasionally, avoids marijuana and other drugs, and uses over-the-counter pain medicine cautiously.",
+        "ground_truth_label": "Low substance use",
+        "behavioral_evidence_from_interview": [
+          "Q38: I do not smoke. I drink occasionally.",
+          "Q39: I do not use marijuana or other drugs."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kweku helps monitor his mother's diabetes and blood pressure needs through reminders, rides, groceries, and medicine pickup.",
+        "ground_truth_label": "Maternal health caregiving",
+        "behavioral_evidence_from_interview": [
+          "Q35: She has diabetes and blood pressure issues.",
+          "Q35: I help with rides or picking up medicine when I can."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Kweku frequently cooks catfish, rice, greens, shrimp and grits, and baked pork shoulder.",
+        "ground_truth_label": "Southern home cooking staples",
+        "behavioral_evidence_from_interview": [
+          "Q17: Catfish, rice, greens, shrimp and grits... and baked pork shoulder."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "During tight weeks Kweku relies on rice, beans, grits, canned tomatoes, frozen fish, and greens.",
+        "ground_truth_label": "Pantry-based frugal meals",
+        "behavioral_evidence_from_interview": [
+          "Q81: Rice, beans, grits, canned tomatoes, frozen fish, and greens."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Kweku associates family and culture with church dinners, fish fries, collard greens, cornbread, and Southern cooking.",
+        "ground_truth_label": "Southern food cultural identity",
+        "behavioral_evidence_from_interview": [
+          "Q01: church on Sunday, fish fries.",
+          "Q103: Southern food, practical and seasoned well."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Kweku cuts eating out first when money is tight and plans groceries around bills and payday.",
+        "ground_truth_label": "Food spending controlled by budget",
+        "behavioral_evidence_from_interview": [
+          "Q56: Eating out, tools, and fishing extras.",
+          "Q17: On payday I sit down with bills, savings, and grocery plans."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Kweku wants to fish in the Florida Keys, visit Savannah for history, and someday see the Scottish Highlands for woodworking and landscape.",
+        "ground_truth_label": "Nature and history travel aspirations",
+        "behavioral_evidence_from_interview": [
+          "Q108: Florida Keys for fishing, visit Savannah for history, and someday see the Scottish Highlands."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Kweku has not traveled outside the United States.",
+        "ground_truth_label": "No international travel",
+        "behavioral_evidence_from_interview": [
+          "Q86: Have you traveled outside the country? No, not yet."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Kweku's travel is limited by budget, rotating retail schedule, and desire to stay near family.",
+        "ground_truth_label": "Travel constrained by money, work, and family proximity",
+        "behavioral_evidence_from_interview": [
+          "Q10: Family, cost, and the land.",
+          "Q78: Retail means nights, weekends, and holidays."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Kweku has never been married, has no children, is not currently dating, and is not cohabiting.",
+        "ground_truth_label": "Never married, no children, no partner",
+        "behavioral_evidence_from_interview": [
+          "Q05: I do not have a partner right now, and I do not have children.",
+          "Q84: I have never been married."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Kweku's mother lives nearby; his father died a few years ago; his older sister lives in Marianna with two children; and his younger brother lives near Tallahassee.",
+        "ground_truth_label": "Immediate family structure",
+        "behavioral_evidence_from_interview": [
+          "Q05: My mother lives nearby... My father passed a few years back.",
+          "Q05: I have an older sister in Marianna with two kids.",
+          "Q06: I have a younger brother who lives closer to Tallahassee."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Kweku checks on his mother a couple times a week and visits around Sunday or Monday.",
+        "ground_truth_label": "Regular maternal check-ins",
+        "behavioral_evidence_from_interview": [
+          "Q05: I check on her a couple times a week... in person on Sunday or Monday."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Kweku's closest friend is Marcus, with whom he can fish quietly without forcing conversation.",
+        "ground_truth_label": "Closest friend Marcus",
+        "behavioral_evidence_from_interview": [
+          "Q07: Marcus is probably closest.",
+          "Q07: We can sit on the riverbank for an hour without forcing conversation."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Kweku prefers direct support from family or trusted friends rather than seeking emotional or financial support on social media.",
+        "ground_truth_label": "Private direct support preference",
+        "behavioral_evidence_from_interview": [
+          "Q49: If I need help, I call family or a trusted friend directly."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist",
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Kweku lives alone in a two-bedroom rental house in Blountstown.",
+        "ground_truth_label": "Single-person rental household",
+        "behavioral_evidence_from_interview": [
+          "Q11: I live by myself. It is a two-bedroom rental.",
+          "Q51: I live by myself in a rental house in Blountstown."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Kweku uses his garage for furniture restoration projects, tools, clamps, sandpaper, and old chairs.",
+        "ground_truth_label": "Garage furniture workshop",
+        "behavioral_evidence_from_interview": [
+          "Q11: My garage is where I keep furniture projects, clamps, sandpaper, and old chairs."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Kweku prefers living alone because he needs quiet after customer-facing retail work.",
+        "ground_truth_label": "Quiet living preference",
+        "behavioral_evidence_from_interview": [
+          "Q11: I like living alone because after working retail all day, I need quiet."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Kweku has no lodgers, boarders, employees, temporary residents, regular overnight guests, or household members away from home.",
+        "ground_truth_label": "No other household members",
+        "behavioral_evidence_from_interview": [
+          "Q12: No temporary members. It is just me.",
+          "Q54: No lodgers, boarders, or employees."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Kweku pays rent and utilities himself and usually spends about $2,000 to $2,100 per month, with $2,250 in a higher recent month.",
+        "ground_truth_label": "Self-paid modest monthly budget",
+        "behavioral_evidence_from_interview": [
+          "Q55: Just me.",
+          "Q57: Last month I spent around $2,250... usual month is closer to $2,000 to $2,100."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Kweku's household take-home income is about $2,750 per month and comes only from his income.",
+        "ground_truth_label": "Monthly take-home income about $2,750",
+        "behavioral_evidence_from_interview": [
+          "Q72: My take-home pay last month was about $2,750.",
+          "Q74: Since I live alone, household income is my income."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Kweku has no student loans, a credit card balance under $1,000, a truck loan almost paid down, and no family debt.",
+        "ground_truth_label": "Low controlled debt",
+        "behavioral_evidence_from_interview": [
+          "Q63: I do not have student loans. I have a small credit card balance, under $1,000, and a truck loan that is almost paid down."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Kweku handles extra expenses by using savings, cutting discretionary purchases, stretching groceries, reducing gas use, and seeking extra shifts.",
+        "ground_truth_label": "Financial coping tactics",
+        "behavioral_evidence_from_interview": [
+          "Q60: I moved money from savings... skipped buying tools, and picked up an extra shift.",
+          "Q81: I cooked from pantry food, skipped hobby purchases, used less gas."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Kweku plays online chess and recently cut back late-night chess to protect sleep.",
+        "ground_truth_label": "Online chess with sleep boundaries",
+        "behavioral_evidence_from_interview": [
+          "Q18: I have cut back on late-night scrolling and chess because I was staying up too late."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Kweku reads historical fiction and biographies, especially about African-American and Southern figures.",
+        "ground_truth_label": "Historical fiction and biography reader",
+        "behavioral_evidence_from_interview": [
+          "Q01: I read biographies and historical fiction.",
+          "Q01: especially stories about African-American figures from the Southern United States."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Kweku watches Tampa Bay Rays and Jacksonville Jaguars highlights and content on YouTube.",
+        "ground_truth_label": "Rays and Jaguars media viewing",
+        "behavioral_evidence_from_interview": [
+          "Q48: Rays highlights, Jaguars talk... on YouTube."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Kweku often fishes the Apalachicola River, usually alone or sometimes with Marcus.",
+        "ground_truth_label": "Apalachicola River fishing",
+        "behavioral_evidence_from_interview": [
+          "Q07: Marcus, who I fish with sometimes, though a lot of times I go alone.",
+          "Q38: Fishing alone early in the morning."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Kweku restores vintage wooden furniture in his garage.",
+        "ground_truth_label": "Furniture restoration hobby",
+        "behavioral_evidence_from_interview": [
+          "Q01: restore old wood furniture in my garage.",
+          "Q11: garage is where I keep furniture projects."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Kweku volunteers in one-on-one tutoring at the community center, usually about every other Wednesday depending on his schedule.",
+        "ground_truth_label": "One-on-one volunteer tutoring",
+        "behavioral_evidence_from_interview": [
+          "Q17: Twice a month or so I tutor at the community center.",
+          "Q17: Usually every other Wednesday evening, depending on my work schedule."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kweku has worked about ten years at a regional department store.",
+        "ground_truth_label": "Ten-year retail tenure",
+        "behavioral_evidence_from_interview": [
+          "Q16: I work as a retail sales associate at a regional department store.",
+          "Q76: I have been there about ten years."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kweku's retail duties include customer service, inventory, returns, merchandising, price corrections, register backup, and loss prevention awareness.",
+        "ground_truth_label": "Retail operations duties",
+        "behavioral_evidence_from_interview": [
+          "Q16: customers, stocking, price checks, returns, register backup, merchandising, inventory counts.",
+          "Q65: watch for loss prevention issues."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kweku wants to become a supervisor or assistant manager and eventually may pursue multi-store management or a small convenience store.",
+        "ground_truth_label": "Retail management and entrepreneurship ambition",
+        "behavioral_evidence_from_interview": [
+          "Q01: being a supervisor... managing more than one store or opening a small convenience store.",
+          "Q108: supervisor role or assistant manager position."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kweku usually works 38 to 40 hours per week across rotating retail shifts, with occasional holiday overtime.",
+        "ground_truth_label": "Full-time rotating retail schedule",
+        "behavioral_evidence_from_interview": [
+          "Q16: five days a week, about 38 to 40 hours.",
+          "Q68: Usually 38 to 40 hours a week."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kweku recently began documenting stock issues and sales numbers to show management he is ready for supervision.",
+        "ground_truth_label": "Management-readiness documentation",
+        "behavioral_evidence_from_interview": [
+          "Q18: I started writing down stock issues and sales numbers instead of just fixing things quietly."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kweku informally trains newer workers on stock checks, returns, and register mistakes.",
+        "ground_truth_label": "Informal worker training",
+        "behavioral_evidence_from_interview": [
+          "Q65: I train newer workers on stock checks, returns, and how to avoid register mistakes."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Kweku draws cultural meaning from African-American Southern history, storytelling, biographies, gospel, and woodworking craftsmanship.",
+        "ground_truth_label": "African-American Southern cultural orientation",
+        "behavioral_evidence_from_interview": [
+          "Q01: African-American Southern folks, church on Sunday, fish fries.",
+          "Q47: Gospel music... shaped how I understand community."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Kweku connects woodworking and timber craftsmanship to his father and rural North Florida work traditions.",
+        "ground_truth_label": "Father-linked woodworking identity",
+        "behavioral_evidence_from_interview": [
+          "Q106: He worked around timber, maintenance, and repair jobs.",
+          "Q107: It made me respect wood and the people who know how to work it."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Kweku follows the Tampa Bay Rays and Jacksonville Jaguars.",
+        "ground_truth_label": "Rays and Jaguars fandom",
+        "behavioral_evidence_from_interview": [
+          "Q06: especially the Jaguars.",
+          "Q48: Rays highlights, Jaguars talk."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Kweku occasionally plays pickup softball and treats fishing and walking as preferred physical activity.",
+        "ground_truth_label": "Relaxed sports and activity pattern",
+        "behavioral_evidence_from_interview": [
+          "Q31: Fishing, walking by the river, and occasional pickup softball."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Kweku participates loosely in fishing circles such as the Riverbend Anglers Club.",
+        "ground_truth_label": "Riverbend Anglers Club connection",
+        "behavioral_evidence_from_interview": [
+          "Q07: men through the Riverbend Anglers Club."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Kweku values Blountstown partly for river access, woods, and familiar rural land.",
+        "ground_truth_label": "Rural river attachment",
+        "behavioral_evidence_from_interview": [
+          "Q08: You have woods... and the river not too far off.",
+          "Q10: Family, cost, and the land. I know how to live here."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Kweku uses early morning fishing as emotional regulation.",
+        "ground_truth_label": "Fishing as stress regulation",
+        "behavioral_evidence_from_interview": [
+          "Q44: The next morning I went fishing before sunrise, and that helped me clear my head."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Kweku uses point-of-sale systems and inventory processes at work.",
+        "ground_truth_label": "Retail workplace technology use",
+        "behavioral_evidence_from_interview": [
+          "Q16: register backup... inventory counts.",
+          "Q65: If the system says we have six and the shelf has none..."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Kweku uses a bank app and written notebook to track money.",
+        "ground_truth_label": "Hybrid digital-paper budgeting",
+        "behavioral_evidence_from_interview": [
+          "Q57: Yes, in a notebook and on my bank app."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Kweku uses Facebook Marketplace, YouTube, online chess, and limited social media.",
+        "ground_truth_label": "Pragmatic consumer technology use",
+        "behavioral_evidence_from_interview": [
+          "Q48: Facebook... marketplace listings... YouTube.",
+          "Q01: play online chess."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Kweku is considering online business management or inventory analytics courses but has not formally enrolled.",
+        "ground_truth_label": "Considering online business training",
+        "behavioral_evidence_from_interview": [
+          "Q18: signed up for information about a short online business management course, though I have not started yet.",
+          "Q91: not currently enrolled."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Kweku votes in presidential elections and most midterms and has growing interest in local elections.",
+        "ground_truth_label": "Regular national voter, increasing local attention",
+        "behavioral_evidence_from_interview": [
+          "Q23: I vote in presidential elections and most midterms.",
+          "Q23: I am trying to do better with local races."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Kweku usually votes early because his retail schedule is unpredictable.",
+        "ground_truth_label": "Early voting preference",
+        "behavioral_evidence_from_interview": [
+          "Q23: Usually early if my schedule is unpredictable."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Kweku identifies as a moderate Democrat or Democratic-leaning voter, closer to the Democratic Party but not blindly partisan.",
+        "ground_truth_label": "Moderate Democratic-leaning identity",
+        "behavioral_evidence_from_interview": [
+          "Q95: moderate Democrat or Democratic-leaning.",
+          "Q96: Closer to the Democratic Party."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Kweku supports police accountability through consistent body-camera use, better training, real review boards, and removing officers with repeated complaints.",
+        "ground_truth_label": "Police accountability reforms",
+        "behavioral_evidence_from_interview": [
+          "Q27: Body cameras used consistently, better training, real review boards, and getting rid of officers with repeated complaints."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Kweku has had traffic stops, workplace calls to law enforcement, positive storm-related deputy assistance, and concern about a cousin's search without charges.",
+        "ground_truth_label": "Mixed law-enforcement experiences",
+        "behavioral_evidence_from_interview": [
+          "Q20: traffic stops... at work we sometimes call law enforcement.",
+          "Q21: deputies helped direct traffic... cousin got stopped and searched."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Kweku's civic style is quiet and relational rather than activist.",
+        "ground_truth_label": "Low-profile relational civic style",
+        "behavioral_evidence_from_interview": [
+          "Q29: I talked with family and a few trusted friends. I did not join protests.",
+          "Q17: tutor at the community center."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Kweku identifies gospel music as part of his Black Baptist upbringing.",
+        "ground_truth_label": "Gospel music heritage",
+        "behavioral_evidence_from_interview": [
+          "Q47: Gospel music... shaped how I understand community."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Kweku's seed profile supports blues and folk listening, while the interview directly confirms gospel and church music.",
+        "ground_truth_label": "Seed-supported blues/folk; interview-confirmed gospel",
+        "behavioral_evidence_from_interview": [
+          "Q47: Gospel music... shaped how I understand community."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "seed arts_persona"
+        ]
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Kweku's mother taught him to show up clean, on time, and respectful.",
+        "ground_truth_label": "Practical clean presentation norm",
+        "behavioral_evidence_from_interview": [
+          "Q01: my mama believed you showed up clean, on time, and respectful."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Kweku's retail work requires professional customer-facing presentation.",
+        "ground_truth_label": "Work-appropriate appearance",
+        "behavioral_evidence_from_interview": [
+          "Q16: I handle customers.",
+          "Q65: The most important duties are customer service, accuracy, and keeping the floor ready to sell."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "There is no evidence that fashion is a major hobby or identity area for Kweku.",
+        "ground_truth_label": "No fashion hobby evidence",
+        "behavioral_evidence_from_interview": [
+          "Q65: retail duties described without fashion identity."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Kweku identifies as Black or African-American and not Hispanic, Latinx, or Spanish origin.",
+        "ground_truth_label": "Non-Hispanic Black identity",
+        "behavioral_evidence_from_interview": [
+          "Q88: No.",
+          "Q89: Black or African-American."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Kweku was raised in Blountstown, Florida and lived there at age 16.",
+        "ground_truth_label": "Blountstown upbringing",
+        "behavioral_evidence_from_interview": [
+          "Q87: Blountstown, Florida.",
+          "Q97: Blountstown, Florida."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Kweku was raised in and still identifies with the Black Baptist church tradition.",
+        "ground_truth_label": "Black Baptist Christian identity",
+        "behavioral_evidence_from_interview": [
+          "Q47: I was raised in the Black Baptist church tradition.",
+          "Q94: Christian, Baptist."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Kweku was born in the United States and has not lived outside the United States.",
+        "ground_truth_label": "U.S.-born, no foreign residence",
+        "behavioral_evidence_from_interview": [
+          "Q86: Yes, I was born in the United States.",
+          "Q86: Have you lived outside the U.S.? No."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Kweku chose immediate retail work after high school instead of community college.",
+        "ground_truth_label": "Work-first post-high-school path",
+        "behavioral_evidence_from_interview": [
+          "Q02: Retail felt practical because I could earn right away.",
+          "Q03: I chose steady work."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Kweku's father's death continues to influence his furniture work and values.",
+        "ground_truth_label": "Father's death shapes woodworking values",
+        "behavioral_evidence_from_interview": [
+          "Q05: My father passed a few years back... he taught me how to respect wood and tools."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Kweku is preparing for management and considering business training.",
+        "ground_truth_label": "Current management preparation",
+        "behavioral_evidence_from_interview": [
+          "Q18: trying to act more like the supervisor I want to become.",
+          "Q108: take business management and inventory analytics courses."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Kweku was born on March 14, 1986, in Blountstown, Florida.",
+        "ground_truth_label": "Date and place of birth",
+        "behavioral_evidence_from_interview": [
+          "Q85: March 14, 1986.",
+          "Q87: Blountstown, Florida."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Turning 40 made Kweku feel steady but restless and question whether he wants to still work floor shifts at 50.",
+        "ground_truth_label": "Age-40 career reassessment",
+        "behavioral_evidence_from_interview": [
+          "Q43: Forty makes you measure things.",
+          "Q43: if I am going to still be doing the same floor shifts at 50."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "After a holiday work conflict, Kweku went fishing before sunrise, apologized for his tone, and still showed the correct inventory numbers.",
+        "ground_truth_label": "Conflict repair through self-regulation",
+        "behavioral_evidence_from_interview": [
+          "Q44: went fishing before sunrise... apologize for my tone but still show the correct inventory numbers."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Kweku uses Facebook for family updates, local events, Marketplace, and fishing groups but posts little.",
+        "ground_truth_label": "Limited Facebook use",
+        "behavioral_evidence_from_interview": [
+          "Q48: Facebook some, mostly for family updates, local events, marketplace listings, and fishing groups.",
+          "Q48: I do not post a lot."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Kweku uses YouTube for furniture restoration videos, sports highlights, Jaguars talk, and chess content.",
+        "ground_truth_label": "Practical YouTube use",
+        "behavioral_evidence_from_interview": [
+          "Q48: furniture restoration videos, Rays highlights, Jaguars talk, and sometimes chess content on YouTube."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Kweku trusts clinics, pharmacists, public health sources, and verification over dramatic social media posts.",
+        "ground_truth_label": "Skeptical verified information diet",
+        "behavioral_evidence_from_interview": [
+          "Q42: I trust my clinic, pharmacists, and information from public health sources more than social media.",
+          "Q42: if somebody sends me a dramatic post, I look for where it came from."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Kweku avoids political comment fights online and keeps politics light at work unless discussion is respectful or something clearly wrong is said.",
+        "ground_truth_label": "Avoids online and workplace political conflict",
+        "behavioral_evidence_from_interview": [
+          "Q48: I avoid getting pulled into political comment fights.",
+          "Q29: Only if somebody says something clearly wrong. Then I keep it plain."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Kweku could cover a $400 emergency but would feel the financial strain.",
+        "ground_truth_label": "Can cover $400 emergency with strain",
+        "behavioral_evidence_from_interview": [
+          "Q82: I could cover $400, but I would feel it."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Kweku treats savings like a bill and tries to save $50 to $100 each payday when possible.",
+        "ground_truth_label": "Payday savings habit",
+        "behavioral_evidence_from_interview": [
+          "Q61: I save a little every payday when I can. It is not a huge amount, but I treat it like a bill.",
+          "Q61: Usually $50 to $100 if nothing unusual hits."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Kweku responds to sales goals and promotion prospects as workplace incentives.",
+        "ground_truth_label": "Incentivized by sales goals and promotion",
+        "behavioral_evidence_from_interview": [
+          "Q16: I watch sales numbers closely because I want management to see I can hit targets.",
+          "Q65: I also care about sales goals because I want to move into supervision."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Kweku's political views are shaped by working-class economics, rural underinvestment, health care access, racial fairness, and distrust of performative partisan conflict.",
+        "ground_truth_label": "Working-class moderate Democratic issue orientation",
+        "behavioral_evidence_from_interview": [
+          "Q24: working people, fair wages, health care access.",
+          "Q25: small-town economics, not just party labels."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Kweku takes Black Lives Matter concerns seriously while also wanting effective public safety.",
+        "ground_truth_label": "Police accountability plus public safety",
+        "behavioral_evidence_from_interview": [
+          "Q26: It affected me somewhat to a lot.",
+          "Q27: you can want fair policing and still want quick help when somebody is breaking into cars."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "reprojected",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Kweku regulates stress through fishing, furniture restoration, cooking, budgeting, and online chess.",
+        "ground_truth_label": "Practical solitary stress regulation",
+        "behavioral_evidence_from_interview": [
+          "Q38: fishing, work in the garage, or play chess too late.",
+          "Q43: fishing, cooking, finishing a repair, and having my bills organized."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "HF-048",
+          "HF-034",
+          "HF-030"
+        ]
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "reprojected",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Kweku's self-concept centers on steadiness, competence, self-respect, and doing work correctly.",
+        "ground_truth_label": "Steady competence self-concept",
+        "behavioral_evidence_from_interview": [
+          "Q109: I value steadiness, family, self-respect, and doing work right.",
+          "Q109: I may be quiet, but I notice details and I show up."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}

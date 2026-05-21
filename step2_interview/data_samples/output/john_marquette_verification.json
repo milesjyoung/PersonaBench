@@ -1,0 +1,2392 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "3ff3bd4cb27f43b9a52d96aaecf9a771",
+      "name": "John Marquette",
+      "verification_date": "2026-05-19"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age 57 and male sex are confirmed by the interview date of birth and self-identification.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.age, seed.sex",
+              "source_b_ref": "Q85",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed location Benson, NC 27504 is confirmed by current residence in Benson ZIP 27504.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.city, seed.state, seed.zipcode",
+              "source_b_ref": "Q08, Q51",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed marital status married_present is confirmed; interview enriches this with wife Diane and shared household expenses.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.marital_status",
+              "source_b_ref": "Q05, Q51, Q55",
+              "action": "NO_CHANGE",
+              "resolution": "Carry forward wife Diane, two-person household, and shared household expenses in corrected profile."
+            },
+            {
+              "id": 4,
+              "text": "Seed education associates is confirmed and interview adds current part-time online enrollment toward a bachelor's degree.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.education_level",
+              "source_b_ref": "Q90-Q92",
+              "action": "NO_CHANGE",
+              "resolution": "Carry forward current part-time online bachelor's coursework."
+            },
+            {
+              "id": 5,
+              "text": "Seed White American central North Carolina background is confirmed by White, non-Hispanic identity and Angier birthplace/upbringing.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q86-Q89, Q97",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile correctly captures John as married, living with Diane, and located in Benson, NC.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q05, Q08, Q51, Q84",
+              "source_b_ref": "marital_status, location, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile correctly states associate degree and current part-time online bachelor's coursework.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q90-Q92",
+              "source_b_ref": "education",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile mentions grown children and granddaughter but omits mother living in Angier, sister Linda, and father's death about nine years ago.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q05-Q06",
+              "source_b_ref": "preferences.social_and_relationships, preferences.life_events_and_transitions",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add mother in Angier, sister Linda, father's death, and shared elder-care responsibilities to social/life-event details."
+            },
+            {
+              "id": 4,
+              "text": "Profile describes homeownership and household composition accurately but omits no lodgers, no absent usual residents, and occasional overnight visits by Clara or Mark.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q11-Q14, Q51-Q54, Q58",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add two-person full-time household, no temporary residents, and occasional Clara/Mark stays."
+            },
+            {
+              "id": 5,
+              "text": "Profile demographer summary accurately captures working-class two-parent childhood with one sister and parents' high school education.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q97-Q101",
+              "source_b_ref": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Demographic header, cultural_and_linguistic preference, and demographer summary all consistently describe White, non-Hispanic Southern North Carolina identity.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "gender/location/education headers",
+              "field_b": "preferences.cultural_and_linguistic, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Home_and_lifestyle and social_and_relationships consistently describe a married empty-nest household with adult children outside the home.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.home_and_lifestyle",
+              "field_b": "preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Education in header and work_and_career goals consistently describe associate degree plus ongoing bachelor's coursework rather than a completed bachelor's.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "education",
+              "field_b": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Date of birth March 12, 1969 appears in the interview but not in the profile preferences.",
+              "gap": true,
+              "interview_ref": "Q85",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add birth date as a life-course detail."
+            },
+            {
+              "id": 2,
+              "text": "Mother's arthritis/memory slips and shared care with sister Linda are substantive family obligations not fully present in preferences.",
+              "gap": true,
+              "interview_ref": "Q06, Q17, Q35, Q44",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add elder-care responsibilities and medication-management scare."
+            },
+            {
+              "id": 3,
+              "text": "Childhood household composition and parents' occupations are largely absent from preferences.",
+              "gap": true,
+              "interview_ref": "Q98-Q107",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add two-parent childhood, sister Linda, father's building supply maintenance/delivery work, and mother's bookkeeping work."
+            },
+            {
+              "id": 4,
+              "text": "The profile does not fully capture that Diane works part time at a dental office and contributes variable income.",
+              "gap": true,
+              "interview_ref": "Q05, Q74",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add Diane's part-time dental-office work and shared expenses."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed depicts meticulous route planning, and interview confirms list-making, route optimization, notebooks, spreadsheets, and maps.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona, seed.skills_and_expertise",
+              "source_b_ref": "Q03, Q16, Q65",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed describes budget-conscious travel, and interview confirms separate travel saving, discretionary cuts, and Provence as long-term dream.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.travel_persona",
+              "source_b_ref": "Q60, Q62, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed says he pursues supervisory work and eco-friendly delivery; interview confirms education, route pilot, and supervisory ambition.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.career_goals_and_ambitions",
+              "source_b_ref": "Q16, Q18, Q65, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed does not describe finances in detail; interview enriches with mortgage, savings, credit card balance, car loan, income, and ability to cover $400.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona fields",
+              "source_b_ref": "Q56-Q64, Q72-Q83",
+              "action": "NO_CHANGE",
+              "resolution": "Carry forward financial-stability and budgeting facts into profile."
+            },
+            {
+              "id": 5,
+              "text": "Seed describes disciplined work ethic; interview adds incentives of dependability, customer trust, mentorship, and proving competence.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.professional_persona",
+              "source_b_ref": "Q01, Q02, Q65, Q108-Q109",
+              "action": "NO_CHANGE",
+              "resolution": "Carry forward identity-based motivation and mentoring."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures cautious budgeting and cutting discretionary spending before bills.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q57, Q60-Q64, Q82",
+              "source_b_ref": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile accurately captures route-planning and decision planning behavior.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q03, Q65",
+              "source_b_ref": "preferences.travel, preferences.work_and_career, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile omits detailed income, spending, savings, and debt facts that are central to economic behavior.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q56-Q64, Q72-Q83",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add monthly spending, income, savings, mortgage, car loan, credit card balance, and $400 emergency capacity."
+            },
+            {
+              "id": 4,
+              "text": "Profile omits work structure details including 42 hours weekly, 50 weeks worked, biweekly pay, no union, and one job.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q66-Q73",
+              "source_b_ref": "preferences.work_and_career",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add work schedule, union status, job count, and pay cadence."
+            },
+            {
+              "id": 5,
+              "text": "Profile captures systems-based coping but not the medication chart created after his mother's dosing error.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q44",
+              "source_b_ref": "preferences.health_and_wellness, summaries.behavioral_economist",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add medication chart/pill organizer as a systems response to family health risk."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Travel, home_and_lifestyle, and behavioral summary consistently describe conservative budgeting and discretionary cuts.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.travel, preferences.home_and_lifestyle",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Technology and work_and_career consistently portray practical technology adoption for work and school, not novelty-seeking for its own sake.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.technology",
+              "field_b": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Health and food preferences consistently show moderation rather than strict health optimization.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness",
+              "field_b": "preferences.food_and_dining",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The profile lacks detailed monthly budget information including last month's $4,600 spending and usual $4,000-$4,200 spending.",
+              "gap": true,
+              "interview_ref": "Q56-Q57",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add monthly budget and major expense categories."
+            },
+            {
+              "id": 2,
+              "text": "The profile lacks income facts: John's $4,300 gross/$3,250 take-home and household $5,600 gross/$4,300 take-home last month.",
+              "gap": true,
+              "interview_ref": "Q72, Q74",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add income figures as work/finance context."
+            },
+            {
+              "id": 3,
+              "text": "The profile lacks debt facts: mortgage, small credit card balance, no student loans, and nearly paid-off car loan.",
+              "gap": true,
+              "interview_ref": "Q63",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add current debt structure."
+            },
+            {
+              "id": 4,
+              "text": "The profile lacks his emergency liquidity: can cover $400 from savings but would use credit card/payment plan if emergencies stacked.",
+              "gap": true,
+              "interview_ref": "Q82",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add emergency-expense capacity."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed Southern working-class values are consistent with interview's work, church, self-reliance, and personal responsibility themes.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q01, Q24, Q47",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed globally aware outlook is consistent with his moderate political flexibility, environmental pragmatism, and willingness to listen on race and policing.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q24-Q29",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed does not mention party identity; interview adds moderate Republican/conservative-leaning independent identity.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona fields",
+              "source_b_ref": "Q24, Q95-Q96",
+              "action": "NO_CHANGE",
+              "resolution": "Carry forward party identification and moderate strength."
+            },
+            {
+              "id": 4,
+              "text": "Seed does not mention law enforcement; interview adds routine non-arrest encounters, respect for police, and awareness of unequal experiences.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona fields",
+              "source_b_ref": "Q20-Q22, Q26-Q27",
+              "action": "NO_CHANGE",
+              "resolution": "Carry forward law-enforcement experience and attitudes."
+            },
+            {
+              "id": 5,
+              "text": "Seed emphasis on local artisans and community is consistent with interview's museum, church, neighbor, voting, and local-institution engagement.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.professional_persona, seed.cultural_background",
+              "source_b_ref": "Q17, Q23, Q47, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures regular voting and concern for local roads, schools, zoning, emergency services, and growth.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23-Q24",
+              "source_b_ref": "preferences.community_and_civic, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile accurately captures moderate Republican/conservative-leaning independent identity and willingness to cross party lines locally.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q24, Q95-Q96",
+              "source_b_ref": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile captures race and policing reflection but omits his practical reform preferences: training, body cameras, accountability, and mental-health-call support.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q27",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add practical policing reform preferences."
+            },
+            {
+              "id": 4,
+              "text": "Profile omits his personal law enforcement history: routine traffic stops, no mistreatment, no arrest, cousin's DUI, and I-95 wreck observation.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q20-Q22",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add law-enforcement contact and arrest-history facts."
+            },
+            {
+              "id": 5,
+              "text": "Profile omits that he discusses race/policing with family, coworkers, and book club but has not joined protests.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q29-Q30",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add discussion-without-protest pattern."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Community_and_civic and political summary consistently describe pragmatic conservatism with institutional competence rather than anti-government absolutism.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Cultural_and_linguistic and community_and_civic consistently present Baptist/Southern roots alongside less rigid, more reflective civic attitudes.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.cultural_and_linguistic",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Technology and community preferences consistently show selective information verification rather than passive acceptance of social media claims.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.technology",
+              "field_b": "preferences.media_and_information_diet",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Law enforcement experiences and no-arrest status are missing from preferences.",
+              "gap": true,
+              "interview_ref": "Q20-Q22",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add routine police contact, no mistreatment, no arrest, cousin DUI, and I-95 response observation."
+            },
+            {
+              "id": 2,
+              "text": "Political party strength and specific cross-party local voting openness are not represented in preferences.",
+              "gap": true,
+              "interview_ref": "Q95-Q96",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add moderate Republican identification, weak-to-moderate party attachment, and local cross-party openness."
+            },
+            {
+              "id": 3,
+              "text": "Family disagreement patterns around race and politics are not represented in social or civic preferences.",
+              "gap": true,
+              "interview_ref": "Q06, Q30",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add that he and sister Linda can fuss about politics and that family views on race/policing vary."
+            },
+            {
+              "id": 4,
+              "text": "His civic response to race issues through museum displays is present but could be made more explicit.",
+              "gap": true,
+              "interview_ref": "Q28-Q29",
+              "should_be_in": "preferences.arts_and_culture",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add complete local history work through museum displays."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes meticulous yet imaginative personality; interview confirms over-planning, creative arts, curiosity, and problem-solving.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona, seed.arts_persona",
+              "source_b_ref": "Q03, Q15, Q43-Q45",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed describes skeptical edge and healthy competition; interview supports skepticism toward slogans, social media rumors, and blind GPS use.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q24, Q42, Q65",
+              "action": "NO_CHANGE",
+              "resolution": "Carry forward practical skepticism rather than interpersonal hostility."
+            },
+            {
+              "id": 3,
+              "text": "Seed depicts disciplined work ethic; interview confirms conscientiousness, dependability, and identity around keeping one's word.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.professional_persona, seed.cultural_background",
+              "source_b_ref": "Q01, Q02, Q65, Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed does not describe mental health; interview adds worry/anxiety under stress but no clinical depression and no therapy history.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona fields",
+              "source_b_ref": "Q43-Q45, Q50",
+              "action": "NO_CHANGE",
+              "resolution": "Carry forward emotional coping and anxiety pattern."
+            },
+            {
+              "id": 5,
+              "text": "Seed's vintage postcard collecting is confirmed and emotionally enriched by Clara's interest in postcards and paintings.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.persona, seed.arts_persona",
+              "source_b_ref": "Q05, Q11, Q17",
+              "action": "NO_CHANGE",
+              "resolution": "Carry forward family/emotional meaning of postcards and watercolor."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures conscientiousness, order, mild anxiety when plans break down, and coping by lists, walking, painting, jazz, and Diane.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q03, Q43-Q45, Q50",
+              "source_b_ref": "summaries.psychologist, preferences.music",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile accurately captures relational style as practical care through errands, repairs, calls, meals, and showing up.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q05-Q07, Q35, Q46, Q109",
+              "source_b_ref": "preferences.social_and_relationships, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile omits substance-use boundaries: no smoking, light drinking, no marijuana/other drugs, cautious opioid history.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q38-Q39",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add substance-use and coping boundaries to health preferences."
+            },
+            {
+              "id": 4,
+              "text": "Profile omits faith psychology: Christian/Baptist identity has become less rule-bound and more compassionate, with faith and doubt coexisting.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q47",
+              "source_b_ref": "preferences.cultural_and_linguistic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add evolved faith stance and prayer/church attendance."
+            },
+            {
+              "id": 5,
+              "text": "Profile omits that he has never been in therapy but is not opposed to it.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q45",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add therapy history and openness."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Music, arts_and_culture, and psychologist summary consistently frame jazz/watercolor as emotional regulation.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.music, preferences.arts_and_culture",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Entertainment, hobbies, and psychological summary consistently show intellectual curiosity rather than passive entertainment orientation.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.entertainment, preferences.hobbies_and_recreation",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Social and work preferences consistently present a steady, practical, mentoring-oriented relational style.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships, preferences.work_and_career",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Substance use and medication caution are not fully represented.",
+              "gap": true,
+              "interview_ref": "Q38-Q39",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add no smoking, light alcohol, no marijuana/other drugs, cautious ibuprofen/opioid stance."
+            },
+            {
+              "id": 2,
+              "text": "His nonclinical anxiety pattern and therapy openness need fuller preference detail.",
+              "gap": true,
+              "interview_ref": "Q45",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add worry/restlessness/list-making and no therapy history but openness."
+            },
+            {
+              "id": 3,
+              "text": "The emotional impact of grandparenthood and Clara asking for watercolor lessons is underrepresented.",
+              "gap": true,
+              "interview_ref": "Q05, Q43",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add Clara as a joy source and art connection."
+            },
+            {
+              "id": 4,
+              "text": "His private support-seeking style on social media is underrepresented.",
+              "gap": true,
+              "interview_ref": "Q49",
+              "should_be_in": "preferences.media_and_information_diet",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add that he does not use social media for financial support and mostly calls people directly."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No contradictions requiring review were found, but multiple substantive gaps in family care, finances, law enforcement, health behaviors, faith, and work details were added.",
+    "final_status": "Corrected profile is ready for downstream use with summaries preserved verbatim and hidden_facts generated."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "3ff3bd4cb27f43b9a52d96aaecf9a771",
+    "name": "John Marquette",
+    "age": 57,
+    "gender": "Male",
+    "marital_status": "Married and living with wife Diane",
+    "location": "Benson, NC 27504",
+    "education": "Associate degree; currently enrolled part time online toward a bachelor's degree in business administration",
+    "occupation": "Courier and messenger for a regional delivery company",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Generally health-conscious but pragmatic; manages borderline hypertension, knee stiffness, and weight through walking, basic medical care, and moderation.",
+        "details": [
+          "Takes low-dose blood pressure medicine and occasional ibuprofen for knee pain (Q31, Q39).",
+          "Walks weekly and tries to stretch because driving is sedentary (Q31, Q32).",
+          "Trusts mainstream doctors, CDC, hospitals, and pharmacists for vaccine information (Q41, Q42).",
+          "Has borderline high blood pressure, cholesterol concerns, knee stiffness, and would like to lose about 15 pounds (Q31, Q33).",
+          "Does not smoke, drinks lightly, does not use marijuana or other drugs, and is cautious with pain pills (Q38, Q39).",
+          "Has never been in therapy but is not opposed to it; worry usually shows up as restlessness, lists, and checking things twice (Q45).",
+          "Uses heating pads, Epsom salt soaks, herbal tea, menthol rub, and occasional turmeric while relying on regular doctors for medical decisions (Q37)."
+        ],
+        "evidence": "Q31-Q45"
+      },
+      "food_and_dining": {
+        "summary": "Garden-to-table Southern cooking preferences with occasional indulgence in barbecue and traditional comfort foods.",
+        "details": [
+          "Grows tomatoes, basil, peppers, squash, and uses vegetables in home cooking (Q32).",
+          "Enjoys barbecue but recognizes it conflicts with health goals (Q31).",
+          "Cuts restaurant meals first when money is tight (Q60).",
+          "Packs sandwiches or leftovers on disciplined workdays, otherwise may rely on gas station coffee and convenience food (Q32).",
+          "Household food costs that stand out include meat, coffee, and paper goods (Q56)."
+        ],
+        "evidence": "Q31, Q32, Q56, Q60"
+      },
+      "travel": {
+        "summary": "Budget-conscious road tripper who prefers planned regional travel and dreams of Provence.",
+        "details": [
+          "Takes modest trips to Charleston and hopes for Blue Ridge weekends (Q67, Q108).",
+          "Saves separately for travel and has a long-term Provence dream (Q62, Q108).",
+          "Plans trips with notebooks, spreadsheets, and route detail (Q03).",
+          "Cuts short trips when income is lower or expenses stack up (Q57, Q81)."
+        ],
+        "evidence": "Q03, Q57, Q62, Q67, Q81, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "Small, steady social circle centered on wife, adult children, granddaughter, sister, mother, coworkers, book club, church, and museum contacts.",
+        "details": [
+          "Married to Diane for close to thirty years with two grown children, Emily and Mark, and granddaughter Clara (Q05).",
+          "Maintains friendships with Ray, Walter, Mrs. Albright, and local photographers (Q07).",
+          "Values practical friendship shown through help, calls, meals, and reliability (Q07, Q46).",
+          "His mother lives in Angier near his sister Linda; his father died about nine years ago (Q06).",
+          "Helps mother with errands, repairs, and medication management while Linda handles many appointments (Q17, Q35, Q44).",
+          "Clara is a major source of joy and likes his postcards and watercolor painting (Q05, Q43).",
+          "Family views vary on race and politics; he and Linda can disagree but usually back off before damaging the relationship (Q06, Q30)."
+        ],
+        "evidence": "Q05-Q07, Q17, Q30, Q35, Q43, Q44, Q46"
+      },
+      "home_and_lifestyle": {
+        "summary": "Stable homeowner in Benson with a modest, practical lifestyle, garden, vehicles, art room, and strong preference for order.",
+        "details": [
+          "Owns home with mortgage and has lived there about twenty years (Q58).",
+          "Uses one room partly for art and postcard collecting (Q11).",
+          "Maintains vehicles himself and keeps a small cash cushion for storms (Q17, Q61).",
+          "Lives full time only with Diane; no lodgers, boarders, temporary residents, or absent usual residents are in the household (Q11-Q14, Q51-Q54).",
+          "Clara may stay overnight every month or two, and Mark sometimes uses the guest room a few times a year (Q13).",
+          "Diane works part time at a dental office and manages many bills and appointments, while John handles yard, vehicles, repairs, and some cooking (Q05, Q11, Q55).",
+          "Normal monthly spending is about $4,000-$4,200, with last month around $4,600 because of a brake repair (Q56, Q57).",
+          "Current debts include mortgage, small credit card balance, and one nearly paid-off car loan, with no current student loans or family loans (Q63).",
+          "Can cover a $400 emergency from savings but would consider credit card or payment plan if multiple emergencies stacked up (Q82)."
+        ],
+        "evidence": "Q05, Q11-Q14, Q17, Q51-Q58, Q61, Q63, Q82"
+      },
+      "entertainment": {
+        "summary": "Prefers quiet, intellectually engaging entertainment: reading, crosswords, chess puzzles, sports, jazz, and photography.",
+        "details": [
+          "Attends a weekly Thursday book club and reads speculative fiction, philosophy, and local history (Q07, Q15).",
+          "Does crossword puzzles most nights and enjoys chess-like planning (Q17).",
+          "Watches Panthers football in season and follows Durham Bulls updates (Q15, Q48).",
+          "Avoids performative political arguing and online comment fights because he sees them as a waste of time (Q24, Q48, Q50)."
+        ],
+        "evidence": "Q07, Q15, Q17, Q24, Q48, Q50"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Highly engaged in watercolor, landscape photography, gardening, museum volunteering, postcards, books, puzzles, walking, and bowling.",
+        "details": [
+          "Paints watercolors and photographs barns, fields, railroads, storefronts, and creek light (Q15, Q48).",
+          "Volunteers at the local art and history museum cataloging postcards and exhibits two Saturdays a month (Q17).",
+          "Bowls in a senior league once a month and walks near the country club trail (Q15, Q17).",
+          "Works on art after supper around 8:00 to 9:30 two or three nights a week when coursework does not crowd it out (Q15, Q18).",
+          "Delays hobby purchases such as camera lenses when extra expenses arise (Q60)."
+        ],
+        "evidence": "Q15, Q17, Q18, Q48, Q60"
+      },
+      "work_and_career": {
+        "summary": "Experienced courier focused on route optimization, supervision, mentoring, and eco-friendly delivery innovation.",
+        "details": [
+          "Works mostly weekdays around 7:00 to 4:00 delivering legal, medical, parts, and small business shipments (Q16).",
+          "Aspires to supervisory logistics work and mentoring younger couriers (Q65, Q108).",
+          "Interested in electric vehicles, efficient routing, and a possible boutique local delivery service (Q16, Q70, Q108).",
+          "Has been with his current company 14 years and receives health insurance, paid vacation, sick time, and a small retirement plan (Q76).",
+          "Usually works about 42 hours per week, worked about 50 weeks in the past year, and is paid every two weeks by direct deposit (Q67, Q68, Q73).",
+          "Has one job; museum work is volunteer and art is a hobby, though he sometimes takes an extra Saturday route for the same employer (Q70, Q71).",
+          "His job is not union-covered and has no formal employee association (Q66).",
+          "Last month his gross pay was about $4,300 and take-home about $3,250; household gross was about $5,600 and take-home about $4,300 (Q72, Q74)."
+        ],
+        "evidence": "Q16, Q65-Q76, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Visual arts and local history are central to identity; he values postcards, watercolor, photography, museum work, and complete historical memory.",
+        "details": [
+          "Creates watercolor paintings and landscape photographs in the evenings (Q15).",
+          "Collects and catalogs vintage postcards through hobby and museum volunteering (Q11, Q17).",
+          "Museum work has shaped his awareness of whose histories are preserved or omitted (Q28, Q29).",
+          "Tries to include more complete local history in museum displays when he has a say (Q29).",
+          "Cites old photographs, postcards, local records, barns, fields, and storefronts as meaningful ways of preserving place (Q01, Q08, Q28, Q48)."
+        ],
+        "evidence": "Q01, Q08, Q11, Q15, Q17, Q28, Q29, Q48"
+      },
+      "sports_and_fitness": {
+        "summary": "Enjoys Carolina Panthers, Durham Bulls, walking, and monthly senior bowling, with fitness framed as discipline and maintenance.",
+        "details": [
+          "Watches Panthers football in season (Q15).",
+          "Follows Durham Bulls updates on Facebook (Q48).",
+          "Walks weekly and bowls monthly in a senior league (Q15, Q17).",
+          "Became more disciplined about walking because sitting and driving all day catches up with him at 57 (Q18).",
+          "The I-95 wreck he witnessed made him more careful about following distance while driving (Q21)."
+        ],
+        "evidence": "Q15, Q17, Q18, Q21, Q48"
+      },
+      "nature_and_outdoors": {
+        "summary": "Strong attachment to rural North Carolina landscapes, gardening, fields, barns, trails, and local land history.",
+        "details": [
+          "Photographs rural scenes around Benson, including barns, fields, tree lines, and creeks (Q08, Q48).",
+          "Keeps a vegetable garden and trades produce with neighbors (Q08, Q32).",
+          "Values land and local history as grounding forces (Q109).",
+          "Likes being near country roads because he can photograph barns, fields, and tree lines without driving far (Q08).",
+          "Notices local growth through subdivisions, trucks, traffic, higher costs, and land being sold off (Q10)."
+        ],
+        "evidence": "Q08, Q10, Q32, Q48, Q109"
+      },
+      "technology": {
+        "summary": "Comfortable with practical technology for logistics, online education, photography, spreadsheets, and selective social media use.",
+        "details": [
+          "Uses dispatch software, GPS, and route documentation for work (Q16, Q65).",
+          "Takes online business classes toward a bachelor's degree (Q18, Q91).",
+          "Uses Facebook for family and local events and Instagram for photography (Q48).",
+          "Uses notebooks, spreadsheets, and paper maps for planning decisions and trips (Q03).",
+          "Is testing new dispatch software at work and now logs more delivery details (Q18).",
+          "Believes good judgment includes knowing when not to rely blindly on GPS (Q16, Q65)."
+        ],
+        "evidence": "Q03, Q16, Q18, Q48, Q65, Q91"
+      },
+      "community_and_civic": {
+        "summary": "Civically engaged through voting, church, museum volunteering, local history, neighborliness, and practical concern for roads, schools, and growth.",
+        "details": [
+          "Votes regularly, especially in presidential, governor, county, and town elections (Q23).",
+          "Volunteers at museum and church service activities (Q17, Q47).",
+          "Cares about local roads, schools, zoning, emergency services, and growth planning (Q23, Q24).",
+          "Identifies as a moderate Republican or conservative-leaning independent, closer to the Republican Party but not strongly partisan (Q24, Q95, Q96).",
+          "Supports budget discipline, small business, competent public institutions, infrastructure, workforce training, and practical environmental investments (Q24, Q25).",
+          "Has had routine law-enforcement contact, no personal mistreatment, no arrest, and a cousin arrested for DUI years ago (Q20-Q22).",
+          "Thinks BLM-related issues deserve attention while not agreeing with every slogan or tactic; supports better training, body cameras, accountability, and mental-health-call support (Q26, Q27).",
+          "Talks about race and policing with family, coworkers, and book club friends but has not joined protests (Q29, Q30)."
+        ],
+        "evidence": "Q17, Q20-Q30, Q47, Q95, Q96"
+      },
+      "music": {
+        "summary": "Jazz is his main emotional regulation and creative soundtrack, especially Miles Davis.",
+        "details": [
+          "Listens to Miles Davis when painting or coping with stress (Q38, Q44, Q50).",
+          "Uses jazz and watercolor as a calming routine (Q38, Q50).",
+          "Listened to Miles Davis in the dark after a scare involving his mother's medication mistake (Q44)."
+        ],
+        "evidence": "Q38, Q44, Q50"
+      },
+      "fashion_and_appearance": {
+        "summary": "Little direct evidence; appearance preferences appear practical rather than expressive.",
+        "details": [
+          "No substantial fashion evidence in transcript; work and lifestyle imply practical clothing suited to driving, routes, yard work, and volunteering.",
+          "Uses a hand truck more than pride would like when knee pain or stairs make delivery work harder (Q34)."
+        ],
+        "evidence": "Q15-Q17, Q34, Q65"
+      },
+      "cultural_and_linguistic": {
+        "summary": "White American Southern identity rooted in Angier and Benson, Baptist upbringing, working-class values, hospitality, self-reliance, and local history.",
+        "details": [
+          "Born and raised in Angier, North Carolina, and identifies as White American (Q01, Q87, Q89).",
+          "Raised Southern Baptist and still identifies as Christian/Baptist (Q47, Q94).",
+          "Childhood shaped by church suppers, football, working-class family, and self-reliance (Q01).",
+          "At age 16 he lived in Angier with both parents and younger sister Linda in a stable but financially tight household (Q97-Q99).",
+          "His father completed high school and worked maintenance/delivery for a building supply company; his mother completed high school plus bookkeeping classes and worked as a bookkeeper/office clerk (Q100-Q107).",
+          "His faith has become less rule-bound and more compassionate, with gratitude, humility, community, prayer, and room for doubt (Q47).",
+          "He has lived in North Carolina all his life and has not lived outside the United States (Q86, Q87)."
+        ],
+        "evidence": "Q01, Q47, Q86-Q89, Q94, Q97-Q107"
+      },
+      "life_events_and_transitions": {
+        "summary": "Key transitions include choosing courier work after associate degree, marriage, parenthood, father's death, becoming a grandfather, mother's aging, and returning to school.",
+        "details": [
+          "Chose courier work over a desk job after associate degree (Q02, Q03).",
+          "Married Diane, raised Emily and Mark, and became grandfather to Clara (Q05).",
+          "Returned to part-time online school for business administration while pursuing supervision (Q18, Q91, Q108).",
+          "Born March 12, 1969, in Angier, North Carolina (Q85, Q87).",
+          "Father's death about nine years ago and mother's aging have become important family transitions (Q06, Q35, Q44).",
+          "Having children shifted his priorities from overtime toward being home for supper and covering bills (Q01).",
+          "Filed taxes jointly last year with a local tax preparer and received a modest refund (Q75)."
+        ],
+        "evidence": "Q01-Q03, Q05-Q06, Q18, Q35, Q44, Q75, Q85, Q87, Q91, Q108"
+      },
+      "media_and_information_diet": {
+        "summary": "Uses social media selectively; prefers verified sources, local news, doctors, CDC, and practical information over comment fights.",
+        "details": [
+          "Uses Facebook for family, local events, museum posts, and Durham Bulls; Instagram for photography (Q48).",
+          "Avoids comment fights and late-night political videos (Q48, Q50).",
+          "Verifies health and vaccine information through doctors, CDC, hospitals, pharmacists, and local news only as a starting point (Q42).",
+          "Does not use social media for financial support; may post prayer requests but mostly calls people directly during tough times (Q49).",
+          "Does not trust random forwarded posts, especially unsourced all-capital messages (Q42)."
+        ],
+        "evidence": "Q42, Q48-Q50"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "John Marquette is a 57-year-old White, non-Hispanic married man living in Benson, North Carolina, with his wife Diane (Q51, Q84, Q88, Q89). He was born and raised in Angier, North Carolina, in a working-class two-parent household with one sister, and both parents completed high school (Q87, Q97-Q101). He has an associate degree, is enrolled part time online toward a bachelor's degree, and works full time as a courier/messenger while his wife works part time at a dental office (Q16, Q74, Q90-Q92). His children are grown, and his life course is now shaped by grandparenthood, aging-parent support, mortgage stability, and late-career advancement goals (Q05, Q35, Q58, Q108).",
+      "behavioral_economist": "John is a planner with strong loss aversion around money, time, and reliability; he tracks spending, plans routes, and budgets using spreadsheets and notebooks (Q03, Q57, Q65). He responds to uncertainty by making systems, such as medication charts for his mother or route plans for work (Q44, Q65). His incentives are identity-based as much as financial: supervisory advancement, mentoring, and efficient eco-friendly delivery appeal because they validate his competence and usefulness (Q16, Q65, Q108). He is cautious with debt, can absorb a $400 emergency, and cuts discretionary spending before risking late bills (Q60-Q64, Q82).",
+      "political_scientist": "John is a regular voter who prioritizes local governance, roads, schools, growth planning, and institutional competence (Q23, Q24). He identifies as a moderate Republican or conservative-leaning independent, closer to the Republican Party but not strongly partisan, and is willing to cross party lines locally (Q95, Q96). His politics combine fiscal caution and work-centered conservatism with pragmatic support for infrastructure, public institutions, clean transportation, and some environmental investment (Q24, Q25). On race and policing, he is reflective and moderately affected by Black Lives Matter, influenced by coworkers, museum history work, and family discussions rather than protest participation (Q26-Q30).",
+      "psychologist": "John presents as conscientious, orderly, dependable, and mildly anxious when plans break down; he copes by making lists, walking, painting, listening to jazz, and talking with Diane (Q03, Q43-Q45, Q50). His self-concept is rooted in usefulness, competence, family duty, and keeping one's word (Q01, Q65, Q109). He is intellectually curious and imaginative, using photography, watercolor, speculative fiction, philosophy, and local history to expand beyond his traditional upbringing (Q07, Q15, Q17, Q47). Relationally, he is steady rather than demonstrative, showing care through errands, repairs, calls, meals, mentoring, and practical presence (Q05-Q07, Q35, Q46, Q109)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Takes low-dose blood pressure medicine.",
+        "ground_truth_label": "low-dose blood pressure medication",
+        "behavioral_evidence_from_interview": [
+          "Q31: A low-dose blood pressure medicine"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Uses occasional ibuprofen for knee pain.",
+        "ground_truth_label": "occasional ibuprofen for knee pain",
+        "behavioral_evidence_from_interview": [
+          "Q39: I use over-the-counter ibuprofen when my knee acts up."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Walks weekly and stretches because driving is sedentary.",
+        "ground_truth_label": "weekly walking and stretching",
+        "behavioral_evidence_from_interview": [
+          "Q31: I walk weekly and try to stretch",
+          "Q32: My job makes it harder because driving means sitting"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Trusts doctors, CDC, hospitals, and pharmacists for vaccine information.",
+        "ground_truth_label": "mainstream vaccine information trust",
+        "behavioral_evidence_from_interview": [
+          "Q42: My primary care doctor is first. I also look at CDC information, local hospital guidance, and what pharmacists say"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Has borderline high blood pressure, cholesterol concerns, knee stiffness, and wants to lose about 15 pounds.",
+        "ground_truth_label": "borderline cardiometabolic and knee concerns",
+        "behavioral_evidence_from_interview": [
+          "Q31: borderline high blood pressure... knee stiffness... lose 15 pounds",
+          "Q33: blood pressure and cholesterol as things to control"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Does not smoke, drinks lightly, avoids marijuana and other drugs, and is cautious with pain pills.",
+        "ground_truth_label": "low substance use and medication caution",
+        "behavioral_evidence_from_interview": [
+          "Q38: I do not smoke... I drink lightly",
+          "Q39: No marijuana or other drugs... cautious because I know pain pills can become a problem"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Has never been in therapy but is not opposed to it.",
+        "ground_truth_label": "no therapy history but open to therapy",
+        "behavioral_evidence_from_interview": [
+          "Q45: I have never been in therapy, though I am not against it."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Worry usually appears as restlessness, making lists, checking things twice, and reorganizing.",
+        "ground_truth_label": "anxiety expressed through planning and checking",
+        "behavioral_evidence_from_interview": [
+          "Q45: It usually comes out as restlessness and making lists.",
+          "Q45: I get quiet, start checking things twice, and reorganize stuff"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Uses home remedies but relies on regular doctors for medical decisions.",
+        "ground_truth_label": "home remedies secondary to conventional care",
+        "behavioral_evidence_from_interview": [
+          "Q37: heating pads, Epsom salt soaks, herbal tea... but I still rely on regular doctors"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Grows tomatoes, basil, peppers, and squash for home cooking.",
+        "ground_truth_label": "vegetable gardening for cooking",
+        "behavioral_evidence_from_interview": [
+          "Q32: growing tomatoes, basil, peppers, and squash"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Enjoys barbecue and biscuits despite health concerns.",
+        "ground_truth_label": "Southern comfort food indulgence",
+        "behavioral_evidence_from_interview": [
+          "Q31: I still enjoy barbecue and biscuits more than a doctor would prefer."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Cuts restaurant meals first when money is tight.",
+        "ground_truth_label": "restaurant meals are discretionary spending",
+        "behavioral_evidence_from_interview": [
+          "Q60: cut restaurant meals for a few weeks"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Packs sandwiches or leftovers on disciplined workdays but may use gas station coffee and convenience food.",
+        "ground_truth_label": "mixed disciplined and convenience workday eating",
+        "behavioral_evidence_from_interview": [
+          "Q32: I pack sandwiches or leftovers... otherwise it is gas station coffee"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Takes modest trips to Charleston and hopes for Blue Ridge weekends.",
+        "ground_truth_label": "modest regional road trips",
+        "behavioral_evidence_from_interview": [
+          "Q67: a few days for Charleston",
+          "Q108: Blue Ridge weekends, Charleston again"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Saves separately for travel and treats Provence as a long-term dream.",
+        "ground_truth_label": "long-term Provence travel goal",
+        "behavioral_evidence_from_interview": [
+          "Q62: Provence is a dream trip... long-term jar money",
+          "Q108: maybe Provence in spring if we can save for it"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Plans trips with notebooks, spreadsheets, and route detail.",
+        "ground_truth_label": "highly planned travel style",
+        "behavioral_evidence_from_interview": [
+          "Q03: I use notebooks, spreadsheets, even paper maps if I am planning a trip."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Has been married to Diane for close to thirty years.",
+        "ground_truth_label": "long-term marriage to Diane",
+        "behavioral_evidence_from_interview": [
+          "Q05: I am married to Diane... close to thirty years."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Has two grown children, Emily and Mark, and a granddaughter Clara.",
+        "ground_truth_label": "two adult children and one granddaughter",
+        "behavioral_evidence_from_interview": [
+          "Q05: We have two grown children... Emily... Mark... little girl, Clara"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Maintains friendships with Ray, Walter, Mrs. Albright, and local photographers.",
+        "ground_truth_label": "small steady friend network",
+        "behavioral_evidence_from_interview": [
+          "Q07: Ray works with me... Walter is from my book club... Mrs. Albright... photographers around Benson"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Defines friendship as showing up and giving practical help.",
+        "ground_truth_label": "practical reliability in friendships",
+        "behavioral_evidence_from_interview": [
+          "Q07: Showing up. Helping move a piece of furniture... bringing tomatoes"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "His mother lives in Angier near sister Linda, and his father died about nine years ago.",
+        "ground_truth_label": "mother in Angier and deceased father",
+        "behavioral_evidence_from_interview": [
+          "Q06: My mother is still living in Angier... my sister Linda. My father passed about nine years ago."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Helps his mother with errands, repairs, and medication management while Linda handles many appointments.",
+        "ground_truth_label": "shared elder-care role",
+        "behavioral_evidence_from_interview": [
+          "Q35: Linda handles most appointments... I handle errands and repairs.",
+          "Q44: making a medicine chart"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Granddaughter Clara is a major source of joy and connects with his postcards and watercolor.",
+        "ground_truth_label": "grandparent joy through art",
+        "behavioral_evidence_from_interview": [
+          "Q05: Clara likes my postcards and asks me to paint little houses",
+          "Q43: My granddaughter asking me to teach her watercolor"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Owns his home with a mortgage and has lived there about twenty years.",
+        "ground_truth_label": "long-term mortgaged homeowner",
+        "behavioral_evidence_from_interview": [
+          "Q58: We own our home with a mortgage.",
+          "Q58: About twenty years."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Uses one room partly for art and postcard collecting.",
+        "ground_truth_label": "art and postcard room",
+        "behavioral_evidence_from_interview": [
+          "Q11: one partly as my art and postcard room"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Maintains vehicles himself and keeps a small cash cushion for storms.",
+        "ground_truth_label": "self-reliant vehicle and emergency preparation",
+        "behavioral_evidence_from_interview": [
+          "Q17: I keep our vehicles maintained",
+          "Q61: a small cash cushion at home for storms"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Lives full time only with Diane, with no lodgers, temporary residents, or absent usual residents.",
+        "ground_truth_label": "two-person permanent household",
+        "behavioral_evidence_from_interview": [
+          "Q51: just the two of us full time",
+          "Q54: No lodgers, boarders, or employees."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Clara may stay overnight every month or two, and Mark sometimes stays a few times a year.",
+        "ground_truth_label": "occasional family overnight guests",
+        "behavioral_evidence_from_interview": [
+          "Q13: Clara may stay for an overnight, and Mark sometimes crashes",
+          "Q13: Clara... once every month or two... Mark... a few times a year"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Diane works part time at a dental office and manages many bills and appointments.",
+        "ground_truth_label": "Diane part-time dental office and bill management",
+        "behavioral_evidence_from_interview": [
+          "Q05: She works part time at a dental office",
+          "Q11: Diane handles a lot of bills and appointments"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Normal monthly spending is about $4,000-$4,200, with last month around $4,600 due to a brake repair.",
+        "ground_truth_label": "monthly spending range and recent repair spike",
+        "behavioral_evidence_from_interview": [
+          "Q57: Last month was around $4,600... normal month is closer to $4,000 to $4,200"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Has mortgage, small credit card balance, and a nearly paid-off car loan, with no current student loans or family loans.",
+        "ground_truth_label": "current debt structure",
+        "behavioral_evidence_from_interview": [
+          "Q63: mortgage and a small credit card balance... No student loans... one car loan nearly paid off"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Can cover a $400 emergency from savings.",
+        "ground_truth_label": "can absorb $400 emergency",
+        "behavioral_evidence_from_interview": [
+          "Q82: We could cover $400 from savings"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Attends a weekly Thursday book club and reads speculative fiction, philosophy, and local history.",
+        "ground_truth_label": "weekly book club and intellectual reading",
+        "behavioral_evidence_from_interview": [
+          "Q07: Every Thursday evening at the library",
+          "Q15: Thursday is book club"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Does crossword puzzles most nights and enjoys chess-like planning.",
+        "ground_truth_label": "crosswords and strategic puzzles",
+        "behavioral_evidence_from_interview": [
+          "Q17: do crossword puzzles most nights before bed"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Watches Panthers football in season and follows Durham Bulls updates.",
+        "ground_truth_label": "Panthers and Durham Bulls fan",
+        "behavioral_evidence_from_interview": [
+          "Q15: Panthers football in season",
+          "Q48: Durham Bulls updates"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Paints watercolors and photographs barns, fields, railroads, storefronts, and creek light.",
+        "ground_truth_label": "watercolor and rural photography",
+        "behavioral_evidence_from_interview": [
+          "Q48: Barns, tobacco fields, railroad tracks, old storefronts, and creek light"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Volunteers at the local art and history museum two Saturdays a month cataloging postcards and exhibits.",
+        "ground_truth_label": "museum volunteer curator",
+        "behavioral_evidence_from_interview": [
+          "Q17: volunteer at the local art and history museum two Saturdays a month"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Bowls in a senior league once a month and walks near the country club trail.",
+        "ground_truth_label": "monthly bowling and trail walking",
+        "behavioral_evidence_from_interview": [
+          "Q15: walk the trail near the Benson country club area",
+          "Q17: bowl in a senior league once a month"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Works mostly weekdays around 7:00 to 4:00 delivering legal, medical, parts, and small business shipments.",
+        "ground_truth_label": "weekday courier schedule and delivery types",
+        "behavioral_evidence_from_interview": [
+          "Q16: mostly weekdays, roughly 7:00 to 4:00",
+          "Q16: legal packets, medical office materials, machine parts, and small business shipments"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Aspires to supervisory logistics work and mentoring younger couriers.",
+        "ground_truth_label": "supervisory and mentoring ambition",
+        "behavioral_evidence_from_interview": [
+          "Q65: Training drivers, improving routes, tracking performance",
+          "Q108: supervisory logistics role"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Interested in electric vehicles, efficient routing, and a possible boutique local delivery service.",
+        "ground_truth_label": "eco-friendly delivery innovation goal",
+        "behavioral_evidence_from_interview": [
+          "Q16: eco-friendly delivery pilot",
+          "Q70: boutique local delivery service"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Has been with his current company for 14 years and receives health insurance, paid vacation, sick time, and a small retirement plan.",
+        "ground_truth_label": "14-year employment with benefits",
+        "behavioral_evidence_from_interview": [
+          "Q76: I have been with this company 14 years. Benefits are decent"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Usually works about 42 hours per week, worked about 50 weeks in the past year, and is paid biweekly.",
+        "ground_truth_label": "full-time courier work pattern",
+        "behavioral_evidence_from_interview": [
+          "Q67: About 50 weeks",
+          "Q68: Usually about 42 hours a week",
+          "Q73: Every two weeks"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Has one paid job; museum work is volunteer and art is a hobby.",
+        "ground_truth_label": "single paid job",
+        "behavioral_evidence_from_interview": [
+          "Q70: No, just the courier job. Museum work is volunteer, and art is a hobby."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "His courier job is not union-covered and has no formal employee association.",
+        "ground_truth_label": "nonunion job",
+        "behavioral_evidence_from_interview": [
+          "Q66: my job is not union-covered... No formal one"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Last month his gross pay was about $4,300 and take-home about $3,250.",
+        "ground_truth_label": "John monthly pay",
+        "behavioral_evidence_from_interview": [
+          "Q72: gross pay was about $4,300... take-home around $3,250"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Household gross income last month was about $5,600 and take-home about $4,300.",
+        "ground_truth_label": "household monthly income",
+        "behavioral_evidence_from_interview": [
+          "Q74: about $5,600 gross... around $4,300 take-home"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Creates watercolor paintings and landscape photographs in the evenings.",
+        "ground_truth_label": "evening watercolor and photography",
+        "behavioral_evidence_from_interview": [
+          "Q15: after supper, maybe 8:00 to 9:30, two or three nights a week"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Collects and catalogs vintage postcards as a hobby and through museum volunteering.",
+        "ground_truth_label": "vintage postcard collecting and cataloging",
+        "behavioral_evidence_from_interview": [
+          "Q11: art and postcard room",
+          "Q17: cataloging postcards"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Museum work has made him more aware of whose histories were preserved or ignored.",
+        "ground_truth_label": "museum-informed historical awareness",
+        "behavioral_evidence_from_interview": [
+          "Q28: Archives show whose stories were preserved and whose were ignored."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Tries to include more complete local history in museum displays.",
+        "ground_truth_label": "complete local history display work",
+        "behavioral_evidence_from_interview": [
+          "Q29: include more complete local history in museum displays"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Became more disciplined about walking because sitting and driving all day affects him at age 57.",
+        "ground_truth_label": "walking for occupational health maintenance",
+        "behavioral_evidence_from_interview": [
+          "Q18: more disciplined about walking because sitting and driving all day catches up"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Photographs rural scenes around Benson, including barns, fields, tree lines, and creeks.",
+        "ground_truth_label": "rural North Carolina landscape photography",
+        "behavioral_evidence_from_interview": [
+          "Q08: photographs of barns, fields, and tree lines",
+          "Q48: creek light"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Keeps a vegetable garden and trades produce with neighbors.",
+        "ground_truth_label": "gardening and neighbor produce exchange",
+        "behavioral_evidence_from_interview": [
+          "Q08: We trade garden produce",
+          "Q32: a garden makes it easier"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Values land and local history as grounding forces.",
+        "ground_truth_label": "land and local history attachment",
+        "behavioral_evidence_from_interview": [
+          "Q109: I value the land and local history"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Notices growth through subdivisions, trucks, traffic, higher costs, and land being sold off.",
+        "ground_truth_label": "concern about local growth pressures",
+        "behavioral_evidence_from_interview": [
+          "Q10: More subdivisions, more trucks, and land being sold off."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Uses dispatch software, GPS, and route documentation for work.",
+        "ground_truth_label": "logistics technology user",
+        "behavioral_evidence_from_interview": [
+          "Q16: dispatch software, GPS",
+          "Q65: documenting delivery"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Takes online business classes toward a bachelor's degree.",
+        "ground_truth_label": "online bachelor's coursework",
+        "behavioral_evidence_from_interview": [
+          "Q18: online business classes",
+          "Q91: part time online"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Uses Facebook for family and local events and Instagram for photography.",
+        "ground_truth_label": "selective social media use",
+        "behavioral_evidence_from_interview": [
+          "Q48: Facebook... family photos, local events... Instagram mostly for photography"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Uses notebooks, spreadsheets, and paper maps for planning.",
+        "ground_truth_label": "analog and digital planning tools",
+        "behavioral_evidence_from_interview": [
+          "Q03: notebooks, spreadsheets, even paper maps"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Votes regularly in presidential, governor, county, and town elections.",
+        "ground_truth_label": "regular voter",
+        "behavioral_evidence_from_interview": [
+          "Q23: I vote pretty regularly, especially presidential, governor, county, and town elections."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Volunteers at museum and church service activities.",
+        "ground_truth_label": "museum and church volunteer",
+        "behavioral_evidence_from_interview": [
+          "Q17: volunteer at the local art and history museum",
+          "Q47: service projects, meals, and helping older members with rides"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Cares about local roads, schools, zoning, emergency services, and growth planning.",
+        "ground_truth_label": "local governance priorities",
+        "behavioral_evidence_from_interview": [
+          "Q23: roads, zoning, schools, and emergency services",
+          "Q23: Road maintenance, school funding, growth planning"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Identifies as a moderate Republican or conservative-leaning independent, closer to the Republican Party but not strongly partisan.",
+        "ground_truth_label": "moderate Republican/conservative-leaning independent",
+        "behavioral_evidence_from_interview": [
+          "Q24: moderate Republican or maybe a conservative-leaning independent",
+          "Q96: Closer to the Republican Party, but with reservations"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Supports budget discipline, small business, competent public institutions, infrastructure, workforce training, and practical environmental investments.",
+        "ground_truth_label": "pragmatic fiscal conservatism with institutional competence",
+        "behavioral_evidence_from_interview": [
+          "Q24: pro small business... taxes should be spent carefully",
+          "Q25: infrastructure and workforce training... environmental investments"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Has had routine law enforcement contact, no personal mistreatment, no arrest, and a cousin arrested for DUI.",
+        "ground_truth_label": "routine police contact and no arrest history",
+        "behavioral_evidence_from_interview": [
+          "Q20: routine traffic stops",
+          "Q20: No, not personally",
+          "Q22: I have never been arrested... cousin arrested for a DUI"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Thinks BLM-related issues deserve attention while not agreeing with every slogan or tactic.",
+        "ground_truth_label": "moderately affected by BLM issues",
+        "behavioral_evidence_from_interview": [
+          "Q26: it affected me somewhat",
+          "Q27: core issues deserve attention... I do not agree with every slogan or tactic"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Supports better police training, body cameras, accountability, and support for officers handling mental health calls.",
+        "ground_truth_label": "practical policing reform preferences",
+        "behavioral_evidence_from_interview": [
+          "Q27: better training, body cameras... accountability... mental health calls"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Talks about race and policing with family, coworkers, and book club friends but has not joined protests.",
+        "ground_truth_label": "discussion-based civic response without protest participation",
+        "behavioral_evidence_from_interview": [
+          "Q29: talked with family, coworkers, and book club friends, but I have not joined protests"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Listens to Miles Davis when painting or coping with stress.",
+        "ground_truth_label": "Miles Davis as creative and coping music",
+        "behavioral_evidence_from_interview": [
+          "Q38: I paint with Miles Davis playing",
+          "Q44: listened to Miles Davis in the dark"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Uses jazz and watercolor as a calming routine.",
+        "ground_truth_label": "jazz and watercolor for emotional regulation",
+        "behavioral_evidence_from_interview": [
+          "Q50: A walk or a half hour with jazz and watercolor"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Appearance evidence is limited; his work and lifestyle imply practical clothing suited to driving, routes, yard work, and volunteering.",
+        "ground_truth_label": "practical appearance inference",
+        "behavioral_evidence_from_interview": [
+          "Q16: courier and messenger",
+          "Q17: vehicle checks and museum volunteering"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Was born and raised in Angier, North Carolina, and identifies as White American.",
+        "ground_truth_label": "White American from Angier NC",
+        "behavioral_evidence_from_interview": [
+          "Q87: born in Angier, North Carolina",
+          "Q89: White"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Was raised Southern Baptist and still identifies as Christian/Baptist.",
+        "ground_truth_label": "Christian Baptist identity",
+        "behavioral_evidence_from_interview": [
+          "Q47: raised Southern Baptist... identify as Christian",
+          "Q94: Christian, Southern Baptist background"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Childhood was shaped by church suppers, football, working-class family, and self-reliance.",
+        "ground_truth_label": "working-class Southern upbringing",
+        "behavioral_evidence_from_interview": [
+          "Q01: church suppers... high school football... if something broke you tried to fix it"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "At age 16 he lived in Angier with both parents and younger sister Linda in a stable but financially tight household.",
+        "ground_truth_label": "two-parent childhood household with sister",
+        "behavioral_evidence_from_interview": [
+          "Q98: lived with both my mother and father",
+          "Q99: My younger sister Linda lived with us"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "His father completed high school and worked maintenance/delivery for a building supply company.",
+        "ground_truth_label": "father high school and building supply maintenance/delivery",
+        "behavioral_evidence_from_interview": [
+          "Q100: High school diploma",
+          "Q106: worked maintenance and delivery for a building supply company"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "His mother completed high school plus bookkeeping classes and worked as a bookkeeper/office clerk.",
+        "ground_truth_label": "mother bookkeeping office work",
+        "behavioral_evidence_from_interview": [
+          "Q101: High school diploma, plus some bookkeeping classes",
+          "Q103: bookkeeper and office clerk"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "His faith has become less rule-bound and more compassionate, with room for doubt.",
+        "ground_truth_label": "less rigid compassionate faith",
+        "behavioral_evidence_from_interview": [
+          "Q47: not as rigid... gratitude, humility, and community",
+          "Q47: faith and doubt can sit in the same pew"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Was born March 12, 1969, in Angier, North Carolina.",
+        "ground_truth_label": "birth date and birthplace",
+        "behavioral_evidence_from_interview": [
+          "Q85: March 12, 1969.",
+          "Q87: born in Angier, North Carolina"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Chose courier work over a Raleigh desk job after earning his associate degree.",
+        "ground_truth_label": "courier-over-desk career choice",
+        "behavioral_evidence_from_interview": [
+          "Q02: chance to move toward a desk job in Raleigh... chose courier work"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Having children shifted his priorities from overtime toward family supper and covering bills.",
+        "ground_truth_label": "parenthood shifted priorities",
+        "behavioral_evidence_from_interview": [
+          "Q01: Having children changed everything... home for supper and whether the bills were covered"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Returned to part-time online school for business administration while pursuing supervision.",
+        "ground_truth_label": "late-career bachelor's coursework",
+        "behavioral_evidence_from_interview": [
+          "Q18: online business classes",
+          "Q91: Bachelor's in business administration eventually"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Avoids comment fights and late-night political videos.",
+        "ground_truth_label": "avoids online political conflict",
+        "behavioral_evidence_from_interview": [
+          "Q48: I avoid comment fights",
+          "Q50: Political videos and comment sections at night"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Does not use social media for financial support and mostly calls people directly for emotional support.",
+        "ground_truth_label": "private support-seeking style",
+        "behavioral_evidence_from_interview": [
+          "Q49: I do not use it for financial support... mostly I call people directly"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Distrusts random forwarded posts, especially unsourced all-capital messages.",
+        "ground_truth_label": "skeptical of unsourced social media claims",
+        "behavioral_evidence_from_interview": [
+          "Q42: I do not trust random forwarded posts, especially if they are all capital letters and no source."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "reprojected",
+        "source_subcategory": "preferences.demographics",
+        "reprojected_from": "summaries.demographer",
+        "claim": "John is a 57-year-old White, non-Hispanic married man living in Benson, North Carolina, with wife Diane.",
+        "ground_truth_label": "core demographic profile",
+        "behavioral_evidence_from_interview": [
+          "Q51: I live with my wife, Diane Marquette, in Benson.",
+          "Q88: No.",
+          "Q89: White."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "reprojected",
+        "source_subcategory": "preferences.education_and_work",
+        "reprojected_from": "summaries.demographer",
+        "claim": "He has an associate degree, is enrolled part time online toward a bachelor's degree, and works full time as a courier/messenger.",
+        "ground_truth_label": "associate degree, online enrollment, full-time courier work",
+        "behavioral_evidence_from_interview": [
+          "Q90: An associate degree.",
+          "Q91: Yes, part time online.",
+          "Q16: I work as a courier and messenger"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.demographer",
+        "claim": "His current life stage is shaped by grandparenthood, aging-parent support, mortgage stability, and late-career advancement goals.",
+        "ground_truth_label": "late-midlife life stage",
+        "behavioral_evidence_from_interview": [
+          "Q05: I am a granddaddy now.",
+          "Q35: My mother has arthritis and some memory slips",
+          "Q58: We own our home with a mortgage.",
+          "Q108: supervisory logistics role"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Tracks spending, plans routes, and budgets using spreadsheets and notebooks.",
+        "ground_truth_label": "planner using spreadsheets and notebooks",
+        "behavioral_evidence_from_interview": [
+          "Q03: I use notebooks, spreadsheets",
+          "Q57: Diane uses a spreadsheet and I keep receipts.",
+          "Q65: planning efficient routes"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "reprojected",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Responds to uncertainty by making systems, such as medication charts for his mother.",
+        "ground_truth_label": "systems-based uncertainty response",
+        "behavioral_evidence_from_interview": [
+          "Q44: Making a system helped: pill organizer, chart, and regular calls."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Supervisory advancement, mentoring, and efficient eco-friendly delivery appeal because they validate his competence and usefulness.",
+        "ground_truth_label": "identity-based career motivation",
+        "behavioral_evidence_from_interview": [
+          "Q108: help build smarter routes, mentor younger couriers",
+          "Q109: useful... kept his word, helped younger folks learn"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-093",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Cuts discretionary spending before risking late bills.",
+        "ground_truth_label": "bill-protection budgeting priority",
+        "behavioral_evidence_from_interview": [
+          "Q64: delayed dental work and hobby spending rather than let bills go late"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-094",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Is willing to cross party lines in local races.",
+        "ground_truth_label": "local cross-party voting openness",
+        "behavioral_evidence_from_interview": [
+          "Q95: If a local Democrat had the better plan for roads or schools, I would consider them."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-095",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "His thinking on race and policing was influenced by coworkers, museum history work, and family discussions rather than protest participation.",
+        "ground_truth_label": "reflective non-protest race/policing engagement",
+        "behavioral_evidence_from_interview": [
+          "Q26: A Black coworker named Darnell",
+          "Q28: Archives show whose stories were preserved",
+          "Q29: I have not joined protests."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-096",
+        "source": "reprojected",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Copes with stress by making lists, walking, painting, listening to jazz, and talking with Diane.",
+        "ground_truth_label": "structured and creative stress coping",
+        "behavioral_evidence_from_interview": [
+          "Q45: routine, walking, art, prayer, and talking with Diane",
+          "Q50: walks... painting instead of stewing"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-097",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "His self-concept is rooted in usefulness, competence, family duty, and keeping one's word.",
+        "ground_truth_label": "usefulness and dependability self-concept",
+        "behavioral_evidence_from_interview": [
+          "Q109: someone who showed up, kept his word",
+          "Q65: A good courier is part driver, part planner"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-098",
+        "source": "reprojected",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Uses photography, watercolor, speculative fiction, philosophy, and local history to expand beyond his traditional upbringing.",
+        "ground_truth_label": "intellectual and creative curiosity beyond traditional roots",
+        "behavioral_evidence_from_interview": [
+          "Q47: I read philosophy",
+          "Q15: make art",
+          "Q07: book club"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}

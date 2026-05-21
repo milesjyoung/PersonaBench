@@ -1,0 +1,2324 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "f057df99f90543c29b4b773b46109c33",
+      "name": "Evan Buscetta",
+      "verification_date": "2026-05-19"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age, sex, and marital status match the interview: Evan is a 49-year-old married man living with his wife.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.age, seed.sex, seed.marital_status",
+              "source_b_ref": "Q84-Q85",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed location matches the interview and is enriched by birth-location detail: Evan lives in Van Buren, Arkansas and was born in Fort Smith nearby.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.city, seed.state, seed.zipcode",
+              "source_b_ref": "Q08, Q51, Q87",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed education and no-paid-occupation status match the interview: high school diploma, no college degree, no current paid work.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.education_level, seed.occupation",
+              "source_b_ref": "Q16, Q65-Q73, Q90",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed cultural background is confirmed and enriched in the interview: White, non-Hispanic, Italian-American, Roman Catholic, locally rooted in Van Buren/Fort Smith.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q01, Q47, Q86-Q89, Q94, Q97-Q99",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Seed implies a married household but does not specify children; interview clarifies there are no children and only Evan and his wife live in the home.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.marital_status",
+              "source_b_ref": "Q05, Q11-Q14, Q51-Q54",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The profile accurately captures Evan's married two-person household, home ownership with mortgage, and practical household role.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q11, Q51, Q55, Q58",
+              "source_b_ref": "preferences.home_and_lifestyle, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile correctly reflects no paid occupation and strong identification with unpaid arts/event coordination, plus desire for part-time paid coordination work.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q16, Q65-Q74, Q83",
+              "source_b_ref": "preferences.work_and_career, summaries.demographer, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The profile captures White non-Hispanic Italian-American Catholic identity, but omits birth in Fort Smith and lifelong local rootedness.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q85-Q89, Q94, Q97",
+              "source_b_ref": "preferences.cultural_and_linguistic, summaries.demographer",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add to preferences.cultural_and_linguistic.details that Evan was born in Fort Smith, grew up in Van Buren, and is strongly locally rooted in western Arkansas."
+            },
+            {
+              "id": 4,
+              "text": "The profile describes a tight modest budget and reliance on his wife's income, but it omits specific household composition facts that there are no children and no pets.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q05, Q11, Q52, Q74",
+              "source_b_ref": "summaries.demographer, preferences.social_and_relationships, preferences.home_and_lifestyle",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add to preferences.social_and_relationships.details that the couple has no children; add to preferences.home_and_lifestyle.details that they currently have no pets."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The profile's home, social, and demographer summary sections all align on a two-person married household in Van Buren with no paid work for Evan.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.home_and_lifestyle",
+              "field_b": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Work/career, life-events, and psychologist summary are internally coherent: anxiety constrains full-time paid work while volunteer coordination provides identity and structure.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career",
+              "field_b": "preferences.life_events_and_transitions",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview states Evan was born in Fort Smith and lived in Van Buren at age 16, which sharpens his local rootedness beyond the draft profile.",
+              "gap": true,
+              "interview_ref": "Q87, Q97",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add a detail noting birth in Fort Smith, upbringing in and around Van Buren, and long-term rootedness in the area."
+            },
+            {
+              "id": 2,
+              "text": "Interview repeatedly states the couple has no children and no grandchildren, which is not explicit in the draft profile preferences.",
+              "gap": true,
+              "interview_ref": "Q05, Q19, Q52",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add a detail stating Evan and his wife do not have children and instead invest care in nieces, nephews, and younger people from church and arts circles."
+            },
+            {
+              "id": 3,
+              "text": "Interview notes there are currently no pets in the household, which is absent from the profile.",
+              "gap": true,
+              "interview_ref": "Q11",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add a detail stating there are no pets in the household right now."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed portrayal of organized budgeting, public speaking, and conflict resolution is directly confirmed by the interview's volunteer workshop and event-planning examples.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.professional_persona, seed.skills_and_expertise",
+              "source_b_ref": "Q02, Q16-Q18, Q65",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed claim that anxiety shapes choices and can trigger comfort eating is confirmed by interview descriptions of overeating rich foods under stress and using structure to cope.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona, seed.culinary_persona",
+              "source_b_ref": "Q32, Q34, Q38, Q43-Q45, Q50",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed travel persona is consistent with the interview's modest-budget travel aspirations and preference for short trips with his wife, especially Santa Fe as a dream trip.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.travel_persona",
+              "source_b_ref": "Q05, Q60, Q62, Q81",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed ambition for Mental Health First Aid certification and a supportive peer role is strongly confirmed and elaborated in the interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.career_goals_and_ambitions",
+              "source_b_ref": "Q04, Q18, Q45, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Interview adds financial decision details not in seed: use of savings, trimming discretionary spending, avoiding borrowing from family, and possible credit-card use for emergencies.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.career_goals_and_ambitions, seed.persona",
+              "source_b_ref": "Q57, Q60-Q64, Q81-Q83",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The profile accurately captures Evan's anxiety-linked present bias toward comfort food and his reliance on structure, hiking, gardening, and painting as self-regulation tools.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q32, Q38, Q43-Q45, Q50",
+              "source_b_ref": "preferences.health_and_wellness, preferences.food_and_dining, summaries.behavioral_economist, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile correctly represents his modest financial strategy and risk aversion, including a small savings cushion and reluctance to make large discretionary purchases when money is tight.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q57, Q60-Q64, Q81-Q83",
+              "source_b_ref": "summaries.behavioral_economist, preferences.travel, preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The profile omits several specific household financial behaviors: budgeting with a notebook and online banking, tracking receipts, comparing medical costs, and delaying non-urgent care.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q40, Q57, Q75",
+              "source_b_ref": "preferences.technology, preferences.health_and_wellness, preferences.work_and_career",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add details to preferences.technology and preferences.health_and_wellness about notebook/online-banking budgeting, receipt folders for medical bills, cost comparison, and delayed non-urgent dental/counseling due to cost."
+            },
+            {
+              "id": 4,
+              "text": "The profile notes only general caution around alcohol and substances; interview more specifically says he drinks only a few times a month, does not smoke, and avoids using alcohol as a coping tool.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q38-Q39",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add to preferences.health_and_wellness.details that he does not smoke, drinks only occasionally, and does not use alcohol or drugs as primary coping tools."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Food, health, and behavioral-economist summary sections are internally coherent: anxiety increases comfort-food consumption, while routines and outdoor activity function as compensating habits.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.food_and_dining",
+              "field_b": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Travel, finances, and work/career sections are internally aligned: he aspires to modest travel and a home studio but defers them under budget pressure.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.travel",
+              "field_b": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview contains detailed household financial management behaviors that are missing from the draft profile.",
+              "gap": true,
+              "interview_ref": "Q40, Q57, Q75",
+              "should_be_in": "preferences.technology",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add details that he uses online banking, tax software, notebooks, and receipt folders to track spending and taxes jointly with his wife."
+            },
+            {
+              "id": 2,
+              "text": "Interview states he delayed dental work and counseling due to cost and limited access, which is important behavioral information missing from the profile.",
+              "gap": true,
+              "interview_ref": "Q36, Q40",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add a detail about delaying dental care and counseling at times because of cost, deductibles, and access constraints."
+            },
+            {
+              "id": 3,
+              "text": "Interview specifies that he relies on pantry meals, cooking at home, and DIY repairs to absorb expense shocks.",
+              "gap": true,
+              "interview_ref": "Q60, Q64, Q81",
+              "should_be_in": "preferences.food_and_dining",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add a detail that pantry meals and home cooking are active budget-management strategies during tight months."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed emphasis on community values, church involvement, and neighborly support is strongly confirmed by the interview's repeated references to parish life, arts volunteering, and local social trust.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background, seed.hobbies_and_interests",
+              "source_b_ref": "Q01, Q07-Q10, Q17, Q47",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Interview adds a fuller civic orientation than the seed: Evan votes most of the time, values local institutions, and sees voting as community membership.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.persona, seed.cultural_background",
+              "source_b_ref": "Q23-Q25",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed does not discuss policing or race; interview adds a moderate reform-oriented stance, selective trust in police, and openness to Black Lives Matter concerns.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q20-Q30",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed localism is consistent with the interview's focus on parks, schools, libraries, downtown businesses, river access, arts funding, and mental-health services.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.professional_persona, seed.cultural_background",
+              "source_b_ref": "Q10, Q24-Q25",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The profile accurately captures Evan as a moderate Independent who leans Democratic on health care, mental health, arts funding, and inclusion while keeping culturally conservative values.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q24-Q25, Q95-Q96",
+              "source_b_ref": "preferences.community_and_civic, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile correctly describes selective institutional trust, including trust in doctors and public health sources, frustration with national politics, and local civic emphasis.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23-Q25, Q41-Q42",
+              "source_b_ref": "summaries.political_scientist, preferences.media_and_information_diet, preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The profile includes his race/policing stance, but omits some interview specificity: he has not protested, prefers gentle pushback and question-asking, and supports concrete reforms like body cameras, transparency, and complaint processes.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q26-Q30",
+              "source_b_ref": "summaries.political_scientist, preferences.community_and_civic, preferences.media_and_information_diet",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add to preferences.community_and_civic.details that he has not joined protests, tends to push back through questions and examples, and favors practical reforms such as training, transparency, body-camera use, and complaint processes."
+            },
+            {
+              "id": 4,
+              "text": "The profile underrepresents the role of arts spaces in his civic thinking, specifically his belief that arts spaces can widen inclusion and tell stories that ordinary meetings cannot.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q27-Q29",
+              "source_b_ref": "preferences.arts_and_culture, preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add to preferences.arts_and_culture.details that he sees arts spaces as a venue for inclusion, representation, and community storytelling."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Community/civic, media/information, and political-scientist summary are internally consistent: he is civically engaged, locally oriented, and selectively trusting rather than anti-institutional.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "preferences.media_and_information_diet",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Cultural/religious identity and political orientation cohere: Catholic faith and family responsibility coexist with moderate-Democratic leanings on health and inclusion.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.cultural_and_linguistic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview adds specific voting behavior details missing from preferences: early voting when organized, Election Day otherwise, and ticket-splitting especially in local races.",
+              "gap": true,
+              "interview_ref": "Q23, Q95",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add a detail about early voting when organized, Election Day voting otherwise, and splitting tickets especially in local elections."
+            },
+            {
+              "id": 2,
+              "text": "Interview provides concrete reform preferences on policing and governance that are absent from the profile.",
+              "gap": true,
+              "interview_ref": "Q27-Q29",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add a detail listing training, transparency, proper body-camera use, and real complaint processes as reforms he supports."
+            },
+            {
+              "id": 3,
+              "text": "Interview notes conversational arenas for political discussion, including family meals, Facebook, church parking lots, and arts meetings, which is useful context for civic behavior.",
+              "gap": true,
+              "interview_ref": "Q29-Q30",
+              "should_be_in": "preferences.media_and_information_diet",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add a detail that his political discussions occur mostly in family, church, Facebook, and arts-community settings rather than protest spaces."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed depiction of organized, outgoing energy combined with anxiety is strongly confirmed by the interview's mix of public-facing competence and private worry.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.professional_persona, seed.persona",
+              "source_b_ref": "Q01-Q04, Q43-Q45",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed claim that anxiety drives impulsive artistic bursts and indulgent comforts is partly elaborated in the interview through racing thoughts, overcommitment, overeating, late-night wakefulness, and getting wrapped up in projects.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.persona, seed.culinary_persona",
+              "source_b_ref": "Q38, Q43-Q45, Q50",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed emphasis on curiosity and innovative exhibition ideas is consistent with the interview's attraction to arts organizing, inclusive curation, and a future welcoming studio for nervous beginners.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.professional_persona, seed.arts_persona",
+              "source_b_ref": "Q28, Q108-Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed positions his wife as present but the interview makes her psychologically central as regulator, encourager, and boundary-setting partner.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q03, Q05, Q34, Q43-Q46, Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The profile accurately captures Evan as conscientious, useful, creative, and community-oriented, with anxiety expressed through racing thoughts, sleep disruption, irritability, and comfort eating.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q43-Q45, Q109",
+              "source_b_ref": "summaries.psychologist, preferences.health_and_wellness, preferences.life_events_and_transitions",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile correctly identifies painting, hiking, gardening, prayer, cooking, and his wife's support as major coping mechanisms.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01, Q31, Q43, Q47, Q50, Q109",
+              "source_b_ref": "preferences.health_and_wellness, preferences.social_and_relationships, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The profile understates his early-morning anxiety pattern, tendency toward catastrophic thinking before events, and warning signs such as tight chest and urge to cancel everything.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q43-Q45",
+              "source_b_ref": "preferences.health_and_wellness, summaries.psychologist",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add to preferences.health_and_wellness.details that anxiety is often worst early morning or before events and shows up as tight chest, racing lists, irritability, and urges to withdraw."
+            },
+            {
+              "id": 4,
+              "text": "The profile captures his future Mental Health First Aid goal but not the psychological meaning of wanting to be 'that calm first person' for others.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q04, Q108",
+              "source_b_ref": "preferences.life_events_and_transitions, preferences.work_and_career",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add to preferences.life_events_and_transitions.details that he wants to convert his own anxiety experience into calm first-response support for others."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Psychological summary and health/life-transition sections are internally consistent: anxiety both limits full-time work and motivates structure, helping roles, and meaning-making.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.psychologist",
+              "field_b": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Social/relationship and psychologist sections are coherent: his wife functions as attachment security, external regulator, and accountability partner.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview provides specific anxiety warning signs and timing patterns not captured in the draft profile.",
+              "gap": true,
+              "interview_ref": "Q43-Q45",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add a detail about early-morning and pre-event anxiety, tight chest, racing lists, irritability, poor sleep, and wanting to cancel commitments."
+            },
+            {
+              "id": 2,
+              "text": "Interview repeatedly shows his wife actively helping him regulate overcommitment and emotional spirals, which should be more explicit in the relational profile.",
+              "gap": true,
+              "interview_ref": "Q03, Q05, Q34, Q44, Q46",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add a detail stating his wife is his main emotional anchor and helps him set limits, reality-check conflicts, and maintain routine."
+            },
+            {
+              "id": 3,
+              "text": "Interview includes a vivid conflict episode before an arts display that illustrates his coping style and growth but is absent from the draft profile.",
+              "gap": true,
+              "interview_ref": "Q44",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add a detail about the volunteer conflict before an arts display prompting clearer rules and better emotional self-monitoring."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No contradictions required human review, but multiple meaningful interview details were missing from the draft profile and were added through targeted preference updates. Because completeness enrichments and minor profile updates were necessary, the result is PASS_WITH_REVISIONS rather than PASS.",
+    "final_status": "Verified and corrected. The profile is internally coherent, aligned with the interview and seed, enriched where the draft omitted substantive facts, and ready for downstream use."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "f057df99f90543c29b4b773b46109c33",
+    "name": "Evan Buscetta",
+    "age": 49,
+    "gender": "Male",
+    "marital_status": "Married, living with wife",
+    "location": "Van Buren, AR 72956",
+    "education": "High school diploma",
+    "occupation": "No paid occupation; unpaid community arts volunteer and event planner",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces to the verification report above.",
+      "health_and_wellness": {
+        "summary": "Active but health-conscious middle-aged man managing anxiety, weight, knee/back soreness, and routine care.",
+        "details": [
+          "Hikes, gardens, walks, and uses structure to manage health and anxiety (Q31, Q32, Q43).",
+          "Generally pro-vaccine and trusts doctors, CDC, Arkansas Department of Health, and pharmacists (Q41, Q42).",
+          "Interested in Mental Health First Aid certification because of personal anxiety experience (Q04, Q45, Q108).",
+          "Anxiety is often worst early in the morning or the night before a big event and shows up as tight chest, racing lists, irritability, poor sleep, and wanting to cancel commitments (Q43-Q45).",
+          "He does not smoke, drinks only occasionally, does not use marijuana or other drugs, and does not use alcohol as his main coping tool (Q38, Q39).",
+          "He has a local primary care clinic, but delayed dental work and counseling at times because of cost, deductibles, and limited access; mental health counseling and dental care are the hardest services to access (Q31, Q36, Q40)."
+        ],
+        "evidence": "Q04, Q31-Q45, Q108"
+      },
+      "food_and_dining": {
+        "summary": "Enjoys Southern comfort cooking with Italian-American family-food influences, but overeats comfort foods when anxious.",
+        "details": [
+          "Cooks ribs, cornbread, greens, beans, pasta, and pantry meals (Q56, Q64).",
+          "Finds fried catfish, bacon, ribs, and cornbread hard to moderate under stress (Q32, Q38).",
+          "Values family meals, casseroles, Sunday dinners, and cooking for others (Q01, Q109).",
+          "Uses pantry meals and more home cooking as a deliberate budget strategy during tight months (Q60, Q64, Q81)."
+        ],
+        "evidence": "Q01, Q32, Q38, Q56, Q60, Q64, Q81, Q109"
+      },
+      "travel": {
+        "summary": "Prefers modest, art- and music-oriented regional travel, with Santa Fe as a dream destination.",
+        "details": [
+          "Delays weekend trips when finances are tight (Q60, Q81).",
+          "Wants to visit Santa Fe for Pueblo markets and art (Q62).",
+          "Enjoys day trips, music, and arts experiences with his wife (Q05).",
+          "Travel savings are small and compete with emergency savings and home-repair needs (Q60-Q62)."
+        ],
+        "evidence": "Q05, Q60-Q62, Q81"
+      },
+      "social_and_relationships": {
+        "summary": "Highly community-oriented, with a close marriage and social ties through family, church, arts, hiking, and theater.",
+        "details": [
+          "Lives with and relies emotionally on his wife (Q05, Q11, Q51).",
+          "Maintains extended family ties through meals, holidays, calls, and visits (Q05, Q06).",
+          "Has important friendships through Mary Grant, hiking club, arts council, theater, church, and garden (Q07).",
+          "He and his wife do not have children; they instead invest care in nieces, nephews, and younger people from church and the arts council (Q05, Q19, Q52).",
+          "His wife is his main emotional anchor and helps him set limits, reality-check conflicts, review the calendar, and keep anxiety from spiraling (Q03, Q34, Q44, Q46)."
+        ],
+        "evidence": "Q03, Q05-Q07, Q11, Q19, Q34, Q44, Q46, Q51-Q52"
+      },
+      "home_and_lifestyle": {
+        "summary": "Owns a modest mortgaged home with a yard, porch, garden, and painting space.",
+        "details": [
+          "Lives in Van Buren with his wife only (Q11, Q51).",
+          "Owns a home with a mortgage, yard, porch, and room for painting supplies (Q58).",
+          "Handles cooking, gardening, repairs, and household practical tasks (Q17).",
+          "The household currently has no pets (Q11)."
+        ],
+        "evidence": "Q11, Q17, Q51, Q58"
+      },
+      "entertainment": {
+        "summary": "Prefers live community entertainment, theater, bluegrass/folk shows, and occasional sports viewing.",
+        "details": [
+          "Participates in community theater onstage and backstage (Q07, Q15).",
+          "Attends bluegrass and folk shows with his wife when affordable (Q05, Q81).",
+          "Comments on Arkansas Razorbacks and watches games socially (Q48).",
+          "Community theater, local shows, and low-cost local events are preferred over expensive entertainment (Q05, Q48, Q81)."
+        ],
+        "evidence": "Q05, Q07, Q15, Q48, Q81"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Paints watercolor landscapes, gardens, hikes, birdwatches, photographs, cooks, and participates in theater.",
+        "details": [
+          "Paints in the morning and keeps a spare room for painting supplies (Q11, Q15).",
+          "Hikes Saturdays with the Ozark Trail Hiking Club (Q07, Q15).",
+          "Gardens regularly and uses gardening as exercise and grounding (Q15, Q31, Q32).",
+          "Also enjoys birdwatching, photography, and cooking as restorative hobbies tied to local place and community life (Q01, Q17, Q31, Q48, Q109)."
+        ],
+        "evidence": "Q01, Q07, Q11, Q15, Q17, Q31, Q32, Q48, Q109"
+      },
+      "work_and_career": {
+        "summary": "Currently not employed for pay, but strongly identifies with volunteer coordination and hopes for part-time paid arts coordination.",
+        "details": [
+          "Has no paid occupation and no current paycheck (Q16, Q69-Q73).",
+          "Does unpaid event planning, volunteer coordination, budgeting, public speaking, and conflict resolution (Q16, Q65).",
+          "Wants a part-time volunteer coordinator role and home-based art studio (Q16, Q83, Q108).",
+          "Prefers part-time rather than full-time paid work because it fits his energy, anxiety management, and family rhythm better (Q16, Q34, Q83)."
+        ],
+        "evidence": "Q16, Q34, Q65-Q73, Q83, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Arts are central to identity, service, and social life, especially watercolor, local exhibits, theater, and community workshops.",
+        "details": [
+          "Coordinates Van Buren Arts Council workshops and displays (Q02, Q16, Q65).",
+          "Draws inspiration from local painter Mary Grant and watercolor practice (Q02, Q48).",
+          "Wants inclusive arts spaces and broader representation among local artists (Q28).",
+          "Sees arts spaces as a way to widen inclusion, tell stories, and make people feel welcome when ordinary meetings cannot hold those conversations well (Q27-Q29, Q108)."
+        ],
+        "evidence": "Q02, Q16, Q27-Q29, Q48, Q65, Q108"
+      },
+      "sports_and_fitness": {
+        "summary": "Moderately active through hiking, gardening, walking, and Arkansas Razorbacks fandom.",
+        "details": [
+          "Hikes weekly or often with the Ozark Trail Hiking Club (Q07, Q15).",
+          "Uses hiking poles and stretches because of knee soreness (Q33).",
+          "Posts or comments about the Razorbacks on social media (Q48).",
+          "Stays active through gardening, hauling tables at events, and regular walking rather than formal gym routines (Q17, Q31, Q33)."
+        ],
+        "evidence": "Q07, Q15, Q17, Q31, Q33, Q48"
+      },
+      "nature_and_outdoors": {
+        "summary": "Finds calm, inspiration, and beauty in the Arkansas River, Ozark trails, gardening, and local landscapes.",
+        "details": [
+          "Likes living near the Arkansas River and walking locally (Q08, Q09).",
+          "Paints Arkansas River scenes and Ozark ridges (Q01).",
+          "Gardening and hiking are central wellness practices (Q15, Q32).",
+          "Values ordinary natural beauty such as river light, local ridges, bird feeders, and tomato gardens as emotional grounding (Q08, Q43, Q109)."
+        ],
+        "evidence": "Q01, Q08, Q09, Q15, Q32, Q43, Q109"
+      },
+      "technology": {
+        "summary": "Uses ordinary consumer technology, mainly Facebook, Instagram, online banking, and tax software.",
+        "details": [
+          "Uses Facebook for family, arts council events, hiking plans, church announcements, and local music (Q48).",
+          "Uses Instagram for watercolor artists, landscape photos, and theater posts (Q48).",
+          "Uses tax software and online banking with his wife (Q57, Q75).",
+          "Tracks spending with a notebook, keeps receipt folders for bills, and uses digital tools mostly for practical household organization rather than constant posting (Q40, Q57, Q75)."
+        ],
+        "evidence": "Q40, Q48, Q57, Q75"
+      },
+      "community_and_civic": {
+        "summary": "Deeply community-focused, votes most of the time, volunteers extensively, and values local institutions.",
+        "details": [
+          "Votes most of the time and treats voting as civic participation (Q23).",
+          "Volunteers through arts council, church meals, community events, and older adult check-ins (Q16, Q17, Q47).",
+          "Cares about parks, schools, libraries, downtown, river access, health care, and arts funding (Q24).",
+          "Usually votes early when organized and on Election Day otherwise, and he is willing to split tickets especially in local races (Q23, Q95).",
+          "Has not joined protests, tends to push back through questions and examples, and favors practical reforms such as training, transparency, proper body-camera use, and real complaint processes (Q27-Q29)."
+        ],
+        "evidence": "Q16, Q17, Q23-Q29, Q47, Q95"
+      },
+      "music": {
+        "summary": "Enjoys bluegrass, folk, church music, and live local performances.",
+        "details": [
+          "Goes to bluegrass and folk shows with his wife when possible (Q05).",
+          "Uses Facebook to follow local music (Q48).",
+          "Associates family and church life with music and gatherings (Q01, Q47).",
+          "Prefers small-room live performances and music tied to community rather than celebrity culture (Q01, Q05, Q47, Q48)."
+        ],
+        "evidence": "Q01, Q05, Q47, Q48"
+      },
+      "fashion_and_appearance": {
+        "summary": "Little direct evidence; appearance preferences appear practical and activity-based.",
+        "details": [
+          "Mentions hiking boots, poles, and event setup contexts rather than fashion (Q07, Q33).",
+          "No stated interest in fashion brands, grooming, or style.",
+          "His presentation appears to prioritize practicality, comfort, and readiness for outdoor, church, or volunteer settings over self-display (Q07, Q17, Q33)."
+        ],
+        "evidence": "Q07, Q17, Q33"
+      },
+      "cultural_and_linguistic": {
+        "summary": "White, non-Hispanic, Italian-American Southern man raised Roman Catholic in Arkansas.",
+        "details": [
+          "Identifies as White and not Hispanic, Latinx, or Spanish origin (Q88, Q89).",
+          "Raised and still identifies Roman Catholic (Q47, Q94).",
+          "Describes Italian-American and Southern family culture centered on food, church, music, and hospitality (Q01, Q86).",
+          "Was born in Fort Smith, grew up in and around Van Buren, and is strongly rooted in western Arkansas (Q87, Q97)."
+        ],
+        "evidence": "Q01, Q47, Q86-Q89, Q94, Q97"
+      },
+      "life_events_and_transitions": {
+        "summary": "Key transition was reframing himself from underemployed/anxious to useful community arts organizer.",
+        "details": [
+          "Stopped measuring himself only by paid work after helping coordinate an arts workshop (Q02).",
+          "Marriage has been a central stabilizing relationship (Q05, Q84).",
+          "Recent routine changes aim to manage anxiety and commitments (Q18, Q50).",
+          "He wants to turn his own experience with anxiety into calm first-response support for others through Mental Health First Aid and a welcoming art space (Q04, Q45, Q108).",
+          "A conflict before an arts display led him to create clearer rules and monitor his anxiety more actively instead of quitting (Q44)."
+        ],
+        "evidence": "Q02, Q04, Q05, Q18, Q44, Q45, Q50, Q84, Q108"
+      },
+      "media_and_information_diet": {
+        "summary": "Uses Facebook and Instagram for community information, art, family, and local events; trusts medical professionals over social media for health.",
+        "details": [
+          "Uses Facebook most for family, arts, hiking, church, and music information (Q48).",
+          "Uses Instagram for artists, photography, and theater (Q48).",
+          "Distrusts random Facebook medical claims and prefers doctors and public health sources (Q42).",
+          "Political and community conversations happen mostly through family meals, church parking lots, Facebook, and arts meetings rather than protest spaces or national-pundit media (Q29, Q30, Q42, Q48)."
+        ],
+        "evidence": "Q29, Q30, Q42, Q48"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Evan Buscetta is a 49-year-old married White non-Hispanic man living with his wife in Van Buren, Arkansas (Q51, Q84, Q88, Q89). He was born in Fort Smith, grew up in Van Buren, completed high school, and is not currently enrolled in school or employed for pay (Q85-Q91, Q65-Q73). His household owns a modest mortgaged home and relies mainly on his wife's income, with a tight but functioning budget (Q58, Q74, Q83). His life-course profile reflects local rootedness, stable marriage, no children, strong extended family ties, and middle-to-lower-middle financial caution (Q05, Q06, Q63, Q82).",
+      "behavioral_economist": "Evan shows strong prosocial motivation and identity utility from unpaid community work, even without direct wages (Q16, Q65, Q83). His choices are shaped by loss aversion around medical bills, car repairs, and debt, leading to pantry meals, delayed trips, and careful budgeting when expenses rise (Q60-Q64, Q81-Q82). He has present-biased comfort coping under anxiety, especially overeating fried or rich foods, but offsets that with routines such as hiking, gardening, and calendar structure (Q32, Q38, Q50). He is cautious with risk, preferring part-time work, modest savings, and practical local commitments over large uncertain changes (Q16, Q61, Q108).",
+      "political_scientist": "Evan is a moderate Independent who leans Democratic on health care, mental health, arts funding, and inclusion, while retaining culturally conservative values around faith, family, responsibility, and budgeting (Q24, Q95, Q96). He votes most of the time and treats voting as part of local civic responsibility (Q23). His institutional trust is selective: he trusts doctors and public health sources for vaccines, values local community institutions, and is wary of national political polarization (Q24, Q42). On race and policing, he is sympathetic but cautious, preferring listening, local inclusion, and practical reforms over protest participation (Q26-Q30).",
+      "psychologist": "Evan presents as conscientious, socially warm, community-oriented, and creative, with a strong need to be useful and dependable (Q01, Q16, Q109). Anxiety is his main mental health challenge, expressed through racing thoughts, sleep disruption, overcommitment, irritability, and comfort eating (Q43-Q45). He regulates emotion through structure, watercolor painting, hiking, gardening, prayer, cooking, and support from his wife (Q18, Q31, Q43, Q47, Q50). His self-concept is organized around transforming personal anxiety and informal skills into service, especially through arts coordination and future Mental Health First Aid work (Q04, Q45, Q108)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Evan uses hiking, gardening, and walking as ongoing health and anxiety-management practices.",
+        "ground_truth_label": "Active outdoor routines support physical and mental health",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"I am active: I hike, garden, and move around at events.\"",
+          "Q32: \"Saturday hikes and watering the garden.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist",
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Evan relies on daily structure to manage anxiety.",
+        "ground_truth_label": "Structure-based anxiety coping",
+        "behavioral_evidence_from_interview": [
+          "Q18: \"I have been trying to make my routine steadier because anxiety gets worse when days are too loose.\"",
+          "Q50: \"Morning structure.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist",
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Evan is generally pro-vaccine.",
+        "ground_truth_label": "Pro-vaccine orientation",
+        "behavioral_evidence_from_interview": [
+          "Q41: \"I am generally pro-vaccine.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Evan trusts his primary care doctor for vaccine and health information.",
+        "ground_truth_label": "Trusts personal physician",
+        "behavioral_evidence_from_interview": [
+          "Q42: \"My primary care doctor is first.\"",
+          "Q41: \"I trusted my doctor.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Evan trusts the CDC, the Arkansas Department of Health, and local pharmacists for vaccine information.",
+        "ground_truth_label": "Trusts public health institutions",
+        "behavioral_evidence_from_interview": [
+          "Q42: \"I also trust the CDC, the Arkansas Department of Health, and pharmacists I know locally.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Evan wants Mental Health First Aid certification because of his personal experience with anxiety.",
+        "ground_truth_label": "Mental Health First Aid goal rooted in lived experience",
+        "behavioral_evidence_from_interview": [
+          "Q04: \"I want to be that calm first person for somebody else.\"",
+          "Q45: \"That is part of why Mental Health First Aid appeals to me.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Evan's anxiety is often worst early in the morning or the night before a big event.",
+        "ground_truth_label": "Early-morning and pre-event anxiety pattern",
+        "behavioral_evidence_from_interview": [
+          "Q43: \"Early morning or the night before a big event.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Evan's anxiety warning signs include tight chest, racing lists, irritability, poor sleep, and wanting to cancel commitments.",
+        "ground_truth_label": "Somatic and cognitive anxiety warning signs",
+        "behavioral_evidence_from_interview": [
+          "Q45: \"Tight chest, racing lists, irritability, and wanting to cancel everything.\"",
+          "Q34: \"I sleep poorly, eat badly, and get irritable.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Evan does not smoke.",
+        "ground_truth_label": "Non-smoker",
+        "behavioral_evidence_from_interview": [
+          "Q38: \"I do not smoke.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Evan drinks alcohol only occasionally, a few times a month or less.",
+        "ground_truth_label": "Occasional alcohol use",
+        "behavioral_evidence_from_interview": [
+          "Q38: \"I drink occasionally, maybe a beer at a cookout or a glass of wine with dinner.\"",
+          "Q38: \"A few times a month, sometimes less.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Evan does not use alcohol as his main coping tool.",
+        "ground_truth_label": "Does not cope primarily through alcohol",
+        "behavioral_evidence_from_interview": [
+          "Q38: \"I do not use alcohol as my main coping tool.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Evan does not use marijuana or other drugs.",
+        "ground_truth_label": "No marijuana or illicit drug use",
+        "behavioral_evidence_from_interview": [
+          "Q39: \"I do not use marijuana or other drugs.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Evan has a local primary care clinic.",
+        "ground_truth_label": "Has local primary care access",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"Yes, a primary care clinic locally.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Evan delayed dental work at times because of cost.",
+        "ground_truth_label": "Cost-related dental delay",
+        "behavioral_evidence_from_interview": [
+          "Q36: \"I have delayed dental work ... at times because of cost.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Evan put off counseling at times because of cost.",
+        "ground_truth_label": "Cost-related counseling delay",
+        "behavioral_evidence_from_interview": [
+          "Q36: \"[I] put off counseling at times because of cost.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Mental health counseling and dental care are the hardest health services for Evan to access.",
+        "ground_truth_label": "Mental health and dental access barriers",
+        "behavioral_evidence_from_interview": [
+          "Q36: \"Mental health counseling and dental.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Evan regularly cooks ribs, cornbread, greens, beans, and pasta at home.",
+        "ground_truth_label": "Home-cooked Southern and pantry staples",
+        "behavioral_evidence_from_interview": [
+          "Q56: \"Meat, produce, coffee, and pantry staples.\"",
+          "Q64: \"Beans, cornbread, pasta, greens, and soup.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Fried catfish is one of Evan's hardest foods to moderate under stress.",
+        "ground_truth_label": "Stress-triggered fried catfish overeating",
+        "behavioral_evidence_from_interview": [
+          "Q32: \"Fried catfish ... no question.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Bacon is one of Evan's hardest foods to moderate under stress.",
+        "ground_truth_label": "Stress-triggered bacon overeating",
+        "behavioral_evidence_from_interview": [
+          "Q32: \"Fried catfish and bacon, no question.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Ribs and cornbread are comfort foods Evan overeats when anxious.",
+        "ground_truth_label": "Stress-triggered rich comfort eating",
+        "behavioral_evidence_from_interview": [
+          "Q32: \"a second helping of ribs and cornbread.\"",
+          "Q44: \"That night I ate too much.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist",
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Family meals and Sunday dinners are important to Evan's sense of culture and care.",
+        "ground_truth_label": "Family meals as core relational practice",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"holidays meant a crowded table\"",
+          "Q109: \"bringing food\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Evan uses pantry meals and extra home cooking when finances are tight.",
+        "ground_truth_label": "Pantry meals as budget coping",
+        "behavioral_evidence_from_interview": [
+          "Q64: \"used pantry meals until the next deposit came in.\"",
+          "Q81: \"We cooked from the pantry.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Evan delays weekend trips when finances are tight.",
+        "ground_truth_label": "Travel is deferred under budget pressure",
+        "behavioral_evidence_from_interview": [
+          "Q60: \"We ... delayed a weekend trip.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Santa Fe is Evan's dream trip because of Pueblo markets and art.",
+        "ground_truth_label": "Santa Fe art-travel aspiration",
+        "behavioral_evidence_from_interview": [
+          "Q62: \"Santa Fe for Pueblo markets and art.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Evan enjoys short day trips and arts or music outings with his wife.",
+        "ground_truth_label": "Short regional travel with spouse",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"take short day trips.\"",
+          "Q05: \"bluegrass or folk shows when they come through\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Travel savings are secondary to emergency savings and home-repair needs.",
+        "ground_truth_label": "Travel subordinated to financial caution",
+        "behavioral_evidence_from_interview": [
+          "Q62: \"Mostly rainy day savings. We also save little amounts for travel\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Evan lives with his wife and relies on her emotionally.",
+        "ground_truth_label": "Wife is primary daily support",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"my wife is the most important person in my daily life.\"",
+          "Q43: \"talking with my wife help me come back down.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Evan maintains extended family ties through holidays, meals, calls, and visits.",
+        "ground_truth_label": "Strong extended family ties",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"We see them at holidays, cookouts, parish events\"",
+          "Q06: \"mostly by phone, Sunday visits, and family meals.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Mary Grant is an important art friend who helped pull Evan deeper into arts organizing.",
+        "ground_truth_label": "Mary Grant as key arts tie",
+        "behavioral_evidence_from_interview": [
+          "Q02: \"A local painter named Mary Grant.\"",
+          "Q07: \"Mary Grant is a good art friend.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Evan's close friendships come through the hiking club, arts council, theater, church, and the garden.",
+        "ground_truth_label": "Friend network rooted in community groups",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"My friends are mostly connected through the arts council, community theater, church, hiking, and the garden.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Evan and his wife do not have children.",
+        "ground_truth_label": "No children",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"No, we do not have children.\"",
+          "Q19: \"We do not have children\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Evan and his wife invest care in nieces, nephews, and younger people from church and the arts council.",
+        "ground_truth_label": "Intergenerational care outside parenthood",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"We have nieces, nephews, and younger folks from church and the arts council we care about.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Evan's wife helps him set limits, review the calendar, and reality-check conflicts when anxiety spikes.",
+        "ground_truth_label": "Spouse as external regulator and accountability partner",
+        "behavioral_evidence_from_interview": [
+          "Q34: \"My wife and I review the calendar before I say yes.\"",
+          "Q44: \"my wife told me to call both people and deal with the facts.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Evan lives in Van Buren with his wife and no one else regularly resides in the home.",
+        "ground_truth_label": "Two-person household",
+        "behavioral_evidence_from_interview": [
+          "Q51: \"It is just the two of us.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Evan owns his home with a mortgage.",
+        "ground_truth_label": "Homeownership with mortgage",
+        "behavioral_evidence_from_interview": [
+          "Q58: \"We own our home with a mortgage.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Evan's home has a yard, a porch, and a spare room for painting supplies.",
+        "ground_truth_label": "Modest home with garden and art space",
+        "behavioral_evidence_from_interview": [
+          "Q58: \"It has a yard, a porch, and room for my painting supplies.\"",
+          "Q11: \"the spare room I use for painting and supplies.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Evan handles much of the cooking, gardening, and small repairs at home.",
+        "ground_truth_label": "Practical household role",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"I cook a lot, tend the garden, fix small things\"",
+          "Q17: \"I handle a lot of cooking, grocery planning, basic repairs, and garden work.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Evan's household currently has no pets.",
+        "ground_truth_label": "No pets currently",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"No pets right now.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Evan participates in community theater both onstage and backstage.",
+        "ground_truth_label": "Community theater participation",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"I help backstage and sometimes act\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Evan and his wife attend bluegrass and folk shows when they can afford them.",
+        "ground_truth_label": "Live roots-music attendance",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"We go to bluegrass or folk shows when they come through\"",
+          "Q81: \"We skipped events with ticket prices\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Evan comments on Arkansas Razorbacks games socially and on social media.",
+        "ground_truth_label": "Razorbacks sports fandom",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"sometimes Razorbacks comments.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Evan prefers low-cost local entertainment over more expensive outings when money is tight.",
+        "ground_truth_label": "Budget-shaped entertainment choices",
+        "behavioral_evidence_from_interview": [
+          "Q57: \"Where do you trim first? Eating out, music tickets, and art supplies.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Evan paints watercolor landscapes in the morning.",
+        "ground_truth_label": "Morning watercolor practice",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"Mornings\"",
+          "Q01: \"painting watercolor landscapes\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Evan hikes with the Ozark Trail Hiking Club on Saturdays.",
+        "ground_truth_label": "Saturday hiking-club routine",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"a few men from the Ozark Trail Hiking Club I see most Saturdays\"",
+          "Q15: \"Saturdays I often hike with the Ozark Trail Hiking Club\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Gardening is both a hobby and a grounding practice for Evan.",
+        "ground_truth_label": "Gardening as recreation and coping",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"Walking, gardening\"",
+          "Q15: \"water the garden if it is warm\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Evan also enjoys birdwatching and photography tied to Arkansas landscapes and local events.",
+        "ground_truth_label": "Nature-linked visual hobbies",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"painting Arkansas River scenes and Ozark ridges\"",
+          "Q48: \"landscape photos\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Evan currently has no paid job and no current paycheck.",
+        "ground_truth_label": "No current paid employment",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"I do not have a paid job right now.\"",
+          "Q73: \"I do not currently get paid from a job.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Evan spends about ten to fifteen hours a week on unpaid arts council or community project work, with higher workloads before events.",
+        "ground_truth_label": "Substantial volunteer labor commitment",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"ten to fifteen hours in a normal week\"",
+          "Q68: \"Volunteer work averages about ten to fifteen hours a week.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Evan's volunteer work includes coordination, budgets, sign-in sheets, vendor calls, public speaking, and conflict smoothing.",
+        "ground_truth_label": "Volunteer event-planning skill set",
+        "behavioral_evidence_from_interview": [
+          "Q65: \"coordinate volunteers, make schedules, manage small budgets, call vendors, set up rooms, introduce speakers\"",
+          "Q17: \"smooth over a disagreement.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist",
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Evan wants a part-time volunteer coordinator role rather than full-time work because it fits his energy, anxiety, and family rhythm.",
+        "ground_truth_label": "Part-time work preference shaped by anxiety and home life",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"It fits my energy, anxiety, and family rhythm better than full-time work.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Evan coordinates workshops and informal displays for the Van Buren Arts Council.",
+        "ground_truth_label": "Arts Council organizer role",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"coordinating volunteers, setting up art displays\"",
+          "Q02: \"help coordinate a volunteer watercolor workshop.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Mary Grant helped legitimize Evan's identity as an artist and organizer.",
+        "ground_truth_label": "Mary Grant as validating arts mentor-peer",
+        "behavioral_evidence_from_interview": [
+          "Q02: \"people at church and the arts council took me seriously enough that I started taking myself seriously too.\"",
+          "Q02: \"A local painter named Mary Grant\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Evan wants local arts spaces to be more inclusive and to show a wider range of artists.",
+        "ground_truth_label": "Inclusive arts-organizing orientation",
+        "behavioral_evidence_from_interview": [
+          "Q28: \"I have been trying to notice whose work gets shown and who feels welcome in the room.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Evan believes art can tell community stories that formal meetings cannot hold well.",
+        "ground_truth_label": "Art as civic storytelling medium",
+        "behavioral_evidence_from_interview": [
+          "Q27: \"Art can let people tell stories that meetings cannot hold well.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Evan hikes weekly or near-weekly as his main exercise.",
+        "ground_truth_label": "Regular hiking-based fitness",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"Saturdays I often hike\"",
+          "Q32: \"Saturday hikes\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Evan uses hiking poles and stretching because of knee soreness.",
+        "ground_truth_label": "Knee-management adaptations for hiking",
+        "behavioral_evidence_from_interview": [
+          "Q33: \"I use poles when needed.\"",
+          "Q33: \"more careful about stretching\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Gardening, hauling tables, and walking function as part of Evan's practical fitness routine.",
+        "ground_truth_label": "Functional everyday activity as exercise",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"move around at events.\"",
+          "Q17: \"help with folding tables\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Evan likes living near the Arkansas River and spends time around the river area.",
+        "ground_truth_label": "River-oriented sense of place",
+        "behavioral_evidence_from_interview": [
+          "Q08: \"I like being near the Arkansas River\"",
+          "Q08: \"The river area\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Evan paints Arkansas River scenes and Ozark ridges.",
+        "ground_truth_label": "Local landscapes as artistic subject matter",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"painting Arkansas River scenes and Ozark ridges in watercolor\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Ordinary natural details like gardens, bird feeders, and river light help ground Evan emotionally.",
+        "ground_truth_label": "Everyday nature as grounding stimulus",
+        "behavioral_evidence_from_interview": [
+          "Q08: \"yards with tomatoes or bird feeders\"",
+          "Q109: \"light on the river\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Facebook is Evan's main social media platform.",
+        "ground_truth_label": "Facebook-primary social media use",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"I use Facebook the most.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Evan uses Facebook for family updates, arts events, hiking plans, church announcements, local music, and prayer or event-support posts.",
+        "ground_truth_label": "Facebook for community coordination",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"family, arts council events, hiking plans, church announcements, and local music.\"",
+          "Q49: \"Usually prayer requests or event needs.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Evan uses Instagram for watercolor artists, landscape photography, and theater posts.",
+        "ground_truth_label": "Instagram for visual arts browsing",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"I use Instagram some for watercolor artists, landscape photos, and theater posts.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Evan and his wife use online banking and tax software for household management.",
+        "ground_truth_label": "Digital household finance tools",
+        "behavioral_evidence_from_interview": [
+          "Q57: \"online banking\"",
+          "Q75: \"We used tax software\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Evan tracks costs with a notebook and keeps receipts in a folder, using technology mainly for practical organization.",
+        "ground_truth_label": "Hybrid analog-digital budgeting style",
+        "behavioral_evidence_from_interview": [
+          "Q57: \"Close enough with a notebook and online banking.\"",
+          "Q40: \"I keep receipts in a folder\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Evan votes most of the time and sees voting as part of being a community member.",
+        "ground_truth_label": "Regular but not perfect voter",
+        "behavioral_evidence_from_interview": [
+          "Q23: \"I vote most of the time\"",
+          "Q23: \"I see voting as part of being a community member\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Evan volunteers through arts council events, church meals, and check-ins on older adults.",
+        "ground_truth_label": "Multi-institution local volunteering",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"try to check on a couple older folks from church.\"",
+          "Q47: \"Yes, mostly meals, setup, and checking on older members.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Evan cares about parks, schools, libraries, downtown businesses, river access, health care, and arts funding.",
+        "ground_truth_label": "Local-issue civic orientation",
+        "behavioral_evidence_from_interview": [
+          "Q24: \"I care about local issues: parks, schools, libraries, downtown businesses, river access\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Evan usually votes early when organized and on Election Day when not.",
+        "ground_truth_label": "Flexible voting habit",
+        "behavioral_evidence_from_interview": [
+          "Q23: \"Usually early if I am organized, Election Day if not.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Evan is willing to split tickets, especially in local elections.",
+        "ground_truth_label": "Ticket-splitting voter",
+        "behavioral_evidence_from_interview": [
+          "Q95: \"Yes, especially locally.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Evan has not joined protests on race or policing issues.",
+        "ground_truth_label": "No protest participation",
+        "behavioral_evidence_from_interview": [
+          "Q29: \"I have not joined protests\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Evan prefers to push back on racism by asking questions and giving examples rather than yelling.",
+        "ground_truth_label": "Gentle conversational pushback style",
+        "behavioral_evidence_from_interview": [
+          "Q29: \"I have pushed back gently\"",
+          "Q29: \"I ask questions and bring up examples instead of yelling.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Evan supports policing reforms such as training, transparency, proper body-camera use, and real complaint processes.",
+        "ground_truth_label": "Moderate reformist stance on policing",
+        "behavioral_evidence_from_interview": [
+          "Q27: \"Training, transparency, body cameras used properly, and real complaint processes.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Evan enjoys bluegrass and folk performances.",
+        "ground_truth_label": "Bluegrass and folk preference",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"We go to bluegrass or folk shows\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Evan follows local music through Facebook.",
+        "ground_truth_label": "Uses social media to follow local music",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"church announcements, and local music.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Music is part of Evan's family and church identity.",
+        "ground_truth_label": "Music embedded in family and parish life",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"somebody playing music\"",
+          "Q47: \"The parish gave me ritual, music, service\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Evan talks about boots, hiking poles, and volunteer setup gear rather than fashion brands or style.",
+        "ground_truth_label": "Practical rather than fashion-focused self-presentation",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"we know each other's knees, boots, and snack preferences\"",
+          "Q33: \"I use poles when needed.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Evan identifies as White and not Hispanic, Latinx, or Spanish origin.",
+        "ground_truth_label": "White non-Hispanic identity",
+        "behavioral_evidence_from_interview": [
+          "Q88: \"No.\"",
+          "Q89: \"White.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Evan identifies as Roman Catholic and was raised Catholic.",
+        "ground_truth_label": "Roman Catholic identity",
+        "behavioral_evidence_from_interview": [
+          "Q94: \"Roman Catholic.\"",
+          "Q47: \"I was raised Roman Catholic\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Evan describes himself culturally as Italian-American and Southern.",
+        "ground_truth_label": "Italian-American Southern cultural identity",
+        "behavioral_evidence_from_interview": [
+          "Q88: \"White, Italian-American and Southern.\"",
+          "Q01: \"half Italian-American Sunday dinner and half Arkansas front-porch hospitality.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Evan was born in Fort Smith and grew up in and around Van Buren.",
+        "ground_truth_label": "Fort Smith birth and Van Buren upbringing",
+        "behavioral_evidence_from_interview": [
+          "Q87: \"Fort Smith, Arkansas.\"",
+          "Q01: \"I was born and raised around Van Buren, Arkansas.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "A key turning point for Evan was stopping measuring himself only by paid work after coordinating a volunteer watercolor workshop.",
+        "ground_truth_label": "Identity shift from wage status to usefulness",
+        "behavioral_evidence_from_interview": [
+          "Q02: \"One big crossroads came when I stopped trying to measure myself only by paid work.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Evan's marriage has been a major stabilizing force across adulthood.",
+        "ground_truth_label": "Marriage as stabilizing life anchor",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"my wife has been my steady person through every season.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Evan recently restructured his mornings and afternoons to reduce anxiety and overcommitment.",
+        "ground_truth_label": "Routine redesign for mental health",
+        "behavioral_evidence_from_interview": [
+          "Q18: \"I started blocking mornings for painting or walking, afternoons for errands and volunteer calls\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Evan wants to transform his own anxiety experience into support for others through Mental Health First Aid and a welcoming art studio.",
+        "ground_truth_label": "Service-oriented meaning-making from anxiety",
+        "behavioral_evidence_from_interview": [
+          "Q04: \"I want to be that calm first person for somebody else.\"",
+          "Q108: \"seniors, beginners, and nervous people can come paint without feeling judged.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "After a volunteer conflict before an arts display, Evan created clearer display rules instead of quitting.",
+        "ground_truth_label": "Conflict episode prompted procedural growth",
+        "behavioral_evidence_from_interview": [
+          "Q44: \"I did write down better guidelines.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Evan uses Facebook for family, arts, hiking, church, and music information.",
+        "ground_truth_label": "Facebook as local information hub",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"It is how I keep up with family, arts council events, hiking plans, church announcements, and local music.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Evan uses Instagram to follow artists, photography, and theater.",
+        "ground_truth_label": "Instagram as arts-following platform",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"I use Instagram some for watercolor artists, landscape photos, and theater posts.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Evan distrusts medical claims from random Facebook posts.",
+        "ground_truth_label": "Rejects random social-media medical advice",
+        "behavioral_evidence_from_interview": [
+          "Q42: \"I do not take medical advice from random Facebook posts\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Evan's political conversations mostly happen in family settings, church parking lots, Facebook, and arts meetings.",
+        "ground_truth_label": "Politics discussed in local relational spaces",
+        "behavioral_evidence_from_interview": [
+          "Q29: \"Family meals, Facebook, church parking lots, and arts meetings.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "reprojected",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Evan is 49 years old.",
+        "ground_truth_label": "Age 49",
+        "behavioral_evidence_from_interview": [
+          "Q85: \"That makes you 49 as of today? Yes.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Evan gets strong identity utility from unpaid community work even without direct wages.",
+        "ground_truth_label": "Prosocial identity utility from unpaid work",
+        "behavioral_evidence_from_interview": [
+          "Q02: \"I realized I could be useful without having a formal title.\"",
+          "Q83: \"The volunteer work I do has real value.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-093",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Evan is cautious with risk and prefers practical local commitments over large uncertain changes.",
+        "ground_truth_label": "Risk-averse local pragmatism",
+        "behavioral_evidence_from_interview": [
+          "Q108: \"I hope we are still in Van Buren\"",
+          "Q83: \"I would like ... some part-time income\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-094",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Evan identifies politically as an Independent who leans Democratic on health care, mental health, arts funding, and inclusion.",
+        "ground_truth_label": "Moderate Independent leaning Democratic",
+        "behavioral_evidence_from_interview": [
+          "Q24: \"Independent who leans moderate, maybe a little more Democratic on health care, mental health, arts funding\"",
+          "Q96: \"Closer to the Democratic Party lately\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-095",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Evan retains culturally conservative values around faith, family, responsibility, and budgeting.",
+        "ground_truth_label": "Culturally conservative personal values",
+        "behavioral_evidence_from_interview": [
+          "Q24: \"people value faith, family, personal responsibility, and not wasting money, and those values are real to me too.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-096",
+        "source": "reprojected",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Anxiety is Evan's main mental health challenge.",
+        "ground_truth_label": "Primary anxiety condition",
+        "behavioral_evidence_from_interview": [
+          "Q45: \"Anxiety, yes.\"",
+          "Q31: \"Anxiety is the main health issue I manage.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-097",
+        "source": "reprojected",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Evan has a strong need to feel useful and dependable.",
+        "ground_truth_label": "Usefulness/dependability self-concept",
+        "behavioral_evidence_from_interview": [
+          "Q109: \"being dependable\"",
+          "Q108: \"Mostly I want to keep being useful and creative.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-098",
+        "source": "reprojected",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Evan completed high school and is not currently enrolled in school.",
+        "ground_truth_label": "High school education only, no current enrollment",
+        "behavioral_evidence_from_interview": [
+          "Q90: \"High school diploma.\"",
+          "Q91: \"No.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-099",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Evan's household relies mainly on his wife's income.",
+        "ground_truth_label": "Household income mainly from wife",
+        "behavioral_evidence_from_interview": [
+          "Q74: \"mainly from my wife's income\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-100",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Evan is not currently employed for pay.",
+        "ground_truth_label": "No paid employment status",
+        "behavioral_evidence_from_interview": [
+          "Q69: \"No.\"",
+          "Q72: \"From my own work, nothing in the past month.\""
+        ],
+        "duplicate_of": "HF-047",
+        "also_supported_by": [
+          "preferences.work_and_career",
+          "summaries.demographer"
+        ]
+      }
+    ]
+  }
+}

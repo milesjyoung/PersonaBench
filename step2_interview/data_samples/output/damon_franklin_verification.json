@@ -1,0 +1,2236 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "05a5bad3ff9d482db9abfa9f763fb429",
+      "name": "05a5bad3ff9d482db9abfa9f763fb429",
+      "verification_date": "2026-05-18"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age 63 and male sex match the interview's date of birth and self-description.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.age, seed.sex",
+              "source_b_ref": "Q85",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Seed never-married status matches repeated interview statements that Damon has never married, has no partner, and has no children.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.marital_status",
+              "source_b_ref": "Q05, Q84",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Seed Norwich, Connecticut residence matches current residence and birth/upbringing in Norwich.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.city, seed.state, seed.zipcode",
+              "source_b_ref": "Q08, Q51, Q87, Q97",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 4,
+              "text": "Seed bachelor's STEM field is broadly consistent with interview education in finance with statistics and programming coursework, though the interview specifies finance rather than a pure STEM major.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.education_level, seed.bachelors_field",
+              "source_b_ref": "Q01, Q90",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 4
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile demographics accurately carry interview facts: 63, male, never married, no partner, Norwich CT, bachelor's in finance, financial manager.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q84-Q90, Q65",
+              "source_b_ref": "corrected_extracted_profile top-level fields",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Profile household details match interview statements that Damon lives alone, has no children, and pays household expenses himself.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q11-Q14, Q51-Q55",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Profile captures sister Elaine and small family circle but omits that she lives near Mystic with her husband and that nephews are in Providence and Boston.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q05",
+              "source_b_ref": "preferences.social_and_relationships",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add family location detail to preferences.social_and_relationships."
+            },
+            {
+              "id": 4,
+              "text": "Profile captures education but omits birthplace, U.S.-born status, parental household at age 16, and no military service.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q86-Q93, Q97-Q99",
+              "source_b_ref": "preferences.cultural_and_linguistic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add U.S.-born, Norwich-born, childhood household, and no active-duty military service details."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Top-level marital status, social relationships, household, and demographer summary consistently describe a one-person household with no spouse, partner, or children.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "top-level marital_status, preferences.social_and_relationships",
+              "field_b": "preferences.home_and_lifestyle, summaries.demographer",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Location, cultural background, and life-event sections consistently place Damon in Norwich and Connecticut over the life course.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "top-level location, preferences.cultural_and_linguistic",
+              "field_b": "preferences.life_events_and_transitions, summaries.demographer",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview states Damon was born June 14, 1962, in Norwich, Connecticut, and was born in the United States; the profile does not explicitly include date of birth or U.S.-born status.",
+              "gap": true,
+              "interview_ref": "Q85-Q87",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add date of birth, U.S.-born status, and Norwich birthplace."
+            },
+            {
+              "id": 2,
+              "text": "Interview gives parents' education and occupations: father high school plus technical training, marine mechanic/maintenance supervisor; mother high school plus clerical courses, library clerk.",
+              "gap": true,
+              "interview_ref": "Q100-Q107",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add parental education and occupation details as childhood context."
+            },
+            {
+              "id": 3,
+              "text": "Interview states Damon never served on active duty in the U.S. Armed Forces, Reserves, or National Guard.",
+              "gap": true,
+              "interview_ref": "Q93",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add no active-duty military service."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes Damon as meticulous and risk-aware; interview repeatedly shows spreadsheet-based decisions, savings buffers, and model caution.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.professional_persona, seed.persona",
+              "source_b_ref": "Q02-Q03, Q61-Q65, Q83",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Seed says he prefers disciplined fitness rituals with tracking; interview confirms pedometer walking, logbook tracking, and health measurement.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.sports_persona",
+              "source_b_ref": "Q15, Q31-Q33",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Seed says he plans boutique AI-enhanced sustainable investment work; interview confirms consulting preparation and sustainable finance interest.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.career_goals_and_ambitions",
+              "source_b_ref": "Q18, Q62, Q108",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 4,
+              "text": "Seed emphasizes frugality and practicality; interview adds concrete budgeting, emergency savings, HSA use, and avoidance of consumer debt.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q56-Q64, Q80-Q83",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately represents Damon as future-oriented, risk-aware, savings-focused, and cautious about model overconfidence.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q44, Q61-Q65, Q83",
+              "source_b_ref": "summaries.behavioral_economist, preferences.work_and_career",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Profile captures savings but omits concrete financial figures: about $13,300 monthly gross income, about $8,000 net, about $4,700-$5,000 normal monthly spending, and eight months of emergency savings.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q57, Q61, Q72-Q74",
+              "source_b_ref": "preferences.work_and_career",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add concrete income, spending, and emergency savings details to preferences.work_and_career."
+            },
+            {
+              "id": 3,
+              "text": "Profile captures debt avoidance but omits that his car is paid off and he has no student loans, credit card debt, family debt, business debt, or unpaid medical debt.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q40, Q63",
+              "source_b_ref": "preferences.home_and_lifestyle, preferences.work_and_career",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add debt profile details to preferences.work_and_career."
+            },
+            {
+              "id": 4,
+              "text": "Profile captures health routines but omits the behavioral trigger for increased walking: a borderline blood pressure reading last year.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q18, Q31-Q33",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add increased walking after borderline blood pressure reading."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Health, sports, and behavioral summary consistently describe a measurement-oriented routine rather than impulsive or competitive behavior.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness, preferences.sports_and_fitness",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Work, technology, and financial behavior consistently portray Damon as an AI user who remains cautious about uncertain model outputs.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.technology, preferences.work_and_career",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview includes automatic monthly transfers and sinking funds for taxes, repairs, travel, and gifts.",
+              "gap": true,
+              "interview_ref": "Q59, Q61",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add automatic savings and sinking-fund behavior."
+            },
+            {
+              "id": 2,
+              "text": "Interview says Damon could cover a $400 emergency from checking or emergency savings without borrowing.",
+              "gap": true,
+              "interview_ref": "Q82",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add $400 emergency liquidity fact."
+            },
+            {
+              "id": 3,
+              "text": "Interview says he does not budget as if bonuses are guaranteed and saves most bonuses.",
+              "gap": true,
+              "interview_ref": "Q81",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add conservative bonus-planning behavior."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes community stewardship and New England pragmatism; interview confirms local voting, infrastructure concerns, and neighborhood help.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q08, Q23-Q25",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Seed does not specify party identification; interview enriches this with registered Democratic identity and moderate Democratic views.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed data",
+              "source_b_ref": "Q24, Q95-Q96",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Seed's risk-aware finance identity is consistent with interview political emphasis on audited programs, regulation, and institutional accountability.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.professional_persona",
+              "source_b_ref": "Q24-Q27",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 4,
+              "text": "Seed omits law-enforcement experience; interview adds limited ordinary police contact and no arrests for Damon or immediate family.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed data",
+              "source_b_ref": "Q20-Q22",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 4
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures his consistent voting, moderate Democratic identity, fiscal discipline, and institutional trust conditioned on competence.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23-Q25, Q95-Q96",
+              "source_b_ref": "summaries.political_scientist, preferences.community_and_civic",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Profile captures race and policing views but omits specific reform preferences such as body camera accountability, independent review, better data, training, and shifting some mental-health calls away from armed response.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q27",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add specific policing reform preferences."
+            },
+            {
+              "id": 3,
+              "text": "Profile omits his limited direct law-enforcement history: two speeding tickets, no arrests, and a neighbor car break-in report.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q20-Q22",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add law-enforcement experience details."
+            },
+            {
+              "id": 4,
+              "text": "Profile notes local civic concern but omits desired local improvements: better sidewalks, public transportation, and support for small arts venues.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q10",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add local improvement preferences."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Community, media, and political summary sections consistently describe evidence-oriented civic engagement and avoidance of slogan-driven politics.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic, preferences.media_and_information_diet",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "The profile consistently reconciles Democratic affiliation with fiscal discipline rather than treating them as contradictory.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview states Damon is registered as a Democrat and closer to Democrats nationally now.",
+              "gap": true,
+              "interview_ref": "Q95-Q96",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add registered Democrat and national party proximity."
+            },
+            {
+              "id": 2,
+              "text": "Interview states he has become more concerned about democratic institutions and misinformation.",
+              "gap": true,
+              "interview_ref": "Q25",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add concern about democratic institutions and misinformation."
+            },
+            {
+              "id": 3,
+              "text": "Interview states his circle has mixed but not hostile views on policing and race, with nephews more impatient with gradualism.",
+              "gap": true,
+              "interview_ref": "Q30",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add social-circle political response detail."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed portrays Damon as solitary, curious, meticulous, and worried about ambitious ventures; interview confirms chosen solitude, curiosity, discipline, and mild future-oriented anxiety.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q43-Q45, Q108-Q109",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Seed describes arts and piano as central; interview confirms Bach, vintage Steinway, galleries, sketching, and music as emotional regulation.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.arts_persona",
+              "source_b_ref": "Q01, Q43, Q47, Q109",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Seed's low-key fitness ritual matches interview coping pattern of walking, measurement, and structured routines.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.sports_persona",
+              "source_b_ref": "Q15, Q31, Q43-Q50",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 4,
+              "text": "Seed does not specify therapy history; interview adds brief therapy after his mother's death and no major depression diagnosis.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed data",
+              "source_b_ref": "Q45",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately characterizes Damon as conscientious, introverted, analytical, aesthetically sensitive, and stewardship-oriented.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01, Q43-Q45, Q109",
+              "source_b_ref": "summaries.psychologist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Profile captures mild anxiety but omits that he briefly saw a therapist after his mother's death and was not diagnosed with major depression.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q45",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add mild anxiety, no major depression diagnosis, and brief therapy after mother's death."
+            },
+            {
+              "id": 3,
+              "text": "Profile captures coping but omits warning signs: skipping walks, eating at the desk, and revising spreadsheets past 11 p.m.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q45",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add anxiety warning signs."
+            },
+            {
+              "id": 4,
+              "text": "Profile captures religion broadly but omits that Damon does not belong to a congregation, attends only occasionally, and experiences reflection at piano or near water.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q47, Q94",
+              "source_b_ref": "preferences.cultural_and_linguistic, preferences.music",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add current religious nonmembership and reflective-spiritual practices."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Social, music, health, and psychologist summary sections consistently describe solitude as chosen and functional, not isolation caused by severe impairment.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships, preferences.music",
+              "field_b": "preferences.health_and_wellness, summaries.psychologist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Career ambition and anxiety are internally consistent: the profile presents ambition as moderated by caution and coping routines.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career, preferences.life_events_and_transitions",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview states his values explicitly: integrity, competence, independence, beauty, stewardship, quiet loyalty, carefulness, fairness, curiosity, and usefulness.",
+              "gap": true,
+              "interview_ref": "Q109",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add explicit values and desired legacy."
+            },
+            {
+              "id": 2,
+              "text": "Interview states stress rose with consulting planning but became more manageable once scheduled.",
+              "gap": true,
+              "interview_ref": "Q50",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add scheduling as stress-management strategy."
+            },
+            {
+              "id": 3,
+              "text": "Interview states he does not seek emotional or financial support through social media and calls his sister or trusted friends instead.",
+              "gap": true,
+              "interview_ref": "Q49",
+              "should_be_in": "preferences.media_and_information_diet",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add offline support preference."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No contradictions required human review. Several interview-supported gaps were added to preferences, and two source references for sports-team details were corrected.",
+    "final_status": "Corrected profile is ready for downstream use with summaries preserved verbatim and hidden_facts generated."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "05a5bad3ff9d482db9abfa9f763fb429",
+    "name": "05a5bad3ff9d482db9abfa9f763fb429",
+    "age": 63,
+    "gender": "Male",
+    "marital_status": "Never married; not living with a romantic partner",
+    "location": "Norwich, CT 6360",
+    "education": "Bachelor's degree in finance",
+    "occupation": "Financial manager",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Damon manages generally good health through measurement, walking, diet, and conventional medical care.",
+        "details": [
+          "Tracks steps, weight, and blood pressure in a logbook (Q15, Q31).",
+          "Manages borderline hypertension with medication, diet, and walking, and also takes a statin recommended by his doctor (Q31, Q33).",
+          "Increased walking after a borderline blood pressure reading last year, which improved readings and sleep (Q18).",
+          "Uses conventional doctors and evidence-based care; supportive practices include stretching, tea, and massage (Q36, Q37).",
+          "Is pro-vaccination and trusts his doctor, CDC, and public health sources (Q41, Q42).",
+          "Reports mild work-related, future-oriented anxiety, no diagnosis of major depression, and brief helpful therapy after his mother died (Q45).",
+          "Uses structure, exercise, music, scheduling, and conversation with his sister to manage stress and anxiety (Q43-Q45, Q50).",
+          "Warning signs include skipping walks, eating at the desk, and revising spreadsheets past 11 p.m. (Q45)."
+        ],
+        "evidence": "Q15, Q18, Q31-Q45, Q50"
+      },
+      "food_and_dining": {
+        "summary": "He prefers home cooking with fresh herbs and occasional fine dining.",
+        "details": [
+          "Cooks roasted chicken with rosemary and salmon with dill (Q17, Q38).",
+          "Grows rosemary, thyme, basil, and dill at home (Q08, Q17).",
+          "Limits salt and processed snacks for health (Q32).",
+          "Occasionally enjoys restaurant meals and red wine (Q38, Q56)."
+        ],
+        "evidence": "Q08, Q17, Q32, Q38, Q56"
+      },
+      "travel": {
+        "summary": "He favors quiet, culturally rich, well-planned travel with architecture, scenery, and history.",
+        "details": [
+          "Wants to visit Cinque Terre for cliffs, light, towns, and sketching (Q62, Q108).",
+          "Saves specifically for travel (Q62).",
+          "Has a spare room with travel notebooks (Q11).",
+          "Took two full vacation weeks and a few long weekends in the past year (Q67)."
+        ],
+        "evidence": "Q11, Q62, Q67, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "He has a small, scheduled, reliable social circle and values solitude.",
+        "details": [
+          "Never married, no children, no current partner (Q05, Q84).",
+          "Talks to sister Elaine most Sundays and sees family for holidays and practical matters (Q05).",
+          "Elaine lives near Mystic with her husband, and Damon has two adult nephews in Providence and Boston (Q05).",
+          "Maintains friendships through sailing club, gallery visits, and quarterly colleague lunches (Q07).",
+          "Socializes once or twice a week and needs quiet afterward (Q07).",
+          "His circle has mixed but not hostile views on race and policing, with nephews more impatient with gradualism (Q30)."
+        ],
+        "evidence": "Q05-Q07, Q30, Q84"
+      },
+      "home_and_lifestyle": {
+        "summary": "He lives alone in an older Norwich home organized around work, music, books, cooking, and routines.",
+        "details": [
+          "Lives alone with no roommates, lodgers, partner, or children (Q11-Q14, Q51-Q55).",
+          "Owns a home with a remaining mortgage and expects to pay it off before or shortly after retirement (Q58).",
+          "Maintains a study, vintage Steinway, herb garden, books, ship models, and travel notebooks (Q11, Q17).",
+          "Uses structured routines for bills, groceries, laundry, and meal prep (Q17).",
+          "Pays all household expenses himself (Q55)."
+        ],
+        "evidence": "Q11-Q17, Q51-Q58"
+      },
+      "entertainment": {
+        "summary": "His entertainment is quiet and intellectual rather than nightlife-oriented.",
+        "details": [
+          "Plays Bach and reads art, finance, and history-related material (Q01, Q43).",
+          "Visits galleries and museum accounts online (Q07, Q48).",
+          "Follows the Patriots and Bruins (Q01, Q06)."
+        ],
+        "evidence": "Q01, Q06, Q07, Q43, Q48"
+      },
+      "hobbies_and_recreation": {
+        "summary": "He enjoys solitary and disciplined hobbies tied to art, music, maritime heritage, finance, and nature.",
+        "details": [
+          "Builds model ships and keeps books and notebooks in a spare room (Q11).",
+          "Participates in a sailing club and meets a retired engineer friend there (Q07).",
+          "Writes a private blog about art, architecture, finance, and travel (Q17, Q48).",
+          "Solves complex projects and creates financial models as personal intellectual work (Q44, Q65).",
+          "Enjoys chess puzzles, bird-watching, coastal walking, and herb gardening (Q01, Q08, Q15)."
+        ],
+        "evidence": "Q01, Q07, Q08, Q11, Q15, Q17, Q44, Q48, Q65"
+      },
+      "work_and_career": {
+        "summary": "He is a veteran financial manager aiming to transition into boutique sustainable-finance consulting.",
+        "details": [
+          "Works as a financial manager using Excel, SQL, Python, AI tools, forecasting, risk analysis, and controls (Q16, Q65).",
+          "Works about 45 hours weekly in a salaried non-union role (Q66-Q68).",
+          "Plans a phased transition around age 65 into consulting and mentoring (Q18, Q62, Q108).",
+          "Values model judgment and avoiding overclaiming certainty (Q65, Q83).",
+          "Gross pay was about $13,300 last month and net pay was about $8,000; household income is his income because he lives alone (Q72-Q74).",
+          "Normal monthly spending is about $4,700 to $5,000, with a higher recent month around $5,400 because of maintenance (Q57).",
+          "Maintains roughly eight months of emergency savings and uses automatic transfers, retirement accounts, a taxable investment account, an HSA, and sinking funds (Q59, Q61).",
+          "Has no student loans, credit card debt, family debt, business debt, car loan, or unpaid medical debt; the remaining mortgage is his main debt (Q40, Q63).",
+          "Could cover a $400 emergency from checking or emergency savings without borrowing (Q82).",
+          "Does not budget as if bonuses are guaranteed and saves most bonuses when received (Q81)."
+        ],
+        "evidence": "Q16, Q18, Q40, Q57, Q59, Q61-Q83, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "He is deeply attached to visual art, architecture, literature, museums, and cultural heritage.",
+        "details": [
+          "Visits galleries and knows a gallery owner in New London (Q07).",
+          "Sketches architecture and wants to sketch Cinque Terre (Q62, Q108).",
+          "His mother’s library work shaped his love of research and records (Q103).",
+          "Values art and music because they keep analysis from becoming sterile (Q109)."
+        ],
+        "evidence": "Q07, Q62, Q103, Q108, Q109"
+      },
+      "sports_and_fitness": {
+        "summary": "He treats fitness as routine measurement and follows regional teams in a low-key way.",
+        "details": [
+          "Walks three to four miles with a pedometer when weather allows (Q15).",
+          "Tracks steps, route, weather, resting pulse, and weight (Q15).",
+          "Uses a treadmill or shorter walks in winter (Q32).",
+          "Follows the Boston Bruins and New England Patriots (Q01, Q06)."
+        ],
+        "evidence": "Q01, Q06, Q15, Q32"
+      },
+      "nature_and_outdoors": {
+        "summary": "He values shoreline walks, gardening, maritime settings, and New England landscapes.",
+        "details": [
+          "Walks shoreline paths and uses walking for emotional regulation (Q15, Q44, Q50).",
+          "Maintains an herb garden at home (Q08, Q17).",
+          "His childhood was shaped by the Thames River and marine work (Q01, Q107)."
+        ],
+        "evidence": "Q01, Q08, Q15, Q17, Q44, Q50, Q107"
+      },
+      "technology": {
+        "summary": "He is a careful adopter of data and AI tools, especially in finance.",
+        "details": [
+          "Uses Excel, SQL, Python notebooks, secure databases, and AI tools at work (Q16, Q65).",
+          "Attends webinars on AI in finance (Q48, Q92).",
+          "Developed an AI-enhanced retirement model but simplified it when outputs were not trustworthy (Q44)."
+        ],
+        "evidence": "Q16, Q44, Q48, Q65, Q92"
+      },
+      "community_and_civic": {
+        "summary": "He is civically engaged through voting, local budget interest, modest donations, and practical neighborhood help.",
+        "details": [
+          "Votes consistently in national, state, local, and primary elections (Q23).",
+          "Helps an older neighbor with tax forms (Q08).",
+          "Donated modestly to legal aid and civic groups after reflecting on policing and race (Q26, Q29).",
+          "Values infrastructure, public health, civil rights, and competent fiscal management (Q24).",
+          "Identifies as a registered Democrat and says he is closer to Democrats nationally, while remaining fiscally disciplined and not tribal (Q95-Q96).",
+          "Has become more concerned about democratic institutions, misinformation, and climate-related financial risk (Q25).",
+          "Supports policing reforms such as better data reporting, body camera accountability, independent review, training, and shifting some mental-health calls away from armed response (Q27).",
+          "Has limited direct law-enforcement experience: two speeding tickets, no arrests, and a neighbor car break-in report (Q20-Q22).",
+          "Would improve Norwich with better sidewalks, more reliable public transportation, and more support for small arts venues (Q10)."
+        ],
+        "evidence": "Q08, Q10, Q20-Q30, Q95-Q96"
+      },
+      "music": {
+        "summary": "Classical piano, especially Bach, is central to his emotional and spiritual life.",
+        "details": [
+          "Plays Bach on a vintage Steinway (Q01, Q11).",
+          "Sometimes plays piano late into the night (Q15).",
+          "Describes Bach as closer to prayer than sermons (Q47).",
+          "Uses music to regulate anxiety and preserve beauty in life (Q43, Q109).",
+          "Has reflective moments at the piano or near the water rather than regular petitionary prayer (Q47)."
+        ],
+        "evidence": "Q01, Q11, Q15, Q43, Q47, Q109"
+      },
+      "fashion_and_appearance": {
+        "summary": "There is limited evidence, but his appearance preferences appear practical, orderly, and traditional.",
+        "details": [
+          "Childhood household emphasized polished shoes and order (Q01).",
+          "No detailed fashion preferences were discussed."
+        ],
+        "evidence": "Q01"
+      },
+      "cultural_and_linguistic": {
+        "summary": "He identifies as white, non-Hispanic, Anglo-American, English-speaking, and culturally Protestant New Englander.",
+        "details": [
+          "Born June 14, 1962, in Norwich, Connecticut, and born in the United States (Q85-Q87).",
+          "Born in Norwich, Connecticut, and raised there (Q86, Q87, Q97).",
+          "Identifies as non-Hispanic white with mostly English and Scottish family lines (Q88, Q89).",
+          "English was spoken at home (Q88).",
+          "Identifies as culturally Protestant with Congregational background (Q47, Q94).",
+          "Does not currently belong to a congregation and attends services only occasionally (Q47, Q94).",
+          "Never served on active duty in the U.S. Armed Forces, Reserves, or National Guard (Q93)."
+        ],
+        "evidence": "Q47, Q85-Q89, Q93-Q94, Q97"
+      },
+      "life_events_and_transitions": {
+        "summary": "Major transitions include choosing Connecticut over a New York finance path, caring for aging parents, and preparing for phased retirement.",
+        "details": [
+          "Chose a Connecticut financial management track over a more aggressive New York investment role (Q02, Q03).",
+          "Handled financial paperwork and appointments during parents' dementia and heart disease years (Q35).",
+          "Preparing to shift toward consulting around age 65 (Q18, Q62, Q108).",
+          "Grew up with both parents and younger sister Elaine in a modest but stable Norwich household at age 16 (Q97-Q99).",
+          "His father completed high school plus technical training and worked as a marine equipment mechanic and maintenance supervisor (Q100, Q105-Q107).",
+          "His mother completed high school plus clerical courses and worked as a library clerk (Q101-Q104).",
+          "Values integrity, competence, independence, beauty, stewardship, quiet loyalty, carefulness, fairness, curiosity, and usefulness (Q109)."
+        ],
+        "evidence": "Q02, Q03, Q18, Q35, Q62, Q97-Q109"
+      },
+      "media_and_information_diet": {
+        "summary": "He prefers primary, professional, long-form, and institutional sources over social media arguments.",
+        "details": [
+          "Reads sample ballots, market news, financial journals, long-form journalism, and books (Q23, Q28, Q15).",
+          "Uses LinkedIn for professional contacts, webinars, AI, finance, and sustainable investment content (Q48).",
+          "Avoids social media threads for medical decisions and trusts doctors, CDC, and major medical centers (Q42).",
+          "Rarely posts personal updates and avoids arguing on Facebook (Q48, Q49).",
+          "Does not seek emotional or financial support through social media and instead calls his sister or trusted friends (Q49)."
+        ],
+        "evidence": "Q15, Q23, Q28, Q42, Q48, Q49"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Damon is a 63-year-old never-married white non-Hispanic man living alone in Norwich, Connecticut, where he was also born and raised (Q84-Q89, Q97). He has a bachelor's degree in finance and works as a salaried financial manager with stable income, employer benefits, and homeownership with a remaining mortgage (Q65-Q76, Q58). His household is a one-person household with no children, lodgers, roommates, or partner, and his closest kin are his sister Elaine, brother-in-law, and two adult nephews (Q05-Q07, Q51-Q55). His life-course profile reflects stable employment, modest upward mobility from a practical working family, and strong attachment to New England place and routines (Q01, Q100-Q107).",
+      "behavioral_economist": "Damon is highly future-oriented, risk-aware, and loss-averse in a disciplined rather than fearful way: he saves automatically, maintains emergency funds, avoids credit card debt, and models retirement and health-care risks (Q61-Q64, Q82-Q83). His choices show strong preference for predictability and autonomy, as when he chose a stable Connecticut career path over a higher-status New York finance role (Q02-Q03). He responds to uncertainty by collecting data, creating spreadsheets, and building buffers, but he also recognizes model limits and avoids overclaiming predictive certainty (Q44, Q65, Q83). Peer influence is modest; he listens to trusted family, doctors, and professional sources rather than crowds or social media (Q42, Q48-Q49).",
+      "political_scientist": "Damon is a consistent voter and registered Democrat who describes himself as a moderate Democrat with fiscally disciplined New England habits (Q23-Q24, Q95-Q96). He supports public investment, civil rights, climate policy, public health, financial regulation, and institutional accountability, while preferring audited, measurable programs (Q24-Q25). His views on race and policing are reform-oriented and data-driven, emphasizing transparency, independent review, and institutional incentives rather than slogans (Q26-Q30). He shows relatively high institutional trust when institutions are competent and transparent, and low tolerance for misinformation, conspiracy thinking, and theatrical politics (Q24-Q25).",
+      "psychologist": "Damon presents as conscientious, introverted, analytical, and aesthetically sensitive, with a self-concept built around stewardship, competence, independence, and disciplined curiosity (Q01, Q43, Q109). His mild anxiety is future-oriented and project-related, especially when ambitious models or career transitions feel overcomplicated (Q43-Q45). He regulates emotion through structured routines, walking, piano, planning, and selective conversation with his sister or trusted friends (Q15, Q43-Q50). Relationally, he values small, reliable ties over broad social engagement, and his solitary life appears chosen and functional rather than socially disconnected (Q05-Q07, Q11, Q47-Q49)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Tracks steps, weight, and blood pressure in a logbook.",
+        "ground_truth_label": "Health self-monitoring logbook",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"Steps, walking route, weather, resting pulse, weight once a week\"",
+          "Q31: \"I track steps, weight, and blood pressure\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Manages borderline hypertension with medication, diet, and walking.",
+        "ground_truth_label": "Borderline hypertension managed conventionally",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"borderline hypertension that I manage with diet, walking, and medication\"",
+          "Q33: \"medication after several elevated readings\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Takes a doctor-recommended statin.",
+        "ground_truth_label": "Uses prescribed statin",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"a statin my doctor recommended\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Increased walking after a borderline blood pressure reading, improving blood pressure and sleep.",
+        "ground_truth_label": "Walking increased after blood pressure concern",
+        "behavioral_evidence_from_interview": [
+          "Q18: \"increased my walking after a borderline blood pressure reading\"",
+          "Q18: \"my blood pressure readings improved, and I sleep better\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Uses conventional doctors and evidence-based care while accepting supportive practices like stretching, tea, and massage.",
+        "ground_truth_label": "Evidence-based medical orientation",
+        "behavioral_evidence_from_interview": [
+          "Q37: \"we relied on conventional doctors\"",
+          "Q37: \"supportive practices as long as they do not replace evidence-based care\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Is pro-vaccination and trusts his doctor, CDC, local public health notices, and major medical centers for vaccine information.",
+        "ground_truth_label": "Pro-vaccination institutional trust",
+        "behavioral_evidence_from_interview": [
+          "Q41: \"I am pro-vaccination\"",
+          "Q42: \"My primary care doctor first, then CDC materials\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Reports mild work-related and future-oriented anxiety, with no major depression diagnosis.",
+        "ground_truth_label": "Mild anxiety without major depression diagnosis",
+        "behavioral_evidence_from_interview": [
+          "Q45: \"mild anxiety, mostly work-related and future-oriented\"",
+          "Q45: \"never been diagnosed with major depression\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Briefly saw a therapist after his mother died and found it helpful.",
+        "ground_truth_label": "Brief bereavement therapy history",
+        "behavioral_evidence_from_interview": [
+          "Q45: \"Briefly after my mother died. It was helpful but not ongoing.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Manages stress and anxiety with structure, exercise, music, scheduling, and selective conversation.",
+        "ground_truth_label": "Structured non-substance coping",
+        "behavioral_evidence_from_interview": [
+          "Q45: \"structure, exercise, music\"",
+          "Q50: \"became more manageable once I scheduled it\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Warning signs for his anxiety include skipping walks, eating at the desk, and revising spreadsheets past 11 p.m.",
+        "ground_truth_label": "Anxiety warning signs",
+        "behavioral_evidence_from_interview": [
+          "Q45: \"Skipping walks, eating at the desk, and revising the same spreadsheet past 11 p.m.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Cooks roasted chicken with rosemary and salmon with dill.",
+        "ground_truth_label": "Herb-forward home cooking",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"Roasted chicken with rosemary, salmon with dill\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Grows rosemary, thyme, basil, and dill at home.",
+        "ground_truth_label": "Home herb garden",
+        "behavioral_evidence_from_interview": [
+          "Q08: \"rosemary, thyme, basil, and dill\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Limits salt and processed snacks for health.",
+        "ground_truth_label": "Dietary salt and processed-snack limitation",
+        "behavioral_evidence_from_interview": [
+          "Q32: \"Too much salt, processed snacks\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Occasionally enjoys restaurant meals and red wine.",
+        "ground_truth_label": "Occasional restaurant and red wine indulgence",
+        "behavioral_evidence_from_interview": [
+          "Q38: \"a glass of red wine with dinner once or twice a week\"",
+          "Q56: \"a dinner out\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Wants to visit Cinque Terre for cliffs, light, towns, and sketching.",
+        "ground_truth_label": "Cinque Terre travel goal",
+        "behavioral_evidence_from_interview": [
+          "Q62: \"architecture, cliffs, light\"",
+          "Q108: \"a trip to Cinque Terre to sketch\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Saves specifically for travel.",
+        "ground_truth_label": "Travel savings",
+        "behavioral_evidence_from_interview": [
+          "Q62: \"saved mainly for... a possible trip to Italy's Cinque Terre\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Keeps travel notebooks in his spare room.",
+        "ground_truth_label": "Travel notebooks",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"travel notebooks\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Took two full weeks of vacation and a few long weekends in the past year.",
+        "ground_truth_label": "Recent vacation use",
+        "behavioral_evidence_from_interview": [
+          "Q67: \"two full weeks and a few long weekends\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Has never married, has no children, and has no current partner.",
+        "ground_truth_label": "Never married without children or partner",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"never been married\"",
+          "Q84: \"not living with a romantic partner\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Talks with his sister Elaine most Sundays and sees family for holidays and practical matters.",
+        "ground_truth_label": "Steady sister relationship",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"We talk most Sundays\"",
+          "Q05: \"holidays, birthdays, and practical things\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Elaine lives near Mystic with her husband, and his adult nephews live in Providence and Boston.",
+        "ground_truth_label": "Close family geography",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"Elaine, who lives near Mystic\"",
+          "Q05: \"One is in Providence and one is in Boston\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Maintains friendships through sailing club, gallery visits, and quarterly lunches with former colleagues.",
+        "ground_truth_label": "Small scheduled friend network",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"Martin, a retired engineer from my sailing club\"",
+          "Q07: \"two former colleagues... lunch quarterly\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Socializes once or twice a week and needs quiet afterward.",
+        "ground_truth_label": "Introverted social rhythm",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"Once or twice\"",
+          "Q07: \"I need quiet afterward\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Lives alone with no roommates, lodgers, boarders, partner, temporary guests, or children in the household.",
+        "ground_truth_label": "One-person household",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"I live alone\"",
+          "Q51: \"I live by myself in Norwich\"",
+          "Q54: \"No\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Owns his home with a remaining mortgage that he expects to pay off before or shortly after retirement.",
+        "ground_truth_label": "Homeowner with manageable mortgage",
+        "behavioral_evidence_from_interview": [
+          "Q58: \"own the home with a remaining mortgage\"",
+          "Q58: \"pay it off before or shortly after retirement\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Maintains a study, vintage Steinway, herb garden, books, ship models, and travel notebooks.",
+        "ground_truth_label": "Home arranged for work, music, books, models, and garden",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"study with two monitors, a piano\"",
+          "Q11: \"books, ship models, and travel notebooks\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Uses structured routines for bills, groceries, laundry, and meal prep.",
+        "ground_truth_label": "Structured household routines",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"bills on the first Saturday\"",
+          "Q17: \"grocery shopping Thursday evening, laundry Saturday morning\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Plays Bach and reads art, finance, and history-related material.",
+        "ground_truth_label": "Quiet intellectual entertainment",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"play Bach\"",
+          "Q15: \"reading\"",
+          "Q48: \"finance, AI, and sustainable investment content\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Visits galleries and follows museum accounts online.",
+        "ground_truth_label": "Gallery and museum engagement",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"Clara runs a small gallery\"",
+          "Q48: \"museum accounts\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Follows the New England Patriots and Boston Bruins.",
+        "ground_truth_label": "Patriots and Bruins fan",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"follow the Patriots and Bruins\"",
+          "Q06: \"the Bruins\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Builds model ships and keeps books and notebooks in a spare room.",
+        "ground_truth_label": "Model ship hobby",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"ship models\"",
+          "Q01: \"model ships\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Participates in a sailing club.",
+        "ground_truth_label": "Sailing club participation",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"sailing club\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Writes a private blog about art, architecture, finance, and travel.",
+        "ground_truth_label": "Private blog writing",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"private blog\"",
+          "Q48: \"private blog under my own name\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Enjoys chess puzzles, bird-watching, coastal walking, and herb gardening.",
+        "ground_truth_label": "Quiet solitary hobbies",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"walk the shoreline\"",
+          "Q08: \"small yard where I grow\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Works as a financial manager using Excel, SQL, Python, AI tools, forecasting, risk analysis, and controls.",
+        "ground_truth_label": "Financial manager with quantitative tools",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"financial manager\"",
+          "Q65: \"SQL... Python... AI tools\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Works about 45 hours weekly in a salaried non-union management role.",
+        "ground_truth_label": "Salaried non-union 45-hour financial manager",
+        "behavioral_evidence_from_interview": [
+          "Q66: \"not union-covered\"",
+          "Q68: \"Usually about 45 hours\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Plans a phased transition around age 65 into boutique consulting and mentoring.",
+        "ground_truth_label": "Phased consulting transition goal",
+        "behavioral_evidence_from_interview": [
+          "Q62: \"phased transition around 65\"",
+          "Q108: \"boutique consulting practice\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Values judgment about model limits and avoiding overclaiming certainty.",
+        "ground_truth_label": "Model humility",
+        "behavioral_evidence_from_interview": [
+          "Q65: \"when a model is helpful and when it is pretending\"",
+          "Q108: \"without exaggerating what models can predict\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Gross pay was about $13,300 last month and net pay was about $8,000.",
+        "ground_truth_label": "Monthly income level",
+        "behavioral_evidence_from_interview": [
+          "Q72: \"Gross pay was about $13,300\"",
+          "Q72: \"net pay... closer to $8,000\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Normal monthly spending is about $4,700 to $5,000, with a recent higher month around $5,400 due to maintenance.",
+        "ground_truth_label": "Monthly household spending range",
+        "behavioral_evidence_from_interview": [
+          "Q57: \"About $5,400 last month\"",
+          "Q57: \"normal month is closer to $4,700 to $5,000\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Maintains roughly eight months of emergency savings.",
+        "ground_truth_label": "Eight-month emergency fund",
+        "behavioral_evidence_from_interview": [
+          "Q61: \"Roughly eight months\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Uses automatic transfers, retirement accounts, taxable investments, an HSA, and sinking funds.",
+        "ground_truth_label": "Automated diversified savings system",
+        "behavioral_evidence_from_interview": [
+          "Q59: \"sinking funds\"",
+          "Q61: \"automatic\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Has no student loans, credit card debt, family debt, business debt, car loan, or unpaid medical debt.",
+        "ground_truth_label": "No consumer, student, family, business, car, or medical debt",
+        "behavioral_evidence_from_interview": [
+          "Q63: \"No student loans or credit card debt\"",
+          "Q63: \"No, my car is paid off\"",
+          "Q40: \"No\" unpaid medical debt"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Could cover a $400 emergency from checking or emergency savings without borrowing.",
+        "ground_truth_label": "$400 emergency liquidity",
+        "behavioral_evidence_from_interview": [
+          "Q82: \"cover $400 from checking or emergency savings without borrowing\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Does not budget as if bonuses are guaranteed and saves most bonuses.",
+        "ground_truth_label": "Conservative bonus planning",
+        "behavioral_evidence_from_interview": [
+          "Q81: \"I do not budget as if the bonus is guaranteed\"",
+          "Q81: \"Save most of them\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Visits galleries and knows a gallery owner in New London.",
+        "ground_truth_label": "Gallery engagement in New London",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"Clara runs a small gallery in New London\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Sketches architecture and wants to sketch Cinque Terre.",
+        "ground_truth_label": "Architectural sketching",
+        "behavioral_evidence_from_interview": [
+          "Q62: \"appeal to my sketching habits\"",
+          "Q108: \"sketch the architecture\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "His mother's library work shaped his love of research and careful records.",
+        "ground_truth_label": "Library-influenced research orientation",
+        "behavioral_evidence_from_interview": [
+          "Q103: \"made research and careful records feel natural\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Values art and music because they keep analysis from becoming sterile.",
+        "ground_truth_label": "Art balances analysis",
+        "behavioral_evidence_from_interview": [
+          "Q109: \"art and music because they keep analysis from becoming sterile\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Walks three to four miles with a pedometer when weather allows.",
+        "ground_truth_label": "Measured regular walking",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"walk three to four miles\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Tracks walking route, weather, resting pulse, and weight.",
+        "ground_truth_label": "Detailed fitness tracking",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"route, weather, resting pulse, weight\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Uses a treadmill or shorter brisk walks in winter.",
+        "ground_truth_label": "Winter exercise adaptation",
+        "behavioral_evidence_from_interview": [
+          "Q32: \"treadmill at the community center\"",
+          "Q32: \"shorter brisk walks\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Walks shoreline paths and uses walking for emotional regulation.",
+        "ground_truth_label": "Shoreline walking as coping",
+        "behavioral_evidence_from_interview": [
+          "Q44: \"drove to the shore, walked until dusk\"",
+          "Q50: \"A brisk walk with no podcast\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "His childhood was shaped by the Thames River and marine work.",
+        "ground_truth_label": "Maritime childhood influence",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"near the Thames River\"",
+          "Q107: \"Boats and river work were part of the background\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Uses Excel, SQL, Python notebooks, secure databases, and AI tools at work.",
+        "ground_truth_label": "Advanced workplace technology use",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"Excel, SQL, Python notebooks\"",
+          "Q65: \"AI tools cautiously\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Attends webinars on AI in finance.",
+        "ground_truth_label": "AI finance self-study",
+        "behavioral_evidence_from_interview": [
+          "Q92: \"webinars on AI in finance\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Developed an AI-enhanced retirement model but simplified it when outputs were not trustworthy.",
+        "ground_truth_label": "Cautious AI model refinement",
+        "behavioral_evidence_from_interview": [
+          "Q44: \"AI-enhanced retirement model\"",
+          "Q44: \"simplified the model\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Votes consistently in national, state, local, and primary elections.",
+        "ground_truth_label": "Consistent voter",
+        "behavioral_evidence_from_interview": [
+          "Q23: \"I vote consistently\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Helps an older neighbor with tax forms.",
+        "ground_truth_label": "Practical neighborhood help",
+        "behavioral_evidence_from_interview": [
+          "Q08: \"help one older neighbor with tax forms\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Donated modestly to legal aid and civic groups after reflecting on policing and race.",
+        "ground_truth_label": "Modest civic donations on race and policing",
+        "behavioral_evidence_from_interview": [
+          "Q26: \"donated modestly to legal aid and civic groups\"",
+          "Q29: \"donated modestly\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Values infrastructure, public health, civil rights, climate policy, financial regulation, and competent fiscal management.",
+        "ground_truth_label": "Moderate Democratic policy priorities",
+        "behavioral_evidence_from_interview": [
+          "Q24: \"public health, infrastructure, climate policy, financial regulation, and protecting civil rights\"",
+          "Q24: \"competence\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Identifies as a registered Democrat and is closer to Democrats nationally, while remaining fiscally disciplined and not tribal.",
+        "ground_truth_label": "Registered moderate Democrat",
+        "behavioral_evidence_from_interview": [
+          "Q95: \"registered with a party... Democrat\"",
+          "Q96: \"Closer to the Democratic Party\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Has become more concerned about democratic institutions, misinformation, and climate-related financial risk.",
+        "ground_truth_label": "Concern about institutions, misinformation, and climate risk",
+        "behavioral_evidence_from_interview": [
+          "Q25: \"democratic institutions and misinformation\"",
+          "Q25: \"climate-related financial risk\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Supports policing reforms including better data reporting, body camera accountability, independent review, training, and shifting some mental-health calls away from armed response.",
+        "ground_truth_label": "Data-driven policing reform support",
+        "behavioral_evidence_from_interview": [
+          "Q27: \"Better data reporting, body camera accountability, independent review, training\"",
+          "Q27: \"mental-health calls away from armed response\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Has limited direct law-enforcement experience: two speeding tickets, no arrests, and a neighbor car break-in report.",
+        "ground_truth_label": "Limited ordinary law-enforcement contact",
+        "behavioral_evidence_from_interview": [
+          "Q20: \"two speeding tickets\"",
+          "Q22: \"No arrests for me or my immediate family\"",
+          "Q21: \"neighbor's car was broken into\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Plays Bach on a vintage Steinway.",
+        "ground_truth_label": "Bach on vintage Steinway",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"play Bach on a vintage Steinway\"",
+          "Q11: \"piano in the front room\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Sometimes plays piano late into the night.",
+        "ground_truth_label": "Late-night piano",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"if I sit at the piano too late it can become midnight\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Describes Bach as closer to prayer than sermons.",
+        "ground_truth_label": "Bach as spiritual experience",
+        "behavioral_evidence_from_interview": [
+          "Q47: \"Bach feels closer to prayer\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "His childhood household emphasized polished shoes and order.",
+        "ground_truth_label": "Orderly traditional appearance cues",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"shoes kept polished\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Was born June 14, 1962, in Norwich, Connecticut, and was born in the United States.",
+        "ground_truth_label": "U.S.-born Norwich native born June 14, 1962",
+        "behavioral_evidence_from_interview": [
+          "Q85: \"June 14, 1962\"",
+          "Q86: \"born in the United States\"",
+          "Q87: \"Norwich, Connecticut\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Identifies as non-Hispanic white with mostly English and Scottish family lines.",
+        "ground_truth_label": "White non-Hispanic Anglo-American identity",
+        "behavioral_evidence_from_interview": [
+          "Q88: \"No\"",
+          "Q88: \"English and Scottish family lines\"",
+          "Q89: \"White\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "English was spoken at home.",
+        "ground_truth_label": "English-speaking household",
+        "behavioral_evidence_from_interview": [
+          "Q88: \"English was spoken at home\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Identifies as culturally Protestant with a Congregational background but is not actively religious.",
+        "ground_truth_label": "Culturally Protestant non-devout identity",
+        "behavioral_evidence_from_interview": [
+          "Q47: \"culturally Protestant\"",
+          "Q94: \"Congregational background, but not actively religious\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Does not currently belong to a congregation and attends services only occasionally.",
+        "ground_truth_label": "No current congregation membership",
+        "behavioral_evidence_from_interview": [
+          "Q47: \"No formal membership currently\"",
+          "Q94: \"Only occasionally\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Never served on active duty in the U.S. Armed Forces, Reserves, or National Guard.",
+        "ground_truth_label": "No military service",
+        "behavioral_evidence_from_interview": [
+          "Q93: \"No\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Chose a Connecticut financial management track over a more aggressive New York investment role.",
+        "ground_truth_label": "Chose stable Connecticut career path",
+        "behavioral_evidence_from_interview": [
+          "Q02: \"opportunity to move to New York\"",
+          "Q02: \"I chose to stay in Connecticut\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Handled financial paperwork and appointments during his parents' dementia and heart disease years.",
+        "ground_truth_label": "Parental caregiving paperwork role",
+        "behavioral_evidence_from_interview": [
+          "Q35: \"mother had dementia\"",
+          "Q35: \"father had heart disease\"",
+          "Q35: \"handled a lot of financial paperwork and appointments\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Grew up with both parents and younger sister Elaine in a modest but stable Norwich household at age 16.",
+        "ground_truth_label": "Stable two-parent Norwich childhood household",
+        "behavioral_evidence_from_interview": [
+          "Q97: \"Norwich, Connecticut\"",
+          "Q98: \"both my mother and father\"",
+          "Q99: \"younger sister Elaine\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "His father completed high school plus technical training and worked as a marine equipment mechanic and maintenance supervisor.",
+        "ground_truth_label": "Father marine mechanic with technical training",
+        "behavioral_evidence_from_interview": [
+          "Q100: \"High school, plus technical training\"",
+          "Q106: \"marine equipment mechanic and maintenance supervisor\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "His mother completed high school plus clerical courses and worked as a library clerk.",
+        "ground_truth_label": "Mother library clerk with clerical training",
+        "behavioral_evidence_from_interview": [
+          "Q101: \"High school, with some clerical courses\"",
+          "Q103: \"library clerk\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Values integrity, competence, independence, beauty, stewardship, quiet loyalty, carefulness, fairness, curiosity, and usefulness.",
+        "ground_truth_label": "Core values of stewardship, competence, and integrity",
+        "behavioral_evidence_from_interview": [
+          "Q109: \"Integrity, competence, independence, beauty, and stewardship\"",
+          "Q109: \"careful, fair, curious, and useful\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Reads sample ballots, market news, financial journals, long-form journalism, and books.",
+        "ground_truth_label": "Long-form and institutional information diet",
+        "behavioral_evidence_from_interview": [
+          "Q23: \"read the sample ballot\"",
+          "Q28: \"books and long-form journalism\"",
+          "Q15: \"check market news\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Uses LinkedIn for professional contacts, webinars, AI, finance, and sustainable investment content.",
+        "ground_truth_label": "Professional LinkedIn use",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"LinkedIn for professional contacts and webinars\"",
+          "Q48: \"finance, AI, and sustainable investment content\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Avoids social media threads for medical decisions.",
+        "ground_truth_label": "Avoids social media for medical decisions",
+        "behavioral_evidence_from_interview": [
+          "Q42: \"I avoid social media threads for medical decisions\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Rarely posts personal updates and avoids arguing on Facebook.",
+        "ground_truth_label": "Low-conflict social media use",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"avoid arguing on Facebook\"",
+          "Q48: \"rarely post personal updates\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Does not seek emotional or financial support through social media and instead calls his sister or trusted friends.",
+        "ground_truth_label": "Offline support seeking",
+        "behavioral_evidence_from_interview": [
+          "Q49: \"do not seek emotional or financial support through social media\"",
+          "Q49: \"call my sister or speak with a trusted friend\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist",
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Has a bachelor's degree in finance.",
+        "ground_truth_label": "Bachelor's degree in finance",
+        "behavioral_evidence_from_interview": [
+          "Q90: \"A bachelor's degree in finance\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Has stable salaried employment with employer benefits.",
+        "ground_truth_label": "Stable employment with benefits",
+        "behavioral_evidence_from_interview": [
+          "Q76: \"current employer for 14 years\"",
+          "Q76: \"Benefits are solid\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Experienced modest upward mobility from a practical working family into professional financial management.",
+        "ground_truth_label": "Modest upward mobility",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"modest New England household\"",
+          "Q65: \"I am a financial manager\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Has strong preference for predictability and autonomy.",
+        "ground_truth_label": "Predictability and autonomy preference",
+        "behavioral_evidence_from_interview": [
+          "Q03: \"I chose the quieter path deliberately\"",
+          "Q78: \"Mostly I do\" control schedule"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Responds to uncertainty by collecting data, creating spreadsheets, and building financial buffers.",
+        "ground_truth_label": "Data-and-buffer uncertainty response",
+        "behavioral_evidence_from_interview": [
+          "Q03: \"I wrote down income, housing costs\"",
+          "Q61: \"Saving is nearly automatic\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Prefers audited, measurable government programs and institutional accountability.",
+        "ground_truth_label": "Measurable institutional accountability preference",
+        "behavioral_evidence_from_interview": [
+          "Q24: \"programs measured, audited, and adjusted\"",
+          "Q27: \"transparent metrics\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-093",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Has low tolerance for misinformation, conspiracy thinking, and theatrical politics.",
+        "ground_truth_label": "Low tolerance for misinformation and political theater",
+        "behavioral_evidence_from_interview": [
+          "Q24: \"dislike political theater and conspiracy thinking\"",
+          "Q25: \"misinformation affect real public decisions\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-094",
+        "source": "reprojected",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "His solitary life appears chosen and functional rather than socially disconnected.",
+        "ground_truth_label": "Chosen functional solitude",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"I like controlling the rhythm of the house\"",
+          "Q07: \"I like people, but I need quiet afterward\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-095",
+        "source": "reprojected",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Self-concept is built around stewardship, competence, independence, and disciplined curiosity.",
+        "ground_truth_label": "Stewardship-centered self-concept",
+        "behavioral_evidence_from_interview": [
+          "Q109: \"Integrity, competence, independence, beauty, and stewardship\"",
+          "Q01: \"curiosity\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "HF-081"
+        ]
+      }
+    ]
+  }
+}

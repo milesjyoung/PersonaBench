@@ -1,0 +1,2397 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "4816505d7075476ca155ab1065eb4da3",
+      "name": "Donte Hughes",
+      "verification_date": "2026-05-19"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age 25 matches the interview date of birth and confirmation that he is 25.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.age",
+              "source_b_ref": "Q85",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Seed says Donte is male, never married, and living in Scottsdale; interview confirms never married, no partner, and Scottsdale apartment.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.sex, seed.marital_status, seed.city/state/zipcode",
+              "source_b_ref": "Q11, Q51, Q84",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Seed education and occupation match the interview: bachelor's degree in computer science and full-stack web developer.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.education_level, seed.bachelors_field, seed.occupation",
+              "source_b_ref": "Q16, Q65, Q90",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 4,
+              "text": "Seed cultural background says middle-class Southwest suburban upbringing; interview enriches this with Phoenix birth, Scottsdale at age 16, and stable two-parent household.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q87, Q97-Q99",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 5,
+              "text": "Seed omits household size; interview clearly states he lives alone, with no spouse, children, roommates, pets, lodgers, or temporary members.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed demographic fields",
+              "source_b_ref": "Q11-Q14, Q51-Q55",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 4
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile demographics match interview: 25, male, never married, not cohabiting, Scottsdale, bachelor's in computer science, full-stack developer.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q11, Q65, Q84-Q90",
+              "source_b_ref": "top-level extracted_profile fields",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Profile states he rents and lives alone; interview repeatedly confirms household count of one and rented apartment.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q11-Q14, Q51-Q58",
+              "source_b_ref": "preferences.home_and_lifestyle, summaries.demographer",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Profile includes parents and sister but omits parent education, parental occupations, and childhood household details that are demographically substantive.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q98-Q107",
+              "source_b_ref": "preferences.cultural_and_linguistic, preferences.social_and_relationships",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add childhood two-parent household, sister Maya at age 16, parents' bachelor's degrees, mother's school administration work, and father's logistics operations management to cultural/social details."
+            },
+            {
+              "id": 4,
+              "text": "Profile does not capture U.S. birth, Phoenix birth city, no school enrollment, and no military service, all directly stated in the interview.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q86-Q87, Q91-Q93",
+              "source_b_ref": "preferences.cultural_and_linguistic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add U.S.-born in Phoenix, not currently or recently enrolled in school, and no military service to cultural_and_linguistic."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Top-level marital status, social_and_relationships, home_and_lifestyle, and demographer summary all consistently describe him as single, never married, childless, and living alone.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "top-level marital_status and preferences.social_and_relationships",
+              "field_b": "preferences.home_and_lifestyle and summaries.demographer",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Location is internally consistent across top-level profile, neighborhood/home details, and outdoor routines in Scottsdale.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "top-level location",
+              "field_b": "preferences.home_and_lifestyle, preferences.nature_and_outdoors",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Education and occupation are internally consistent across work_and_career, technology, and demographer summary.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "top-level education and occupation",
+              "field_b": "preferences.work_and_career, preferences.technology, summaries.demographer",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Date of birth, U.S. birth, Phoenix birth city, and Arizona native identity are missing.",
+              "gap": true,
+              "interview_ref": "Q85-Q87",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add DOB June 14, 2000; born in Phoenix, Arizona; U.S.-born; identifies as an Arizona native."
+            },
+            {
+              "id": 2,
+              "text": "Childhood household structure and parents' education/occupations are missing.",
+              "gap": true,
+              "interview_ref": "Q98-Q107",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add stable two-parent household with younger sister; both parents have bachelor's degrees; mother worked in school administration; father worked in logistics operations management."
+            },
+            {
+              "id": 3,
+              "text": "No school enrollment and no military service are missing.",
+              "gap": true,
+              "interview_ref": "Q91-Q93",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add not enrolled in school, no enrollment in past three months, and no Armed Forces, Reserves, or National Guard service."
+            },
+            {
+              "id": 4,
+              "text": "No pets and no overnight household members are missing from household profile.",
+              "gap": true,
+              "interview_ref": "Q13, Q51",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add no pets and no one regularly stays overnight."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes disciplined budgeting and methodical planning; interview confirms weekly lists, detailed spreadsheet budgeting, sinking funds, automated savings, and avoiding credit card balances.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.persona, seed.cultural_background",
+              "source_b_ref": "Q01, Q56-Q61",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Seed describes competitive, organized career behavior; interview confirms measurable progress orientation in software, AWS study, lifting, and career advancement.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.professional_persona, seed.career_goals_and_ambitions",
+              "source_b_ref": "Q16-Q18, Q32, Q65, Q108",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Seed notes occasional neglect of meal prep during coding sprints; interview repeatedly confirms delivery food during sprint stress.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.culinary_persona",
+              "source_b_ref": "Q15, Q18, Q32, Q56",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 4,
+              "text": "Seed says he prefers planned solo trips; interview supports planned Iceland savings and structured travel goals but gives less direct evidence of solo preference.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.travel_persona",
+              "source_b_ref": "Q62, Q108",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 5,
+              "text": "Seed says he overplans and forgets spontaneous breaks; interview enriches this with guilt relaxing, rigidity, and efforts to schedule gym and outdoor breaks.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q43-Q45, Q50, Q109",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures savings behavior, emergency fund, retirement contributions, separate savings buckets, and automated transfers.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q61-Q62, Q83",
+              "source_b_ref": "summaries.behavioral_economist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Profile captures delivery-food temptation under work stress and budget cutbacks after high spending.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q32, Q56, Q60",
+              "source_b_ref": "preferences.food_and_dining, summaries.behavioral_economist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Profile underrepresents income, monthly spending, debt structure, and ability to cover a $400 emergency.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q57, Q63, Q72-Q74, Q82",
+              "source_b_ref": "preferences.work_and_career, preferences.home_and_lifestyle",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add financial facts to home_and_lifestyle/work_and_career: gross monthly pay about $8,300, take-home about $5,700, normal spending $3,700-$4,000, car loan, small student loan, no revolving credit card debt, can cover $400 from savings."
+            },
+            {
+              "id": 4,
+              "text": "Profile captures career risk posture but omits no public benefits, no low-income period, and backup plan of freelance web work.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q80-Q81",
+              "source_b_ref": "summaries.behavioral_economist, preferences.work_and_career",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add no public benefits, no unemployment benefits, no housing assistance, stable salary in past year, and freelance web work as backup income plan."
+            },
+            {
+              "id": 5,
+              "text": "Profile captures measurable progress orientation but omits his explicit use of spreadsheets to compare career paths.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q03",
+              "source_b_ref": "preferences.life_events_and_transitions",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add that he consciously compared course requirements, job prospects, income, and daily work in a spreadsheet."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Financial discipline in summaries is consistent with food_and_dining's delivery spending caveat and corrected budget details.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.behavioral_economist",
+              "field_b": "preferences.food_and_dining, preferences.home_and_lifestyle",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Career ambition, AWS certification, and SaaS entrepreneurship are consistent across work_and_career, technology, and summaries.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career",
+              "field_b": "preferences.technology, summaries.behavioral_economist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "The profile consistently portrays controlled risk taking: stable salaried work and savings first, entrepreneurship later.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Monthly budget amounts and major expense categories are missing.",
+              "gap": true,
+              "interview_ref": "Q56-Q59",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add last month around $4,300, normal month $3,700-$4,000, rent biggest expense, and summer electricity spikes."
+            },
+            {
+              "id": 2,
+              "text": "Debt and credit behavior are missing.",
+              "gap": true,
+              "interview_ref": "Q60, Q63",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add car loan, small student loan, no carried credit-card debt, pays cards monthly for points."
+            },
+            {
+              "id": 3,
+              "text": "Income, pay frequency, and household income details are missing.",
+              "gap": true,
+              "interview_ref": "Q72-Q74",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add gross pay about $8,300 monthly, take-home about $5,700, paid every two weeks, household income is only his."
+            },
+            {
+              "id": 4,
+              "text": "Tax filing and benefits information are missing.",
+              "gap": true,
+              "interview_ref": "Q75-Q76, Q80",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add filed taxes using software with W-2 and small refund; job benefits include health, dental, vision, 401(k), PTO, sick time, remote flexibility, and certification reimbursement; no public benefits."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed gives Southwest suburban context but no party identity; interview enriches with Independent identity leaning slightly Democratic.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q24, Q95-Q96",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Seed's individualism and self-reliance are consistent with interview values of responsibility, independence, competence, and fiscal discipline.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q24, Q60, Q83, Q109",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Seed does not mention civic behavior; interview adds voting by mail, voter guides, and increasing attention to local races.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed demographic/persona fields",
+              "source_b_ref": "Q23, Q26",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 4,
+              "text": "Seed does not mention policing views; interview adds limited personal police contact and support for accountability plus public safety.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona fields",
+              "source_b_ref": "Q20-Q22, Q24, Q27",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 5,
+              "text": "Seed's local outdoor/Southwest context is consistent with interview political issue priorities around water, climate, heat, housing, and local development.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.cultural_background, seed.sports_persona",
+              "source_b_ref": "Q24-Q25",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 4
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately states that he votes in presidential and midterm elections and is increasingly attentive to local elections.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Profile correctly captures Independent identity, slight Democratic lean, and pragmatic moderate political style.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q24, Q95-Q96",
+              "source_b_ref": "summaries.political_scientist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Profile captures race/policing engagement but omits his limited personal law enforcement experience and absence of arrests.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q20-Q22",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add limited law enforcement contact, routine traffic stops only, no arrests for him or immediate family, and no serious legal issues."
+            },
+            {
+              "id": 4,
+              "text": "Profile captures BLM-related response but omits that family/friends differ and parents are more skeptical/moderate-conservative.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q25, Q30",
+              "source_b_ref": "preferences.community_and_civic, preferences.social_and_relationships",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add that parents are more moderate-conservative and friends are generally more progressive, shaping but not breaking relationships."
+            },
+            {
+              "id": 5,
+              "text": "Profile captures institutional trust conditionally but omits his reliance on mail voting to research while voting.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q23",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add that he usually votes by mail because it allows research while filling out the ballot."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Community_and_civic and political scientist summary consistently describe informational electoral engagement rather than protest activism.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Cultural_and_linguistic agnostic identity is consistent with political values not being religiously driven.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.cultural_and_linguistic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Media_and_information_diet and community_and_civic consistently portray a research-oriented, verification-focused civic style.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.media_and_information_diet",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Party registration nuance and candidate-by-candidate voting are missing from preferences.",
+              "gap": true,
+              "interview_ref": "Q95-Q96",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add Independent identity, slight Democratic closeness, candidate-by-candidate voting, and possible strategic party registration for primaries."
+            },
+            {
+              "id": 2,
+              "text": "Local issue priorities are missing from community details.",
+              "gap": true,
+              "interview_ref": "Q24-Q25",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add housing affordability, climate and water in the Southwest, tech opportunity, health care costs, and education as key issues."
+            },
+            {
+              "id": 3,
+              "text": "Law enforcement history is missing.",
+              "gap": true,
+              "interview_ref": "Q20-Q22",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add limited contact, routine traffic stops, no arrests for self or immediate family, and traffic ticket made him more careful due to insurance costs."
+            },
+            {
+              "id": 4,
+              "text": "Civic response to race issues is summarized but could include specific reforms he favors.",
+              "gap": true,
+              "interview_ref": "Q27-Q29",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add body camera policies, better data, civilian oversight, training, and alternatives for mental-health calls."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes methodical, competition-driven personality; interview confirms quiet competitiveness, planning, spreadsheets, and measurable-progress orientation.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona, seed.professional_persona",
+              "source_b_ref": "Q01, Q03, Q32, Q43",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Seed says he overplans and forgets spontaneous breaks; interview confirms rigidity, guilt relaxing, and treating hobbies like performance metrics.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q43-Q45, Q109",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Seed emphasizes solitary structured hobbies; interview confirms small-circle relationships, living alone, and hobbies that are often structured or solitary.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.hobbies_and_interests",
+              "source_b_ref": "Q07, Q11, Q15, Q38",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 4,
+              "text": "Seed's practical education and steady progression values match interview values of responsibility, competence, independence, honesty, health, and growth.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background, seed.career_goals_and_ambitions",
+              "source_b_ref": "Q01, Q108-Q109",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 5,
+              "text": "Seed does not mention diagnosed mental health; interview clarifies no diagnosed depression or anxiety and no therapy to date.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona fields",
+              "source_b_ref": "Q45",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures conscientiousness, competitiveness, self-regulation, and identity around competence and growth.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01, Q43, Q109",
+              "source_b_ref": "summaries.psychologist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Profile captures coping through exercise, hiking, reading, strategy games, chess, and notification boundaries.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q38, Q43-Q44, Q50",
+              "source_b_ref": "preferences.health_and_wellness, preferences.entertainment, summaries.psychologist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Profile omits no diagnosed depression/anxiety, no therapy so far, and not opposed to therapy.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q45",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add no diagnosed depression or anxiety, no therapy to date, and openness to therapy."
+            },
+            {
+              "id": 4,
+              "text": "Profile omits his emotional disclosure pattern: he told Marcus during a rough work stretch and avoids public crisis posting.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q44, Q49",
+              "source_b_ref": "preferences.social_and_relationships, preferences.media_and_information_diet",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add private support-seeking through Marcus/family and rare use of social media for emotional support."
+            },
+            {
+              "id": 5,
+              "text": "Profile omits that family emotional life is stable but his sister has early-career uncertainty and he sometimes supports her.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q46",
+              "source_b_ref": "preferences.social_and_relationships",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add stable family emotional context and occasional emotional support to sister around next steps."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Achievement orientation in work_and_career is consistent with emotional-well-being descriptions of pressure, overoptimization, and balance efforts.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 2,
+              "text": "Small-group social style is consistent across social_and_relationships, hobbies_and_recreation, and psychologist summary.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships",
+              "field_b": "preferences.hobbies_and_recreation, summaries.psychologist",
+              "action": "NO_CHANGE"
+            },
+            {
+              "id": 3,
+              "text": "Coping strategies are internally consistent across health, nature, entertainment, and media boundaries.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness, preferences.nature_and_outdoors",
+              "field_b": "preferences.entertainment, preferences.media_and_information_diet",
+              "action": "NO_CHANGE"
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "No diagnosed depression/anxiety and no therapy history are missing.",
+              "gap": true,
+              "interview_ref": "Q45",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add no diagnosed depression or anxiety; no therapy so far; not opposed to therapy."
+            },
+            {
+              "id": 2,
+              "text": "Specific rough-period story from a slipping release is missing.",
+              "gap": true,
+              "interview_ref": "Q44",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add slipping release caused late bug fixing, skipped workouts, delivery food, isolation, and a Saturday hike reset."
+            },
+            {
+              "id": 3,
+              "text": "Private support style is missing.",
+              "gap": true,
+              "interview_ref": "Q44, Q49",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add Marcus as emotional/practical first call and private family/friend support rather than social-media support."
+            },
+            {
+              "id": 4,
+              "text": "Values and hoped-for relationship style are only partially captured.",
+              "gap": true,
+              "interview_ref": "Q108-Q109",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add desire for eventual serious relationship that preserves autonomy, plus values of competence, independence, honesty, family, health, growth, and balance."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No contradictions required human review. Several interview-supported omissions were added to the corrected profile, so the result passes with revisions.",
+    "final_status": "Corrected profile is ready for downstream use with summaries carried over verbatim and hidden_facts generated."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "4816505d7075476ca155ab1065eb4da3",
+    "name": "Donte Hughes",
+    "age": 25,
+    "gender": "Male",
+    "marital_status": "never married; not living with a romantic partner",
+    "location": "Scottsdale, AZ 85260",
+    "education": "Bachelor's degree in computer science",
+    "occupation": "Full-stack web developer",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Health-conscious and fitness-oriented, with no major chronic diagnoses; manages desk-work strain through lifting, stretching, ergonomics, and outdoor activity.",
+        "details": [
+          "Lifts weights regularly and hikes for physical and mental health (Q31, Q32).",
+          "Tracks workouts and likes measurable progress (Q32).",
+          "Has experienced mild wrist strain and back tightness from climbing and desk work (Q33).",
+          "Generally pro-vaccine and trusts medical consensus (Q41, Q42).",
+          "Has no major diagnosed chronic conditions and has not had health seriously interfere with work (Q31, Q34).",
+          "Has no diagnosed depression or anxiety and has not gone to therapy, though he is not opposed to it (Q45).",
+          "Uses stretching, hydration, standing-desk breaks, ergonomics, heat, ice, massage tools, and occasional ibuprofen for minor strain (Q31, Q33, Q37, Q39).",
+          "Does not smoke, drinks socially a few times a month, and does not regularly use marijuana (Q38, Q39).",
+          "Has decent employer health insurance and has not had to forgo necessary care, though he finds the system opaque (Q36)."
+        ],
+        "evidence": "Q31-Q42, Q45"
+      },
+      "food_and_dining": {
+        "summary": "Prefers high-protein home cooking but orders delivery during demanding work periods and occasionally enjoys late-night tacos.",
+        "details": [
+          "Cooks meals such as salmon, chicken, rice, quinoa, and vegetables (Q15).",
+          "Uses an Aeropress for morning coffee (Q15).",
+          "Orders delivery when coding sprints disrupt meal prep (Q15, Q32, Q56).",
+          "Cuts delivery spending when budgets run high (Q60).",
+          "Delivery choices include tacos, sushi, and Mediterranean food during stressful periods (Q32).",
+          "Meal preps on Sundays when disciplined and is trying to prep at least a few meals weekly (Q17, Q18)."
+        ],
+        "evidence": "Q15, Q17-Q18, Q32, Q56, Q60"
+      },
+      "travel": {
+        "summary": "Enjoys planned solo or structured travel centered on landscapes, photography, and cultural exploration.",
+        "details": [
+          "Has trekked the Grand Canyon and explored Kyoto's historic districts according to seed travel context.",
+          "Wants to take a photography trip to Iceland focused on glaciers and landscapes (Q62, Q108).",
+          "Saves specifically for travel as a budget category (Q62).",
+          "Uses Reddit and YouTube for travel planning (Q48).",
+          "Wants enough flexibility to take a planned photography trip to Iceland (Q108)."
+        ],
+        "evidence": "seed.travel_persona, Q48, Q62, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "Single, never married, childless, close to immediate family, and maintains a small practical friend network.",
+        "details": [
+          "Lives alone and is not cohabiting with a partner (Q11, Q51, Q84).",
+          "Sees parents every couple weeks and texts with mother often (Q05).",
+          "Has a younger sister named Maya (Q05, Q99).",
+          "Closest friend Marcus is another developer from school (Q07).",
+          "Usually sees friends once or twice a week through climbing, gym, coffee, or watching games (Q07).",
+          "Would call Marcus first for an emotional or practical emergency and parents for larger emergencies (Q07).",
+          "His family is mostly emotionally stable, and he sometimes supports his sister with early-career uncertainty (Q46).",
+          "Would like a serious relationship eventually while preserving autonomy and not disappearing into someone else's life (Q108).",
+          "Values competence, independence, honesty, family, health, growth, responsibility, and balance (Q109)."
+        ],
+        "evidence": "Q05-Q07, Q11, Q46, Q51, Q84, Q99, Q108-Q109"
+      },
+      "home_and_lifestyle": {
+        "summary": "Lives alone in a rented one-bedroom Scottsdale apartment and prefers organized, controlled, quiet living space.",
+        "details": [
+          "Rents in Scottsdale and lives alone (Q11, Q58).",
+          "Keeps apartment organized around desk setup, cooking, gym gear, and photography equipment (Q11).",
+          "Values quiet and control when living alone (Q11).",
+          "Uses weekly routines for laundry, groceries, and cleaning (Q17).",
+          "No one regularly stays overnight and he has no pets (Q13, Q51).",
+          "Pays rent and utilities by himself with no family contribution (Q55).",
+          "Last month spending was about $4,300; a normal month is closer to $3,700-$4,000 (Q57).",
+          "Rent is his biggest expense, followed by car payment and insurance, groceries, utilities, gym membership, gas, eating out, and occasional gear purchases (Q56).",
+          "Electricity spikes in July and August because of air conditioning, and he uses sinking funds for seasonal costs (Q59).",
+          "Has a car loan and a small remaining student loan, with no credit-card debt carried month to month and no family loans (Q63).",
+          "Can cover a $400 emergency from savings without borrowing (Q82)."
+        ],
+        "evidence": "Q08, Q11, Q13, Q17, Q51, Q55-Q59, Q63, Q82"
+      },
+      "entertainment": {
+        "summary": "Prefers intellectually engaging and competitive entertainment, especially strategy games, chess puzzles, sci-fi, and sports viewing.",
+        "details": [
+          "Plays strategy video games such as Civilization and StarCraft (Q15, Q38).",
+          "Solves chess puzzles as a stress outlet (Q38).",
+          "Reads science fiction to unwind (Q38, Q43).",
+          "Watches Cardinals and Suns games with family or friends (Q05, Q15).",
+          "Uses strategy games, chess, and sci-fi as alternatives to substance-based coping (Q38)."
+        ],
+        "evidence": "Q05, Q15, Q38, Q43"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Hobbies are structured, skill-based, and solitary or small-group: photography, hiking, mechanical keyboards, chess, gaming, and climbing.",
+        "details": [
+          "Practices desert landscape photography and posts some work to Instagram (Q48).",
+          "Builds mechanical keyboards and buys keyboard parts (Q15, Q56).",
+          "Participates in climbing, especially winter bouldering (Q07, Q33).",
+          "Uses hikes and games to decompress from work stress (Q38, Q44).",
+          "Sometimes buys camera accessories and keyboard-build parts as discretionary hobby spending (Q56).",
+          "Likes hobbies that can become measurable, but is learning not to make every hobby a performance metric (Q45, Q108)."
+        ],
+        "evidence": "Q07, Q15, Q33, Q44-Q45, Q48, Q56, Q108"
+      },
+      "work_and_career": {
+        "summary": "Ambitious full-stack developer focused on senior engineering, technical leadership, AWS certification, and eventual SaaS entrepreneurship.",
+        "details": [
+          "Works with React, Vue, Node.js, Python, APIs, databases, testing, and CI/CD (Q16, Q65).",
+          "Uses Agile routines such as standups, sprint planning, code reviews, and Jira (Q16, Q65).",
+          "Wants to become senior engineer, technical lead, or solutions architect (Q65, Q108).",
+          "Plans to build a SaaS product for workflow automation (Q83, Q108).",
+          "Works one full-time salaried job, usually 40-45 hours weekly and sometimes closer to 50 during releases (Q67-Q71).",
+          "Gross pay is about $8,300 per month and take-home pay is about $5,700 (Q72-Q74).",
+          "Gets paid every two weeks by direct deposit and maps bills to pay periods (Q73).",
+          "Has been at current job about two years with health, dental, vision, 401(k), paid vacation, sick time, remote flexibility, and some certification reimbursement (Q76).",
+          "His job is not union-covered and he has no second job or current side-business income (Q66, Q70).",
+          "Filed taxes last year using tax software and a W-2 and received a small refund (Q75).",
+          "Receives no SNAP, housing assistance, SSI, unemployment, or other public benefits (Q80).",
+          "Income has not been especially low in the past year; freelance web work would be his first backup income plan (Q81)."
+        ],
+        "evidence": "Q16, Q65-Q76, Q80-Q83, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Engages with visual art through landscape photography and with speculative literature through science fiction.",
+        "details": [
+          "Practices landscape photography, especially desert scenes (Q15, Q48).",
+          "Reads science-fiction authors and uses sci-fi for creative stimulation (Q38, Q43).",
+          "Values composition, exposure, and planned photography outings (Q01, Q15).",
+          "Considered design or visual media in college before choosing software for creative work plus stability (Q02)."
+        ],
+        "evidence": "Q01-Q02, Q15, Q38, Q48"
+      },
+      "sports_and_fitness": {
+        "summary": "Strongly fitness-oriented and follows Arizona professional sports.",
+        "details": [
+          "Trains at Gold's Gym three or four days per week (Q15).",
+          "Hikes desert trails on weekends when weather allows (Q15).",
+          "Climbs with friends from Arizona Bouldering Club, especially in winter (Q07, Q33).",
+          "Cheers for the Phoenix Suns and Arizona Cardinals (Q05, Q15).",
+          "Blocks gym time on his calendar after work stress disrupted workouts (Q18, Q44, Q50).",
+          "Strength training is his stickiest healthy habit because he can track lifts (Q32)."
+        ],
+        "evidence": "Q05, Q07, Q15, Q18, Q32-Q33, Q44, Q50"
+      },
+      "nature_and_outdoors": {
+        "summary": "Southwest desert outdoors are central to his identity, stress regulation, and photography practice.",
+        "details": [
+          "Frequently hikes McDowell Sonoran Preserve and other Scottsdale-area trails (Q08, Q15).",
+          "Uses early morning desert hikes to reset emotionally (Q44).",
+          "Experiences nature as grounding despite not being religious (Q47).",
+          "Summer heat limits outdoor activity and shapes routines (Q10, Q32, Q59).",
+          "Added morning walks on remote days so he does not go straight from bed to desk (Q18, Q50).",
+          "Time outdoors matters because it cuts through digital noise (Q109)."
+        ],
+        "evidence": "Q08, Q10, Q15, Q18, Q32, Q44, Q47, Q50, Q59, Q109"
+      },
+      "technology": {
+        "summary": "Technology is both occupation and hobby, including full-stack development, cloud systems, mechanical keyboards, and online technical learning.",
+        "details": [
+          "Daily work includes VS Code, GitHub, Jira, Slack, Docker, GitHub Actions, browser dev tools, Jest, and Cypress (Q65).",
+          "Self-studies AWS Solutions Architect material (Q17, Q91).",
+          "Builds and customizes mechanical keyboards (Q15, Q56).",
+          "Uses Reddit and YouTube for technical learning (Q48).",
+          "Helps parents with home tech issues, online systems, routers, printers, insurance portals, and researching doctors (Q05, Q35).",
+          "Uses Slack and Jira early in the workday and tries not to check Slack after hours unless on call (Q15, Q44, Q50)."
+        ],
+        "evidence": "Q05, Q15, Q17, Q35, Q44, Q48, Q50, Q65, Q91"
+      },
+      "community_and_civic": {
+        "summary": "Civically engaged through voting and local policy attention, but not highly activist or protest-oriented.",
+        "details": [
+          "Votes in presidential and midterm elections and increasingly researches local elections (Q23).",
+          "Pays attention to city council, school board, ballot measures, prosecutor, sheriff, and police accountability races (Q23, Q26).",
+          "Has not joined protests but talks, reads, votes, and occasionally donates (Q29).",
+          "Identifies as an Independent who leans slightly Democratic and votes candidate by candidate (Q95-Q96).",
+          "Key issues include housing affordability, climate and water in the Southwest, tech opportunity, health care costs, education, infrastructure, and public safety accountability (Q24-Q25).",
+          "Supports reforms such as body cameras, better data, civilian oversight, training, and alternatives for mental-health calls (Q27).",
+          "Usually votes by mail because it lets him research while filling out the ballot (Q23).",
+          "Has limited personal law enforcement contact: two routine traffic stops, no arrests, no serious legal issues, and no arrests for immediate family (Q20-Q22).",
+          "Traffic ticket made him more careful partly because of insurance costs (Q20).",
+          "Parents are more moderate-conservative while friends are generally more progressive; political conversations sometimes get tense but not permanently strained (Q25, Q30)."
+        ],
+        "evidence": "Q20-Q30, Q95-Q96"
+      },
+      "music": {
+        "summary": "Music is present mainly as focus and hobby background; preferred artists include Daft Punk and Vangelis from the persona seed, though the interview contains limited direct elaboration.",
+        "details": [
+          "Seed context says he curates playlists including Daft Punk and Vangelis while solving chess puzzles.",
+          "Interview contains no detailed music discussion beyond broader digital media and hobby routines."
+        ],
+        "evidence": "seed.arts_persona, Q15, Q48"
+      },
+      "fashion_and_appearance": {
+        "summary": "Limited evidence; appearance preferences appear practical and fitness-oriented rather than fashion-centered.",
+        "details": [
+          "Spends on gym, hiking, and technical gear rather than fashion (Q15, Q56).",
+          "No strong fashion identity disclosed in interview."
+        ],
+        "evidence": "Q15, Q56"
+      },
+      "cultural_and_linguistic": {
+        "summary": "U.S.-born, English-speaking, white, non-Hispanic man raised in a middle-class Southwest suburban environment.",
+        "details": [
+          "Born in Phoenix, Arizona and lived in Scottsdale at age 16 (Q87, Q97).",
+          "Identifies as white and not Hispanic, Latinx, or Spanish origin (Q88, Q89).",
+          "Primary language at home is English (Q88 follow-up).",
+          "Raised with general Christian cultural background but now agnostic/not religious (Q47, Q94).",
+          "Date of birth is June 14, 2000 (Q85).",
+          "Was born in the United States, has not lived outside the U.S., and has no immediate-family immigrant background (Q86).",
+          "Identifies as an Arizona native (Q87).",
+          "Grew up in a stable two-parent household with both parents and younger sister Maya at age 16 (Q98-Q99).",
+          "Both parents completed bachelor's degrees; father's field was business-related and mother's field was education (Q100-Q101).",
+          "Mother worked mostly full time in school administration for a public school district (Q102-Q104).",
+          "Father worked steadily as an operations manager for a regional logistics and distribution company (Q105-Q107).",
+          "Not currently enrolled in school, not enrolled in the past three months, and has never served in the U.S. Armed Forces, Reserves, or National Guard (Q91-Q93)."
+        ],
+        "evidence": "Q47, Q85-Q94, Q97-Q107"
+      },
+      "life_events_and_transitions": {
+        "summary": "Key transitions include choosing software over design/media in college, starting full-time development work, living independently, and moving toward technical leadership.",
+        "details": [
+          "College sophomore crossroads led him to commit to full-stack development after a paid dashboard project (Q02, Q03).",
+          "First full-time developer job and lease made him feel adult (Q01).",
+          "Recent routine transition involved protecting gym time and reducing overwork (Q18, Q50).",
+          "At the college crossroads, he consciously compared course requirements, job prospects, income ranges, and desired daily work in a spreadsheet (Q03).",
+          "More structured career advising or an industry mentor would have helped him earlier (Q04).",
+          "A recent slipping release left him fixing bugs late, skipping workouts, ordering delivery, feeling flat and isolated, and then resetting with a Saturday hike (Q44)."
+        ],
+        "evidence": "Q01-Q04, Q18, Q44, Q50"
+      },
+      "media_and_information_diet": {
+        "summary": "Uses Instagram, LinkedIn, Reddit, YouTube, local news, voter guides, and credible institutional sources; skeptical of random social media claims.",
+        "details": [
+          "Instagram for photography, hiking, gym content, and friends (Q48).",
+          "LinkedIn for career and projects (Q48).",
+          "Reddit and YouTube for technical learning, keyboards, fitness, and travel planning (Q48).",
+          "Uses CDC, doctors, major hospital systems, local news, and policy explainers for factual information (Q27, Q42).",
+          "Does not use social media for financial support and rarely uses it for emotional support (Q49).",
+          "Would text a friend or family privately during a rough time rather than post publicly (Q49).",
+          "Tries not to doomscroll political content but sometimes reads threads (Q48).",
+          "Uses Reddit to see health experiences but not as medical authority (Q42)."
+        ],
+        "evidence": "Q27, Q42, Q48-Q49"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Donte Hughes is a 25-year-old U.S.-born white non-Hispanic man living alone in a rented apartment in Scottsdale, Arizona (Q11, Q58, Q87-Q89). He has a bachelor's degree in computer science and works full-time as a salaried full-stack web developer with stable earnings and employer benefits (Q65, Q72, Q76). He has never been married, has no children, and is not cohabiting with a romantic partner, while remaining close to parents and a younger sister in the Phoenix area (Q05, Q84, Q99). His life-course profile is early-career, middle-class, urban-suburban, and oriented toward career mobility and eventual home ownership (Q83, Q108).",
+      "behavioral_economist": "Donte is highly planning-oriented and responds strongly to measurable progress, whether in coding, lifting, budgeting, or career certification (Q17, Q32, Q61). He shows low present-bias in finances through automated savings, emergency funds, and avoidance of credit card balances, but experiences temptation around delivery food and hobby gear during work stress (Q56, Q60, Q61). His risk posture is moderate and controlled: he values stable employment and insurance while considering future entrepreneurship only after building runway (Q83, Q108). Peer influence matters selectively through professional mentors, developer friends, and family norms of responsibility rather than broad social pressure (Q02, Q05, Q07).",
+      "political_scientist": "Donte identifies as an Independent who leans slightly Democratic, with moderate, pragmatic views and low attachment to party identity (Q24, Q95, Q96). His civic engagement is mainly electoral and informational: he votes in major elections, increasingly researches local races, and pays attention to ballot measures and accountability offices (Q23, Q26). He supports evidence-based governance, criminal justice accountability, climate and water policy, housing affordability, education, and health care access, while expressing skepticism toward performative politics (Q24, Q25, Q27). His institutional trust is conditional: he trusts credible medical and policy sources but prefers verification and implementation details (Q27, Q42).",
+      "psychologist": "Donte presents as conscientious, methodical, competitive, and self-regulating, with a strong identity around competence, independence, and growth (Q01, Q43, Q109). His coping style is structured problem-solving through exercise, planning, outdoor resets, and technical or strategic hobbies, though he can become rigid and over-optimized under stress (Q44, Q45, Q50). He maintains close but bounded relationships, relying on a small circle rather than broad emotional disclosure (Q05, Q07, Q49). His motivational architecture is achievement-oriented but increasingly tempered by awareness that balance, spontaneity, and unstructured time are necessary for well-being (Q43, Q108, Q109)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Donte lifts weights regularly and hikes for physical and mental health.",
+        "ground_truth_label": "regular lifting and hiking",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"I lift weights regularly, hike\"",
+          "Q32: \"having a gym nearby and liking measurable progress\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Donte tracks workouts and likes measurable progress.",
+        "ground_truth_label": "measurable fitness progress preference",
+        "behavioral_evidence_from_interview": [
+          "Q32: \"Strength training, because I can track lifts.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Donte has had mild wrist strain and lower back or neck tightness from climbing and desk work.",
+        "ground_truth_label": "minor desk-and-climbing strain",
+        "behavioral_evidence_from_interview": [
+          "Q33: \"mild wrist strain from climbing and keyboard work\"",
+          "Q31: \"occasional back and neck tightness from desk work\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Donte is generally pro-vaccine and trusts the medical consensus.",
+        "ground_truth_label": "pro-vaccine medical consensus trust",
+        "behavioral_evidence_from_interview": [
+          "Q41: \"I'm generally pro-vaccine.\"",
+          "Q42: \"I trust my primary care doctor, CDC guidance, major hospital systems\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Donte has no major diagnosed chronic conditions and health has not seriously interfered with work.",
+        "ground_truth_label": "no major chronic condition or work impairment",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"I don't have any major diagnosed chronic conditions.\"",
+          "Q34: \"Health hasn't seriously interfered with work.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Donte has no diagnosed depression or anxiety and has not gone to therapy, though he is not opposed to it.",
+        "ground_truth_label": "no diagnosed depression/anxiety; no therapy to date",
+        "behavioral_evidence_from_interview": [
+          "Q45: \"I wouldn't say I have diagnosed depression or anxiety.\"",
+          "Q45: \"No, not so far, though I'm not opposed to it.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Donte does not smoke, drinks socially a few times a month, and does not regularly use marijuana.",
+        "ground_truth_label": "low substance use",
+        "behavioral_evidence_from_interview": [
+          "Q38: \"I don't smoke.\"",
+          "Q38: \"A few times a month, usually one or two drinks.\"",
+          "Q39: \"I don't use it regularly.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Donte cooks high-protein meals such as salmon, chicken, rice, quinoa, and vegetables.",
+        "ground_truth_label": "high-protein home cooking",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"I cook salmon, chicken, rice, quinoa, or vegetables.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Donte uses an Aeropress for morning coffee.",
+        "ground_truth_label": "Aeropress morning coffee",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"make coffee with an Aeropress\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Donte orders delivery when coding sprints or work stress disrupt meal prep.",
+        "ground_truth_label": "delivery during work stress",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"On busy sprint weeks I order delivery.\"",
+          "Q32: \"if I'm deep in code I can neglect it\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Donte cuts delivery spending when budgets run high.",
+        "ground_truth_label": "cuts delivery after expensive months",
+        "behavioral_evidence_from_interview": [
+          "Q60: \"reduced eating out the next month\"",
+          "Q60: \"Delivery, gear purchases, and subscriptions.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Donte meal preps on Sundays when disciplined and has recently tried to prep at least a few meals weekly.",
+        "ground_truth_label": "Sunday meal prep habit",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"meal prep when I'm disciplined\"",
+          "Q18: \"prepping at least a few meals on Sundays\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Donte wants to take a photography trip to Iceland focused on glaciers and landscapes.",
+        "ground_truth_label": "Iceland glacier photography goal",
+        "behavioral_evidence_from_interview": [
+          "Q62: \"Eventually Iceland for glacier and landscape photography.\"",
+          "Q108: \"planned photography trip to Iceland\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Donte saves specifically for travel as a budget category.",
+        "ground_truth_label": "travel savings bucket",
+        "behavioral_evidence_from_interview": [
+          "Q62: \"then travel\"",
+          "Q61: \"separate buckets for travel\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Donte lives alone and is not cohabiting with a romantic partner.",
+        "ground_truth_label": "single-person household; no cohabiting partner",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"I live alone in a one-bedroom apartment.\"",
+          "Q84: \"I've never been married, and I'm not living with a romantic partner.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Donte sees his parents every couple weeks and texts with his mother often.",
+        "ground_truth_label": "regular parental contact",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"usually see them every couple weeks\"",
+          "Q05: \"My mom and I text a few times a week\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Donte has a younger sister named Maya.",
+        "ground_truth_label": "younger sister Maya",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"I have one younger sister, Maya\"",
+          "Q99: \"My younger sister, Maya.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Donte's closest friend is Marcus, another developer he met in school.",
+        "ground_truth_label": "closest friend Marcus",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"My closest friend is Marcus, another developer I met in school.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Donte usually sees friends once or twice a week through climbing, gym, coffee, or watching a game.",
+        "ground_truth_label": "small weekly friend contact",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"Usually once or twice a week, like climbing, gym, coffee, or watching a game.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Donte would call Marcus first for an emotional or practical emergency and his parents for bigger emergencies.",
+        "ground_truth_label": "private emergency support network",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"Marcus first if it was emotional or practical, and my parents if it was bigger.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Donte would like a serious relationship eventually while preserving autonomy.",
+        "ground_truth_label": "eventual relationship with autonomy",
+        "behavioral_evidence_from_interview": [
+          "Q108: \"I'd like a serious relationship eventually\"",
+          "Q108: \"not one where I disappear into someone else's life\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Donte rents a one-bedroom apartment in Scottsdale.",
+        "ground_truth_label": "renter in Scottsdale one-bedroom",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"I live alone in a one-bedroom apartment.\"",
+          "Q58: \"I rent my apartment.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Donte keeps his apartment organized around work, cooking, gym gear, and photography equipment.",
+        "ground_truth_label": "organized apartment setup",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"organized around work, cooking, gym stuff, and photography gear\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Donte values quiet and control when living alone.",
+        "ground_truth_label": "quiet/control home preference",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"Quiet and control.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Donte schedules laundry on Sunday, groceries on Saturday, and cleaning on Friday night or Sunday afternoon.",
+        "ground_truth_label": "scheduled household chores",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"Laundry Sunday, groceries Saturday, cleaning either Friday night or Sunday afternoon.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Donte has no pets and no one regularly stays overnight.",
+        "ground_truth_label": "no pets or regular overnight guests",
+        "behavioral_evidence_from_interview": [
+          "Q13: \"No one regularly stays over.\"",
+          "Q51: \"No pets.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Donte's normal monthly spending is about $3,700 to $4,000, and last month was about $4,300.",
+        "ground_truth_label": "monthly spending range",
+        "behavioral_evidence_from_interview": [
+          "Q57: \"Last month was around $4,300\"",
+          "Q57: \"normal month is closer to $3,700 to $4,000\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Donte's biggest regular expense is rent, followed by car costs, food, utilities, gym, gas, eating out, and occasional gear purchases.",
+        "ground_truth_label": "major expense categories",
+        "behavioral_evidence_from_interview": [
+          "Q56: \"Rent was the biggest, then car payment and insurance, groceries, utilities, gym membership, gas, and some eating out.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Donte's electricity bill spikes in July and August because of air conditioning, and he uses sinking funds for seasonal costs.",
+        "ground_truth_label": "summer electricity spike planning",
+        "behavioral_evidence_from_interview": [
+          "Q59: \"Electricity spikes in the summer because of air conditioning.\"",
+          "Q59: \"I keep sinking funds for annual and seasonal costs.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Donte has a car loan and a small remaining student loan but carries no credit-card debt month to month.",
+        "ground_truth_label": "car loan, small student loan, no revolving credit debt",
+        "behavioral_evidence_from_interview": [
+          "Q63: \"I have a car loan and a small remaining student loan balance.\"",
+          "Q63: \"No credit card debt carried month to month\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Donte can cover a $400 emergency from savings without borrowing.",
+        "ground_truth_label": "can cover $400 emergency",
+        "behavioral_evidence_from_interview": [
+          "Q82: \"I could cover a $400 emergency from savings without borrowing.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Donte plays strategy video games such as Civilization and StarCraft.",
+        "ground_truth_label": "strategy video games",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"strategy video games\"",
+          "seed.hobbies_and_interests: \"Civilization, StarCraft\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Donte solves chess puzzles as a stress outlet.",
+        "ground_truth_label": "chess puzzles for coping",
+        "behavioral_evidence_from_interview": [
+          "Q38: \"solve chess puzzles\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Donte reads science fiction to unwind.",
+        "ground_truth_label": "science fiction reading",
+        "behavioral_evidence_from_interview": [
+          "Q38: \"zone out with sci-fi\"",
+          "Q43: \"turning off notifications and reading\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Donte watches Arizona Cardinals and Phoenix Suns games with family or friends.",
+        "ground_truth_label": "Cardinals and Suns fan",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"Suns games\"",
+          "Q15: \"watching Cardinals or Suns games\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Donte practices desert landscape photography and posts some work to Instagram.",
+        "ground_truth_label": "desert landscape photography",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"I post... mostly desert landscapes and travel shots\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Donte builds mechanical keyboards and buys keyboard parts.",
+        "ground_truth_label": "mechanical keyboard hobby",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"mechanical keyboard projects\"",
+          "Q56: \"keyboard build\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Donte participates in climbing, especially winter bouldering.",
+        "ground_truth_label": "winter bouldering",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"climbing friends from the Arizona Bouldering Club, especially in winter\"",
+          "Q33: \"climbing sessions\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Donte decompresses from work stress through hikes and games.",
+        "ground_truth_label": "hikes and games for decompression",
+        "behavioral_evidence_from_interview": [
+          "Q38: \"lift, play a strategy game, solve chess puzzles\"",
+          "Q44: \"hike early... reset me\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Donte works with React, Vue, Node.js, Python, APIs, databases, testing, and CI/CD.",
+        "ground_truth_label": "full-stack technical stack",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"React, Vue, Node.js, Python, APIs, databases, tests, and deployment pipelines\"",
+          "Q65: \"React or Vue... Node.js or Python\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Donte uses Agile routines such as standups, sprint planning, code reviews, and Jira.",
+        "ground_truth_label": "Agile work routine",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"standups, sprint planning, code reviews\"",
+          "Q65: \"Jira\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Donte wants to become a senior engineer, technical lead, or solutions architect.",
+        "ground_truth_label": "senior/lead career goal",
+        "behavioral_evidence_from_interview": [
+          "Q65: \"Senior full-stack engineer, then technical lead or solutions architect.\"",
+          "Q108: \"senior full-stack engineer or technical lead\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Donte plans to build a SaaS product for workflow automation.",
+        "ground_truth_label": "workflow automation SaaS ambition",
+        "behavioral_evidence_from_interview": [
+          "Q83: \"runway to build a SaaS product someday\"",
+          "Q108: \"SaaS product for workflow automation\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Donte works one full-time salaried job, usually 40 to 45 hours weekly and sometimes closer to 50 during releases.",
+        "ground_truth_label": "one full-time salaried job",
+        "behavioral_evidence_from_interview": [
+          "Q68: \"Usually around 40 to 45 hours.\"",
+          "Q68: \"sometimes closer to 50\"",
+          "Q70: \"just one full-time job\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Donte's gross monthly pay is about $8,300 and take-home pay is about $5,700.",
+        "ground_truth_label": "monthly gross and net pay",
+        "behavioral_evidence_from_interview": [
+          "Q72: \"Gross pay is about $8,300 a month.\"",
+          "Q72: \"take-home... closer to $5,700\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Donte gets paid every two weeks by direct deposit and maps bills to pay periods.",
+        "ground_truth_label": "biweekly direct deposit budgeting",
+        "behavioral_evidence_from_interview": [
+          "Q73: \"Every two weeks.\"",
+          "Q73: \"Direct deposit\"",
+          "Q73: \"I map bills to pay periods.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Donte has employer benefits including health, dental, vision, 401(k), paid vacation, sick time, remote flexibility, and some certification reimbursement.",
+        "ground_truth_label": "solid employer benefits",
+        "behavioral_evidence_from_interview": [
+          "Q76: \"health insurance, dental, vision, 401(k), paid vacation, sick time, and some remote flexibility\"",
+          "Q76: \"Some reimbursement for certifications.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Donte's job is not union-covered and he has no second job or current side-business income.",
+        "ground_truth_label": "nonunion single job",
+        "behavioral_evidence_from_interview": [
+          "Q66: \"my job is not union-covered\"",
+          "Q70: \"No, just one full-time job.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Donte receives no SNAP, housing assistance, SSI, unemployment, or other public benefits.",
+        "ground_truth_label": "no public benefits",
+        "behavioral_evidence_from_interview": [
+          "Q80: \"No, I don't receive public benefits.\"",
+          "Q80: \"No\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Donte considered design or visual media in college before choosing software for creative work plus stability.",
+        "ground_truth_label": "software over design/media crossroads",
+        "behavioral_evidence_from_interview": [
+          "Q02: \"wondered if I should switch toward design or media\"",
+          "Q02: \"software could satisfy the same creative side... with clearer career stability\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Donte trains at Gold's Gym three or four days per week.",
+        "ground_truth_label": "Gold's Gym training",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"I lift at Gold's Gym three or four days a week.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Donte blocks gym time on his calendar after work stress disrupted workouts.",
+        "ground_truth_label": "calendar-blocked gym boundary",
+        "behavioral_evidence_from_interview": [
+          "Q18: \"I started blocking gym time on my calendar\"",
+          "Q44: \"I blocked gym time\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Donte frequently hikes McDowell Sonoran Preserve and other Scottsdale-area trails.",
+        "ground_truth_label": "Scottsdale desert hiking",
+        "behavioral_evidence_from_interview": [
+          "Q08: \"trailheads around McDowell Sonoran Preserve\"",
+          "Q15: \"Weekends are for hikes\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Donte uses early morning desert hikes to reset emotionally.",
+        "ground_truth_label": "desert hikes for emotional reset",
+        "behavioral_evidence_from_interview": [
+          "Q44: \"I took Saturday morning to hike early... that reset me\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Donte experiences nature as grounding despite not being religious.",
+        "ground_truth_label": "nature as nonreligious grounding",
+        "behavioral_evidence_from_interview": [
+          "Q47: \"I do get something like perspective from being outdoors\"",
+          "Q47: \"I don't frame it as organized spirituality\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Arizona summer heat limits Donte's outdoor activity and shapes routines.",
+        "ground_truth_label": "summer heat constraint",
+        "behavioral_evidence_from_interview": [
+          "Q10: \"summer heat\"",
+          "Q32: \"Arizona summer heat making outdoor activity harder\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Donte self-studies AWS Solutions Architect material.",
+        "ground_truth_label": "AWS certification study",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"working through AWS Solutions Architect material\"",
+          "Q91: \"Self-studying for AWS certification\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Donte helps his parents with home technology and online systems.",
+        "ground_truth_label": "family tech support role",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"help with some tech thing at their house\"",
+          "Q35: \"help them with appointments, insurance portals, or researching doctors\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Donte uses Slack and Jira early in the workday and tries not to check Slack after hours unless on call.",
+        "ground_truth_label": "Slack/Jira work boundary",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"check Slack and Jira\"",
+          "Q44: \"stopped checking Slack after a certain point unless I was on call\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Donte votes in presidential and midterm elections and increasingly researches local elections.",
+        "ground_truth_label": "regular major-election voter",
+        "behavioral_evidence_from_interview": [
+          "Q23: \"I vote in presidential and midterm elections\"",
+          "Q23: \"getting better about local elections\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Donte pays attention to city council, school board, ballot measures, prosecutor, sheriff, and police accountability races.",
+        "ground_truth_label": "local race research",
+        "behavioral_evidence_from_interview": [
+          "Q23: \"city council, school board, and ballot measures\"",
+          "Q26: \"local prosecutor, sheriff, and police accountability races\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Donte has not joined protests but talks, reads, votes, and occasionally donates.",
+        "ground_truth_label": "research-and-vote civic style",
+        "behavioral_evidence_from_interview": [
+          "Q29: \"I haven't joined protests.\"",
+          "Q29: \"talked with friends and family, read more\"",
+          "Q29: \"Occasionally small donations\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Donte identifies as an Independent who leans slightly Democratic and votes candidate by candidate.",
+        "ground_truth_label": "Independent slightly Democratic lean",
+        "behavioral_evidence_from_interview": [
+          "Q95: \"Independent. I lean slightly Democratic\"",
+          "Q95: \"I vote candidate by candidate\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Donte's key political issues include housing affordability, climate and water in the Southwest, tech opportunity, health care costs, education, infrastructure, and public safety accountability.",
+        "ground_truth_label": "local pragmatic issue priorities",
+        "behavioral_evidence_from_interview": [
+          "Q24: \"water, housing costs, public education, tech jobs, and heat\"",
+          "Q25: \"Housing costs... Climate\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Donte supports policing reforms such as body cameras, better data, civilian oversight, training, and alternatives for mental-health calls.",
+        "ground_truth_label": "criminal justice accountability reforms",
+        "behavioral_evidence_from_interview": [
+          "Q27: \"body camera policies, better data, civilian oversight, training, and alternatives for mental-health calls\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Donte has limited personal law enforcement contact: two routine traffic stops, no arrests, no serious legal issues, and no arrests for immediate family.",
+        "ground_truth_label": "limited law enforcement contact",
+        "behavioral_evidence_from_interview": [
+          "Q20: \"a couple traffic stops\"",
+          "Q22: \"No arrests for me or immediate family.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Donte's parents are more moderate-conservative while his friends are generally more progressive.",
+        "ground_truth_label": "mixed political close network",
+        "behavioral_evidence_from_interview": [
+          "Q25: \"My parents are more moderate-conservative\"",
+          "Q30: \"My friends are mixed but generally more progressive than my parents.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Seed context says Donte curates playlists including Daft Punk and Vangelis while solving chess puzzles.",
+        "ground_truth_label": "Daft Punk and Vangelis playlist preference",
+        "behavioral_evidence_from_interview": [
+          "seed.arts_persona: \"curates a playlist of Daft Punk and Vangelis while solving chess puzzles\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Donte spends on gym, hiking, and technical gear rather than fashion and has no strong fashion identity disclosed.",
+        "ground_truth_label": "practical gear-oriented appearance profile",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"gym stuff, and photography gear\"",
+          "Q56: \"camera accessories and a keyboard build\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Donte was born in Phoenix, Arizona; his date of birth is June 14, 2000.",
+        "ground_truth_label": "Phoenix-born June 14 2000",
+        "behavioral_evidence_from_interview": [
+          "Q85: \"June 14, 2000.\"",
+          "Q87: \"Phoenix, Arizona.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Donte identifies as white, non-Hispanic, and English-speaking.",
+        "ground_truth_label": "white non-Hispanic English-speaking",
+        "behavioral_evidence_from_interview": [
+          "Q88: \"No.\"",
+          "Q89: \"White.\"",
+          "Q88 follow-up: \"English.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Donte was raised with general Christian cultural background but is now agnostic and not religious.",
+        "ground_truth_label": "agnostic with Christian cultural background",
+        "behavioral_evidence_from_interview": [
+          "Q47: \"general Christian cultural background\"",
+          "Q94: \"Agnostic, not religious.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Donte grew up in a stable two-parent household with both parents and younger sister Maya at age 16.",
+        "ground_truth_label": "stable two-parent childhood household",
+        "behavioral_evidence_from_interview": [
+          "Q98: \"I lived with both my mother and father.\"",
+          "Q99: \"My younger sister, Maya.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Both of Donte's parents completed bachelor's degrees.",
+        "ground_truth_label": "parents both bachelor's educated",
+        "behavioral_evidence_from_interview": [
+          "Q100: \"Bachelor's degree.\"",
+          "Q101: \"Bachelor's degree.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Donte's mother worked mostly full time in school administration for a public school district.",
+        "ground_truth_label": "mother school administration",
+        "behavioral_evidence_from_interview": [
+          "Q103: \"worked in school administration\"",
+          "Q104: \"public school district\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Donte's father worked steadily as an operations manager for a regional logistics and distribution company.",
+        "ground_truth_label": "father logistics operations manager",
+        "behavioral_evidence_from_interview": [
+          "Q106: \"operations manager for a regional logistics company\"",
+          "Q107: \"logistics and distribution business\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Donte is not currently enrolled in school, was not enrolled in the past three months, and has never served in the U.S. Armed Forces, Reserves, or National Guard.",
+        "ground_truth_label": "not enrolled; no military service",
+        "behavioral_evidence_from_interview": [
+          "Q91: \"No.\"",
+          "Q92: \"No.\"",
+          "Q93: \"No.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Donte committed to full-stack development after a paid college dashboard project showed software could be creative and stable.",
+        "ground_truth_label": "paid dashboard project career pivot",
+        "behavioral_evidence_from_interview": [
+          "Q02: \"paid project building a dashboard\"",
+          "Q02: \"After that I committed to full-stack development\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Donte's first full-time developer job and signing his own lease made him feel like an adult.",
+        "ground_truth_label": "first job and lease adult transition",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"Getting my first full-time developer job and signing my own lease.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Donte consciously compared course requirements, job prospects, income ranges, and desired daily work in a spreadsheet during his college crossroads.",
+        "ground_truth_label": "spreadsheet-based career decision",
+        "behavioral_evidence_from_interview": [
+          "Q03: \"opening a spreadsheet and comparing course requirements, job prospects, income ranges\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "A recent slipping release led Donte to work late, skip workouts, order delivery, feel flat and isolated, and reset with a Saturday hike.",
+        "ground_truth_label": "slipping release burnout episode",
+        "behavioral_evidence_from_interview": [
+          "Q44: \"release that kept slipping\"",
+          "Q44: \"skipping workouts, and ordering delivery almost every night\"",
+          "Q44: \"hike early... reset me\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Donte uses Instagram for photography, hiking, gym content, and friends' updates.",
+        "ground_truth_label": "Instagram use",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"Instagram mostly for photography, hiking spots, gym content, and friends' updates.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Donte uses LinkedIn for career content and occasional project updates.",
+        "ground_truth_label": "LinkedIn career use",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"LinkedIn for career stuff and occasionally post project updates.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Donte uses Reddit and YouTube heavily for technical learning, mechanical keyboards, fitness, and travel planning.",
+        "ground_truth_label": "Reddit/YouTube learning use",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"Reddit and YouTube a lot for technical learning, mechanical keyboards, fitness, and travel planning.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Donte uses doctors, CDC guidance, major hospital systems, local news, and policy explainers for factual information.",
+        "ground_truth_label": "credible institutional information sources",
+        "behavioral_evidence_from_interview": [
+          "Q42: \"primary care doctor, CDC guidance, major hospital systems\"",
+          "Q27: \"Local news, policy explainers\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Donte does not use social media for financial support and rarely uses it for emotional support.",
+        "ground_truth_label": "does not seek support through social media",
+        "behavioral_evidence_from_interview": [
+          "Q49: \"I don't use social media for financial support\"",
+          "Q49: \"rarely use it for emotional support\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Donte tries not to doomscroll political content but sometimes reads threads.",
+        "ground_truth_label": "limited political doomscrolling",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"I try not to doomscroll political content, but I still end up reading threads sometimes.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Donte's life-course profile is early-career, middle-class, urban-suburban, and oriented toward career mobility and eventual home ownership.",
+        "ground_truth_label": "early-career middle-class career-mobile profile",
+        "behavioral_evidence_from_interview": [
+          "Q83: \"I make a good income for my age\"",
+          "Q108: \"senior full-stack engineer or technical lead\"",
+          "Q58: \"I would like to buy eventually\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Donte shows low present-bias in finances through automated savings, emergency funds, and avoiding credit-card balances.",
+        "ground_truth_label": "low present-bias financial behavior",
+        "behavioral_evidence_from_interview": [
+          "Q61: \"emergency fund in a high-yield savings account\"",
+          "Q61: \"transfers happen after each paycheck\"",
+          "Q60: \"pay them off monthly\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Donte's risk posture is moderate and controlled because he values stable employment and insurance while considering entrepreneurship only after building runway.",
+        "ground_truth_label": "controlled moderate risk posture",
+        "behavioral_evidence_from_interview": [
+          "Q83: \"stable but not complacent\"",
+          "Q108: \"maybe the first real version of a SaaS product\"",
+          "Q76: \"health insurance and flexibility\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Donte is skeptical of performative politics and prefers evidence-based governance and implementation details.",
+        "ground_truth_label": "anti-performative evidence-based politics",
+        "behavioral_evidence_from_interview": [
+          "Q24: \"I don't like performative politics from either side.\"",
+          "Q27: \"implementation matters\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "reprojected",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Donte maintains close but bounded relationships and relies on a small circle rather than broad emotional disclosure.",
+        "ground_truth_label": "close bounded small-circle support style",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"I have a small friend group\"",
+          "Q49: \"I text a friend or talk to family privately\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-093",
+        "source": "reprojected",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Donte can become rigid and over-optimized under stress, including feeling guilty relaxing or treating hobbies like metrics.",
+        "ground_truth_label": "stress rigidity and overoptimization",
+        "behavioral_evidence_from_interview": [
+          "Q45: \"discipline can become rigidity for me\"",
+          "Q45: \"feel guilty relaxing\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-094",
+        "source": "reprojected",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Donte is achievement-oriented but increasingly aware that balance, spontaneity, and unstructured time are necessary for well-being.",
+        "ground_truth_label": "achievement tempered by balance goal",
+        "behavioral_evidence_from_interview": [
+          "Q43: \"trying to build in more unstructured time\"",
+          "Q108: \"without turning everything into a productivity contest\"",
+          "Q109: \"structure should support a life, not replace one\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}

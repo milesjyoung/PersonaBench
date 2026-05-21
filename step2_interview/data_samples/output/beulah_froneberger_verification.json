@@ -1,0 +1,2184 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "0c05d635b6a04b4984d67274da4ecaaf",
+      "name": "Beulah Froneberger",
+      "verification_date": "2026-05-19"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age 19 and female sex match interview confirmation and date of birth.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.age, seed.sex",
+              "source_b_ref": "Q85",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed Ringgold, Georgia location matches interview residence and childhood location.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.city/state/zipcode",
+              "source_b_ref": "Q08, Q51, Q97",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed some_college and not_in_workforce are consistent with high school diploma, community college enrollment, and no regular job.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.education_level, seed.occupation",
+              "source_b_ref": "Q16, Q90, Q91",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Interview enriches seed by naming household members and confirming no children or partner.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.marital_status",
+              "source_b_ref": "Q05, Q11, Q84",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile demographics correctly state age, gender, marital status, Ringgold location, education, and occupation.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q51, Q84, Q90, Q91",
+              "source_b_ref": "top-level profile fields",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile social and household entries correctly identify parents Denise and Carl, brother Eli, and grandmother Ruth.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q05, Q11, Q51",
+              "source_b_ref": "preferences.social_and_relationships, preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile omits birth date and birthplace, which are substantive demographic facts from the interview.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q85, Q87",
+              "source_b_ref": "preferences.cultural_and_linguistic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add details that Beulah was born March 12, 2007 and was born in Chattanooga, Tennessee while growing up in Ringgold, Georgia."
+            },
+            {
+              "id": 4,
+              "text": "Profile summary correctly describes family as working-class with mother in dental office administration and father in maintenance/warehouse work.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q103-Q107",
+              "source_b_ref": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Top-level occupation and work_and_career both describe student status, informal freelance illustration, and unpaid museum volunteering without contradiction.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "occupation",
+              "field_b": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Marital, household, and social subcategories consistently state no spouse, no cohabiting partner, and no children.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "marital_status",
+              "field_b": "preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview states Beulah was born in Chattanooga, Tennessee, despite identifying with Ringgold.",
+              "gap": true,
+              "interview_ref": "Q87",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add birthplace detail."
+            },
+            {
+              "id": 2,
+              "text": "Interview gives exact date of birth, March 12, 2007.",
+              "gap": true,
+              "interview_ref": "Q85",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add date-of-birth detail."
+            },
+            {
+              "id": 3,
+              "text": "Interview states parents own the home with a mortgage and handle main bills while Beulah pays no formal rent.",
+              "gap": true,
+              "interview_ref": "Q55, Q58",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add household-expense responsibility detail."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed portrays flexible freelance projects and interview confirms irregular small commissions rather than steady employment.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "professional_persona, occupation",
+              "source_b_ref": "Q16, Q65-Q73",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed says she balances shoestring travel dreams with freelance earnings; interview confirms tiny travel savings and budget limits.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "travel_persona",
+              "source_b_ref": "Q62, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed relaxed, disorganized approach is supported by interview accounts of procrastination, misplaced notes, late-night work, and deadline anxiety.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "persona, professional_persona",
+              "source_b_ref": "Q17, Q44, Q78",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Interview enriches seed with specific financial constraints: no loans, small savings, $400 emergency difficulty, and dependence on parents.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "career_goals_and_ambitions",
+              "source_b_ref": "Q61-Q64, Q82, Q83",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures low-cost coping, avoiding eating out, packing food, and using existing supplies when income is low.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q60, Q81",
+              "source_b_ref": "preferences.food_and_dining, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures irregular freelance work but omits recent amount, payment irregularity, and lack of benefits/tax filing.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q72-Q76",
+              "source_b_ref": "preferences.work_and_career",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add details that last month she earned about $180 from freelance illustration, has no formal job benefits, and did not file her own taxes last year because income was small and parents claim her as dependent."
+            },
+            {
+              "id": 3,
+              "text": "Profile captures savings weakness and art-supply impulse spending through behavioral economist summary.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q61, Q83",
+              "source_b_ref": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile does not explicitly capture her lack of student loans, credit card balance, or public assistance.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q63, Q80",
+              "source_b_ref": "preferences.work_and_career, preferences.home_and_lifestyle",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add debt and public-benefits details to home/lifestyle or work/career financial context."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Flexible work preference in work_and_career is internally consistent with home_and_lifestyle and psychologist summary describing disorganization and need for structure.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Travel dreams, small savings, and shoestring budget are consistent across travel, work/career, and behavioral economist summary.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.travel",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview includes concrete recent freelance earnings of about $180 last month.",
+              "gap": true,
+              "interview_ref": "Q72",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add recent freelance income detail."
+            },
+            {
+              "id": 2,
+              "text": "Interview states she has no student loans, no credit card, and only informal small debts to her mother.",
+              "gap": true,
+              "interview_ref": "Q63",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add debt-avoidance detail."
+            },
+            {
+              "id": 3,
+              "text": "Interview states a personal $400 emergency would be hard and likely require parental help or emergency commissions.",
+              "gap": true,
+              "interview_ref": "Q82",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add emergency-expense vulnerability detail."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed notes progressive ideas from college and online communities; interview confirms left-leaning views shaped by college, online art spaces, and diverse friends.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "cultural_background",
+              "source_b_ref": "Q24, Q25",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed community storytelling and museum volunteering are supported by interview civic activity at the local historical museum.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "professional_persona",
+              "source_b_ref": "Q01, Q15, Q65",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Interview adds voter registration, weak Democratic-leaning Independent identity, and BLM response, which seed does not include.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed cultural/professional persona",
+              "source_b_ref": "Q23-Q30, Q95-Q96",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed small-town Southern context is consistent with interview descriptions of conservative surroundings and careful family political discussions.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "cultural_background",
+              "source_b_ref": "Q24, Q30",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately represents voter registration and intent to vote regularly.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23",
+              "source_b_ref": "preferences.community_and_civic, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile accurately describes weak Democratic-leaning Independent identity and progressive issue priorities.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q24, Q95, Q96",
+              "source_b_ref": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile omits direct law-enforcement experience and nuanced police views.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q20-Q22",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add detail that she has limited direct law-enforcement contact, was once a passenger during a taillight stop, and recognizes her experience is shaped by being white and local."
+            },
+            {
+              "id": 4,
+              "text": "Profile captures BLM response through political scientist summary but not in a preference detail.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q26-Q30",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add community/civic detail on listening, reading, sharing resources online, and paying attention to candidates rather than protesting."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Community/civic localism and political scientist summary are consistent: both emphasize museum volunteering, voter registration, and rural representation.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Cultural_and_linguistic Protestant background is consistent with political views framed through compassion rather than strict church doctrine.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.cultural_and_linguistic",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview includes limited but specific law-enforcement experiences and no arrests.",
+              "gap": true,
+              "interview_ref": "Q20-Q22",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add law-enforcement experience detail."
+            },
+            {
+              "id": 2,
+              "text": "Interview details her BLM-related actions: reading, talking with friends, sharing resources online, and not protesting.",
+              "gap": true,
+              "interview_ref": "Q26-Q30",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add BLM response detail."
+            },
+            {
+              "id": 3,
+              "text": "Interview explains that family political talk is careful and often avoided at extended gatherings.",
+              "gap": true,
+              "interview_ref": "Q24, Q30",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add detail about cautious political discussion with family."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes Beulah as curious, slightly disorganized, and solitary; interview repeatedly supports dreamy childhood, messiness, procrastination, and solitary creative work.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "persona",
+              "source_b_ref": "Q01, Q17, Q43-Q45",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed says she thrives in flexible freelance projects; interview confirms she likes flexibility but needs external structure.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "professional_persona",
+              "source_b_ref": "Q78",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed attachment to sketching foothills is supported by childhood ridge-line memory and nature coping.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "persona, hobbies_and_interests",
+              "source_b_ref": "Q01, Q43",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Interview enriches seed with anxiety symptoms, emotional coping, and counseling interest.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "persona",
+              "source_b_ref": "Q36, Q43-Q45, Q50",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures anxiety symptoms without formal diagnosis and coping through hiking, lists, yoga, friends, and art.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q43-Q45, Q50",
+              "source_b_ref": "preferences.health_and_wellness, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures close selective relationships with family, Kenzie, and Mara.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q05, Q07, Q44, Q49",
+              "source_b_ref": "preferences.social_and_relationships, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile omits her counseling interest and barriers of cost and scheduling.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q36, Q45",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add detail that she would like counseling but hesitates because of cost and scheduling."
+            },
+            {
+              "id": 4,
+              "text": "Profile omits the wall-calendar/list strategy learned after portfolio panic.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q44, Q50",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add detail about using a wall calendar, lists, and next-three-task planning as coping systems."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Health anxiety, late-night work, and disorganized lifestyle are consistent across health, home/lifestyle, media diet, and psychologist summary.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness",
+              "field_b": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile consistently frames Beulah as hopeful and ambitious while financially anxious, not as clinically disabled by anxiety.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.life_events_and_transitions",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview states she wants counseling but is held back by cost and scheduling uncertainty.",
+              "gap": true,
+              "interview_ref": "Q36, Q45",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add counseling interest and barrier detail."
+            },
+            {
+              "id": 2,
+              "text": "Interview gives a concrete emotional crisis around portfolio review and extension request.",
+              "gap": true,
+              "interview_ref": "Q44",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add portfolio-review panic as a recent emotional/organizational turning point."
+            },
+            {
+              "id": 3,
+              "text": "Interview describes family emotional style as showing care through chores, food, repairs, and checking in rather than naming emotions.",
+              "gap": true,
+              "interview_ref": "Q46",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add family emotional-support style detail."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No contradictions required human review. Several substantive interview gaps were added to the corrected profile, including birthplace/date of birth, financial details, law-enforcement/BLM response, counseling interest, and family support style.",
+    "final_status": "Corrected profile is ready for downstream use with revisions applied and hidden_facts generated."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "0c05d635b6a04b4984d67274da4ecaaf",
+    "name": "Beulah Froneberger",
+    "age": 19,
+    "gender": "Female",
+    "marital_status": "Never married; not living with a romantic partner",
+    "location": "Ringgold, GA 30736",
+    "education": "High school diploma; currently enrolled in community college with some college coursework toward an associate degree in Visual Arts",
+    "occupation": "Not in regular workforce; student, aspiring visual artist, occasional freelance illustrator, and volunteer museum cataloging assistant",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Generally healthy and active, with attention to hiking, yoga, basic preventive care, and sleep improvement; reports anxiety symptoms but no formal diagnosis.",
+        "details": [
+          "Hikes weekly and practices short yoga sessions at home several times a week (Q31, Q32).",
+          "Reports seasonal allergies, tension headaches, poor sleep habits, and anxiety symptoms without formal diagnosis (Q31, Q33, Q45).",
+          "Generally pro-vaccine and trusts doctors, the CDC, and trained medical sources (Q41, Q42).",
+          "Would like to look into counseling, but cost and scheduling make her hesitate (Q36, Q45).",
+          "Uses walking outside, lists, a wall calendar, yoga, and naming the next few tasks to manage anxiety and deadline stress (Q44, Q45, Q50).",
+          "Does not smoke, rarely drinks a small amount of alcohol in family or friend settings, does not use marijuana or other drugs, and uses OTC allergy medicine or ibuprofen as needed (Q38, Q39)."
+        ],
+        "evidence": "Q31-Q42, Q44-Q45, Q50"
+      },
+      "food_and_dining": {
+        "summary": "Enjoys home cooking rooted in Southern and rustic traditions, with interest in sourdough, shrimp and grits, seasonal foraged ramps, and occasional local craft cider.",
+        "details": [
+          "Cooks at home several times weekly and mentions soups, eggs, greens, sourdough, shrimp and grits, and ramp pesto (Q32, Q17).",
+          "Avoids eating out when money is tight and packs food from home (Q60, Q81).",
+          "Occasionally drinks local craft cider in private family or friend settings (Q38).",
+          "Family and community food traditions include church potlucks, Sunday meals, casseroles, fried chicken, collard greens, and grandmother Ruth's cooking (Q01, Q05, Q47)."
+        ],
+        "evidence": "Q01, Q05, Q17, Q32, Q38, Q47, Q60, Q81"
+      },
+      "travel": {
+        "summary": "Favors nearby road trips and nature destinations while dreaming of international art-focused travel.",
+        "details": [
+          "Names the Great Smoky Mountains and Shenandoah-style road trips as realistic travel goals (Q62, Q108).",
+          "Dreams of Kyoto and an Italy photography workshop but recognizes budget limits (Q62, Q108).",
+          "Has not traveled outside the United States (Q86).",
+          "Would like to travel more, starting with road trips before international art travel becomes realistic (Q108)."
+        ],
+        "evidence": "Q62, Q86, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "Close to family and a small circle of creative friends; never married, no partner, and no children.",
+        "details": [
+          "Lives with parents Denise and Carl and younger brother Eli; sees grandmother Ruth regularly (Q05, Q11, Q51).",
+          "Closest friends are Kenzie and Mara, with coffee, sketching, film development, and board-game gatherings (Q07, Q44, Q49).",
+          "Not currently dating or living with a romantic partner (Q05, Q84).",
+          "Family care is often shown through practical help, chores, food, rides, repairs, and checking in rather than direct emotional language (Q05, Q46, Q109).",
+          "Talks politics carefully with family, especially around race and social issues; extended-family disagreements can make her quieter at gatherings (Q24, Q30)."
+        ],
+        "evidence": "Q05, Q07, Q11, Q24, Q30, Q44, Q46, Q49, Q51, Q84, Q109"
+      },
+      "home_and_lifestyle": {
+        "summary": "Lives at home in a modest family household in Ringgold, with a flexible but disorganized student-artist lifestyle.",
+        "details": [
+          "Parents own the home with a mortgage; household includes Beulah, her parents, and younger brother (Q11, Q51, Q58).",
+          "Art supplies often spread around her room, and she develops film in a makeshift bathroom darkroom (Q11, Q17).",
+          "Helps with dishes, laundry, groceries, errands, and driving her brother sometimes (Q17).",
+          "Parents handle the mortgage and main bills; Beulah pays no formal rent and contributes small amounts for groceries or gas when she can (Q55).",
+          "She has no student loans, no credit card balance, and only occasional informal small debts to her mother for things like gas money (Q63).",
+          "A personal $400 emergency would be hard and would likely require parental help or emergency commissions; household could probably manage it with stress (Q82).",
+          "She receives no SNAP, housing vouchers, SSI, or similar public benefits, and no one in her household receives them (Q80)."
+        ],
+        "evidence": "Q11, Q17, Q51, Q55, Q58, Q63, Q80, Q82"
+      },
+      "entertainment": {
+        "summary": "Enjoys graphic novels, speculative fiction, movies, casual games, process videos, and art-related online content.",
+        "details": [
+          "Watches movies and plays casual video games with her brother (Q05).",
+          "Reads graphic novels and uses TikTok for art tips, thrift flips, book recommendations, and political explainers (Q48).",
+          "Small gatherings include board games, sketching, coffee, and music (Q07)."
+        ],
+        "evidence": "Q05, Q07, Q48"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Strongly oriented toward visual art, hiking, analog photography, DIY crafts, journaling, and small creative gatherings.",
+        "details": [
+          "Draws, paints watercolor, creates digital illustrations, and maintains a portfolio (Q01, Q15, Q65).",
+          "Uses analog photography and develops film in a makeshift darkroom (Q07, Q17).",
+          "Hikes Saturdays and participates in Ringgold Trails Club activities (Q07, Q15).",
+          "Enjoys DIY craft projects, upcycling, journal doodling, speculative fiction, and graphic novels (Q01, Q48, Q61)."
+        ],
+        "evidence": "Q01, Q07, Q15, Q17, Q48, Q61, Q65"
+      },
+      "work_and_career": {
+        "summary": "Aims to complete visual arts education, transfer to a four-year illustration and museum studies program, and build a flexible arts career rooted in community storytelling.",
+        "details": [
+          "Currently a community college visual arts student and occasional freelance illustrator (Q16, Q65, Q91).",
+          "Volunteers at a local historical museum cataloging artifacts and photographs (Q15, Q65).",
+          "Long-term goal is a studio-gallery supporting rural artists and Appalachian craft with digital art (Q108).",
+          "Earned about $180 from freelance illustration last month; income is irregular and some months are zero (Q72, Q73).",
+          "Freelance work has no formal workplace, benefits, paid time off, or health insurance (Q76).",
+          "Did not file her own taxes last year because income was very small and parents still claim her as a dependent; she is starting to track freelance income in a spreadsheet (Q75).",
+          "Freelance schedule is flexible but unpredictable, and she prefers clear due dates because too little structure makes her drift (Q78)."
+        ],
+        "evidence": "Q15, Q16, Q65, Q72-Q76, Q78, Q91, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Deeply invested in watercolor, digital illustration, analog photography, Appalachian craft heritage, museum work, and community archives.",
+        "details": [
+          "Inspired by family quilting, woodcarving, landscapes, old photographs, and handmade objects (Q01, Q109).",
+          "Uses Procreate, Photoshop, Lightroom, watercolor, ink, and video editing tools (Q65).",
+          "Wants exhibits that preserve ordinary people's stories and include underrepresented local histories (Q27, Q28, Q108).",
+          "High school art teacher Mrs. Kendall encouraged her art and treated her sketches seriously (Q01).",
+          "Museum work with old Catoosa County photos helped her connect art with local history and ordinary lives (Q02)."
+        ],
+        "evidence": "Q01, Q02, Q27, Q28, Q65, Q108, Q109"
+      },
+      "sports_and_fitness": {
+        "summary": "Prefers solitary or small-group outdoor activity over organized team sports; follows hiking, trail activity, and home yoga.",
+        "details": [
+          "Hikes most Saturdays and belongs to the Ringgold Trails Club (Q07, Q15).",
+          "Does home yoga for stretching and stress relief (Q17, Q31).",
+          "Avoids trail running near dusk for safety (Q09).",
+          "Sprained an ankle on a trail last year but it healed and no longer limits hiking (Q33, Q34)."
+        ],
+        "evidence": "Q07, Q09, Q15, Q17, Q31, Q33, Q34"
+      },
+      "nature_and_outdoors": {
+        "summary": "Strong attachment to northwest Georgia foothills, trails, creeks, ridgelines, and land conservation.",
+        "details": [
+          "Childhood memory of drawing ridge lines from her grandmother's porch (Q01).",
+          "Likes living near trails and creeks and values quick access to nature (Q08).",
+          "Environmental concerns matter because local land shapes her identity and art (Q24).",
+          "Being outside and hiking help her feel better emotionally and cope with anxiety (Q43, Q45, Q50)."
+        ],
+        "evidence": "Q01, Q08, Q24, Q43, Q45, Q50"
+      },
+      "technology": {
+        "summary": "Comfortable with creative technology and social media tools, especially for digital art, photo editing, portfolio building, and short video.",
+        "details": [
+          "Uses Procreate, Adobe Photoshop, Lightroom, iMovie or DaVinci Resolve, and an iPad/tablet workflow (Q65, Q31).",
+          "Uses Instagram to post art, reels, sketches, trail photos, and to receive commissions (Q48).",
+          "Attempts to maintain an online portfolio but is inconsistent (Q17).",
+          "Uses payment apps for freelance commissions and is beginning to track freelance income in a spreadsheet (Q69, Q73, Q75)."
+        ],
+        "evidence": "Q17, Q31, Q48, Q65, Q69, Q73, Q75"
+      },
+      "community_and_civic": {
+        "summary": "Locally rooted and civically curious, with museum volunteering, trail club participation, voter registration, and concern for rural representation.",
+        "details": [
+          "Volunteers at a local historical museum cataloging artifacts and helping preserve local stories (Q01, Q15, Q65).",
+          "Registered to vote through a campus table and intends to vote regularly (Q23).",
+          "Wants rural places like Ringgold to be understood and not forgotten (Q24, Q108).",
+          "Has limited direct law-enforcement contact; she was once a passenger during a taillight stop and recognizes her experience is shaped by being white and local (Q20).",
+          "Has never been arrested and only knows of a distant cousin's DUI arrest years ago (Q22).",
+          "Responded to Black Lives Matter by listening, reading, talking with friends, sharing resources online, and paying attention to local candidates rather than joining protests (Q26-Q30).",
+          "Identifies as an Independent closer to Democrats, left-leaning on social issues, health care, education, LGBTQ rights, racial justice, climate, and rural fairness (Q24, Q95, Q96)."
+        ],
+        "evidence": "Q01, Q15, Q20-Q30, Q65, Q95, Q96, Q108"
+      },
+      "music": {
+        "summary": "Interview evidence shows music as part of social and creative settings, with background influence from Southern church, folk, and online indie culture.",
+        "details": [
+          "Mentions hymns and church music as part of family and religious memory (Q47).",
+          "Small gatherings often include music while friends talk or sketch (Q07).",
+          "Uses social media for art-world connection but does not provide a detailed music-listening routine in the transcript (Q48)."
+        ],
+        "evidence": "Q07, Q47, Q48"
+      },
+      "fashion_and_appearance": {
+        "summary": "Limited direct evidence; shows interest in thrifted and upcycled materials and tries to dress more put together for museum volunteering.",
+        "details": [
+          "Mentions thrift shopping and thrift flips as interests and expenses she cuts when money is tight (Q48, Q60).",
+          "Tries to dress more put together when volunteering at the museum (Q18).",
+          "Uses DIY/upcycled materials in art projects, though clothing style is not heavily discussed (Q61)."
+        ],
+        "evidence": "Q18, Q48, Q60, Q61"
+      },
+      "cultural_and_linguistic": {
+        "summary": "White, non-Hispanic, Southern, Appalachian-influenced young woman from a working-class Ringgold family with Protestant Christian background.",
+        "details": [
+          "Identifies as white and not Hispanic, Latinx, or Spanish origin (Q88, Q89).",
+          "Grew up in Ringgold, Georgia, in a working-class Southern family (Q01, Q97).",
+          "Identifies as Christian, loosely Protestant, with Southern Baptist background (Q47, Q94).",
+          "Was born March 12, 2007 (Q85).",
+          "Was born in Chattanooga, Tennessee, because it was the nearest bigger hospital, but identifies more strongly with Ringgold, Georgia (Q87).",
+          "Was born in the United States, has not lived outside the United States, and has not traveled outside the United States (Q86)."
+        ],
+        "evidence": "Q01, Q47, Q85-Q89, Q94, Q97"
+      },
+      "life_events_and_transitions": {
+        "summary": "Key transition is choosing community college visual arts and museum-related work after high school instead of full-time immediate employment.",
+        "details": [
+          "Crossroads after high school involved choosing community college visual arts over full-time retail or moving away (Q02, Q03).",
+          "Museum exhibit work helped reveal a path combining art and local history (Q02).",
+          "Currently navigating dependence on family, school deadlines, and emerging adult financial uncertainty (Q43, Q83).",
+          "A difficult portfolio-review period led her to ask for an extension, accept help from Kenzie, and recognize she needs systems before panic hits (Q44).",
+          "Hopes to finish her associate degree, transfer for illustration and museum studies, and eventually live near Chattanooga or Ringgold while staying close to family and mountains (Q108)."
+        ],
+        "evidence": "Q02, Q03, Q43, Q44, Q83, Q108"
+      },
+      "media_and_information_diet": {
+        "summary": "Uses Instagram and TikTok heavily for art, friends, local events, political explainers, and creative inspiration; trusts institutional medical sources over viral posts.",
+        "details": [
+          "Instagram is primary platform for art posting, friends, commissions, and process reels (Q48).",
+          "TikTok use includes art tips, thrift flips, book recommendations, and political explainers, sometimes as procrastination (Q48, Q50).",
+          "For health information, trusts doctor, CDC, trained medical people, and avoids viral screenshots (Q42).",
+          "Facebook is mainly for family and local events, including museum posts and trail club updates; she does not use Twitter much (Q48).",
+          "She usually does not ask publicly for emotional or financial support online and instead messages close friends privately (Q49)."
+        ],
+        "evidence": "Q42, Q48, Q49, Q50"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Beulah Froneberger is a 19-year-old white, non-Hispanic woman living in Ringgold, Georgia, with her married parents and younger brother (Q51, Q88, Q89). She has never been married, has no children, and is not cohabiting with a partner (Q84). She completed high school and is currently enrolled in community college in a Visual Arts associate program while remaining financially dependent on her parents for housing and major expenses (Q90, Q91, Q55, Q83). Her household reflects working-class stability: her mother works in dental office administration and her father works in maintenance and warehouse-related jobs (Q103-Q107).",
+      "behavioral_economist": "Beulah makes choices under tight financial constraints but is willing to accept uncertainty when it protects her creative identity, as shown by choosing visual arts and freelance commissions over more immediately stable work (Q02, Q16, Q83). She shows present-biased tendencies around procrastination, late-night work, and impulse spending on art or thrift supplies, but also uses low-cost substitutes, family support, and informal savings to manage scarcity (Q44, Q60, Q61). Her strongest incentives are autonomy, meaningful work, community recognition, and staying close to place rather than maximizing short-term earnings (Q65, Q108, Q109). Risk is moderated by living at home, avoiding student loans, and keeping education costs low (Q58, Q63).",
+      "political_scientist": "Beulah is a newly registered voter who describes herself as an Independent closer to the Democratic Party, weakly attached to party labels but left-leaning on social issues, health care, education, climate, LGBTQ rights, and racial justice (Q23, Q24, Q95, Q96). She has limited direct law-enforcement contact and recognizes that her experience is shaped by being white and local to the area (Q20). She responds to Black Lives Matter through listening, discussion, online sharing, and attention to candidates rather than protest participation (Q26-Q30). Her civic orientation is community-based and localist, expressed through museum volunteering, trail club involvement, and concern that rural places be represented fairly (Q15, Q23, Q24, Q108).",
+      "psychologist": "Beulah presents as curious, creative, place-attached, and somewhat disorganized, with strong openness to experience and a self-concept built around art, memory, and ordinary people's stories (Q01, Q65, Q109). She reports anxiety symptoms, especially around deadlines, money, and portfolio evaluation, but uses hiking, lists, yoga, friendship, and making art as coping strategies (Q43-Q45, Q50). Her relationships are close but selective: family provides stability and obligation, while friends provide emotional and creative support (Q05, Q07, Q44). She is in an emerging-adult identity phase, balancing Southern working-class roots, progressive influences, artistic ambition, and fear of impracticality (Q24, Q83, Q108)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Beulah hikes weekly.",
+        "ground_truth_label": "weekly hiking",
+        "behavioral_evidence_from_interview": [
+          "Q31: Usually hiking once a week"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.sports_and_fitness"
+        ]
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Beulah practices short yoga sessions at home several times a week.",
+        "ground_truth_label": "home yoga several times weekly",
+        "behavioral_evidence_from_interview": [
+          "Q31: yoga two or three short sessions",
+          "Q17: yoga at home a few mornings a week"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.sports_and_fitness"
+        ]
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Beulah reports seasonal allergies.",
+        "ground_truth_label": "seasonal allergies",
+        "behavioral_evidence_from_interview": [
+          "Q31: I get seasonal allergies"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Beulah reports tension headaches linked to stress or screen time.",
+        "ground_truth_label": "stress or screen-related tension headaches",
+        "behavioral_evidence_from_interview": [
+          "Q31: tension headaches when I am stressed or staring at screens too long"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Beulah has poor sleep habits because she stays up late making art or editing photos.",
+        "ground_truth_label": "poor sleep from late-night creative work",
+        "behavioral_evidence_from_interview": [
+          "Q31: My sleep is probably my worst habit because I stay up late painting or editing photos"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Beulah reports anxiety symptoms but has no formal anxiety diagnosis.",
+        "ground_truth_label": "self-reported anxiety symptoms without formal diagnosis",
+        "behavioral_evidence_from_interview": [
+          "Q45: I struggle with anxiety, but I have not been formally diagnosed"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Beulah is generally pro-vaccine.",
+        "ground_truth_label": "pro-vaccine orientation",
+        "behavioral_evidence_from_interview": [
+          "Q41: I am generally pro-vaccine"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Beulah trusts doctors, the CDC, and trained medical sources for vaccine information.",
+        "ground_truth_label": "trusts institutional medical sources",
+        "behavioral_evidence_from_interview": [
+          "Q42: I trust my doctor, the CDC website, and people with medical training"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.media_and_information_diet"
+        ]
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Beulah would like counseling but hesitates because of cost and scheduling.",
+        "ground_truth_label": "counseling interest constrained by cost and scheduling",
+        "behavioral_evidence_from_interview": [
+          "Q36: I have delayed making appointments for anxiety or counseling because I did not know what it would cost",
+          "Q45: I want to look into counseling if I can make the cost work"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Beulah uses walking outside, lists, wall calendar planning, yoga, and next-task framing to manage anxiety and stress.",
+        "ground_truth_label": "behavioral coping through outdoor activity and task systems",
+        "behavioral_evidence_from_interview": [
+          "Q44: I started using a wall calendar",
+          "Q50: Walking outside and writing the next three tasks"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Beulah does not smoke.",
+        "ground_truth_label": "non-smoker",
+        "behavioral_evidence_from_interview": [
+          "Q38: I do not smoke"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Beulah rarely drinks small amounts of alcohol in family or friend settings.",
+        "ground_truth_label": "rare light alcohol use",
+        "behavioral_evidence_from_interview": [
+          "Q38: Rarely, maybe a small glass in a family or friend setting"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.food_and_dining"
+        ]
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Beulah does not use marijuana or other drugs.",
+        "ground_truth_label": "no marijuana or other drug use",
+        "behavioral_evidence_from_interview": [
+          "Q39: I do not use marijuana or other drugs"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Beulah cooks at home several times weekly.",
+        "ground_truth_label": "regular home cooking",
+        "behavioral_evidence_from_interview": [
+          "Q17: Maybe two or three times a week"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Beulah makes foods such as soups, eggs, greens, sourdough, shrimp and grits, and ramp pesto.",
+        "ground_truth_label": "Southern and rustic home-cooking repertoire",
+        "behavioral_evidence_from_interview": [
+          "Q32: Soups, eggs, sourdough, greens, shrimp and grits... and ramp pesto"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Beulah cuts eating out and coffee purchases when money is tight.",
+        "ground_truth_label": "reduces discretionary food spending under scarcity",
+        "behavioral_evidence_from_interview": [
+          "Q60: Coffee out",
+          "Q81: Eating out or buying coffee"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Beulah sees Smoky Mountains and Shenandoah-style road trips as realistic travel goals.",
+        "ground_truth_label": "nearby road-trip preference",
+        "behavioral_evidence_from_interview": [
+          "Q62: A Smoky Mountains road trip is realistic",
+          "Q108: road trips to the Smokies or Shenandoah"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Beulah dreams of Kyoto and an Italy photography workshop but sees them as budget-limited.",
+        "ground_truth_label": "aspirational international art travel",
+        "behavioral_evidence_from_interview": [
+          "Q62: Kyoto is a dream",
+          "Q108: Kyoto or Italy"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Beulah has not traveled outside the United States.",
+        "ground_truth_label": "no international travel history",
+        "behavioral_evidence_from_interview": [
+          "Q86: Have you traveled outside the U.S.? No, not yet"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Beulah lives with her mother Denise, father Carl, and younger brother Eli.",
+        "ground_truth_label": "four-person parental household",
+        "behavioral_evidence_from_interview": [
+          "Q51: I live with my mom Denise, my dad Carl, and my younger brother Eli"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Beulah sees her grandmother Ruth regularly, usually about once a week.",
+        "ground_truth_label": "regular nearby grandmother contact",
+        "behavioral_evidence_from_interview": [
+          "Q05: Usually once a week"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Beulah's closest friends are Kenzie and Mara.",
+        "ground_truth_label": "small creative friend circle",
+        "behavioral_evidence_from_interview": [
+          "Q07: My closest friend is Kenzie",
+          "Q07: I also have a friend named Mara"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Beulah is not currently dating and is not living with a romantic partner.",
+        "ground_truth_label": "single, no cohabiting partner",
+        "behavioral_evidence_from_interview": [
+          "Q84: I have never been married, and I am not living with a romantic partner",
+          "Q05: No, not really"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Beulah has no children.",
+        "ground_truth_label": "no children",
+        "behavioral_evidence_from_interview": [
+          "Q05: I do not have children",
+          "Q84: Any children? No"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Beulah's family shows care through practical help such as food, chores, rides, repairs, and checking in.",
+        "ground_truth_label": "practical family support style",
+        "behavioral_evidence_from_interview": [
+          "Q46: people show care through chores, food, and checking in",
+          "Q05: fixing my car or asking if I need gas money"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Beulah's parents own the family home with a mortgage.",
+        "ground_truth_label": "parent-owned mortgaged home",
+        "behavioral_evidence_from_interview": [
+          "Q58: My parents own the home with a mortgage"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Beulah's art supplies often spread around her room.",
+        "ground_truth_label": "messy art-space habit",
+        "behavioral_evidence_from_interview": [
+          "Q11: my art supplies spread everywhere if I am not careful"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Beulah develops film in a makeshift bathroom darkroom.",
+        "ground_truth_label": "bathroom darkroom film development",
+        "behavioral_evidence_from_interview": [
+          "Q17: I turn the bathroom into a darkroom late at night"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.hobbies_and_recreation"
+        ]
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Beulah helps with dishes, laundry, groceries, errands, and sometimes driving Eli.",
+        "ground_truth_label": "household chores and sibling transportation",
+        "behavioral_evidence_from_interview": [
+          "Q17: dishes, errands, and sometimes getting Eli where he needs to go",
+          "Q11: dishes, laundry, helping with groceries"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Beulah pays no formal rent and only contributes small amounts for groceries or gas when she can.",
+        "ground_truth_label": "financial dependence for housing",
+        "behavioral_evidence_from_interview": [
+          "Q55: My parents handle the mortgage and main bills; I help with small groceries or gas when I can",
+          "Q55: No formal rent"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Beulah has no student loans and no credit card balance.",
+        "ground_truth_label": "no student loans or credit card debt",
+        "behavioral_evidence_from_interview": [
+          "Q63: I do not have student loans right now",
+          "Q63: I do not have a credit card balance"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "A personal $400 emergency would be difficult for Beulah and would likely require parental help or emergency commissions.",
+        "ground_truth_label": "limited emergency savings",
+        "behavioral_evidence_from_interview": [
+          "Q82: Personally, $400 would be hard"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Beulah receives no SNAP, housing vouchers, SSI, or similar public benefits.",
+        "ground_truth_label": "no means-tested public benefits",
+        "behavioral_evidence_from_interview": [
+          "Q80: No, I do not receive SNAP, housing vouchers, SSI, or anything like that"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Beulah watches movies and plays casual video games with her brother.",
+        "ground_truth_label": "movies and casual gaming with sibling",
+        "behavioral_evidence_from_interview": [
+          "Q05: We watch movies, play casual video games"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Beulah reads graphic novels and speculative fiction.",
+        "ground_truth_label": "graphic novels and speculative fiction interest",
+        "behavioral_evidence_from_interview": [
+          "Q01: reading graphic novels",
+          "Q48: book recommendations"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.hobbies_and_recreation"
+        ]
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Beulah draws, paints watercolor, and creates digital illustrations.",
+        "ground_truth_label": "visual art practice",
+        "behavioral_evidence_from_interview": [
+          "Q01: watercolor landscapes... digital illustration",
+          "Q65: watercolor-style digital portraits"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Beulah maintains a growing art portfolio.",
+        "ground_truth_label": "portfolio building",
+        "behavioral_evidence_from_interview": [
+          "Q18: treating my portfolio like a real responsibility"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.work_and_career"
+        ]
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Beulah participates in Ringgold Trails Club activities.",
+        "ground_truth_label": "Ringgold Trails Club participation",
+        "behavioral_evidence_from_interview": [
+          "Q07: Through the Ringgold Trails Club",
+          "Q15: sometimes with the Ringgold Trails Club"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Beulah enjoys DIY craft projects and upcycling materials.",
+        "ground_truth_label": "DIY and upcycling interest",
+        "behavioral_evidence_from_interview": [
+          "Q61: thrifted frames and fabric scraps",
+          "Q48: thrift flips"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.fashion_and_appearance"
+        ]
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Beulah is a community college visual arts student.",
+        "ground_truth_label": "community college visual arts enrollment",
+        "behavioral_evidence_from_interview": [
+          "Q91: I am enrolled in community college",
+          "Q91: Visual Arts associate program"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Beulah does occasional freelance illustration and art commissions.",
+        "ground_truth_label": "irregular freelance art work",
+        "behavioral_evidence_from_interview": [
+          "Q16: small freelance illustration and art commissions"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Beulah volunteers at a local historical museum cataloging artifacts and photographs.",
+        "ground_truth_label": "museum cataloging volunteer",
+        "behavioral_evidence_from_interview": [
+          "Q65: museum volunteering, where I help catalog artifacts, photograph items, label files"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Beulah wants to open a small studio-gallery supporting rural artists and Appalachian craft alongside digital art.",
+        "ground_truth_label": "studio-gallery career ambition",
+        "behavioral_evidence_from_interview": [
+          "Q108: opening a small studio-gallery that hosts workshops, shows Appalachian craft traditions beside digital art"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Beulah earned about $180 from freelance illustration last month.",
+        "ground_truth_label": "recent freelance income about $180",
+        "behavioral_evidence_from_interview": [
+          "Q72: About $180 from freelance illustration last month"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Beulah's freelance income is irregular and some months are zero.",
+        "ground_truth_label": "irregular freelance income",
+        "behavioral_evidence_from_interview": [
+          "Q72: some months are zero",
+          "Q73: Irregularly"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Beulah has no formal workplace benefits, paid time off, or job-provided health insurance.",
+        "ground_truth_label": "no freelance benefits",
+        "behavioral_evidence_from_interview": [
+          "Q76: Freelance art has no paid time off or health insurance"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Beulah did not file her own taxes last year because income was very small and parents still claim her as a dependent.",
+        "ground_truth_label": "did not file own taxes due to low income and dependent status",
+        "behavioral_evidence_from_interview": [
+          "Q75: No, I did not file my own taxes last year because my income was very small and my parents still claim me as a dependent"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Beulah prefers flexible work with clear due dates because too little structure makes her drift.",
+        "ground_truth_label": "prefers flexible work with external structure",
+        "behavioral_evidence_from_interview": [
+          "Q78: I like flexibility, but I am learning I need external structure",
+          "Q78: Yes, but with clear due dates"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Beulah is inspired by family quilting, woodcarving, landscapes, old photographs, and handmade objects.",
+        "ground_truth_label": "Appalachian handmade and local archive inspiration",
+        "behavioral_evidence_from_interview": [
+          "Q01: My grandma quilted and my uncle did a little woodcarving",
+          "Q109: handmade things because they carry time and attention"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Beulah uses Procreate, Photoshop, Lightroom, watercolor, ink pens, and DaVinci Resolve.",
+        "ground_truth_label": "creative software and traditional media toolkit",
+        "behavioral_evidence_from_interview": [
+          "Q65: Procreate, Adobe Photoshop, Lightroom, watercolor, ink pens, and sometimes DaVinci Resolve"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.technology"
+        ]
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Beulah wants exhibits that include ordinary people's stories, working people, Black communities, Indigenous history, and not only prominent white families.",
+        "ground_truth_label": "inclusive community archive values",
+        "behavioral_evidence_from_interview": [
+          "Q28: working people, Black communities, Indigenous history, and not just prominent white families"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Mrs. Kendall, Beulah's high school art teacher, strongly encouraged her art.",
+        "ground_truth_label": "high school art teacher encouragement",
+        "behavioral_evidence_from_interview": [
+          "Q01: Mrs. Kendall... treated my sketches like they were worth taking seriously"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Museum work with old Catoosa County photos helped Beulah connect art with local history.",
+        "ground_truth_label": "museum experience shaped art-history path",
+        "behavioral_evidence_from_interview": [
+          "Q02: old photos from families around Catoosa County... art could preserve somebody's ordinary life"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Beulah avoids trail running near dusk for safety.",
+        "ground_truth_label": "night/dusk trail safety precaution",
+        "behavioral_evidence_from_interview": [
+          "Q09: avoid trail running near dusk"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Beulah sprained an ankle on a trail last year, but it healed and no longer limits hiking.",
+        "ground_truth_label": "resolved trail ankle sprain",
+        "behavioral_evidence_from_interview": [
+          "Q33: I sprained my ankle on a trail last year",
+          "Q34: the ankle healed"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Beulah's childhood memory of drawing ridgelines from her grandmother's porch shaped her love of local landscapes.",
+        "ground_truth_label": "ridgeline childhood art memory",
+        "behavioral_evidence_from_interview": [
+          "Q01: sitting on my grandma's porch... drew the same ridge line over and over"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Beulah values living near trails and creeks with quick access to nature.",
+        "ground_truth_label": "values nearby natural access",
+        "behavioral_evidence_from_interview": [
+          "Q08: I like that I can get to trails and creeks quickly"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Environmental concerns matter to Beulah because local land shapes her identity and art.",
+        "ground_truth_label": "place-based environmental concern",
+        "behavioral_evidence_from_interview": [
+          "Q24: the land around here is part of my identity and my art"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Beulah uses Instagram to post art, sketches, trail photos, process reels, and receive commissions.",
+        "ground_truth_label": "Instagram art and commission platform",
+        "behavioral_evidence_from_interview": [
+          "Q48: I use Instagram the most for art... commissions start with someone messaging me on Instagram"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.media_and_information_diet"
+        ]
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Beulah tries to maintain an online portfolio but is inconsistent.",
+        "ground_truth_label": "inconsistent online portfolio maintenance",
+        "behavioral_evidence_from_interview": [
+          "Q17: try to keep up with an online portfolio, though I am inconsistent"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Beulah uses payment apps for freelance commissions.",
+        "ground_truth_label": "payment app freelance payments",
+        "behavioral_evidence_from_interview": [
+          "Q69: Through a payment app",
+          "Q73: Mostly digital payment apps"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Beulah registered to vote through a campus table and intends to vote regularly.",
+        "ground_truth_label": "new voter registration and voting intention",
+        "behavioral_evidence_from_interview": [
+          "Q23: I did register",
+          "Q23: A campus table with voter registration forms made it easy"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Beulah wants rural places like Ringgold to be understood and not forgotten.",
+        "ground_truth_label": "rural representation concern",
+        "behavioral_evidence_from_interview": [
+          "Q24: making sure rural people are not just forgotten",
+          "Q108: stay connected to Ringgold without feeling trapped"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Beulah has limited direct law-enforcement contact and recognizes her experience is shaped by being white and local.",
+        "ground_truth_label": "limited police contact with racial self-awareness",
+        "behavioral_evidence_from_interview": [
+          "Q20: I do not have personal trauma with law enforcement, but I am aware my experience is shaped by being white and from here"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Beulah has never been arrested.",
+        "ground_truth_label": "no personal arrest history",
+        "behavioral_evidence_from_interview": [
+          "Q22: I have never been arrested"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Beulah responded to Black Lives Matter by listening, reading, discussing with friends, sharing resources online, and paying attention to local candidates rather than protesting.",
+        "ground_truth_label": "non-protest BLM civic response",
+        "behavioral_evidence_from_interview": [
+          "Q29: talked with friends, read, shared some resources online, and paid more attention to local candidates",
+          "Q29: I have not joined a protest"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Beulah identifies as an Independent closer to Democrats and is weakly attached to party labels.",
+        "ground_truth_label": "weak Democratic-leaning Independent",
+        "behavioral_evidence_from_interview": [
+          "Q95: Independent but closer to Democrat",
+          "Q96: Closer to the Democratic Party, though not strongly partisan"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Beulah is left-leaning on health care, education, LGBTQ rights, racial justice, climate, and rural fairness.",
+        "ground_truth_label": "left-leaning issue profile",
+        "behavioral_evidence_from_interview": [
+          "Q24: health care... public schools... LGBTQ rights, racial justice",
+          "Q96: climate concerns"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Beulah associates hymns and church music with family and religious memory.",
+        "ground_truth_label": "church music cultural memory",
+        "behavioral_evidence_from_interview": [
+          "Q47: potlucks, hymns, youth group"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Beulah is interested in thrift shopping and thrift flips but cuts them when money is tight.",
+        "ground_truth_label": "thrift interest constrained by budget",
+        "behavioral_evidence_from_interview": [
+          "Q48: thrift flips",
+          "Q60: thrift shopping"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Beulah tries to dress more put together when volunteering at the museum.",
+        "ground_truth_label": "more polished museum volunteer appearance",
+        "behavioral_evidence_from_interview": [
+          "Q18: try to dress a little more put together"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Beulah identifies as white and not Hispanic, Latinx, or Spanish origin.",
+        "ground_truth_label": "white non-Hispanic identity",
+        "behavioral_evidence_from_interview": [
+          "Q88: No",
+          "Q89: White"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Beulah grew up in Ringgold, Georgia, in a working-class Southern family.",
+        "ground_truth_label": "working-class Southern Ringgold upbringing",
+        "behavioral_evidence_from_interview": [
+          "Q01: Ringgold, Georgia",
+          "Q01: white and working-class"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Beulah identifies as Christian, loosely Protestant, with a Southern Baptist background.",
+        "ground_truth_label": "loose Protestant Christian identity",
+        "behavioral_evidence_from_interview": [
+          "Q94: Christian, loosely Protestant, with a Southern Baptist background"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Beulah was born March 12, 2007.",
+        "ground_truth_label": "date of birth March 12 2007",
+        "behavioral_evidence_from_interview": [
+          "Q85: My date of birth is March 12, 2007"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Beulah was born in Chattanooga, Tennessee, but identifies more strongly with Ringgold, Georgia.",
+        "ground_truth_label": "Chattanooga birthplace with Ringgold identity",
+        "behavioral_evidence_from_interview": [
+          "Q87: I was born in Chattanooga, Tennessee... but I grew up in Ringgold, Georgia"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Beulah's major crossroads after high school was choosing community college visual arts over full-time retail or moving away before she was ready.",
+        "ground_truth_label": "post-high-school art education crossroads",
+        "behavioral_evidence_from_interview": [
+          "Q02: Full-time retail or food service, community college for art, or trying to move farther away"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Helping with a museum exhibit made Beulah see a path combining art and local history.",
+        "ground_truth_label": "museum exhibit career turning point",
+        "behavioral_evidence_from_interview": [
+          "Q02: I realized I could connect art with local history"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Beulah is navigating dependence on family, school deadlines, and emerging adult financial uncertainty.",
+        "ground_truth_label": "emerging adult financial and academic uncertainty",
+        "behavioral_evidence_from_interview": [
+          "Q43: pressure because art can seem impractical",
+          "Q83: I feel grateful and uneasy"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "A portfolio-review crisis led Beulah to accept Kenzie's help, request an extension, and recognize she needs systems before panic hits.",
+        "ground_truth_label": "portfolio panic organizational lesson",
+        "behavioral_evidence_from_interview": [
+          "Q44: cried in my car outside campus",
+          "Q44: emailed one professor honestly and got a short extension"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Beulah uses TikTok for art tips, thrift flips, book recommendations, political explainers, and procrastination.",
+        "ground_truth_label": "TikTok creative and political procrastination use",
+        "behavioral_evidence_from_interview": [
+          "Q48: TikTok too much when I am procrastinating, mostly art tips, thrift flips, book recommendations, and political explainers"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Beulah uses Facebook mainly for family and local events such as museum posts and trail club updates.",
+        "ground_truth_label": "Facebook for family and local events",
+        "behavioral_evidence_from_interview": [
+          "Q48: Facebook is more for family and local events, like museum posts or trail club updates"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Beulah usually does not ask publicly online for emotional or financial support and messages close friends privately instead.",
+        "ground_truth_label": "private support-seeking online behavior",
+        "behavioral_evidence_from_interview": [
+          "Q49: I do not usually ask publicly for emotional or financial support",
+          "Q49: message close friends privately"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "reprojected",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Beulah's mother works in dental office administration and her father works in maintenance and warehouse-related jobs.",
+        "ground_truth_label": "parents' working-class occupations",
+        "behavioral_evidence_from_interview": [
+          "Q103: My mom worked front desk and billing at a dental office",
+          "Q106: My dad worked maintenance and warehouse jobs"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Beulah is willing to accept uncertainty when it protects her creative identity.",
+        "ground_truth_label": "creative-identity risk tolerance",
+        "behavioral_evidence_from_interview": [
+          "Q02: choosing community college for art over full-time retail",
+          "Q83: building a future that can pay for itself"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Beulah's strongest incentives are autonomy, meaningful work, community recognition, and staying close to place rather than maximizing short-term earnings.",
+        "ground_truth_label": "autonomy and place-based intrinsic motivation",
+        "behavioral_evidence_from_interview": [
+          "Q65: community exhibitions",
+          "Q108: stay connected to Ringgold without feeling trapped",
+          "Q109: family, place, creativity"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Living at home helps Beulah moderate the financial risk of studying art and avoiding loans.",
+        "ground_truth_label": "family housing as risk buffer",
+        "behavioral_evidence_from_interview": [
+          "Q58: at least while I am at community college",
+          "Q63: avoiding loans on purpose"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Beulah's civic orientation is community-based and localist.",
+        "ground_truth_label": "community-based localist civic orientation",
+        "behavioral_evidence_from_interview": [
+          "Q15: volunteer at the museum",
+          "Q23: registered to vote",
+          "Q108: stay connected to Ringgold"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "reprojected",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Beulah has strong openness to experience and a self-concept built around art, memory, and ordinary people's stories.",
+        "ground_truth_label": "open, art-and-memory-centered self-concept",
+        "behavioral_evidence_from_interview": [
+          "Q01: community stories, not just making pretty pictures",
+          "Q109: ordinary people's stories"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "reprojected",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Beulah is balancing Southern working-class roots, progressive influences, artistic ambition, and fear of impracticality.",
+        "ground_truth_label": "emerging adult identity integration",
+        "behavioral_evidence_from_interview": [
+          "Q24: grew up around conservative people",
+          "Q83: pressure to choose a practical career",
+          "Q108: still connected to Ringgold"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,2128 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "460e29ab241c43a7a0fb2105d3dbb309",
+      "name": "Miranda Johnson",
+      "verification_date": "2026-05-18"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed states Miranda is a 40-year-old female in Strongsville, OH 44136; the interview confirms age 40, female identity by context, and residence in Strongsville 44136.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed age, sex, city, state, zipcode",
+              "source_b_ref": "Q08, Q51, Q85",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed says never married; the interview confirms she has never been married, is not cohabiting, and has no children.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed marital_status",
+              "source_b_ref": "Q05, Q84",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward no children and not living with a romantic partner into social_and_relationships and home_and_lifestyle."
+            },
+            {
+              "id": 3,
+              "text": "Seed lists bachelor's degree in a STEM-related field and first-line supervisor occupation; interview confirms a bachelor's degree with data/systems focus and full-time operations supervisor work.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed education_level, bachelors_field, occupation",
+              "source_b_ref": "Q16, Q65, Q90",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward full-time salaried employment and supervisory tenure details into work_and_career."
+            },
+            {
+              "id": 4,
+              "text": "Seed cultural background describes African-American Midwest upbringing with Great Migration roots; interview confirms Cleveland-area upbringing and grandparents from Alabama and Mississippi who migrated north.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q01, Q86-Q89",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile demographic header and demographer summary accurately represent age, race, gender, household, location, education, and occupation from the interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q05, Q11, Q65, Q84-Q90",
+              "source_b_ref": "profile header, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile says she owns a townhouse with mortgage and lives alone; interview repeatedly confirms sole household membership and homeownership.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q11-Q14, Q51-Q58",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile covers close family ties but omits named immediate family members and parents' aging-related health support.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q05, Q35",
+              "source_b_ref": "preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add Denise, Robert, Marcus, Tasha, niece, nephew, and parent appointment/paperwork support details."
+            },
+            {
+              "id": 4,
+              "text": "Profile includes Great Migration heritage and Black church/community ties, matching interview responses.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01, Q47, Q86-Q89",
+              "source_b_ref": "preferences.cultural_and_linguistic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Homeownership, living alone, never married status, and no children are consistent across profile header, home_and_lifestyle, social_and_relationships, and demographer summary.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "profile header; preferences.home_and_lifestyle",
+              "field_b": "preferences.social_and_relationships; summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Education and occupation descriptions are consistent across work_and_career, technology, and demographer summary.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career",
+              "field_b": "preferences.technology; summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview provides date of birth, March 14, 1986, which is absent from the profile.",
+              "gap": true,
+              "interview_ref": "Q85",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add birth date and Cleveland birthplace where appropriate."
+            },
+            {
+              "id": 2,
+              "text": "Interview names parents Denise and Robert, brother Marcus, sister-in-law Tasha, and niece/nephew; profile only summarizes family closeness.",
+              "gap": true,
+              "interview_ref": "Q05-Q06",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add named family relationships and aunt role."
+            },
+            {
+              "id": 3,
+              "text": "Interview gives childhood household details at age 16 in Parma with both parents and older brother.",
+              "gap": true,
+              "interview_ref": "Q97-Q99",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add Cleveland-area/Parma childhood household detail."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes detail orientation and competitive drive; interview confirms planning, spreadsheets, dashboards, budgeting, and competitive progress tracking.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed persona, professional_persona",
+              "source_b_ref": "Q02, Q57, Q61, Q83",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed career ambitions match interview goals for operations manager/director, PMP, Six Sigma Green Belt, and digital transformation.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed career_goals_and_ambitions",
+              "source_b_ref": "Q18, Q65, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed indicates active lifestyle and healthy soul food; interview confirms exercise routines, meal prep, moderation, and family health risk monitoring.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed sports_persona, culinary_persona",
+              "source_b_ref": "Q31-Q38",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward stress-snacking, sleep slippage, and moderation around biscuits/sweet-potato pie."
+            },
+            {
+              "id": 4,
+              "text": "Seed says she champions diversity initiatives; interview confirms mentoring younger staff, workplace equity conversations, and skepticism toward symbolic diversity without metrics.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed professional_persona, career_goals_and_ambitions",
+              "source_b_ref": "Q04, Q25, Q26, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures automatic savings, emergency fund, sinking funds, and cautious organized financial style.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q57, Q61-Q64, Q82-Q83",
+              "source_b_ref": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile preferences include health and meal prep but omit concrete financial behaviors such as covering a $400 emergency and four months of emergency savings.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q61, Q82",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add financial stability and emergency savings facts to home_and_lifestyle."
+            },
+            {
+              "id": 3,
+              "text": "Profile work_and_career accurately captures data-driven process improvement and staff mentoring.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q02, Q16, Q65",
+              "source_b_ref": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile mentions stress coping but underrepresents her tendency to over-schedule and protect one quiet evening.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q18, Q38, Q43-Q50",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add over-scheduling, quiet Wednesday, and exercise/prayer/social support coping."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Financial stability in the behavioral summary is consistent with homeownership, salaried employment, and emergency fund references.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.behavioral_economist",
+              "field_b": "preferences.home_and_lifestyle; preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Health routines, sports participation, and stress coping descriptions all support the same pattern of structured self-regulation.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness; preferences.sports_and_fitness",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview includes monthly gross and net income, typical spending, and major expenses; draft profile does not list these financial constraints.",
+              "gap": true,
+              "interview_ref": "Q56-Q57, Q72-Q74",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add monthly gross pay about $6,500, net about $4,400, and normal spending about $3,700-$3,900."
+            },
+            {
+              "id": 2,
+              "text": "Interview states she has a mortgage, car loan, and small remaining student loan balance.",
+              "gap": true,
+              "interview_ref": "Q63",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add current debt profile."
+            },
+            {
+              "id": 3,
+              "text": "Interview describes no public assistance, stable income, and ability to cover a $400 emergency from savings.",
+              "gap": true,
+              "interview_ref": "Q80-Q82",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add public assistance and emergency expense capacity."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed emphasizes diversity initiatives and Black professional organizations; interview confirms workplace equity advocacy and Black professional mentoring.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed cultural_background, career_goals_and_ambitions",
+              "source_b_ref": "Q03-Q04, Q25-Q30, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed church-centered community background is confirmed by Baptist identity, choir participation, and church-based voter registration/community discussion.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed cultural_background, arts_persona",
+              "source_b_ref": "Q30, Q47, Q94",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward Baptist identification and church civic role."
+            },
+            {
+              "id": 3,
+              "text": "Seed does not specify party identity; interview enriches it with fairly strong Democratic identification and center-left practical ideology.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed data",
+              "source_b_ref": "Q24, Q95-Q96",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Include party identity and pragmatic center-left issue priorities in community_and_civic."
+            },
+            {
+              "id": 4,
+              "text": "Seed does not discuss law enforcement; interview adds cautious but nuanced views shaped by traffic stops and family/community experience.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed data",
+              "source_b_ref": "Q20-Q22",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add law enforcement experience and support for respectful accountability."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Political summary accurately captures Democratic identification, center-left practical views, regular voting, and local-government focus.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23-Q25, Q95-Q96",
+              "source_b_ref": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Community_and_civic captures voting, protest, donations, workplace equity conversations, and volunteering.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23-Q30, Q47",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile omits her specific trusted election information sources: League of Women Voters, local news, candidate websites, and trusted conversations.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q23",
+              "source_b_ref": "preferences.media_and_information_diet",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Already partly present; retain and make explicit in hidden facts."
+            },
+            {
+              "id": 4,
+              "text": "Profile underrepresents law enforcement experiences and justice-system views.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q20-Q22, Q27",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add traffic stops, cousin's nonviolent drug-related arrest, and support for accountability/community investment."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Civic engagement, cultural identity, and political summary are mutually reinforcing and not contradictory.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "preferences.cultural_and_linguistic; summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Media diet and political participation descriptions align: she uses structured voter guides and verifies social-media headlines.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.media_and_information_diet",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview says she is a fairly strong Democrat and definitely closer to the Democratic Party.",
+              "gap": true,
+              "interview_ref": "Q95-Q96",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add party identification and issue basis."
+            },
+            {
+              "id": 2,
+              "text": "Interview includes direct law enforcement experiences: two traffic stops, careful behavior during stops, and relatives' more tense experiences.",
+              "gap": true,
+              "interview_ref": "Q20-Q21",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add nuanced policing experience and trust conditions."
+            },
+            {
+              "id": 3,
+              "text": "Interview describes a cousin's nonviolent drug-related arrest and its financial and emotional family impact.",
+              "gap": true,
+              "interview_ref": "Q22",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add justice-system consequence detail."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes her as detail-oriented, outgoing, competitive, and methodical; interview repeatedly confirms conscientiousness, social energy, planning, and achievement motivation.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed persona, professional_persona",
+              "source_b_ref": "Q01-Q03, Q43-Q45, Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed's community-oriented identity is confirmed by church, mentoring, youth coaching, and family obligations.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed cultural_background, hobbies_and_interests",
+              "source_b_ref": "Q04, Q17, Q47, Q108-Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed mentions secret leftover biscuit snacking; interview confirms biscuits as stress snack and moderation challenge.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed persona",
+              "source_b_ref": "Q32, Q38",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Interview enriches seed with emotional stress, loneliness, anxious thoughts, and boundary-setting work without contradicting the seed persona.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona",
+              "source_b_ref": "Q43-Q50",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward stress, loneliness, coping, and boundary-setting details into health_and_wellness and social_and_relationships."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Psychologist summary accurately captures conscientiousness, social vibrancy, achievement orientation, self-awareness, and over-responsibility.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01-Q03, Q43-Q50, Q109",
+              "source_b_ref": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Health profile mentions physical health but omits no depression/anxiety diagnosis, past EAP sessions, and therapy consideration.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q45",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add mental-health status and coping/therapy details."
+            },
+            {
+              "id": 3,
+              "text": "Social profile captures active relationships but omits loneliness after busy weekends and Sunday evenings.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q43",
+              "source_b_ref": "preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add occasional loneliness in quiet house after social/family time."
+            },
+            {
+              "id": 4,
+              "text": "Profile captures faith and choir but should more explicitly include prayer as emotional coping.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q38, Q45, Q47, Q50",
+              "source_b_ref": "preferences.music; preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add prayer and choir as regulation supports."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The profile consistently portrays Miranda as both socially active and needing quiet recovery time after people-heavy workdays.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships; preferences.hobbies_and_recreation",
+              "field_b": "preferences.home_and_lifestyle; summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Ambition in work_and_career is internally consistent with the psychologist summary's achievement orientation and the behavioral summary's planning orientation.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career",
+              "field_b": "summaries.psychologist; summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview includes stress and anxious thoughts without formal diagnosis, managed by routines, exercise, prayer, trusted people, and journaling.",
+              "gap": true,
+              "interview_ref": "Q45",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add mental-health and coping detail."
+            },
+            {
+              "id": 2,
+              "text": "Interview describes being stretched by dependability and learning not to say yes to every request.",
+              "gap": true,
+              "interview_ref": "Q43, Q50, Q109",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add boundary-setting and over-responsibility."
+            },
+            {
+              "id": 3,
+              "text": "Interview gives a concrete emotional struggle during a work rollout and mother's diabetes appointment, with Zumba, crying, and calling Keisha as coping.",
+              "gap": true,
+              "interview_ref": "Q44",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add acute stress example and coping pathway."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No substantive contradictions were found across seed, interview, and draft profile. Revisions are limited to carrying forward interview facts that were absent or under-specified in the draft profile.",
+    "final_status": "Corrected profile is ready for downstream use with added demographic, financial, political, law-enforcement, family, and emotional-coping details."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "460e29ab241c43a7a0fb2105d3dbb309",
+    "name": "Miranda Johnson",
+    "age": 40,
+    "gender": "Female",
+    "marital_status": "Never married; not living with a romantic partner; no children",
+    "location": "Strongsville, OH 44136",
+    "education": "Bachelor's degree in a STEM-related program with data and systems focus; Lean Six Sigma training; studying for PMP and Six Sigma Green Belt",
+    "occupation": "First-line supervisor of office and administrative support workers / operations supervisor",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Active, prevention-oriented, pro-vaccine, and attentive to family risk factors such as blood pressure and diabetes.",
+        "details": [
+          "Exercises four to five days weekly through Zumba, running, hiking, and coaching. Evidence: Q31, Q32",
+          "Watches blood pressure due to family history but has no hypertension diagnosis. Evidence: Q31",
+          "Supports vaccination and trusts physicians, CDC, Ohio Department of Health, and Cleveland Clinic. Evidence: Q41, Q42",
+          "Has no diagnosis of depression or anxiety, but experiences stress and anxious thoughts when responsibilities pile up. Evidence: Q45",
+          "Copes through routines, exercise, prayer, trusted conversations, occasional journaling, and protecting quiet time. Evidence: Q38, Q45, Q50",
+          "Had a knee strain from running last year and managed it with rest, better shoes, warmups, and home physical therapy exercises. Evidence: Q33",
+          "Uses employer insurance, FSA planning, copays, and budgeting to manage health costs; delayed a dental crown because of out-of-pocket cost. Evidence: Q36, Q40"
+        ],
+        "evidence": "Q31-Q42, Q45, Q50"
+      },
+      "food_and_dining": {
+        "summary": "Enjoys healthier versions of soul food while preserving flavor and family tradition.",
+        "details": [
+          "Meal preps turkey collard greens, quinoa gumbo, roasted vegetables, grilled chicken, and egg cups. Evidence: Q17",
+          "Uses ginger tea, smoked turkey, fresh produce, herbs, and comfort-food traditions. Evidence: Q37, Q56",
+          "Has a weakness for biscuits and sweet-potato pie. Evidence: Q32, Q38",
+          "Hosts family dinners and often coordinates dishes or bakes sweet-potato pie for gatherings. Evidence: Q05, Q56",
+          "Cuts back financially by cooking at home more and using freezer and pantry meals such as beans, rice, frozen greens, soups, and oatmeal. Evidence: Q60, Q81"
+        ],
+        "evidence": "Q05, Q17, Q32, Q37, Q38, Q56, Q60, Q81"
+      },
+      "travel": {
+        "summary": "Prefers planned cultural weekend trips and is saving for Savannah.",
+        "details": [
+          "Has taken or values trips connected to culture, food, and history. Evidence: Q01, Q62",
+          "Saving for a spring trip to Savannah and possibly Chicago. Evidence: Q62",
+          "Delayed a weekend getaway due to extra expenses. Evidence: Q60"
+        ],
+        "evidence": "Q60, Q62, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "Single, socially active, close to family, friends, church members, book club, running club, and Zumba peers.",
+        "details": [
+          "Never married, no children, not cohabiting with a partner. Evidence: Q05, Q84",
+          "Talks to mother Denise almost daily and sees parents about once a week. Evidence: Q05",
+          "Her father Robert is retired, and her older brother Marcus has two children with Tasha. Evidence: Q05, Q06",
+          "Closest friends include Keisha and Lauren; participates in book club, choir, Zumba, and running club. Evidence: Q07",
+          "Is involved as Auntie Miranda, helping with games, school projects, rides, and practical gifts. Evidence: Q05, Q06, Q19",
+          "Sometimes feels lonely on Sunday evenings after family dinner when returning to a quiet house. Evidence: Q43",
+          "Is learning boundaries around being dependable and not saying yes to every request. Evidence: Q43, Q50, Q109"
+        ],
+        "evidence": "Q05-Q07, Q19, Q43, Q50, Q84, Q109"
+      },
+      "home_and_lifestyle": {
+        "summary": "Lives alone in an owned Strongsville townhouse and values quiet, order, gardening, and planned routines.",
+        "details": [
+          "Owns townhouse with mortgage and lives alone. Evidence: Q11, Q51, Q58",
+          "Uses spare room as home office and storage for coaching supplies and choir music. Evidence: Q11",
+          "Maintains backyard garden with herbs, tomatoes, peppers, and greens. Evidence: Q17",
+          "Pays household expenses herself with no roommate, partner, lodger, or regular contributor. Evidence: Q51-Q55",
+          "Gross monthly pay is about $6,500 and take-home pay is about $4,400. Evidence: Q72-Q74",
+          "Normal monthly spending is about $3,700 to $3,900, with a higher recent month around $4,300. Evidence: Q57",
+          "Has mortgage, car loan, and small remaining student loan balance; uses credit cards for points and generally pays them monthly. Evidence: Q63",
+          "Could cover a $400 emergency from savings and keeps about four months of expenses in emergency savings. Evidence: Q61, Q82"
+        ],
+        "evidence": "Q08-Q14, Q51-Q58, Q61-Q63, Q72-Q74, Q82"
+      },
+      "entertainment": {
+        "summary": "Enjoys mystery novels, book club, sports viewing, social media for food and art, and occasional community events.",
+        "details": [
+          "Reads mystery novels and sometimes stays up late reading. Evidence: Q15",
+          "Attends book club and Cavs watch parties. Evidence: Q07",
+          "Uses Instagram for food, fitness, art, travel ideas, and local businesses. Evidence: Q48",
+          "Enjoys brunch after church, art festivals, cooking at friends' homes, and shared social events. Evidence: Q07"
+        ],
+        "evidence": "Q07, Q15, Q48"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Highly scheduled hobby life centered on group activities, reading, gardening, cooking, volunteering, and choir.",
+        "details": [
+          "Participates in Zumba, running club, choir, book club, gardening, and hiking. Evidence: Q15, Q17, Q47",
+          "Volunteers through youth basketball and community center events. Evidence: Q17",
+          "Uses Wednesday nights for cooking, plants, and reading when possible. Evidence: Q18",
+          "Studies for PMP certification two evenings a week and treats study time like a meeting. Evidence: Q18",
+          "Volunteers beyond coaching once or twice a month, especially around Juneteenth or school events. Evidence: Q17"
+        ],
+        "evidence": "Q15-Q18, Q47"
+      },
+      "work_and_career": {
+        "summary": "Ambitious operations supervisor focused on data-driven process improvement, staff mentoring, digital transformation, and advancement.",
+        "details": [
+          "Supervises administrative support workers, assigns work, handles escalations, trains staff, and builds reports. Evidence: Q16, Q65",
+          "Uses Excel, Power BI, Teams, Outlook, workflow systems, and basic SQL. Evidence: Q16",
+          "Aims for operations manager or director of administration role with PMP and Green Belt certifications. Evidence: Q18, Q108",
+          "Works full time about 42 to 45 hours weekly, is salaried, and has one paid job. Evidence: Q68-Q71",
+          "Has been with current employer about seven years and in supervisory role about five years. Evidence: Q76",
+          "Benefits include health, dental, vision, 401(k), paid vacation, sick time, and holidays. Evidence: Q76",
+          "Manager generally trusts her, and coworkers see her as direct but fair. Evidence: Q77"
+        ],
+        "evidence": "Q16, Q18, Q65, Q68-Q71, Q76-Q78, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Values Black cultural life, church music, visual arts, festivals, and community heritage.",
+        "details": [
+          "Sings gospel, hymns, and contemporary arrangements in Baptist church choir. Evidence: Q47",
+          "Enjoys art festivals and follows art-related content online. Evidence: Q07, Q48",
+          "Participates in Juneteenth and values Great Migration family history. Evidence: Q01, Q17",
+          "Values Black professionals mentoring each other and young people learning history. Evidence: Q28"
+        ],
+        "evidence": "Q01, Q07, Q17, Q28, Q47, Q48"
+      },
+      "sports_and_fitness": {
+        "summary": "Sports and fitness are central: youth basketball coach, runner, Zumba participant, hiker, and Cleveland sports fan.",
+        "details": [
+          "Coaches youth basketball as a volunteer. Evidence: Q16, Q70",
+          "Runs with a local group and attends Zumba twice weekly. Evidence: Q15, Q18",
+          "Attends Cavs watch parties and follows local sports socially. Evidence: Q07",
+          "Coaching sometimes overlaps with family because her nephew has attended clinics. Evidence: Q19",
+          "Zumba and movement help her regulate stress quickly. Evidence: Q44, Q50"
+        ],
+        "evidence": "Q07, Q15, Q16, Q18-Q19, Q44, Q50, Q70"
+      },
+      "nature_and_outdoors": {
+        "summary": "Enjoys accessible outdoor recreation, especially Cuyahoga Valley hiking and backyard gardening.",
+        "details": [
+          "Chose Strongsville partly for access to Cuyahoga Valley National Park. Evidence: Q08",
+          "Hikes on weekends and had a knee strain after a long hike/running load. Evidence: Q15, Q33",
+          "Gardens with herbs and vegetables in warm months. Evidence: Q17",
+          "Shops local farm stands in season. Evidence: Q08"
+        ],
+        "evidence": "Q08, Q15, Q17, Q33"
+      },
+      "technology": {
+        "summary": "Comfortable with workplace technology, analytics, digital workflows, and helping family with portals.",
+        "details": [
+          "Builds dashboards, uses data analysis, workflow systems, Power BI, Excel, and basic SQL. Evidence: Q16, Q65",
+          "Supports digital transformation projects at work. Evidence: Q18, Q65",
+          "Helps parents with online portals, insurance paperwork, and medical messages. Evidence: Q17, Q35",
+          "Uses Facebook for family, church, community events, and old classmates; Instagram for food, fitness, art, travel, and local businesses; LinkedIn for professional topics. Evidence: Q48"
+        ],
+        "evidence": "Q16-Q18, Q35, Q48, Q65"
+      },
+      "community_and_civic": {
+        "summary": "Civically engaged through voting, church, mentoring, youth sports, racial equity advocacy, and community events.",
+        "details": [
+          "Votes in presidential, midterm, and most local elections and researches candidates. Evidence: Q23",
+          "Attended a peaceful march, donated to community causes, and pushed workplace equity conversations. Evidence: Q29",
+          "Volunteers through youth basketball, church, and community center programs. Evidence: Q17, Q47",
+          "Identifies as a fairly strong Democrat and is definitely closer to the Democratic Party. Evidence: Q95, Q96",
+          "Describes herself as a practical center-left Democrat focused on civil rights, voting rights, health care, public education, workplace equity, and competent implementation. Evidence: Q24",
+          "Supports police accountability, community investment, mental health response teams, and transparency in stops and discipline. Evidence: Q24, Q27",
+          "Has been pulled over twice and is deliberate during traffic stops because of concern about escalation. Evidence: Q20",
+          "Has a cousin who was arrested for a nonviolent drug-related issue, shaping her view of justice-system consequences. Evidence: Q22"
+        ],
+        "evidence": "Q17, Q20-Q30, Q47, Q95-Q96"
+      },
+      "music": {
+        "summary": "Music is spiritually and socially important, especially gospel choir.",
+        "details": [
+          "Sings in Baptist church choir most Sundays and rehearsals. Evidence: Q47",
+          "Choir is one of the places where she feels centered. Evidence: Q47",
+          "Music is tied to church, community, and emotional regulation. Evidence: Q43, Q47",
+          "Draws inspiration from gospel, traditional hymns, and contemporary arrangements in church settings. Evidence: Q47"
+        ],
+        "evidence": "Q43, Q47"
+      },
+      "fashion_and_appearance": {
+        "summary": "Limited direct evidence, but she is conscious of professional presentation in corporate settings.",
+        "details": [
+          "Pays attention to tone, appearance, and preparation because mistakes may be judged harder as a Black woman. Evidence: Q28",
+          "Delayed buying new clothes during a tighter spending period. Evidence: Q60"
+        ],
+        "evidence": "Q28, Q60"
+      },
+      "cultural_and_linguistic": {
+        "summary": "African-American, English-speaking, Midwest-raised, with Great Migration family roots and strong Black church/community ties.",
+        "details": [
+          "Identifies as Black or African-American and not Hispanic/Latinx/Spanish origin. Evidence: Q88, Q89",
+          "Family roots trace to Alabama and Mississippi through grandparents who migrated north. Evidence: Q01, Q86",
+          "Maintains traditions through church, soul food, Juneteenth, and Black professional mentoring. Evidence: Q01, Q17, Q47",
+          "Was born in Cleveland, raised in the Cleveland area, and lived in Parma, Ohio at age 16 with both parents and older brother Marcus. Evidence: Q87, Q97-Q99",
+          "Identifies as Christian, Baptist, and sees faith as prayer, service, gifts, community, history, and accountability. Evidence: Q47, Q94"
+        ],
+        "evidence": "Q01, Q17, Q47, Q86-Q89, Q94, Q97-Q99"
+      },
+      "life_events_and_transitions": {
+        "summary": "Key transitions include earning a bachelor's degree, becoming a supervisor, buying a townhouse, and learning to lead as a Black woman in corporate spaces.",
+        "details": [
+          "Crossroads occurred when she applied for a supervisory role after Lean Six Sigma training. Evidence: Q02, Q03",
+          "Buying her Strongsville townhouse was a major personal milestone. Evidence: Q01, Q58",
+          "Navigating corporate spaces as a Black woman shaped her confidence and advocacy. Evidence: Q01, Q04, Q28",
+          "Was born March 14, 1986 in Cleveland, Ohio. Evidence: Q85, Q87",
+          "Major recent stress involved a difficult digital workflow rollout and concern over her mother's diabetes-related appointment. Evidence: Q44"
+        ],
+        "evidence": "Q01-Q04, Q28, Q44, Q58, Q85, Q87"
+      },
+      "media_and_information_diet": {
+        "summary": "Uses a mix of credible news, official health sources, social media, LinkedIn, and voter guides; skeptical of unverified posts.",
+        "details": [
+          "Uses League of Women Voters, local news, candidate sites, and trusted conversations for elections. Evidence: Q23",
+          "Uses Facebook, Instagram, LinkedIn, and limited TikTok. Evidence: Q48",
+          "Trusts doctors, CDC, Ohio Department of Health, Cleveland Clinic; distrusts random Facebook medical claims. Evidence: Q42",
+          "Sees headlines on social media but tries to verify with actual news sources. Evidence: Q48",
+          "Limits doom-scrolling because social media can hijack her mood. Evidence: Q48"
+        ],
+        "evidence": "Q23, Q42, Q48"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Miranda Johnson is a 40-year-old Black/African-American woman living alone in an owned townhouse in Strongsville, Ohio, with no spouse, cohabiting partner, or children (Q05, Q11, Q84, Q89). She was born in Cleveland and raised in the Cleveland area by both parents with one older brother in a stable, education-oriented household (Q87-Q99). She has a bachelor's degree and works full time as an operations supervisor, placing her in a stable single-income professional household with employer benefits and moderate assets such as homeownership and retirement savings (Q65, Q72, Q76, Q83). Her life course is strongly shaped by family, church, Great Migration heritage, and upward mobility through education and administrative leadership (Q01, Q47, Q108).",
+      "behavioral_economist": "Miranda shows high planning orientation, future focus, and risk management through spreadsheet budgeting, automatic savings, certification study, and emergency funds (Q57, Q61, Q62, Q82). She responds to uncertainty by creating routines, lists, sinking funds, and documented workflows, both at home and work (Q15, Q50, Q65). Her choices are identity-linked: she invests time in church, mentoring, Black professional advancement, and youth coaching because these reinforce community obligations and self-concept (Q04, Q17, Q29, Q108). She is cautious but not deprived; she spends on fitness, food, family, and travel while cutting discretionary purchases when expenses rise (Q56-Q60).",
+      "political_scientist": "Miranda is a fairly strong Democrat with center-left, pragmatic views focused on civil rights, voting access, public education, health care, workplace equity, and competent implementation (Q23-Q25, Q95-Q96). She votes regularly, researches candidates, and pays increasing attention to local institutions such as school boards, judges, and city government (Q23, Q25). Her politics are rooted in racial identity, church community, family history, and direct workplace experience with representation and accountability (Q26-Q30). She has participated in peaceful protest, donated to community causes, supported voter registration, and organized workplace equity conversations, indicating high civic engagement but not full-time campaign activism (Q23, Q29, Q47).",
+      "psychologist": "Miranda presents as conscientious, socially vibrant, achievement-oriented, and emotionally self-aware, with a strong need for order, excellence, and meaningful contribution (Q01, Q02, Q65, Q109). She copes with stress through exercise, prayer, social support, scheduling, cooking, and occasional journaling, while recognizing tendencies toward over-responsibility and anxious rumination (Q43-Q45, Q50). Her self-concept combines warmth and discipline: she wants to be dependable, prepared, honest, and in people's corner, but she is learning boundaries (Q43, Q50, Q109). Family, faith, Black womanhood, and professional competence are central to her identity and motivation (Q01, Q28, Q47, Q108)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Miranda exercises four to five days per week through Zumba, running, hiking, and coaching.",
+        "ground_truth_label": "Exercises 4-5 days weekly",
+        "behavioral_evidence_from_interview": [
+          "Q31: Usually four or five days a week between running, Zumba, and hiking or coaching."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Miranda watches her blood pressure because high blood pressure runs in her family, but she has not been diagnosed with hypertension.",
+        "ground_truth_label": "Monitors blood pressure without hypertension diagnosis",
+        "behavioral_evidence_from_interview": [
+          "Q31: I watch my blood pressure because it runs in my family, but I have not been diagnosed with hypertension."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Miranda is pro-vaccine and gets flu shots and recommended COVID boosters.",
+        "ground_truth_label": "Pro-vaccine",
+        "behavioral_evidence_from_interview": [
+          "Q41: I am pro-vaccine. I get my flu shot, COVID boosters when recommended."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Miranda trusts her primary care doctor, CDC, Ohio Department of Health, and Cleveland Clinic for vaccine and health information.",
+        "ground_truth_label": "Trusts official medical sources",
+        "behavioral_evidence_from_interview": [
+          "Q42: My primary care doctor is first. I also check the CDC, the Ohio Department of Health, Cleveland Clinic information."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Miranda has not been diagnosed with depression or anxiety but experiences stress and anxious thoughts when responsibilities pile up.",
+        "ground_truth_label": "No formal depression/anxiety diagnosis with situational stress",
+        "behavioral_evidence_from_interview": [
+          "Q45: I have not been diagnosed with depression or anxiety, but I do experience stress and anxious thoughts when responsibilities pile up."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Miranda copes with stress through routines, exercise, prayer, talking to trusted people, occasional journaling, and quiet time.",
+        "ground_truth_label": "Uses structured non-substance coping",
+        "behavioral_evidence_from_interview": [
+          "Q45: I manage it with routines, exercise, prayer, talking to trusted people, and sometimes journaling.",
+          "Q50: I schedule workouts, protect one quiet night, pray in the mornings."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Miranda had a knee strain from running last year and managed it with rest, better shoes, warmups, and home physical therapy exercises.",
+        "ground_truth_label": "Recent running-related knee strain",
+        "behavioral_evidence_from_interview": [
+          "Q33: I had a knee strain from running last year... did physical therapy exercises at home, got better shoes, and became more careful about warmups."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Miranda uses employer insurance, copays, FSA planning, and budgeting to manage health costs.",
+        "ground_truth_label": "Employer-insured health cost management",
+        "behavioral_evidence_from_interview": [
+          "Q40: I pay through my employer insurance, payroll deductions, copays, and an FSA."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Miranda meal preps turkey collard greens, quinoa gumbo, roasted vegetables, grilled chicken, and breakfast egg cups.",
+        "ground_truth_label": "Meal preps healthy soul-food-influenced dishes",
+        "behavioral_evidence_from_interview": [
+          "Q17: Turkey collard greens, quinoa gumbo, roasted vegetables, grilled chicken, and breakfast egg cups."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Miranda uses ginger tea, smoked turkey, fresh produce, herbs, and comfort-food traditions in cooking and home remedies.",
+        "ground_truth_label": "Uses traditional flavor and home remedy ingredients",
+        "behavioral_evidence_from_interview": [
+          "Q37: Ginger tea, honey, steam, Epsom salt baths, heating pads, and herbal teas are common in my family.",
+          "Q56: Meat, fresh produce, olive oil, and specialty items like good smoked turkey."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Miranda has a weakness for biscuits and sweet-potato pie.",
+        "ground_truth_label": "Likes biscuits and sweet-potato pie",
+        "behavioral_evidence_from_interview": [
+          "Q32: I love biscuits and sweet potato pie.",
+          "Q38: Leftover biscuits."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Miranda often coordinates family meal dishes and bakes sweet-potato pie for gatherings.",
+        "ground_truth_label": "Family gathering food planner",
+        "behavioral_evidence_from_interview": [
+          "Q05: I make the signup list, coordinate dishes, and somehow still end up baking sweet-potato pie."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Miranda cuts expenses by cooking at home and using freezer and pantry meals.",
+        "ground_truth_label": "Uses home cooking for budget control",
+        "behavioral_evidence_from_interview": [
+          "Q60: I delayed buying new clothes and cooked at home more.",
+          "Q81: Beans, rice, frozen greens, turkey sausage, soups, and oatmeal."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Miranda values trips connected to culture, food, history, and relaxation.",
+        "ground_truth_label": "Prefers planned cultural travel",
+        "behavioral_evidence_from_interview": [
+          "Q62: A spring trip to Savannah and maybe a long weekend in Chicago.",
+          "Q108: I want to... travel more... visit Savannah in spring."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Miranda is saving for a spring trip to Savannah and possibly a long weekend in Chicago.",
+        "ground_truth_label": "Saving for Savannah and Chicago travel",
+        "behavioral_evidence_from_interview": [
+          "Q62: A spring trip to Savannah and maybe a long weekend in Chicago."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Miranda postponed a weekend getaway because of extra expenses.",
+        "ground_truth_label": "Delayed discretionary travel due to costs",
+        "behavioral_evidence_from_interview": [
+          "Q60: A weekend getaway and replacing a patio chair."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Miranda has never been married, has no children, and is not living with a romantic partner.",
+        "ground_truth_label": "Never married, no children, not cohabiting",
+        "behavioral_evidence_from_interview": [
+          "Q05: I have never been married, I am not living with a partner, and I do not have children.",
+          "Q84: I have never been married, and I am not living with a romantic partner."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Miranda talks to her mother Denise almost every day and sees her parents about once a week.",
+        "ground_truth_label": "Frequent contact with parents",
+        "behavioral_evidence_from_interview": [
+          "Q05: My mother, Denise... we talk almost every day.",
+          "Q05: My parents about once a week."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Miranda's immediate family includes her mother Denise, father Robert, older brother Marcus, sister-in-law Tasha, and a niece and nephew.",
+        "ground_truth_label": "Immediate family network",
+        "behavioral_evidence_from_interview": [
+          "Q05: My mother, Denise... My father, Robert... older brother, Marcus.",
+          "Q06: I am also close to my sister-in-law, Tasha, and my niece and nephew."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Miranda is actively involved as Auntie Miranda by attending games, helping with school projects, giving practical gifts, and providing backup rides.",
+        "ground_truth_label": "Involved aunt role",
+        "behavioral_evidence_from_interview": [
+          "Q05: I go to their games, help with school projects when I can.",
+          "Q19: Only as backup if my brother and sister-in-law are stuck."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Miranda's closest friends include Keisha from college and Lauren from book club.",
+        "ground_truth_label": "Closest friends Keisha and Lauren",
+        "behavioral_evidence_from_interview": [
+          "Q07: My closest friends are Keisha, who I met in college, and Lauren, who is in my book club."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Miranda participates socially through book club, choir, Zumba, running club, brunches, Cavs watch parties, art festivals, and cooking with friends.",
+        "ground_truth_label": "Active scheduled social life",
+        "behavioral_evidence_from_interview": [
+          "Q07: Book club, brunch after church, Cavs watch parties, art festivals, and sometimes just cooking at someone's house."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Miranda sometimes feels lonely on Sunday evenings after family dinner when she returns to a quiet house.",
+        "ground_truth_label": "Occasional Sunday evening loneliness",
+        "behavioral_evidence_from_interview": [
+          "Q43: Sunday evenings sometimes, after family dinner when I come back to a quiet house."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Miranda is learning boundaries around being dependable and not saying yes to every request.",
+        "ground_truth_label": "Boundary-setting around dependability",
+        "behavioral_evidence_from_interview": [
+          "Q43: I am more intentional now about rest, prayer, and not saying yes to every request.",
+          "Q109: Being dependable does not mean being available for everything."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Miranda owns a townhouse in Strongsville with a mortgage and lives alone.",
+        "ground_truth_label": "Single-person homeowner household",
+        "behavioral_evidence_from_interview": [
+          "Q11: I live by myself in my townhouse.",
+          "Q58: I own my townhouse with a mortgage."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Miranda uses a spare room as both a home office and storage for coaching supplies and choir music.",
+        "ground_truth_label": "Spare room home office and activity storage",
+        "behavioral_evidence_from_interview": [
+          "Q11: A spare room that is half home office and half storage for coaching supplies and choir music."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Miranda pays all household expenses herself with no roommate, partner, lodger, boarder, employee, or regular contributor.",
+        "ground_truth_label": "Sole household payer",
+        "behavioral_evidence_from_interview": [
+          "Q55: I pay the household expenses myself.",
+          "Q54: No."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Miranda's gross monthly pay is about $6,500 and her take-home pay is about $4,400.",
+        "ground_truth_label": "Monthly income about $6,500 gross and $4,400 net",
+        "behavioral_evidence_from_interview": [
+          "Q72: My gross pay is about $6,500 a month... take-home is around $4,400."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Miranda's normal monthly spending is about $3,700 to $3,900, with one recent month around $4,300.",
+        "ground_truth_label": "Monthly spending range",
+        "behavioral_evidence_from_interview": [
+          "Q57: Last month was around $4,300... A more normal month is closer to $3,700 to $3,900."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Miranda has a mortgage, a car loan, and a small remaining student loan balance.",
+        "ground_truth_label": "Mortgage, car loan, small student loan",
+        "behavioral_evidence_from_interview": [
+          "Q63: I have my mortgage, a car loan, and a small remaining student loan balance."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Miranda uses credit cards for points and generally pays them off monthly.",
+        "ground_truth_label": "Pays credit cards monthly",
+        "behavioral_evidence_from_interview": [
+          "Q63: I use credit cards for points but pay them off monthly unless something unusual happens."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Miranda has about four months of expenses in emergency savings and wants to build that to six months.",
+        "ground_truth_label": "Four-month emergency fund goal of six months",
+        "behavioral_evidence_from_interview": [
+          "Q61: About four months in emergency savings, though I would like six."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Miranda could cover a $400 emergency from savings without missing a bill.",
+        "ground_truth_label": "Can cover $400 emergency from savings",
+        "behavioral_evidence_from_interview": [
+          "Q82: I could cover a $400 emergency from savings."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Miranda reads mystery novels and sometimes stays up late reading.",
+        "ground_truth_label": "Mystery novel reader",
+        "behavioral_evidence_from_interview": [
+          "Q15: If I get into a mystery novel it can become midnight."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Miranda attends book club and Cavs watch parties.",
+        "ground_truth_label": "Book club and Cavs watch parties",
+        "behavioral_evidence_from_interview": [
+          "Q07: Book club... Cavs watch parties."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Miranda participates in Zumba, running club, choir, book club, gardening, hiking, cooking, and volunteering.",
+        "ground_truth_label": "Highly scheduled group hobby life",
+        "behavioral_evidence_from_interview": [
+          "Q15: Zumba, choir rehearsal, youth basketball practice, or book club.",
+          "Q17: I keep a garden in the warm months."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Miranda volunteers through youth basketball and occasional community center career workshops.",
+        "ground_truth_label": "Youth basketball and community center volunteer",
+        "behavioral_evidence_from_interview": [
+          "Q17: I volunteer at the community center through basketball and occasional career workshops."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Miranda tries to protect Wednesday evenings for cooking, watering plants, and reading.",
+        "ground_truth_label": "Protected Wednesday quiet evening",
+        "behavioral_evidence_from_interview": [
+          "Q18: Wednesday, if I can. I cook, water plants, and read."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Miranda studies for PMP certification two evenings a week and treats study time like a meeting.",
+        "ground_truth_label": "Structured PMP study routine",
+        "behavioral_evidence_from_interview": [
+          "Q18: I added more structured studying for PMP certification, usually two evenings a week for an hour.",
+          "Q18: I have to treat it like a meeting or it disappears."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Miranda supervises administrative support workers, assigns work, handles escalations, trains staff, builds reports, and monitors performance.",
+        "ground_truth_label": "Operations supervisor duties",
+        "behavioral_evidence_from_interview": [
+          "Q65: My most important duties are assigning work, monitoring performance, solving escalations, training staff, improving workflows, and communicating with managers."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Miranda uses Excel, Power BI, Teams, Outlook, shared workflow systems, and basic SQL at work.",
+        "ground_truth_label": "Workplace software toolkit",
+        "behavioral_evidence_from_interview": [
+          "Q16: Excel, Power BI, shared workflow systems, Teams, Outlook, and sometimes basic SQL queries."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Miranda aims to become an operations manager or director of administration and complete PMP and Six Sigma Green Belt certifications.",
+        "ground_truth_label": "Operations manager/director ambition with PMP and Green Belt",
+        "behavioral_evidence_from_interview": [
+          "Q108: I hope I am in an operations manager or director of administration role... I want my PMP and Six Sigma Green Belt finished."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Miranda works full time, about 42 to 45 hours per week, is salaried, and has one paid job.",
+        "ground_truth_label": "Full-time salaried single paid job",
+        "behavioral_evidence_from_interview": [
+          "Q68: Usually about 42 to 45 hours a week.",
+          "Q70: No, just my full-time job."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Miranda has been with her current employer about seven years and in her supervisory role about five years.",
+        "ground_truth_label": "Seven years employer, five years supervisory role",
+        "behavioral_evidence_from_interview": [
+          "Q76: I have been with my current employer about seven years and in this supervisory role about five."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Miranda's job benefits include health, dental, vision, 401(k), paid vacation, sick time, and holidays.",
+        "ground_truth_label": "Employer benefits package",
+        "behavioral_evidence_from_interview": [
+          "Q76: Benefits are solid: health, dental, vision, 401(k), paid vacation, sick time, and holidays."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Miranda sings gospel, traditional hymns, and contemporary arrangements in a Baptist church choir.",
+        "ground_truth_label": "Baptist church choir singer",
+        "behavioral_evidence_from_interview": [
+          "Q47: Gospel mostly, with some traditional hymns and contemporary arrangements."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Miranda enjoys art festivals and follows art-related content online.",
+        "ground_truth_label": "Art festival and online art interest",
+        "behavioral_evidence_from_interview": [
+          "Q07: Art festivals.",
+          "Q48: Instagram is more for food, fitness, art, travel ideas."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Miranda participates in Juneteenth and values Great Migration family history.",
+        "ground_truth_label": "Juneteenth and Great Migration heritage",
+        "behavioral_evidence_from_interview": [
+          "Q01: Roots in Alabama and Mississippi through my grandparents, who came north during the Great Migration.",
+          "Q05: Around holidays, church events, and Juneteenth."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Miranda coaches youth basketball as a volunteer.",
+        "ground_truth_label": "Volunteer youth basketball coach",
+        "behavioral_evidence_from_interview": [
+          "Q16: Coaching youth basketball is volunteer work.",
+          "Q70: Coaching is volunteer."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Miranda runs with a local group and attends Zumba twice weekly.",
+        "ground_truth_label": "Running club and twice-weekly Zumba",
+        "behavioral_evidence_from_interview": [
+          "Q15: Two mornings a week I run with a local group before work.",
+          "Q18: I used to do Zumba three times a week, but now it is usually twice."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Miranda attends Cavs watch parties and follows local sports socially.",
+        "ground_truth_label": "Cavs social sports fan",
+        "behavioral_evidence_from_interview": [
+          "Q07: Cavs watch parties."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Zumba and movement help Miranda regulate stress quickly.",
+        "ground_truth_label": "Movement-based stress regulation",
+        "behavioral_evidence_from_interview": [
+          "Q44: I went in anyway, danced for an hour.",
+          "Q50: Movement. Even a 20-minute walk helps."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Miranda likes Strongsville partly because Cuyahoga Valley National Park is close enough for weekend hikes.",
+        "ground_truth_label": "Values access to Cuyahoga Valley National Park",
+        "behavioral_evidence_from_interview": [
+          "Q08: Cuyahoga Valley National Park is close enough for weekend hikes."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Miranda gardens with herbs, tomatoes, peppers, and greens in warm months.",
+        "ground_truth_label": "Backyard vegetable and herb gardener",
+        "behavioral_evidence_from_interview": [
+          "Q17: A garden in the warm months with herbs, tomatoes, peppers, and greens."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Miranda shops local farm stands in season.",
+        "ground_truth_label": "Seasonal farm stand shopper",
+        "behavioral_evidence_from_interview": [
+          "Q08: Sometimes local farm stands in season."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Miranda builds dashboards and uses data analysis, workflow systems, Power BI, Excel, and basic SQL for process improvement.",
+        "ground_truth_label": "Data-driven workplace technology user",
+        "behavioral_evidence_from_interview": [
+          "Q65: I use data analysis to spot bottlenecks, build dashboards.",
+          "Q16: Excel, Power BI... basic SQL queries."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Miranda supports digital transformation projects at work.",
+        "ground_truth_label": "Digital transformation supporter",
+        "behavioral_evidence_from_interview": [
+          "Q18: We are moving more processes into digital forms and dashboards.",
+          "Q65: Support digital transformation projects."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Miranda helps her parents with online portals, insurance paperwork, and medical messages.",
+        "ground_truth_label": "Family technology and paperwork helper",
+        "behavioral_evidence_from_interview": [
+          "Q17: I help my parents with technology and appointments... online portals and insurance paperwork.",
+          "Q35: I help with appointments, portal messages, medication questions."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Miranda uses Facebook for family, church, community events, and old classmates; Instagram for food, fitness, art, travel, and local businesses; and LinkedIn for professional topics.",
+        "ground_truth_label": "Platform-specific social media use",
+        "behavioral_evidence_from_interview": [
+          "Q48: I use Facebook for family, church announcements, community events, and old classmates.",
+          "Q48: Instagram is more for food, fitness, art, travel ideas, and following local businesses.",
+          "Q48: I use LinkedIn for professional articles, operations leadership, diversity conversations, and job trends."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Miranda votes in presidential elections, midterms, and most local elections and researches candidates before voting.",
+        "ground_truth_label": "Regular researched voter",
+        "behavioral_evidence_from_interview": [
+          "Q23: I vote in presidential elections, midterms, and most local elections.",
+          "Q23: I do research before I vote."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Miranda attended a local peaceful march, donated to community bail and youth organizations, and pushed workplace conversations about equity.",
+        "ground_truth_label": "Racial equity civic participation",
+        "behavioral_evidence_from_interview": [
+          "Q29: I have talked with family and friends, attended a local peaceful march, donated to community bail and youth organizations, and pushed workplace conversations."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Miranda identifies as a fairly strong Democrat and is definitely closer to the Democratic Party.",
+        "ground_truth_label": "Fairly strong Democrat",
+        "behavioral_evidence_from_interview": [
+          "Q95: I usually think of myself as a Democrat. I would say I am a fairly strong Democrat.",
+          "Q96: Definitely closer to the Democratic Party."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Miranda describes herself as a practical center-left Democrat focused on civil rights, voting rights, health care, public education, workplace equity, and competent implementation.",
+        "ground_truth_label": "Pragmatic center-left political views",
+        "behavioral_evidence_from_interview": [
+          "Q24: I would describe myself as a practical Democrat, maybe center-left but very strong on civil rights, voting rights, health care access, public education, and workplace equity."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Miranda supports police accountability, community investment, mental health response teams, and transparency in stops and discipline.",
+        "ground_truth_label": "Police accountability and community investment stance",
+        "behavioral_evidence_from_interview": [
+          "Q27: Accountability, community investment, mental health response teams, and transparency in stops and discipline."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Miranda has been pulled over twice and is deliberate with her hands and words during traffic stops because of concern about escalation.",
+        "ground_truth_label": "Cautious traffic-stop behavior",
+        "behavioral_evidence_from_interview": [
+          "Q20: I have been pulled over twice... I was very deliberate with my hands and words.",
+          "Q20: Window down, hands visible, license ready only when asked."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Miranda has a cousin who was arrested for a nonviolent drug-related issue, which shaped her view that court processes can burden families financially and emotionally.",
+        "ground_truth_label": "Family experience with nonviolent drug-related arrest",
+        "behavioral_evidence_from_interview": [
+          "Q22: I have a cousin who was arrested years ago for a nonviolent drug-related issue, and the court process was hard on the family financially and emotionally."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Miranda sings in her Baptist church choir most Sundays and at rehearsals when her schedule allows.",
+        "ground_truth_label": "Regular Baptist choir participation",
+        "behavioral_evidence_from_interview": [
+          "Q47: Most Sundays, plus choir rehearsal during the week when my schedule allows."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Choir is one of the places where Miranda feels most centered.",
+        "ground_truth_label": "Choir as centering practice",
+        "behavioral_evidence_from_interview": [
+          "Q47: Choir is one of the places where I feel most centered."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Miranda pays attention to tone, appearance, and preparation in professional settings because mistakes may be judged harder for her as a Black woman.",
+        "ground_truth_label": "Conscious professional presentation",
+        "behavioral_evidence_from_interview": [
+          "Q28: I pay attention to tone, appearance, and preparation because I know mistakes may be judged harder."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Miranda delayed buying new clothes during a tighter spending period.",
+        "ground_truth_label": "Delayed clothing purchase during budget tightening",
+        "behavioral_evidence_from_interview": [
+          "Q60: I delayed buying new clothes."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Miranda identifies as Black or African-American and not Hispanic, Latinx, or Spanish origin.",
+        "ground_truth_label": "Black/African-American non-Hispanic identity",
+        "behavioral_evidence_from_interview": [
+          "Q88: No.",
+          "Q89: Black or African-American."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Miranda's family roots trace to Alabama and Mississippi through grandparents who came north during the Great Migration.",
+        "ground_truth_label": "Great Migration family roots",
+        "behavioral_evidence_from_interview": [
+          "Q01: Roots in Alabama and Mississippi through my grandparents, who came north during the Great Migration."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Miranda maintains traditions through church, soul food, Juneteenth, and Black professional mentoring.",
+        "ground_truth_label": "Black church, food, Juneteenth, and mentoring traditions",
+        "behavioral_evidence_from_interview": [
+          "Q01: Church, grades, and keeping your word mattered.",
+          "Q17: More around Juneteenth or school events.",
+          "Q04: I mentor younger staff."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Miranda was born in Cleveland, raised in the Cleveland area, and lived in Parma, Ohio at age 16 with both parents and older brother Marcus.",
+        "ground_truth_label": "Cleveland-area childhood and Parma age-16 household",
+        "behavioral_evidence_from_interview": [
+          "Q87: Cleveland, Ohio.",
+          "Q97: Parma, Ohio, in the Cleveland area.",
+          "Q98: Yes, I lived with both my mother and father.",
+          "Q99: My older brother, Marcus."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Miranda identifies as Christian, Baptist, and sees faith as prayer, service, using her gifts, community, history, and accountability.",
+        "ground_truth_label": "Christian Baptist faith identity",
+        "behavioral_evidence_from_interview": [
+          "Q47: I identify as Christian, specifically Baptist.",
+          "Q47: For me it means prayer, service, using my gifts."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Miranda's major career crossroads was applying for a supervisory role after Lean Six Sigma training helped her see process frustration as a leadership skill set.",
+        "ground_truth_label": "Promotion crossroads after Lean Six Sigma training",
+        "behavioral_evidence_from_interview": [
+          "Q02: Around that same time I took a Lean Six Sigma course through work, and it clicked.",
+          "Q03: It was a conscious choice."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Buying her Strongsville townhouse was a major personal milestone because she did it on her own income.",
+        "ground_truth_label": "Townhouse purchase milestone",
+        "behavioral_evidence_from_interview": [
+          "Q01: Buying my townhouse in Strongsville... felt like I had built something stable on my own.",
+          "Q58: Buying it was a big personal milestone because I did it on my own income."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Learning to stand up for herself in corporate spaces as a Black woman shaped Miranda's confidence and advocacy.",
+        "ground_truth_label": "Corporate self-advocacy as Black woman",
+        "behavioral_evidence_from_interview": [
+          "Q01: Learning how to stand up for myself in corporate spaces as a Black woman.",
+          "Q28: Professional settings... mistakes may be judged harder."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Miranda was born on March 14, 1986 in Cleveland, Ohio.",
+        "ground_truth_label": "Born March 14, 1986 in Cleveland",
+        "behavioral_evidence_from_interview": [
+          "Q85: March 14, 1986.",
+          "Q87: Cleveland, Ohio."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "A recent emotional struggle involved a difficult digital workflow rollout at work and worry over her mother's diabetes-related appointment.",
+        "ground_truth_label": "Recent work-health family stress episode",
+        "behavioral_evidence_from_interview": [
+          "Q44: A rough rollout at work... At the same time my mom had a diabetes-related appointment that worried me."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Miranda uses League of Women Voters guides, local news, candidate websites, and trusted conversations to research candidates.",
+        "ground_truth_label": "Structured election information sources",
+        "behavioral_evidence_from_interview": [
+          "Q23: League of Women Voters guides, local news, candidate websites, and conversations with people I trust."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Miranda sees headlines on social media but tries to verify them with actual news sources.",
+        "ground_truth_label": "Verifies social media headlines",
+        "behavioral_evidence_from_interview": [
+          "Q48: I see headlines there, but I try to verify with actual news sources."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Miranda limits doom-scrolling because social media can hijack her mood.",
+        "ground_truth_label": "Limits doom-scrolling for mood regulation",
+        "behavioral_evidence_from_interview": [
+          "Q48: I try to limit doom-scrolling because it can hijack my mood."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Miranda has moderate assets such as homeownership and retirement savings.",
+        "ground_truth_label": "Moderate assets including homeownership and retirement savings",
+        "behavioral_evidence_from_interview": [
+          "Q58: I own my townhouse with a mortgage.",
+          "Q61: I save through a regular savings account, retirement contributions, and a separate emergency fund."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Miranda uses spreadsheet budgeting, automatic transfers, sinking funds, and documented routines to manage uncertainty.",
+        "ground_truth_label": "High planning orientation and risk management",
+        "behavioral_evidence_from_interview": [
+          "Q57: Yes, in a spreadsheet with categories and notes.",
+          "Q61: I have automatic transfers after payday.",
+          "Q59: I use sinking funds when I am disciplined."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Miranda's choices are identity-linked through church, mentoring, Black professional advancement, and youth coaching.",
+        "ground_truth_label": "Identity-linked community investment",
+        "behavioral_evidence_from_interview": [
+          "Q04: I mentor younger staff.",
+          "Q17: I volunteer at the community center through basketball.",
+          "Q108: I also hope to be mentoring Black women more formally."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Miranda pays increasing attention to local institutions such as school boards, judges, city councils, and county decisions.",
+        "ground_truth_label": "Increasing local-government focus",
+        "behavioral_evidence_from_interview": [
+          "Q25: Now I pay more attention to school boards, city councils, judges, and county decisions."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "reprojected",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Miranda recognizes tendencies toward over-responsibility and anxious rumination.",
+        "ground_truth_label": "Over-responsibility and anxious rumination",
+        "behavioral_evidence_from_interview": [
+          "Q43: Being the dependable person is rewarding until everyone depends on you at once.",
+          "Q45: My mind starts running through worst-case scenarios and unfinished tasks."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}
