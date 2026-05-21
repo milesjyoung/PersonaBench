@@ -1,0 +1,2702 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "5c7a4c6bd931407eb9390abd911ce338",
+      "name": "Rickey Barham",
+      "verification_date": "2026-05-20"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age 31 matches interview Q85 DOB of March 14, 1995 (age 31 as of 2026-05-20). However, Q01 narrative says 'born in 1994' — an internal interview misstatement. The Q85 form-answer is authoritative and matches the seed.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.age=31",
+              "source_b_ref": "Q85 (and conflicting Q01)",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Treat DOB as 1995-03-14 (matches seed age 31). Note Q01's '1994' as a narrative slip; do not propagate it into the corrected profile."
+            },
+            {
+              "id": 2,
+              "text": "Seed sex=Male confirmed by Q89 and narrative pronouns throughout.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.sex=Male",
+              "source_b_ref": "Q89",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed marital_status=never_married confirmed by Q84 ('Never married. Not currently with a romantic partner.').",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.marital_status",
+              "source_b_ref": "Q84",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed education_level=associates confirmed by Q90 (associate's in electrical technology from FMCC, 2014).",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.education_level",
+              "source_b_ref": "Q90",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Seed occupation=home_appliance_repairer and city=Amsterdam, NY 12010 confirmed by Q08, Q16, Q65, Q87.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.occupation, seed.city/state/zipcode",
+              "source_b_ref": "Q08, Q16, Q65, Q87",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 6,
+              "text": "Seed cultural_background mentions 'Anglo-American and modest Dutch-Anabaptist influences.' Q89 confirms 'Anglo-American with a bit of Dutch on my mom's side' but Anabaptist tradition is not referenced; mom is described as Methodist (Q47). The Anabaptist label appears to be a seed embellishment without interview support.",
+              "verdict": "inconsistent",
+              "gap": true,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q47, Q89",
+              "action": "REINTERPRET_SEED",
+              "resolution": "Interpret seed 'Dutch-Anabaptist' as a generic regional ancestry note; the family's lived religious tradition is Methodist per Q47. Corrected profile records Dutch heritage on mother's side and Methodist upbringing, omitting Anabaptist."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 1,
+            "gaps": 1
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile location 'upper unit of a converted Victorian on Market Street, downtown' faithfully captures Q08.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q08",
+              "source_b_ref": "profile.location",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile household 'lives alone with cat Solder' matches Q11, Q12, Q14, Q51-Q55.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q11, Q51-Q55",
+              "source_b_ref": "preferences.social_and_relationships, preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile tenure '11 years at the same regional company' matches Q76 ('Eleven years this fall').",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q76",
+              "source_b_ref": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Demographer summary correctly states 'father a millwright/welder (high school + vocational), mother a medical biller (associate's)' per Q100, Q101, Q103, Q106.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q100, Q101, Q103, Q106",
+              "source_b_ref": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Profile gross annual income ~$80K matches Q74 ('Gross is around $6,700, annualized to roughly $80,000').",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q74",
+              "source_b_ref": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "cultural_and_linguistic ('English monolingual') is consistent with no interview reference to other languages and with demographer summary ('white...Anglo-American').",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.cultural_and_linguistic",
+              "field_b": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Life-events subcategory and demographer summary both describe an intact childhood household and father's 2018 death; no internal conflict.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.life_events_and_transitions",
+              "field_b": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Mother Linda retired from her medical billing job two years ago (Q05) — not captured anywhere in the profile.",
+              "gap": true,
+              "interview_ref": "Q05",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail: 'Mother Linda retired from her medical billing job circa 2023 (~two years before interview).'"
+            },
+            {
+              "id": 2,
+              "text": "Mother lives on the south side of Amsterdam (Q05) — geographic specificity missing.",
+              "gap": true,
+              "interview_ref": "Q05",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add: 'Mother lives on the south side of Amsterdam, ~15 minutes from Rickey.'"
+            },
+            {
+              "id": 3,
+              "text": "Mother is on Medicare with a supplement (Q40) — relevant demographic/financial detail missing.",
+              "gap": true,
+              "interview_ref": "Q40",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add: 'Mother covered by Medicare plus a supplemental policy.'"
+            },
+            {
+              "id": 4,
+              "text": "Childhood household at age 16 was intact with both biological parents in Amsterdam (Q97-Q99) — not directly captured in profile beyond the summary.",
+              "gap": true,
+              "interview_ref": "Q97, Q98, Q99",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add: 'Lived with both biological parents in Amsterdam, NY at age 16; no siblings.'"
+            },
+            {
+              "id": 5,
+              "text": "Mentor relationship with Mr. Petrarca (former FMCC instructor) is ongoing — Christmas card annually, coffee at Sunny Side Up diner last fall (Q02). Not captured in profile.",
+              "gap": true,
+              "interview_ref": "Q02",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add: 'Maintains ongoing relationship with former FMCC instructor Mr. Petrarca — annual Christmas card, coffee at the Sunny Side Up diner in fall 2025.'"
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 5
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed professional persona's 'rigorous, organized workflow' confirmed by Q15 (Sunday schematics/parts prep), Q57 (spreadsheet budget), Q65 (documentation duties).",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.professional_persona",
+              "source_b_ref": "Q15, Q57, Q65",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed career_goals (independent shop, C.A.S.T. credential, eco-friendly retrofit kits, regional speaking) closely match interview Q91, Q108.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.career_goals_and_ambitions",
+              "source_b_ref": "Q91, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed travel persona 'prefers well-planned road trips with a detailed itinerary' is consistent with the planner identity in Q03, Q15, Q57.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.travel_persona",
+              "source_b_ref": "Q03, Q15, Q57",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed culinary_persona mentions miso-glazed salmon; Q15 confirms this was a recent meal-prep protein. Consistent and reinforced.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.culinary_persona",
+              "source_b_ref": "Q15",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile captures multi-bucket savings architecture (emergency, business, retirement) per Q61-Q62 accurately.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q61, Q62",
+              "source_b_ref": "preferences.home_and_lifestyle, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile correctly states $400-shock response (Q82) and identifies loss aversion around health insurance (Q32, Q83).",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q32, Q82, Q83",
+              "source_b_ref": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile faithfully describes Sunday batch cooking (grain + roasted vegetables + protein) per Q15.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q15",
+              "source_b_ref": "preferences.food_and_dining",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile work-and-career mentions LLC income ~$850/month but omits debt balances disclosed in Q63 (student loan ~$9,000, truck loan ~$14,000) and credit-card-for-points behavior with no carried balance.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q63",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "home_and_lifestyle's emphasis on saving discipline is reinforced (not contradicted) by work_and_career's $35K business-launch goal and life_events's planned self-employment.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.home_and_lifestyle",
+              "field_b": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "behavioral_economist summary's 'patient time preference' aligns with the multi-year savings horizon in work_and_career; no contradiction.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.behavioral_economist",
+              "field_b": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Specific debt balances: federal student loan ~$9,000 ($185/mo), truck loan ~$14,000 ($389/mo), single credit card paid in full monthly for points (Q63) — missing from profile details.",
+              "gap": true,
+              "interview_ref": "Q63",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add three details to home_and_lifestyle covering balances and the rewards-card-paid-in-full habit."
+            },
+            {
+              "id": 2,
+              "text": "Roth IRA maxed annually and 401k contributed up to employer match (Q61) — not explicitly captured.",
+              "gap": true,
+              "interview_ref": "Q61",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail: 'Maxes out Roth IRA annually; contributes to employer 401k up to the match.'"
+            },
+            {
+              "id": 3,
+              "text": "Employer benefits package detail (Q76): Blue Cross HMO, dental, vision, 401k 4% match, three weeks PTO, paid certifications. Profile only partially captures (Blue Cross HMO in health subcategory).",
+              "gap": true,
+              "interview_ref": "Q76",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail: 'Employer benefits: Blue Cross HMO, dental, vision, 401k with 4% match, three weeks PTO, paid certifications.'"
+            },
+            {
+              "id": 4,
+              "text": "Tax filing: TurboTax electronic, late February 2026, $1,800 refund directed into business-launch fund (Q75) — only partially captured.",
+              "gap": true,
+              "interview_ref": "Q75",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add: 'Filed 2025 taxes via TurboTax in late February 2026; $1,800 refund went into business-launch fund.'"
+            },
+            {
+              "id": 5,
+              "text": "Coping with low-income February: leaned on main paycheck, skipped that month's transfer to business fund (Q81) — shows budget elasticity, missing from profile.",
+              "gap": true,
+              "interview_ref": "Q81",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add: 'In slow months (e.g., February 2026), pauses transfers to the business-launch fund rather than touching emergency or operating cash.'"
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 5
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed includes no explicit political identification; interview Q24, Q95, Q96 detail moderate-independent-leans-Democrat. No contradiction; pure enrichment.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed (no political field)",
+              "source_b_ref": "Q24, Q95, Q96",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed 'community involvement' value is borne out by senior-center tutoring (Q17), mentee work (Q04), local-issue attention (Q25).",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q04, Q17, Q25",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed describes 'sustainable practices' professionally; interview confirms environmental policy alignment in Q24.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.professional_persona",
+              "source_b_ref": "Q24",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "No seed information on gun ownership; interview Q24 reveals deer-rifle ownership and moderate pro-gun-rights stance. Pure gap.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed",
+              "source_b_ref": "Q24",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile political_scientist summary captures 'pro-gun rights to a moderate degree — owns a deer rifle' but the deer-rifle fact does NOT appear in any preferences subcategory's details list.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q24",
+              "source_b_ref": "summaries.political_scientist vs preferences.*",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add deer-rifle ownership to community_and_civic (or hobbies_and_recreation) details so the fact is enumerable from preferences."
+            },
+            {
+              "id": 2,
+              "text": "Profile correctly captures voting frequency (Q23), independent-leans-D party ID (Q95, Q96), and shift toward local issues (Q25).",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23, Q25, Q95, Q96",
+              "source_b_ref": "preferences.community_and_civic, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile captures media diet (Ezra Klein, The Daily, Service Industry Now, HCR, NY Focus, Jetelina) consistently with Q25, Q42.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q25, Q42",
+              "source_b_ref": "preferences.media_and_information_diet",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile notes the Schenectady 2020 BLM rally and reading list (Wilkerson, Coates), consistent with Q26, Q29.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q26, Q29",
+              "source_b_ref": "preferences.community_and_civic, preferences.media_and_information_diet",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "community_and_civic (mentoring, volunteering, voting) aligns with political_scientist summary's 'high local civic attachment.' No conflict.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "media_and_information_diet's 'curated long-form' framing aligns with political_scientist summary's selective trust profile. Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.media_and_information_diet",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Owns a deer rifle and is moderately pro-gun-rights (Q24) — missing from preferences details.",
+              "gap": true,
+              "interview_ref": "Q24",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add: 'Owns a deer rifle; moderately pro-gun-rights.'"
+            },
+            {
+              "id": 2,
+              "text": "Shifted from cable news (in truck) to long-form podcasts and newsletters (Q25) — captured in summary but not enumerated as a behavior change.",
+              "gap": true,
+              "interview_ref": "Q25",
+              "should_be_in": "preferences.media_and_information_diet",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add: 'Stopped listening to cable news in the work truck; replaced it with long-form podcasts and newsletters.'"
+            },
+            {
+              "id": 3,
+              "text": "Friend Joelle runs antiracist book groups at her library (Q30) — not captured; relevant to civic landscape.",
+              "gap": true,
+              "interview_ref": "Q30",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add to Joelle's description: 'runs antiracist book groups at her library.'"
+            },
+            {
+              "id": 4,
+              "text": "Tense Thanksgivings with Uncle Ray over race issues; mother conservative but not hostile (Q24, Q30) — political-family dynamic missing from profile.",
+              "gap": true,
+              "interview_ref": "Q24, Q30",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add: 'Politics with mother handled carefully (she is still conservative); has had tense Thanksgiving conversations with Uncle Ray about race.'"
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed persona descriptor 'worry-prone nature' aligns precisely with Q01 self-description as a worrier and the formally diagnosed GAD in Q45.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q01, Q45",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed 'organized, art-driven appliance expert' is borne out by Q03 (pros-and-cons lists), Q15 (Sunday prep ritual), Q48/Q07 (photography practice).",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q03, Q07, Q15, Q48",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed sports_persona's 'workout as both physical challenge and mental reset' matches Q01 (hiking to get out of own head) and Q44 (Crane Mountain reset). Consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.sports_persona",
+              "source_b_ref": "Q01, Q44",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed mentions 'community tutoring' at general level; interview specifies monthly senior-center tech-tutoring origin story (Q17). Consistent enrichment.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q17",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile captures sertraline use, biweekly therapy with Diane, GAD diagnosis (2018), and grief-anniversary depressive flares consistent with Q31, Q44, Q45.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q31, Q44, Q45",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile omits the 2022 attempt to come off sertraline that did not go well (Q31 follow-up) — meaningful clinical history.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q31",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile captures coping rotation (Marcus Wednesdays, mom Sundays, Adirondacks, Acadia) consistent with Q15, Q43, Q44, Q47.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q15, Q43, Q44, Q47",
+              "source_b_ref": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile spirituality framing ('Adirondacks basically my church') aligns with Q47; omits the dawn-shooting / summit 'attention or gratitude' practice that Q47 describes.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q47",
+              "source_b_ref": "preferences.nature_and_outdoors",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "health_and_wellness (anxiety, therapy, SSRI) and psychologist summary (high neuroticism + multi-modal coping) are mutually reinforcing. No conflict.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "social_and_relationships (small inner circle, no romantic partner, deep mom relationship) aligns with psychologist summary's 'achievement-driven but anchored in care' framing.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "sports_and_fitness's mental-reset framing of running/hiking and health_and_wellness's exercise-as-coping framing reinforce each other.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.sports_and_fitness",
+              "field_b": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Attempted sertraline taper in 2022; restart agreed with doctor (Q31 follow-up) — not in profile.",
+              "gap": true,
+              "interview_ref": "Q31",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add: 'Attempted to discontinue sertraline in 2022; reinstated by mutual agreement with prescriber after it did not go well.'"
+            },
+            {
+              "id": 2,
+              "text": "Pro/cons spiral notebook habit for major decisions, ex-partner teased him about it (Q03) — emblematic cognitive-style detail missing.",
+              "gap": true,
+              "interview_ref": "Q03",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add: 'Uses written pros-and-cons lists for major decisions; keeps a long-running spiral notebook for this purpose.'"
+            },
+            {
+              "id": 3,
+              "text": "Mother grieves through routine and church and has never seen a therapist (Q46) — relevant family-mental-health context missing.",
+              "gap": true,
+              "interview_ref": "Q46",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add: 'Mother copes with her own grief through routine and church; has never seen a therapist.'"
+            },
+            {
+              "id": 4,
+              "text": "Spiritual practice on summits and at dawn shoots — 'a kind of attention or gratitude' (Q47) — captured only via the 'church' metaphor; specific practice missing.",
+              "gap": true,
+              "interview_ref": "Q47",
+              "should_be_in": "preferences.nature_and_outdoors",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add: 'Engages in an informal contemplative practice — a kind of attention or gratitude — on mountain summits and during dawn photography sessions.'"
+            },
+            {
+              "id": 5,
+              "text": "Heavier-drinking period for ~6 months in 2018-2019 worked through with therapist Diane (Q38) — captured in health summary but worth as specific detail.",
+              "gap": true,
+              "interview_ref": "Q38",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Already present in details; no new entry required."
+            }
+          ],
+          "summary": {
+            "present": 1,
+            "missing": 4
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "One PARTIAL_UPDATE (deer rifle reprojection from summary into preferences) and multiple NEEDS_ENRICHMENT / CARRY_FORWARD dispositions in Direction 4. No FLAG_FOR_REVIEW findings; the DOB slip in Q01 is a narrative misstatement resolved by Q85.",
+    "final_status": "Corrected profile applies all PARTIAL_UPDATE and NEEDS_ENRICHMENT actions, carries the four expert summaries verbatim, and emits a deduplicated hidden_facts registry. Ready for downstream steps."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "5c7a4c6bd931407eb9390abd911ce338",
+    "name": "Rickey Barham",
+    "age": 31,
+    "gender": "Male",
+    "marital_status": "Never married, not cohabiting with a romantic partner",
+    "location": "Amsterdam, NY 12010 (upper unit of a converted Victorian on Market Street, downtown)",
+    "education": "Associate's degree in electrical technology, Fulton-Montgomery Community College, 2014",
+    "occupation": "Home appliance repair technician at Mohawk Valley Appliance Service (11 years); also operates a side LLC for smart-home retrofit consults",
+    "preferences": {
+      "health_and_wellness": {
+        "summary": "Actively manages physical and mental health through medication, therapy, exercise, and disciplined caffeine/alcohol intake; navigates anxiety and grief intentionally.",
+        "details": [
+          "Diagnosed with generalized anxiety disorder (2018); takes sertraline 50 mg daily (Q31, Q45)",
+          "Attempted to discontinue sertraline in 2022; reinstated by mutual agreement with prescriber after it did not go well (Q31)",
+          "Sees therapist Diane in Schenectady about twice a month (Q31)",
+          "Primary care: Dr. Patel at Saint Mary's, Amsterdam (Q31, Q36)",
+          "Mild seasonal allergies and recurring lower back issues from work crouching (Q31)",
+          "Sprained ankle October 2024 in the Sewards; eight-week recovery; modified duty (Q33, Q34)",
+          "Panic attack March 2025 led to urgent care visit; reduced caffeine to 1-2 cups/day (Q33)",
+          "Vaccination-positive: COVID + boosters, annual flu, tetanus current, HPV catch-up (Q41)",
+          "Trusted vaccine sources: Dr. Patel, CDC, NYT health, Katelyn Jetelina's Substack (Q42)",
+          "Daily 10-minute mobility routine morning and night; foam roller; chiropractor ~4x/year (Q31, Q37)",
+          "Has tried acupuncture for stress; takes fish oil and winter vitamin D (Q37)",
+          "Moderate drinker (2-3 beers/weekend, occasional bourbon); had heavier 6-month period in 2018-2019 worked through with therapist Diane (Q38)",
+          "Marijuana ~3-4 lifetime experiences, edibles only; last use ~2 years ago in Burlington; finds it anxiogenic (Q39)",
+          "Doesn't smoke (Q38)",
+          "Waited four months in 2018 for first therapy intake with Diane (Q36)",
+          "Has delayed dental care due to high copay but has not forgone any other needed care (Q36)"
+        ],
+        "evidence": "Q31, Q32, Q33, Q34, Q36, Q37, Q38, Q39, Q41, Q42, Q45"
+      },
+      "food_and_dining": {
+        "summary": "Disciplined home cook with eclectic, fusion-leaning palate; batch meal preps on Sundays; explores food destinations on travel.",
+        "details": [
+          "Sunday batch cooks a grain (farro/brown rice), roasted vegetables, one protein into glass containers for lunches (Q15)",
+          "Recent prep example: miso-glazed salmon (Q15)",
+          "Coffee: pour-over in the morning, sometimes a small one around noon; reduced from 4-5 cups/day after March 2025 panic attack (Q33)",
+          "Beer preference: Druthers and Common Roots Out of Bounds (Saratoga/regional craft) (Q38)",
+          "Russo's is morning coffee spot in neighborhood (Q08)",
+          "Drawn to food-destination travel (Portland, ME) (from seed travel_persona; not directly confirmed in interview)"
+        ],
+        "evidence": "Q08, Q15, Q33, Q38"
+      },
+      "travel": {
+        "summary": "Detailed-itinerary road tripper; prefers nature and photography destinations; has aspirational international travel plans.",
+        "details": [
+          "Recent solo trip: Acadia National Park, April 2026, four days, photography focus (Q43)",
+          "Aspirational future trips: Iceland (first, for geothermal photography), then Japan (Q108)",
+          "Annual summer hiking trips into the Adirondack High Peaks (Q01, Q15)",
+          "Holiday travel includes a December trip to cousin Brian in Schenectady (Q59)"
+        ],
+        "evidence": "Q01, Q15, Q43, Q59, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "Small, deliberate inner circle: aging mother (closest), best friend Marcus, trail running group, photography meetup, elderly neighbor; never married, currently single.",
+        "details": [
+          "Never married, no children (Q05, Q84)",
+          "Closest family: mother Linda, 64, retired from medical billing ~2023; lives on the south side of Amsterdam, ~15 min away; sees her every Sunday noon-5 (Q05, Q15)",
+          "Mom calls Tuesday and Thursday evenings consistently (Q05)",
+          "Mother covered by Medicare plus a supplemental policy (Q40)",
+          "Mother copes with her own grief through routine and church; has never seen a therapist (Q46)",
+          "Politics with mother handled carefully (she is still conservative); they tiptoe around national issues (Q24)",
+          "Father Wayne died of heart attack in 2018 at age 59 (Q01, Q05)",
+          "Extended family: Aunt Bev, Uncle Ray (Adirondack 46er, got Rickey into hiking) in Gloversville; cousins Brian (contractor in Schenectady, occasional couch surfer ~2x/year) and Erica (NC) (Q05, Q13)",
+          "Has had tense Thanksgiving conversations with Uncle Ray about race (Q30)",
+          "Best friend: Marcus, electrician in Johnstown; FMCC classmate; weekly Wednesday guitar nights at his place (Q07)",
+          "Glens Falls Trail Runners club; closer friends within: Pete and Dave (Q07)",
+          "Photography meetup organizer Joelle, a librarian who runs antiracist book groups at her library; meets quarterly at Albany Museum of Art (Q07, Q30)",
+          "Elderly neighbor Mrs. Kowalski (across Market Street); informal grandma figure; he provides tech tutoring (Q07, Q09)",
+          "Maintains ongoing relationship with former FMCC instructor Mr. Petrarca — annual Christmas card, coffee at the Sunny Side Up diner in fall 2025 (Q02)",
+          "Mentees Devon (~1 year in) and Marisol (started fall 2025) at work (Q04, Q18)",
+          "Most recent serious relationship: Hannah, vet tech in Glens Falls, 2.5-year relationship, ended late 2023 over commute and disagreement on kids (Q05, Q11)",
+          "Pet: tortoiseshell cat 'Solder', adopted from Montgomery County SPCA, age 6 (Q11)"
+        ],
+        "evidence": "Q01, Q02, Q04, Q05, Q07, Q09, Q11, Q13, Q15, Q18, Q24, Q30, Q40, Q46, Q84"
+      },
+      "home_and_lifestyle": {
+        "summary": "Highly organized solo renter in a converted Victorian apartment; methodical routines, planner-spreadsheet personality, prioritizes order and saving toward home/business ownership.",
+        "details": [
+          "Rents two-bedroom upper-unit apartment on Market Street, $1,250/month, utilities not included (Q08, Q58)",
+          "Solely responsible for rent and household expenses (Q55)",
+          "Lives alone with cat Solder (Q11)",
+          "Tracks monthly spending in a spreadsheet (~$3,200/typical month; up to $4,000 with tool or trip; Q57)",
+          "Wakes 5:45 weekdays, 6:30 Saturdays, 7:30 Sundays (Q15)",
+          "Sunday evening planning ritual: meal prep + schematics/parts list for Monday (Q15)",
+          "Uses written pros-and-cons lists for major decisions; keeps a long-running spiral notebook for this purpose (Q03)",
+          "Sinking funds for seasonal expenses; emergency fund for surprises (used sinking fund for snow tires Nov 2024) (Q60)",
+          "High-yield emergency fund at Marcus by Goldman: ~$11,000 (~4 months of expenses) (Q61)",
+          "Separate 'business launch' savings: ~$18,000 (target $35,000) (Q61, Q62)",
+          "Contributes to employer 401k up to the match; maxes out a Roth IRA annually (Q61)",
+          "Single credit card used for points and paid in full every month (no carried balance) (Q63)",
+          "Federal student loan: ~$9,000 remaining, $185/month (Q56, Q63)",
+          "Truck loan: ~$14,000 remaining, $389/month (Q56, Q63)",
+          "Typical monthly bills: rent $1,250; truck $389; groceries ~$400; gas+insurance ~$350; therapy copays ~$120; student loan $185 (Q56)",
+          "Winter heating (National Grid) can hit $280 in January vs. $90 in May (Q59)",
+          "Filed 2025 taxes via TurboTax electronically in late February 2026; $1,800 refund directed into business-launch fund (Q75)",
+          "In slow months (e.g., February 2026) pauses transfers to the business-launch fund rather than touching emergency or operating cash (Q81)",
+          "Would handle a $400 emergency by paying with the credit card and reimbursing from the emergency fund the next day (Q82)"
+        ],
+        "evidence": "Q03, Q08, Q11, Q15, Q55, Q56, Q57, Q58, Q59, Q60, Q61, Q62, Q63, Q75, Q81, Q82"
+      },
+      "entertainment": {
+        "summary": "Largely offline entertainment diet; reads books (currently Wendell Berry), watches little TV, attends live acoustic music shows.",
+        "details": [
+          "Removed Instagram from phone in February 2026; replaced evening scrolling with reading (Q18, Q48)",
+          "Currently reading Wendell Berry (Q18)",
+          "Attends shows by acoustic/folk artists like Nick Drake-style, The Milk Carton Kids (Q07; also seed arts persona)",
+          "Listens to long-form podcasts in the work truck: Ezra Klein, The Daily, Service Industry Now (Q25)"
+        ],
+        "evidence": "Q07, Q18, Q25, Q48"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Acoustic guitar, photography (industrial black & white), woodworking, maker space projects, community tech tutoring — a full slate of creative and craft pursuits.",
+        "details": [
+          "Plays acoustic guitar; weekly Wednesday session with Marcus (Q07, Q15)",
+          "Repertoire bridge: John Prine, Gillian Welch (between his folk/singer-songwriter taste and Marcus's bluegrass) (Q07)",
+          "Photography: industrial architecture, black & white silver gelatin aesthetic (Q08, Q48)",
+          "Public photography Instagram @barham.silvergelatin, ~800 followers (Q48)",
+          "Favorite shooting spot: pedestrian bridge over Mohawk River at sunrise, especially fall (Q08)",
+          "Maker space afternoon visits on Saturdays (Q15)",
+          "Small DIY woodworking projects (seed hobbies)",
+          "Volunteer tech tutor at Amsterdam Senior Center, 1 Saturday/month for ~3 years (Q17)",
+          "Childhood/teen project with father: rebuilt a 1970s Maytag wringer washer from a $10 yard-sale find over a summer (Q01)"
+        ],
+        "evidence": "Q01, Q07, Q08, Q15, Q17, Q48"
+      },
+      "work_and_career": {
+        "summary": "Career appliance technician, 11 years at the same regional company, specializing in vintage/high-end repair and smart-home retrofits; mentors junior techs; building toward self-employment.",
+        "details": [
+          "Employer: Mohawk Valley Appliance Service, ~12 techs, covers Schenectady to Utica (Q16, Q76)",
+          "Manager: Gary, 20-year veteran; relationship is good with autonomy (Q77)",
+          "Tenure: 11 years (Q76)",
+          "Hours: 45/week typical, 50-55 on on-call rotation weeks (~every 6 weeks for weekend emergencies) (Q16, Q68)",
+          "Day shape: dispatch starts 7:30, first call ~8:15; 4-6 service calls per day (Q15, Q16)",
+          "Drives a service van; handles diagnostics, parts, repair, documentation, and invoicing (Q65)",
+          "Employer benefits: Blue Cross HMO, dental, vision, 401k with 4% match, three weeks PTO, paid certifications (Q76)",
+          "Not unionized; member of United Servicers Association (trade group) (Q66)",
+          "On the company safety committee (monthly meeting, incident reviews) (Q17)",
+          "Wednesday lunches in the shop with other techs (Q77)",
+          "Mentors two junior technicians: Devon (~1 year in) and Marisol (started fall 2025) (Q04, Q18)",
+          "Side LLC for smart-home retrofit consults; 1-2 consults/month, ~$850 last month (Q16, Q70, Q72)",
+          "Main job take-home ~$4,200/month net; combined with LLC ~$5,050/month; gross ~$6,700/month (~$80,000/year) (Q72, Q74)",
+          "Paid biweekly from main job; LLC paid on customer cycle (Q73)",
+          "Most recent notable job: 1962 GE Stratoliner range retrofit in Saratoga (~6 hours over two visits) for an interior designer (Q16)",
+          "Working toward Certified Appliance Service Technician (C.A.S.T.) credential and Master Technician status (Q91, Q108)",
+          "Long-term goal: Mohawk Valley Sustainable Appliance — own shop with 1-2 employees, retrofit-kit product line, regional trade-show speaker (Q108)",
+          "Business launch fund target: $35,000 before quitting; currently ~$18,000 (Q61, Q62)",
+          "Received a raise in January 2026 (Q43)"
+        ],
+        "evidence": "Q04, Q15, Q16, Q17, Q18, Q43, Q61, Q62, Q65, Q66, Q68, Q70, Q72, Q73, Q74, Q76, Q77, Q91, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Active visual-arts consumer and producer; oriented toward documentary/landscape photography lineage and contemporary museum visits.",
+        "details": [
+          "Frequents Albany Museum of Art quarterly with Joelle's photography meetup (Q07)",
+          "Photographic influences include Ansel Adams and Sebastião Salgado (met Joelle in front of a Salgado print three years ago) (Q07)",
+          "Attends live acoustic / folk shows (Q07)",
+          "Goes to local art galleries (seed hobbies; first met Joelle at an Albany gallery opening, Q07)"
+        ],
+        "evidence": "Q07, Q48"
+      },
+      "sports_and_fitness": {
+        "summary": "Avid endurance and outdoor athlete: trail running, hiking the Adirondacks, lifting, occasional basketball; spectator fan of NY Rangers and Buffalo Bills.",
+        "details": [
+          "Member of Glens Falls Trail Runners club; standing Tuesday/Thursday 6 p.m. runs and Saturday 8-10 a.m. long run (Q07, Q15)",
+          "Hikes Adirondack High Peaks each summer (Q01, Q15)",
+          "Recent solo hike: Crane Mountain summit (November 2025) for emotional reset (Q44)",
+          "Started lifting Monday/Friday mornings in March 2026 with used squat rack from Marketplace (Q18)",
+          "Occasional pickup basketball at the local community center (from seed sports_persona; not directly in interview)",
+          "Fan of New York Rangers (hockey) and Buffalo Bills (NFL) (from seed sports_persona; not directly confirmed in interview)"
+        ],
+        "evidence": "Q01, Q07, Q15, Q18, Q44"
+      },
+      "nature_and_outdoors": {
+        "summary": "Treats the Adirondacks as both recreation and spirituality; finds meaning and reset in the outdoors.",
+        "details": [
+          "Considers the Adirondacks 'basically my church' (Q47)",
+          "Engages in an informal contemplative practice — a kind of attention or gratitude — on mountain summits and during dawn photography sessions (Q47)",
+          "Solo Acadia trip April 2026 for clarity (Q43)",
+          "Hikes the High Peaks every summer (Q01)",
+          "Lives within walking distance of the Mohawk Valley Heritage Area river trail (Q08)"
+        ],
+        "evidence": "Q01, Q08, Q43, Q47"
+      },
+      "technology": {
+        "summary": "Professionally fluent in diagnostic technology and increasingly in smart-home integration; consumer-side disciplined and deliberately reduces dependence on platforms.",
+        "details": [
+          "Professional tools: multimeters, manufacturer diagnostic software, soldering, PCB repair (Q65)",
+          "Building product line of retrofit kits for legacy appliances (Q108)",
+          "Active on r/AppliancesUnderRepair, occasionally answers questions (Q48)",
+          "Uses Marcus by Goldman high-yield savings (Q61)",
+          "Files taxes via TurboTax electronically (Q75)",
+          "Deleted Instagram from phone, kept on desktop only for photography accounts (Q18, Q48)"
+        ],
+        "evidence": "Q18, Q48, Q61, Q65, Q75, Q108"
+      },
+      "community_and_civic": {
+        "summary": "Engaged in local civic life through volunteering, mentoring, and consistent national/local voting; donates to causes; focuses civic attention locally.",
+        "details": [
+          "Monthly tech tutoring at Amsterdam Senior Center for ~3 years; started after a 78-year-old widow customer broke down over her thermostat (Q17)",
+          "Mentors two junior techs at work (Q04)",
+          "Votes in every presidential and most midterm elections; voted in person in 2024 on the way to a service call (Q23)",
+          "Has voted Democrat in every presidential since 2016; occasionally votes Republican for respected local candidates (Q95)",
+          "Independent, leaning Democrat with moderate strength (Q24, Q95, Q96)",
+          "Attended one BLM-related rally in Schenectady summer 2020 (Q29)",
+          "Donates to local antiracism / community groups (Q26, Q29)",
+          "Pays attention to local issues: riverfront development, broadband, zoning (Q25)",
+          "Owns a deer rifle; moderately pro-gun-rights (Q24)",
+          "Two minor traffic stops (busted taillight on Route 5S; 38-in-30 in Johnstown), both warnings; once called police about a neighbor's break-in (Q20)"
+        ],
+        "evidence": "Q04, Q17, Q20, Q23, Q24, Q25, Q26, Q29, Q95, Q96"
+      },
+      "music": {
+        "summary": "Acoustic/folk singer-songwriter listener and amateur acoustic guitar player; bridges between his folk tastes and best friend's bluegrass.",
+        "details": [
+          "Plays acoustic guitar weekly with Marcus on Wednesdays (Q07, Q15)",
+          "Listens to Nick Drake, Iron and Wine, The Milk Carton Kids, John Prine, Gillian Welch (Q07)",
+          "Attends informal jam sessions and live music events (seed hobbies)"
+        ],
+        "evidence": "Q07, Q15"
+      },
+      "fashion_and_appearance": {
+        "summary": "No interview evidence; persona did not discuss clothing or appearance preferences.",
+        "details": [],
+        "evidence": "n/a"
+      },
+      "cultural_and_linguistic": {
+        "summary": "White, Anglo-American with modest Dutch heritage on his mother's side; rooted in Mohawk Valley industrial heritage and local Methodist traditions.",
+        "details": [
+          "White, Anglo-American with a bit of Dutch on his mother's side (Q89)",
+          "Born and raised in Amsterdam, NY; small-town, predominantly white middle-class community (Q01, Q87, Q97)",
+          "Not Hispanic/Latinx (Q88)",
+          "English monolingual (no second language mentioned)",
+          "Identifies with Mohawk Valley regional heritage (industrial, Erie Canal-era)",
+          "Raised Methodist (mother attends First United Methodist on Division Street); currently agnostic with a soft nature-based spirituality; occasionally attends Christmas Eve service with mother (Q47, Q94)"
+        ],
+        "evidence": "Q01, Q47, Q87, Q88, Q89, Q94, Q97"
+      },
+      "life_events_and_transitions": {
+        "summary": "Defining events include the early loss of his father (2018), a long-term breakup (late 2023), and his planned transition to self-employment.",
+        "details": [
+          "Born March 14, 1995 in Amsterdam, NY; only child in an intact two-parent household (Q85, Q87, Q97-Q99)",
+          "At 19, almost dropped out of FMCC for a Lowe's assistant-manager track; mentor Mr. Petrarca and father persuaded him to finish the degree (Q02)",
+          "Father Wayne died of sudden heart attack in 2018, age 59 (Q01)",
+          "Began therapy and SSRI treatment shortly after father's death (Q31, Q45)",
+          "Started hiking the High Peaks in 2019 as a coping mechanism (Q01)",
+          "Moved into the Market Street apartment spring 2022 with then-partner Hannah (Q08)",
+          "Breakup with Hannah, late 2023 (Q05, Q11)",
+          "Mother's knee replacement spring 2024; he took two weeks off as caregiver (Q35)",
+          "Ankle sprain October 2024 in the Sewards (Q33)",
+          "Panic attack March 2025 (Q33)",
+          "Anniversary-of-father grief episode November 2025 (Q44)",
+          "Deleted Instagram from phone February 2026; started lifting March 2026; raise in January 2026; Acadia solo trip April 2026 (Q18, Q43)",
+          "Planning self-employment launch within ~5 years; would also like to own a small home (near Galway) and be partnered again (Q108)"
+        ],
+        "evidence": "Q01, Q02, Q05, Q08, Q11, Q18, Q31, Q33, Q35, Q43, Q44, Q45, Q85, Q87, Q97, Q108"
+      },
+      "media_and_information_diet": {
+        "summary": "Curated, long-form, written and audio diet; deliberately limits social media; trusts science-based and policy-analytical voices.",
+        "details": [
+          "Podcasts: Ezra Klein Show, The Daily, Service Industry Now (Q25)",
+          "Newsletters/Substacks: Heather Cox Richardson, New York Focus, Katelyn Jetelina's Your Local Epidemiologist (Q25, Q42)",
+          "Books cited as influential: Caste by Isabel Wilkerson; reads Ta-Nehisi Coates; currently Wendell Berry (Q18, Q26)",
+          "News: NYT health section (Q42)",
+          "Stopped listening to cable news in the work truck; replaced with long-form podcasts and newsletters (Q25)",
+          "Social media usage: Facebook (light, family/trail-runners events), Instagram (desktop only, for photography), Reddit (appliance forums); no TikTok/Twitter/Threads (Q48)"
+        ],
+        "evidence": "Q18, Q25, Q26, Q42, Q48"
+      }
+    },
+    "summaries": {
+      "demographer": "Rickey Barham is a 31-year-old white, never-married, childless single male living alone (with a cat) in a rented downtown apartment in Amsterdam, NY (Q08, Q11, Q84, Q89). He holds an associate's degree in electrical technology (Q90) and has spent his entire 11-year career as a home appliance repair technician at the same regional firm, supplemented by a small LLC, with annual gross household income around $80K (Q65, Q72, Q74, Q76). He grew up in Amsterdam in an intact two-earner working-class household — father a millwright/welder (high school + vocational), mother a medical biller (associate's) — and remains anchored to his hometown by family ties (Q97-Q106). Demographically he is a stable, geographically rooted, middle-income, single-earner household with no dependents and modest but disciplined wealth accumulation (Q61-Q63).",
+      "behavioral_economist": "Rickey is a textbook planner with a low risk tolerance: he maintains separate sinking, emergency, business-launch, and retirement buckets, tracks every dollar in a spreadsheet, holds ~4 months of expenses liquid, and would cover a $400 shock without blinking (Q57, Q61, Q62, Q82). His time preference skews patient — he is willing to defer wants (lens, guitar, house) for years to over-capitalize before leaving a stable W-2 job for self-employment (Q63, Q64, Q83). Loss aversion shows up in his explicit fear about losing employer health insurance and his $35K target for business launch (Q32, Q62, Q83). He is responsive to mentor signaling (Petrarca's advice altered his career), forms identity-consistent habits (Sunday meal prep, weekly mentorship, monthly volunteering), and consciously curates incentive environments by deleting Instagram and reducing caffeine (Q02, Q15, Q17, Q18, Q33).",
+      "political_scientist": "Rickey identifies as an independent who leans Democratic with moderate strength, votes reliably in presidential and most midterm elections, and has voted Democrat in every presidential since 2016 while still occasionally supporting Republican local candidates he respects (Q23, Q95, Q96). His policy profile is technocratic and pragmatic — pro-union (despite working non-union), pro-environmental regulation, moderate on gun rights (owns a deer rifle), supportive of healthcare reform driven by personal stakes, and skeptical of both left and right outrage cycles (Q24). He has shifted attention from national to local politics — riverfront development, broadband, zoning — reflecting high local civic attachment, reinforced by senior-center volunteering and the safety committee at work (Q17, Q25). Institutional trust is selective: high trust in personal physicians, CDC, and policy-analytical voices like Ezra Klein and Heather Cox Richardson; lower trust in cable news and social-media-mediated discourse (Q25, Q42).",
+      "psychologist": "Rickey presents as conscientious and organized to a near-trait level (spreadsheets, schematic prep, parts inventory, planner-style decision-making) coexisting with elevated neuroticism — a self-described 'worrier' with formally diagnosed generalized anxiety disorder, depressive flares around anniversaries, and a history of medicated and therapy-supported management (Q03, Q15, Q31, Q44, Q45). His coping architecture is mature and multi-modal: SSRI + biweekly therapy, daily mobility work, exercise as mental reset, deliberate reduction of stimuli (Instagram, caffeine), and a stable rotation of restorative people and places (Marcus on Wednesdays, mom on Sundays, Adirondack summits, Acadia solo trips) (Q15, Q18, Q33, Q43, Q44, Q47). His identity hinges on the integration of precision (technician, methodical workflows) and creative expression (photography, guitar, retrofits) — the 'organized art-driven' self he names explicitly — and his motivational architecture is achievement-driven but anchored in care (mentees, mother, Mrs. Kowalski), suggesting a high-agreeableness, high-conscientiousness profile balanced by self-aware emotional vulnerability (Q07, Q17, Q35, Q109)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Diagnosed with generalized anxiety disorder in 2018.",
+        "ground_truth_label": "GAD diagnosis (2018)",
+        "behavioral_evidence_from_interview": [
+          "Q45: 'Generalized anxiety disorder, formally diagnosed in 2018.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Takes sertraline 50 mg daily.",
+        "ground_truth_label": "Sertraline 50 mg daily",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'a low-dose SSRI, sertraline 50 mg'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Attempted to discontinue sertraline in 2022; reinstated after it did not go well.",
+        "ground_truth_label": "Failed sertraline taper (2022)",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'Tried to come off it once in 2022 and it didn't go well, so my doctor and I agreed to stay.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Sees therapist Diane in Schenectady about twice a month.",
+        "ground_truth_label": "Biweekly therapy with Diane",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'I see a therapist about twice a month — Diane, in Schenectady.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Primary care physician is Dr. Patel at Saint Mary's, Amsterdam.",
+        "ground_truth_label": "PCP Dr. Patel, Saint Mary's",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'prescribed by my primary at Saint Mary's'",
+          "Q36: 'My primary is great, Dr. Patel at Saint Mary's.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Has mild seasonal allergies and recurring lower-back issues from crouching into appliances.",
+        "ground_truth_label": "Allergies + occupational lower-back pain",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'mild seasonal allergies, occasional lower back issues from crouching into appliance cavities all day'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Sprained ankle in October 2024 in the Sewards; eight-week recovery on modified duty.",
+        "ground_truth_label": "Ankle sprain Oct 2024",
+        "behavioral_evidence_from_interview": [
+          "Q33: 'I sprained my ankle pretty badly in October 2024 on a hike in the Sewards'",
+          "Q34: 'modified duty for about three weeks'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Had a stress + caffeine-driven panic attack in March 2025 that required an urgent-care visit; subsequently reduced caffeine.",
+        "ground_truth_label": "Panic attack March 2025",
+        "behavioral_evidence_from_interview": [
+          "Q33: 'panic attack in March of last year that landed me in urgent care'",
+          "Q33: 'One pour-over in the morning, sometimes a small one around noon.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Up-to-date on COVID (with boosters), annual flu, tetanus, and HPV catch-up vaccinations.",
+        "ground_truth_label": "Full vaccination uptake",
+        "behavioral_evidence_from_interview": [
+          "Q41: 'I got all my COVID shots including boosters, get a flu shot every fall...HPV catch-up last year and I did it.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Trusts Dr. Patel, the CDC, NYT health section, and Katelyn Jetelina's Substack on vaccine information.",
+        "ground_truth_label": "Vaccine-info sources",
+        "behavioral_evidence_from_interview": [
+          "Q42: 'Dr. Patel first. CDC website second. The NYT health section...Katelyn Jetelina's Your Local Epidemiologist mainly.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Does a daily 10-minute mobility routine morning and night, uses a foam roller, and sees a chiropractor ~4 times a year.",
+        "ground_truth_label": "Daily mobility + chiropractic",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'daily mobility routine, ten minutes morning and night, a foam roller, and I see a chiropractor maybe four times a year.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Has used acupuncture occasionally for stress; takes fish oil and vitamin D in winter.",
+        "ground_truth_label": "Acupuncture + supplements",
+        "behavioral_evidence_from_interview": [
+          "Q37: 'I've done acupuncture maybe a half dozen times...I take a fish oil and a vitamin D in winter.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Drinks moderately (2-3 beers on weekends, occasional bourbon); went through a ~6-month heavier-drinking period after father's death and worked through it in therapy.",
+        "ground_truth_label": "Moderate drinker; past heavier period 2018-19",
+        "behavioral_evidence_from_interview": [
+          "Q38: 'two or three beers on a weekend, a glass of bourbon on a Friday...a few drinks every night for maybe six months — and Diane and I worked through that.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Has tried marijuana edibles 3-4 times in his life; last use ~2 years ago in Burlington; finds it anxiogenic.",
+        "ground_truth_label": "Minimal marijuana use, finds it anxiogenic",
+        "behavioral_evidence_from_interview": [
+          "Q39: 'marijuana edibles maybe three or four times in my life — most recently at a friend's place in Burlington maybe two years ago...made me anxious actually.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Does not smoke.",
+        "ground_truth_label": "Non-smoker",
+        "behavioral_evidence_from_interview": [
+          "Q38: 'I don't smoke anything.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Waited four months in 2018 for first therapy intake with Diane.",
+        "ground_truth_label": "Therapy access wait 2018",
+        "behavioral_evidence_from_interview": [
+          "Q36: 'I waited four months to start with Diane back in 2018'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Has delayed a dental procedure because of high copay, but has not forgone other needed care.",
+        "ground_truth_label": "Delayed dental care",
+        "behavioral_evidence_from_interview": [
+          "Q36: 'I've delayed a dental thing because the copay was nasty.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Batch cooks on Sundays: a grain (farro or brown rice), roasted vegetables, and one protein, portioned into glass containers for weekday lunches.",
+        "ground_truth_label": "Sunday batch cooking pattern",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'I batch cook on Sunday. Usually a grain — farro or brown rice — a roasted vegetable tray, and one protein.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Recent meal-prep protein was miso-glazed salmon.",
+        "ground_truth_label": "Miso-glazed salmon prep",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'This week was miso-glazed salmon.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Drinks a pour-over coffee in the morning, sometimes a small one at noon; reduced from 4-5 cups/day after the March 2025 panic attack.",
+        "ground_truth_label": "Reduced-caffeine coffee habit",
+        "behavioral_evidence_from_interview": [
+          "Q33: 'One pour-over in the morning, sometimes a small one around noon. I used to have four or five cups in the truck through the day.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Favorite beers are from Druthers (Saratoga) and Common Roots Out of Bounds.",
+        "ground_truth_label": "Regional craft beer preference",
+        "behavioral_evidence_from_interview": [
+          "Q38: 'Anything from Druthers in Saratoga, but I'm partial to Common Roots Out of Bounds.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Morning coffee neighborhood spot is Russo's in downtown Amsterdam.",
+        "ground_truth_label": "Russo's morning coffee",
+        "behavioral_evidence_from_interview": [
+          "Q08: 'Russo's is my morning spot.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Took a four-day solo trip to Acadia National Park in April 2026 for photography.",
+        "ground_truth_label": "Acadia solo trip April 2026",
+        "behavioral_evidence_from_interview": [
+          "Q43: 'A four-day solo trip to Acadia in April. Just me, my camera, a notebook, a lot of fog and shoreline.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Aspirational future trips are Iceland first (geothermal photography) and Japan second.",
+        "ground_truth_label": "Iceland then Japan trip aspiration",
+        "behavioral_evidence_from_interview": [
+          "Q108: 'Iceland first — I want to shoot the geothermal landscape. Japan is the bigger trip, I'd save that for later.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Hikes the Adirondack High Peaks every summer.",
+        "ground_truth_label": "Annual Adirondack High Peaks hiking",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'I started hiking the High Peaks the next summer.'",
+          "Q15: 'Saturday morning is the long trail run'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Travels to cousin Brian in Schenectady during December holidays.",
+        "ground_truth_label": "December trip to cousin Brian",
+        "behavioral_evidence_from_interview": [
+          "Q59: 'Holidays are an extra $400 or so in December for gifts and travel to Brian's.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Never married and has no children.",
+        "ground_truth_label": "Never married, childless",
+        "behavioral_evidence_from_interview": [
+          "Q84: 'Never married. Not currently with a romantic partner.'",
+          "Q05: 'No partner right now, no kids.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Mother Linda, 64, retired from medical billing ~2023, lives on the south side of Amsterdam ~15 minutes away; Sunday visits noon-5.",
+        "ground_truth_label": "Mother Linda's circumstances",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'She's 64, retired from the medical billing job two years ago, lives about fifteen minutes from me on the south side of Amsterdam.'",
+          "Q15: 'Sunday is mom day — I'm at her place by noon, home by 5'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Mother calls every Tuesday and Thursday evening (~5-minute chats).",
+        "ground_truth_label": "Tue/Thu mother phone calls",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'She calls me Tuesday and Thursday evenings, pretty much like clockwork.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Mother is covered by Medicare plus a supplemental policy.",
+        "ground_truth_label": "Mother on Medicare + supplement",
+        "behavioral_evidence_from_interview": [
+          "Q40: 'My mom is on Medicare and a supplement'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Mother copes with her own grief through routine and church; has never seen a therapist.",
+        "ground_truth_label": "Mother's coping pattern",
+        "behavioral_evidence_from_interview": [
+          "Q46: 'she handles it through routine and church. She's never seen a therapist and I don't think she will.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Handles politics with his (conservative) mother carefully; they tiptoe around national issues.",
+        "ground_truth_label": "Political distance with mother",
+        "behavioral_evidence_from_interview": [
+          "Q24: 'Carefully. She's still pretty conservative. We agree on local stuff, we tiptoe around national.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Father Wayne died of a sudden heart attack in 2018 at age 59.",
+        "ground_truth_label": "Father Wayne died 2018, age 59",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'losing my dad in 2018 — heart attack, sudden, he was only 59.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Has Aunt Bev and Uncle Ray (an Adirondack 46er who got him into hiking) in Gloversville; cousin Brian is a contractor in Schenectady who couches ~2x/year; cousin Erica lives in NC.",
+        "ground_truth_label": "Extended family roster",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'Aunt Bev and Uncle Ray...Ray is the one who got me into hiking...Brian's a contractor in Schenectady, Erica moved to North Carolina years ago.'",
+          "Q13: 'My cousin Brian crashes on the couch maybe twice a year'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Has had tense Thanksgiving conversations with Uncle Ray about race.",
+        "ground_truth_label": "Tense Thanksgivings with Uncle Ray",
+        "behavioral_evidence_from_interview": [
+          "Q30: 'My uncle Ray is more skeptical and we've had a couple of tense Thanksgivings.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Best friend is Marcus, an electrician in Johnstown and FMCC classmate; they play guitar at Marcus's place every Wednesday.",
+        "ground_truth_label": "Best friend Marcus, Wednesday guitar",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'My closest friend is Marcus — we went to FMCC together, he's an electrician now in Johnstown. We play guitar together once a week, usually Wednesdays at his place.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Belongs to the Glens Falls Trail Runners; closer friends in the group are Pete and Dave.",
+        "ground_truth_label": "Trail runners group friends",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'There's the Glens Falls Trail Runners group, maybe ten people I see regularly on Saturday runs, and a couple of guys from that, Pete and Dave, I'd call real friends.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Joelle, a librarian who runs antiracist book groups, organizes a quarterly photography meetup at the Albany Museum of Art.",
+        "ground_truth_label": "Joelle photography meetup",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'a photography meetup that gathers at the Albany Museum of Art quarterly — Joelle organizes it, she's a librarian'",
+          "Q30: 'Joelle has been the most actively engaged — she runs antiracist book groups at her library.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Mrs. Kowalski (across-the-street elderly neighbor) is an informal grandma figure for whom he provides tech tutoring.",
+        "ground_truth_label": "Mrs. Kowalski mentor relationship",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'Mrs. Kowalski, my elderly neighbor, who I do tech tutoring for and who I've kind of unofficially adopted as a grandma figure.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Maintains an ongoing relationship with former FMCC instructor Mr. Petrarca — annual Christmas card and a coffee meet-up at the Sunny Side Up diner in fall 2025.",
+        "ground_truth_label": "Ongoing Petrarca relationship",
+        "behavioral_evidence_from_interview": [
+          "Q02: 'I send him a Christmas card every year and I had coffee with him at the Sunny Side Up diner last fall.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Mentors two junior technicians at work: Devon (about a year in) and Marisol (started fall 2025).",
+        "ground_truth_label": "Mentees Devon and Marisol",
+        "behavioral_evidence_from_interview": [
+          "Q04: 'a kid named Devon who's about a year in, and Marisol who started last fall.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Most recent serious relationship was Hannah, a vet tech in Glens Falls (2.5 years), ended late 2023 over commute and disagreement about kids.",
+        "ground_truth_label": "Hannah relationship, ended late 2023",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'I dated someone named Hannah for about two and a half years...We broke up about eighteen months ago, partly the commute, partly we wanted different things on kids.'",
+          "Q11: 'Since Hannah moved out in late 2023.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Lives with a six-year-old tortoiseshell cat named Solder, adopted from the Montgomery County SPCA.",
+        "ground_truth_label": "Cat Solder",
+        "behavioral_evidence_from_interview": [
+          "Q11: 'her name is Solder...she's a six-year-old tortoiseshell I adopted from the Montgomery County SPCA.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Rents a two-bedroom upper-unit apartment in a converted Victorian on Market Street, downtown Amsterdam; $1,250/month, utilities not included.",
+        "ground_truth_label": "Market Street rental",
+        "behavioral_evidence_from_interview": [
+          "Q08: 'small two-bedroom apartment on Market Street, the upper unit of a converted Victorian'",
+          "Q58: 'Rent. $1,250 a month, no utilities included.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Solely responsible (100%) for all household expenses.",
+        "ground_truth_label": "Sole-earner household",
+        "behavioral_evidence_from_interview": [
+          "Q55: 'Just me, 100 percent.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Tracks monthly spending in a spreadsheet; typical month ~$3,200, up to $4,000 with a tool purchase or trip.",
+        "ground_truth_label": "Spreadsheet budgeting",
+        "behavioral_evidence_from_interview": [
+          "Q57: 'About $3,200 last month...Sometimes it jumps to $4,000 if there's a tool purchase or a trip. I track it in a spreadsheet.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Wake times: 5:45 weekdays, 6:30 Saturdays, 7:30 Sundays.",
+        "ground_truth_label": "Daily wake schedule",
+        "behavioral_evidence_from_interview": [
+          "Q15: '5:45 weekdays. 6:30 on Saturdays. Sunday I let myself sleep till 7:30'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Sunday-evening planning ritual: meal prep plus laying out schematics and parts lists for Monday's calls.",
+        "ground_truth_label": "Sunday prep ritual",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'Sunday night I do meal prep and I lay out my schematics and parts list for Monday's calls.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Uses written pros-and-cons lists for major decisions; keeps a long-running spiral notebook for this purpose.",
+        "ground_truth_label": "Pros-and-cons notebook habit",
+        "behavioral_evidence_from_interview": [
+          "Q03: 'I made a literal pros-and-cons list in a spiral notebook. I still have it, actually.'",
+          "Q03: 'All the time. Probably to a fault. My ex used to make fun of me for it.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Maintains sinking funds for known seasonal expenses and an emergency fund for surprises (e.g., used the sinking fund for snow tires in November 2024).",
+        "ground_truth_label": "Sinking funds budget",
+        "behavioral_evidence_from_interview": [
+          "Q60: 'I have a sinking fund for known seasonal bumps and an emergency fund for surprises. Used the sinking fund for the snow tires last November.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Emergency fund is ~$11,000 (~4 months of expenses) at Marcus by Goldman high-yield savings.",
+        "ground_truth_label": "$11k emergency fund (Marcus by Goldman)",
+        "behavioral_evidence_from_interview": [
+          "Q61: 'High-yield savings at Marcus by Goldman for the emergency fund — about $11,000 right now, which is roughly four months of expenses.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Has a separate 'business launch' savings of ~$18,000 against a target of $35,000.",
+        "ground_truth_label": "$18k business-launch fund (target $35k)",
+        "behavioral_evidence_from_interview": [
+          "Q61: 'A separate savings labeled 'business launch' that's around $18,000.'",
+          "Q62: 'I want $35,000 before I quit my job'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Contributes to employer 401k up to the match and maxes out a Roth IRA annually.",
+        "ground_truth_label": "401k-to-match + Roth IRA max",
+        "behavioral_evidence_from_interview": [
+          "Q61: '401k at work that I contribute to up to the match, plus a Roth IRA I max out.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Uses a single credit card for points and pays it in full each month (no carried balance).",
+        "ground_truth_label": "Rewards card paid in full monthly",
+        "behavioral_evidence_from_interview": [
+          "Q63: 'One credit card I use for points and pay off every month — no carried balance.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Federal student loan balance ~$9,000, paid at $185/month.",
+        "ground_truth_label": "Student loan $9k / $185 mo",
+        "behavioral_evidence_from_interview": [
+          "Q63: 'Student loan, federal, $185 a month, about $9,000 left.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Truck loan balance ~$14,000, paid at $389/month.",
+        "ground_truth_label": "Truck loan $14k / $389 mo",
+        "behavioral_evidence_from_interview": [
+          "Q63: 'Truck loan, $389 a month, about $14,000 left.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "National Grid heating bill swings from ~$280 in January to ~$90 in May.",
+        "ground_truth_label": "Seasonal heating bill swing",
+        "behavioral_evidence_from_interview": [
+          "Q59: 'National Grid bill can hit $280 in January versus $90 in May.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Filed 2025 taxes via TurboTax in late February 2026; $1,800 refund went into the business-launch fund.",
+        "ground_truth_label": "TurboTax + refund to business fund",
+        "behavioral_evidence_from_interview": [
+          "Q75: 'filed electronically through TurboTax in late February. Got a refund of about $1,800 which I put into the business fund.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "In slow months (e.g., February 2026) pauses transfers to the business-launch fund rather than tapping emergency or operating cash.",
+        "ground_truth_label": "Business-fund transfer flex",
+        "behavioral_evidence_from_interview": [
+          "Q81: 'I just leaned more on the main paycheck and skipped that month's transfer to the business fund.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Would handle a $400 emergency by paying with the credit card and reimbursing from the emergency fund the next day.",
+        "ground_truth_label": "$400-shock response",
+        "behavioral_evidence_from_interview": [
+          "Q82: 'I'd put it on the credit card and pay it off from the emergency fund the next day. Wouldn't blink.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Removed Instagram from his phone in February 2026 and replaced evening scrolling with reading.",
+        "ground_truth_label": "Instagram-off-phone Feb 2026",
+        "behavioral_evidence_from_interview": [
+          "Q18: 'I deleted Instagram off my phone in February because I was losing an hour every night. Replaced it with reading'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Currently reading Wendell Berry.",
+        "ground_truth_label": "Currently reading Wendell Berry",
+        "behavioral_evidence_from_interview": [
+          "Q18: 'right now I'm on a Wendell Berry kick.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Plays acoustic guitar weekly with Marcus on Wednesdays, bridging Marcus's bluegrass and his own singer-songwriter taste via John Prine and Gillian Welch.",
+        "ground_truth_label": "Weekly guitar with Marcus",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'He's a bluegrass guy, I'm more into the acoustic singer-songwriter stuff...We meet in the middle on John Prine and old Gillian Welch tunes.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Photographs industrial architecture in a black-and-white silver-gelatin aesthetic.",
+        "ground_truth_label": "Industrial B&W photography",
+        "behavioral_evidence_from_interview": [
+          "Q48: 'Mostly black and white industrial stuff.'",
+          "Q08: 'I've shot probably 300 frames from that bridge.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Runs a public photography Instagram @barham.silvergelatin with ~800 followers.",
+        "ground_truth_label": "Photo IG @barham.silvergelatin",
+        "behavioral_evidence_from_interview": [
+          "Q48: 'It's @barham.silvergelatin. Mostly black and white industrial stuff.'",
+          "Q48: 'a small public Instagram for my own photography — about 800 followers'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Favorite shooting location is the pedestrian bridge over the Mohawk River at sunrise, especially in fall.",
+        "ground_truth_label": "Pedestrian bridge sunrise shoots",
+        "behavioral_evidence_from_interview": [
+          "Q08: 'The pedestrian bridge over the Mohawk at sunrise. Especially in fall.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Volunteers at the Amsterdam Senior Center one Saturday afternoon per month doing tech tutoring; has done so ~3 years, starting after a 78-year-old widow customer broke down over a thermostat.",
+        "ground_truth_label": "Senior-center tech tutoring",
+        "behavioral_evidence_from_interview": [
+          "Q17: 'one Saturday afternoon a month at the Amsterdam Senior Center doing tech tutoring'",
+          "Q17: 'About three years. Started after one of my customers, a 78-year-old widow, broke down crying'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "As a teenager rebuilt a 1970s Maytag wringer washer with his father over a summer from a $10 yard-sale find.",
+        "ground_truth_label": "Maytag wringer washer project",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'We rebuilt a 1970s Maytag wringer washer that we found at a yard sale for ten bucks. Took us almost a whole summer.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Works at Mohawk Valley Appliance Service, a regional company of ~12 techs covering Schenectady to Utica.",
+        "ground_truth_label": "Employer Mohawk Valley Appliance Service",
+        "behavioral_evidence_from_interview": [
+          "Q16: 'Mohawk Valley Appliance Service — we're a regional company, about twelve techs, based in Amsterdam but we cover everything from Schenectady to Utica.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Has been at the same employer for 11 years; manager is Gary, a 20-year veteran, with a strong autonomous-trust relationship.",
+        "ground_truth_label": "11-year tenure under manager Gary",
+        "behavioral_evidence_from_interview": [
+          "Q76: 'Eleven years this fall.'",
+          "Q77: 'My boss Gary has been there 20 years, we get along, he gives me autonomy.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Works ~45 hours/week typically and 50-55 on the ~every-six-week on-call rotation; first call ~8:15 a.m. after 7:30 dispatch; 4-6 service calls/day.",
+        "ground_truth_label": "Hours and call cadence",
+        "behavioral_evidence_from_interview": [
+          "Q16: 'Monday through Friday, 7:30 to about 5:30 typically, with on-call rotation about every six weeks'",
+          "Q68: 'Around 45 most weeks, 50-55 on on-call rotation weeks.'",
+          "Q15: 'I'm usually on my first call by 8:15.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Drives a service van and handles diagnostics, parts orders, repair, documentation, and invoicing on each call.",
+        "ground_truth_label": "Service van workflow",
+        "behavioral_evidence_from_interview": [
+          "Q65: 'I drive a service van to customer homes...I diagnose using multimeters and manufacturer diagnostic software, order parts, do the repair, document the service call, handle the invoicing.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Employer benefits: Blue Cross HMO, dental, vision, 401k with 4% match, three weeks PTO, paid certifications.",
+        "ground_truth_label": "Employer benefits package",
+        "behavioral_evidence_from_interview": [
+          "Q76: 'Blue Cross HMO, dental, vision, 401k with a 4% match, three weeks PTO, paid certifications.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Is not unionized; is a member of the United Servicers Association (a trade group).",
+        "ground_truth_label": "Non-union; USA trade-group member",
+        "behavioral_evidence_from_interview": [
+          "Q66: 'No, not unionized...United Servicers Association — I'm a member but it's not a union.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Serves on the company safety committee (monthly meeting and incident reviews); eats Wednesday lunches in the shop with other techs.",
+        "ground_truth_label": "Safety committee + shop lunches",
+        "behavioral_evidence_from_interview": [
+          "Q17: 'serve on the safety committee at work, which means a monthly meeting and the occasional incident review.'",
+          "Q77: 'we eat lunch in the shop on Wednesdays.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Operates a registered LLC for smart-home retrofit consults, 1-2 jobs/month (~$850 last month).",
+        "ground_truth_label": "Side LLC retrofit consults",
+        "behavioral_evidence_from_interview": [
+          "Q70: 'the side retrofit consults I treat as a registered LLC, so technically yes. Two jobs.'",
+          "Q72: 'From the LLC, about $850 last month from two consults.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Monthly take-home ~$5,050 (W-2 ~$4,200 + LLC ~$850); gross ~$6,700/month (~$80,000/year); paid biweekly at main job.",
+        "ground_truth_label": "Income ~$80K gross",
+        "behavioral_evidence_from_interview": [
+          "Q72: 'about $4,200 net after taxes and 401k. From the LLC, about $850 last month'",
+          "Q74: 'About $5,050 net. Gross is around $6,700, annualized to roughly $80,000.'",
+          "Q73: 'Biweekly from the main job.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Most recent notable job was a 1962 GE Stratoliner range smart-thermostat retrofit for a Saratoga interior designer (~6 hours, two visits).",
+        "ground_truth_label": "1962 GE Stratoliner retrofit",
+        "behavioral_evidence_from_interview": [
+          "Q16: 'a 1962 GE Stratoliner range that an interior designer in Saratoga wanted retrofitted...Took me about six hours, two visits.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Working toward Certified Appliance Service Technician (C.A.S.T.) credential and Master Technician status.",
+        "ground_truth_label": "Pursuing C.A.S.T. + Master Technician",
+        "behavioral_evidence_from_interview": [
+          "Q91: 'I'm working through a Certified Appliance Service Technician credential'",
+          "Q108: 'I want to...have my Master Technician status'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Long-term plan is to launch 'Mohawk Valley Sustainable Appliance' — a sustainable-repair/retrofit shop with 1-2 employees, a retrofit-kit product line, and regional trade-show speaking.",
+        "ground_truth_label": "Future business plan",
+        "behavioral_evidence_from_interview": [
+          "Q108: 'I want to be running my own shop, Mohawk Valley Sustainable Appliance, with one or two employees and a steady book of retrofit clients'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Received a raise in January 2026.",
+        "ground_truth_label": "Jan 2026 raise",
+        "behavioral_evidence_from_interview": [
+          "Q43: 'I got a raise in January'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Visits the Albany Museum of Art quarterly through Joelle's photography meetup.",
+        "ground_truth_label": "Quarterly Albany Museum visits",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'a photography meetup that gathers at the Albany Museum of Art quarterly'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Photographic influences include Ansel Adams and Sebastião Salgado; met Joelle three years ago in front of a Salgado print.",
+        "ground_truth_label": "Adams + Salgado influences",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'we both got stuck looking at the same Salgado print for like ten minutes'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Has standing trail runs with the Glens Falls Trail Runners: Tue/Thu 6 p.m. and Saturday 8-10 a.m. long run.",
+        "ground_truth_label": "Trail-running schedule",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'Tuesdays and Thursdays I have a standing 6 p.m. trail run with the group...Saturday morning is the long trail run, 8 to 10 a.m.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Did a solo Crane Mountain summit hike in November 2025 as an emotional reset around the anniversary of his father's death.",
+        "ground_truth_label": "Crane Mountain Nov 2025 hike",
+        "behavioral_evidence_from_interview": [
+          "Q44: 'I went up to Crane Mountain alone one Saturday and sat on the summit for about an hour.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Started Monday/Friday morning lifting in March 2026 with a used squat rack from Facebook Marketplace.",
+        "ground_truth_label": "March 2026 lifting start",
+        "behavioral_evidence_from_interview": [
+          "Q18: 'I started lifting on Monday and Friday mornings before work — bought a used squat rack off Marketplace in March.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Plays occasional pickup basketball at the local community center.",
+        "ground_truth_label": "Pickup basketball",
+        "behavioral_evidence_from_interview": [
+          "seed.sports_persona: 'enjoys occasional pickup basketball at the local community center'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Fan of the New York Rangers (NHL) and Buffalo Bills (NFL).",
+        "ground_truth_label": "Rangers + Bills fan",
+        "behavioral_evidence_from_interview": [
+          "seed.sports_persona: 'roots for the New York Rangers and Buffalo Bills'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Considers the Adirondacks 'basically my church.'",
+        "ground_truth_label": "Adirondacks as personal church",
+        "behavioral_evidence_from_interview": [
+          "Q47: 'The Adirondacks are basically my church.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Engages in an informal contemplative practice — a kind of attention or gratitude — on mountain summits and during dawn photography sessions.",
+        "ground_truth_label": "Summit/dawn contemplative practice",
+        "behavioral_evidence_from_interview": [
+          "Q47: 'I do something close to it when I'm on a summit or shooting at dawn — a kind of attention or gratitude.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Lives within walking distance of the Mohawk Valley Heritage Area river trail.",
+        "ground_truth_label": "Walks to Mohawk Heritage trail",
+        "behavioral_evidence_from_interview": [
+          "Q08: 'It's walking distance to the Mohawk Valley Heritage Area trail along the river'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Uses multimeters, manufacturer diagnostic software, soldering, and PCB repair professionally.",
+        "ground_truth_label": "Diagnostic toolset",
+        "behavioral_evidence_from_interview": [
+          "Q65: 'multimeters and manufacturer diagnostic software, order parts, do the repair'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-093",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Active on r/AppliancesUnderRepair on Reddit and occasionally answers questions there.",
+        "ground_truth_label": "Reddit AppliancesUnderRepair contributor",
+        "behavioral_evidence_from_interview": [
+          "Q48: 'Reddit occasionally for appliance repair forums and r/AppliancesUnderRepair specifically, where I sometimes answer questions.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-094",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Votes in every presidential and most midterm elections; voted in person in 2024 on the way to a service call.",
+        "ground_truth_label": "Reliable voter",
+        "behavioral_evidence_from_interview": [
+          "Q23: 'I vote in every presidential and most midterms...In person, on the way to a service call actually.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-095",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Has voted Democrat in every presidential since 2016; occasionally votes Republican for respected local candidates.",
+        "ground_truth_label": "Presidential D since 2016; local crossover",
+        "behavioral_evidence_from_interview": [
+          "Q95: 'I've voted Democrat in every presidential since 2016 — but I'm not a party loyalist and I've voted for Republican local candidates I respected.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-096",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Identifies as independent leaning Democrat with moderate strength.",
+        "ground_truth_label": "Independent-leans-D, moderate",
+        "behavioral_evidence_from_interview": [
+          "Q24: 'a moderate independent who leans Democratic'",
+          "Q95: 'Independent, leaning Democrat.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-097",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Attended one BLM-related rally in Schenectady in summer 2020.",
+        "ground_truth_label": "Schenectady BLM rally 2020",
+        "behavioral_evidence_from_interview": [
+          "Q29: 'I went to one rally in Schenectady in summer 2020.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-098",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Donates to local antiracism / community groups.",
+        "ground_truth_label": "Local antiracism donations",
+        "behavioral_evidence_from_interview": [
+          "Q26: 'I've donated to local groups'",
+          "Q29: 'I've had conversations with family and friends — careful ones — and I've donated.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-099",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Focuses civic attention on local issues — riverfront development, broadband expansion, zoning.",
+        "ground_truth_label": "Local-issue civic focus",
+        "behavioral_evidence_from_interview": [
+          "Q25: 'local stuff — zoning, the riverfront development, broadband expansion — that actually changes my life.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-100",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Owns a deer rifle and is moderately pro-gun-rights.",
+        "ground_truth_label": "Deer-rifle owner",
+        "behavioral_evidence_from_interview": [
+          "Q24: 'pro-gun rights to a moderate degree — I own a deer rifle.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-101",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Two lifetime traffic stops (busted taillight on Route 5S; 38-in-30 in Johnstown), both resolved with warnings; once called Amsterdam PD about a neighbor's break-in.",
+        "ground_truth_label": "Minor police contact history",
+        "behavioral_evidence_from_interview": [
+          "Q20: 'I've been pulled over twice that I can think of...Both times got off with a warning. I've called the police once when a neighbor's apartment got broken into and they were responsive.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-102",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Listens to Nick Drake, Iron and Wine, The Milk Carton Kids, John Prine, and Gillian Welch.",
+        "ground_truth_label": "Folk/singer-songwriter listening",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'I'm more into the acoustic singer-songwriter stuff — Nick Drake, Iron and Wine, that Milk Carton Kids harmony stuff. We meet in the middle on John Prine and old Gillian Welch tunes.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-103",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Identifies as White (Anglo-American with a bit of Dutch on his mother's side); not Hispanic/Latinx.",
+        "ground_truth_label": "White, Anglo+Dutch ancestry; non-Hispanic",
+        "behavioral_evidence_from_interview": [
+          "Q88: 'No.'",
+          "Q89: 'White — Anglo-American with a bit of Dutch on my mom's side.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-104",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Born and raised in Amsterdam, NY; lived with both biological parents at age 16.",
+        "ground_truth_label": "Lifelong Amsterdam, intact childhood household",
+        "behavioral_evidence_from_interview": [
+          "Q87: 'Amsterdam, New York. Same town I still live in.'",
+          "Q97: 'Amsterdam, New York.'",
+          "Q98: 'Yes, both.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-105",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Raised Methodist (mother attends First United Methodist on Division Street); currently agnostic with a nature-based spirituality; occasionally attends Christmas Eve service with mother.",
+        "ground_truth_label": "Methodist upbringing → agnostic",
+        "behavioral_evidence_from_interview": [
+          "Q47: 'I was raised Methodist — my mom still goes to First United Methodist on Division Street...would call myself agnostic now...I do still occasionally go to a Christmas Eve service with my mom'",
+          "Q94: 'Raised Methodist, currently agnostic with some spirituality around nature.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-106",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Born March 14, 1995 in Amsterdam, NY as an only child in an intact two-parent household.",
+        "ground_truth_label": "DOB 1995-03-14, only child",
+        "behavioral_evidence_from_interview": [
+          "Q85: 'March 14, 1995.'",
+          "Q87: 'Amsterdam, New York.'",
+          "Q99: 'Nobody else — just my parents and me.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-107",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "At 19, almost dropped out of FMCC for a Lowe's assistant-manager track; mentor Mr. Petrarca and his father persuaded him to finish the degree.",
+        "ground_truth_label": "FMCC drop-out decision averted",
+        "behavioral_evidence_from_interview": [
+          "Q02: 'When I was 19, second semester at FMCC, I almost dropped out...Mr. Petrarca...basically pulled me aside...talked to my dad, who actually surprised me by saying go with the degree.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-108",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Began therapy and SSRI treatment shortly after his father's death in 2018.",
+        "ground_truth_label": "Started therapy + SSRI post-2018",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'Since late 2018, so about seven and a half years. Started a few months after dad.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-109",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Began hiking the Adirondack High Peaks in summer 2019 as a coping mechanism after his father's death.",
+        "ground_truth_label": "High Peaks hiking as grief coping",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'I started hiking the High Peaks the next summer just to force myself outdoors.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-110",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Moved into the Market Street apartment in spring 2022 with then-partner Hannah; kept the apartment after their late-2023 breakup.",
+        "ground_truth_label": "Spring 2022 move-in with Hannah",
+        "behavioral_evidence_from_interview": [
+          "Q08: 'About four years. Moved in spring 2022 after Hannah and I started getting serious — though I ended up keeping it after we split.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-111",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Took two weeks off work as primary caregiver for his mother's spring-2024 knee replacement.",
+        "ground_truth_label": "Mother knee replacement 2024",
+        "behavioral_evidence_from_interview": [
+          "Q35: 'my mom had a knee replacement in spring 2024. I took two weeks off work to be her primary support during recovery.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-112",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Had a ~2-week emotional low around the November 2025 anniversary of his father's death.",
+        "ground_truth_label": "Nov 2025 grief episode",
+        "behavioral_evidence_from_interview": [
+          "Q44: 'Last November, around the anniversary of my dad's death...stretch of about two weeks where I wasn't sleeping well, was snippy with coworkers, lost interest in everything I usually like.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-113",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Five-year personal aspirations include owning a small home (possibly near Galway with a workshop), being partnered again, an Iceland or Japan trip, and continuing weekly guitar with Marcus.",
+        "ground_truth_label": "Five-year personal aspirations",
+        "behavioral_evidence_from_interview": [
+          "Q108: 'Personally I want to own a small house in or near Amsterdam, maybe up toward Galway, with a real workshop...I want to be partnered again — I miss having that...still be playing guitar with Marcus on Wednesdays.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-114",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Regularly listens to the Ezra Klein Show, The Daily, and a trade podcast called Service Industry Now.",
+        "ground_truth_label": "Podcast diet",
+        "behavioral_evidence_from_interview": [
+          "Q25: 'I listen to Ezra Klein, The Daily, and a trade podcast called Service Industry Now.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-115",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Subscribes to newsletters from Heather Cox Richardson, New York Focus, and Katelyn Jetelina (Your Local Epidemiologist).",
+        "ground_truth_label": "Newsletter subscriptions",
+        "behavioral_evidence_from_interview": [
+          "Q25: 'For newsletters I subscribe to Heather Cox Richardson and a regional one called the New York Focus.'",
+          "Q42: 'Katelyn Jetelina's Your Local Epidemiologist mainly.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-116",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Influential reading: Isabel Wilkerson's Caste hit hardest; also reads Ta-Nehisi Coates.",
+        "ground_truth_label": "Caste / Coates reading",
+        "behavioral_evidence_from_interview": [
+          "Q26: 'Isabel Wilkerson, Ta-Nehisi Coates'",
+          "Q26: 'Caste by Wilkerson. The framing of caste rather than just race let me see the patterns differently.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-117",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Stopped listening to cable news in the work truck; replaced with long-form podcasts and newsletters.",
+        "ground_truth_label": "Cable-news → long-form shift",
+        "behavioral_evidence_from_interview": [
+          "Q25: 'I used to listen to a lot of cable news in the truck, now I mostly listen to longer-form podcasts and a couple of newsletters.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-118",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Uses Facebook lightly (family + trail-runners events), Instagram on desktop only for photography accounts, Reddit for appliance forums; does not use TikTok, Twitter, or Threads.",
+        "ground_truth_label": "Social-media usage map",
+        "behavioral_evidence_from_interview": [
+          "Q48: 'I have Facebook mostly for my mom's generation...Instagram I dropped from my phone...No TikTok, no Twitter, no Threads. Reddit occasionally for appliance repair forums.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-119",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Father worked as a millwright/welder with high-school education plus a vocational welding certificate; mother worked as a medical biller with an associate's in business administration.",
+        "ground_truth_label": "Parents' occupations and education",
+        "behavioral_evidence_from_interview": [
+          "Q100: 'High school diploma plus a vocational welding certificate.'",
+          "Q101: 'Associate's degree in business administration from FMCC.'",
+          "Q103: 'Medical billing specialist.'",
+          "Q106: 'maintenance welder and millwright at the Beech-Nut food processing plant'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-120",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Policy stance is pro-union (despite working non-union), pro-environmental regulation, and supportive of healthcare reform driven by personal self-employment stakes.",
+        "ground_truth_label": "Pro-union/env/healthcare policy stance",
+        "behavioral_evidence_from_interview": [
+          "Q24: 'I'm pro-union, pro-environmental regulation...we need real healthcare reform — being self-employed someday and trying to figure out coverage is genuinely scary.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-121",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Skeptical of social-media-mediated outrage on both left and right; favors competent, technocratic governance that takes climate seriously.",
+        "ground_truth_label": "Anti-outrage / technocratic preference",
+        "behavioral_evidence_from_interview": [
+          "Q24: 'I'm wary of social media-driven outrage on both sides. Mostly I want competent, technocratic governance that takes climate seriously.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-122",
+        "source": "reprojected",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Identifies primary anxiety expression as a high-conscientiousness/high-neuroticism profile — a self-described 'worrier' since childhood.",
+        "ground_truth_label": "Self-described worrier trait",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'I was a worrier as a kid, still am — used to lie awake stressing about quizzes.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-123",
+        "source": "reprojected",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Plans to over-capitalize before leaving the W-2 job for self-employment; is anxious about losing employer health insurance during the transition.",
+        "ground_truth_label": "Self-employment loss-aversion frame",
+        "behavioral_evidence_from_interview": [
+          "Q32: 'It'd be one of the scariest things to give up when I go independent.'",
+          "Q83: 'actually leaving the W-2 paycheck is going to be terrifying. I tell myself I'm doing the right things — slow, careful, well-capitalized.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-124",
+        "source": "reprojected",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Names integrity, the people he loves, and curiosity as his three core life values, in that order.",
+        "ground_truth_label": "Top-three values",
+        "behavioral_evidence_from_interview": [
+          "Q109: 'First, integrity — doing the job right whether anyone's watching or not...Second, the people I love...Third, curiosity'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,2389 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "bd26ad126dd5433982e43c255f8a559b",
+      "name": "Thomas Gatlin",
+      "verification_date": "2026-05-20"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed states age 9, never_married, Male; interview confirms age 9, born Aug 14, 2016, male, never married.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.age, seed.sex, seed.marital_status",
+              "source_b_ref": "Q84, Q85, Q89",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed lists Royse City, TX 75189 as residence; interview confirms lifelong Royse City residence on Pecan Drive, born in Greenville, TX.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.city/state/zipcode",
+              "source_b_ref": "Q08, Q86, Q87",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed describes 'less_than_9th' education; interview confirms enrolled in 4th grade, finishing it, with 3rd grade as highest completed.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.education_level",
+              "source_b_ref": "Q90, Q91",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed names a single persona but the interview reveals a full household composition (mom Sarah RN, dad Mike contractor, sister Ellie 5, dog Biscuit) absent from seed.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.persona/cultural_background",
+              "source_b_ref": "Q05, Q11, Q100-Q107",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Seed identifies as white American, non-Hispanic, Baptist Christian implicit in cultural_background; interview confirms white, non-Hispanic, Baptist Christian.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q88, Q89, Q94",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 6,
+              "text": "Seed states 'not_in_workforce'; interview confirms — child, no job, only chores and allowance.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.occupation",
+              "source_b_ref": "Q16, Q66-Q72",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 6,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile's location, age, education, occupation match the interview specifics.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q84-Q91",
+              "source_b_ref": "profile.location, profile.education, profile.occupation",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Household composition (mom Sarah RN, dad Mike contractor, sister Ellie 5, dog Biscuit) in profile matches Q05/Q11/Q51.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q05, Q11, Q51",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Parental education in summaries (Bachelor's RN mom; sub-baccalaureate contractor dad) matches Q100-Q101.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q100, Q101",
+              "source_b_ref": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Extended family members named in profile (Grandma Joan in Greenville, paternal grandparents in Tyler, Uncle Pete/Aunt Kim/cousin Wyatt in Dallas, Aunt Lacey in Houston) match the interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q05, Q06",
+              "source_b_ref": "preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Religious identity (Baptist, First Baptist Royse City) and civic activities (State Fair, polling place visits with mom) are accurately represented.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q21, Q23, Q47, Q94",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Demographer summary places household in Royse City with mortgage; home_and_lifestyle and cultural_and_linguistic concur.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.demographer",
+              "field_b": "preferences.home_and_lifestyle, preferences.cultural_and_linguistic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Education field ('completed 3rd grade; currently enrolled in 4th grade') and work_and_career subcategory ('Currently 4th grader') are consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "profile.education",
+              "field_b": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Cultural_and_linguistic notes Baptist family identity; community_and_civic confirms weekly First Baptist attendance.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.cultural_and_linguistic",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Birth date (August 14, 2016) and birthplace (Greenville, TX hospital) are explicit in interview but not stored in any preferences subcategory.",
+              "gap": true,
+              "interview_ref": "Q85, Q87",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Born August 14, 2016 in Greenville, TX' to life_events_and_transitions.details."
+            },
+            {
+              "id": 2,
+              "text": "Sister Ellie attends a daycare/preschool that costs money — child-care context absent from profile.",
+              "gap": true,
+              "interview_ref": "Q79",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Younger sister Ellie attends daycare/preschool (a notable household expense)' to home_and_lifestyle.details."
+            },
+            {
+              "id": 3,
+              "text": "Parents' workplace specifics — Mom at family-medicine clinic in Rockwall, Dad has own small contracting company 'Gatlin Construction' with 1-2 helpers — only partly captured.",
+              "gap": true,
+              "interview_ref": "Q103, Q104, Q107",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Father runs his own small residential contracting business (~self-named Gatlin Construction) with one or two employees' to home_and_lifestyle.details."
+            },
+            {
+              "id": 4,
+              "text": "Uncle Pete is identified as an Army veteran in Q93; profile mentions only Uncle Pete in Dallas without veteran status.",
+              "gap": true,
+              "interview_ref": "Q93",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Already represented in profile; ensure 'Uncle Pete (Army veteran)' is preserved in social_and_relationships.details."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed culinary_persona describes love of mac and cheese, PB&J, pancakes with syrup; interview's stay-healthy reflection cites the same sweets/mac-and-cheese pull as the hard part.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.culinary_persona",
+              "source_b_ref": "Q32",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed persona references meticulous LEGO saving; interview details $5/week allowance, mason-jar saving for an $80 Bionicle set, and parental match incentive — strongly consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q16, Q61",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed sports_persona implies playful, unstructured fitness preference; interview confirms backyard tag, capture-the-flag, soccer.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.sports_persona",
+              "source_b_ref": "Q08, Q15",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed travel_persona emphasizes family travel + Tokyo aspiration; interview reaffirms (Grand Canyon, family road trips, Tokyo hope).",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.travel_persona",
+              "source_b_ref": "Q01, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Seed sketches a worrier prone to anxiety; interview directly affirms mom labels him 'a worrier' and counselor coaching.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q43, Q45",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile correctly captures conditional allowance ($5/week, docked to $4 for missed recycling) and savings goal ($80 LEGO, $47 progress, mom-match upon $100 or birthday).",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q16, Q61, Q81",
+              "source_b_ref": "preferences.home_and_lifestyle, preferences.hobbies_and_recreation",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Behavioral economist summary's 'mom-anchored deliberation under uncertainty' aligns with Q03/Q05 quotes about Socratic decision-making.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q03",
+              "source_b_ref": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile underspecifies the dad-as-faster-but-less-fun decision style ('Dad just tells me what he thinks, which is sometimes faster but kinda less fun') as a contrast to mom's Socratic style.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q03",
+              "source_b_ref": "preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile captures comic-book/Barnes-and-Noble wait-two-weeks delayed-gratification anecdote only indirectly. Could enrich.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q64",
+              "source_b_ref": "preferences.hobbies_and_recreation",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Behavioral economist summary's 'sketching as substitution good for emotional regulation' is supported by health_and_wellness (anxiety) and hobbies_and_recreation (daily sketching).",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.behavioral_economist",
+              "field_b": "preferences.health_and_wellness, preferences.hobbies_and_recreation",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Hobbies_and_recreation cites $47 saved; home_and_lifestyle cites $5/week allowance — these are mutually coherent.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.hobbies_and_recreation",
+              "field_b": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Food_and_dining describes a strong sweets pull while health_and_wellness notes nutrition is supported by mom's home cooking; not contradictory — both expressed in Q32.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.food_and_dining",
+              "field_b": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Father's contrasting decision style ('Dad just tells me what he thinks, which is sometimes faster but kinda less fun') is meaningful for behavioral profile and missing from preferences.",
+              "gap": true,
+              "interview_ref": "Q03",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Contrast in parental decision-style: mom uses Socratic questioning to elicit his preference; dad gives direct opinions (faster but feels less collaborative)' to social_and_relationships.details."
+            },
+            {
+              "id": 2,
+              "text": "Delayed-gratification anecdote: waited two weeks of allowance for a comic at Barnes & Noble — not captured in profile.",
+              "gap": true,
+              "interview_ref": "Q64",
+              "should_be_in": "preferences.hobbies_and_recreation",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Practices delayed gratification: once waited two weeks of allowance to afford a desired comic at Barnes & Noble' to hobbies_and_recreation.details."
+            },
+            {
+              "id": 3,
+              "text": "Borrowing/repayment microevent: borrowed $3 from Jacob for a Slurpee and repaid — small but meaningful behavioral fact.",
+              "gap": true,
+              "interview_ref": "Q63",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add 'Once borrowed $3 from best friend Jacob for a Slurpee and repaid him (only debt experience)' to social_and_relationships.details."
+            },
+            {
+              "id": 4,
+              "text": "After saving $100, mother intends to open a real savings account for Thomas — financial-socialization plan not captured.",
+              "gap": true,
+              "interview_ref": "Q61",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Mother has promised to help open a real bank savings account once he reaches $100 in his jar' to home_and_lifestyle.details."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed cultural_background emphasizes Southern-Texas civic life (school fairs, church, State Fair, Friday night football); interview validates church, State Fair, and family civic exposure.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q21, Q23, Q47",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed positions Thomas as a child with no political identity; interview confirms — too young to vote, no party identification.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q23, Q24, Q95, Q96",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed mentions community organizer aspiration; interview restates teacher/community-organizer aspiration.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.career_goals_and_ambitions",
+              "source_b_ref": "Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed is silent on parents' political leaning; interview introduces dad as Republican-leaning Fox watcher and mom as NPR listener and 'in the middle' — new political context.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q24, Q95",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile media_and_information_diet captures Fox/NPR exposure, and community_and_civic captures polling-place visits with mom and State Fair attendance — matches interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q21, Q23, Q24",
+              "source_b_ref": "preferences.community_and_civic, preferences.media_and_information_diet",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Political scientist summary captures the racial-attitudes 'be kind, treat everyone fair' values frame and mother's correction of older relative — supported by Q26-Q30.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q26-Q30",
+              "source_b_ref": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile does not explicitly include the Ruby Bridges / Martin Luther King Jr. classroom exposure detail in any preferences subcategory.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q26, Q28",
+              "source_b_ref": "preferences.community_and_civic, preferences.cultural_and_linguistic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile does not capture the third-grade mock-election event in which Thomas voted for friend Aanya.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q24",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Community_and_civic and media_and_information_diet present a coherent picture: institutional civic participation (church, school, polling) plus mediated household media exposure.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "preferences.media_and_information_diet",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Cultural_and_linguistic places Thomas in small-town Hunt County Texas; community_and_civic confirms participation in regional institutions — fully consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.cultural_and_linguistic",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Third-grade mock election where Thomas voted for Aanya (who won) is a civic socialization micro-event missing from profile.",
+              "gap": true,
+              "interview_ref": "Q24",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Voted for friend Aanya in a 3rd-grade class president mock election; she won' to community_and_civic.details."
+            },
+            {
+              "id": 2,
+              "text": "Black History Month school exposure to Ruby Bridges and Martin Luther King Jr. is missing from profile.",
+              "gap": true,
+              "interview_ref": "Q26, Q28",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'School-mediated civil-rights exposure: learned about Martin Luther King Jr. and Ruby Bridges (Black History Month), reported feeling sad and impressed' to community_and_civic.details."
+            },
+            {
+              "id": 3,
+              "text": "Parents' partisanship asymmetry (dad Republican-leaning Fox viewer; mom 'maybe more in the middle' NPR listener) is mentioned in summary but absent from preferences.",
+              "gap": true,
+              "interview_ref": "Q24, Q95",
+              "should_be_in": "preferences.media_and_information_diet",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Parents have asymmetric political leanings: father votes Republican; mother is unaligned or moderate — heterogeneous household political exposure' to media_and_information_diet.details."
+            },
+            {
+              "id": 4,
+              "text": "Father got a police warning (no ticket) for a tail-light stop; this minor law-enforcement interaction is missing from profile.",
+              "gap": true,
+              "interview_ref": "Q20",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add 'Family law-enforcement exposure limited to Officer Friendly visit at school (with K-9 Rex) and dad receiving a warning for a tail light at a traffic stop' to community_and_civic.details."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes Thomas as 'quietly curious' and a worrier; interview matches — he is verbal, internally directed, anxious about projects, and explicitly called a worrier by mom.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q43, Q45",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed describes meticulous sketching habits and emotional engagement with art; interview confirms — sketching as primary coping strategy, art-club commitment, art camp, comic-book aspiration.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.professional_persona",
+              "source_b_ref": "Q01, Q43, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed mentions sketching game strategies and a quietly curious temperament; interview's anecdote about drawing himself as a hero with a giant boot after scoring goal directly supports this.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.sports_persona",
+              "source_b_ref": "Q01",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed implies family- and community-orientation; interview reinforces strong family-as-most-valued frame and kindness-prioritizing self-narrative.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q108, Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Psychologist summary's identification of three identity pillars (artist, family-member, learner) is well-supported by Q01/Q108/Q109.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01, Q108, Q109",
+              "source_b_ref": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Coping repertoire (draw when stressed, lay on floor with Biscuit, talk to mom) is captured in health_and_wellness and psychologist summary.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q43, Q45",
+              "source_b_ref": "preferences.health_and_wellness, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Co-regulation episode with dad during grandfather's hospitalization is in summary but not represented in any preferences subcategory.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q44",
+              "source_b_ref": "preferences.health_and_wellness, preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile captures spiritual questioning ('why does bad stuff happen if God is good') only via the religion/social_media section indirectly — not in any preference subcategory.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q47",
+              "source_b_ref": "preferences.cultural_and_linguistic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Health_and_wellness (anxiety, counselor visit, box breathing) and hobbies_and_recreation (sketching) coherently link to psychologist summary's emotion-regulation account.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness",
+              "field_b": "preferences.hobbies_and_recreation, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Social_and_relationships, arts_and_culture, and work_and_career converge on Thomas's identity pillars (family, art, school).",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships, preferences.arts_and_culture",
+              "field_b": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Comforting episode with dad during the grandfather-hospital + science-fair stress stack is psychologically rich and absent from preferences.",
+              "gap": true,
+              "interview_ref": "Q44",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'During grandfather's hospitalization stress overlapped with a science fair deadline; dad co-regulated by sitting with him and validating his fear' to social_and_relationships.details."
+            },
+            {
+              "id": 2,
+              "text": "Theological questioning ('why does bad stuff happen if God is good') is a meaningful self-narrative point absent from profile.",
+              "gap": true,
+              "interview_ref": "Q47",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Engages in age-appropriate theological questioning (e.g., why bad things happen if God is good); discusses with his mother' to cultural_and_linguistic.details."
+            },
+            {
+              "id": 3,
+              "text": "Q02 narrative — choosing art club over soccer skills clinic out of social anxiety with new coach/kids — is a defining early self-narrative absent from profile.",
+              "gap": true,
+              "interview_ref": "Q02",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Self-defining 2nd-grade choice: chose art club over soccer skills clinic due to social anxiety with unfamiliar coach and peers; later added soccer once schedules separated' to life_events_and_transitions.details."
+            },
+            {
+              "id": 4,
+              "text": "Mrs. Halverson's classroom accommodation — letting Thomas sketch in margins when math is done — is a salient self-narrative detail and missing from profile.",
+              "gap": true,
+              "interview_ref": "Q01",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add 'Teacher Mrs. Halverson accommodates his sketching by letting him draw in margins when he finishes math early' to work_and_career.details."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No INCONSISTENT findings; no FLAG_FOR_REVIEW actions. Multiple Direction-4 gaps received NEEDS_ENRICHMENT or CARRY_FORWARD dispositions to add interview-grounded detail to the profile. Corrections are additive only.",
+    "final_status": "Corrected profile incorporates all gap-filling enrichments; ready for downstream use."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "bd26ad126dd5433982e43c255f8a559b",
+    "name": "Thomas Gatlin",
+    "age": 9,
+    "gender": "Male",
+    "marital_status": "never_married",
+    "location": "Royse City, TX 75189",
+    "education": "completed 3rd grade; currently enrolled in 4th grade at Royse City Elementary",
+    "occupation": "not_in_workforce (full-time student / 4th grader)",
+    "preferences": {
+      "health_and_wellness": {
+        "summary": "Generally healthy 9-year-old with seasonal allergies and prior tonsillectomy; manages anxiety with school counselor-taught box breathing; pro-vaccine via nurse mother's guidance.",
+        "details": [
+          "Takes chewable Zyrtec in spring for cedar allergies (Q31)",
+          "Tonsillectomy at age 6 due to recurrent strep (Q31)",
+          "Wears blue-framed reading glasses situationally (Q31)",
+          "Sprained ankle in soccer practice last fall; iced and rested 2 weeks (Q33)",
+          "Had flu in January 2026, missed a week of school (Q33)",
+          "Uses 4-count box breathing technique from school counselor Ms. Reyes for test anxiety (Q45)",
+          "Gets annual flu shot; pro-vaccine influenced by RN mother and pediatrician Dr. Nguyen (Q41, Q42)"
+        ],
+        "evidence": "Q31, Q33, Q41, Q42, Q45"
+      },
+      "food_and_dining": {
+        "summary": "Classic kid palate: comfort foods like mac and cheese, PB&J, pancakes with syrup; family fast-food traditions tied to soccer Saturdays; helps bake with mom.",
+        "details": [
+          "Favorite foods: homemade mac and cheese with cheddar, PB&J, weekend pancakes with maple syrup (seed; consistent with Q32)",
+          "Saturday post-soccer tradition: McDonald's or Whataburger (Q15)",
+          "Breakfast on weekdays: cereal or dad-made eggs (Q15)",
+          "Bakes cookies and pies with Grandma Joan in Greenville (Q05)",
+          "Family drinks ginger tea for upset stomach (Q37)"
+        ],
+        "evidence": "Q05, Q15, Q32, Q37"
+      },
+      "travel": {
+        "summary": "Travels almost exclusively with family on road trips; major past trip was the Grand Canyon two summers ago; aspires to visit Tokyo and Scotland someday.",
+        "details": [
+          "Family road trip to Grand Canyon two summers ago (Q01)",
+          "Drives to Tyler, TX (~2 hrs) to visit paternal grandparents (Q05)",
+          "Hopes to visit Tokyo for anime/cherry blossoms (Q108)",
+          "Dreams of Scottish castles (seed)",
+          "Drives to Dallas museums occasionally (Q10)"
+        ],
+        "evidence": "Q01, Q05, Q10, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "Close-knit nuclear family plus engaged extended family; small tight friendship circle anchored by best friend Jacob Mendez and including Caleb and Aanya; secure attachment style with strong reliance on mother.",
+        "details": [
+          "Best friend: Jacob Mendez, lives 4 streets over, friends since 1st grade (Q07)",
+          "Plays Minecraft on a two-person server with Jacob; built a virtual castle and mall (Q07)",
+          "Other close friends: Caleb (soccer teammate, also Black), Aanya (art club, draws horses well) (Q07, Q26)",
+          "Sees Grandma Joan in Greenville every other weekend (Q05)",
+          "Has 5-year-old sister Ellie; relationship has typical sibling friction but they play 'restaurant' together (Q05, Q06)",
+          "Has Uncle Pete (Army veteran), Aunt Kim, and cousin Wyatt in Dallas; Aunt Lacey in Houston (Q06, Q93)",
+          "Contrast in parental decision-style: mother uses Socratic questioning to elicit his preference; father gives direct opinions (faster but feels less collaborative) (Q03)",
+          "Once borrowed $3 from best friend Jacob for a Slurpee and repaid him (only debt experience) (Q63)",
+          "During grandfather's hospitalization, stress overlapped with a science fair deadline; father co-regulated by sitting with him and validating his fear (Q44)"
+        ],
+        "evidence": "Q03, Q05, Q06, Q07, Q26, Q44, Q63, Q93"
+      },
+      "home_and_lifestyle": {
+        "summary": "Lives in a single-family home owned by parents on Pecan Drive in a quiet, kid-dense Royse City subdivision; household of 4 plus dog Biscuit; allowance-based chore system.",
+        "details": [
+          "Address on Pecan Drive in a tree-named-street subdivision (Q08)",
+          "House purchased before Thomas was born (~2016) (Q08)",
+          "Family owns home with a mortgage (Q58)",
+          "Household: mom Sarah (RN), dad Mike (contractor), sister Ellie (5), dog Biscuit (Q05, Q11)",
+          "Chores: feed Biscuit AM/PM, make bed, take out recycling Wednesdays, unload dishwasher (Q16)",
+          "Allowance: $5/week paid Sundays, contingent on chore completion (Q16, Q73)",
+          "Younger sister Ellie attends daycare/preschool (a notable household expense) (Q79)",
+          "Father runs his own small residential contracting business (~self-named Gatlin Construction) with one or two employees doing framing, roofing, and remodels (Q106, Q107)",
+          "Mother has promised to help open a real bank savings account once he reaches $100 in his jar (Q61)"
+        ],
+        "evidence": "Q05, Q08, Q11, Q16, Q58, Q61, Q73, Q79, Q106, Q107"
+      },
+      "entertainment": {
+        "summary": "Heavy consumer of kid-oriented YouTube (ZHC, Aphmau, Art for Kids Hub), Minecraft and Roblox gaming, graphic novels, and Studio Ghibli films; no social media until 13 per parental rule.",
+        "details": [
+          "Favorite YouTubers: ZHC, Aphmau, Art for Kids Hub (Q48)",
+          "Plays Minecraft daily-ish, shares Roblox account with sister (Q48)",
+          "Codes simple interactive stories in Scratch (seed)",
+          "Loves graphic novel series Amulet (currently rereading book 3) and Studio Ghibli's My Neighbor Totoro (Q17, seed)",
+          "School read: Because of Winn-Dixie (Q17)",
+          "Parental rule: no social media until age 13 (Q48)"
+        ],
+        "evidence": "Q17, Q48"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Visual arts (sketching, painting, comics) and LEGO building are core identity hobbies; supplements with Minecraft, reading graphic novels, nature observation, and attending art camp in summers.",
+        "details": [
+          "Sketches daily; recreates favorite scenes from media (seed, Q43)",
+          "Saving $80 in mason jar for LEGO Bionicle set; currently has $47 (Q16, Q61)",
+          "Attends art club at school Mondays & Wednesdays after school until 4:30 (Q15)",
+          "Attends 2-week art camp at community center every July (Q43)",
+          "Attended VBS at First Baptist Royse City summers (Q47)",
+          "Plays Minecraft and Roblox (Q48)",
+          "Backyard bug- and bird-watching (seed)",
+          "Practices delayed gratification: once waited two weeks of allowance to afford a desired comic at Barnes & Noble (Q64)"
+        ],
+        "evidence": "Q15, Q16, Q43, Q47, Q48, Q61, Q64"
+      },
+      "work_and_career": {
+        "summary": "Not in workforce. Self-identifies fourth-grader role as his 'job'; aspires to become a comic book artist and/or engineer/inventor; secondary aspirations include teacher or community organizer.",
+        "details": [
+          "Currently 4th grader at Royse City Elementary, Mrs. Halverson's class (Q65, Q76, Q91)",
+          "Favorite subject: art; also enjoys science and math; weak at spelling (Q65)",
+          "Career goals: comic book artist (primary), engineer/inventor, possibly teacher (Q108, seed)",
+          "Comic book idea: a kid artist who discovers a portal to a world of creatures (Q108)",
+          "Teacher Mrs. Halverson accommodates his sketching by letting him draw in margins when he finishes math early (Q01)"
+        ],
+        "evidence": "Q01, Q65, Q76, Q91, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Deep engagement with visual storytelling — sketching, painting, comics. Influences include Amulet graphic novels, Studio Ghibli, Andy Warhol prints viewed at kid-friendly exhibits.",
+        "details": [
+          "Owns sketchbook(s); aspires to upgrade to Strathmore paper sketchbook (Q61)",
+          "Inspired by graphic novel Amulet, Studio Ghibli (My Neighbor Totoro), Andy Warhol prints (seed)",
+          "Attends kid-friendly museum exhibits at nearby museum (seed, Q10)",
+          "Member of art club run by Mrs. Patel; attends 2x/week (Q15)",
+          "Made a clay sloth at art camp last year (Q43)"
+        ],
+        "evidence": "Q10, Q15, Q43, Q61"
+      },
+      "sports_and_fitness": {
+        "summary": "Plays organized youth soccer on the Oakwood Rangers; recreational fitness via backyard tag and bike riding; Dallas Cowboys family football night fan.",
+        "details": [
+          "Plays for Oakwood Rangers youth soccer team; position includes wing (Q01, seed)",
+          "Practices Tues/Thurs 5:00-6:30 PM at fields by middle school (Q15)",
+          "Saturday games during season; family travels to Greenville and Wylie for matches (Q15)",
+          "Scored memorable tournament goal last fall (Q01)",
+          "Coach: Coach Davis (Q07, Q33)",
+          "Fan of Dallas Cowboys via family football nights (seed)",
+          "Plays backyard tag, capture the flag, bike races with neighborhood kids (Q08, seed)"
+        ],
+        "evidence": "Q01, Q07, Q08, Q15, Q33"
+      },
+      "nature_and_outdoors": {
+        "summary": "Enjoys backyard nature observation (insects, birds) and neighborhood park/pond exploration; climbs the big oak at the end-of-street park.",
+        "details": [
+          "Observes insects and birds in backyard (seed)",
+          "Park at end of Pecan Drive has playground, basketball court, pond with ducks (Q08)",
+          "Climbs a large oak tree at the park; once saw a hawk eat a lizard there (Q08)",
+          "Has seen a coyote in the neighborhood (Q09)"
+        ],
+        "evidence": "Q08, Q09"
+      },
+      "technology": {
+        "summary": "Digital native consistent with age — Scratch coding, Minecraft, Roblox, YouTube Kids; structured parental supervision (no social media until 13).",
+        "details": [
+          "Builds in Minecraft and Roblox (Q48)",
+          "Creates Scratch interactive stories (seed)",
+          "YouTube Kids account (Q48)",
+          "Aspires to learn to make 'real' video games beyond Scratch (Q108)",
+          "Family mom posts photos of him on Facebook (Q48)"
+        ],
+        "evidence": "Q48, Q108"
+      },
+      "community_and_civic": {
+        "summary": "Engaged in local community via church, school, soccer league, and Texas regional traditions like the State Fair; civic exposure mediated through family.",
+        "details": [
+          "Attends First Baptist Royse City weekly; involved in Sunday School and VBS (Q47)",
+          "Attends State Fair of Texas (seed, Q21)",
+          "School fairs, regional celebrations (seed)",
+          "Has accompanied mom to polling place at elementary school gym; received 'I Voted' sticker (Q23)",
+          "Voted for friend Aanya in a 3rd-grade class president mock election; she won (Q24)",
+          "School-mediated civil-rights exposure: learned about Martin Luther King Jr. and Ruby Bridges (Black History Month), reported feeling sad and impressed (Q26, Q28)",
+          "Family law-enforcement exposure limited to Officer Friendly visit at school (with K-9 Rex) and dad receiving a warning for a tail light at a traffic stop (Q20)"
+        ],
+        "evidence": "Q20, Q21, Q23, Q24, Q26, Q28, Q47"
+      },
+      "music": {
+        "summary": "Listens to family-influenced acoustic and country music; favorites include Chris Stapleton and Mumford & Sons; takes weekly school piano lessons.",
+        "details": [
+          "Favorite artists: Chris Stapleton, Mumford & Sons (seed)",
+          "Country music plays in household (seed)",
+          "Likes the live-band style worship music at First Baptist with guitars (Q47)",
+          "Takes piano lessons Thursday mornings during school elective time; started Feb 2026 (Q17, Q18)",
+          "Supposed to practice piano 15 min/day (often skipped) (Q17)"
+        ],
+        "evidence": "Q17, Q18, Q47"
+      },
+      "fashion_and_appearance": {
+        "summary": "Standard 9-year-old casual; identifiable items are blue/white Oakwood Rangers soccer kit and blue-framed reading glasses.",
+        "details": [
+          "Blue and white Oakwood Rangers soccer uniform (Q15)",
+          "Blue-framed round reading glasses (Q31)",
+          "Notes own short stature; hopes to be taller (Q108)"
+        ],
+        "evidence": "Q15, Q31, Q108"
+      },
+      "cultural_and_linguistic": {
+        "summary": "White American boy from small-town North Texas (Hunt County); Southern-Texas cultural values of kindness, cooperation, responsibility; English-speaking; participates in regional traditions.",
+        "details": [
+          "Identifies as White, non-Hispanic (Q88, Q89)",
+          "Born in Greenville, TX; lifelong Royse City resident (Q86, Q87)",
+          "Family attends Friday night high-school football games (seed)",
+          "Backyard barbecues, country music, State Fair (seed)",
+          "Family Baptist Christian identity (Q47, Q94)",
+          "Engages in age-appropriate theological questioning (e.g., why bad things happen if God is good); discusses with his mother (Q47)"
+        ],
+        "evidence": "Q47, Q86, Q87, Q88, Q89, Q94"
+      },
+      "life_events_and_transitions": {
+        "summary": "Key life events for a 9-year-old: tonsillectomy at 6, sprained ankle and grandfather's heart event in past year, recent transition to bike-riding independence and starting piano lessons.",
+        "details": [
+          "Born August 14, 2016 in Greenville, TX (Q85, Q87)",
+          "Tonsillectomy age 6 (Q31)",
+          "Family Grand Canyon trip ~2 summers ago (Q01)",
+          "Grandfather hospitalized in Tyler for heart issue (cardiac device implanted); now stable (Q01, Q05, Q35, Q44)",
+          "Started piano lessons February 2026 (Q18)",
+          "Began biking alone to Jacob's in March 2026 (Q18)",
+          "Mom's clinic schedule changed; she now works some Saturdays (Q18)",
+          "Self-defining 2nd-grade choice: chose art club over soccer skills clinic due to social anxiety with unfamiliar coach and peers; later added soccer once schedules separated (Q02)"
+        ],
+        "evidence": "Q01, Q02, Q05, Q18, Q31, Q35, Q44, Q85, Q87"
+      },
+      "media_and_information_diet": {
+        "summary": "Kid-curated YouTube and graphic novels with mediated family news exposure (Fox News via dad, NPR via mom); science fair-style learning at school; trusts mother and pediatrician for health info.",
+        "details": [
+          "Dad watches Fox in the morning during coffee (Q24)",
+          "Mom listens to NPR in the car (Q24)",
+          "Trusted health-info sources: mother (RN) and pediatrician Dr. Nguyen (Q42)",
+          "Heavy reader of graphic novels (Amulet) (Q01, Q17)",
+          "YouTube Kids: ZHC, Aphmau, Art for Kids Hub (Q48)",
+          "Parents have asymmetric political leanings: father votes Republican; mother is unaligned or moderate — heterogeneous household political exposure (Q24, Q95)"
+        ],
+        "evidence": "Q01, Q17, Q24, Q42, Q48, Q95"
+      }
+    },
+    "summaries": {
+      "demographer": "Thomas Gatlin is a 9-year-old white, non-Hispanic male born August 14, 2016 in Greenville, TX, who has lived his entire life in Royse City, TX 75189 (Q85–Q89). He resides in a two-parent owner-occupied home with mother Sarah (Bachelor's-prepared registered nurse working at a family-medicine clinic in Rockwall), father Mike (self-employed residential contractor with sub-baccalaureate education), and younger sister Ellie (age 5), plus a dog (Q05, Q11, Q58, Q100–Q107). The household is intact, English-speaking, evangelical Protestant (Baptist), and economically stable enough to own their home, fund a college 529, and finance extracurriculars including piano lessons, soccer league fees, and summer art camp (Q47, Q62, Q83). He is enrolled in 4th grade at Royse City Elementary and is firmly embedded in small-town North Texas civic and religious institutions: school, First Baptist Church, youth soccer league, and regional events like the State Fair (Q21, Q47, Q91).",
+      "behavioral_economist": "Thomas displays unusually deliberate consumer-saving behavior for his age: he is forgoing immediate gratification to accumulate $80 for a specific LEGO Bionicle set in a transparent mason-jar commitment device, has reached $47 after five months, and his mother has structured a savings 'match' incentive tied to his upcoming birthday (Q16, Q61). His allowance is a conditional, performance-based contract — $5/week contingent on completing all chores, with documented dock for missed recycling — and he responds to the incentive structure rationally (sticky-note reminders, occasional $4 weeks accepted as a 'slower path' to the goal) (Q16, Q81). Choice-architecture is heavily mediated by his mother (decision-elicitation via Socratic questioning) rather than imposed, which has produced a pattern of mom-anchored deliberation under uncertainty (Q03, Q05). He exhibits loss-aversion behavior in his self-described 'worrier' identity and uses sketching as a substitution good for emotional regulation rather than seeking external rewards (Q43, Q45).",
+      "political_scientist": "Thomas is pre-political: he can't yet vote, refuses to identify with a party, and explicitly places himself 'in the middle' when pressed (Q23, Q95, Q96). However, his political socialization environment is heterogeneous and visible to him — father consumes Fox News, mother consumes NPR — and he has internalized this as a household tradition of mediated, non-confrontational exposure rather than partisan alignment (Q24). His civic identity is mediated overwhelmingly through institutional participation rather than ideology: church attendance, school mock elections, polling-place tag-alongs with his mother, and regional traditions like the State Fair (Q21, Q23, Q47). On race, he absorbs a values-frame ('be kind, treat everyone fair') anchored by his mother's correction of an older relative's commentary and by school-based exposure to figures like Ruby Bridges, suggesting an emergent affective egalitarianism without ideological framing (Q26–Q30).",
+      "psychologist": "Thomas presents as a temperamentally cautious, internally directed child with an artist's interior life: he is described by his mother and self-describes as a 'worrier,' has been seen by a school counselor for test anxiety, and has internalized a box-breathing technique as a portable coping skill (Q43, Q45). His emotion-regulation strategies are mature for his age — sketching as affect-regulation, physical proximity to his dog Biscuit during distress, and verbal disclosure to his mother — and he showed appropriate grief and rumination during his grandfather's cardiac hospitalization, including a memorable concurrent stress-stack with a science fair deadline that his father defused through co-regulation (Q43–Q45). His identity is consolidated around three pillars: artist (primary, central, and aspirational), family-member (most-valued anchor), and learner (school as 'job') — with a clear coherent narrative voice for a 9-year-old (Q01, Q108, Q109). Cognitively he is verbally fluent, spatially capable (LEGO, Scratch), and shows early metacognitive awareness ('mom says it's complicated, which usually means I'll understand when I'm older'), but he also displays expected developmental opacity around adult-domain topics like finances, taxes, and partisan politics (Q26, Q57, Q75, Q95)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Takes chewable Zyrtec in spring for cedar pollen allergies.",
+        "ground_truth_label": "Seasonal allergies — cedar; Zyrtec chewable in spring.",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'I have like seasonal allergies and I take a chewable Zyrtec in the spring because the cedar makes my eyes itchy.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "Q39"
+        ]
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Had a tonsillectomy at age 6 due to recurrent strep throat.",
+        "ground_truth_label": "Tonsillectomy at age 6.",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'I had my tonsils out when I was six because I kept getting strep.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Wears blue-framed round reading glasses situationally (board at school or reading).",
+        "ground_truth_label": "Situational reading glasses; blue frames.",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'Blue frames, kinda round. I only wear them for like the board at school or for reading.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Sprained an ankle in soccer practice last fall; iced and rested for 2 weeks.",
+        "ground_truth_label": "Ankle sprain — soccer practice — last fall.",
+        "behavioral_evidence_from_interview": [
+          "Q33: 'I sprained my ankle in soccer practice last fall but it wasn't broken, just had to ice it and not run for two weeks.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Had the flu in January (2026) and missed a week of school.",
+        "ground_truth_label": "Flu — January 2026 — out of school 1 week.",
+        "behavioral_evidence_from_interview": [
+          "Q33: 'I had the flu pretty bad last January, I was out of school for a week.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Uses a 4-count box breathing technique taught by school counselor Ms. Reyes to manage test anxiety.",
+        "ground_truth_label": "Box breathing (4 in, 4 out) — from Ms. Reyes.",
+        "behavioral_evidence_from_interview": [
+          "Q45: 'She taught me a breathing thing where you breathe in for four and out for four. I use it before tests now.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Gets an annual flu shot and is pro-vaccine, trusting his RN mother and pediatrician Dr. Nguyen.",
+        "ground_truth_label": "Pro-vaccine; trusted sources = mom (RN) + Dr. Nguyen.",
+        "behavioral_evidence_from_interview": [
+          "Q41: 'I had my flu shot in October.'",
+          "Q42: 'My mom. She's a nurse so she knows. And my pediatrician Dr. Nguyen.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Favorite foods are homemade mac and cheese with cheddar, PB&J sandwiches, and weekend pancakes with maple syrup.",
+        "ground_truth_label": "Comfort-food preference set: mac & cheese, PB&J, pancakes w/ maple syrup.",
+        "behavioral_evidence_from_interview": [
+          "Q32: 'I really really like sweets and pancakes with lots of syrup, and I would eat mac and cheese every day if I could.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Saturday post-soccer-game family tradition is McDonald's or Whataburger.",
+        "ground_truth_label": "Saturday post-game fast food: McDonald's / Whataburger.",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'Then we get McDonald's or Whataburger after, that's our tradition.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Weekday breakfast is cereal or eggs made by his father.",
+        "ground_truth_label": "Weekday breakfast — cereal or dad-made eggs.",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'eat cereal or sometimes eggs my dad makes.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Bakes cookies and once a pie with Grandma Joan in Greenville.",
+        "ground_truth_label": "Baking with Grandma Joan.",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'We bake stuff, like cookies and one time a pie that kinda burned.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Family drinks ginger tea for upset stomach.",
+        "ground_truth_label": "Home remedy — ginger tea.",
+        "behavioral_evidence_from_interview": [
+          "Q37: 'my mom has us drink ginger tea when our stomach hurts.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Took a family road trip to the Grand Canyon two summers ago — farthest he's ever traveled from home.",
+        "ground_truth_label": "Grand Canyon road trip — 2 summers ago.",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'We went to the Grand Canyon two summers ago and that was the farthest I've ever been from home.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Drives to Tyler, TX (~2 hours) to visit paternal grandparents.",
+        "ground_truth_label": "Tyler, TX visits to paternal grandparents.",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'Grandma and Grandpa Gatlin who live in Tyler, that's like two hours away.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "Q01",
+          "Q35"
+        ]
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Hopes to visit Tokyo for anime cafés and cherry blossoms with family.",
+        "ground_truth_label": "Travel aspiration — Tokyo.",
+        "behavioral_evidence_from_interview": [
+          "Q108: 'I want to go to Tokyo and see the anime stuff and the cherry blossoms, maybe with my family in high school or something.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Dreams of visiting the historic castles of Scotland.",
+        "ground_truth_label": "Travel aspiration — Scotland.",
+        "behavioral_evidence_from_interview": [
+          "seed.travel_persona"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Family occasionally drives to Dallas museums (long drive cited as a downside of living in Royse City).",
+        "ground_truth_label": "Dallas museum trips.",
+        "behavioral_evidence_from_interview": [
+          "Q10: 'it's kinda far from cool stuff like the big museums in Dallas.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Best friend is Jacob Mendez; friends since first grade; Jacob lives four streets over.",
+        "ground_truth_label": "Best friend = Jacob Mendez.",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'My best friend is Jacob Mendez, he's been my friend since first grade. He lives like four streets over.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Plays Minecraft with Jacob on a private two-person server where they built a castle and a pretend mall.",
+        "ground_truth_label": "Two-person Minecraft server with Jacob.",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'We have a server with just us two and we built a whole castle and a pretend mall.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Close friend Caleb is a soccer teammate; Aanya from art club is admired for her horse drawings.",
+        "ground_truth_label": "Other close friends: Caleb (soccer), Aanya (art club).",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'Then there's Caleb who is on my soccer team and we hang out at recess. And there's Aanya from art club, she's really good at drawing horses.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "Q26"
+        ]
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Sees Grandma Joan in Greenville roughly every other weekend.",
+        "ground_truth_label": "Visits with Grandma Joan ≈ every other weekend.",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'I see Grandma Joan a lot, like every other weekend usually.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Has a 5-year-old sister Ellie; sibling friction (LEGO, shared bathroom) coexists with shared play like a blanket fort and 'restaurant' game.",
+        "ground_truth_label": "Sister Ellie, age 5; mixed sibling dynamic.",
+        "behavioral_evidence_from_interview": [
+          "Q01-followup: 'She's five. She's loud... she always wants to play with my LEGOs and break them.'",
+          "Q05-followup: 'we have a fort in the playroom we made together with blankets and we play 'restaurant'.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "Q52"
+        ]
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Has Uncle Pete (Army veteran) and Aunt Kim with cousin Wyatt in Dallas; Aunt Lacey in Houston (seen ~twice a year).",
+        "ground_truth_label": "Extended family — Dallas (Pete/Kim/Wyatt), Houston (Lacey).",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'My Uncle Pete is my dad's brother and he lives in Dallas with my Aunt Kim and they have a baby named Wyatt.'",
+          "Q06: 'my mom's sister Aunt Lacey but she lives in Houston so I only see her like twice a year.'",
+          "Q93: 'My uncle was in the Army though, my Uncle Pete.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Parental decision-style asymmetry: mother uses Socratic questioning to elicit his preference; father gives direct opinions that feel faster but less collaborative.",
+        "ground_truth_label": "Mom = Socratic; Dad = directive.",
+        "behavioral_evidence_from_interview": [
+          "Q03-followup: 'she asks me questions until I figure out what I actually want. Dad just tells me what he thinks, which is sometimes faster but kinda less fun.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Once borrowed $3 from Jacob for a Slurpee and repaid him — only debt experience.",
+        "ground_truth_label": "Only debt event — $3 Slurpee loan from Jacob.",
+        "behavioral_evidence_from_interview": [
+          "Q63: 'I borrowed three dollars from Jacob once for a Slurpee and I paid him back.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Father co-regulated him during grandfather's hospitalization stress overlap with science-fair deadline by sitting with him and validating his fear.",
+        "ground_truth_label": "Father co-regulation during high-stress overlap.",
+        "behavioral_evidence_from_interview": [
+          "Q44: 'my dad came and we just sat for a while and he said it's okay to be scared.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Lives on Pecan Drive in a tree-named-street Royse City subdivision.",
+        "ground_truth_label": "Address — Pecan Drive, Royse City.",
+        "behavioral_evidence_from_interview": [
+          "Q08: 'The streets are all named after trees, we live on Pecan Drive.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Family owns home with a mortgage; parents bought the house when his mother was pregnant with him (~2016).",
+        "ground_truth_label": "Owner-occupied home with mortgage since ~2016.",
+        "behavioral_evidence_from_interview": [
+          "Q08: 'they bought the house when she was pregnant with me.'",
+          "Q58: 'We own it. My parents have a mortgage I think.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Household consists of mother Sarah (RN), father Mike (contractor), sister Ellie (5), and a dog Biscuit (~7-year-old brown mutt from shelter).",
+        "ground_truth_label": "Household = 4 people + 1 dog.",
+        "behavioral_evidence_from_interview": [
+          "Q05, Q06, Q11, Q51"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Chores include feeding Biscuit AM/PM, making bed, taking out recycling on Wednesdays, and unloading the dishwasher.",
+        "ground_truth_label": "Chore set.",
+        "behavioral_evidence_from_interview": [
+          "Q16: 'I have to feed Biscuit in the morning and after school. I make my bed, mostly. I take out the recycling on Wednesdays. And I help unload the dishwasher.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Receives $5/week allowance paid Sundays from his mother's wallet, contingent on chore completion; docked $1 for missed recycling.",
+        "ground_truth_label": "Allowance = $5/week conditional; $1 penalty for missed recycling.",
+        "behavioral_evidence_from_interview": [
+          "Q16: 'I get five dollars a week allowance if I do everything. Some weeks I forget the recycling and then I only get four.'",
+          "Q73: 'Every Sunday. Mom gives me a five from her wallet.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Younger sister Ellie attends a daycare/preschool that is a noted household expense.",
+        "ground_truth_label": "Ellie in daycare/preschool — household cost.",
+        "behavioral_evidence_from_interview": [
+          "Q79: 'I think Ellie goes to a daycare/preschool and that costs money mom says.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Father runs his own small residential contracting business (self-named ~Gatlin Construction) with one or two employees, doing framing, roofing, and remodels.",
+        "ground_truth_label": "Father is self-employed contractor with 1-2 employees.",
+        "behavioral_evidence_from_interview": [
+          "Q106: 'He's a contractor. He builds houses or fixes them. Like he does framing and roofing.'",
+          "Q107: 'He works for himself I think. Like he has his own little company, Gatlin Construction or something. He has one or two guys who work with him.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Mother has promised to help open a real bank savings account once he reaches $100 in his jar.",
+        "ground_truth_label": "Future savings-account milestone at $100.",
+        "behavioral_evidence_from_interview": [
+          "Q61: 'My mom says she'll help me open a real savings account when I have $100.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Favorite YouTubers are ZHC, Aphmau, and Art for Kids Hub on a YouTube Kids account.",
+        "ground_truth_label": "YouTube favorites: ZHC, Aphmau, Art for Kids Hub.",
+        "behavioral_evidence_from_interview": [
+          "Q48-followup: 'There's this guy ZHC who draws huge stuff... Aphmau does Minecraft roleplays. And Art for Kids Hub does step by step drawing tutorials.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Plays Minecraft frequently and shares a Roblox account with his sister.",
+        "ground_truth_label": "Minecraft + shared Roblox account.",
+        "behavioral_evidence_from_interview": [
+          "Q48: 'we have a family Roblox account I share with Ellie.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Codes simple interactive stories in Scratch.",
+        "ground_truth_label": "Scratch programming.",
+        "behavioral_evidence_from_interview": [
+          "seed.skills_and_expertise"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "Q108"
+        ]
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Currently rereading the third Amulet graphic novel; loves the Amulet series; also enjoys Studio Ghibli's My Neighbor Totoro.",
+        "ground_truth_label": "Media taste — Amulet (book 3 reread); Studio Ghibli.",
+        "behavioral_evidence_from_interview": [
+          "Q17-followup: 'I'm rereading the third Amulet book because I love it.'",
+          "seed.arts_persona"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "Q01"
+        ]
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "School read is Because of Winn-Dixie.",
+        "ground_truth_label": "School book — Because of Winn-Dixie.",
+        "behavioral_evidence_from_interview": [
+          "Q17-followup: 'for school we're doing Because of Winn-Dixie which is okay, kinda slow but the dog is cute.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Parental rule: no social media until age 13.",
+        "ground_truth_label": "No social media until 13.",
+        "behavioral_evidence_from_interview": [
+          "Q48: 'I don't have social media. My mom says not until I'm thirteen.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Sketches daily; recreates favorite scenes from media into his sketchbook.",
+        "ground_truth_label": "Daily sketching habit.",
+        "behavioral_evidence_from_interview": [
+          "Q43: 'I usually go draw. Like if I'm stressed I'll just sit and draw and that calms me down.'",
+          "seed.arts_persona"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Saving $80 in a mason jar for a LEGO Bionicle set; currently has $47 after five months.",
+        "ground_truth_label": "Savings goal — $80 LEGO Bionicle; $47 in mason jar.",
+        "behavioral_evidence_from_interview": [
+          "Q16: 'I'm saving up for a LEGO Bionicle set that's like eighty dollars.'",
+          "Q61: 'I have $47 in it right now.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "Q82"
+        ]
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Attends after-school art club at Royse City Elementary Mondays and Wednesdays until 4:30 PM.",
+        "ground_truth_label": "Art club Mon/Wed after school.",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'Mondays and Wednesdays I have art club after school until 4:30.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Attends a 2-week art camp at the community center every July (drawing, painting, one day of clay).",
+        "ground_truth_label": "July art camp — 2 weeks — community center.",
+        "behavioral_evidence_from_interview": [
+          "Q43-followup: 'It's at the community center for two weeks in July. They do drawing and painting and one day clay.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Attends Vacation Bible School at First Baptist Royse City for a week each summer.",
+        "ground_truth_label": "VBS — First Baptist — summer.",
+        "behavioral_evidence_from_interview": [
+          "Q47: 'We do Vacation Bible School in the summer for a week, that's fun, they do crafts.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Practices delayed gratification: once waited two weeks of allowance to afford a desired comic at Barnes & Noble.",
+        "ground_truth_label": "Delayed-gratification episode at Barnes & Noble.",
+        "behavioral_evidence_from_interview": [
+          "Q64: 'There was a comic book at Barnes and Noble I wanted but didn't have enough so I had to wait two weeks of allowance.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "In 4th grade at Royse City Elementary in Mrs. Halverson's class; has attended since kindergarten (5 years).",
+        "ground_truth_label": "4th grade at Royse City Elementary — Mrs. Halverson.",
+        "behavioral_evidence_from_interview": [
+          "Q76: 'I've been at Royse City Elementary since kindergarten so five years.'",
+          "Q91: 'Royse City Elementary, fourth grade. Mrs. Halverson's class.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Favorite subject is art; also likes science and math; weakest at spelling.",
+        "ground_truth_label": "Subject preferences — art > science > math; weak in spelling.",
+        "behavioral_evidence_from_interview": [
+          "Q65-followup: 'Art for sure. Then science... Math is okay I'm good at it. Reading I like if the book is good. Spelling I'm bad at.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Career aspirations: comic book artist (primary), engineer/inventor, possibly teacher or community organizer.",
+        "ground_truth_label": "Career aspirations.",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'I want to be a comic book artist when I grow up, or maybe an engineer who makes cool gadgets.'",
+          "seed.career_goals_and_ambitions"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "Q108"
+        ]
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Imagined comic-book idea: a kid artist who discovers a backyard portal to a world of creatures whose drawings come to life — inspired by Amulet but his own version.",
+        "ground_truth_label": "Comic-book pitch — portal/backyard/creature-world.",
+        "behavioral_evidence_from_interview": [
+          "Q108-followup: 'a kid who discovers a portal in his backyard to a world with creatures, kinda inspired by Amulet but my own version.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Mrs. Halverson lets him sketch in the margins when he finishes math early.",
+        "ground_truth_label": "Classroom accommodation — margin-sketching.",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'Mrs. Halverson is really nice and she lets me draw in the margins if I finish my math early.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Aspires to upgrade to a Strathmore sketchbook (premium drawing paper) as next savings target after the LEGO set.",
+        "ground_truth_label": "Aspirational sketchbook — Strathmore.",
+        "behavioral_evidence_from_interview": [
+          "Q61-followup: 'maybe a real sketchbook with the good paper, the Strathmore ones, those are expensive.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Art influences include the Amulet graphic novel series, Studio Ghibli's My Neighbor Totoro, and Andy Warhol prints viewed at kid-friendly exhibits.",
+        "ground_truth_label": "Art influences — Amulet, Ghibli, Warhol.",
+        "behavioral_evidence_from_interview": [
+          "seed.arts_persona"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Art club is run by Mrs. Patel, who Thomas has known since 2nd grade.",
+        "ground_truth_label": "Art club leader — Mrs. Patel.",
+        "behavioral_evidence_from_interview": [
+          "Q02-followup: 'I knew Mrs. Patel who runs it.'",
+          "Q07"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Made a clay sloth at art camp last year that sits on his windowsill.",
+        "ground_truth_label": "Clay sloth — art camp keepsake.",
+        "behavioral_evidence_from_interview": [
+          "Q43-followup: 'made a comic and a clay sloth that's on my windowsill.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Plays for the Oakwood Rangers youth soccer team, sometimes at the wing position; scored a memorable tournament goal last fall.",
+        "ground_truth_label": "Oakwood Rangers soccer — wing — memorable goal.",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'I play on the Oakwood Rangers and we had a tournament last fall where I scored one goal.'",
+          "Q01-followup: 'I was playing wing, and Caleb passed it to me kinda by accident.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Soccer practice is Tuesdays and Thursdays 5:00-6:30 PM at fields by the middle school.",
+        "ground_truth_label": "Soccer practice schedule.",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'Tuesdays and Thursdays I have soccer practice from 5 to 6:30 at the fields by the middle school.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Saturday-morning soccer games during the season; family travels to Greenville and Wylie for matches.",
+        "ground_truth_label": "Saturday game travel — Greenville/Wylie.",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'sometimes Greenville or Wylie.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Coach is Coach Davis, who carried him to the bench when he sprained his ankle.",
+        "ground_truth_label": "Coach Davis.",
+        "behavioral_evidence_from_interview": [
+          "Q07",
+          "Q33-followup: 'Coach Davis carried me to the bench.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Cheers for the Dallas Cowboys during family football nights.",
+        "ground_truth_label": "Dallas Cowboys fan.",
+        "behavioral_evidence_from_interview": [
+          "seed.sports_persona"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Plays backyard tag, capture-the-flag, and bike races with neighborhood kids (≥5 kids his age on his street).",
+        "ground_truth_label": "Neighborhood unstructured play.",
+        "behavioral_evidence_from_interview": [
+          "Q08: 'we sometimes do bike races or capture the flag in the summer.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Observes insects and birds in his backyard.",
+        "ground_truth_label": "Backyard nature observation.",
+        "behavioral_evidence_from_interview": [
+          "seed.persona",
+          "seed.hobbies_and_interests"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Park at the end of Pecan Drive has a playground, basketball court, and a pond with ducks; he climbs a large oak tree there.",
+        "ground_truth_label": "Neighborhood park features and oak-tree climbing.",
+        "behavioral_evidence_from_interview": [
+          "Q08: 'There's a park at the end of our street with a playground and a basketball court, and there's a pond a little further with ducks.'",
+          "Q08-followup: 'there's a big oak tree where my friends and I climb.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Once saw a hawk eat a lizard at the neighborhood park.",
+        "ground_truth_label": "Hawk-and-lizard sighting.",
+        "behavioral_evidence_from_interview": [
+          "Q08-followup: 'Once I saw a hawk eat a lizard there which was kinda gross but cool.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Coyote sighting in the neighborhood prompted warnings to keep cats indoors.",
+        "ground_truth_label": "Coyote in neighborhood.",
+        "behavioral_evidence_from_interview": [
+          "Q09-followup: 'There was a coyote in someone's yard one time and everyone was warned to keep their cats inside.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Aspires to learn to make real video games (beyond Scratch).",
+        "ground_truth_label": "Aspiration — real game development.",
+        "behavioral_evidence_from_interview": [
+          "Q108: 'I want to learn to make video games, like real ones, not just Scratch.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Mother posts photos of him on Facebook, which he finds annoying.",
+        "ground_truth_label": "Mom posts him on Facebook (annoying to Thomas).",
+        "behavioral_evidence_from_interview": [
+          "Q48: 'My mom posts pictures of me on Facebook sometimes which I think is annoying.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Attends First Baptist Royse City weekly with family; participates in Sunday School (Pastor Tim leads the church).",
+        "ground_truth_label": "Church — First Baptist Royse City (Pastor Tim).",
+        "behavioral_evidence_from_interview": [
+          "Q47: 'my family is Christian, Baptist. We go to First Baptist in Royse City every Sunday almost. I do Sunday School.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "Q15"
+        ]
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Attends State Fair of Texas with family (a regional civic tradition).",
+        "ground_truth_label": "State Fair attendance.",
+        "behavioral_evidence_from_interview": [
+          "seed.cultural_background",
+          "Q21: 'just seeing them at the State Fair maybe.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Has accompanied mother to the polling place (elementary school gym) and received an 'I Voted' sticker.",
+        "ground_truth_label": "Polling-place tag-along with mom.",
+        "behavioral_evidence_from_interview": [
+          "Q23-followup: 'It's like a regular day, you wait in line, she goes into a little booth... The sticker is the best part, it says I Voted.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Voted for friend Aanya in a 3rd-grade class president mock election; she won.",
+        "ground_truth_label": "3rd-grade mock election — voted for Aanya.",
+        "behavioral_evidence_from_interview": [
+          "Q24-followup: 'We did a mock vote for class president in third grade and I voted for my friend Aanya, she won.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Learned about Martin Luther King Jr. and Ruby Bridges during Black History Month at school and reported feeling sad and impressed.",
+        "ground_truth_label": "Black History Month — MLK + Ruby Bridges.",
+        "behavioral_evidence_from_interview": [
+          "Q26: 'We talked a little in school about Martin Luther King Jr.'",
+          "Q28: 'We had a thing at school for Black History Month and I learned about Ruby Bridges and that made me sad and also impressed.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Law-enforcement exposure is limited to Officer Friendly visiting school (with K-9 Rex) and father receiving a warning for a tail light at a traffic stop.",
+        "ground_truth_label": "Limited LE contact — Officer Friendly + dad's warning.",
+        "behavioral_evidence_from_interview": [
+          "Q20: 'We had Officer Friendly come to our school in second grade... my dad got pulled over once on the highway... the cop just gave him a warning about a tail light.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Listens to acoustic and country music; favorites include Chris Stapleton and Mumford & Sons (family-influenced).",
+        "ground_truth_label": "Music taste — Stapleton, Mumford & Sons.",
+        "behavioral_evidence_from_interview": [
+          "seed.arts_persona",
+          "seed.hobbies_and_interests"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Likes live-band worship music at First Baptist (guitars, not just organ).",
+        "ground_truth_label": "Worship music taste — guitars.",
+        "behavioral_evidence_from_interview": [
+          "Q47-followup: 'The singing actually. We sing songs and there's a band, not just an organ, like guitars too.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Takes piano lessons Thursday mornings during school elective time; started February 2026; supposed to practice 15 min/day (often skipped).",
+        "ground_truth_label": "Piano lessons — started Feb 2026 — Thursday mornings.",
+        "behavioral_evidence_from_interview": [
+          "Q17: 'I'm supposed to practice piano fifteen minutes a day which I don't always do. I take piano lessons on Thursday mornings.'",
+          "Q18: 'The piano lessons started in February which is new.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Wears a blue-and-white Oakwood Rangers soccer kit.",
+        "ground_truth_label": "Soccer kit — blue/white.",
+        "behavioral_evidence_from_interview": [
+          "Q15-followup: 'I put on my soccer kit which is blue and white.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Notes his own short stature and hopes to be taller.",
+        "ground_truth_label": "Self-described short; hopes to grow taller.",
+        "behavioral_evidence_from_interview": [
+          "Q108: 'I hope I'm tall, I'm kinda short right now.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Identifies as white, non-Hispanic.",
+        "ground_truth_label": "Race/ethnicity — white, non-Hispanic.",
+        "behavioral_evidence_from_interview": [
+          "Q88: 'No.'",
+          "Q89: 'White.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Born in Greenville, TX; lifelong Royse City resident.",
+        "ground_truth_label": "Birthplace Greenville, TX; lifelong Royse City.",
+        "behavioral_evidence_from_interview": [
+          "Q86: 'Yeah, born in the U.S. In Texas.'",
+          "Q87: 'Greenville, Texas, at the hospital there. Then we lived in Royse City the whole time.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Family identifies as Baptist Christian and attends Friday-night high-school football games as a regional ritual.",
+        "ground_truth_label": "Baptist + Friday-night football ritual.",
+        "behavioral_evidence_from_interview": [
+          "Q94: 'Christian. Baptist.'",
+          "seed.cultural_background"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Engages in age-appropriate theological questioning (e.g., why bad things happen if God is good); discusses with his mother.",
+        "ground_truth_label": "Theological questioning.",
+        "behavioral_evidence_from_interview": [
+          "Q47-followup: 'Like why does bad stuff happen if God is good. My mom said it's a question lots of people ask. I'm still figuring it out.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Born August 14, 2016 in Greenville, TX.",
+        "ground_truth_label": "DOB = 2016-08-14; birthplace Greenville, TX.",
+        "behavioral_evidence_from_interview": [
+          "Q85: 'August 14, 2016.'",
+          "Q87"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Grandfather was hospitalized in Tyler, TX with a cardiac issue; had a device implanted; now stable.",
+        "ground_truth_label": "Grandfather's cardiac event — device implant — recovered.",
+        "behavioral_evidence_from_interview": [
+          "Q01-followup: 'He had something with his heart... They put a thing in there to help it. He's better now.'",
+          "Q35: 'my grandpa with the heart thing... He's better now.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "Q44"
+        ]
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Began biking alone to Jacob's house in March 2026 — a new independence milestone.",
+        "ground_truth_label": "New independence — solo biking — March 2026.",
+        "behavioral_evidence_from_interview": [
+          "Q18: 'I started being able to ride my bike to Jacob's alone, that started in March.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Mother's clinic schedule changed so she works some Saturdays (about twice a month); father takes Thomas to soccer games on those days.",
+        "ground_truth_label": "Mom's new Saturday clinic shifts (~2x/month).",
+        "behavioral_evidence_from_interview": [
+          "Q18: 'my mom got a new shift schedule at the clinic so now she does Saturdays sometimes.'",
+          "Q18-followup: 'it's only like twice a month.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Self-defining 2nd-grade choice: picked art club over the soccer skills clinic (same day) due to social anxiety with unfamiliar coach and peers; the next year added soccer when schedules separated.",
+        "ground_truth_label": "Identity-forming choice — art club > soccer clinic in 2nd grade.",
+        "behavioral_evidence_from_interview": [
+          "Q02: 'I could either do art club after school or do the soccer skills clinic, and they were on the same day... I picked art club because I was nervous about soccer.'",
+          "Q02-followup: 'Soccer was with a bunch of kids I didn't know and a coach who yelled.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Father watches Fox News in the morning during coffee; mother listens to NPR in the car.",
+        "ground_truth_label": "Household news media — Fox (dad) + NPR (mom).",
+        "behavioral_evidence_from_interview": [
+          "Q24-followup: 'My dad watches Fox sometimes in the morning... My mom listens to NPR in the car.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Parents have asymmetric political leanings: father votes Republican; mother is unaligned or moderate ('maybe more in the middle').",
+        "ground_truth_label": "Parental partisanship asymmetry.",
+        "behavioral_evidence_from_interview": [
+          "Q95: 'My dad votes Republican I'm pretty sure. My mom I'm not sure, maybe more in the middle.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Family funds a 529 college savings account for Thomas (and presumably Ellie).",
+        "ground_truth_label": "529 plan in place.",
+        "behavioral_evidence_from_interview": [
+          "Q62: 'Mom says she saves for emergencies and for our college. She talks about a 529 thing, which I think is for college money.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Mother Sarah works at a family-medicine clinic in Rockwall, TX as a registered nurse (Bachelor's-prepared); commutes for shifts.",
+        "ground_truth_label": "Mom's workplace — Rockwall family-medicine clinic.",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'My mom is a nurse, she works at the clinic in Rockwall.'",
+          "Q101: 'a nursing degree from college... She's a registered nurse.'",
+          "Q103, Q104"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "reprojected",
+        "source_subcategory": "preferences.behavioral_economist_observations",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Mother offers a savings-match incentive at Thomas's birthday (August), matching what he has saved.",
+        "ground_truth_label": "Birthday savings-match incentive.",
+        "behavioral_evidence_from_interview": [
+          "Q16-followup: 'My mom said maybe she'll match what I save for my birthday in August.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-093",
+        "source": "reprojected",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Self-describes (and is described by mother) as a 'worrier'; saw a school counselor for test-related anxiety.",
+        "ground_truth_label": "Self/parent label: 'worrier'; counselor visit for anxiety.",
+        "behavioral_evidence_from_interview": [
+          "Q43: 'My mom calls me a worrier.'",
+          "Q45: 'My mom says I'm anxious sometimes... I went to one once at school to talk about test stress.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-094",
+        "source": "reprojected",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Emotion-regulation repertoire includes sketching, physical proximity to dog Biscuit on the floor, and verbal disclosure to his mother.",
+        "ground_truth_label": "Coping repertoire — draw / dog proximity / talk to mom.",
+        "behavioral_evidence_from_interview": [
+          "Q43-followup: 'I'll just sit and draw and that calms me down. Or I'll tell my mom... Sometimes I just lay on the floor with Biscuit.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-095",
+        "source": "reprojected",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Holds an emergent values-frame on race ('be kind, treat everyone fair') anchored by mother's correction of an older relative and school exposure to civil-rights figures.",
+        "ground_truth_label": "Race values frame — affective egalitarianism.",
+        "behavioral_evidence_from_interview": [
+          "Q26: 'I think everyone should be treated the same.'",
+          "Q30-followup: 'old people stuff sometimes. Mom corrects her.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-096",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Has not engaged in protests or activism around race issues; absorbs values through family and school rather than collective action.",
+        "ground_truth_label": "No protest engagement; mediated absorption.",
+        "behavioral_evidence_from_interview": [
+          "Q29: 'I haven't done anything like a protest. I just try to be nice to everyone at school.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-097",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Identity is consolidated around three pillars: artist (primary, aspirational), family-member (most-valued anchor), and learner (school as his 'job').",
+        "ground_truth_label": "Three-pillar identity — artist / family / learner.",
+        "behavioral_evidence_from_interview": [
+          "Q65: 'I'm a fourth grader, that's my job I guess.'",
+          "Q108",
+          "Q109-followup: 'Family. Because everything else kinda comes from them.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-098",
+        "source": "reprojected",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": "summaries.health_and_wellness",
+        "claim": "Grandma Joan applies essential oils (lavender on headaches) as informal/alternative care; family also uses ginger tea.",
+        "ground_truth_label": "Alternative-care exposure — lavender oil from Grandma Joan.",
+        "behavioral_evidence_from_interview": [
+          "Q37: 'my Grandma Joan does essential oils and stuff and she rubs lavender on me sometimes when I have a headache.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-099",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "A church-member sheriff is occasionally present at First Baptist services.",
+        "ground_truth_label": "Sheriff at church — incidental civic figure.",
+        "behavioral_evidence_from_interview": [
+          "Q21: 'there's a sheriff who comes to our church sometimes who's a member there.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-100",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Household is intact (married two-parent), English-speaking, evangelical Protestant (Baptist), economically stable.",
+        "ground_truth_label": "Household structure — intact, English, Baptist, stable.",
+        "behavioral_evidence_from_interview": [
+          "Q05",
+          "Q11",
+          "Q47",
+          "Q83: 'I don't worry about money stuff.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-101",
+        "source": "reprojected",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Shows early metacognitive awareness — e.g., recognizes his mom's 'it's complicated' as a signal he will understand more later.",
+        "ground_truth_label": "Metacognitive awareness — 'understand more when older.'",
+        "behavioral_evidence_from_interview": [
+          "Q27: 'My mom says it's complicated which usually means I'll understand more when I'm older.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-102",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Self-positions politically 'in the middle' when pressed and rejects partisan identification at age 9.",
+        "ground_truth_label": "Self-placed political ID = middle/no-party.",
+        "behavioral_evidence_from_interview": [
+          "Q95: 'I don't really have a party.'",
+          "Q96: 'Maybe in the middle.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}

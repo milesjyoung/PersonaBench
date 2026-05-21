@@ -1,0 +1,2770 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "a979cdc1dbcc4a68b2bdd8ddeac80e9f",
+      "name": "John Garrity",
+      "verification_date": "2026-05-20"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age=2, sex=Male, marital_status=never_married, education_level=less_than_9th, occupation=not_in_workforce all align with interview confirmation that John is 2 years old, male, never married, with no completed grade and not in the workforce.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.age/sex/marital_status/education_level/occupation",
+              "source_b_ref": "Q01, Q84, Q85, Q90, Q91",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed city/state/zip Kennewick, WA 99336 align with interview confirmation of Kennewick residence in the Creekstone neighborhood off Olympia Street.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.city/state/zipcode",
+              "source_b_ref": "Q08, Q87",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed cultural_background describes 'typical white, middle-class family in Kennewick, Washington, part of the Columbia Basin region' and Q88/Q89 confirm non-Hispanic white identity; interview enriches with Tri-Cities mixed demographics including Hispanic and Pacific Islander neighbors.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q08, Q28, Q88, Q89",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed professional_persona labels John an 'early-childhood educator-in-training' — this is clearly aspirational framing for a 2-year-old, while interview Q65/Q108 give his actual stated aspirations as 'firefighter' and to 'build big houses.' The seed phrase is metaphorical, not contradictory.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.professional_persona",
+              "source_b_ref": "Q65, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Seed does not state household composition; interview clarifies a three-person nuclear household (Mark, Sarah, John) plus cat Biscuit, with both biological parents college-educated and employed.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed (silent on household)",
+              "source_b_ref": "Q11, Q51, Q100, Q101",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 6,
+              "text": "Seed mentions 'Ridgefield Lakes' for summer splash-pad play, but Ridgefield is in southwest Washington (~250 miles from Kennewick); interview only references generic 'splash pad in summer' without naming Ridgefield Lakes. The seed-named location is geographically improbable for a Kennewick family's regular summer outing.",
+              "verdict": "inconsistent",
+              "gap": true,
+              "source_a_ref": "seed.sports_persona",
+              "source_b_ref": "Q15, Q19",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Remove the specific 'Ridgefield Lakes' attribution in preferences.sports_and_fitness and preferences.nature_and_outdoors; retain generic 'splash pad in summer' as supported by interview."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 1,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile location 'Kennewick, WA 99336 (Creekstone neighborhood, Olympia Street, south Kennewick)' faithfully captures Q08 description.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q08",
+              "source_b_ref": "profile.location",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile education and occupation strings correctly state 'Less than 9th grade; currently enrolled part-time at Little Sprouts Learning Center' and 'Not in workforce; full-time toddler; attends preschool 3 mornings/week,' matching Q90-Q92.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q90, Q91, Q92",
+              "source_b_ref": "profile.education, profile.occupation",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile cultural_and_linguistic correctly notes white middle-class Kennewick upbringing and ~200-word vocabulary, consistent with Q31, Q89.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q31, Q89",
+              "source_b_ref": "preferences.cultural_and_linguistic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile demographer summary states parents are 'two college-educated, married biological parents,' supported by Q100 (Mark BS mechanical engineering, WSU) and Q101 (Sarah BA English, EWU).",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q100, Q101",
+              "source_b_ref": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Profile lists 'Started at Little Sprouts in September 2025' under work_and_career, supported by Q01 ('started at Little Sprouts Learning Center part-time last September').",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01",
+              "source_b_ref": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile life_events_and_transitions states birth at Trios Health Hospital in Kennewick on March 14, 2024; profile demographer summary states the same. Internally consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.life_events_and_transitions",
+              "field_b": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile work_and_career states preschool M/W/F 8:30–noon and home_and_lifestyle/entertainment reference weekday after-lunch screen time — schedule fragments interlock without contradiction.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career",
+              "field_b": "preferences.entertainment",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile sports_and_fitness lists 'Summer splash-pad play at Ridgefield Lakes' while travel/nature subcategories don't mention Ridgefield. The Ridgefield Lakes label originates from seed only and is geographically implausible for a Kennewick family; should be normalized to generic 'splash pad in summer.'",
+              "verdict": "inconsistent",
+              "gap": false,
+              "field_a": "preferences.sports_and_fitness",
+              "field_b": "preferences.nature_and_outdoors",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Replace 'Summer splash-pad play at Ridgefield Lakes' with 'Summer splash-pad play (location generic; seed named Ridgefield Lakes is geographically implausible — interview confirms only generic splash pad)'."
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 1,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Q08 mentions Yoke's neighborhood market (5-min drive) and Costco (10-min drive) as the family's grocery anchors — absent from profile.",
+              "gap": true,
+              "interview_ref": "Q08, Q15",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Family grocery anchors: Yoke's (5-min drive) and Costco (10-min drive); John helps shop at Yoke's on Thursdays' to home_and_lifestyle.details."
+            },
+            {
+              "id": 2,
+              "text": "Q08 describes the Creekstone development as ~15 years old, tan stucco craftsman, mostly young families and some retirees, demographically mixed (white, Hispanic, Pacific Islander) — partially in profile but missing the age-of-development and retiree/young-family mix.",
+              "gap": true,
+              "interview_ref": "Q08",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Creekstone neighborhood is ~15 years old, tan stucco craftsman homes, mostly young families and some retirees, demographically mixed' to home_and_lifestyle.details."
+            },
+            {
+              "id": 3,
+              "text": "Q09 mentions Steptoe Street traffic as a safety concern and a 2024 car break-in incident; profile omits both.",
+              "gap": true,
+              "interview_ref": "Q09",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Parents perceive neighborhood as very safe; Steptoe Street cut-through traffic is the main concern; one car break-in two streets over ~2024-2025 was the notable incident' to home_and_lifestyle.details."
+            },
+            {
+              "id": 4,
+              "text": "Q98 confirms John currently lives with both biological parents in an intact household; profile demographer summary mentions this but the preferences subcategories do not encode the household-structure fact directly.",
+              "gap": true,
+              "interview_ref": "Q11, Q51, Q98",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Already implicit in social_and_relationships; add explicit detail 'Two-biological-parent intact household, no other adults present.'"
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed culinary_persona describes refusal of peas and preference for soft cheese pizza bites, mac and cheese, honey-glazed carrots, blueberry pancakes, banana smoothies; Q32, Q15, Q01 confirm pea refusal, mac and cheese, pizza bites, blueberry pancakes, banana with peanut butter.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.culinary_persona",
+              "source_b_ref": "Q01, Q15, Q32",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed persona description of order-loving, routine-thriving behavior with occasional dramatic tantrums (e.g., missing blanket) is precisely confirmed by Q03, Q43, Q44.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q03, Q43, Q44",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed describes 'practical, routine-oriented mindset, reliable yet flexible attitude' — interview reinforces this via spreadsheet-driven parental decision-making (Q02, Q03) and sinking-fund/529 budgeting (Q60, Q61).",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.professional_persona",
+              "source_b_ref": "Q02, Q03, Q60, Q61",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed is silent on household financial behaviors (savings, insurance, debt) — interview enriches substantially: 4-month emergency fund, $150/month 529, sinking funds, HSA, mortgage at 6.1%, no credit card debt.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed (silent on finances)",
+              "source_b_ref": "Q56, Q58, Q60, Q61, Q63, Q83",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile behavioral_economist summary captures Q17 cleanup-with-raisins extrinsic incentive and the 'Clean Up' song nudge; consistent with interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q17",
+              "source_b_ref": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile lists $650/month childcare cost for the part-time slot under work_and_career, matching Q56 exactly.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q56",
+              "source_b_ref": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile mentions $2,100 mortgage, $700 groceries, $250 utilities, $400 cars/gas only in summaries — none of these monthly budget figures appear in the preferences subcategories, leaving the financial picture under-specified in the detail records.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q56, Q57, Q58, Q59",
+              "source_b_ref": "preferences (no finance subcategory)",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile correctly recognizes loss-aversion behavior around Bee-Bee blanket; consistent with Q43/Q44.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q43, Q44",
+              "source_b_ref": "summaries.behavioral_economist, preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Profile work_and_career notes 'Class size ~14 toddlers' citing Q77; Q77 says 'his coworkers are 14 other toddlers' — i.e., the class has him plus 14, totaling ~15. Minor count distinction but not contradictory in normal reading.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q77",
+              "source_b_ref": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile entertainment, music, and arts_and_culture overlap on 'sings Sesame Street theme' and storytime — overlap is intentional and non-contradictory.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.entertainment",
+              "field_b": "preferences.music",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile hobbies_and_recreation and work_and_career both describe block-sorting/order behaviors; consistent across subcategories.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.hobbies_and_recreation",
+              "field_b": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Q56-Q63 expose a rich household budget that the profile does not enumerate in any preferences subcategory: $5,000 typical monthly spend, $9,500 monthly household gross, $2,100 mortgage, $700 groceries, $250 utilities, $400 cars/gas, $200/mo sinking fund, $150/mo 529, 4-month emergency fund, one car loan ~2 yrs left, no credit card debt.",
+              "gap": true,
+              "interview_ref": "Q56, Q57, Q59, Q60, Q61, Q62, Q63, Q74, Q83",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add household budget detail block to home_and_lifestyle: monthly spend ~$5k, monthly gross ~$9.5k, mortgage ~$2,100, groceries ~$700, utilities ~$250, vehicles/gas ~$400, $200/mo sinking fund, $150/mo 529, 4-month emergency fund, one car loan ~2 yrs remaining, no credit card debt."
+            },
+            {
+              "id": 2,
+              "text": "Q17 specifies the bribery-via-raisins motivator and the non-negotiable 'put blocks away before bath' rule — partly in profile but missing the explicit raisin reward.",
+              "gap": true,
+              "interview_ref": "Q17",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Bribery via raisins is an effective cleanup motivator alongside the Clean Up song' to home_and_lifestyle.details."
+            },
+            {
+              "id": 3,
+              "text": "Q19 mentions a possible fall 2026 music class as another considered activity — absent from profile.",
+              "gap": true,
+              "interview_ref": "Q19",
+              "should_be_in": "preferences.music",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Parents are considering a music class for fall 2026 alongside summer swim lessons' to preferences.music.details."
+            },
+            {
+              "id": 4,
+              "text": "Q75 confirms parents file taxes jointly through TurboTax and claim John as a dependent with the Child Tax Credit — absent from profile.",
+              "gap": true,
+              "interview_ref": "Q75",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Parents file taxes jointly via TurboTax; John is claimed as a dependent with the Child Tax Credit' to home_and_lifestyle.details."
+            },
+            {
+              "id": 5,
+              "text": "Q62 mentions saving for a minivan to replace the aging Subaru — absent from profile.",
+              "gap": true,
+              "interview_ref": "Q62",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Family currently drives an aging Subaru and is saving for a minivan replacement' to home_and_lifestyle.details."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 5
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed cultural_background notes 'community events such as the Benton County Fair, seasonal holiday celebrations like Thanksgiving and Fourth of July fireworks, and occasional church or community-center gatherings' — Q08 (block party), Q47 (Bethel Church Christmas/Easter), and Q05 (Thanksgiving with Papa and Nana) match this.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q05, Q08, Q47",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed does not address parental political identity; interview Q24/Q95 clarifies moderate-mixed household (Mark Republican-leaning, Sarah Democrat-leaning, both weakly) with independent-leaning votes.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed (silent on politics)",
+              "source_b_ref": "Q24, Q95",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed does not describe civic engagement; interview adds vote-by-mail in every general, school board attendance, and food bank/literacy donations.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed (silent on civic engagement)",
+              "source_b_ref": "Q23, Q25, Q29",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed silent on religious affiliation specifics; interview Q47, Q94 places family at Bethel Church Richland, non-denominational Christian, attending ~twice a month.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed (silent on church)",
+              "source_b_ref": "Q47, Q94",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile community_and_civic correctly captures vote-by-mail, July 4th block party, Benton County Fair, food bank/literacy donations, and Officer Lopez safety event — matches Q08, Q20, Q23, Q29.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q08, Q20, Q23, Q29",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile political_scientist summary captures household 'moderate-mixed independent' framing accurately; Q24, Q95 support.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q24, Q95",
+              "source_b_ref": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile mentions parents shifted toward local civic engagement (school board, utility issues) — Q25 confirms Sarah attended a Kennewick School District board meeting in February 2026.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q25",
+              "source_b_ref": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile does not record the specific Bethel Church attendance frequency (~twice a month) or the 'God's room' toddler room name from Q47.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q47",
+              "source_b_ref": "preferences.community_and_civic (omits frequency)",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile community_and_civic and cultural_and_linguistic both reference diverse classmate exposure (Ellie's Mexican-American family, Hoangs' Vietnamese-American family) without contradiction.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "preferences.cultural_and_linguistic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile media_and_information_diet says parents source vaccine info from Dr. Reyes, CDC, and academic journals — consistent with political_scientist summary noting high institutional trust.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.media_and_information_diet",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Q47 specifies Bethel Church attendance ~twice a month, infant dedication of John there, 'God's room' toddler room nickname, simple pre-dinner thank-you prayer with 'amen,' and parental denominational backgrounds (Mark Methodist, Sarah Lutheran) — partial in profile.",
+              "gap": true,
+              "interview_ref": "Q47",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Family attends Bethel Church in Richland ~twice a month; John was infant-dedicated there and calls the toddler room God\\'s room; Mark grew up Methodist, Sarah grew up Lutheran' to community_and_civic.details."
+            },
+            {
+              "id": 2,
+              "text": "Q25 mentions Sarah attended a Kennewick School District board meeting in February 2026, her first ever — absent from profile detail list.",
+              "gap": true,
+              "interview_ref": "Q25",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Mother Sarah attended a Kennewick School District board meeting in February 2026 — her first ever; reflects increased local civic engagement since becoming a parent' to community_and_civic.details."
+            },
+            {
+              "id": 3,
+              "text": "Q26 mentions parents are using picture books 'All Are Welcome' and 'The Day You Begin' to introduce race conversations — already in profile under arts_and_culture and media_and_information_diet, consistent.",
+              "gap": false,
+              "interview_ref": "Q26",
+              "should_be_in": "preferences.arts_and_culture",
+              "disposition": "DROP",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Q27 mentions parents voted thoughtfully in their county prosecutor race based on policing/equality concerns — absent from profile.",
+              "gap": true,
+              "interview_ref": "Q27",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Parents factor policing and equal-treatment concerns into local-office votes such as county prosecutor races' to community_and_civic.details."
+            }
+          ],
+          "summary": {
+            "present": 1,
+            "missing": 3
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed persona describes order-loving practicality + toddler spontaneity + dramatic tantrum when blanket missing; Q43/Q44 confirm the exact behavior (missing Bee-Bee blanket triggered 2-day inconsolable response).",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q43, Q44",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed arts_persona references mimicking Eric Carle illustrations and singing Sesame Street theme — interview Q07 confirms enthusiastic storytime engagement and drawing-as-gift behavior for Miss Jenna.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.arts_persona",
+              "source_b_ref": "Q07",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed silent on temperament details around peer interactions; interview adds parallel-play with Ellie, chasing Marcus, and tolerating bossy cousin Mia — enriches but does not contradict seed.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed (silent on peer dynamics)",
+              "source_b_ref": "Q05, Q07",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed mentions 'balanced mix of cooperation and assertiveness'; Q05 'Daddy do it' insistence at bath time and Q07 affectionate behavior toward Miss Jenna support this dual profile.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.professional_persona",
+              "source_b_ref": "Q05, Q07",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile psychologist summary correctly identifies Bee-Bee blanket as a transitional object; Q43/Q44 confirm.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q43, Q44",
+              "source_b_ref": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile social_and_relationships correctly identifies Miss Jenna as most important non-family adult and lists Lily/Ellie/Marcus peer relationships, matching Q07.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q07",
+              "source_b_ref": "preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile emotional/affection details ('leg-hugger,' 'kisses on cheek if you ask nicely') from Q05 are absent from preferences subcategories — only the psychologist summary implies emotional warmth.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q05",
+              "source_b_ref": "preferences.social_and_relationships (omits affection style)",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile psychologist summary mentions secure-attachment template; interview Q01, Q43, Q44 support but profile preferences do not capture coping-via-clinging-to-Dad detail (Q44).",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q44",
+              "source_b_ref": "preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile health_and_wellness mentions sleep (10 hrs + nap) and home_and_lifestyle mentions 7 PM bedtime after dropping morning nap — internally consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness",
+              "field_b": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile cultural_and_linguistic states ~200-word vocabulary with 2-3-word sentences; psychologist summary references rich symbolic play and theory-of-mind emergence — consistent with developmental milestones in life_events_and_transitions.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.cultural_and_linguistic",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Q05 describes John's specific affection patterns: 'leg-hugger,' kisses-on-cheek only if asked nicely, calls Mark 'Daddy-boy' — partly in cultural_and_linguistic but not in social_and_relationships.",
+              "gap": true,
+              "interview_ref": "Q05",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Affection style: leg-hugger; gives cheek kisses on request; nicknames Mark Daddy-boy' to social_and_relationships.details."
+            },
+            {
+              "id": 2,
+              "text": "Q44 specifies coping behavior during blanket-missing crisis (clung to Mark, asked for 'milky' every 20 min, skipped a nap) — absent from profile.",
+              "gap": true,
+              "interview_ref": "Q44",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'During emotional distress (e.g., missing-blanket episode March 2026) coping pattern was clinging to Dad, frequent milk requests, and skipped naps' to health_and_wellness.details."
+            },
+            {
+              "id": 3,
+              "text": "Q43 reports John's biggest joys are 'tractors and his dad' — absent as an explicit detail.",
+              "gap": true,
+              "interview_ref": "Q43",
+              "should_be_in": "preferences.hobbies_and_recreation",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Self-reported top joys (per mother): tractors and his dad' to hobbies_and_recreation.details."
+            },
+            {
+              "id": 4,
+              "text": "Q31 notes John scored at-age on the M-CHAT autism screening — absent from profile.",
+              "gap": true,
+              "interview_ref": "Q31",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Scored at-age on M-CHAT autism screening; ~200-word vocabulary, combining 2-3 words' to health_and_wellness.details."
+            },
+            {
+              "id": 5,
+              "text": "Q45 mentions Sarah had mild postpartum anxiety treated at Lourdes Counseling — relevant family-mental-health context absent from profile.",
+              "gap": true,
+              "interview_ref": "Q45, Q46",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 'Mother had mild postpartum anxiety in first 6 months, worked through it with a therapist at Lourdes Counseling; maternal grandmother Linda manages low-grade depression with antidepressant medication' to social_and_relationships.details."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 5
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No FLAG_FOR_REVIEW observations. Two PARTIAL_UPDATE actions (Ridgefield Lakes location normalization, internal consistency cleanup) and 17 NEEDS_ENRICHMENT dispositions across the four experts. Draft profile is structurally sound; corrections are additive and minor normalizations.",
+    "final_status": "Profile verified with additive corrections; corrected_extracted_profile is ready for downstream use as canonical persona output."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "a979cdc1dbcc4a68b2bdd8ddeac80e9f",
+    "name": "John Garrity",
+    "age": 2,
+    "gender": "Male",
+    "marital_status": "Never married",
+    "location": "Kennewick, WA 99336 (Creekstone neighborhood, Olympia Street, south Kennewick)",
+    "education": "Less than 9th grade; currently enrolled part-time at Little Sprouts Learning Center (preschool)",
+    "occupation": "Not in workforce; full-time toddler; attends preschool 3 mornings/week",
+    "preferences": {
+      "health_and_wellness": {
+        "summary": "Healthy 2-year-old on full CDC vaccination schedule with strong access to pediatric care via Kadlec Pediatrics (Dr. Reyes) under employer-provided insurance; one recent ear infection (Jan 2026, treated with amoxicillin) and a prior hand-foot-mouth episode from daycare; scored at-age on M-CHAT screening with ~200-word vocabulary.",
+        "details": [
+          "Pediatrician: Dr. Reyes at Kadlec Pediatrics (Q31)",
+          "All CDC-schedule vaccinations on time (MMR, DTaP, varicella, hepatitis) (Q31, Q41)",
+          "60th percentile height, 55th percentile weight (Q31)",
+          "Ear infection January 2026 treated with amoxicillin, resolved in 5 days (Q33)",
+          "Hand-foot-mouth disease from daycare in fall 2025 (Q33)",
+          "Precautionary ER visit at 18 months after couch fall, no injury (Q33)",
+          "Children's Tylenol used 3-4 times for fevers, most recently January 2026 (Q39)",
+          "HEPA filter in bedroom for wildfire smoke days (Q32)",
+          "Sleeps ~10 hours overnight plus afternoon nap (Q32)",
+          "Scored at-age on M-CHAT autism screening; ~200-word vocabulary, combining 2-3 words (Q31)",
+          "During emotional distress (e.g., missing-blanket episode March 2026) coping pattern was clinging to Dad, frequent milk requests, and one skipped nap (Q44)",
+          "No asthma, no known allergies (Q31)",
+          "Family insured through Mark's Energy Northwest employer-sponsored plan (low copays, HSA); pediatric and dental fully covered (Q36, Q40)"
+        ],
+        "evidence": "Q31, Q32, Q33, Q36, Q39, Q40, Q41, Q44"
+      },
+      "food_and_dining": {
+        "summary": "Classic toddler palate: loves cheese pizza bites, mac and cheese, blueberry pancakes, bananas with peanut butter, and oatmeal; carrots are the accepted vegetable; refuses peas; whole milk in a blue sippy cup is essential; vegetables sneaked in via smoothies and soups.",
+        "details": [
+          "Favorite foods: cheese pizza bites, buttery mac and cheese, blueberry pancakes (Q15, Q32, seed)",
+          "Breakfast staples: banana with peanut butter, oatmeal (Q01)",
+          "Drinks whole milk ('milky') from a blue sippy cup (Q01, Q44)",
+          "Helps stir banana smoothies with a wooden spoon (seed)",
+          "Sunday pancake tradition with Dad (Mark) making blueberry pancakes (Q15)",
+          "Refuses peas (Q32)",
+          "Carrots are an accepted vegetable; honey-glazed preferred (seed)",
+          "Pre-dinner thank-you prayer with folded hands and loud 'amen' (Q47)",
+          "Vegetables hidden in smoothies and soups (Q32)",
+          "Preschool snack at 9:30 is typically crackers and fruit (Q19)"
+        ],
+        "evidence": "Q01, Q15, Q19, Q32, Q44, Q47"
+      },
+      "travel": {
+        "summary": "Travel is local and family-centered — Columbia River walks, splash pads in summer, Grand Coulee day-trip; major future trip is a planned Disneyland visit (tentatively spring 2029) with Mickey-themed picture-book priming already underway.",
+        "details": [
+          "Local outings to Columbia River trail (~20 min from home) (Q08)",
+          "Grand Coulee Dam day-trip (seed)",
+          "Cousin visits to Spokane (Aunt Rachel, cousin Mia) about every other month (Q05)",
+          "Summer cabin weekend at Lake Coeur d'Alene with extended family (Q05)",
+          "Planned Disneyland trip tentatively spring 2029 when John is 5 and future sibling is old enough to remember (Q108)",
+          "Disney-priming via picture books and frequent talk of Mickey (Q108)",
+          "Family travels to Boise to see Mark's parents (Papa and Nana) for Thanksgiving/Easter (Q05)",
+          "Cousins overlap at Christmas, Easter, July 4th, and the summer cabin weekend (Q05)"
+        ],
+        "evidence": "Q05, Q08, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "Tight nuclear family circle of three (Mark, Sarah, John) plus cat Biscuit, intact two-biological-parent household; closest peers are Little Sprouts classmates Ellie (best 'parallel-play' friend) and Marcus, plus neighbor Lily Hoang; favorite non-family adult is preschool teacher Miss Jenna; affectionate leg-hugger.",
+        "details": [
+          "Lives with father Mark, mother Sarah, and cat Biscuit in an intact two-biological-parent household (Q11, Q51, Q98)",
+          "Best friends at Little Sprouts: Ellie (Mexican-American family) and Marcus (Q07, Q28)",
+          "Neighbor playmate Lily Hoang (Vietnamese-American family, age 3), seen 3-4x/week through shared yard gate (Q07, Q28)",
+          "Preschool teacher Miss Jenna is most important non-family adult; John drew her a scribbled picture as a gift (Q07)",
+          "Children's librarian Miss Patty runs Tuesday storytime (Q07)",
+          "Cousin Mia (age 4) in Spokane, seen ~6x/year; tolerates her bossy lead (Q05)",
+          "Maternal grandmother Linda ('Gramma Linda') FaceTimes every other day from Spokane (Q05)",
+          "Paternal grandparents 'Papa and Nana' in Boise; visit for Thanksgiving, Easter, and birthday (Q05)",
+          "Uncle Tim (Mark's brother, Boise) is John's favorite for airplane-spin game (Q06)",
+          "Maternal uncle David in Seattle, seen ~2x/year (Q06)",
+          "Affection style: leg-hugger; gives cheek kisses on request; nicknames Mark 'Daddy-boy' (Q05)",
+          "Strong 'Daddy do it' insistence around bath time; bedtime stories are Mom's territory (Q05)",
+          "Close family friend: mother's friend Becky has a toddler the same age (Q49)",
+          "Mother had mild postpartum anxiety in first 6 months, worked through it with a therapist at Lourdes Counseling; maternal grandmother Linda manages low-grade depression with long-term antidepressant medication (Q45, Q46)",
+          "Parents are planning to try for a second child next year (~2027) (Q05)"
+        ],
+        "evidence": "Q05, Q06, Q07, Q11, Q28, Q45, Q46, Q49, Q51, Q98"
+      },
+      "home_and_lifestyle": {
+        "summary": "Lives in a 3BR/2BA tan stucco craftsman home (~1,650 sqft) in the ~15-year-old Creekstone neighborhood of south Kennewick on Olympia Street; corner bedroom faces backyard; cat Biscuit and blue lovey blanket ('Bee-Bee') are emotional anchors; routine-oriented daily rhythm; household budget is disciplined and middle-class with a 4-month emergency fund.",
+        "details": [
+          "Owned home, 30-year fixed mortgage at 6.1%, purchased 2023 (Q58)",
+          "3 bedrooms, 2 baths, ~1,650 sqft (Q58)",
+          "Corner bedroom with window facing backyard (Q01)",
+          "Goodnight Moon as nightly bedtime book (Q01)",
+          "Blue lovey blanket nicknamed 'Bee-Bee' (Q43, Q44, Q109)",
+          "Cat Biscuit treated as sibling; 'gentle pet' rule (Q11)",
+          "Bedtime around 7 PM after dropping morning nap (Q18)",
+          "Lines shoes up by door; gets upset if cereal bowl is wrong color (Q03)",
+          "Chores: hamper, wipe high chair, scoop cat food, put blocks away before bath (non-negotiable), water herb pots Saturday mornings (Q17)",
+          "Bribery via raisins is an effective cleanup motivator alongside the 'Clean Up, Clean Up' song (Q17)",
+          "Creekstone development is ~15 years old, tan stucco craftsman homes, mostly young families and some retirees, demographically mixed (white, Hispanic, Pacific Islander) (Q08)",
+          "Parents perceive the neighborhood as very safe; Steptoe Street cut-through traffic is the main concern; one car break-in two streets over was the notable recent incident (Q09)",
+          "Family grocery anchors: Yoke's (5-min drive) and Costco (10-min drive); John helps shop at Yoke's on Thursdays (Q08, Q15)",
+          "Monthly household budget: ~$5,000 typical spend on ~$9,500 gross income — mortgage ~$2,100, childcare ~$650, groceries ~$700, utilities ~$250, cars/gas ~$400 (Q56, Q57, Q74)",
+          "Savings architecture: 4-month emergency fund, Mark's 401(k), Sarah's small Roth IRA, $150/month 529 plan for John, $200/month sinking fund for holidays/birthdays (Q60, Q61)",
+          "Debt: mortgage plus one car loan with ~2 years remaining; no credit card debt, no student loans (Q63)",
+          "Family currently drives an aging Subaru and is saving for a minivan replacement (Q62)",
+          "Parents file taxes jointly via TurboTax; John is claimed as a dependent with the Child Tax Credit (Q75)",
+          "HSA contributions used for dental and out-of-pocket healthcare costs (Q40)"
+        ],
+        "evidence": "Q01, Q03, Q08, Q09, Q11, Q15, Q17, Q18, Q40, Q43, Q44, Q56, Q57, Q58, Q60, Q61, Q62, Q63, Q74, Q75, Q109"
+      },
+      "entertainment": {
+        "summary": "Roughly 30 minutes of TV after lunch plus occasional evening show; heavy preference for Bluey and Sesame Street, with educational cartoons about animals and vehicles; loves library storytime and bedtime picture books.",
+        "details": [
+          "Bluey is the primary favorite show (Q01, Q15)",
+          "Sesame Street is a secondary regular (Q15, seed)",
+          "~30 minutes screen time after lunch on weekdays (Q15)",
+          "Educational cartoons about animals and vehicles (seed)",
+          "Library storytime Tuesdays 10 AM at Kennewick Branch — 'sacred' day (Q15)",
+          "Picture book bedtime ritual (Goodnight Moon) (Q01)",
+          "Indoor 'fort camp' improvised during wildfire smoke days, now requested by John on rainy days (Q10)"
+        ],
+        "evidence": "Q01, Q10, Q15"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Order-loving toddler play: sorting blocks by color and size, building towers, fitting puzzle pieces, scribbling with crayons, and pretending to be a firefighter with red plastic helmet; equally drawn to physical play at Lawrence Scott Park.",
+        "details": [
+          "Sorts blocks by color and size (seed, Q01)",
+          "Sorts toy cars by size; cheerios by 'internal logic' (Q01)",
+          "Stacks wooden block towers (seed, Q17)",
+          "Puzzle pieces, crayon scribbling, drawing simple shapes (seed)",
+          "Red plastic firefighter helmet, yells 'firetruck come!' (Q65)",
+          "Lawrence Scott Park ~10-minute walk from home (Q08)",
+          "Sidewalk chalk in driveway on Saturdays (Q08)",
+          "Backyard play with neighbor Lily through shared gate (Q07)",
+          "Self-reported top joys (per mother): tractors and his dad (Q43)"
+        ],
+        "evidence": "Q01, Q07, Q08, Q17, Q43, Q65"
+      },
+      "work_and_career": {
+        "summary": "Not in workforce; 'occupation' is full-time toddler attending Little Sprouts Learning Center M/W/F 8:30–noon; aspirational future jobs are firefighter and 'build big houses' (construction worker).",
+        "details": [
+          "Little Sprouts Learning Center, M/W/F 8:30–noon (Q15, Q92)",
+          "Started at Little Sprouts in September 2025 (Q01)",
+          "Tuition $650/month for part-time slot (Q56)",
+          "Class size: John plus ~14 other toddlers under teacher Miss Jenna (Q77)",
+          "Aspires to be a firefighter (Q65, Q108)",
+          "Aspires to 'build big houses' / construction (Q65, Q108, seed)",
+          "Little Sprouts day structure: drop-off 8:30, circle time with songs, free play, snack at 9:30, structured activity (painting/sensory bins), outside play 11:00, pick-up at noon (Q19)",
+          "Mark (Dad) works full-time at Energy Northwest as operations support engineer (Mon-Fri 7 AM-4 PM), 6 years tenure; Sarah (Mom) works ~15 hrs/week as library aide at Mid-Columbia Library District during John's preschool mornings (Q16, Q76)"
+        ],
+        "evidence": "Q01, Q15, Q16, Q19, Q56, Q65, Q76, Q77, Q92, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Early arts exposure via weekly library storytime, Eric Carle picture books (especially The Very Hungry Caterpillar), drawing bold butterflies with crayons, and singing the Sesame Street theme; drew Miss Jenna a 'picture' as a gift.",
+        "details": [
+          "Weekly library storytime at Kennewick Branch with Miss Patty (Q07, seed)",
+          "Sings Sesame Street theme loudly (seed)",
+          "Mimics Eric Carle's 'The Very Hungry Caterpillar' illustrations (seed)",
+          "Draws bold butterflies (seed)",
+          "Gave Miss Jenna a scribbled picture as a gift (Q07)",
+          "Reading from 'All Are Welcome' and 'The Day You Begin' picture books for race/diversity exposure (Q26)"
+        ],
+        "evidence": "Q07, Q26"
+      },
+      "sports_and_fitness": {
+        "summary": "Tiny Tots T-ball player with the Kennewick Youth Soccer Club, started April 2026; weekend Seattle Seahawks viewings; summer splash-pad play; planned summer swim lessons at Toyota Center pool.",
+        "details": [
+          "Kennewick Youth Soccer Club 'Tiny Tots' T-ball program (seed, Q18)",
+          "T-ball Saturdays 9 AM at Southridge Sports Complex, started April 2026 (Q18)",
+          "Plays the T-ball game in a charming, freeform way — swings then runs to second base because Dad is cheering there (Q18)",
+          "Seattle Seahawks weekend game viewings (seed)",
+          "Summer splash-pad play (location generic; seed-named 'Ridgefield Lakes' is geographically implausible for a Kennewick family — interview confirms only generic splash pad in summer) (Q15, Q19, seed)",
+          "Planned swim lessons at Toyota Center pool summer 2026 (Q19)",
+          "Climbs, slides, runs at playground (seed)"
+        ],
+        "evidence": "Q15, Q18, Q19"
+      },
+      "nature_and_outdoors": {
+        "summary": "Family centers life on Pacific Northwest outdoor culture — Columbia River walks, picnics, Lawrence Scott Park, backyard play; constrained in late summer by 105°F heat and wildfire smoke (last summer kept him indoors ~2 weeks).",
+        "details": [
+          "Columbia River trail walks ~20 min from home (Q08)",
+          "Lawrence Scott Park as 'home base,' 10-min walk (Q08)",
+          "Family picnics on Columbia River banks (seed)",
+          "Wildfire smoke August 2025 forced indoor time ~2 weeks (Q10)",
+          "Summer heat regularly 105°F (Q10)",
+          "Grand Coulee Dam visit (seed)",
+          "Family monitors AQI forecasts and has a HEPA filter in John's bedroom (Q32)"
+        ],
+        "evidence": "Q08, Q10, Q32"
+      },
+      "technology": {
+        "summary": "Limited and curated technology exposure — about 30 minutes daily TV (Bluey/Sesame), occasional FaceTime with Gramma Linda, no public social media presence; parents deliberately keep his photos off public platforms.",
+        "details": [
+          "FaceTime with Gramma Linda every other day (Q05)",
+          "~30 min TV after lunch weekdays (Q15)",
+          "No public social media presence; photos only in private family WhatsApp group (Q48)",
+          "Parents' deliberate no-public-photos rule pending future consent from John (Q48)"
+        ],
+        "evidence": "Q05, Q15, Q48"
+      },
+      "community_and_civic": {
+        "summary": "Family is moderately civically engaged at the local level — votes in every election via Washington vote-by-mail; attends Benton County Fair, July 4th block party on their cul-de-sac, Bethel Church ~twice a month, and seasonal community events; donates to local food bank and literacy organization; politically moderate-mixed independent household.",
+        "details": [
+          "Family votes in every general and most primary elections by Washington vote-by-mail (Q23)",
+          "John 'helped' drop mother's ballot at library November 2025 (Q23)",
+          "Annual July 4th block party on cul-de-sac with grilling host dad (Q08)",
+          "Benton County Fair attendance (seed)",
+          "Family donates yearly to local food bank and literacy organization (Q29)",
+          "Officer Lopez safety event at Little Sprouts (kids sat in cruiser; John was thrilled) (Q20)",
+          "Family attends Bethel Church in Richland (non-denominational Christian) ~twice a month; John was infant-dedicated there and calls the toddler room 'God's room'; Mark grew up Methodist, Sarah grew up Lutheran (Q47, Q94)",
+          "Mother Sarah attended a Kennewick School District board meeting in February 2026 — her first ever; reflects increased local civic engagement since becoming a parent (Q25)",
+          "Parents factor policing and equal-treatment concerns into local-office votes such as county prosecutor races (Q27)",
+          "Politically moderate household: Mark Republican-leaning, Sarah Democrat-leaning, both weakly; no yard signs; partisan talk avoided around John (Q24, Q95)",
+          "Benton-Franklin Health District's free new-parent home-visit nurse program supported family postpartum (Q04)"
+        ],
+        "evidence": "Q04, Q08, Q20, Q23, Q24, Q25, Q27, Q29, Q47, Q94, Q95"
+      },
+      "music": {
+        "summary": "Loves nursery rhymes, dancing in short bursts, and belting the Sesame Street theme; cleanup time is paced to the 'Clean Up, Clean Up' song.",
+        "details": [
+          "Sings Sesame Street theme loudly (seed)",
+          "Interactive nursery-rhythm songs (seed)",
+          "Dances in short bursts (seed)",
+          "'Clean Up, Clean Up' song used to motivate block cleanup (Q17)",
+          "Parents are considering a music class for fall 2026 alongside summer swim lessons (Q19)"
+        ],
+        "evidence": "Q17, Q19"
+      },
+      "fashion_and_appearance": {
+        "summary": "Strong opinions for a two-year-old — has a designated yellow giraffe 'library shirt' he picks out the night before storytime; wears a red plastic firefighter helmet around the house in role-play.",
+        "details": [
+          "Yellow giraffe 'library shirt' picked night before Tuesday storytime (Q15)",
+          "Red plastic firefighter helmet for role-play (Q65)"
+        ],
+        "evidence": "Q15, Q65"
+      },
+      "cultural_and_linguistic": {
+        "summary": "White, middle-class Pacific Northwest upbringing in Kennewick (Columbia Basin region); ~200-word English vocabulary stringing together 2-3-word sentences; exposed to diverse classmates and neighbors (Mexican-American, Vietnamese-American) and read multicultural picture books at home.",
+        "details": [
+          "White, middle-class family in Kennewick, WA (seed, Q89)",
+          "Non-Hispanic ethnicity (Q88)",
+          "~200-word vocabulary, 2-3-word sentences (Q31)",
+          "Personal nicknames: 'Bee-Bee' (blanket), 'milky' (whole milk), 'Daddy-boy' (Mark), 'whoo-whoo car' (police car) (Q05, Q01, Q20, Q44)",
+          "Exposed to diverse classmates (Ellie's Mexican-American family; Hoang neighbors are Vietnamese-American) (Q28)",
+          "Multicultural picture books at home ('All Are Welcome,' 'The Day You Begin') (Q26)",
+          "Born in the U.S. (Kennewick, WA) (Q86, Q87)"
+        ],
+        "evidence": "Q01, Q05, Q20, Q26, Q28, Q31, Q44, Q86, Q87, Q88, Q89"
+      },
+      "life_events_and_transitions": {
+        "summary": "Born March 14, 2024 at Trios Health Hospital in Kennewick; family moved from Vista Field apartment to Olympia Street house at ~10 months old; started Little Sprouts preschool September 2025; dropped morning nap ~March 2026; started T-ball April 2026; turned 2 in March 2026; major emotional event was the missing-blanket crisis March 2026.",
+        "details": [
+          "Born March 14, 2024, Trios Health Hospital, Kennewick (Q85, Q87)",
+          "Colic until ~4 months old (Q01)",
+          "First walked at 13 months, first talked at 15 months (Q01)",
+          "Family move from Vista Field apartment to Olympia Street house at ~10 months (Q01)",
+          "Started Little Sprouts September 2025 (Q01)",
+          "Hand-foot-mouth illness fall 2025 (Q33)",
+          "Ear infection January 2026 (Q33)",
+          "Turned 2 in March 2026 (Q01)",
+          "'Bee-Bee' blanket missing for 2 days, March 2026, found behind dryer by Mark (Q44)",
+          "Dropped morning nap ~March 2026; sleeps harder afternoon, goes down ~7 PM (Q18)",
+          "Started T-ball April 2026 (Q18)",
+          "Infant dedication at Bethel Church (Q47)",
+          "Maternal grandmother Linda flew in from Spokane for the first month after John was born (Q04)"
+        ],
+        "evidence": "Q01, Q04, Q18, Q33, Q44, Q47, Q85, Q87"
+      },
+      "media_and_information_diet": {
+        "summary": "Heavily curated media diet — Bluey, Sesame Street, Eric Carle picture books, Goodnight Moon for bedtime; parents source their own vaccine/health information from pediatrician Dr. Reyes, CDC, and academic journals (not social media).",
+        "details": [
+          "Bluey, Sesame Street as primary TV (Q15)",
+          "Eric Carle's 'The Very Hungry Caterpillar' (seed)",
+          "'Goodnight Moon' nightly (Q01)",
+          "'All Are Welcome' and 'The Day You Begin' picture books for race/diversity exposure (Q26)",
+          "Parents trust pediatrician + CDC + academic journals (via Mark's Energy Northwest access) for vaccine info; deliberately not Facebook (Q42)"
+        ],
+        "evidence": "Q01, Q15, Q26, Q42"
+      }
+    },
+    "summaries": {
+      "demographer": "John Garrity is a 2-year-old non-Hispanic white male, born March 14, 2024 in Kennewick, WA, who has lived his entire life in the Creekstone neighborhood of south Kennewick (Q85, Q87, Q08). He resides in an owned, middle-class home with two college-educated, married biological parents — Mark, a mechanical engineer in operations support at Energy Northwest, and Sarah, a part-time library aide at Mid-Columbia Library District — placing the household squarely in the dual-income professional middle class of the Tri-Cities region (Q58, Q100, Q101, Q106, Q107). He is an only child currently enrolled in part-time preschool at Little Sprouts Learning Center (M/W/F mornings), with full pediatric coverage via his father's employer-sponsored insurance (Q15, Q36, Q92). Religiously, the family identifies as non-denominational Christian and attends Bethel Church in Richland (Q47, Q94), and politically the household is moderate-mixed with independent-leaning voting behavior in a region shaped by Hanford- and Energy-Northwest-driven scientific professional employment (Q24, Q95).",
+      "behavioral_economist": "John exhibits an unusually strong preference for routine, predictability, and ordered environments for a child his age — sorting blocks by color and size, lining up his shoes, and reacting with strong loss aversion when his 'Bee-Bee' blanket went missing for two days (Q01, Q03, Q43, Q44). His choice architecture is heavily scaffolded by his parents, who themselves are explicitly spreadsheet-driven decision-makers (sinking funds, 529 plans, four-month emergency fund, deliberate part-time daycare optimization), and these scaffolds appear to be cultivating similar preference patterns in him (Q02, Q03, Q60, Q61). He responds well to small extrinsic incentives — raisins as cleanup motivation, the 'Clean Up, Clean Up' song as a behavioral nudge — while also displaying intrinsic motivation around mastery tasks like puzzles, towers, and helping with chores (Q17). His time preference is, predictably for a two-year-old, present-focused, but the household environment is steeply future-oriented around him: 529 contributions, planned 2029 Disneyland trip, swim lessons, and a deliberate sibling pipeline (Q61, Q108).",
+      "political_scientist": "John has no personal political identity at age 2, but his civic socialization is already underway: he accompanied his mother to drop a ballot at the library in November 2025, attends a Fourth of July block party on his cul-de-sac, and is being raised in a household that votes in every general election by Washington's vote-by-mail system (Q08, Q23). His political environment is what one might call 'moderate-mixed independent' — a Republican-leaning engineer father and Democrat-leaning librarian mother who deliberately avoid yard signs, avoid partisan talk in front of him, and have shifted toward local civic engagement (school board, utility issues) since becoming parents (Q24, Q25, Q95). Institutional trust in the household is high — toward pediatricians, the CDC, public libraries, and the public utility — and law-enforcement experience is benign, limited to a positive Officer Lopez safety visit at preschool (Q20, Q42). John is growing up in a community with significant Pacific Northwest scientific-professional demographics, and his early peer environment (Hispanic, Vietnamese-American, white classmates and neighbors) is intentionally being framed by his parents as the diverse default rather than the exception (Q28).",
+      "psychologist": "John presents as a temperamentally easy child with strong order-seeking traits, robust attachment to both parents, and developmentally-appropriate emotion regulation buttressed by stable routines and a transitional object — his blue 'Bee-Bee' blanket — that anchors his self-soothing (Q01, Q03, Q43, Q44). He shows precocious agreeableness in peer settings (parallel play with Ellie, tolerating bossy cousin Mia, gentle behavior with the cat) while still expressing typical toddler assertiveness around routines like 'Daddy do it' at bath time (Q05, Q07, Q11). His cognitive style is observational and categorical — sorting, lining up, and labeling — paired with a rich symbolic-play repertoire (firefighter helmet, butterfly drawings) suggestive of healthy theory-of-mind emergence (Q01, Q65, seed). Relationally, he attaches not just to caregivers but to specific institutional figures like Miss Jenna and Miss Patty, indicating a secure-attachment template generalizing to non-family adults (Q07). His motivational architecture is layered: mastery needs around order and competence, affiliative needs met by abundant family and peer interaction, and emerging autonomy expressed through chores and clothing preferences — a profile that combines reliability with the curiosity his parents most hope to nurture (Q15, Q17, Q108)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "John's pediatrician is Dr. Reyes at Kadlec Pediatrics in Kennewick area.",
+        "ground_truth_label": "pediatrician_dr_reyes_kadlec",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'The pediatrician at Kadlec Pediatrics, Dr. Reyes, is wonderful with him.'",
+          "Q31: 'We see Dr. Reyes at Kadlec Pediatrics every six months for well-visits.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "John is fully vaccinated on the CDC schedule including MMR, DTaP, varicella, and hepatitis.",
+        "ground_truth_label": "vaccinations_full_cdc_schedule",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'All vaccinations up to date — MMR, DTaP, varicella, hepatitis, the works.'",
+          "Q41: 'Strongly pro-vaccination. John has every vaccine on the CDC schedule, on time.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "John is at the 60th percentile for height and 55th percentile for weight.",
+        "ground_truth_label": "growth_60th_height_55th_weight",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'He's in the 60th percentile for height, 55th for weight.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "John had an ear infection in January 2026 treated with amoxicillin and resolved in five days.",
+        "ground_truth_label": "ear_infection_jan2026_amoxicillin",
+        "behavioral_evidence_from_interview": [
+          "Q33: 'The ear infection in January was treated with amoxicillin and resolved in five days.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "John contracted hand-foot-mouth disease from daycare in fall 2025.",
+        "ground_truth_label": "hand_foot_mouth_fall2025",
+        "behavioral_evidence_from_interview": [
+          "Q33: 'He had a bout of hand-foot-mouth disease from daycare last fall.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "At 18 months, John had a precautionary ER visit after falling off the couch; no injury.",
+        "ground_truth_label": "er_visit_18mo_couch_fall",
+        "behavioral_evidence_from_interview": [
+          "Q33: 'He fell off the couch once at 18 months and we did a precautionary ER visit — totally fine.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "John has had Children's Tylenol three or four times for fever, most recently January 2026.",
+        "ground_truth_label": "tylenol_3_4_times_recent_jan2026",
+        "behavioral_evidence_from_interview": [
+          "Q39: 'He's had children's Tylenol three or four times for fever, most recently in January with the ear infection.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "A HEPA air filter sits in John's bedroom to mitigate wildfire smoke days.",
+        "ground_truth_label": "hepa_filter_in_bedroom",
+        "behavioral_evidence_from_interview": [
+          "Q32: 'We bought a HEPA filter for his room.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "John sleeps ~10 hours overnight plus an afternoon nap.",
+        "ground_truth_label": "sleep_10h_overnight_plus_nap",
+        "behavioral_evidence_from_interview": [
+          "Q32: 'He sleeps well (10 hours overnight plus a nap).'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "John scored at-age on the M-CHAT autism screening and has ~200-word vocabulary stringing 2-3 words.",
+        "ground_truth_label": "mchat_at_age_200_word_vocabulary",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'He's at about 200 words and putting two and three together. He scored at-age on the M-CHAT screening.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Under emotional distress (missing-blanket episode March 2026) John copes by clinging to Dad, frequent milk requests, and skipped naps.",
+        "ground_truth_label": "distress_coping_dad_milk_skip_nap",
+        "behavioral_evidence_from_interview": [
+          "Q44: 'Mostly by clinging to Mark and asking for milky every twenty minutes.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "John has no asthma and no known allergies.",
+        "ground_truth_label": "no_asthma_no_known_allergies",
+        "behavioral_evidence_from_interview": [
+          "Q31: 'no asthma, no allergies that we know of.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Family is insured through Mark's Energy Northwest employer-sponsored plan with low copays and an HSA; pediatric and dental are fully covered.",
+        "ground_truth_label": "insurance_energy_northwest_plan_hsa",
+        "behavioral_evidence_from_interview": [
+          "Q36: 'We have good insurance through Mark's job at Energy Northwest. Kaiser-style plan, low copays.'",
+          "Q40: 'We have an HSA we contribute to and use for dental and the occasional out-of-pocket cost.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Favorite foods are cheese pizza bites, buttery mac and cheese, and blueberry pancakes.",
+        "ground_truth_label": "favorite_foods_pizza_bites_mac_blueberry_pancakes",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'cheese pizza bites or mac and cheese.'",
+          "Q32: 'refuses peas.' and seed culinary_persona."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Breakfast staples are banana with peanut butter and oatmeal.",
+        "ground_truth_label": "breakfast_banana_peanut_butter_oatmeal",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'Breakfast is usually banana with peanut butter or oatmeal.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "John drinks whole milk ('milky') from a designated blue sippy cup.",
+        "ground_truth_label": "whole_milk_milky_blue_sippy_cup",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'he wants \"milky\" which is whole milk in his blue sippy cup.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "John helps stir banana smoothies with a wooden spoon.",
+        "ground_truth_label": "helps_stir_banana_smoothies_wooden_spoon",
+        "behavioral_evidence_from_interview": [
+          "seed culinary_persona: 'helping stir banana-banana smoothies with a wooden spoon.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Sunday pancake tradition: Mark makes blueberry pancakes.",
+        "ground_truth_label": "sunday_blueberry_pancakes_with_dad",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'Sundays are pancake mornings — Mark makes blueberry pancakes.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "John refuses peas.",
+        "ground_truth_label": "refuses_peas",
+        "behavioral_evidence_from_interview": [
+          "Q32: 'Refuses peas.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Carrots (honey-glazed preferred) are John's accepted vegetable.",
+        "ground_truth_label": "carrots_accepted_vegetable_honey_glazed",
+        "behavioral_evidence_from_interview": [
+          "Q32: 'he refuses vegetables that aren't carrots or peas — wait, scratch peas.'",
+          "seed culinary_persona: 'honey-glazed carrots.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Family does a pre-dinner thank-you prayer; John folds his hands and says a loud 'amen.'",
+        "ground_truth_label": "pre_dinner_thank_you_prayer_amen",
+        "behavioral_evidence_from_interview": [
+          "Q47: 'We do a simple thank-you prayer before dinner. He folds his hands and says \"amen\" loud at the end.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Vegetables are sneaked in via smoothies and soups.",
+        "ground_truth_label": "vegetables_hidden_smoothies_soups",
+        "behavioral_evidence_from_interview": [
+          "Q32: 'we work in vegetables sneakily via smoothies and soups.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Preschool snack at 9:30 is typically crackers and fruit.",
+        "ground_truth_label": "preschool_snack_930_crackers_fruit",
+        "behavioral_evidence_from_interview": [
+          "Q19: 'snack at 9:30 (usually crackers and fruit).'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Family takes Columbia River trail outings ~20 minutes from home.",
+        "ground_truth_label": "columbia_river_trail_outings",
+        "behavioral_evidence_from_interview": [
+          "Q08: 'We're maybe twenty minutes from the Columbia River trail.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Family took a Grand Coulee Dam day-trip.",
+        "ground_truth_label": "grand_coulee_dam_day_trip",
+        "behavioral_evidence_from_interview": [
+          "seed travel_persona: 'marveled at the towering Grand Coulee Dam during a day-trip.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Cousin Mia visits in Spokane occur about every other month.",
+        "ground_truth_label": "cousin_mia_spokane_visits_bimonthly",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'About every other month. We drive up to Spokane or they come down.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Family takes a summer cabin weekend at Lake Coeur d'Alene with extended family.",
+        "ground_truth_label": "summer_cabin_lake_coeur_dalene",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'a summer cabin weekend at Lake Coeur d\\'Alene.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "A Disneyland trip is planned for tentatively spring 2029 (when John is 5).",
+        "ground_truth_label": "disneyland_trip_spring_2029",
+        "behavioral_evidence_from_interview": [
+          "Q108: 'The trip is tentatively scheduled for spring 2029, when he'll be five.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Parents Disney-prime John via picture books and frequent talk of Mickey.",
+        "ground_truth_label": "disney_priming_picture_books_mickey",
+        "behavioral_evidence_from_interview": [
+          "Q108: 'He talks about Mickey constantly. We've been Disney-priming him with picture books.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Family travels to Boise for Thanksgiving and Easter to see paternal grandparents 'Papa and Nana.'",
+        "ground_truth_label": "boise_thanksgiving_easter_papa_nana",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'Mark's parents... come down for Thanksgiving and Easter and his birthday.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "John lives in an intact two-biological-parent household with Mark, Sarah, and cat Biscuit.",
+        "ground_truth_label": "household_intact_two_bio_parent_plus_cat",
+        "behavioral_evidence_from_interview": [
+          "Q11: 'It's the three of us — Mark, John, and me. Plus our cat, Biscuit.'",
+          "Q51: 'Mark (Dad), me (Sarah, Mom), John, and Biscuit the cat.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Best preschool friends are Ellie (Mexican-American family) and Marcus.",
+        "ground_truth_label": "best_friends_ellie_marcus_little_sprouts",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'there's a little girl named Ellie he plays parallel-blocks with, and a boy named Marcus.'",
+          "Q28: 'His friend Ellie at Little Sprouts is from a Mexican-American family.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Neighbor playmate Lily Hoang (Vietnamese-American, age 3) is seen 3-4x/week through a shared yard gate.",
+        "ground_truth_label": "neighbor_lily_hoang_shared_gate",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'three or four times a week — they share a fence and we've made a little gate between the yards.'",
+          "Q28: 'our neighbors the Hoangs are Vietnamese-American.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Preschool teacher Miss Jenna is the most important non-family adult; John drew her a scribbled picture as a gift.",
+        "ground_truth_label": "miss_jenna_top_non_family_adult",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'Miss Jenna, is probably the most important non-family adult in his life right now.'",
+          "Q07: 'He drew her a \"picture\" last week.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Children's librarian Miss Patty runs Tuesday storytime at the Kennewick Branch.",
+        "ground_truth_label": "miss_patty_tuesday_storytime",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'the children's librarian at the Kennewick Branch, Miss Patty, who runs Tuesday storytime.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Cousin Mia (age 4, Spokane) is seen ~6x/year; John tolerates her bossy lead.",
+        "ground_truth_label": "cousin_mia_age4_spokane_bossy",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'one cousin, Mia, who's four... They see each other maybe six times a year and Mia bosses him around.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Maternal grandmother Linda ('Gramma Linda') in Spokane FaceTimes John every other day.",
+        "ground_truth_label": "gramma_linda_spokane_facetime_every_other_day",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'he calls her \"Gramma Linda\" — she FaceTimes him almost every other day from Spokane.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Paternal grandparents 'Papa and Nana' live in Boise.",
+        "ground_truth_label": "papa_nana_boise",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'Mark's parents, who he calls \"Papa and Nana,\" and they come down for Thanksgiving and Easter.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Uncle Tim (Mark's brother in Boise) is John's favorite uncle for the airplane-spin game.",
+        "ground_truth_label": "uncle_tim_favorite_airplane_spin",
+        "behavioral_evidence_from_interview": [
+          "Q06: 'Uncle Tim, no contest — Tim does the airplane-spin game when he visits.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Maternal uncle David lives in Seattle and visits ~2x/year.",
+        "ground_truth_label": "uncle_david_seattle_twice_yearly",
+        "behavioral_evidence_from_interview": [
+          "Q06: 'My brother David lives in Seattle — he's an uncle but they don't see each other much, maybe twice a year.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "John's affection style is leg-hugger; gives cheek kisses on polite request; nicknames Mark 'Daddy-boy.'",
+        "ground_truth_label": "affection_leg_hugger_cheek_kisses_daddy_boy",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'Big squishy hugs around the legs. He's a leg-hugger.'",
+          "Q05: 'He calls Mark \"Daddy-boy\" sometimes.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "John insists 'Daddy do it' at bath time; bedtime stories are Mom's domain.",
+        "ground_truth_label": "bath_dad_bedtime_stories_mom",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'Bath time is Daddy's job, and if I try to step in he says \"No, Daddy do it.\" Bedtime stories are mine.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Family friend Becky has a toddler John's age and is mother Sarah's close support.",
+        "ground_truth_label": "family_friend_becky_toddler_same_age",
+        "behavioral_evidence_from_interview": [
+          "Q49: 'one close friend named Becky who has a toddler the same age.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Mother Sarah had mild postpartum anxiety in first 6 months, treated with a therapist at Lourdes Counseling.",
+        "ground_truth_label": "mom_postpartum_anxiety_lourdes_counseling",
+        "behavioral_evidence_from_interview": [
+          "Q45: 'I had mild postpartum anxiety the first six months. I worked through it with a therapist at Lourdes Counseling.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Grandma Linda manages low-grade depression with long-term antidepressant medication.",
+        "ground_truth_label": "grandma_linda_chronic_antidepressant",
+        "behavioral_evidence_from_interview": [
+          "Q46: 'My mom takes an antidepressant for low-grade depression and has for a decade.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Parents plan to try for a second child in 2027.",
+        "ground_truth_label": "plan_second_child_2027",
+        "behavioral_evidence_from_interview": [
+          "Q05: 'Probably try for a second next year.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Family owns its home on a 30-year fixed mortgage at 6.1% purchased in 2023.",
+        "ground_truth_label": "home_owned_30yr_fixed_6_1pct_2023",
+        "behavioral_evidence_from_interview": [
+          "Q58: 'Own. We bought in 2023, 30-year fixed, 6.1% rate.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Home is 3 bedrooms, 2 baths, ~1,650 sqft.",
+        "ground_truth_label": "home_3br_2ba_1650sqft",
+        "behavioral_evidence_from_interview": [
+          "Q58: 'Three-bedroom, two-bath, about 1,650 square feet.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "John's bedroom is the corner room with a window facing the backyard.",
+        "ground_truth_label": "corner_bedroom_window_backyard",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'He has the corner bedroom with the window facing the backyard.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Bedtime story is 'Goodnight Moon' nightly.",
+        "ground_truth_label": "bedtime_book_goodnight_moon",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'same bedtime book (Goodnight Moon).'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "John's transitional object is a blue lovey blanket nicknamed 'Bee-Bee.'",
+        "ground_truth_label": "transitional_object_bee_bee_blue_blanket",
+        "behavioral_evidence_from_interview": [
+          "Q43: 'his favorite blue blanket went missing.'",
+          "Q44: 'He'd ask \"Bee-Bee?\" (his name for the blanket).'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Cat Biscuit is treated as a sibling; John uses a 'gentle pet' rule before touching her.",
+        "ground_truth_label": "cat_biscuit_gentle_pet_rule",
+        "behavioral_evidence_from_interview": [
+          "Q11: 'our cat, Biscuit, who John considers a sibling.'",
+          "Q11: 'He says \"gentle pet\" before touching her.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "John's bedtime is around 7 PM after dropping his morning nap.",
+        "ground_truth_label": "bedtime_7pm_after_dropping_morning_nap",
+        "behavioral_evidence_from_interview": [
+          "Q18: 'goes down earlier at night, around 7.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "John lines his shoes up by the door and gets upset if his cereal bowl is the wrong color.",
+        "ground_truth_label": "shoes_lined_by_door_correct_cereal_bowl",
+        "behavioral_evidence_from_interview": [
+          "Q03: 'He lines his shoes up by the door. He's two. He gets very upset if the cereal bowl is the wrong color.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "John's chores are putting dirty clothes in hamper, wiping high chair tray, helping feed Biscuit, putting blocks away before bath (non-negotiable), and watering herb pots Saturdays.",
+        "ground_truth_label": "chores_hamper_high_chair_cat_blocks_herbs",
+        "behavioral_evidence_from_interview": [
+          "Q17: 'He puts his dirty clothes in the hamper... helps water the herb pots on the back deck with his little blue watering can on Saturday mornings.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Cleanup is motivated by the 'Clean Up, Clean Up' song and raisin bribery.",
+        "ground_truth_label": "cleanup_song_plus_raisin_bribery",
+        "behavioral_evidence_from_interview": [
+          "Q17: 'We sing \"clean up, clean up\" and that usually moves him. Bribery via raisins also works.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Creekstone development is ~15 years old with tan stucco craftsman homes, mostly young families and some retirees, demographically mixed (white, Hispanic, Pacific Islander).",
+        "ground_truth_label": "creekstone_15yo_craftsman_mixed_demographics",
+        "behavioral_evidence_from_interview": [
+          "Q08: 'It's a newer development, maybe fifteen years old — mostly young families and some retirees.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Parents perceive the neighborhood as very safe; Steptoe Street cut-through traffic is the main concern; a car break-in two streets over is the notable recent incident.",
+        "ground_truth_label": "neighborhood_safe_steptoe_traffic_concern_one_break_in",
+        "behavioral_evidence_from_interview": [
+          "Q09: 'Very safe.'",
+          "Q09: 'Traffic on Steptoe Street — people drive too fast.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Family grocery anchors are Yoke's (5-min drive) and Costco (10-min drive); John helps shop at Yoke's on Thursdays.",
+        "ground_truth_label": "grocery_yokes_costco_thursday_helper",
+        "behavioral_evidence_from_interview": [
+          "Q08: 'a little neighborhood market called Yoke's a five-minute drive, and Costco is about ten.'",
+          "Q15: 'Thursday is grocery day — he \"helps\" me at Yoke's.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Monthly household budget is ~$5,000 typical spend on ~$9,500 gross income.",
+        "ground_truth_label": "monthly_spend_5k_gross_9_5k",
+        "behavioral_evidence_from_interview": [
+          "Q57: 'About $5,000 total last month.'",
+          "Q74: 'Combined gross around $9,500 last month.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Major monthly expenses are mortgage ~$2,100, childcare ~$650, groceries ~$700, utilities ~$250, cars/gas ~$400.",
+        "ground_truth_label": "monthly_expense_breakdown_mortgage_childcare_groceries_utilities_cars",
+        "behavioral_evidence_from_interview": [
+          "Q56: 'Mortgage, around $2,100. Childcare at Little Sprouts, $650... Groceries about $700. Utilities around $250. Cars and gas, maybe $400.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Family savings architecture: 4-month emergency fund, Mark's 401(k), Sarah's small Roth IRA, $150/month 529 for John, $200/month sinking fund for holidays/birthdays.",
+        "ground_truth_label": "savings_4mo_emergency_401k_roth_529_sinking_fund",
+        "behavioral_evidence_from_interview": [
+          "Q61: 'We have an emergency fund (about 4 months of expenses), retirement through Mark's 401(k), a small Roth IRA for me, and a 529 college savings plan for John that we contribute $150 a month to.'",
+          "Q60: 'set aside $200 a month into a separate account.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Debt is limited to the mortgage and one car loan with ~2 years remaining; no credit card debt, no student loans.",
+        "ground_truth_label": "debt_mortgage_plus_car_loan_no_cc_no_student",
+        "behavioral_evidence_from_interview": [
+          "Q63: 'Mortgage. One car loan with about two years left. No credit card debt, no student loans.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Family drives an aging Subaru and is saving for a minivan replacement.",
+        "ground_truth_label": "subaru_aging_saving_minivan",
+        "behavioral_evidence_from_interview": [
+          "Q62: 'We're also saving for a family minivan replacement — our Subaru is getting old.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Parents file taxes jointly via TurboTax; John is claimed as a dependent with the Child Tax Credit.",
+        "ground_truth_label": "taxes_joint_turbotax_ctc",
+        "behavioral_evidence_from_interview": [
+          "Q75: 'Mark and I filed jointly through TurboTax. Claimed John as a dependent, got the Child Tax Credit.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Bluey is John's primary favorite TV show.",
+        "ground_truth_label": "favorite_tv_bluey",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'blocks, books, the park, and Bluey.'",
+          "Q15: 'usually Bluey or Sesame Street.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Sesame Street is John's secondary regular show.",
+        "ground_truth_label": "tv_secondary_sesame_street",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'usually Bluey or Sesame Street.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Screen time is ~30 min after lunch on weekdays plus occasional evening show.",
+        "ground_truth_label": "screen_time_30min_post_lunch",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'About thirty minutes after lunch while I clean up.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Tuesday 10 AM library storytime is the favorite day of the week ('sacred').",
+        "ground_truth_label": "tuesday_storytime_sacred_favorite_day",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'Tuesday, hands down. Storytime is sacred.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Indoor 'fort camp' improvisation during wildfire smoke is now requested on rainy days.",
+        "ground_truth_label": "fort_camp_rainy_day_request",
+        "behavioral_evidence_from_interview": [
+          "Q10: 'We turned the living room into a \"fort camp.\" He still asks to do \"fort day\" when it rains.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "John sorts blocks by color and size.",
+        "ground_truth_label": "sorts_blocks_color_size",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'he was already obsessed with sorting things. Blocks by color, his little toy cars by size.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "John sorts toy cars by size and cheerios by an internal logic.",
+        "ground_truth_label": "sorts_cars_cheerios_internal_logic",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'his little toy cars by size, even his cheerios by — I don't know, some internal logic only he understands.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "John wears a red plastic firefighter helmet and yells 'firetruck come!' in role-play.",
+        "ground_truth_label": "firefighter_helmet_role_play",
+        "behavioral_evidence_from_interview": [
+          "Q65: 'He has a red plastic helmet he wears around the house and yells \"firetruck come!\"'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Lawrence Scott Park (10-min walk) is John's outdoor home base.",
+        "ground_truth_label": "lawrence_scott_park_home_base",
+        "behavioral_evidence_from_interview": [
+          "Q08: 'We can walk to Lawrence Scott Park in about ten minutes — that's John's home base.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "John uses sidewalk chalk in the driveway on Saturdays while Mark washes the car.",
+        "ground_truth_label": "saturday_sidewalk_chalk_driveway",
+        "behavioral_evidence_from_interview": [
+          "Q08: 'John toddles around in the driveway with sidewalk chalk while Mark washes the car.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "John's self-reported top joys are tractors and his dad.",
+        "ground_truth_label": "top_joys_tractors_dad",
+        "behavioral_evidence_from_interview": [
+          "Q43: 'Tractors and his dad. In that order, depending on the day.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "John attends Little Sprouts Learning Center M/W/F 8:30 AM to noon.",
+        "ground_truth_label": "preschool_little_sprouts_mwf_830_noon",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'Monday, Wednesday, Friday mornings he's at Little Sprouts from 8:30 to noon.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "John started at Little Sprouts in September 2025.",
+        "ground_truth_label": "preschool_start_sept_2025",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'He started at Little Sprouts Learning Center part-time last September.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Tuition at Little Sprouts is $650/month for the part-time slot.",
+        "ground_truth_label": "preschool_tuition_650_part_time",
+        "behavioral_evidence_from_interview": [
+          "Q56: 'Childcare at Little Sprouts, $650 for the part-time slot.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "John aspires to be a firefighter or to 'build big houses' when he grows up.",
+        "ground_truth_label": "aspires_firefighter_build_big_houses",
+        "behavioral_evidence_from_interview": [
+          "Q65: 'he wants to be a firefighter or \"build big houses.\"'",
+          "Q108: 'he says he wants to be a firefighter, or to \"build big houses.\"'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Mark (Dad) is an operations support engineer at Energy Northwest (Columbia Generating Station nuclear plant), 6 years tenure, Mon-Fri 7 AM-4 PM.",
+        "ground_truth_label": "dad_mark_energy_northwest_ops_engineer",
+        "behavioral_evidence_from_interview": [
+          "Q16: 'Mark works full-time at Energy Northwest in operations support, Monday through Friday, 7 a.m. to 4 p.m.'",
+          "Q106: 'Operations support engineer at Energy Northwest.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Sarah (Mom) works ~15 hrs/week as a library aide at Mid-Columbia Library District.",
+        "ground_truth_label": "mom_sarah_library_aide_mid_columbia_15hrs",
+        "behavioral_evidence_from_interview": [
+          "Q16: 'I work part-time as a library aide at Mid-Columbia Library District, about fifteen hours a week.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "John attends weekly library storytime at the Kennewick Branch.",
+        "ground_truth_label": "weekly_library_storytime_kennewick",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'Miss Patty, who runs Tuesday storytime.'",
+          "Q15: 'Tuesday is library storytime at 10 a.m. at the Kennewick Branch.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "John sings the Sesame Street theme loudly.",
+        "ground_truth_label": "sings_sesame_street_theme_loud",
+        "behavioral_evidence_from_interview": [
+          "seed arts_persona: 'sings loudly to the Sesame Street theme.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "John mimics Eric Carle's 'The Very Hungry Caterpillar' illustrations and draws bold butterflies.",
+        "ground_truth_label": "mimics_eric_carle_draws_butterflies",
+        "behavioral_evidence_from_interview": [
+          "seed arts_persona: 'mimics the bright illustrations of Eric Carle's \"The Very Hungry Caterpillar\" by drawing bold butterflies.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Family reads multicultural picture books 'All Are Welcome' and 'The Day You Begin' to introduce race conversations.",
+        "ground_truth_label": "picture_books_all_are_welcome_the_day_you_begin",
+        "behavioral_evidence_from_interview": [
+          "Q26: 'we have a few picture books we're slowly working in, like \"All Are Welcome\" and \"The Day You Begin.\"'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "John plays in Kennewick Youth Soccer Club's 'Tiny Tots' T-ball program, Saturdays 9 AM at Southridge Sports Complex, started April 2026.",
+        "ground_truth_label": "tball_kysc_tiny_tots_southridge_apr2026",
+        "behavioral_evidence_from_interview": [
+          "Q18: 'he started T-ball through the Kennewick Youth Soccer Club's \"Tiny Tots\" program in April — Saturdays at 9 a.m. at Southridge Sports Complex.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "During T-ball John swings then runs to second base because Dad is cheering there.",
+        "ground_truth_label": "tball_runs_to_second_base_dad_cheering",
+        "behavioral_evidence_from_interview": [
+          "Q18: 'He stands at the tee, swings, and then runs to second base because that's where Daddy is cheering.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Family does weekend Seattle Seahawks game viewings.",
+        "ground_truth_label": "seahawks_weekend_viewing",
+        "behavioral_evidence_from_interview": [
+          "seed sports_persona: 'cheering for the Seattle Seahawks during weekend game viewings.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "John engages in summer splash-pad play (interview confirms only generic splash pad; seed-named 'Ridgefield Lakes' is geographically implausible for a Kennewick family).",
+        "ground_truth_label": "summer_splash_pad_play_generic",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'the splash pad in summer.'",
+          "Q19: 'Swim lessons at the Toyota Center pool this summer.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Planned summer 2026 swim lessons at the Toyota Center pool.",
+        "ground_truth_label": "swim_lessons_toyota_center_summer_2026",
+        "behavioral_evidence_from_interview": [
+          "Q19: 'Swim lessons at the Toyota Center pool this summer.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Wildfire smoke in August 2025 kept John indoors ~2 weeks straight.",
+        "ground_truth_label": "wildfire_smoke_aug_2025_2_weeks_indoors",
+        "behavioral_evidence_from_interview": [
+          "Q10: 'The wildfire smoke last summer kept John indoors for almost two weeks straight.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-093",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Summer Kennewick heat regularly reaches 105°F.",
+        "ground_truth_label": "summer_heat_105f",
+        "behavioral_evidence_from_interview": [
+          "Q10: 'summers are also 105 degrees.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-094",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Family monitors AQI forecasts on wildfire smoke days.",
+        "ground_truth_label": "monitors_aqi_forecasts",
+        "behavioral_evidence_from_interview": [
+          "Q32: 'Now we just keep an eye on AQI forecasts.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-095",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Parents have a deliberate no-public-photos rule pending future consent from John; family photos are shared only in a private family WhatsApp group.",
+        "ground_truth_label": "no_public_photos_private_whatsapp_only",
+        "behavioral_evidence_from_interview": [
+          "Q48: 'We deliberately don't post pictures of his face publicly — only on a private family WhatsApp group.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-096",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Family votes in every general and most primary elections via Washington vote-by-mail.",
+        "ground_truth_label": "votes_every_general_most_primary_vbm",
+        "behavioral_evidence_from_interview": [
+          "Q23: 'Mark and I vote in every general and most primaries. Washington's vote-by-mail makes it easy.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-097",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "John 'helped' Sarah drop her ballot at the library in November 2025.",
+        "ground_truth_label": "ballot_drop_helper_nov2025",
+        "behavioral_evidence_from_interview": [
+          "Q23: 'I brought John with me last November when I dropped my ballot in the box at the library and let him \"help\" push it in.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-098",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Family attends annual July 4th cul-de-sac block party with grilling host dad.",
+        "ground_truth_label": "july4_block_party_culdesac",
+        "behavioral_evidence_from_interview": [
+          "Q08: 'There's a big Fourth of July block party every year — they shut down our cul-de-sac and one of the dads grills.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-099",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Family attends Benton County Fair as part of community life.",
+        "ground_truth_label": "benton_county_fair_attendance",
+        "behavioral_evidence_from_interview": [
+          "seed cultural_background: 'community events such as the Benton County Fair.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-100",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Family donates yearly to the local food bank and a literacy organization.",
+        "ground_truth_label": "donations_food_bank_literacy_org",
+        "behavioral_evidence_from_interview": [
+          "Q29: 'We donate a small amount yearly to the local food bank and a literacy organization.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-101",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Officer Lopez led a Little Sprouts safety event where John sat in the cruiser.",
+        "ground_truth_label": "officer_lopez_safety_event_cruiser",
+        "behavioral_evidence_from_interview": [
+          "Q20: 'Officer Lopez came to the Little Sprouts safety event and let the kids sit in the cruiser.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-102",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Family attends Bethel Church in Richland (non-denominational Christian) ~twice a month; John was infant-dedicated there; he calls the toddler room 'God's room.' Mark grew up Methodist, Sarah grew up Lutheran.",
+        "ground_truth_label": "bethel_church_twice_monthly_god_room_inf_dedication_methodist_lutheran",
+        "behavioral_evidence_from_interview": [
+          "Q47: 'We attend Bethel Church in Richland occasionally — non-denominational Christian. Maybe twice a month. We did infant dedication for John there. They have a toddler room he likes — he calls it \"God's room.\" Mark grew up Methodist, I grew up Lutheran.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-103",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Mother Sarah attended a Kennewick School District board meeting in February 2026 — her first ever.",
+        "ground_truth_label": "ksd_board_meeting_feb2026_mom_first",
+        "behavioral_evidence_from_interview": [
+          "Q25: 'I attended a Kennewick School District board meeting in February about curriculum — first one I've ever been to.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-104",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Parents factor policing and equal-treatment concerns into local-office votes such as county prosecutor races.",
+        "ground_truth_label": "policing_concerns_inform_local_prosecutor_votes",
+        "behavioral_evidence_from_interview": [
+          "Q27: 'Voting choices in our county prosecutor race last cycle.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-105",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Household politics: Mark leans Republican, Sarah leans Democrat, both weakly; no yard signs; partisan talk avoided around John.",
+        "ground_truth_label": "household_politics_moderate_mixed_independent",
+        "behavioral_evidence_from_interview": [
+          "Q24: 'Mark leans a little more conservative, fiscally; I lean a little more progressive on social stuff.'",
+          "Q95: 'Mark leans Republican, I lean Democrat, both weakly. Independent-leaning overall.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-106",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Benton-Franklin Health District's free new-parent home-visit nurse program supported the family postpartum (two visits).",
+        "ground_truth_label": "benton_franklin_health_district_nurse_visits",
+        "behavioral_evidence_from_interview": [
+          "Q04: 'the Benton-Franklin Health District has a free home-visit program for new parents — a nurse came twice.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-107",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "John engages in interactive nursery-rhythm songs and dances in short bursts.",
+        "ground_truth_label": "nursery_rhythm_songs_short_dance_bursts",
+        "behavioral_evidence_from_interview": [
+          "seed hobbies_and_interests: 'interactive nursery-rhythm songs, dancing in short bursts.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-108",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Parents are considering a fall 2026 music class.",
+        "ground_truth_label": "fall_2026_music_class_considered",
+        "behavioral_evidence_from_interview": [
+          "Q19: 'probably a music class in the fall.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-109",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "John picks his yellow giraffe 'library shirt' the night before Tuesday storytime.",
+        "ground_truth_label": "yellow_giraffe_library_shirt_picked_night_before",
+        "behavioral_evidence_from_interview": [
+          "Q15: 'He picks out his \"library shirt\" the night before — it's a yellow shirt with a giraffe.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-110",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "John identifies as non-Hispanic white.",
+        "ground_truth_label": "ethnicity_non_hispanic_race_white",
+        "behavioral_evidence_from_interview": [
+          "Q88: 'No.'",
+          "Q89: 'White.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-111",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "John's personal nicknames include 'Bee-Bee' (blanket), 'milky' (whole milk), 'Daddy-boy' (Mark), and 'whoo-whoo car' (police car).",
+        "ground_truth_label": "nicknames_bee_bee_milky_daddy_boy_whoo_whoo",
+        "behavioral_evidence_from_interview": [
+          "Q20: 'He calls it the \"whoo-whoo car.\"'",
+          "Q05: 'He calls Mark \"Daddy-boy.\"'",
+          "Q44: '\"Bee-Bee?\" (his name for the blanket).'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-112",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "John was born in the United States in Kennewick, WA.",
+        "ground_truth_label": "born_in_us_kennewick_wa",
+        "behavioral_evidence_from_interview": [
+          "Q86: 'Born in the U.S.'",
+          "Q87: 'Kennewick, Washington — at Trios Health Hospital.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-113",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Born March 14, 2024 at Trios Health Hospital, Kennewick, WA.",
+        "ground_truth_label": "birth_march_14_2024_trios_kennewick",
+        "behavioral_evidence_from_interview": [
+          "Q85: 'March 14, 2024.'",
+          "Q87: 'Kennewick, Washington — at Trios Health Hospital.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-114",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "John had colic until about 4 months old.",
+        "ground_truth_label": "colic_until_4_months",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'colic until about four months.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-115",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "John first walked at 13 months and first talked around 15 months.",
+        "ground_truth_label": "walked_13mo_talked_15mo",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'He started walking at thirteen months, talking around fifteen.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-116",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Family moved from a Vista Field apartment to the Olympia Street house when John was ~10 months old.",
+        "ground_truth_label": "move_vista_field_to_olympia_at_10mo",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'we moved from a small apartment near Vista Field into our current house on Olympia Street when John was about ten months old.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-117",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "John dropped his morning nap ~March 2026 and now naps only in the afternoon.",
+        "ground_truth_label": "dropped_morning_nap_march_2026",
+        "behavioral_evidence_from_interview": [
+          "Q18: 'we dropped his morning nap about two months ago — he's down to one afternoon nap.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-118",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "John turned 2 in March 2026.",
+        "ground_truth_label": "turned_2_march_2026",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'he just turned two in March.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-119",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "'Bee-Bee' blanket was missing for 2 days in March 2026; Mark found it behind the dryer.",
+        "ground_truth_label": "bee_bee_missing_march_2026_found_behind_dryer",
+        "behavioral_evidence_from_interview": [
+          "Q43: 'When his favorite blue blanket went missing for two days in March he was inconsolable.'",
+          "Q43: 'Behind the dryer. Mark has never been so triumphant.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-120",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Grandma Linda flew in from Spokane and stayed for the first month after John was born.",
+        "ground_truth_label": "grandma_linda_first_month_postpartum_spokane",
+        "behavioral_evidence_from_interview": [
+          "Q04: 'My mom flew in from Spokane for the first month after John was born.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-121",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Parents source vaccine and health information from pediatrician Dr. Reyes, the CDC website, and academic journals (via Mark's Energy Northwest access) — not from Facebook.",
+        "ground_truth_label": "vaccine_info_sources_doctor_cdc_journals_not_facebook",
+        "behavioral_evidence_from_interview": [
+          "Q42: 'Dr. Reyes, our pediatrician. The CDC website. Mark also reads the academic journals via his work access... We don't get vaccine info from Facebook.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-122",
+        "source": "reprojected",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": "summaries.demographer",
+        "claim": "John's parents Mark and Sarah are both college-educated: Mark holds a BS in Mechanical Engineering from Washington State University; Sarah holds a BA in English from Eastern Washington University.",
+        "ground_truth_label": "parents_college_educated_wsu_mech_eng_ewu_english",
+        "behavioral_evidence_from_interview": [
+          "Q100: 'Mark has a Bachelor's degree in mechanical engineering from Washington State University.'",
+          "Q101: 'I have a Bachelor's degree in English from Eastern Washington University.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-123",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Tri-Cities labor market is shaped by Hanford- and Energy-Northwest-driven scientific professional employment (Columbia Generating Station nuclear plant).",
+        "ground_truth_label": "tri_cities_hanford_energy_nw_scientific_jobs",
+        "behavioral_evidence_from_interview": [
+          "Q24: 'the Tri-Cities is mixed because of all the Hanford and Energy Northwest workers — lots of scientists and engineers.'",
+          "Q107: 'Energy Northwest is a public power utility — it generates electricity, primarily from the Columbia Generating Station nuclear plant.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-124",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Parents are explicitly spreadsheet-driven decision-makers (used a spreadsheet to choose the daycare arrangement; read three toddler-sleep books before settling on bedtime routine).",
+        "ground_truth_label": "parents_spreadsheet_decision_makers",
+        "behavioral_evidence_from_interview": [
+          "Q02: 'we made a spreadsheet.'",
+          "Q03: 'Mark and I are spreadsheet people. We don't really let big things \"just happen\".'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-125",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Parents deliberately chose part-time daycare (3 mornings) over full-time or stay-at-home as a middle-path optimization between socialization and structured home time.",
+        "ground_truth_label": "deliberate_part_time_daycare_middle_path",
+        "behavioral_evidence_from_interview": [
+          "Q02: 'We landed on a middle path — Little Sprouts three mornings, me with him the other days.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-126",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Household has high institutional trust toward pediatricians, the CDC, public libraries, and the public power utility.",
+        "ground_truth_label": "high_institutional_trust_health_library_utility",
+        "behavioral_evidence_from_interview": [
+          "Q42: 'Dr. Reyes, our pediatrician. The CDC website.'",
+          "Q23: 'Washington's vote-by-mail makes it easy.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-127",
+        "source": "reprojected",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Parents intentionally frame John's diverse peer environment (Hispanic, Vietnamese-American, white classmates and neighbors) as the diverse default rather than the exception.",
+        "ground_truth_label": "diversity_framed_as_default_intentional",
+        "behavioral_evidence_from_interview": [
+          "Q28: 'We want John to grow up seeing diversity as the default, not the exception.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-128",
+        "source": "reprojected",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "John shows precocious agreeableness in peer settings — parallel play with Ellie, tolerating bossy cousin Mia, gentle behavior with the cat.",
+        "ground_truth_label": "precocious_agreeableness_peer_settings",
+        "behavioral_evidence_from_interview": [
+          "Q07: 'plays parallel-blocks with.'",
+          "Q05: 'Mia bosses him around in a way he tolerates surprisingly well.'",
+          "Q11: 'He says \"gentle pet\" before touching her.'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-129",
+        "source": "reprojected",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "John's cognitive style is observational, categorical, and sorting-oriented, paired with rich symbolic play (firefighter helmet, butterfly drawings).",
+        "ground_truth_label": "cognitive_style_observational_categorical_symbolic",
+        "behavioral_evidence_from_interview": [
+          "Q01: 'he was already obsessed with sorting things.'",
+          "Q65: 'red plastic helmet he wears around the house and yells \"firetruck come!\"'"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}
