@@ -175,6 +175,7 @@ def run_pass_1(
     raw_logs: str,
     test_cases_stripped: dict[str, Any],
     model: str,
+    gpt_reasoning: str,
     client: Any | None,
     backend: str,
     provider: str,
@@ -190,11 +191,11 @@ def run_pass_1(
     )
     if backend in SUBSCRIPTION_BACKENDS:
         raw = call_subscription_cli(
-            template, model, backend, claude_cmd=claude_cmd, codex_cmd=codex_cmd
+            template, model, backend, gpt_reasoning, claude_cmd=claude_cmd, codex_cmd=codex_cmd
         )
     else:
         assert client is not None
-        raw = call_llm(client, model, template, provider=provider)
+        raw = call_llm(client, model, template, gpt_reasoning, provider=provider)
     return extract_json(raw)
 
 
@@ -202,6 +203,7 @@ def run_pass_2(
     test_cases_full: dict[str, Any],
     pass1_answers: dict[str, Any],
     model: str,
+    gpt_reasoning: str,
     client: Any | None,
     backend: str,
     provider: str,
@@ -217,11 +219,11 @@ def run_pass_2(
     )
     if backend in SUBSCRIPTION_BACKENDS:
         raw = call_subscription_cli(
-            template, model, backend, claude_cmd=claude_cmd, codex_cmd=codex_cmd
+            template, model, backend, gpt_reasoning, claude_cmd=claude_cmd, codex_cmd=codex_cmd
         )
     else:
         assert client is not None
-        raw = call_llm(client, model, template, provider=provider)
+        raw = call_llm(client, model, template, gpt_reasoning, provider=provider)
     return extract_json(raw)
 
 
@@ -233,6 +235,8 @@ def run_step(
     output_dir: Path,
     model_pass1: str,
     model_pass2: str,
+    reasoning_pass1: str,
+    reasoning_pass2: str,
     backend: str,
     provider: str,
     claude_cmd: str,
@@ -260,6 +264,7 @@ def run_step(
         raw_logs,
         stripped,
         model_pass1,
+        reasoning_pass1,
         client=client,
         backend=backend,
         provider=provider,
@@ -273,6 +278,7 @@ def run_step(
         test_cases,
         pass1,
         model_pass2,
+        reasoning_pass2,
         client,
         backend=backend,
         provider=provider,
@@ -301,6 +307,16 @@ def main() -> None:
     )
     parser.add_argument("--model-pass1", default=None)
     parser.add_argument("--model-pass2", default=None)
+    parser.add_argument(
+        "--reasoning-pass1",
+        default="low",
+        help="OpenAI model (openai-api, codex) reasoning effort (Pass 1)."
+    )
+    parser.add_argument(
+        "--reasoning-pass2",
+        default="high",
+        help="OpenAI model (openai-api, codex) reasoning effort (Pass 2)."
+    )
     parser.add_argument(
         "--backend",
         default="anthropic-api",
@@ -332,10 +348,9 @@ def main() -> None:
     backend = "claude" if args.openclaw else args.backend
     provider = provider_for_backend(backend, args.provider or "anthropic") if backend in API_BACKENDS else (args.provider or "anthropic")
     if args.model_pass1 is None:
-        args.model_pass1 = DEFAULT_MODEL if backend in {"anthropic-api", "claude"} else "gpt-5-mini"
+        args.model_pass1 = DEFAULT_MODEL if backend in {"anthropic-api", "claude"} else "gpt-5.4-mini"
     if args.model_pass2 is None:
         args.model_pass2 = DEFAULT_JUDGE_MODEL if backend in {"anthropic-api", "claude"} else "gpt-5.4"
-
     if backend in API_BACKENDS and not check_api_key(provider):
         print(
             f"{provider.upper()}_API_KEY is not set and no subscription backend was selected.",
@@ -350,6 +365,8 @@ def main() -> None:
             args.output,
             args.model_pass1,
             args.model_pass2,
+            args.reasoning_pass1,
+            args.reasoning_pass2,
             backend,
             provider,
             args.claude_cmd,

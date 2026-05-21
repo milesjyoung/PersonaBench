@@ -23,7 +23,8 @@ def make_client(provider: str):
 
 
 def call_llm(
-    client, model: str, prompt: str, provider: str = "anthropic",
+    client, model: str, prompt: str, gpt_reasoning: str | None = "low", 
+    provider: str = "anthropic",
     max_retries: int = 3,
 ) -> str:
     import time
@@ -52,6 +53,7 @@ def call_llm(
                 response = client.chat.completions.create(
                     model=model,
                     messages=[{"role": "user", "content": prompt}],
+                    reasoning_effort=gpt_reasoning
                 )
                 return response.choices[0].message.content
             raise ValueError(f"Unknown provider: {provider}")
@@ -88,11 +90,11 @@ def default_model_for_backend(backend: str, role: str = "generator") -> str:
         return "claude-opus-4-7"
     if backend in {"codex", "openai-api"}:
         if role == "evaluator":
-            return "gpt-5-mini"
+            return "gpt-5.4-mini"
         if role == "judge":
             return "gpt-5.4"
         if role == "verifier":
-            return "gpt-5"
+            return "gpt-5.4"
         return "gpt-5.5"
     raise ValueError(f"Unsupported backend: {backend}")
 
@@ -162,6 +164,7 @@ def call_codex_cli(
     prompt: str,
     model: str | None = None,
     codex_cmd: str | None = None,
+    gpt_reasoning: str | None = "low",
     max_retries: int = 2,
 ) -> str:
     """Call `codex exec` as an isolated subscription-backed subprocess."""
@@ -194,6 +197,8 @@ def call_codex_cli(
                 "--ignore-rules",
                 "--sandbox",
                 "read-only",
+                "-c",
+                f"model_reasoning_effort={gpt_reasoning}",
                 "-C",
                 str(tmp_path),
                 "-o",
@@ -208,7 +213,7 @@ def call_codex_cli(
                 capture_output=True,
                 text=True,
                 encoding="utf-8",
-                timeout=1800,
+                timeout=3600,
             )
             if result.returncode == 0:
                 if out_path.exists():
@@ -232,6 +237,7 @@ def call_subscription_cli(
     prompt: str,
     model: str | None,
     backend: str,
+    gpt_reasoning: str | None = None,
     claude_cmd: str | None = None,
     codex_cmd: str | None = None,
     max_retries: int = 2,
@@ -239,5 +245,5 @@ def call_subscription_cli(
     if backend == "claude":
         return call_claude_cli(prompt, model, claude_cmd, max_retries=max_retries)
     if backend == "codex":
-        return call_codex_cli(prompt, model, codex_cmd, max_retries=max_retries)
+        return call_codex_cli(prompt, model, codex_cmd, gpt_reasoning, max_retries=max_retries)
     raise ValueError(f"Unknown subscription backend: {backend}")

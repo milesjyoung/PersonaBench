@@ -65,17 +65,17 @@ class ModelCaller:
         self.provider = provider_for_backend(backend, provider) if backend in API_BACKENDS else provider
         self.client = make_client(self.provider) if backend in API_BACKENDS else None
 
-    def call(self, prompt: str, model: str | None = None) -> str:
+    def call(self, prompt: str, gpt_reasoning: str, model: str | None = None) -> str:
         if self.backend in SUBSCRIPTION_BACKENDS:
             return call_subscription_cli(
-                prompt, model, self.backend,
+                prompt, model, self.backend, gpt_reasoning,
                 claude_cmd=CLAUDE_CMD, codex_cmd=CODEX_CMD,
             )
         if self.client is None:
             raise RuntimeError("API client is not initialized")
         if model is None:
             raise ValueError("API backend requires an explicit model")
-        return call_llm(self.client, model, prompt, provider=self.provider)
+        return call_llm(self.client, model, prompt, gpt_reasoning, provider=self.provider)
 
 
 def extract_json(text: str) -> dict[str, Any]:
@@ -143,10 +143,11 @@ def fill_seed_placeholders(template: str, seed: dict) -> str:
 # ----- step 2 ---------------------------------------------------------------
 
 def run_step2_gen(
-    seed: dict, output_dir: Path, caller: ModelCaller, model: str | None = None
+    seed: dict, output_dir: Path, caller: ModelCaller, gpt_reasoning: str,
+    model: str | None = None,
 ) -> Path:
     template = fill_seed_placeholders(load_prompt(STEP2_DIR / "prompt.txt"), seed)
-    raw = caller.call(template, model=model)
+    raw = caller.call(template, gpt_reasoning, model=model)
     interview = extract_json(raw)
     out = output_dir / f"{base(extract_name(seed))}_interview.json"
     out.write_text(json.dumps(interview, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -155,7 +156,7 @@ def run_step2_gen(
 
 def run_step2_verify(
     seed: dict, interview: dict, output_dir: Path, caller: ModelCaller,
-    model: str | None = None,
+    gpt_reasoning: str, model: str | None = None,
 ) -> Path:
     template = fill_seed_placeholders(
         load_prompt(STEP2_DIR / "verification_prompt.txt"), seed
@@ -165,7 +166,7 @@ def run_step2_verify(
     template = fill(
         template, "{{INSERT_EXTRACTED_PROFILE_JSON_HERE}}", interview["extracted_profile"]
     )
-    raw = caller.call(template, model=model)
+    raw = caller.call(template, gpt_reasoning, model=model)
     verification = extract_json(raw)
     out = output_dir / f"{base(extract_name(seed))}_verification.json"
     out.write_text(json.dumps(verification, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -177,6 +178,7 @@ def run_step2_verify(
 def run_step3_gen(
     profile: dict, transcript: list, output_dir: Path, name: str,
     caller: ModelCaller,
+    gpt_reasoning: str,
     model: str | None = None,
 ) -> Path:
     template = load_prompt(STEP3_DIR / "prompt.txt")
@@ -186,7 +188,7 @@ def run_step3_gen(
     template = fill(template, "{{INSERT_TRANSCRIPT_JSON_HERE}}", transcript)
     template = template.replace("{{participant_id}}", profile.get("participant_id", ""))
     template = template.replace("{{name}}", profile.get("name", name))
-    raw = caller.call(template, model=model)
+    raw = caller.call(template, gpt_reasoning, model=model)
     circle = extract_json(raw)
     out = output_dir / f"{base(name)}_social_circle.json"
     out.write_text(json.dumps(circle, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -196,6 +198,7 @@ def run_step3_gen(
 def run_step3_verify(
     profile: dict, transcript: list, circle: dict, output_dir: Path, name: str,
     caller: ModelCaller,
+    gpt_reasoning: str,
     model: str | None = None,
 ) -> Path:
     template = load_prompt(STEP3_DIR / "verification_prompt.txt")
@@ -206,7 +209,7 @@ def run_step3_verify(
     template = fill(template, "{{INSERT_SOCIAL_CIRCLE_JSON_HERE}}", circle)
     template = template.replace("{{participant_id}}", profile.get("participant_id", ""))
     template = template.replace("{{name}}", profile.get("name", name))
-    raw = caller.call(template, model=model)
+    raw = caller.call(template, gpt_reasoning, model=model)
     verification = extract_json(raw)
     out = output_dir / f"{base(name)}_social_circle_verification.json"
     out.write_text(json.dumps(verification, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -224,6 +227,7 @@ def run_step4(
     log_end: str,
     per_fact_max_attempts: int,
     caller: ModelCaller,
+    gpt_reasoning: str,
     model: str | None = None,
     verifier_model: str | None = None,
 ) -> Path:
@@ -279,7 +283,7 @@ def run_step4(
             gen_prompt = fill(
                 gen_prompt, "{{INSERT_CONTACT_USAGE_COUNTS_JSON_HERE}}", contact_usage
             )
-            bundle = extract_json(caller.call(gen_prompt, model=model))
+            bundle = extract_json(caller.call(gen_prompt, gpt_reasoning, model=model))
             fragments = bundle.get("fragments", [])
 
             ver_prompt = fill(ver_template, "{{INSERT_FRAGMENTS_JSON_HERE}}", fragments)
@@ -289,7 +293,7 @@ def run_step4(
                 "{{PERSONA_OCCUPATION}}", str(persona["occupation"])
             )
             ver_prompt = ver_prompt.replace("{{PERSONA_LOCATION}}", str(persona["location"]))
-            verification = extract_json(caller.call(ver_prompt, model=verifier_model))
+            verification = extract_json(caller.call(ver_prompt, gpt_reasoning, model=verifier_model))
             last_fragments = fragments
             last_verification = verification
 
@@ -357,7 +361,7 @@ def run_step4(
     merge_prompt = merge_prompt.replace("{{LOG_END_DATE}}", log_end)
     merge_prompt = fill(merge_prompt, "{{INSERT_NEWS_EVENTS_JSON_HERE}}", [])
 
-    app_log = extract_json(caller.call(merge_prompt, model=model))
+    app_log = extract_json(caller.call(merge_prompt, gpt_reasoning, model=model))
     # Defense-in-depth: strip per-session/per-event source_fact_ids so any
     # downstream consumer that hands the raw JSON to a Pass 1 inference call
     # cannot accidentally leak fact-anchored sessions. Traceability is
@@ -384,6 +388,7 @@ def run_step5_gen(
     output_dir: Path,
     name: str,
     caller: ModelCaller,
+    gpt_reasoning: str,
     model: str | None = None,
 ) -> Path:
     template = load_prompt(STEP5_DIR / "prompt.txt")
@@ -396,7 +401,7 @@ def run_step5_gen(
         "{{INSERT_CORRECTED_SOCIAL_CIRCLE_JSON_HERE}}",
         corrected_social_circle,
     )
-    cases = extract_json(caller.call(template, model=model))
+    cases = extract_json(caller.call(template, gpt_reasoning, model=model))
     out = output_dir / f"{base(name)}_test_cases.json"
     out.write_text(json.dumps(cases, indent=2, ensure_ascii=False), encoding="utf-8")
     return out
@@ -409,6 +414,7 @@ def run_step5_verify(
     output_dir: Path,
     name: str,
     caller: ModelCaller,
+    gpt_reasoning: str,
     model: str | None = None,
 ) -> Path:
     template = load_prompt(STEP5_DIR / "verification_prompt.txt")
@@ -417,7 +423,7 @@ def run_step5_verify(
         template, "{{INSERT_CORRECTED_EXTRACTED_PROFILE_JSON_HERE}}", profile
     )
     template = fill(template, "{{INSERT_APP_LOGS_JSON_HERE}}", app_logs)
-    verification = extract_json(caller.call(template, model=model))
+    verification = extract_json(caller.call(template, gpt_reasoning, model=model))
     out = output_dir / f"{base(name)}_test_cases_verification.json"
     out.write_text(json.dumps(verification, indent=2, ensure_ascii=False), encoding="utf-8")
     return out
@@ -429,6 +435,8 @@ def run_step6(
     app_logs_path: Path, test_cases_path: Path, output_dir: Path,
     backend: str,
     provider: str,
+    reasoning_pass1: str,
+    reasoning_pass2: str,
     model_pass1: str | None = None, model_pass2: str | None = None,
 ) -> int:
     """Delegate to step6_benchmark_runner/generator.py with the selected backend.
@@ -443,6 +451,8 @@ def run_step6(
         "--test-cases", str(test_cases_path),
         "--output", str(output_dir),
         "--backend", backend,
+        "--reasoning-pass1", reasoning_pass1,
+        "--reasoning-pass2", reasoning_pass2,
         "--provider", provider,
         "--claude-cmd", CLAUDE_CMD,
         "--codex-cmd", CODEX_CMD,
@@ -469,6 +479,8 @@ def run_pipeline(
     model: str | None = None,
     verifier_model: str | None = None,
     judge_model: str | None = None,
+    gpt_reasoning: str = "high",
+    gpt_eval_reasoning: str = "low",
 ) -> None:
     seed = json.loads(seed_path.read_text(encoding="utf-8"))
     name = extract_name(seed)
@@ -485,9 +497,9 @@ def run_pipeline(
 
     # Load or generate Step 2 outputs
     if start <= 2 <= stop:
-        interview_path = run_step2_gen(seed, step2_out, caller, model=model)
+        interview_path = run_step2_gen(seed, step2_out, caller, gpt_reasoning, model=model)
         interview = json.loads(interview_path.read_text(encoding="utf-8"))
-        verification_path = run_step2_verify(seed, interview, step2_out, caller, model=model)
+        verification_path = run_step2_verify(seed, interview, step2_out, caller, gpt_reasoning, model=model)
         verification = json.loads(verification_path.read_text(encoding="utf-8"))
     else:
         interview = json.loads((step2_out / f"{n}_interview.json").read_text(encoding="utf-8"))
@@ -498,9 +510,9 @@ def run_pipeline(
 
     # Step 3
     if start <= 3 <= stop:
-        circle_path = run_step3_gen(profile, transcript, step3_out, name, caller, model=model)
+        circle_path = run_step3_gen(profile, transcript, step3_out, name, caller, gpt_reasoning, model=model)
         circle = json.loads(circle_path.read_text(encoding="utf-8"))
-        run_step3_verify(profile, transcript, circle, step3_out, name, caller, model=model)
+        run_step3_verify(profile, transcript, circle, step3_out, name, caller, gpt_reasoning, model=model)
 
     circle_verification_path = step3_out / f"{n}_social_circle_verification.json"
     circle_verification = json.loads(circle_verification_path.read_text(encoding="utf-8"))
@@ -526,10 +538,10 @@ def run_pipeline(
             app_logs = json.loads(app_logs_path.read_text(encoding="utf-8"))
             test_cases_path = run_step5_gen(
                 profile, app_logs, corrected_social_circle, step5_out, name,
-                caller, model=model,
+                caller, gpt_reasoning, model=model,
             )
             test_cases = json.loads(test_cases_path.read_text(encoding="utf-8"))
-            run_step5_verify(test_cases, profile, app_logs, step5_out, name, caller, model=model)
+            run_step5_verify(test_cases, profile, app_logs, step5_out, name, caller, gpt_reasoning, model=model)
 
     test_cases_path = step5_out / f"{n}_test_cases.json"
 
@@ -540,6 +552,8 @@ def run_pipeline(
         else:
             run_step6(
                 app_logs_path, test_cases_path, step6_out, backend, provider,
+                gpt_eval_reasoning,
+                gpt_reasoning,
                 model_pass1=model,
                 model_pass2=judge_model or model,
             )
@@ -598,6 +612,16 @@ def main() -> None:
         help="Judge model for Step 6 Pass 2 scoring. MUST be an exact pinned "
         "string. Should differ from --model when possible to keep the scorer "
         "independent of the answerer.",
+    )
+    parser.add_argument(
+        "--gpt-reasoning",
+        default="high",
+        help="OpenAI model (openai-api, codex) generation/verification (Steps 2-5, Step 6 Pass 2) reasoning effort."
+    )
+    parser.add_argument(
+        "--gpt-eval-reasoning",
+        default="low",
+        help="OpenAI model (openai-api, codex) response (Step 6 Pass 1) reasoning effort."
     )
     args = parser.parse_args()
 
@@ -661,6 +685,8 @@ def main() -> None:
                 model=args.model,
                 verifier_model=args.verifier_model,
                 judge_model=args.judge_model,
+                gpt_reasoning=args.gpt_reasoning,
+                gpt_eval_reasoning=args.gpt_eval_reasoning,
             )
     elif args.seed:
         run_pipeline(
@@ -669,6 +695,8 @@ def main() -> None:
             model=args.model,
             verifier_model=args.verifier_model,
             judge_model=args.judge_model,
+            gpt_reasoning=args.gpt_reasoning,
+            gpt_eval_reasoning=args.gpt_eval_reasoning,
         )
     else:
         parser.error("Provide --persona <name>, --seed <path>, or --all")
