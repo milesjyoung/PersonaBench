@@ -1,0 +1,2746 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "4913229383014b649940485b3acb73b1",
+      "name": "Kyle Joffrion",
+      "verification_date": "2026-05-20"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age, sex, marital status, education, occupation, and Boston residence align with Kyle's interview self-description.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed age/sex/marital_status/education_level/occupation/city/state",
+              "source_b_ref": "Q01, Q16, Q84, Q90",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed zipcode is written as 2215 while the interview specifies 02215 for Fenway/Kenmore.",
+              "verdict": "inconsistent",
+              "gap": false,
+              "source_a_ref": "seed zipcode",
+              "source_b_ref": "Q08",
+              "action": "REINTERPRET_SEED",
+              "resolution": "Interpret seed zipcode '2215' as the Massachusetts ZIP code 02215 with a dropped leading zero; corrected profile location should use Boston, MA 02215."
+            },
+            {
+              "id": 3,
+              "text": "Seed says Kyle grew up in Boston suburbs of Suffolk County, while the interview specifies Brookline at age 16, which is a Boston-area suburb but not Suffolk County.",
+              "verdict": "inconsistent",
+              "gap": true,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q97",
+              "action": "REINTERPRET_SEED",
+              "resolution": "Interpret the seed phrase as broadly referring to the Boston suburban area; carry forward the interview-specific fact that he lived in Brookline, Massachusetts, at age 16."
+            },
+            {
+              "id": 4,
+              "text": "Seed says he grew up in a middle-class Anglo-American household, and the interview confirms a middle-class New England family and mostly Anglo-American ethnicity.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q01, Q88",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Interview enriches seed demographics by adding date of birth, U.S. birth, U.S. citizenship, birthplace, parents' education, and household at age 16.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed demographic fields",
+              "source_b_ref": "Q85-Q101",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 2,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile correctly represents Kyle as 18, White, non-Hispanic, male, never married, childless, and not living with a romantic partner.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q84-Q89",
+              "source_b_ref": "profile demographics, preferences.social_and_relationships, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile location omits the leading zero in the ZIP code even though the interview specifies 02215.",
+              "verdict": "inconsistent",
+              "gap": false,
+              "source_a_ref": "Q08",
+              "source_b_ref": "profile.location",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Update profile.location from 'Boston, MA 2215' to 'Boston, MA 02215'."
+            },
+            {
+              "id": 3,
+              "text": "Profile captures rented apartment with two roommates and no partner/family co-residents.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q11, Q51-Q58",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile says he grew up in Brookline with both parents and a younger sister in the demographer summary, consistent with the interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q97-Q99",
+              "source_b_ref": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Profile omits several demographic specifics from the interview, including date of birth, birthplace, citizenship, parents' degrees, and parents' occupations.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q85-Q107",
+              "source_b_ref": "preferences.cultural_and_linguistic, preferences.life_events_and_transitions",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 1,
+            "gaps": 1
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Demographic summary and social/home preference sections consistently state no spouse, no partner, no children, and roommate living arrangement.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.demographer",
+              "field_b": "preferences.social_and_relationships, preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Education and work fields consistently describe him as a recent bachelor's graduate, not currently enrolled, and not currently employed.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "profile.education, profile.occupation",
+              "field_b": "preferences.work_and_career, preferences.life_events_and_transitions",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile location and home/lifestyle content refer to the same Boston Fenway/Kenmore residence, with only the ZIP formatting issue already identified.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "profile.location",
+              "field_b": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview states Kyle's date of birth is November 14, 2007.",
+              "gap": true,
+              "interview_ref": "Q85",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail: 'Date of birth is November 14, 2007. Evidence: Q85'."
+            },
+            {
+              "id": 2,
+              "text": "Interview states he was born in Boston, Massachusetts, is U.S.-born, is a U.S. citizen, and has not lived outside the United States.",
+              "gap": true,
+              "interview_ref": "Q86-Q87",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail covering U.S. birth, Boston birthplace, citizenship, and no residence outside the U.S."
+            },
+            {
+              "id": 3,
+              "text": "Interview gives parents' education and occupations: both parents have bachelor's degrees; mother worked in communications/program coordination for an education nonprofit; father worked as a software engineer.",
+              "gap": true,
+              "interview_ref": "Q100-Q107",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add parent education and occupation details to cultural/family background."
+            },
+            {
+              "id": 4,
+              "text": "Interview states Kyle lived with both married parents and younger sister Lily at age 16 in Brookline.",
+              "gap": true,
+              "interview_ref": "Q97-Q99",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add childhood household detail to life transitions or cultural background."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes spontaneous, sometimes chaotic planning, and the interview repeatedly confirms uneven routines, late-night projects, and reliance on friends for structure.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed professional_persona, persona",
+              "source_b_ref": "Q15, Q18, Q43-Q45, Q78",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed says he balances a modest travel budget; the interview confirms budget constraints, savings goals, and family support.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed travel_persona",
+              "source_b_ref": "Q61-Q64, Q82-Q83",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed presents him as not in the workforce despite a bachelor's degree, and the interview confirms no paid work last week or month while seeking roles.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed occupation, education_level",
+              "source_b_ref": "Q16, Q69-Q73",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Interview adds concrete spending behavior not present in seed, including rent share, overspending on coffee/takeout/tickets, use of savings, and avoiding credit card debt.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed career_goals_and_ambitions, travel_persona",
+              "source_b_ref": "Q56-Q64, Q82",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 5,
+              "text": "Interview enriches the seed's creative-tech motivation by explaining that identity fit, not only employability, drives his choice of creative technology and HCI.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed professional_persona, career_goals_and_ambitions",
+              "source_b_ref": "Q02-Q04, Q108-Q109",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures present-biased behavior around sleep, coffee, social media, concerts, project immersion, and procrastination.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q15, Q31-Q32, Q38, Q43-Q50, Q57",
+              "source_b_ref": "preferences.health_and_wellness, preferences.media_and_information_diet, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures his lack of wage income, parental support, savings buffer, and desire for financial independence.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q55, Q61-Q64, Q72-Q83",
+              "source_b_ref": "preferences.home_and_lifestyle, preferences.work_and_career, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile captures small commitment devices such as task lists and using friends for accountability.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q18, Q43-Q45, Q50",
+              "source_b_ref": "summaries.behavioral_economist, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile under-specifies concrete monthly financial figures and coping tactics from the interview.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q56-Q64, Q81-Q83",
+              "source_b_ref": "preferences.work_and_career, preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT"
+            },
+            {
+              "id": 5,
+              "text": "Profile omits the simple tax filing fact and lack of current job benefits.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q75-Q76",
+              "source_b_ref": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT"
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Financial anxiety in the behavioral summary is consistent with no current wage income and family help in work/home sections.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.behavioral_economist",
+              "field_b": "preferences.work_and_career, preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile consistently presents flexibility as both a valued preference and a source of procrastination risk.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career, preferences.life_events_and_transitions",
+              "field_b": "summaries.behavioral_economist, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Social eating, concerts, and project spending are consistent across food, music, entertainment, and financial framing.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.food_and_dining, preferences.music",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview includes monthly spending: rent share around $1,300 and total personal share around $1,900-$2,100 last month.",
+              "gap": true,
+              "interview_ref": "Q56-Q57",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add concrete rent and spending details."
+            },
+            {
+              "id": 2,
+              "text": "Interview states Kyle tracks spending poorly and overspends on coffee, takeout, and tickets.",
+              "gap": true,
+              "interview_ref": "Q57",
+              "should_be_in": "preferences.food_and_dining",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add rough banking-app tracking and overspending details."
+            },
+            {
+              "id": 3,
+              "text": "Interview says he has a small savings account, aims for a few hundred to $1,000 buffer, and can probably cover a $400 emergency with discomfort.",
+              "gap": true,
+              "interview_ref": "Q61, Q82",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add savings-buffer and emergency-expense details."
+            },
+            {
+              "id": 4,
+              "text": "Interview says he has no credit card debt, pays his card monthly, has a small federal student loan balance, and no informal loans.",
+              "gap": true,
+              "interview_ref": "Q63",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add debt profile details."
+            },
+            {
+              "id": 5,
+              "text": "Interview states he filed a simple tax return with parental help and tax software.",
+              "gap": true,
+              "interview_ref": "Q75",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add tax-filing detail."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 5
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed's Boston/New England civic and educational context is consistent with interview emphasis on local policy, housing, transit, and public spaces.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q24-Q25, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed does not specify party identity or voting behavior, while interview provides new facts that he is registered in Massachusetts, newly eligible, and Democrat-leaning.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed demographic/persona fields",
+              "source_b_ref": "Q23, Q95-Q96",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 3,
+              "text": "Seed's openness to diverse perspectives aligns with interview responses on racial justice, Black Lives Matter, and structural inequality.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q26-Q30",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Interview adds specific law-enforcement experiences and attitudes absent from the seed, including one late-night stop and views of police at protests and events.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed data",
+              "source_b_ref": "Q20-Q22",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 5,
+              "text": "Seed's maker-space and community-event orientation is consistent with interview volunteering and civic engagement through creative technical spaces.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed career_goals_and_ambitions",
+              "source_b_ref": "Q17",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures progressive issue priorities, Democratic leaning, limited voting history, and Massachusetts registration.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23-Q24, Q95-Q96",
+              "source_b_ref": "preferences.community_and_civic, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures Black Lives Matter influence, demonstrations, and discussion with family and friends.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q26-Q30",
+              "source_b_ref": "preferences.community_and_civic, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile captures mixed institutional trust: trust in public health and skepticism of corporate solutionism.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q24, Q42",
+              "source_b_ref": "summaries.political_scientist, preferences.media_and_information_diet",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile under-represents law-enforcement specifics including no arrest history, no close family arrests, and the late-night stop while carrying equipment.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q20-Q22",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT"
+            },
+            {
+              "id": 5,
+              "text": "Profile omits that his parents support basic racial-justice ideas but are more cautious about protest tactics and public-safety language.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q30",
+              "source_b_ref": "preferences.community_and_civic, preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT"
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Community/civic preferences and political scientist summary consistently describe modest but real civic engagement rather than full-time organizing.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Media diet and community sections consistently show politics learned through friends, local news, Instagram community groups, podcasts, and city-council clips.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.media_and_information_diet",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Trust in medical institutions and skepticism about policing/corporate solutionism are not contradictory; they concern different institutions.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness, preferences.media_and_information_diet",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview says he has had no major direct law-enforcement experiences but was once stopped with friends near a closed campus building while carrying project equipment.",
+              "gap": true,
+              "interview_ref": "Q20",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add late-night stop and response to carrying gear in bags."
+            },
+            {
+              "id": 2,
+              "text": "Interview says he has never been arrested and knows of no close family arrest history.",
+              "gap": true,
+              "interview_ref": "Q22",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add no-arrest and no-close-family-arrest details."
+            },
+            {
+              "id": 3,
+              "text": "Interview says he is more practical about politics now, focusing on zoning, transit, arts funding, public spaces, and affordability rather than online opinion alone.",
+              "gap": true,
+              "interview_ref": "Q25",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add shift toward implementation-oriented local politics."
+            },
+            {
+              "id": 4,
+              "text": "Interview says he has never served in the U.S. Armed Forces, Reserves, or National Guard.",
+              "gap": true,
+              "interview_ref": "Q93",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add no military service detail."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes Kyle as restless, creative, tech-savvy, spontaneous, and prone to procrastination; the interview strongly confirms this self-concept.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed persona, professional_persona",
+              "source_b_ref": "Q01-Q03, Q15, Q43-Q45",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed's laid-back collaborative style aligns with interview accounts of relying on Priya, friends, and teammates to contain chaotic projects.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed professional_persona",
+              "source_b_ref": "Q02, Q07, Q44, Q77",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed does not include mental-health specifics, while interview adds situational anxiety, stress, late-night spiraling, and informal coping.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona",
+              "source_b_ref": "Q43-Q50",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 4,
+              "text": "Seed emphasizes coffee and concert tickets, and interview confirms coffee overuse, live shows as emotionally meaningful, and overspending on tickets.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed persona, arts_persona",
+              "source_b_ref": "Q38, Q47, Q56-Q57",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Interview enriches values beyond the seed by explicitly naming creativity, friendship, independence, learning, family, and openness.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona",
+              "source_b_ref": "Q109",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures high openness, creative identity, technical-artistic integration, and desire for identity coherence.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01-Q03, Q108-Q109",
+              "source_b_ref": "preferences.arts_and_culture, preferences.work_and_career, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile accurately captures anxiety around uncertainty, job search, deadlines, and lack of structure.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q43-Q45, Q50",
+              "source_b_ref": "preferences.life_events_and_transitions, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile accurately captures adaptive coping through friends, walking, music, project work, and family check-ins rather than substances.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q38-Q45, Q49-Q50",
+              "source_b_ref": "preferences.health_and_wellness, preferences.social_and_relationships, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile omits some diagnostic nuance: Kyle reports situational anxiety but no formal anxiety-disorder diagnosis and no depression.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q45",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT"
+            },
+            {
+              "id": 5,
+              "text": "Profile omits that he has considered therapy for procrastination and stress.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q45",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT"
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Psychological summary's loose planning and anxiety are consistent with health, routine, and work sections describing sleep disruption and lack of structure.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.psychologist",
+              "field_b": "preferences.health_and_wellness, preferences.work_and_career, preferences.life_events_and_transitions",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile consistently presents Kyle as socially supported rather than isolated, across relationship, entertainment, and coping sections.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships, preferences.entertainment",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The desire for stability without losing flexibility appears consistently in work/career, life transitions, and psychological summary.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career, preferences.life_events_and_transitions",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview says Kyle has situational anxiety around deadlines, job search, and uncertainty, without a formal anxiety diagnosis.",
+              "gap": true,
+              "interview_ref": "Q45",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add diagnostic nuance on situational anxiety without formal diagnosis."
+            },
+            {
+              "id": 2,
+              "text": "Interview says warning signs include avoiding messages, staying up too late, and pretending a task does not exist.",
+              "gap": true,
+              "interview_ref": "Q45",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add warning-sign detail."
+            },
+            {
+              "id": 3,
+              "text": "Interview says he has considered therapy for managing procrastination and stress but has not sought formal help.",
+              "gap": true,
+              "interview_ref": "Q44-Q45",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add therapy-consideration and no formal help detail."
+            },
+            {
+              "id": 4,
+              "text": "Interview explicitly names values: creativity, friendship, independence, learning, family, and openness.",
+              "gap": true,
+              "interview_ref": "Q109",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add values detail to life-events/future-orientation section."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "The draft profile was broadly consistent with the seed and interview. Revisions were needed for the ZIP code formatting issue and for substantive interview details omitted from the draft profile, but no unresolved FLAG_FOR_REVIEW findings remain.",
+    "final_status": "Corrected profile is ready for downstream use after applying targeted enrichments and carrying summaries forward verbatim."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "4913229383014b649940485b3acb73b1",
+    "name": "Kyle Joffrion",
+    "age": 18,
+    "gender": "Male",
+    "marital_status": "Never married; not living with a romantic partner",
+    "location": "Boston, MA 02215",
+    "education": "Bachelor's degree in Computer Science with a minor in Visual Arts",
+    "occupation": "Not in workforce; recent graduate seeking creative technology, HCI, or junior developer work",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Generally healthy, pro-vaccine, active through walking, pickup basketball, and occasional jogging, but struggles with sleep consistency and stress.",
+        "details": [
+          "No major chronic condition or diagnosis; reports overall good health. Evidence: Q31, Q33",
+          "Uses walking, basketball, and Charles River jogging for activity rather than regimented workouts. Evidence: Q31, Q32",
+          "Main health barriers are late-night coding, inconsistent sleep, stress, and too much coffee. Evidence: Q31, Q32, Q38",
+          "Trusts doctors, CDC-style sources, and major hospital systems for vaccine information. Evidence: Q41, Q42",
+          "Had a pickup-basketball ankle sprain last year, treated at urgent care, with only minor residual bother if overdone. Evidence: Q33",
+          "Has situational anxiety around deadlines, job search, and uncertainty, but reports no formal anxiety-disorder diagnosis and does not think he is depressed. Evidence: Q45",
+          "Warning signs for stress include avoiding messages, staying up too late, and pretending tasks do not exist. Evidence: Q45",
+          "Has considered therapy for procrastination and stress but has not sought formal help. Evidence: Q44-Q45",
+          "Does not smoke, drinks alcohol only socially and irregularly, and does not use prescriptions or pain medication for coping. Evidence: Q38-Q39",
+          "Has tried marijuana a couple of times socially, most recently months ago, but does not rely on it. Evidence: Q39",
+          "Health care is covered through parents' employer-based insurance, with no medical debt and no skipped care due to cost. Evidence: Q36, Q40"
+        ],
+        "evidence": "Q31-Q42, Q44-Q45"
+      },
+      "food_and_dining": {
+        "summary": "Enjoys informal, social eating with a mix of Boston seafood, takeout, coffee, and experimental amateur cooking.",
+        "details": [
+          "Often overspends on coffee and takeout. Evidence: Q57",
+          "Makes kimchi fried rice for roommates and friends. Evidence: Q11",
+          "Enjoys trying food with friends and uses food as part of social life. Evidence: Q07, Q15",
+          "Has interest in amateur cooking and project-night meals. Evidence: Q11",
+          "Spending tracking is rough, mostly through checking a banking app and occasional notes. Evidence: Q57",
+          "Cuts back first on concerts and takeout when expenses get tight. Evidence: Q60, Q81"
+        ],
+        "evidence": "Q07, Q11, Q57, Q60, Q81"
+      },
+      "travel": {
+        "summary": "Wants future travel to global art scenes but currently focuses on modest local or regional trips.",
+        "details": [
+          "Dreams of visiting Berlin's gallery scene and Kyoto. Evidence: Q62, Q108",
+          "Currently constrained by budget and transition into work. Evidence: Q62, Q83",
+          "Values flexible, friend-centered travel and wants more independence before larger trips. Evidence: Q108",
+          "Current travel savings are minimal, with Berlin and Kyoto more dream trips than active budgets. Evidence: Q62"
+        ],
+        "evidence": "Q62, Q83, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "Strongly friend-centered, close to family, never married, not partnered, and embedded in creative and technical peer networks.",
+        "details": [
+          "Core friends include Maya, Theo, Priya, Jordan, and Sam. Evidence: Q02, Q07, Q11",
+          "Sees friends several times a week for coding, food, concerts, basketball, and projects. Evidence: Q07",
+          "Close to parents and younger sister Lily, with regular calls and visits. Evidence: Q05",
+          "No spouse, romantic cohabiting partner, or children. Evidence: Q05, Q84",
+          "Parents are important practical and emotional supports: his mother helps with logistics and money, and his father discusses building, cars, circuits, and sports. Evidence: Q05",
+          "Friends sometimes crash on the couch after late shows or hackathons, usually Theo or Maya once or twice a month. Evidence: Q13",
+          "Not in a serious romantic relationship; has dated a little but describes life as project-heavy and messy. Evidence: Q07, Q84"
+        ],
+        "evidence": "Q02, Q05-Q07, Q11, Q13, Q84"
+      },
+      "home_and_lifestyle": {
+        "summary": "Lives in a rented Boston apartment with two roommates and a student-like, creative, somewhat cluttered lifestyle.",
+        "details": [
+          "Lives in Fenway/Kenmore-area Boston apartment with roommates Jordan and Sam. Evidence: Q08, Q11, Q51",
+          "Apartment is shared, rented, and split among roommates; parents help with his share. Evidence: Q55, Q58",
+          "Household has cables, sketchbooks, takeout containers, and loose chore systems. Evidence: Q11",
+          "No children, lodgers, or temporary household members. Evidence: Q52-Q54",
+          "Rent share is around $1,300, and personal spending was around $1,900-$2,100 last month including rent. Evidence: Q56-Q57",
+          "Roommates and Kyle split rent and utilities evenly, while his parents currently help with his share. Evidence: Q55",
+          "All current roommates are regular household members on the lease, with no short-term sublets planned immediately. Evidence: Q12, Q58"
+        ],
+        "evidence": "Q08, Q11-Q12, Q51-Q58"
+      },
+      "entertainment": {
+        "summary": "Enjoys concerts, improv, social media, speculative fiction, game jams, and project-based leisure.",
+        "details": [
+          "Attends live shows and follows concert announcements. Evidence: Q07, Q48",
+          "Participates in improv through Improv Asylum classes and open nights. Evidence: Q07",
+          "Uses TikTok, Instagram, Discord, and GitHub for entertainment and connection. Evidence: Q48",
+          "Enjoys hackathons and game-jam style creative events. Evidence: Q02, Q65",
+          "Uses social media one to two hours a day on typical days and more when avoiding tasks. Evidence: Q48"
+        ],
+        "evidence": "Q02, Q07, Q48, Q65"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Creative-tech hobbies dominate: coding, digital art, interactive installations, game jams, murals, basketball, and improv.",
+        "details": [
+          "Builds interactive animations, hardware-input projects, and portfolio demos. Evidence: Q01, Q02, Q65",
+          "Photographs murals and visits galleries around Boston. Evidence: Q08, Q15, Q48",
+          "Plays pickup basketball on weekends. Evidence: Q07, Q31",
+          "Does improv and attends open nights. Evidence: Q07",
+          "Maintains code repositories and updates his portfolio site. Evidence: Q17",
+          "Volunteers occasionally at maker space events, helping with hardware setup and beginner prototyping. Evidence: Q17"
+        ],
+        "evidence": "Q01, Q07, Q15, Q17, Q65"
+      },
+      "work_and_career": {
+        "summary": "Recent CS graduate not currently employed, seeking work that combines software, visual art, HCI, and public interactive experiences.",
+        "details": [
+          "Officially not in the workforce and had no paid work in the past week or month. Evidence: Q16, Q69-Q72",
+          "Seeking creative technologist, junior front-end, HCI research, or interactive media roles. Evidence: Q16",
+          "Wants a future master's in Human-Computer Interaction and possibly a studio or venture. Evidence: Q108",
+          "Has skills in Python, JavaScript, prototyping, circuits, and team coordination. Evidence: Q65",
+          "Sent about fifteen applications in the last month plus informal networking messages. Evidence: Q16",
+          "Had only 6 to 8 weeks of paid work in the past year, mostly tutoring or short tech-help gigs. Evidence: Q67",
+          "Has no regular paycheck, no current workplace, no job benefits, and no paid time off. Evidence: Q73, Q76",
+          "Has a small savings account, aims for at least a few hundred dollars and ideally around $1,000 as a buffer, and does not meaningfully invest. Evidence: Q61",
+          "Could probably cover a $400 emergency from savings, but it would shrink his buffer; he would ask parents before using credit-card debt. Evidence: Q82",
+          "Has no credit card debt, pays his credit card monthly, has a small federal student loan balance, and has no informal loans. Evidence: Q63",
+          "Filed a simple tax return last year using tax software with help from his parents. Evidence: Q75"
+        ],
+        "evidence": "Q16, Q61-Q63, Q65-Q83, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Strong arts identity rooted in Boston street art, visual arts education, digital illustration, 3D work, live shows, and public installations.",
+        "details": [
+          "Minor in Visual Arts and sees art as central, not a side hobby. Evidence: Q01-Q03, Q90",
+          "Photographs murals, visits galleries, and follows art on Instagram. Evidence: Q08, Q15, Q48",
+          "Wants to create immersive interactive installations for public spaces and museums. Evidence: Q108",
+          "Connects music, light, visuals, and interactivity as meaningful experiences. Evidence: Q47, Q108",
+          "Key creative crossroads was deciding not to treat visual art as secondary to computer science. Evidence: Q02-Q03",
+          "Portfolio includes interactive visual demos, small games, 3D animations, and hardware-input projects. Evidence: Q65"
+        ],
+        "evidence": "Q01-Q03, Q47-Q48, Q65, Q90, Q108"
+      },
+      "sports_and_fitness": {
+        "summary": "Social sports fan and casual athlete who favors pickup basketball, walking, jogging, Celtics and Red Sox fandom over formal training.",
+        "details": [
+          "Plays pickup basketball with friends. Evidence: Q07, Q31",
+          "Jogging near the Charles River is part of better-weather routine. Evidence: Q08, Q18",
+          "Family culture includes Celtics and Red Sox fandom. Evidence: Q01, Q05",
+          "Sprained ankle playing pickup basketball last year. Evidence: Q33",
+          "Prefers social activity and walking over a disciplined gym routine. Evidence: Q31-Q32"
+        ],
+        "evidence": "Q01, Q07, Q18, Q31-Q33"
+      },
+      "nature_and_outdoors": {
+        "summary": "Uses nearby urban outdoor spaces, especially the Charles River, for walking, jogging, and emotional regulation.",
+        "details": [
+          "Walks and jogs near the Charles River. Evidence: Q08, Q18, Q50",
+          "Uses walks outside to recover from stress. Evidence: Q44, Q50",
+          "Future travel hopes include Kyoto and scenic experiences. Evidence: Q108",
+          "Boston's walkability makes everyday movement easier. Evidence: Q32"
+        ],
+        "evidence": "Q08, Q32, Q44, Q50, Q108"
+      },
+      "technology": {
+        "summary": "Highly tech-oriented, with practical skill in software, creative coding, hardware prototyping, GitHub, and interactive installations.",
+        "details": [
+          "Bachelor's degree in Computer Science. Evidence: Q90",
+          "Uses Python, JavaScript, circuits, sensors, GitHub, and portfolio demos. Evidence: Q02, Q48, Q65",
+          "Father's software engineering career influenced early coding interest. Evidence: Q106",
+          "Wants to work in creative technology and HCI. Evidence: Q16, Q108",
+          "Early interests included taking apart electronics, drawing robots, and making games on the family computer. Evidence: Q01",
+          "Prefers hybrid work with studio energy plus quiet focus time. Evidence: Q78"
+        ],
+        "evidence": "Q01-Q02, Q16, Q48, Q65, Q78, Q90, Q106, Q108"
+      },
+      "community_and_civic": {
+        "summary": "Left-leaning, locally aware, interested in housing, transit, racial justice, arts funding, public spaces, and maker-space volunteering.",
+        "details": [
+          "Registered to vote in Massachusetts and plans to vote. Evidence: Q23",
+          "Progressive issue priorities include climate, housing, transit, racial justice, LGBTQ rights, and education. Evidence: Q24",
+          "Attended local demonstrations and discusses Black Lives Matter issues. Evidence: Q26-Q30",
+          "Volunteers occasionally at maker space events. Evidence: Q17",
+          "Identifies as a Democrat or Democrat-leaning independent, closer to Democrats than Republicans, with moderate party identification. Evidence: Q95-Q96",
+          "Has become more practical about politics, focusing on zoning, transit, arts funding, public spaces, and who can afford to stay in the city. Evidence: Q25",
+          "Has not had major direct law-enforcement experiences but was once stopped with friends near a closed campus building while carrying project equipment. Evidence: Q20",
+          "After that stop, he began keeping project gear in bags instead of carrying wires and tripods visibly. Evidence: Q20",
+          "Has never been arrested and knows of no close family members who have been arrested. Evidence: Q22",
+          "Views police presence at protests and big sports events as sometimes feeling more like crowd control than community safety. Evidence: Q21",
+          "Close friends are mostly left-leaning; Maya is especially active in organizing and mutual aid. Evidence: Q30"
+        ],
+        "evidence": "Q17, Q20-Q30, Q95-Q96"
+      },
+      "music": {
+        "summary": "Music is central to social life, aesthetic inspiration, social media use, and emotional experience.",
+        "details": [
+          "Goes to live shows and tracks concert announcements. Evidence: Q07, Q48",
+          "Describes live shows as almost spiritual when sound and lights align. Evidence: Q47",
+          "Uses TikTok and Instagram for music clips and concert content. Evidence: Q48",
+          "Overspends sometimes on concert tickets. Evidence: Q56-Q57",
+          "Talks about music with younger sister Lily and a cousin in Cambridge. Evidence: Q05-Q06"
+        ],
+        "evidence": "Q05-Q07, Q47-Q48, Q56-Q57"
+      },
+      "fashion_and_appearance": {
+        "summary": "No strong direct interview evidence on fashion or appearance beyond creative peer culture and arts identity.",
+        "details": [],
+        "evidence": "No substantive evidence"
+      },
+      "cultural_and_linguistic": {
+        "summary": "White, non-Hispanic, Anglo-American, U.S.-born Boston-area New Englander with culturally Christian but agnostic identity.",
+        "details": [
+          "Born in Boston, Massachusetts, and grew up in the Boston suburbs. Evidence: Q86-Q87, Q97",
+          "Identifies as White and not Hispanic, Latinx, or Spanish origin. Evidence: Q88-Q89",
+          "Culturally Christian family background but personally agnostic. Evidence: Q47, Q94",
+          "Family traditions include holidays and Boston sports culture. Evidence: Q01, Q05",
+          "U.S.-born U.S. citizen who has not lived outside the United States. Evidence: Q86",
+          "Lived in Brookline, Massachusetts, at age 16 with both married parents and younger sister Lily. Evidence: Q97-Q99",
+          "Both parents completed bachelor's degrees. Evidence: Q100-Q101",
+          "Mother worked in communications and program coordination for an education nonprofit in the greater Boston area. Evidence: Q102-Q104",
+          "Father worked as a software engineer for a private Boston-area technology firm making business software tools. Evidence: Q105-Q107"
+        ],
+        "evidence": "Q01, Q05, Q47, Q86-Q89, Q94, Q97-Q107"
+      },
+      "life_events_and_transitions": {
+        "summary": "Major current transition is from accelerated bachelor's completion into independent adult life and job seeking.",
+        "details": [
+          "Completed bachelor's degree in spring 2026 at age 18. Evidence: Q85, Q90, Q92",
+          "Recently finished school and is adjusting to lack of class structure. Evidence: Q18",
+          "Key crossroads was choosing to integrate computer science with visual arts. Evidence: Q02-Q03",
+          "Currently not in workforce and seeking a first stable creative-tech role. Evidence: Q16, Q65",
+          "Date of birth is November 14, 2007. Evidence: Q85",
+          "Was enrolled full time during the past three months before completing final CS and visual arts requirements. Evidence: Q91-Q92",
+          "Has never served in the U.S. Armed Forces, Reserves, or National Guard. Evidence: Q93",
+          "Values creativity, friendship, independence, learning, family, and openness. Evidence: Q109",
+          "Hopes in the next year include a paid role or internship, a stronger portfolio, and less reliance on parents. Evidence: Q108",
+          "Longer-term hopes include independence, travel, a possible HCI master's, and eventually a studio or small venture for immersive installations. Evidence: Q108"
+        ],
+        "evidence": "Q02-Q03, Q16, Q18, Q65, Q85, Q90-Q93, Q108-Q109"
+      },
+      "media_and_information_diet": {
+        "summary": "Heavy digital media user who relies on Instagram, TikTok, Discord, GitHub, podcasts, local news, and credible medical sources.",
+        "details": [
+          "Uses Instagram for art, murals, concerts, friends, and project posts. Evidence: Q48",
+          "Uses TikTok for music clips, coding jokes, and creative-process videos. Evidence: Q48",
+          "Uses Discord and GitHub for project communities. Evidence: Q48",
+          "Gets political and race-related information from friends, local news, Instagram community groups, podcasts, and city council clips. Evidence: Q27",
+          "Trusts doctors, CDC-style sources, and hospital systems for vaccine information. Evidence: Q42",
+          "Barely uses Facebook except for event pages or older relatives and does not use Facebook or Twitter for emotional or financial support. Evidence: Q48-Q49",
+          "Social media is useful but can damage his attention and become a way to avoid tasks. Evidence: Q48, Q50"
+        ],
+        "evidence": "Q27, Q42, Q48-Q50"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Kyle Joffrion is an 18-year-old White, non-Hispanic male living in Boston, Massachusetts, in a rented apartment with two roommates (Q08, Q11, Q88-Q89). He was born in Boston, grew up in Brookline with both parents and a younger sister, and comes from a middle-class, education-oriented household where both parents hold bachelor's degrees (Q87, Q97-Q101). He has completed a bachelor's degree in Computer Science with a Visual Arts minor but is not currently enrolled or employed, placing him in a transition from education to early adulthood and labor-market entry (Q16, Q90-Q92). He has never been married, has no children, and is not living with a romantic partner (Q05, Q84).",
+      "behavioral_economist": "Kyle's choices are shaped by identity fit, peer collaboration, and short-term creative momentum more than rigid long-range planning (Q02, Q15, Q78). He shows present-biased tendencies around sleep, coffee, social media, concerts, and project immersion, but also has enough self-awareness to use small task lists and friends as commitment devices (Q43-Q50). Financially, he is risk-aware but buffered by parental support, with no current wage income and a desire to avoid credit card debt (Q55, Q72, Q82-Q83). His strongest incentives are autonomy, creative expression, social recognition through projects, and eventual financial independence (Q65, Q108-Q109).",
+      "political_scientist": "Kyle is a newly eligible Massachusetts voter who is registered and plans to participate, though he has limited voting history due to age (Q23). He identifies as Democrat-leaning and progressive, with priorities including housing affordability, transit, climate, racial justice, LGBTQ rights, education, and public goods (Q24, Q95-Q96). His institutional trust is mixed: he trusts science and public health authorities but is skeptical of corporate solutionism and attentive to policing and racial inequality (Q24, Q26-Q30, Q42). His civic engagement is modest but real, including discussions with family and friends, attendance at local demonstrations, and maker-space volunteering (Q17, Q29).",
+      "psychologist": "Kyle presents as curious, creative, socially oriented, and high in openness, with a self-concept organized around blending technical skill and artistic experimentation (Q01-Q03, Q108-Q109). He is collaborative and energized by group projects, but his planning style is loose and vulnerable to procrastination, sleep disruption, and deadline anxiety (Q15, Q43-Q45). His coping strategies are mostly adaptive but informal: friends, walking, music, project work, and family check-ins rather than substances or formal treatment (Q38-Q45, Q50). He has a strong need for autonomy and identity coherence, wanting stability without losing flexibility, creative risk, or connection (Q83, Q108-Q109)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kyle reports overall good health with no major chronic condition or diagnosis.",
+        "ground_truth_label": "generally healthy; no chronic diagnosis",
+        "behavioral_evidence_from_interview": [
+          "Q31: Overall I am healthy.",
+          "Q33: No major diagnoses, broken bones, hospitalizations, or chronic conditions."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kyle stays active through walking, pickup basketball, and occasional Charles River jogging rather than regimented workouts.",
+        "ground_truth_label": "casual active lifestyle",
+        "behavioral_evidence_from_interview": [
+          "Q31: I play pickup basketball, jog the Charles sometimes, and walk a lot.",
+          "Q32: Boston makes walking easy, and friends make basketball fun."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kyle's main health barriers are late-night coding, inconsistent sleep, stress, and too much coffee.",
+        "ground_truth_label": "sleep and stress barriers",
+        "behavioral_evidence_from_interview": [
+          "Q31: My main issues are sleep, stress, and sometimes treating coffee like a food group.",
+          "Q38: During stress I am more likely to overdo coffee, stay up late."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist",
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kyle trusts doctors, CDC-style public health sources, and major hospital systems for vaccine information.",
+        "ground_truth_label": "trusts medical and public health sources",
+        "behavioral_evidence_from_interview": [
+          "Q42: I trust my doctor, CDC-type public health sources, and major hospital systems like Mass General Brigham."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kyle is pro-vaccine and received routine vaccines and COVID shots.",
+        "ground_truth_label": "pro-vaccine",
+        "behavioral_evidence_from_interview": [
+          "Q41: I am pro-vaccine. I got routine vaccines and COVID shots."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kyle sprained an ankle playing pickup basketball last year and went to urgent care.",
+        "ground_truth_label": "recent ankle sprain",
+        "behavioral_evidence_from_interview": [
+          "Q33: I sprained an ankle playing pickup basketball last year.",
+          "Q33 follow-up: I went to urgent care because it swelled up."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kyle experiences situational anxiety around deadlines, job searching, and uncertainty but has no formal anxiety-disorder diagnosis.",
+        "ground_truth_label": "situational anxiety without formal diagnosis",
+        "behavioral_evidence_from_interview": [
+          "Q45: I deal with anxiety, mostly situational anxiety around deadlines, job stuff, and uncertainty.",
+          "Q45: I have not been diagnosed with an anxiety disorder."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kyle does not think he is depressed but can feel low when stuck or behind.",
+        "ground_truth_label": "no self-reported depression",
+        "behavioral_evidence_from_interview": [
+          "Q45: I do not think I am depressed, but I can get low when I feel stuck or behind."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kyle's warning signs for stress include avoiding messages, staying up too late, and pretending tasks do not exist.",
+        "ground_truth_label": "stress warning signs",
+        "behavioral_evidence_from_interview": [
+          "Q45 follow-up: Avoiding messages, staying up too late, and pretending a task does not exist."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kyle has considered therapy for procrastination and stress but has not sought formal help.",
+        "ground_truth_label": "therapy considered; no formal help",
+        "behavioral_evidence_from_interview": [
+          "Q44 follow-up: No, not formal help, but I leaned on friends.",
+          "Q45 follow-up: Yes, I have considered it, especially for managing procrastination and stress."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kyle does not smoke and does not regularly drink alcohol.",
+        "ground_truth_label": "no smoking; irregular alcohol",
+        "behavioral_evidence_from_interview": [
+          "Q38: I do not smoke.",
+          "Q38: I have had alcohol in social settings, but I am 18, so it is not a regular or legal bar-going thing for me."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kyle does not use prescriptions or pain medication to cope with stress.",
+        "ground_truth_label": "does not cope with medication",
+        "behavioral_evidence_from_interview": [
+          "Q39: I do not use prescriptions for coping, and I do not use pain meds except normal ibuprofen if I am sore."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kyle has tried marijuana socially a couple of times but does not rely on it.",
+        "ground_truth_label": "limited social marijuana use",
+        "behavioral_evidence_from_interview": [
+          "Q39: I have tried marijuana a couple times socially, but it is not something I rely on."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kyle is covered through his parents' employer-based health insurance and has not skipped care due to cost.",
+        "ground_truth_label": "dependent health insurance; no skipped care",
+        "behavioral_evidence_from_interview": [
+          "Q36: I am still on my parents' insurance.",
+          "Q40: My family pays through employer-based health insurance, and I am covered as a dependent."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Kyle often overspends on coffee and takeout.",
+        "ground_truth_label": "coffee and takeout overspending",
+        "behavioral_evidence_from_interview": [
+          "Q57 follow-up: Coffee, takeout, and tickets."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Kyle makes kimchi fried rice for roommates and friends when ambitious.",
+        "ground_truth_label": "kimchi fried rice cooking",
+        "behavioral_evidence_from_interview": [
+          "Q11 follow-up: Kimchi fried rice nights happen when I get ambitious."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Kyle uses food socially with friends, including cheap food and late-night meals.",
+        "ground_truth_label": "social eating",
+        "behavioral_evidence_from_interview": [
+          "Q07: We do hackathons, grab cheap food, go to shows.",
+          "Q07 follow-up: getting late-night food."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Kyle tracks spending roughly through his banking app and occasional notes.",
+        "ground_truth_label": "rough spending tracking",
+        "behavioral_evidence_from_interview": [
+          "Q57 follow-up: Badly. I check my banking app and sometimes make a rough note."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Kyle cuts concerts and takeout first when expenses are tight.",
+        "ground_truth_label": "cuts discretionary spending first",
+        "behavioral_evidence_from_interview": [
+          "Q60 follow-up: Concerts and takeout.",
+          "Q81 follow-up: Takeout, concerts, and buying new gear."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Kyle dreams of visiting Berlin's gallery scene and Kyoto.",
+        "ground_truth_label": "Berlin and Kyoto travel goals",
+        "behavioral_evidence_from_interview": [
+          "Q62: I would love to travel to Berlin or Kyoto eventually.",
+          "Q108: Berlin's gallery scene is a dream trip, and Kyoto is on my list too."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Kyle's travel ambitions are constrained by his budget and transition into paid work.",
+        "ground_truth_label": "budget-constrained travel",
+        "behavioral_evidence_from_interview": [
+          "Q62: right now that is more dream than budget.",
+          "Q83: Boston is expensive and I do not have a regular income yet."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Kyle wants more financial independence before taking larger trips.",
+        "ground_truth_label": "independence before major travel",
+        "behavioral_evidence_from_interview": [
+          "Q108: I would like to have enough money to be independent, pay rent without stress, and travel a bit."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Kyle's core friend group includes Maya, Theo, Priya, Jordan, and Sam.",
+        "ground_truth_label": "core friend group",
+        "behavioral_evidence_from_interview": [
+          "Q07: Maya, Theo, Priya, and Jordan are probably my core group right now.",
+          "Q11: I live with two roommates, Jordan and Sam."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Kyle sees close friends several times a week for coding, food, concerts, basketball, and projects.",
+        "ground_truth_label": "frequent friend contact",
+        "behavioral_evidence_from_interview": [
+          "Q07 follow-up: Usually several times a week.",
+          "Q07 follow-up: Code, sketch, play basketball, go mural-hunting, cook badly, or end up at a concert."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Kyle is close to his parents and younger sister Lily, with regular calls and visits.",
+        "ground_truth_label": "close family ties",
+        "behavioral_evidence_from_interview": [
+          "Q05: My parents are still really important to me.",
+          "Q05: I also have a younger sister, Lily.",
+          "Q05 follow-up: I usually call home on Sundays."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Kyle has no spouse, no cohabiting romantic partner, and no children.",
+        "ground_truth_label": "never married; no partner; no children",
+        "behavioral_evidence_from_interview": [
+          "Q05: I do not have a partner or children. I have never been married.",
+          "Q84: I have never been married, and I am not living with a romantic partner."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Kyle's mother helps him with logistics and money, while his father connects with him around building, cars, circuits, and sports.",
+        "ground_truth_label": "parent support roles",
+        "behavioral_evidence_from_interview": [
+          "Q05: My mom is the person I call when I am spiraling about logistics or money.",
+          "Q05: My dad is more the person I talk to about building things, cars, circuits, and sports."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Friends sometimes crash on Kyle's couch after late shows or hackathons, usually Theo or Maya once or twice a month.",
+        "ground_truth_label": "occasional couch guests",
+        "behavioral_evidence_from_interview": [
+          "Q13: Friends crash on the couch sometimes after late shows or hackathons.",
+          "Q13 follow-up: Usually Theo or Maya.",
+          "Q13 follow-up: Maybe once or twice a month."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Kyle lives in a rented apartment in Boston's Fenway/Kenmore area with roommates Jordan and Sam.",
+        "ground_truth_label": "Fenway/Kenmore rented apartment with two roommates",
+        "behavioral_evidence_from_interview": [
+          "Q08: I live in Boston, around the Fenway/Kenmore side of things, zip code 02215.",
+          "Q11: I live with two roommates, Jordan and Sam, in a rented apartment."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Kyle and his roommates split rent and utilities, and his parents help with his share.",
+        "ground_truth_label": "shared rent with parental support",
+        "behavioral_evidence_from_interview": [
+          "Q55: My roommates and I split rent and utilities; my parents help with my share right now."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Kyle's apartment is cluttered with cables, sketchbooks, and takeout containers, and chores are loosely organized.",
+        "ground_truth_label": "cluttered creative apartment",
+        "behavioral_evidence_from_interview": [
+          "Q11: There are cables, sketchbooks, and takeout containers around more often than Sam would prefer.",
+          "Q11 follow-up: We have a loose rotation."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Kyle's household has no children, lodgers, boarders, employees, or regular temporary members.",
+        "ground_truth_label": "no extra household members",
+        "behavioral_evidence_from_interview": [
+          "Q52: No babies or small children.",
+          "Q54: No lodgers, boarders, or employees live here.",
+          "Q12: Everyone living there now is a regular household member on the lease."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Kyle's rent share is around $1,300 per month.",
+        "ground_truth_label": "rent share about $1300",
+        "behavioral_evidence_from_interview": [
+          "Q56 follow-up: Around $1,300 for my share."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Kyle's personal spending last month was around $1,900 to $2,100 including rent.",
+        "ground_truth_label": "monthly personal spending about $1900-$2100",
+        "behavioral_evidence_from_interview": [
+          "Q57: For my personal share, probably around $1,900 to $2,100 last month, including rent."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Kyle attends live shows and follows concert announcements.",
+        "ground_truth_label": "live show attendance",
+        "behavioral_evidence_from_interview": [
+          "Q07: go to shows",
+          "Q48: I use Instagram a lot for art, street murals, concert announcements."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Kyle participates in improv through Improv Asylum classes and open nights.",
+        "ground_truth_label": "improv participation",
+        "behavioral_evidence_from_interview": [
+          "Q07: I also have improv friends from Improv Asylum classes and open nights."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Kyle uses TikTok, Instagram, Discord, and GitHub for entertainment and connection.",
+        "ground_truth_label": "digital entertainment platforms",
+        "behavioral_evidence_from_interview": [
+          "Q48: I use Instagram a lot.",
+          "Q48: I use TikTok more.",
+          "Q48: I use Discord for project groups and game jam channels, and GitHub is weirdly social for me too."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Kyle enjoys hackathons and game-jam style creative events.",
+        "ground_truth_label": "hackathon and game jam leisure",
+        "behavioral_evidence_from_interview": [
+          "Q02: Then I joined a hackathon team.",
+          "Q48: Discord for project groups and game jam channels."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Kyle spends about one to two hours a day on social media, more when avoiding tasks.",
+        "ground_truth_label": "social media time use",
+        "behavioral_evidence_from_interview": [
+          "Q48 follow-up: Maybe one to two hours a day, more on bad days."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Kyle builds interactive animations, hardware-input projects, and portfolio demos.",
+        "ground_truth_label": "creative technology prototyping hobby",
+        "behavioral_evidence_from_interview": [
+          "Q01: making a little interactive animation or wiring LEDs to a sensor.",
+          "Q65: I write Python and JavaScript, build small interactive pieces, prototype circuits."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist",
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Kyle photographs murals and visits galleries around Boston.",
+        "ground_truth_label": "street art photography and galleries",
+        "behavioral_evidence_from_interview": [
+          "Q15: wander around photographing murals, go to a gallery.",
+          "Q48 follow-up: Murals, sketches, short animation clips."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Kyle maintains code repositories and updates his portfolio site.",
+        "ground_truth_label": "portfolio and repo maintenance",
+        "behavioral_evidence_from_interview": [
+          "Q17: I also maintain a few code repos and update my portfolio site."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Kyle volunteers occasionally at maker space events helping with hardware setup and beginner prototyping.",
+        "ground_truth_label": "maker space volunteering",
+        "behavioral_evidence_from_interview": [
+          "Q17: I volunteer occasionally at maker space events.",
+          "Q17 follow-up: Mostly setup, troubleshooting Arduino-style circuits, and helping beginners connect code to physical inputs."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kyle is officially not in the workforce and had no paid work in the past week or month.",
+        "ground_truth_label": "not currently employed",
+        "behavioral_evidence_from_interview": [
+          "Q16: Right now I am not working a paid job.",
+          "Q69: No, I did not work for pay in the past week.",
+          "Q71: Zero paid jobs in the past month."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer",
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kyle is seeking creative technologist, junior front-end developer, HCI research assistant, or interactive media roles.",
+        "ground_truth_label": "creative technology job search",
+        "behavioral_evidence_from_interview": [
+          "Q16 follow-up: Creative technologist, junior front-end developer, HCI research assistant, interactive media intern."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kyle wants a future master's in Human-Computer Interaction and possibly a studio or venture.",
+        "ground_truth_label": "HCI master's and venture aspiration",
+        "behavioral_evidence_from_interview": [
+          "Q108: I could see doing a master's in Human-Computer Interaction and eventually starting a studio or small venture."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kyle has skills in Python, JavaScript, prototyping, circuits, and team coordination.",
+        "ground_truth_label": "software and prototyping skills",
+        "behavioral_evidence_from_interview": [
+          "Q65: I write Python and JavaScript, build small interactive pieces, prototype circuits, and organize or co-lead hackathon teams."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kyle sent about fifteen job applications in the last month plus informal networking messages.",
+        "ground_truth_label": "recent job applications",
+        "behavioral_evidence_from_interview": [
+          "Q16 follow-up: Maybe fifteen in the last month, plus a bunch of informal messages to people."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kyle had only 6 to 8 weeks of paid work in the past year, mostly short tutoring or tech-help gigs.",
+        "ground_truth_label": "limited paid work history in past year",
+        "behavioral_evidence_from_interview": [
+          "Q67: For paid work, only a handful of weeks, maybe 6 to 8 total, mostly short tutoring or tech-help gigs."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kyle has no regular paycheck, no current workplace, no job benefits, and no paid time off.",
+        "ground_truth_label": "no current work benefits",
+        "behavioral_evidence_from_interview": [
+          "Q73: I do not have a regular paycheck right now.",
+          "Q76: I do not have a current workplace or job benefits."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kyle has a small savings account and aims for a buffer of a few hundred dollars to about $1,000.",
+        "ground_truth_label": "small savings buffer",
+        "behavioral_evidence_from_interview": [
+          "Q61: I have a small savings account.",
+          "Q61 follow-up: At least a few hundred dollars, ideally more like $1,000."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kyle could probably cover a $400 emergency from savings, but it would make him uncomfortable.",
+        "ground_truth_label": "$400 emergency possible but uncomfortable",
+        "behavioral_evidence_from_interview": [
+          "Q82: I could probably cover $400 from savings, but it would make me uncomfortable and shrink my buffer."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kyle would ask his parents before using credit card debt for an emergency he could not cover.",
+        "ground_truth_label": "prefers parental help over credit-card debt",
+        "behavioral_evidence_from_interview": [
+          "Q82: If I could not cover it, I would ask my parents before using credit card debt."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kyle has no credit card debt, pays his credit card monthly, has a small federal student loan balance, and has no informal loans.",
+        "ground_truth_label": "low debt profile",
+        "behavioral_evidence_from_interview": [
+          "Q63: I do not have credit card debt. I have a small federal student loan balance.",
+          "Q63 follow-up: Yes, but I pay it off monthly.",
+          "Q63 follow-up: No informal loans right now."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kyle filed a simple tax return last year using tax software with help from his parents.",
+        "ground_truth_label": "filed simple tax return",
+        "behavioral_evidence_from_interview": [
+          "Q75: Yes, I filed a simple return with help from my parents.",
+          "Q75 follow-up: Tax software, with my mom checking things."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Kyle completed a Visual Arts minor and sees art as central rather than a side hobby.",
+        "ground_truth_label": "central arts identity",
+        "behavioral_evidence_from_interview": [
+          "Q03: I made a pretty conscious decision to stop treating art like a side quest.",
+          "Q90: Bachelor's degree in Computer Science with a minor in Visual Arts."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Kyle wants to create immersive interactive installations for public spaces and museums.",
+        "ground_truth_label": "public interactive installation goal",
+        "behavioral_evidence_from_interview": [
+          "Q108: building things that people actually interact with in public spaces, museums, festivals, or city environments."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Kyle connects music, light, visuals, and interactivity with meaningful or almost spiritual experiences.",
+        "ground_truth_label": "aesthetic-spiritual experience",
+        "behavioral_evidence_from_interview": [
+          "Q47: being at a live show when the sound and lights hit perfectly.",
+          "Q108: immersive installations."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Kyle's key creative crossroads was choosing to integrate computer science with visual arts.",
+        "ground_truth_label": "CS-art integration crossroads",
+        "behavioral_evidence_from_interview": [
+          "Q02: The biggest crossroads was choosing whether to focus only on computer science or keep visual art as a serious part of my life.",
+          "Q03: stop treating art like a side quest."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Kyle's portfolio includes interactive visual demos, small games, 3D animations, and hardware-input projects.",
+        "ground_truth_label": "creative-tech portfolio contents",
+        "behavioral_evidence_from_interview": [
+          "Q65 follow-up: Interactive visual demos, small games, 3D animations, and some hardware-input projects."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Kyle plays pickup basketball with friends.",
+        "ground_truth_label": "pickup basketball",
+        "behavioral_evidence_from_interview": [
+          "Q07: sometimes play pickup basketball on weekends.",
+          "Q31: I play pickup basketball."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Kyle jogs near the Charles River as part of his better-weather routine.",
+        "ground_truth_label": "Charles River jogging",
+        "behavioral_evidence_from_interview": [
+          "Q08: the Charles River is close enough for jogging.",
+          "Q18: I am also jogging a little more now that the weather is better."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Kyle's family culture includes Celtics and Red Sox fandom.",
+        "ground_truth_label": "Boston sports fandom",
+        "behavioral_evidence_from_interview": [
+          "Q01: Celtics games and Red Sox games were kind of background noise in the house.",
+          "Q05: a lot of Boston sports watching."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Kyle prefers social activity and walking over a disciplined gym routine.",
+        "ground_truth_label": "prefers informal fitness",
+        "behavioral_evidence_from_interview": [
+          "Q31: I am not disciplined in a gym-routine way.",
+          "Q32: Boston makes walking easy, and friends make basketball fun."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Kyle uses the Charles River area for walking, jogging, and stress recovery.",
+        "ground_truth_label": "Charles River emotional regulation",
+        "behavioral_evidence_from_interview": [
+          "Q44 follow-up: went for a long walk by the river.",
+          "Q50 follow-up: walking near the river."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Boston's walkability makes everyday movement easier for Kyle.",
+        "ground_truth_label": "walkable environment supports health",
+        "behavioral_evidence_from_interview": [
+          "Q32: Boston makes walking easy."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Kyle has a bachelor's degree in Computer Science.",
+        "ground_truth_label": "CS bachelor's degree",
+        "behavioral_evidence_from_interview": [
+          "Q90: I completed a bachelor's degree in Computer Science."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Kyle uses Python, JavaScript, circuits, sensors, GitHub, and portfolio demos.",
+        "ground_truth_label": "software-hardware creative tools",
+        "behavioral_evidence_from_interview": [
+          "Q02: motion sensors and JavaScript visuals.",
+          "Q48: GitHub is weirdly social for me too.",
+          "Q65: I write Python and JavaScript, build small interactive pieces, prototype circuits."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Kyle's father's software engineering career influenced his early coding interest.",
+        "ground_truth_label": "father influenced coding interest",
+        "behavioral_evidence_from_interview": [
+          "Q106 follow-up: Yes, definitely. He gave me my first real sense that software was something people built."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Kyle's early interests included taking apart electronics, drawing robots, and making games on the family computer.",
+        "ground_truth_label": "early tech-art interests",
+        "behavioral_evidence_from_interview": [
+          "Q01: taking apart old electronics, drawing robots in notebooks, and making little games on the family computer."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Kyle prefers hybrid work with studio energy plus quiet focus time.",
+        "ground_truth_label": "hybrid work preference",
+        "behavioral_evidence_from_interview": [
+          "Q78 follow-up: Hybrid would be ideal. I like people and studio energy, but I need quiet focus time."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Kyle is registered to vote in Massachusetts and plans to vote.",
+        "ground_truth_label": "registered Massachusetts voter",
+        "behavioral_evidence_from_interview": [
+          "Q23: I plan to vote.",
+          "Q23 follow-up: Yes, in Massachusetts."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Kyle's progressive issue priorities include climate, housing, transit, racial justice, LGBTQ rights, and education.",
+        "ground_truth_label": "progressive issue priorities",
+        "behavioral_evidence_from_interview": [
+          "Q24: I care a lot about climate, housing costs, public transit, racial justice, LGBTQ rights, and funding education."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Kyle has attended local demonstrations and discusses Black Lives Matter issues with friends and family.",
+        "ground_truth_label": "modest BLM-related civic engagement",
+        "behavioral_evidence_from_interview": [
+          "Q29: I have talked with friends and family, shared resources sometimes, and gone to a couple local demonstrations."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Kyle identifies as a Democrat or Democrat-leaning independent with moderate party identification.",
+        "ground_truth_label": "Democrat-leaning independent",
+        "behavioral_evidence_from_interview": [
+          "Q95: I think of myself as a Democrat or Democrat-leaning independent.",
+          "Q95 follow-up: Moderate. Stronger on issues than party."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Kyle has become more practical about politics, focusing on zoning, transit, arts funding, public spaces, and affordability.",
+        "ground_truth_label": "implementation-oriented local politics",
+        "behavioral_evidence_from_interview": [
+          "Q25: I have cared more about actual local policy: zoning, transit, arts funding, public spaces, and who can afford to stay in the city."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Kyle was once stopped with friends near a closed campus building while carrying project equipment.",
+        "ground_truth_label": "minor law-enforcement stop",
+        "behavioral_evidence_from_interview": [
+          "Q20: I have been stopped once with friends late at night near a closed campus building."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "After being stopped, Kyle began keeping project gear in bags instead of walking around with visible wires and tripods.",
+        "ground_truth_label": "behavior changed after police stop",
+        "behavioral_evidence_from_interview": [
+          "Q20 follow-up: I keep project gear in bags now instead of walking around with wires and tripods visible."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Kyle has never been arrested and knows of no close family members who have been arrested.",
+        "ground_truth_label": "no arrest history in close circle",
+        "behavioral_evidence_from_interview": [
+          "Q22: I have never been arrested, and no close family member has been arrested as far as I know."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Kyle views police presence at protests and big sports events as sometimes feeling more like crowd control than community safety.",
+        "ground_truth_label": "skeptical of event policing",
+        "behavioral_evidence_from_interview": [
+          "Q21: It can feel like crowd control more than community safety."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Music is central to Kyle's social life and he goes to live shows.",
+        "ground_truth_label": "music-centered social life",
+        "behavioral_evidence_from_interview": [
+          "Q07: go to shows.",
+          "Q48 follow-up: concert videos."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Kyle experiences some live shows as almost spiritual when sound and lights align.",
+        "ground_truth_label": "live music as spiritual experience",
+        "behavioral_evidence_from_interview": [
+          "Q47: being at a live show when the sound and lights hit perfectly."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Kyle sometimes overspends on concert tickets.",
+        "ground_truth_label": "concert ticket overspending",
+        "behavioral_evidence_from_interview": [
+          "Q56: concert tickets.",
+          "Q57: a little high because of concert tickets."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Kyle was born in Boston, Massachusetts, and grew up in the Boston suburbs.",
+        "ground_truth_label": "Boston-born and Boston-area raised",
+        "behavioral_evidence_from_interview": [
+          "Q87: I was born in Boston, Massachusetts.",
+          "Q87 follow-up: Mostly in the Boston suburbs."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Kyle identifies as White and not Hispanic, Latinx, or Spanish origin.",
+        "ground_truth_label": "White non-Hispanic",
+        "behavioral_evidence_from_interview": [
+          "Q88: No, I am not of Hispanic, Latinx, or Spanish origin.",
+          "Q89: I identify as White."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Kyle has a culturally Christian family background but personally identifies as agnostic and is not religiously practicing.",
+        "ground_truth_label": "agnostic with cultural Christian background",
+        "behavioral_evidence_from_interview": [
+          "Q47: My family is culturally Christian in the holiday sense.",
+          "Q94: Agnostic. Culturally Christian background, but not religiously practicing."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Kyle is a U.S.-born U.S. citizen who has not lived outside the United States.",
+        "ground_truth_label": "U.S.-born citizen; no foreign residence",
+        "behavioral_evidence_from_interview": [
+          "Q86: Yes, I was born in the United States.",
+          "Q86 follow-up: No.",
+          "Q86 follow-up: Yes."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Kyle lived in Brookline, Massachusetts, at age 16 with both married parents and younger sister Lily.",
+        "ground_truth_label": "Brookline childhood household",
+        "behavioral_evidence_from_interview": [
+          "Q97: When I was 16, I lived in Brookline, Massachusetts.",
+          "Q98: Yes, I lived with both my mother and father.",
+          "Q99: I also lived with my younger sister, Lily."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Both of Kyle's parents completed bachelor's degrees.",
+        "ground_truth_label": "parents both bachelor's educated",
+        "behavioral_evidence_from_interview": [
+          "Q100: My dad completed a bachelor's degree.",
+          "Q101: My mom completed a bachelor's degree."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Kyle's mother worked in communications and program coordination for an education nonprofit in the greater Boston area.",
+        "ground_truth_label": "mother education-nonprofit communications work",
+        "behavioral_evidence_from_interview": [
+          "Q103: My mom worked in communications and program coordination for an education nonprofit.",
+          "Q104: It was a nonprofit focused on education programs and community learning."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Kyle's father worked as a software engineer for a private Boston-area technology firm making business software tools.",
+        "ground_truth_label": "father software engineer",
+        "behavioral_evidence_from_interview": [
+          "Q106: My dad worked as a software engineer for a technology company.",
+          "Q107: He worked for a private tech firm in the Boston area."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Kyle completed his bachelor's degree in spring 2026 at age 18.",
+        "ground_truth_label": "accelerated bachelor's completion",
+        "behavioral_evidence_from_interview": [
+          "Q85: My date of birth is November 14, 2007.",
+          "Q90 follow-up: This spring, 2026."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-093",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Kyle recently finished school and is adjusting to the lack of class structure.",
+        "ground_truth_label": "post-school transition",
+        "behavioral_evidence_from_interview": [
+          "Q18: The big change is finishing school and not having classes structure my day."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-094",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Kyle's date of birth is November 14, 2007.",
+        "ground_truth_label": "DOB 2007-11-14",
+        "behavioral_evidence_from_interview": [
+          "Q85: My date of birth is November 14, 2007."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-095",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Kyle was enrolled full time during the past three months before completing final CS and visual arts requirements.",
+        "ground_truth_label": "recent full-time enrollment",
+        "behavioral_evidence_from_interview": [
+          "Q92: Yes, I was enrolled during the past three months before finishing my degree.",
+          "Q92 follow-up: Yes.",
+          "Q92 follow-up: My final CS and visual arts requirements."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-096",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Kyle has never served in the U.S. Armed Forces, Reserves, or National Guard.",
+        "ground_truth_label": "no military service",
+        "behavioral_evidence_from_interview": [
+          "Q93: No, I have never served."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-097",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Kyle values creativity, friendship, independence, learning, family, and openness.",
+        "ground_truth_label": "core values",
+        "behavioral_evidence_from_interview": [
+          "Q109: I value creativity, friendship, independence, and learning.",
+          "Q109: I value family too.",
+          "Q109: I also value openness."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist",
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-098",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Kyle hopes next year to have a paid role or internship, a stronger portfolio, and less reliance on his parents.",
+        "ground_truth_label": "near-term success goals",
+        "behavioral_evidence_from_interview": [
+          "Q108 follow-up: Having a paid role or internship, a stronger portfolio, and not relying so much on my parents."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-099",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Kyle uses Instagram for art, murals, concerts, friends, and project posts.",
+        "ground_truth_label": "Instagram uses",
+        "behavioral_evidence_from_interview": [
+          "Q48: I use Instagram a lot for art, street murals, concert announcements, and friends' stories.",
+          "Q48 follow-up: Murals, sketches, short animation clips, concert videos, and occasional project demos."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-100",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Kyle uses TikTok for music clips, coding jokes, and creative-process videos.",
+        "ground_truth_label": "TikTok uses",
+        "behavioral_evidence_from_interview": [
+          "Q48: I use TikTok more for music clips, coding jokes, and random creative-process videos."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-101",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Kyle uses Discord and GitHub for project communities.",
+        "ground_truth_label": "Discord and GitHub project communities",
+        "behavioral_evidence_from_interview": [
+          "Q48: I use Discord for project groups and game jam channels, and GitHub is weirdly social for me too."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-102",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Kyle gets political and race-related information from friends, local news, Instagram community groups, podcasts, and city council clips.",
+        "ground_truth_label": "political information sources",
+        "behavioral_evidence_from_interview": [
+          "Q27 follow-up: Friends, local news, community groups on Instagram, podcasts, and sometimes city council clips."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-103",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Kyle barely uses Facebook except for event pages or older relatives and does not use Facebook or Twitter for support.",
+        "ground_truth_label": "minimal Facebook/Twitter support use",
+        "behavioral_evidence_from_interview": [
+          "Q48: I barely use Facebook except for event pages or older relatives.",
+          "Q49: I do not use Facebook or Twitter for support."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-104",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Social media helps Kyle connect but can damage his attention and become a way to avoid tasks.",
+        "ground_truth_label": "social media attention risk",
+        "behavioral_evidence_from_interview": [
+          "Q48: Social media is useful, but it can wreck my attention.",
+          "Q50 follow-up: Scrolling and pretending it counts as resting."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-105",
+        "source": "reprojected",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Kyle comes from a middle-class, education-oriented household.",
+        "ground_truth_label": "middle-class education-oriented background",
+        "behavioral_evidence_from_interview": [
+          "Q01: I grew up around the Boston suburbs in a pretty middle-class New England family.",
+          "Q01: My parents were the kind of people who cared a lot about school."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-106",
+        "source": "reprojected",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Kyle is in a transition from education to early adulthood and labor-market entry.",
+        "ground_truth_label": "education-to-labor-market transition",
+        "behavioral_evidence_from_interview": [
+          "Q16: I just finished my bachelor's.",
+          "Q18: finishing school and not having classes structure my day.",
+          "Q83: I feel like I am at the launchpad stage, but the launch has not happened yet."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-107",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Kyle's choices are shaped more by identity fit, peer collaboration, and short-term creative momentum than rigid long-range planning.",
+        "ground_truth_label": "identity-driven collaborative present-focused decision style",
+        "behavioral_evidence_from_interview": [
+          "Q02: this is the lane.",
+          "Q15: My week is kind of uneven.",
+          "Q78: that freedom can become procrastination."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-108",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Kyle uses small task lists and friends as informal commitment devices.",
+        "ground_truth_label": "informal commitment devices",
+        "behavioral_evidence_from_interview": [
+          "Q18 follow-up: Writing three tasks on a sticky note in the morning.",
+          "Q44: Priya came over, made me list what was actually due."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-109",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Kyle is financially risk-aware but buffered by parental support.",
+        "ground_truth_label": "risk-aware with parental financial buffer",
+        "behavioral_evidence_from_interview": [
+          "Q55: my parents help with my share right now.",
+          "Q82: I would ask my parents before using credit card debt.",
+          "Q83: Lucky because I have family support."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-110",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Kyle is a newly eligible voter with limited voting history because of his age.",
+        "ground_truth_label": "newly eligible voter",
+        "behavioral_evidence_from_interview": [
+          "Q23: I am newly eligible, so I do not have a long voting history.",
+          "Q23: I only recently turned 18."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-111",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Kyle is skeptical of corporate solutionism while still liking technology and startups.",
+        "ground_truth_label": "skeptical but not anti-business",
+        "behavioral_evidence_from_interview": [
+          "Q24: I am skeptical of big corporations when they act like innovation solves everything.",
+          "Q24: I like technology and startups, so I am not anti-business."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-112",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Kyle's civic engagement is modest but real.",
+        "ground_truth_label": "modest civic engagement",
+        "behavioral_evidence_from_interview": [
+          "Q29: I am not an organizer, but I try to show up when I can and be thoughtful.",
+          "Q17: I volunteer occasionally at maker space events."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-113",
+        "source": "reprojected",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Kyle is curious, creative, socially oriented, and high in openness.",
+        "ground_truth_label": "high openness and social creativity",
+        "behavioral_evidence_from_interview": [
+          "Q01: let me chase weird interests.",
+          "Q109: openness, like being around people who are curious instead of judgmental.",
+          "Q07: My friends are a huge part of my life."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-114",
+        "source": "reprojected",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Kyle wants stability without losing flexibility, creative risk, or connection.",
+        "ground_truth_label": "stability with flexibility and connection",
+        "behavioral_evidence_from_interview": [
+          "Q108: collaborative, experimental, and flexible, but with more stability than I have now.",
+          "Q109: staying connected to people I care about."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}

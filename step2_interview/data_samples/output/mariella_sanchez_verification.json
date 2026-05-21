@@ -1,0 +1,2293 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "8a3a330d3edd4a3f883fcb736afe3516",
+      "name": "Mariella Sanchez",
+      "verification_date": "2026-05-20"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed demographics list Mariella as a 20-year-old female, never married, living in Fountain Valley, CA; the interview confirms age 20, female self-reference, never married, not living with a partner, and current residence in Fountain Valley.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.age, seed.sex, seed.marital_status, seed.city, seed.state, seed.zipcode",
+              "source_b_ref": "Q84-Q85, Q51",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed education level indicates 9th-12th grade with no diploma, and the interview specifies that she completed 11th grade and is now in an adult high school completion program through a community college.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.education_level, seed.career_goals_and_ambitions",
+              "source_b_ref": "Q90-Q92, Q01",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed occupation as restaurant/café hostess and bilingual front-of-house specialist matches the interview description of current hostess work in Costa Mesa using English and Spanish.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.occupation, seed.professional_persona, seed.skills_and_expertise",
+              "source_b_ref": "Q16, Q65, Q68",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed cultural background describes a bilingual Mexican-American household in Fountain Valley; the interview confirms Mexican-American identity, Spanish spoken at home, coresidence with parents and younger brother, and adds birthplace in Santa Ana.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q01, Q05, Q11, Q87-Q89",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The draft profile's top-level demographics accurately reflect the interview: never married, living in Fountain Valley, age 20, completed 11th grade, and currently working as a hostess while enrolled in completion classes.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q84-Q92, Q16, Q68",
+              "source_b_ref": "extracted_profile.marital_status, extracted_profile.location, extracted_profile.age, extracted_profile.education, extracted_profile.occupation",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The education field captures the main schooling facts but omits that her current adult high school completion program is part-time and mixed-format.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q91-Q92",
+              "source_b_ref": "extracted_profile.education",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Update extracted_profile.education to include that the adult high school completion program is part-time and mixed-format."
+            },
+            {
+              "id": 3,
+              "text": "Home and household information is mostly accurate, but the draft profile omits that all four household members are permanent residents and that grandma or cousins only stay overnight occasionally after family events.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q11-Q14, Q51-Q54",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add permanent household membership and occasional overnight-visitor detail to preferences.home_and_lifestyle.details."
+            },
+            {
+              "id": 4,
+              "text": "The draft profile captures bilingual Mexican-American identity but omits birthplace in Santa Ana, lifelong California residence, and Catholic identification as part of family-marked life events.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q47, Q86-Q89",
+              "source_b_ref": "preferences.cultural_and_linguistic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add birthplace, lifelong California residence, and Catholic cultural/spiritual identity to preferences.cultural_and_linguistic.details."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The top-level education field and the life_events_and_transitions section are internally aligned: both describe an interrupted high school path followed by re-entry through an adult completion program.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "extracted_profile.education",
+              "field_b": "preferences.life_events_and_transitions",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The phrase 'multigenerationally connected' in home_and_lifestyle is not inconsistent with the four-person household because the social profile shows frequent involvement of grandmother and extended kin without claiming they co-reside full-time.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.home_and_lifestyle",
+              "field_b": "preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The interview states that she was born in Santa Ana and has lived in California her whole life, but this demographic background is absent from the draft profile.",
+              "gap": true,
+              "interview_ref": "Q86-Q87",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add Santa Ana birthplace and lifelong California/Orange County residence to preferences.cultural_and_linguistic.details."
+            },
+            {
+              "id": 2,
+              "text": "Catholic identification and family-linked religious practices are substantive demographic-cultural features missing from the draft profile.",
+              "gap": true,
+              "interview_ref": "Q47, Q94",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add Catholic cultural/spiritual identity, holiday Mass, prayer, candles, and Día de los Muertos altar practices to preferences.cultural_and_linguistic.details."
+            },
+            {
+              "id": 3,
+              "text": "Neighborhood-specific living conditions such as car dependence, expense, and late-night safety behavior appear in the interview but not in the draft profile.",
+              "gap": true,
+              "interview_ref": "Q09-Q10",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add neighborhood cost, car dependence, mostly-safe assessment, and late-night caution practices to preferences.home_and_lifestyle.details."
+            }
+          ],
+          "summary": {
+            "present": 1,
+            "missing": 3
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The seed describes careful saving for future travel despite a tight student budget; the interview confirms slow saving for Colombia and Napa and describes explicit saving buckets.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.travel_persona",
+              "source_b_ref": "Q61-Q62",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The seed's portrayal of meticulous, calm front-of-house work and conflict resolution matches the interview's emphasis on staying calm, reading the room, and organizing rush periods.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.professional_persona, seed.skills_and_expertise",
+              "source_b_ref": "Q01, Q16, Q65",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The seed's educational and career ambition sequence—finish diploma, move into hospitality training, rise in hospitality, and eventually open a café-gallery—is confirmed in the interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.career_goals_and_ambitions",
+              "source_b_ref": "Q01, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "The seed's hobby mix of cooking, yoga, hiking, coffee exploration, and festival volunteering is strongly reflected in the interview, which also adds cost and scheduling constraints shaping participation.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.hobbies_and_interests, seed.sports_persona, seed.culinary_persona",
+              "source_b_ref": "Q15, Q17, Q31-Q32",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The work_and_career section faithfully captures that she sees hospitality as a meaningful pathway rather than a dead-end stopgap.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01-Q03, Q65, Q108",
+              "source_b_ref": "preferences.work_and_career, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The draft profile correctly reflects that movement, planning, and routine are part of her coping architecture.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q18, Q32, Q50",
+              "source_b_ref": "preferences.health_and_wellness, preferences.nature_and_outdoors, preferences.technology",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The draft profile omits important financial behavior: paycheck-based budgeting, manual transfers into emergency/school/travel buckets, cautious small credit-card use, and the fact that a $400 emergency is manageable but disruptive.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q61-Q64, Q82-Q83",
+              "source_b_ref": "preferences.work_and_career, preferences.home_and_lifestyle",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add saving buckets, paycheck budgeting, cautious credit use, and emergency-expense sensitivity to preferences.work_and_career.details."
+            },
+            {
+              "id": 4,
+              "text": "The draft profile understates the behavioral importance of schedule unpredictability, limited job benefits, and cost/time barriers that delay dental care and therapy.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q36, Q45, Q76, Q78",
+              "source_b_ref": "preferences.work_and_career, preferences.health_and_wellness",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add schedule posting cadence, limited benefits, delayed care due to cost/time, and therapy-access barriers to the corrected profile."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Travel aspirations and savings behavior are internally consistent with home cost constraints and family coresidence; the profile shows delayed gratification rather than contradiction.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.travel",
+              "field_b": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Technology-based planning and exercise-based coping fit coherently with the behavioral summary's description of adaptive, practical choice under pressure.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.technology",
+              "field_b": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The interview includes explicit mental budgeting behavior and small-scale debt management that are absent from the draft profile.",
+              "gap": true,
+              "interview_ref": "Q61-Q63, Q82-Q83",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add paycheck budgeting, emergency/school/travel buckets, and cautious credit-card use to preferences.work_and_career.details."
+            },
+            {
+              "id": 2,
+              "text": "The interview provides meaningful labor-market details—one-week schedule horizon, some flexibility with notice, limited benefits—that affect her decision environment but are underrepresented.",
+              "gap": true,
+              "interview_ref": "Q76, Q78",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add schedule predictability, posting horizon, and limited benefits to preferences.work_and_career.details."
+            },
+            {
+              "id": 3,
+              "text": "Cost and time barriers shaping delayed dental care and delayed therapy consideration are substantively important behavioral constraints missing from the draft profile.",
+              "gap": true,
+              "interview_ref": "Q36, Q45",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add delayed dental care and therapy-access barriers to preferences.health_and_wellness.details."
+            }
+          ],
+          "summary": {
+            "present": 1,
+            "missing": 3
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed references participation in local Latino community events; the interview confirms volunteering at cultural festivals and attending a community art-and-justice event in Santa Ana.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.cultural_background, seed.hobbies_and_interests",
+              "source_b_ref": "Q17, Q29",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The seed's portrait of a multicultural Orange County lifestyle aligns with the interview's description of Fountain Valley as calm, diverse, and connected to other Orange County cities.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q08-Q10",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed values of hospitality, community, and respect for elders are consistent with the interview's practical politics centered on dignity, immigrant respect, fair pay, and everyday accountability.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.cultural_background, seed.professional_persona",
+              "source_b_ref": "Q24-Q30, Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "The seed contains little explicit political data; the interview substantially enriches the persona with voting behavior, Democratic identity, and views on policing without contradicting the seed.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q23-Q30, Q95-Q96",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The draft profile accurately captures that she votes, leans left, identifies as a Democrat, and has modest but real civic engagement.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23-Q25, Q95-Q96",
+              "source_b_ref": "preferences.community_and_civic, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile correctly records that she uses voter guides and nonpartisan summaries, consistent with her practical political style.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23",
+              "source_b_ref": "preferences.media_and_information_diet",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The draft profile omits that she usually votes by mail and the specific issue set she treats as politically salient: education, healthcare, reproductive freedom, immigration, wages, and housing costs.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q23-Q25",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add vote-by-mail behavior and issue priorities to preferences.community_and_civic.details."
+            },
+            {
+              "id": 4,
+              "text": "Law-enforcement experience is missing from the draft profile even though the interview includes a late-night brake-light stop and discomfort with school resource officer presence.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q20-Q21",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add law-enforcement experiences and school-resource-officer tension to preferences.community_and_civic.details."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The left-leaning Democratic orientation in community_and_civic is consistent with the profile's reliance on voter guides, nonpartisan summaries, NPR, and the LA Times.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "preferences.media_and_information_diet",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The arts_and_culture section's community art-and-justice participation is fully compatible with the civic section's style of issue engagement through discussion and local events rather than performative posting.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.arts_and_culture",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The interview's vote-by-mail practice and concrete issue priorities are missing from the draft profile.",
+              "gap": true,
+              "interview_ref": "Q23-Q25",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add vote-by-mail behavior and salient political issues to preferences.community_and_civic.details."
+            },
+            {
+              "id": 2,
+              "text": "Her actual law-enforcement encounters and perceptions of school resource officers are absent from the draft profile.",
+              "gap": true,
+              "interview_ref": "Q20-Q21",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add brake-light stop experience and SRO-related tension to preferences.community_and_civic.details."
+            },
+            {
+              "id": 3,
+              "text": "Her response to race and policing issues through conversations, information sharing, local events, and skepticism of performative activism should be represented more fully.",
+              "gap": true,
+              "interview_ref": "Q26-Q30",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add conversational, community-based, and anti-performative civic response patterns to preferences.community_and_civic.details."
+            }
+          ],
+          "summary": {
+            "present": 1,
+            "missing": 3
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The seed's image of an art-loving coffee person who balances hospitality work with watercolor sketching is directly confirmed in the interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona, seed.arts_persona, seed.culinary_persona",
+              "source_b_ref": "Q01, Q17, Q48",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The seed's portrayal of a kind, steady, conflict-resolving front-of-house temperament matches the interview's emphasis on staying calm and making people feel seen.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.professional_persona",
+              "source_b_ref": "Q01, Q65",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The seed's light, whimsical note about forgetting to water houseplants is softly supported by the interview mention of houseplants she is always promising to water on time; there is no contradiction.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q11",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "The seed's blended identity of responsibility plus creativity is confirmed by the interview's repeated effort to combine work competence, family obligation, art, coffee, and future dreams.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona, seed.career_goals_and_ambitions",
+              "source_b_ref": "Q01, Q43-Q45, Q108-Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The psychologist summary faithfully reflects anxiety, overthinking, resilience, and active coping through movement, planning, and support seeking.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q43-Q45, Q50",
+              "source_b_ref": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The existing health, nature, and technology sections consistently capture her use of movement and structure as emotional regulation tools.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q18, Q32, Q45, Q50",
+              "source_b_ref": "preferences.health_and_wellness, preferences.nature_and_outdoors, preferences.technology",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The draft profile omits explicit somatic anxiety markers—tight shoulders, stomach tension, constant mental lists—and her stated interest in therapy if it were easier to access.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q43-Q45",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add anxiety manifestations and therapy interest constrained by access to preferences.health_and_wellness.details."
+            },
+            {
+              "id": 4,
+              "text": "The draft profile understates the holiday-season emotional breakdown, the embarrassment about feeling behind peers, and her pattern of turning to her mother, Daniela, and private messages rather than public posting.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q44, Q49-Q50",
+              "source_b_ref": "preferences.life_events_and_transitions, preferences.social_and_relationships, preferences.technology",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add the holiday-season breakdown, embarrassment about educational delay, and private support-seeking behavior to the corrected profile."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The profile's support network in social_and_relationships aligns with the psychologist summary's depiction of her as relational and support-seeking under stress.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The life_events_and_transitions section coheres with work_and_career and arts_and_culture by presenting a self-concept that integrates competence, creativity, and bilingual belonging rather than splitting them into contradictions.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.life_events_and_transitions",
+              "field_b": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Anxiety manifestations and conditional willingness to pursue therapy are meaningful psychological facts missing from the draft profile.",
+              "gap": true,
+              "interview_ref": "Q45",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add overthinking, tight-shoulder/stomach-tension symptoms, and therapy interest constrained by time/cost to preferences.health_and_wellness.details."
+            },
+            {
+              "id": 2,
+              "text": "The holiday-season crying episode in the car and the follow-on shift toward calendars and concrete next steps are important emotional transition details missing from the draft profile.",
+              "gap": true,
+              "interview_ref": "Q44, Q50",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add the holiday breakdown and post-breakdown coping shift to preferences.life_events_and_transitions.details."
+            },
+            {
+              "id": 3,
+              "text": "Her private help-seeking style—contacting Daniela, her mother, group chats, or calls instead of public posting—should be represented in the corrected profile.",
+              "gap": true,
+              "interview_ref": "Q44, Q49",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add private support-seeking behavior to preferences.social_and_relationships.details and preferences.technology.details."
+            }
+          ],
+          "summary": {
+            "present": 1,
+            "missing": 3
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No contradictions required FLAG_FOR_REVIEW, but multiple interview-grounded omissions required profile enrichment and several PARTIAL_UPDATE actions. The corrected profile resolves all identified gaps without changing the carried-over summaries.",
+    "final_status": "Verified and corrected. The persona is internally coherent and ready for downstream use after enrichment of missing demographic, financial, political, religious, and emotional detail."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "8a3a330d3edd4a3f883fcb736afe3516",
+    "name": "Mariella Sanchez",
+    "age": 20,
+    "gender": "Female",
+    "marital_status": "Never married; single and not living with a romantic partner (Q84).",
+    "location": "Fountain Valley, CA 92708",
+    "education": "Completed 11th grade; no diploma yet. Currently enrolled part-time in a mixed-format adult high school completion program through a community college program (Q90-Q92).",
+    "occupation": "Hostess/front-of-house worker at a busy café-brunch restaurant in Costa Mesa, working about 28-32 hours per week, bilingual in English and Spanish, with duties including greeting guests, managing reservations/waitlist, seating coordination, phones, and POS/to-go transactions (Q16, Q65, Q68, Q76).",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces to the verification report above.",
+      "health_and_wellness": {
+        "summary": "Values staying active and sees movement as both health maintenance and emotional regulation.",
+        "details": [
+          {
+            "detail": "Practices yoga, runs, hikes, and occasionally plays beach volleyball; uses movement and going outside to cope with stress.",
+            "evidence": "Q31-Q32, Q50"
+          },
+          {
+            "detail": "Reports seasonal allergies, tension headaches when dehydrated or stressed, painful menstrual cramps, and stomach discomfort if she drinks too much coffee on an empty stomach.",
+            "evidence": "Q31"
+          },
+          {
+            "detail": "Gets basic medical checkups but is less consistent with dental care; delayed wisdom-tooth treatment because of cost and timing, had a mild COVID case, and sprained her ankle last summer playing beach volleyball.",
+            "evidence": "Q31, Q33, Q36"
+          },
+          {
+            "detail": "Does not smoke, drinks lightly, uses ibuprofen and allergy medicine as needed, is interested in therapy if it were easier to access, and is pro-vaccine with COVID shots and regular flu shots.",
+            "evidence": "Q38-Q42, Q45"
+          },
+          {
+            "detail": "Describes anxiety around money, time, and the future as overthinking and physical tension, and says cost and time have slowed her from trying therapy.",
+            "evidence": "Q43-Q45"
+          }
+        ],
+        "evidence": "Q31-Q45, Q50"
+      },
+      "food_and_dining": {
+        "summary": "Strong food identity centered on Mexican family cooking and coffee culture.",
+        "details": [
+          {
+            "detail": "Cooks with her mother and especially enjoys making tamales and mole for family gatherings; weeknight cooking is usually simpler.",
+            "evidence": "Q05, Q17"
+          },
+          {
+            "detail": "Family expresses care through food, and Sunday dinners are a regular ritual.",
+            "evidence": "Q01, Q05, Q15"
+          },
+          {
+            "detail": "Keeps a coffee journal and began tasting coffee intentionally after working around coffee.",
+            "evidence": "Q01, Q17"
+          },
+          {
+            "detail": "Social time often centers on coffee shops.",
+            "evidence": "Q07"
+          }
+        ],
+        "evidence": "Q01, Q05, Q07, Q15, Q17"
+      },
+      "travel": {
+        "summary": "Interested in culturally immersive, coffee-oriented travel despite limited budget.",
+        "details": [
+          {
+            "detail": "Trips to Guatemala and a budget trip to Kyoto expanded her thinking about art, coffee, and her future.",
+            "evidence": "Q01"
+          },
+          {
+            "detail": "Prefers coffee- and culture-centered trips and plans them carefully around a tight budget.",
+            "evidence": "Q01, Q62"
+          },
+          {
+            "detail": "Saving slowly for future travel, especially Colombia as a dream trip.",
+            "evidence": "Q62"
+          },
+          {
+            "detail": "Sees Napa as a more realistic near-term trip.",
+            "evidence": "Q62"
+          }
+        ],
+        "evidence": "Q01, Q62, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "Family-centered with a small but meaningful network of friends, coworkers, cousins, and activity-based ties.",
+        "details": [
+          {
+            "detail": "Lives with and is close to her parents Elena and Raul and her younger brother Mateo, who is 15; grandmother Rosa is also very important to her.",
+            "evidence": "Q05, Q11"
+          },
+          {
+            "detail": "Sees extended family often, is especially close to cousin Lupita, and regular family time centers on Sunday dinner.",
+            "evidence": "Q05-Q06"
+          },
+          {
+            "detail": "Best friend Daniela is her first message or call when overwhelmed; they text almost daily and meet about weekly.",
+            "evidence": "Q07, Q49"
+          },
+          {
+            "detail": "Close with coworker Jasmine and maintains looser but meaningful ties through yoga, the OC Striders, and open-mic circles.",
+            "evidence": "Q07"
+          },
+          {
+            "detail": "Not in a serious relationship right now.",
+            "evidence": "Q05, Q07, Q84"
+          }
+        ],
+        "evidence": "Q05-Q07, Q43-Q44, Q49"
+      },
+      "home_and_lifestyle": {
+        "summary": "Lives in a multigenerationally connected, working-family apartment household and contributes to shared costs while keeping a creative personal space.",
+        "details": [
+          {
+            "detail": "Lives in a rented apartment in Fountain Valley with her mother, father, and brother; everyone there is a permanent household member, with only occasional overnight stays by grandma or cousins after family events.",
+            "evidence": "Q11-Q14, Q51-Q58"
+          },
+          {
+            "detail": "Keeps a personal corner with art supplies, coffee gear, and a couple houseplants.",
+            "evidence": "Q11"
+          },
+          {
+            "detail": "Helps with dishes, cooking, grocery runs, shared-space upkeep, and sometimes drives her grandma to appointments.",
+            "evidence": "Q11, Q17, Q35"
+          },
+          {
+            "detail": "Her parents are the primary payers, but she contributes monthly to groceries, utilities, and other household costs.",
+            "evidence": "Q55, Q72, Q83"
+          },
+          {
+            "detail": "Sees the neighborhood as calm, diverse, convenient, and mostly safe, though she is careful late at night in parking lots and feels the area is expensive and car-dependent.",
+            "evidence": "Q08-Q10"
+          }
+        ],
+        "evidence": "Q08-Q14, Q51-Q60"
+      },
+      "entertainment": {
+        "summary": "Prefers low-to-moderate-cost social entertainment tied to sports, coffee, galleries, and conversation.",
+        "details": [
+          {
+            "detail": "Watches Dodgers and Lakers games with her father and brother.",
+            "evidence": "Q15"
+          },
+          {
+            "detail": "Social outings often include coffee shops, museum days, open-mic nights, beach walks, and movies.",
+            "evidence": "Q07"
+          },
+          {
+            "detail": "Prefers affordable, conversation-friendly outings over heavier nightlife.",
+            "evidence": "Q07, Q10, Q60"
+          }
+        ],
+        "evidence": "Q07, Q10, Q15, Q60"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Creative and active leisure pattern mixing art, coffee, exercise, and community events.",
+        "details": [
+          {
+            "detail": "Sketches café scenes and posts watercolor sketches or café photo dumps.",
+            "evidence": "Q01, Q48"
+          },
+          {
+            "detail": "Keeps a coffee-tasting journal.",
+            "evidence": "Q17"
+          },
+          {
+            "detail": "Attends open-mic nights, explores local museums and galleries, and volunteers a few times a year at cultural festivals, especially Latino community events.",
+            "evidence": "Q17, Q48"
+          }
+        ],
+        "evidence": "Q01, Q17, Q48"
+      },
+      "work_and_career": {
+        "summary": "Sees hospitality as a meaningful skill path rather than only a stopgap, with upward mobility and entrepreneurship goals.",
+        "details": [
+          {
+            "detail": "Works as a hostess/front-of-house specialist at a busy café-brunch restaurant in Costa Mesa, where she has been for a little over two years and usually works about 28 to 32 hours a week.",
+            "evidence": "Q16, Q68, Q76"
+          },
+          {
+            "detail": "Her job includes greeting guests, managing reservations and the waitlist, balancing seating, answering phones, helping with POS/to-go orders, and coordinating with servers, bussers, and kitchen staff.",
+            "evidence": "Q16, Q65"
+          },
+          {
+            "detail": "Uses bilingual English-Spanish skills to help Spanish-speaking guests and smooth misunderstandings.",
+            "evidence": "Q02, Q65"
+          },
+          {
+            "detail": "Sees her strengths as staying calm, reading the room, and making guests feel seen during rushes; her schedule is somewhat predictable and usually posted about a week ahead.",
+            "evidence": "Q65, Q78"
+          },
+          {
+            "detail": "Benefits are limited to paid sick time and meal or discount perks, not full health benefits.",
+            "evidence": "Q76"
+          },
+          {
+            "detail": "Wants to become lead hostess, then floor manager, and eventually open a warm bilingual café-gallery serving Mexican-influenced coffee and pastries.",
+            "evidence": "Q01, Q108"
+          },
+          {
+            "detail": "Budgets by paycheck, saves in emergency, school, and travel buckets, and tries to keep credit-card debt small.",
+            "evidence": "Q61-Q63, Q73, Q82-Q83"
+          }
+        ],
+        "evidence": "Q01-Q04, Q16, Q61-Q63, Q65-Q78, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Art is a core identity domain shaping her social life, aspirations, and sense of meaning.",
+        "details": [
+          {
+            "detail": "Has loved drawing since childhood and wants to keep painting and sketching as part of adult life.",
+            "evidence": "Q01, Q108"
+          },
+          {
+            "detail": "Follows local art shows, museums, galleries, and Latina creative accounts on Instagram.",
+            "evidence": "Q48"
+          },
+          {
+            "detail": "Attended a peaceful Santa Ana event that combined art and justice discussion and says art makes hard conversations feel more human.",
+            "evidence": "Q29"
+          }
+        ],
+        "evidence": "Q01, Q29, Q48, Q108"
+      },
+      "sports_and_fitness": {
+        "summary": "Active, outdoor-oriented fitness preferences with both solitary and social forms of exercise.",
+        "details": [
+          {
+            "detail": "Runs, hikes, practices yoga, and sometimes plays beach volleyball.",
+            "evidence": "Q31"
+          },
+          {
+            "detail": "Tries to use free mornings for exercise when her work and class schedule allows.",
+            "evidence": "Q15"
+          },
+          {
+            "detail": "Maintains social ties through the OC Striders and yoga contacts, and goes to a Laguna Hills yoga class when she can afford the drop-in.",
+            "evidence": "Q07, Q17"
+          }
+        ],
+        "evidence": "Q07, Q15, Q17, Q31-Q33, Q50"
+      },
+      "nature_and_outdoors": {
+        "summary": "Feels restored by outdoor settings and uses nature as both recreation and spiritual grounding.",
+        "details": [
+          {
+            "detail": "Likes getting outside early for runs or hikes when she can.",
+            "evidence": "Q15"
+          },
+          {
+            "detail": "Describes early time in nature as spiritually meaningful.",
+            "evidence": "Q47"
+          },
+          {
+            "detail": "Says going outside is one of the fastest ways to reset emotionally, and Southern California weather makes staying active easier most of the year.",
+            "evidence": "Q32, Q50"
+          }
+        ],
+        "evidence": "Q15, Q32, Q47, Q50"
+      },
+      "technology": {
+        "summary": "Uses technology pragmatically for scheduling, communication, social media discovery, and hospitality work.",
+        "details": [
+          {
+            "detail": "Uses a calendar and reminders more intentionally now to manage classes, assignments, and work shifts.",
+            "evidence": "Q18, Q44, Q50"
+          },
+          {
+            "detail": "Uses Instagram most for friends, local art, coffee shops, restaurant ideas, and running content.",
+            "evidence": "Q48"
+          },
+          {
+            "detail": "Uses TikTok for recipes, yoga flows, running advice, makeup or style ideas, and humor; uses Facebook mostly for family groups, Marketplace, and event pages, and rarely uses X.",
+            "evidence": "Q48"
+          },
+          {
+            "detail": "Uses private group chats and direct messages for support rather than public posting, and uses POS and reservation tools regularly at work.",
+            "evidence": "Q16, Q48-Q49, Q65"
+          }
+        ],
+        "evidence": "Q16, Q18, Q48-Q50, Q65"
+      },
+      "community_and_civic": {
+        "summary": "Moderately civically engaged through voting, issue discussion, and occasional community event volunteering.",
+        "details": [
+          {
+            "detail": "Started voting as soon as she was eligible, voted in the 2024 general election and the most recent primary, and usually votes by mail because it fits her work schedule.",
+            "evidence": "Q23"
+          },
+          {
+            "detail": "Identifies as a moderately strong Democrat who leans clearly left but thinks of herself as practical before ideological.",
+            "evidence": "Q24-Q25, Q95-Q96"
+          },
+          {
+            "detail": "Pays special attention to education, healthcare, reproductive freedom, immigration, workers' pay, and housing costs, and uses voter guides, nonpartisan summaries, and trusted people when deciding how to vote.",
+            "evidence": "Q23-Q25"
+          },
+          {
+            "detail": "Has not had major negative encounters with law enforcement, though one late-night brake-light stop made her feel vulnerable.",
+            "evidence": "Q20"
+          },
+          {
+            "detail": "Says school resource officers made campus feel more tense than necessary when she was younger.",
+            "evidence": "Q21"
+          },
+          {
+            "detail": "Responds to race and policing issues mostly through conversation, information-sharing, local art-and-justice events, and occasional community volunteering.",
+            "evidence": "Q26-Q30"
+          },
+          {
+            "detail": "Is skeptical of performative politics and social-media-only activism.",
+            "evidence": "Q25, Q27, Q29"
+          }
+        ],
+        "evidence": "Q17, Q20-Q30, Q95-Q96"
+      },
+      "music": {
+        "summary": "Music appears mainly in social and family settings rather than as a dominant standalone identity.",
+        "details": [
+          {
+            "detail": "Open-mic nights are part of her routine.",
+            "evidence": "Q07"
+          },
+          {
+            "detail": "Music matters more as a family and social atmosphere—like her dad putting it on during Sunday dinner—than as a standalone identity.",
+            "evidence": "Q05"
+          }
+        ],
+        "evidence": "Q05, Q07"
+      },
+      "fashion_and_appearance": {
+        "summary": "Practical, polished presentation shaped mostly by front-of-house work expectations.",
+        "details": [
+          {
+            "detail": "For work she wears mostly black with comfortable shoes, neat hair, and a simple polished look.",
+            "evidence": "Q16"
+          },
+          {
+            "detail": "Uses TikTok occasionally for makeup or style ideas, but her presentation is mainly practical and professional because she works front-of-house.",
+            "evidence": "Q48"
+          }
+        ],
+        "evidence": "Q16, Q48"
+      },
+      "cultural_and_linguistic": {
+        "summary": "Bilingual Mexican-American identity is central to family life, work, and self-concept.",
+        "details": [
+          {
+            "detail": "Was born in Santa Ana, has lived in California her whole life, and grew up in Orange County in a bilingual Mexican-American household where Spanish was spoken at home.",
+            "evidence": "Q01, Q86-Q89, Q97"
+          },
+          {
+            "detail": "Identifies strongly as Mexican-American and Latina; on forms she usually marks White even though the category does not feel like a perfect fit.",
+            "evidence": "Q88-Q89"
+          },
+          {
+            "detail": "Says language changes how people are treated, so being bilingual shapes how she sees race and everyday interactions.",
+            "evidence": "Q28"
+          },
+          {
+            "detail": "Was raised Catholic and still identifies that way culturally and somewhat spiritually, especially around holiday Mass, praying when someone is sick or when she is overwhelmed, candles, and Día de los Muertos altars.",
+            "evidence": "Q47, Q94"
+          }
+        ],
+        "evidence": "Q01, Q28, Q47, Q86-Q89, Q94, Q97"
+      },
+      "life_events_and_transitions": {
+        "summary": "Key transition was leaving the standard high school path, entering hospitality work, and later re-entering education through an adult completion route.",
+        "details": [
+          {
+            "detail": "Pandemic disruption, family stress, and feeling overwhelmed in senior year pushed her off the standard high-school path before earning a diploma.",
+            "evidence": "Q01-Q03"
+          },
+          {
+            "detail": "Taking work seriously was both something that gradually happened and a conscious choice because it let her help financially and feel competent.",
+            "evidence": "Q02-Q03"
+          },
+          {
+            "detail": "She completed 11th grade and is now back in a mixed-format adult high school completion program through a community college, which has made her routine more structured over the last few months.",
+            "evidence": "Q18, Q90-Q92"
+          },
+          {
+            "detail": "A holiday-season breakdown, combined with embarrassment about being behind peers educationally, pushed her to talk with her mom and Daniela, restart school more seriously, and rely on calendars and concrete next steps instead of silent worrying.",
+            "evidence": "Q43-Q45, Q50"
+          }
+        ],
+        "evidence": "Q01-Q04, Q18, Q43-Q45, Q90-Q92"
+      },
+      "media_and_information_diet": {
+        "summary": "Uses social media heavily for culture and connection but prefers more credible institutions for health and political information.",
+        "details": [
+          {
+            "detail": "Uses Instagram for local art, coffee, and social updates, but tries to cut back on doom-scrolling and random phone use.",
+            "evidence": "Q18, Q48, Q50"
+          },
+          {
+            "detail": "Verifies health information through doctors, pharmacists, county public health sources, official medical sites, and an aunt who works in a medical office.",
+            "evidence": "Q42"
+          },
+          {
+            "detail": "Trusts outlets like NPR and the LA Times more than random reposts, and does not trust unverified claims on social media.",
+            "evidence": "Q42"
+          },
+          {
+            "detail": "Uses voter guides and nonpartisan summaries for elections.",
+            "evidence": "Q23"
+          }
+        ],
+        "evidence": "Q18, Q23, Q42, Q48-Q50"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Mariella Sanchez is a 20-year-old never-married Mexican-American woman living in Fountain Valley, California with her parents and younger brother in a rented household (Q11, Q51, Q58, Q84, Q88). She was born in Santa Ana, completed 11th grade, and is now enrolled part-time in an adult high school completion program while working about 30 hours a week as a hostess in Costa Mesa (Q85-Q87, Q90-Q92, Q16, Q68). Her household appears working class but relatively stable, with both parents having long labor-force attachment in service and maintenance work and Mariella contributing to shared expenses (Q55-Q57, Q103-Q107). Life-course-wise, she experienced a nontraditional transition to adulthood marked by interrupted schooling, early labor market participation, and continued coresidence with family while rebuilding educational momentum (Q01-Q04, Q83).",
+      "behavioral_economist": "Mariella shows a strongly practical decision style shaped by financial constraint but not pure short-termism. At her key crossroads, immediate earnings and role competence pulled her toward work, yet she retained long-horizon goals and later re-entered schooling, suggesting adaptive rather than myopic choice under pressure (Q02-Q04, Q108). She uses mental budgeting—emergency, school, and travel 'buckets'—and modest but regular saving habits, while also displaying cautious use of debt and sensitivity to small financial shocks like dental bills and car costs (Q61-Q64, Q82-Q83). Identity and preference spillovers are visible: she chooses social, health, and travel activities that reinforce a coherent self-concept around hospitality, art, coffee, and disciplined self-improvement (Q17, Q31-Q32, Q48, Q108).",
+      "political_scientist": "Mariella is a young, moderately strong Democrat who votes by mail, has participated in the 2024 general election and a recent primary, and interprets politics through lived issues like education, healthcare, wages, immigration, and housing costs (Q23-Q25, Q95-Q96). Her political orientation is less ideological-performance driven than grounded in everyday governance and institutional consequences for working families and service workers (Q24-Q25, Q83). She expresses concern about racism, policing, and the issues raised by Black Lives Matter, not only through abstract moral language but through observations from service work and multiracial social networks (Q26-Q30). Her civic engagement is modest but real: voting, issue discussion, occasional volunteering, and attending a community art-and-justice event, reflecting low-level but meaningful participatory citizenship (Q17, Q23, Q29).",
+      "psychologist": "Mariella presents as conscientious, socially perceptive, relational, and identity-integrative. She repeatedly defines herself through hospitality, creativity, bilingual belonging, and being useful to others, suggesting a self-concept organized around competence plus warmth (Q01, Q65, Q109). Under stress she trends toward anxiety and overthinking rather than withdrawal; she notices physical manifestations of stress, values structure, and increasingly uses active coping strategies like calendars, movement, journaling, and support seeking (Q43-Q45, Q50). Her emotional life shows some shame and comparison around educational delay, but also resilience, reflective capacity, and future orientation as she reconstructs a disrupted life path into a meaningful narrative (Q02-Q04, Q44, Q108)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "She maintains an active routine that includes yoga, running, hiking, and occasional beach volleyball.",
+        "ground_truth_label": "Active multi-activity fitness routine",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"I do yoga, run, hike, and play beach volleyball sometimes\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "She uses movement and time outside as a stress-coping strategy.",
+        "ground_truth_label": "Exercise-based stress regulation",
+        "behavioral_evidence_from_interview": [
+          "Q32: \"What makes it easier is that I genuinely like movement\"",
+          "Q50: \"Going outside and moving my body\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "She experiences seasonal allergies.",
+        "ground_truth_label": "Seasonal allergies",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"I do get seasonal allergies\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "She gets tension headaches when dehydrated or stressed.",
+        "ground_truth_label": "Stress/dehydration-related tension headaches",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"tension headaches if I'm dehydrated or stressed\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "She has painful menstrual cramps and sometimes gets stomach discomfort from drinking too much coffee on an empty stomach.",
+        "ground_truth_label": "Menstrual pain and coffee-related stomach discomfort",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"pretty painful period cramps\"",
+          "Q31: \"my stomach feels off if I drink too much coffee on an empty stomach\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "She gets basic medical checkups but is less consistent with dental care.",
+        "ground_truth_label": "Basic medical care maintained; dental care delayed",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"Basic checkups, yes, though I'm less on top of dental than I should be\"",
+          "Q36: \"I have definitely delayed care before\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "In the past two years she had a mild COVID case, delayed wisdom-tooth treatment, and sprained her ankle playing beach volleyball.",
+        "ground_truth_label": "Recent manageable health events",
+        "behavioral_evidence_from_interview": [
+          "Q33: \"I sprained my ankle playing beach volleyball\"",
+          "Q33: \"I had COVID once in the last two years too, but it was mild\"",
+          "Q33: \"wisdom tooth pain and ended up needing treatment after putting it off\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "She does not smoke and drinks only lightly.",
+        "ground_truth_label": "Low-substance-use pattern",
+        "behavioral_evidence_from_interview": [
+          "Q38: \"I don't smoke, and I drink pretty lightly\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Her anxiety is focused on money, time, and the future and shows up as overthinking and physical tension.",
+        "ground_truth_label": "Anxiety with somatic and cognitive symptoms",
+        "behavioral_evidence_from_interview": [
+          "Q45: \"I do think I deal with anxiety\"",
+          "Q45: \"overthinking, tight shoulders, stomach tension\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "She would consider therapy if it were easier to access and she is pro-vaccine, having received COVID shots and usually a flu shot.",
+        "ground_truth_label": "Pro-vaccine and therapy-open orientation",
+        "behavioral_evidence_from_interview": [
+          "Q45: \"Yes, I think I would\"",
+          "Q41: \"I'm pro-vaccine. I got my COVID shots, I usually get a flu shot\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "She cooks with her mother and especially enjoys making tamales and mole for family gatherings.",
+        "ground_truth_label": "Mexican family cooking with mother",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"we make tamales or mole for family gatherings\"",
+          "Q17: \"I love making tamales or working on my mole\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Her everyday cooking is usually simpler weeknight food rather than elaborate dishes.",
+        "ground_truth_label": "Simple weeknight cooking",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"Weeknight basics mostly\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Food is a central way her family expresses care, and Sunday dinner is a regular ritual.",
+        "ground_truth_label": "Food-centered family bonding",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"food was kind of how everybody showed love\"",
+          "Q05: \"Sunday dinner is the most regular thing\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "She keeps a coffee journal, learned to taste coffee intentionally through work, and often socializes at coffee shops.",
+        "ground_truth_label": "Intentional coffee culture engagement",
+        "behavioral_evidence_from_interview": [
+          "Q01 follow-up: \"coffee got serious once I worked around it and started tasting it more intentionally\"",
+          "Q17: \"I also keep a coffee journal\"",
+          "Q07: \"Coffee shops\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Her trip to Guatemala broadened how she thinks about art, coffee, and her future.",
+        "ground_truth_label": "Guatemala trip shaped outlook",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"going to Guatemala ... made me think bigger about art, coffee, and what I want my future to look like\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Her budget trip to Kyoto also expanded how she thinks about art, coffee, and her future.",
+        "ground_truth_label": "Kyoto trip shaped outlook",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"later a very budget trip to Kyoto ... made me think bigger about art, coffee\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "She prefers coffee- and culture-centered travel and plans trips carefully around a tight budget.",
+        "ground_truth_label": "Budget-conscious cultural travel preference",
+        "behavioral_evidence_from_interview": [
+          "Q62: \"I save slowly because I really want to do more coffee- and culture-centered trips\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "She is saving for Colombia as a dream trip and sees Napa as a more realistic near-term trip.",
+        "ground_truth_label": "Travel savings goals: Colombia and Napa",
+        "behavioral_evidence_from_interview": [
+          "Q62: \"Colombia is the dream one, and Napa feels more realistic in the nearer term\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "She is close to her parents Elena and Raul, her younger brother Mateo, and her grandmother Rosa.",
+        "ground_truth_label": "Strong immediate and grandparent family ties",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"My mom, Elena ... My dad, Raul ... My brother Mateo is 15\"",
+          "Q05: \"My grandma Rosa doesn't live with us, but she's very important to me\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Mateo is 15 years old.",
+        "ground_truth_label": "Younger brother age 15",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"My brother Mateo is 15\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "She sees extended family a couple times a month and is especially close to her cousin Lupita.",
+        "ground_truth_label": "Frequent extended-family contact",
+        "behavioral_evidence_from_interview": [
+          "Q06 follow-up: \"my cousin Lupita\"",
+          "Q06 follow-up: \"Usually a couple times a month\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Daniela is her primary nonfamily emotional support; they text almost daily and see each other about weekly.",
+        "ground_truth_label": "Best-friend support tie",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"My best friend Daniela\"",
+          "Q07 follow-up: \"we text almost every day\"",
+          "Q07 follow-up: \"Usually at least once a week in person\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "She is close with coworker Jasmine, keeps looser ties through yoga, the OC Striders, and open-mic circles, and is not in a serious relationship right now.",
+        "ground_truth_label": "Small support network plus single status",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"I'm close with a coworker named Jasmine\"",
+          "Q07: \"people from yoga and the OC Striders running club\"",
+          "Q84: \"So you're single at the moment? Yes.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "She lives in a rented apartment in Fountain Valley with her mother, father, and brother, and the household membership is stable.",
+        "ground_truth_label": "Stable four-person rented household",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"We live in a rented apartment\"",
+          "Q12: \"Everyone living there right now is a permanent member of the household\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Grandma or cousins may stay overnight after family events, but there are no regular temporary residents.",
+        "ground_truth_label": "Occasional overnight relatives only",
+        "behavioral_evidence_from_interview": [
+          "Q13: \"My grandma or a cousin might stay one night once in a while\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "She keeps a personal corner with art supplies, coffee gear, and a couple of houseplants.",
+        "ground_truth_label": "Creative personal space at home",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"I have my own corner of the room with my art stuff, coffee gear, and a couple houseplants\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "She helps with household chores, grocery runs, and sometimes drives her grandmother to appointments.",
+        "ground_truth_label": "Household contribution and occasional caregiving",
+        "behavioral_evidence_from_interview": [
+          "Q11 follow-up: \"I help with dishes, cooking, grocery runs\"",
+          "Q17: \"drive my grandma to things occasionally\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Her parents are the primary household payers, but she contributes monthly to groceries, utilities, and other shared costs.",
+        "ground_truth_label": "Contributes to shared household expenses",
+        "behavioral_evidence_from_interview": [
+          "Q55: \"Mostly my parents, and I contribute to groceries, utilities, and some household costs\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "She experiences Fountain Valley as calm, diverse, convenient, and mostly safe, but expensive and car-dependent, and she is especially cautious late at night in parking lots.",
+        "ground_truth_label": "Suburban stability with cost and safety caveats",
+        "behavioral_evidence_from_interview": [
+          "Q08: \"pretty suburban and steady\"",
+          "Q09: \"Late at night in parking lots\"",
+          "Q10: \"it's expensive, pretty car-dependent\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "She watches Dodgers and Lakers games with her father and brother.",
+        "ground_truth_label": "Family sports-viewing routine",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"if there's a Dodgers or Lakers game on, my dad and brother will have that playing\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Her social outings often include coffee shops, museum days, open-mic nights, beach walks, and movies.",
+        "ground_truth_label": "Low-cost social outing pattern",
+        "behavioral_evidence_from_interview": [
+          "Q07 follow-up: \"Coffee shops, open-mic nights, beach walks, museum days, sometimes just watching the Dodgers or a movie\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "She prefers affordable, conversation-friendly outings over heavier nightlife.",
+        "ground_truth_label": "Affordable conversational entertainment preference",
+        "behavioral_evidence_from_interview": [
+          "Q10: \"if I want more culture or nightlife ... I usually have to go\"",
+          "Q60: \"Eating out for fun ... gets cut first when money is tight\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "She sketches café scenes and posts watercolor sketches or café photo dumps.",
+        "ground_truth_label": "Watercolor and café-scene sketching hobby",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"sketch café scenes\"",
+          "Q48: \"post my watercolor sketches or a café photo dump\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "She keeps a coffee-tasting journal.",
+        "ground_truth_label": "Coffee tasting journal",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"I also keep a coffee journal\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "She attends open-mic nights, explores museums and galleries, and volunteers a few times a year at cultural festivals, especially Latino community events.",
+        "ground_truth_label": "Creative and community-oriented leisure",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"Every so often I volunteer at local cultural festivals\"",
+          "Q48: \"local art shows\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "She works as a hostess/front-of-house specialist at a busy café-brunch restaurant in Costa Mesa.",
+        "ground_truth_label": "Current occupation: Costa Mesa hostess",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"I work as a hostess at a busy café-brunch restaurant in Costa Mesa\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "She has been at her current job a little over two years and usually works about 28 to 32 hours per week.",
+        "ground_truth_label": "Job tenure and weekly hours",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"I usually work around 28 to 32 hours\"",
+          "Q76: \"I've been there a little over two years\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Her duties include greeting guests, managing reservations and the waitlist, balancing seating, answering phones, helping with POS and to-go orders, and coordinating with servers, bussers, and kitchen staff.",
+        "ground_truth_label": "Core front-of-house duty set",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"greeting people, managing the waitlist and reservations\"",
+          "Q65: \"communicating constantly with servers, bussers, and kitchen staff\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "She uses bilingual English-Spanish skills to help Spanish-speaking guests and smooth misunderstandings at work.",
+        "ground_truth_label": "Bilingual guest-service skill",
+        "behavioral_evidence_from_interview": [
+          "Q65: \"Because I'm bilingual, I also help Spanish-speaking guests and sometimes smooth things over\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Her strengths at work are staying calm, reading the room, and making guests feel seen during rushes.",
+        "ground_truth_label": "Calm socially perceptive front-of-house style",
+        "behavioral_evidence_from_interview": [
+          "Q65 follow-up: \"Staying calm and making people feel seen even when there's a wait\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Her schedule is somewhat predictable and usually posted about a week ahead, and job benefits are limited to paid sick time and meal or discount perks.",
+        "ground_truth_label": "Moderately predictable schedule with limited benefits",
+        "behavioral_evidence_from_interview": [
+          "Q78: \"Usually about a week ahead\"",
+          "Q76: \"some paid sick time, employee meal or discount perks\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "She wants to become a lead hostess, then a floor manager, and eventually open a warm bilingual café-gallery serving Mexican-influenced coffee and pastries.",
+        "ground_truth_label": "Hospitality advancement and café-gallery entrepreneurship goal",
+        "behavioral_evidence_from_interview": [
+          "Q108: \"lead hostess or floor manager\"",
+          "Q108: \"a place that serves great coffee and pastries with Mexican influence\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "She budgets by paycheck, saves in emergency, school, and travel buckets, and tries to keep credit-card debt small.",
+        "ground_truth_label": "Mental budgeting and cautious debt management",
+        "behavioral_evidence_from_interview": [
+          "Q61: \"emergency money, school money, and travel money\"",
+          "Q63: \"I do have a small credit card balance—under $500\"",
+          "Q73: \"Do you budget by paycheck? Yes.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "She has loved drawing since childhood and wants to keep painting and sketching as part of adult life.",
+        "ground_truth_label": "Childhood-to-adulthood artistic continuity",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"As a kid I liked drawing\"",
+          "Q108: \"I want to keep the creative part of me alive\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "She follows local art shows, museums, galleries, and Latina creative accounts on Instagram.",
+        "ground_truth_label": "Art discovery through local and social channels",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"local art shows\"",
+          "Q48 follow-up: \"a mix of Latina creatives\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "She attended a peaceful Santa Ana event that combined art and justice discussion and believes art makes hard conversations more human.",
+        "ground_truth_label": "Art-based civic meaning-making",
+        "behavioral_evidence_from_interview": [
+          "Q29: \"I also went to a peaceful community event in Santa Ana that mixed art and discussion around justice\"",
+          "Q29 follow-up: \"Because art makes conversation feel more human\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "She runs, hikes, practices yoga, and sometimes plays beach volleyball.",
+        "ground_truth_label": "Mixed solo and social exercise routine",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"I do yoga, run, hike, and play beach volleyball sometimes\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "She tries to use free mornings for exercise when her schedule allows.",
+        "ground_truth_label": "Morning exercise preference",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"If I have a free morning, I'll try to do yoga, go for a run, or hike\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "She maintains social ties through the OC Striders and yoga contacts and goes to a Laguna Hills yoga class when she can afford the drop-in.",
+        "ground_truth_label": "Fitness as social connection",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"people from yoga and the OC Striders running club\"",
+          "Q17: \"try to make one yoga class a week in Laguna Hills when I can afford the drop-in\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "She likes getting outside early for runs or hikes when she can.",
+        "ground_truth_label": "Early outdoor activity preference",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"I'll try to ... hike if I can get out early enough\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "She experiences early time in nature as spiritually meaningful.",
+        "ground_truth_label": "Nature-based spirituality",
+        "behavioral_evidence_from_interview": [
+          "Q47: \"I also feel spiritual ... like being out in nature early\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Going outside is one of her fastest emotional reset strategies, and Southern California weather helps her stay active year-round.",
+        "ground_truth_label": "Outdoor environment supports coping and routine",
+        "behavioral_evidence_from_interview": [
+          "Q50: \"Going outside and moving my body\"",
+          "Q32: \"living in Southern California means I can hike, run, or go outside most of the year\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "She uses a calendar and reminders more intentionally now to manage classes, assignments, and work shifts.",
+        "ground_truth_label": "Calendar-based self-organization",
+        "behavioral_evidence_from_interview": [
+          "Q18: \"I've been trying to ... use a calendar so I don't miss assignments or work things\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Instagram is her main platform for friends, local art, coffee shops, restaurant ideas, and running content.",
+        "ground_truth_label": "Instagram as primary discovery platform",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"I use Instagram the most\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "She uses TikTok for recipes, yoga flows, running advice, makeup/style ideas, and humor; Facebook for family groups, Marketplace, and event pages; and rarely uses X.",
+        "ground_truth_label": "Platform-specific social media use",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"I use TikTok too\"",
+          "Q48: \"Facebook is mostly for family groups, Marketplace, and event pages\"",
+          "Q48: \"I don't really use X much\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "She relies on private group chats and direct messages for support rather than public posting, and she regularly uses POS and reservation tools at work.",
+        "ground_truth_label": "Private digital support style and pragmatic work tech use",
+        "behavioral_evidence_from_interview": [
+          "Q49: \"I use private group chats, direct messages, or I call someone\"",
+          "Q65: \"handling basic POS transactions\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "She started voting as soon as she was eligible, voted in the 2024 general election and the most recent primary, and usually votes by mail because it fits her work schedule.",
+        "ground_truth_label": "Consistent young voter who prefers vote-by-mail",
+        "behavioral_evidence_from_interview": [
+          "Q23: \"I started voting as soon as I was eligible\"",
+          "Q23: \"By mail mostly, because it's easier for me with work\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "She identifies as a moderately strong Democrat who leans clearly left but thinks of herself as practical rather than ideological.",
+        "ground_truth_label": "Practical left-leaning Democratic identity",
+        "behavioral_evidence_from_interview": [
+          "Q24: \"I lean pretty clearly left\"",
+          "Q95: \"I usually think of myself as a Democrat, moderately strongly\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Her core political issue priorities are education, healthcare, reproductive freedom, immigration, workers' pay, and housing costs, and she uses voter guides, nonpartisan summaries, and trusted people to decide how to vote.",
+        "ground_truth_label": "Issue-based practical voting orientation",
+        "behavioral_evidence_from_interview": [
+          "Q23: \"I especially pay attention when issues touch education, healthcare, immigration, workers, or cost of living\"",
+          "Q24: \"reproductive freedom\"",
+          "Q23 follow-up: \"I read voter guides, look up nonpartisan summaries\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "She has not had major negative encounters with law enforcement, though a late-night brake-light stop made her feel vulnerable.",
+        "ground_truth_label": "Limited direct police contact with situational vulnerability",
+        "behavioral_evidence_from_interview": [
+          "Q20: \"getting pulled over once after a late shift\"",
+          "Q20 follow-up: \"it was dark and I was alone\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "She felt school resource officers made campus feel more tense than necessary when she was younger.",
+        "ground_truth_label": "Negative reaction to routine school policing presence",
+        "behavioral_evidence_from_interview": [
+          "Q21: \"school resource officers ... always made school feel a little more tense than it needed to\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "She responds to race and policing issues mostly through conversations, information-sharing, local art-and-justice events, and occasional community volunteering.",
+        "ground_truth_label": "Conversation- and community-based race/policing engagement",
+        "behavioral_evidence_from_interview": [
+          "Q29: \"Mostly I've talked with family and friends, shared information\"",
+          "Q29: \"went to a peaceful community event in Santa Ana\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "She is skeptical of performative politics and social-media-only activism.",
+        "ground_truth_label": "Anti-performative civic style",
+        "behavioral_evidence_from_interview": [
+          "Q25: \"more skeptical of people posting politics just for aesthetics\"",
+          "Q27: \"not acting like one social media post means you've done the work\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Open-mic nights are part of her routine.",
+        "ground_truth_label": "Regular open-mic attendance",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"I go to open-mic nights sometimes\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Music matters more to her as a family and social atmosphere than as a standalone identity.",
+        "ground_truth_label": "Music as social ambiance",
+        "behavioral_evidence_from_interview": [
+          "Q05 follow-up: \"my dad puts on a game or music\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "For work she wears mostly black with comfortable shoes, neat hair, and a simple polished look.",
+        "ground_truth_label": "Practical polished front-of-house presentation",
+        "behavioral_evidence_from_interview": [
+          "Q16 follow-up: \"Mostly all black with comfortable shoes ... a simple polished look\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "She uses TikTok occasionally for makeup and style ideas, but her presentation remains mainly practical and professional because of front-of-house work.",
+        "ground_truth_label": "Work-shaped style choices",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"makeup or style ideas\"",
+          "Q16 follow-up: \"we're front-of-house\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "She was born in Santa Ana, has lived in California her whole life, and grew up in Orange County in a bilingual Mexican-American household where Spanish was spoken at home.",
+        "ground_truth_label": "Santa Ana-born lifelong Californian from bilingual Mexican-American home",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"I was born in Santa Ana and grew up in Fountain Valley\"",
+          "Q86: \"Yes, I've lived in California my whole life\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "She identifies strongly as Mexican-American and Latina; on forms she usually marks White even though that category does not feel like a perfect fit.",
+        "ground_truth_label": "Strong Latina identity with imperfect race-category fit",
+        "behavioral_evidence_from_interview": [
+          "Q88: \"Yes, I'm Mexican-American\"",
+          "Q89: \"on forms I typically mark White\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "She believes language changes how people are treated, and being bilingual shapes how she interprets race and everyday interactions.",
+        "ground_truth_label": "Language-conscious social perception",
+        "behavioral_evidence_from_interview": [
+          "Q28 follow-up: \"language changes how people treat you too\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "She was raised Catholic and still identifies that way culturally and somewhat spiritually, especially through holiday Mass, prayer, candles, and Día de los Muertos altars.",
+        "ground_truth_label": "Cultural Catholic identity",
+        "behavioral_evidence_from_interview": [
+          "Q47: \"I was raised Catholic\"",
+          "Q47: \"holiday Mass, praying when someone's sick, candles, Día de los Muertos altars\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Pandemic disruption, family stress, and feeling overwhelmed in senior year pushed her off the standard high-school path before she earned a diploma.",
+        "ground_truth_label": "Pandemic-and-stress driven school interruption",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"after the pandemic everything got more scattered\"",
+          "Q02: \"money felt tighter ... I was struggling to stay focused in school\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Taking work seriously was both gradual and a conscious choice because it let her help financially and feel competent.",
+        "ground_truth_label": "Work commitment as adaptive turning point",
+        "behavioral_evidence_from_interview": [
+          "Q03: \"It was honestly both\"",
+          "Q03 follow-up: \"I could immediately help with money and I felt more capable at work\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "She completed 11th grade and is now back in a mixed-format adult high school completion program through a community college, which has made her routine more structured over the last few months.",
+        "ground_truth_label": "Adult education re-entry after incomplete high school",
+        "behavioral_evidence_from_interview": [
+          "Q90: \"I've completed 11th grade\"",
+          "Q91: \"adult high school completion program\"",
+          "Q18: \"A few months now\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "A holiday-season breakdown after a long shift, along with embarrassment about being behind peers educationally, pushed her to talk with her mom and Daniela, restart school more seriously, and use calendars and concrete next steps instead of silent worrying.",
+        "ground_truth_label": "Emotional low converted into structured re-engagement",
+        "behavioral_evidence_from_interview": [
+          "Q44: \"I sat in my car and cried\"",
+          "Q43: \"that feeling of being a little behind other people my age\"",
+          "Q44: \"I started being more serious about getting myself back into class and using a calendar\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "She uses Instagram for local art, coffee, and social updates but is trying to cut back on doom-scrolling and random phone use.",
+        "ground_truth_label": "Selective but self-monitoring social media use",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"I use Instagram the most\"",
+          "Q18: \"trying to cut back on random phone scrolling\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "She verifies health information through doctors, pharmacists, county public health sources, official medical sites, and an aunt who works in a medical office.",
+        "ground_truth_label": "Institutional and familial health-information trust network",
+        "behavioral_evidence_from_interview": [
+          "Q42: \"A doctor, pharmacist, county public health information, and official medical sites are what I trust most\"",
+          "Q42: \"My aunt works in a medical office too\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "She trusts outlets like NPR and the LA Times more than random reposts and does not trust unverified claims on social media.",
+        "ground_truth_label": "Preference for verified over viral information",
+        "behavioral_evidence_from_interview": [
+          "Q42: \"I also look at places like NPR or the LA Times more than random reposts\"",
+          "Q42: \"I don't take it seriously unless I can verify it somewhere better\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "reprojected",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Mariella is 20 years old.",
+        "ground_truth_label": "Age 20",
+        "behavioral_evidence_from_interview": [
+          "Q85: \"That makes you 20 now, correct? Yes.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "reprojected",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Mariella is female.",
+        "ground_truth_label": "Female gender",
+        "behavioral_evidence_from_interview": [
+          "Q09: \"like any woman would be\"",
+          "Q20: \"when you're a young woman alone at night\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "reprojected",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Mariella has never been married and is not living with a romantic partner.",
+        "ground_truth_label": "Never married; no cohabiting partner",
+        "behavioral_evidence_from_interview": [
+          "Q84: \"I've never been married, and I'm not living with a romantic partner\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Her household is working class but relatively stable.",
+        "ground_truth_label": "Working-class stable household",
+        "behavioral_evidence_from_interview": [
+          "Q46: \"My family carries stress in a pretty quiet working-class way\"",
+          "Q98: \"Was it a stable household at that time? Yes\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "reprojected",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": "summaries.demographer",
+        "claim": "She has experienced a nontraditional transition to adulthood marked by interrupted schooling, early labor-force participation, and continued coresidence with family while rebuilding educational momentum.",
+        "ground_truth_label": "Nontraditional transition to adulthood",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"I left before finishing and started working\"",
+          "Q01: \"Right now I still live with my parents\"",
+          "Q91: \"I'm enrolled in an adult high school completion program\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Her financial decision style is practical and future-oriented rather than purely short-term.",
+        "ground_truth_label": "Practical future-oriented financial decision style",
+        "behavioral_evidence_from_interview": [
+          "Q62: \"So my saving is practical first, dream second\"",
+          "Q83: \"I'm working, contributing, saving some, and making a plan instead of just drifting\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}

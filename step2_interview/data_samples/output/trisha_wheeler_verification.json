@@ -1,0 +1,2510 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "cc086016d63c48b79246de8e710ec6b7",
+      "name": "Trisha Wheeler",
+      "verification_date": "2026-05-20"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age, sex, marital status, education, occupation, city, state, ZIP, and country match the interview demographic answers.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed demographic fields",
+              "source_b_ref": "Q84-Q91",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed says Trisha grew up in Hardin; interview confirms she was raised in Hardin and adds that she was born in Jerseyville, Illinois.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "cultural_background, city/state",
+              "source_b_ref": "Q01, Q87",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward birthplace Jerseyville, Illinois, as an enriched demographic fact."
+            },
+            {
+              "id": 3,
+              "text": "Seed states high school education; interview confirms high school diploma and adds dental assisting and on-the-job training without a higher degree.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "education_level",
+              "source_b_ref": "Q90",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward post-high-school dental assisting/on-the-job training as supplemental education."
+            },
+            {
+              "id": 4,
+              "text": "Seed has never-married status; interview confirms never married, no partner, no children, and no engagement history.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "marital_status",
+              "source_b_ref": "Q05, Q84",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward absence of partner, children, and engagement as household/family facts."
+            },
+            {
+              "id": 5,
+              "text": "Seed describes Methodist rural agricultural roots; interview confirms Methodist upbringing, county fair/4-H participation, and parents' agriculture/small-business ties.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "cultural_background",
+              "source_b_ref": "Q01, Q47, Q103-Q107",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile demographics correctly state age, race/ethnicity context, Hardin residence, never-married status, no children, roommate household, and high school education.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q11, Q51-Q55, Q84-Q92",
+              "source_b_ref": "top-level profile fields, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures current rental household with Kayla and shared expenses, matching repeated household confirmation.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q11, Q51-Q55, Q58",
+              "source_b_ref": "preferences.home_and_lifestyle, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile omits birthplace Jerseyville and date of birth, both explicit interview facts.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q85, Q87",
+              "source_b_ref": "top-level profile fields/preferences.cultural_and_linguistic",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add cultural_and_linguistic detail: born August 14, 2002, in Jerseyville, Illinois, and raised in Hardin."
+            },
+            {
+              "id": 4,
+              "text": "Profile notes no children but does not record that there are no temporary household members, lodgers, boarders, live-in employees, or people away from the household.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q12-Q14, Q52-Q54",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add home_and_lifestyle detail documenting stable two-person household with no temporary members, children, lodgers, or absent usual residents."
+            },
+            {
+              "id": 5,
+              "text": "Profile includes work and financial independence but omits parental education and childhood household structure.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q97-Q101",
+              "source_b_ref": "preferences.cultural_and_linguistic",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add cultural_and_linguistic detail on stable childhood in Hardin with both parents and younger brother; father high school, mother high school plus some community college."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Top-level high school education is consistent with work_and_career ambitions for certification and possible community college rather than current enrollment.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "education",
+              "field_b": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Never-married/no-partner status is consistent with social_and_relationships emphasizing family, friends, and roommate Kayla rather than spouse or children.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "marital_status",
+              "field_b": "preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Financial vulnerability in summaries is consistent with travel and entertainment preferences because those preferences are framed as budget-dependent and partly funded by gig income.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.demographer",
+              "field_b": "preferences.travel, preferences.entertainment",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview gives date of birth and birthplace not represented in the draft profile preferences.",
+              "gap": true,
+              "interview_ref": "Q85, Q87",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add born August 14, 2002, in Jerseyville, Illinois, raised in Hardin."
+            },
+            {
+              "id": 2,
+              "text": "Interview specifies there are no temporary household members, children, lodgers, boarders, live-in employees, or absent usual residents.",
+              "gap": true,
+              "interview_ref": "Q12-Q14, Q52-Q54",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add stable two-person lease with no other regular household members."
+            },
+            {
+              "id": 3,
+              "text": "Interview gives childhood household and parents' education, which are absent from profile preferences.",
+              "gap": true,
+              "interview_ref": "Q97-Q101",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add childhood in Hardin with both parents and Cody; father completed high school, mother completed high school plus some community college."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed portrays a diligent but slightly disorganized dental assistant; interview confirms quick adaptation, checklists, overbooking, and improved scheduling.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "professional_persona, persona",
+              "source_b_ref": "Q03, Q18, Q44-Q45",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed travel persona says modest budget and karaoke gig splurges; interview confirms travel savings, occasional karaoke income, and budget constraints.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "travel_persona",
+              "source_b_ref": "Q60-Q62, Q70-Q72",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed culinary persona matches interview meal choices and late-night pizza indulgence.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "culinary_persona",
+              "source_b_ref": "Q15, Q32, Q81",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Interview adds detailed income, spending, savings, debt, and emergency-expense behavior not present in seed.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona fields",
+              "source_b_ref": "Q56-Q64, Q72-Q83",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward detailed financial behavior into corrected profile."
+            },
+            {
+              "id": 5,
+              "text": "Seed suggests curiosity and sociability; interview enriches this with peer accountability for exercise and social spending pressure.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "professional_persona, persona",
+              "source_b_ref": "Q32, Q56-Q61",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward peer-influenced exercise and spending behavior."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately represents her active, social, convenience-prone health and food choices.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q31-Q32, Q38",
+              "source_b_ref": "preferences.health_and_wellness, preferences.food_and_dining",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures spending pressure, savings volatility, side gigs, cutbacks, and emergency vulnerability in the behavioral economist summary.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q56-Q64, Q81-Q83",
+              "source_b_ref": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile preferences omit concrete income and pay-cycle details given in the interview.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q72-Q74",
+              "source_b_ref": "preferences.work_and_career, preferences.home_and_lifestyle",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add work_and_career detail: take-home around $2,600 from dental office last month plus $120 karaoke gig; paid every two weeks; household take-home with Kayla around $5,000-$5,300."
+            },
+            {
+              "id": 4,
+              "text": "Profile preferences omit debts and emergency-expense strategy despite summary mentioning financial vulnerability.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q61-Q64, Q82-Q83",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add home_and_lifestyle detail on savings account, car loan, credit card debt, $400 emergency coverage via savings/credit card/parents, and desire for bigger emergency fund."
+            },
+            {
+              "id": 5,
+              "text": "Profile preferences omit that she delays some medical care, such as physical therapy, because of cost.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q36",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add health_and_wellness detail about work insurance being basic and cost causing delayed physical therapy/extra visits."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Travel ambitions are internally consistent with financial modesty because Cancun is described as realistic and Patagonia as aspirational.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.travel",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Entertainment and social spending are consistent with the profile's depiction of savings volatility and side gigs.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.entertainment",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Career ambitions and financial insecurity reinforce each other rather than conflict: certification and hygiene school are framed as routes to higher pay.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Concrete monthly spending amounts and spending categories are missing from preferences.",
+              "gap": true,
+              "interview_ref": "Q56-Q57",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail: her share was about $2,200 last month, usually $1,900-$2,000; hardest categories are food and social spending."
+            },
+            {
+              "id": 2,
+              "text": "Debt composition is missing from preferences.",
+              "gap": true,
+              "interview_ref": "Q63-Q64",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add car loan, some credit card debt, no student loans, no family debt, and recent tight periods involving groceries/car repair/continuing education."
+            },
+            {
+              "id": 3,
+              "text": "Emergency-resilience behavior is missing from preferences.",
+              "gap": true,
+              "interview_ref": "Q82-Q83",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add $400 emergency would be coverable but painful, using savings first, credit card second, parents as last resort."
+            },
+            {
+              "id": 4,
+              "text": "Income and pay frequency are absent from preferences.",
+              "gap": true,
+              "interview_ref": "Q72-Q74",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add monthly take-home and biweekly pay details."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed cultural background describes Protestant Methodist community involvement; interview confirms Methodist identity, church attendance, and practical church service orientation.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "cultural_background",
+              "source_b_ref": "Q47, Q94",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed says community involvement and down-to-earth outlook; interview confirms volunteering, local ties, and civic concern for rural services.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "cultural_background, hobbies_and_interests",
+              "source_b_ref": "Q17, Q23-Q25, Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Interview adds political identity as Independent/moderate, which seed does not include.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed data",
+              "source_b_ref": "Q24, Q95-Q96",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward Independent/moderate political identity."
+            },
+            {
+              "id": 4,
+              "text": "Interview adds limited but mostly trusting local law-enforcement experience, absent from seed.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed data",
+              "source_b_ref": "Q20-Q22",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward law-enforcement experience and trust qualifications."
+            },
+            {
+              "id": 5,
+              "text": "Interview adds views on race, racism, policing, and Black Lives Matter, absent from seed.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed data",
+              "source_b_ref": "Q26-Q30",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward nuanced BLM/race/policing views."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures her weak Independent partisanship, moderate views, family Republican lean, and health-care-driven openness to support programs.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q24-Q25, Q95-Q96",
+              "source_b_ref": "summaries.political_scientist, preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures presidential voting and improving local election participation.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile summary mentions law enforcement, but preferences do not preserve the concrete facts: one warning for rolling a stop sign, no arrests, and no immediate-family arrests.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q20-Q22",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add community_and_civic detail on limited police contact, local trust, and no arrest history for self or immediate family."
+            },
+            {
+              "id": 4,
+              "text": "Profile summary discusses race and policing, but preferences do not include her BLM response and conversations with family/friends.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q26-Q30",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add community_and_civic detail on being somewhat affected by BLM, listening more, not protesting, and discussing with friends/family."
+            },
+            {
+              "id": 5,
+              "text": "Profile media diet includes political information sources but omits that she double-checks Facebook links and dislikes social media arguments.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q24, Q29",
+              "source_b_ref": "preferences.media_and_information_diet",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add media_and_information_diet detail about double-checking Facebook links and avoiding ugly social media arguments."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Independent/moderate identity is consistent with mixed issue positions and split-ticket openness.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.political_scientist",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Local law-enforcement trust is consistent with acknowledging racialized differences in policing because the summary explicitly frames the trust as local and qualified.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.political_scientist",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Church-influenced community attachment is consistent with her non-preachy, practical faith orientation.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "preferences.cultural_and_linguistic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Detailed law-enforcement experience and arrest history are absent from preferences.",
+              "gap": true,
+              "interview_ref": "Q20-Q22",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add traffic warning, generally trusting local police, and no arrests for self/immediate family."
+            },
+            {
+              "id": 2,
+              "text": "BLM/race response is absent from preferences despite being a substantive civic orientation.",
+              "gap": true,
+              "interview_ref": "Q26-Q30",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add somewhat affected by BLM, sees issues as real, no protest participation, family/friend discussion, mixed views in social circle."
+            },
+            {
+              "id": 3,
+              "text": "Specific political priorities are underrepresented in preferences.",
+              "gap": true,
+              "interview_ref": "Q24-Q25",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add health care access, rural jobs, training after high school, and local services as priorities."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes outgoing, curious, carefree, and competitive traits; interview strongly confirms extraversion, social energy, sports competitiveness, and curiosity at work.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "persona, professional_persona, sports_persona",
+              "source_b_ref": "Q01, Q07, Q15, Q65, Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed notes slight disorganization and improvised quick fixes; interview confirms overbooking, scattered stress signs, phone calendars, lists, and checklists.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "professional_persona, persona",
+              "source_b_ref": "Q18, Q43-Q45, Q50",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed arts persona describes outgoing karaoke and movie-based banter; interview confirms karaoke, singing as coping, movie nights, and valuing music/laughter.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "arts_persona",
+              "source_b_ref": "Q07, Q38, Q48, Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Interview adds situational anxiety, emotional car-lunch incident, and no diagnosed depression, absent from seed.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona fields",
+              "source_b_ref": "Q43-Q45",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward emotional well-being and coping details into corrected profile."
+            },
+            {
+              "id": 5,
+              "text": "Interview adds self-concept organized around usefulness, kindness, independence, and joy, enriching seed traits without contradiction.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "persona",
+              "source_b_ref": "Q109",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward explicit values and self-concept."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately represents her extraversion, social support, active coping, and practical adaptive style in the psychologist summary.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q38-Q45, Q50, Q109",
+              "source_b_ref": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile preferences capture music, exercise, lists, and family contact as coping outlets.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q38, Q43-Q45, Q50",
+              "source_b_ref": "preferences.health_and_wellness, preferences.music, preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile preferences omit the specific rough-week clinic mistake, crying in her car, repair through support and checklists.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q44",
+              "source_b_ref": "preferences.health_and_wellness, preferences.work_and_career",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add health_and_wellness detail on situational stress after a clinic note mistake and coping by calling her mom, accepting coworker support, fixing the mistake, and using checklists."
+            },
+            {
+              "id": 4,
+              "text": "Profile preferences omit that she does not identify as depressed, has no regular counseling history, and would consider counseling if things became heavier.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q45",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add health_and_wellness detail on no depression claim, situational anxiety, no regular counseling, and openness to counseling if needed."
+            },
+            {
+              "id": 5,
+              "text": "Profile preferences understate her explicit values of usefulness, independence, people, and joy.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q109",
+              "source_b_ref": "preferences.social_and_relationships",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add social_and_relationships detail on valuing family/friends/community, usefulness, independence, joy, music, food, laughter, and growth without losing important relationships."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Slight disorganization is internally consistent with diligence because the profile describes adaptive compensations such as lists, calendars, and checklists.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.home_and_lifestyle",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Social drinking does not conflict with the summary's claim that she avoids substance-based coping because the interview frames drinking as occasional and not primary coping.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Career restlessness is consistent with optimistic future orientation and concrete credential planning.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.life_events_and_transitions",
+              "field_b": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Situational anxiety signs and lack of diagnosed depression are missing from preferences.",
+              "gap": true,
+              "interview_ref": "Q43-Q45",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add emotional well-being detail: upbeat but overwhelmed when overcommitted, situational anxiety, no diagnosed depression, no regular counseling."
+            },
+            {
+              "id": 2,
+              "text": "Detailed coping methods are underrepresented: talking to Kayla/mom, exercise, singing, lists, sleep, frantic cleaning, and avoiding late-night TikTok.",
+              "gap": true,
+              "interview_ref": "Q38, Q45, Q50",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add coping detail under health_and_wellness."
+            },
+            {
+              "id": 3,
+              "text": "Her explicit self-concept and values are missing from preferences.",
+              "gap": true,
+              "interview_ref": "Q109",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add values around people, usefulness, independence, joy, growth, and keeping important relationships."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No contradictions required flagging or reinterpretation. The draft profile was broadly faithful, but substantive interview details were missing from preferences and were carried forward into the corrected profile.",
+    "final_status": "Corrected profile is ready for downstream use after enrichment and hidden_facts generation."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "cc086016d63c48b79246de8e710ec6b7",
+    "name": "Trisha Wheeler",
+    "age": 23,
+    "gender": "Female",
+    "marital_status": "Never married; not living with a romantic partner; no children",
+    "location": "Hardin, IL 62047",
+    "education": "High school diploma with dental assisting and on-the-job training; not currently enrolled in school",
+    "occupation": "Dental assistant at a private general dental office",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Trisha prioritizes practical preventive health, fitness through social activities, and dental hygiene, while struggling with sleep and schedule consistency.",
+        "details": [
+          "Stays active through softball, Zumba, and line dancing (Q31, Q32).",
+          "Values preventive dental care, brushing, flossing, and regular cleanings because of her dental work (Q31, Q40).",
+          "Generally supports vaccination and relies on medical professionals for vaccine information (Q41, Q42).",
+          "Has no major chronic condition, but has dealt with a softball ankle sprain and work-related back/shoulder soreness (Q31, Q33, Q34).",
+          "Has work insurance that covers basic care, but cost has led her to delay physical therapy or extra visits for soreness (Q36, Q40).",
+          "Does not smoke, drinks socially on weekends, avoids marijuana and other substances, and uses ibuprofen or Tylenol for pain when needed (Q38, Q39).",
+          "Experiences situational anxiety when disorganized or afraid of disappointing people, does not identify as depressed, and has not seen a counselor regularly (Q43-Q45).",
+          "Copes through Zumba or walks, calling Kayla or her mom, cooking, singing, lists, sleep, and avoiding late-night TikTok when she can (Q38, Q45, Q50)."
+        ],
+        "evidence": "Q31, Q32, Q33, Q34, Q36, Q38, Q39, Q40, Q41, Q42, Q43, Q44, Q45, Q50"
+      },
+      "food_and_dining": {
+        "summary": "She likes healthy, protein-rich home cooking but also indulges in social convenience foods.",
+        "details": [
+          "Cooks quinoa bowls with grilled chicken, black-bean tacos with cilantro and lime, and salmon with miso glaze (Q32).",
+          "Uses budget meals like black-bean tacos and chicken rice bowls when saving money (Q81).",
+          "Gets late-night pizza or takeout when tired or after social events (Q15, Q32).",
+          "Tries to pack lunch more often to save money, though busy workdays and social plans disrupt meal planning (Q18, Q32)."
+        ],
+        "evidence": "Q15, Q18, Q32, Q81"
+      },
+      "travel": {
+        "summary": "Trisha enjoys spontaneous road trips and wants to travel more, with Cancun realistic and Patagonia aspirational.",
+        "details": [
+          "Likes weekend road trips when money and weather allow (Q15).",
+          "Saves for a Cancun beach trip and dreams of backpacking in Patagonia (Q62, Q108).",
+          "Has not traveled outside the United States yet but wants to (Q86).",
+          "Sees travel goals as motivating for saving, with radiography certification and a modest beach trip feeling most realistic this year (Q62)."
+        ],
+        "evidence": "Q15, Q62, Q86, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "She is highly social, close to family, and embedded in friend groups built around activities.",
+        "details": [
+          "Close to parents and younger brother Cody, with frequent Sunday lunches and practical family support (Q05, Q06).",
+          "Lives with close friend Kayla and sees her often through Zumba and daily household life (Q07, Q11).",
+          "Maintains softball, karaoke, work, church, and family social circles (Q07, Q47, Q109).",
+          "Has dated but is not currently in a serious relationship, has never lived with a romantic partner, and wants a partner or children someday only if timing and person are right (Q05, Q84).",
+          "Values family, friends, coworkers, community, usefulness, independence, joy, music, food, laughter, and choices that help her grow without forgetting who matters (Q109)."
+        ],
+        "evidence": "Q05, Q06, Q07, Q11, Q47, Q84, Q109"
+      },
+      "home_and_lifestyle": {
+        "summary": "She lives modestly with a roommate in a rented two-bedroom home and balances independence with a somewhat disorganized lifestyle.",
+        "details": [
+          "Rents a two-bedroom place in Hardin with roommate Kayla and splits bills evenly (Q11, Q55, Q58).",
+          "Describes the household as not perfectly tidy but functional, with shared panic-cleaning before guests (Q11).",
+          "Uses phone calendars and lists to manage overbooking and disorganization (Q18, Q50).",
+          "Household is just Trisha and Kayla on a one-year lease, with no children, temporary members, lodgers, boarders, live-in employees, or usual residents away (Q12-Q14, Q51-Q55).",
+          "Her share of monthly spending is usually about $1,900-$2,000, but was around $2,200 last month due to wedding costs and car maintenance (Q56, Q57).",
+          "Has a savings account that fluctuates, tries to save $25-$50 per paycheck, would like at least $1,000 saved, and keeps a little emergency cash at home (Q61).",
+          "Has a car loan and some credit card debt, but no student loans and no family debt right now (Q63).",
+          "Could probably cover a $400 emergency using savings first, then credit card, and parents as a last resort, but it would take a month or two to recover (Q82)."
+        ],
+        "evidence": "Q11, Q12, Q13, Q14, Q18, Q50, Q51, Q52, Q53, Q54, Q55, Q56, Q57, Q58, Q61, Q63, Q82"
+      },
+      "entertainment": {
+        "summary": "Her entertainment centers on karaoke, movies, sports bars, social media, and local events.",
+        "details": [
+          "Regularly attends or helps host karaoke nights (Q07, Q16, Q70).",
+          "Hosts or attends movie nights with friends at home (Q11, Q48).",
+          "Uses social media to find karaoke nights, community theater, and movie ideas (Q48).",
+          "Watches Cubs games with softball teammates at a sports bar and catches Bulls games when they are on locally (Q07, seed sports_persona)."
+        ],
+        "evidence": "Q07, Q11, Q16, Q48, Q70"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Her hobbies are active, social, and locally grounded.",
+        "details": [
+          "Plays co-ed softball and attends weekly Zumba (Q15, Q31).",
+          "Enjoys line dancing, karaoke, movie nights, hiking, fishing, and road trips (Q15, Q31, Q48).",
+          "Volunteers at the county health fair on oral hygiene education (Q17).",
+          "Helps with church events and sometimes helps family with errands, lifting, rides, or practical tasks (Q17, Q35, Q47)."
+        ],
+        "evidence": "Q15, Q17, Q31, Q35, Q47, Q48"
+      },
+      "work_and_career": {
+        "summary": "Trisha is career-oriented within dental care and wants certification, advancement, and possibly dental hygiene school.",
+        "details": [
+          "Works as a dental assistant handling radiographs, sterilization, chairside support, Dentrix records, and patient communication (Q16, Q65).",
+          "Wants dental radiographer certification within the next year (Q17, Q65, Q108).",
+          "Aspires to become a lead dental assistant, hygienist, or eventually manage/open a community dental clinic (Q83, Q108).",
+          "Works about 38-40 hours per week, usually Monday through Friday, at a private non-union dental office where she has been for about three years (Q16, Q66, Q68, Q76).",
+          "Brought home about $2,600 from the dental office last month plus about $120 from one karaoke gig, is paid every two weeks by direct deposit, and her household take-home with Kayla was about $5,000-$5,300 (Q72-Q74).",
+          "Work relationships are good, with a fair but demanding boss, team-oriented coworkers, and occasional tension when the schedule runs behind (Q77, Q78).",
+          "A rough short-staffed clinic week and chart-note mistake made her cry in her car, after which she relied on support, fixed the mistake, and used checklists more consistently (Q44)."
+        ],
+        "evidence": "Q16, Q17, Q44, Q65, Q66, Q68, Q72, Q73, Q74, Q76, Q77, Q78, Q83, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "She engages with accessible popular and community arts, especially karaoke, movies, and community theater.",
+        "details": [
+          "Karaoke is a core social activity and occasional paid gig (Q07, Q16, Q70).",
+          "Uses social media to find community theater events and movie ideas (Q48).",
+          "Connects arts and performance to friendship, fun, and stress relief (Q38, Q109).",
+          "Enjoys popular music and movie nights as part of her outgoing social identity (Q07, Q48, Q109)."
+        ],
+        "evidence": "Q07, Q16, Q38, Q48, Q70, Q109"
+      },
+      "sports_and_fitness": {
+        "summary": "Sports and group fitness are central to her identity, routine, and social life.",
+        "details": [
+          "Plays for a co-ed softball team and has suffered a softball ankle sprain (Q15, Q33).",
+          "Attends Zumba at FitFusion Studio and line-dancing activities (Q15, Q31).",
+          "Watches Cubs games and socializes with softball teammates at a sports bar (Q07).",
+          "Shows up more consistently for exercise when classes or teams create social accountability (Q32)."
+        ],
+        "evidence": "Q07, Q15, Q31, Q32, Q33"
+      },
+      "nature_and_outdoors": {
+        "summary": "She enjoys nearby outdoor recreation and values the rural river setting.",
+        "details": [
+          "Identifies the Illinois River, fields, and quiet rural surroundings as part of neighborhood life (Q08, Q10).",
+          "Enjoys hiking, fishing, and weekend outdoor plans when weather allows (Q15).",
+          "Would miss the river and family closeness if she left Hardin (Q10).",
+          "Feels generally safe in Hardin because people know each other and would notice if something seemed off (Q09)."
+        ],
+        "evidence": "Q08, Q09, Q10, Q15"
+      },
+      "technology": {
+        "summary": "She uses everyday digital tools for work, social connection, scheduling, and information, but is not deeply technical.",
+        "details": [
+          "Uses Dentrix dental practice software at work (Q16, Q65).",
+          "Uses phone calendars to manage overbooking and certification planning (Q18).",
+          "Uses Facebook, Instagram, TikTok, and Snapchat for local information, entertainment, recipes, and friends (Q48).",
+          "Checks banking apps to monitor spending but does not use spreadsheets for budgeting (Q57)."
+        ],
+        "evidence": "Q16, Q18, Q48, Q57, Q65"
+      },
+      "community_and_civic": {
+        "summary": "Trisha is community-attached, church-influenced, and moderately civically engaged.",
+        "details": [
+          "Grew up with Methodist church, youth group, county fair, and 4-H community involvement (Q01, Q47).",
+          "Volunteers at the county health fair teaching oral hygiene (Q17).",
+          "Votes in presidential elections and is trying to improve participation in local elections (Q23).",
+          "Identifies as an Independent, moderate, and not strongly partisan; she is open to split-ticket voting and feels slightly closer to Republicans on some local/money issues but closer to Democrats on health care and some social issues (Q24, Q95, Q96).",
+          "Prioritizes health care access, rural jobs, post-high-school training, local services, and practical support systems without shame (Q24, Q25).",
+          "Has limited law-enforcement experience: one warning for rolling a stop sign, generally trusts local police, has never been arrested, and has no immediate family arrests (Q20-Q22).",
+          "Was somewhat affected by Black Lives Matter and race/policing debates, thinks the issues are real, has not joined protests, and mostly discusses them with friends and family while avoiding ugly social media arguments (Q26-Q30)."
+        ],
+        "evidence": "Q01, Q17, Q20, Q21, Q22, Q23, Q24, Q25, Q26, Q27, Q28, Q29, Q30, Q47, Q95, Q96"
+      },
+      "music": {
+        "summary": "Music is a major outlet for social life, stress relief, identity, and occasional income.",
+        "details": [
+          "Regularly participates in karaoke and sometimes helps host paid karaoke events (Q07, Q16, Q70).",
+          "Uses singing loudly as a coping strategy rather than relying on substances (Q38).",
+          "Values music as part of joy and feeling like herself (Q109).",
+          "Karaoke gigs happen about one or two times a month depending on availability and can add useful extra money (Q16, Q60, Q70)."
+        ],
+        "evidence": "Q07, Q16, Q38, Q60, Q70, Q109"
+      },
+      "fashion_and_appearance": {
+        "summary": "There is limited direct evidence, but she has some interest in appearance through makeup tips and event clothing.",
+        "details": [
+          "Watches makeup tips on TikTok (Q48).",
+          "Recently spent money on a bridesmaid dress for a friend's wedding (Q56)."
+        ],
+        "evidence": "Q48, Q56"
+      },
+      "cultural_and_linguistic": {
+        "summary": "She is a White, non-Hispanic, U.S.-born Midwesterner from a rural Protestant community with agricultural roots.",
+        "details": [
+          "Identifies as White and not Hispanic, Latinx, or Spanish origin (Q88, Q89).",
+          "Identifies as Methodist/Protestant Christian and was raised in that tradition (Q47, Q94).",
+          "Describes family roots in Calhoun County agriculture and small business culture (Q01, Q106, Q107).",
+          "Was born August 14, 2002, in Jerseyville, Illinois, and grew up in Hardin, Illinois (Q85, Q87, Q97).",
+          "At age 16, lived in Hardin with both parents and younger brother Cody in a stable household (Q97-Q99).",
+          "Her father completed high school and worked in agriculture-related farm equipment, repairs, hauling, and seasonal farm labor; her mother completed high school plus some community college and worked as an office assistant/bookkeeper for a local farm supply business (Q100-Q107)."
+        ],
+        "evidence": "Q01, Q47, Q85, Q87, Q88, Q89, Q94, Q97, Q98, Q99, Q100, Q101, Q103, Q104, Q106, Q107"
+      },
+      "life_events_and_transitions": {
+        "summary": "Her key transition was choosing dental assisting as a serious career path after high school rather than drifting or pursuing college without a plan.",
+        "details": [
+          "After high school, a church connection led her to a dental office job that became a career path (Q02).",
+          "She consciously chose to stay and improve after initially taking the job out of practical need (Q03).",
+          "She is now considering radiography certification, dental hygiene school, and greater independence (Q17, Q83, Q108).",
+          "She sees her biggest life lesson as realizing she can build something for herself without immediately leaving Hardin, while still allowing herself to grow beyond staying the same (Q01, Q108)."
+        ],
+        "evidence": "Q01, Q02, Q03, Q17, Q83, Q108"
+      },
+      "media_and_information_diet": {
+        "summary": "She combines local social media, family discussion, official health sources, and selective online political information.",
+        "details": [
+          "Uses Facebook for local events, family updates, birthdays, and community posts (Q48).",
+          "Gets political information from local news, candidate websites, family conversations, and cautious online reading (Q24).",
+          "Trusts doctors, pharmacists, dentists, and health departments over random Facebook claims for vaccine information (Q42).",
+          "Uses Instagram or TikTok first when bored, Facebook when she needs local information, and tries to double-check Facebook links before believing them (Q24, Q48).",
+          "Does not use social media for financial support; for emotional support she contacts Kayla or her mom directly and sometimes donates small amounts to local fundraisers or meal trains (Q49)."
+        ],
+        "evidence": "Q24, Q42, Q48, Q49"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Trisha Wheeler is a 23-year-old White, non-Hispanic woman living in Hardin, Illinois, where she was raised in a rural Methodist and agriculturally rooted family context (Q01, Q47, Q88-Q94). She has never been married, has no children, and rents a two-bedroom home with her friend Kayla, splitting household expenses (Q11, Q51-Q55, Q84). Her highest completed education is high school, supplemented by dental assisting training and on-the-job experience, and she is not currently enrolled in school (Q90-Q92). She works full time as a dental assistant and is financially independent but still vulnerable to car repairs, medical bills, and credit card debt (Q65, Q72, Q82-Q83).",
+      "behavioral_economist": "Trisha shows present-focused sociability moderated by practical planning: she spends on friends, food, travel, and events, but uses savings, side gigs, and cutbacks when expenses rise (Q56-Q64, Q81-Q82). Her decisions are strongly shaped by peer commitments, such as showing up for Zumba, softball, and karaoke because others expect her there (Q07, Q15, Q32). She is motivated by visible career ladders and concrete credentials, especially radiography certification and possible dental hygiene school (Q17, Q65, Q108). Her financial behavior reflects moderate risk tolerance, modest savings, and sensitivity to near-term shocks rather than long-range wealth planning (Q61-Q63, Q83).",
+      "political_scientist": "Trisha is a weakly partisan Independent with moderate views, shaped by a conservative-leaning family background but softened by her health care work and exposure to patient hardship (Q24-Q25, Q95-Q96). She votes in presidential elections and is trying to become more consistent in local elections, indicating partial civic engagement rather than political disengagement (Q23). She expresses local institutional trust, especially toward familiar law enforcement and community institutions, while acknowledging that policing and race operate differently outside her own experience (Q20-Q30). Her politics emphasize practical health care access, rural opportunity, responsibility, and distaste for performative conflict (Q24-Q25, Q95-Q96).",
+      "psychologist": "Trisha presents as extraverted, energetic, practical, and socially anchored, with a competitive streak from sports and a slightly disorganized but adaptive coping style (Q01, Q07, Q15, Q43). She manages stress through social support, exercise, music, lists, and family contact rather than smoking, drugs, or withdrawal (Q38-Q45, Q50). Her self-concept centers on being useful, kind, fun, and independent, especially in patient care and friendships (Q65, Q109). She experiences situational anxiety around mistakes, overcommitment, and career uncertainty, but responds with corrective routines like checklists and scheduling tools (Q18, Q44-Q45)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Trisha stays active through softball, Zumba, and line dancing.",
+        "ground_truth_label": "Social fitness routine: softball, Zumba, line dancing",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"I am active with softball, Zumba, and line dancing.\"",
+          "Q32: \"Classes and teams. If someone expects me there, I show up.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.sports_and_fitness"
+        ]
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Trisha values preventive dental care, including brushing, flossing, and regular cleanings.",
+        "ground_truth_label": "Preventive dental hygiene priority",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"Working in dental care also makes me pretty serious about brushing, flossing, and getting cleanings.\"",
+          "Q40: \"I try to prevent problems where I can, especially dental problems.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Trisha is generally pro-vaccine and trusts medical professionals for vaccine information.",
+        "ground_truth_label": "Pro-vaccine; medical-source trust",
+        "behavioral_evidence_from_interview": [
+          "Q41: \"I am generally pro-vaccine.\"",
+          "Q42: \"I trust my doctor, pharmacists, the dentist I work with... and official health department information.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Trisha has no major chronic condition but has had a softball ankle sprain and work-related back and shoulder soreness.",
+        "ground_truth_label": "Generally healthy with minor musculoskeletal issues",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"I do not have any major chronic condition.\"",
+          "Q33: \"I sprained my ankle sliding into base... I also had some back and shoulder soreness.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Trisha has basic work insurance but has delayed physical therapy or extra visits because of cost.",
+        "ground_truth_label": "Cost-sensitive health care delay",
+        "behavioral_evidence_from_interview": [
+          "Q36: \"I have insurance through work, but it is not amazing.\"",
+          "Q36: \"I have delayed things like physical therapy for soreness because I did not want the bill.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Trisha does not smoke, drinks socially on weekends, avoids marijuana and other substances, and uses over-the-counter pain relievers when needed.",
+        "ground_truth_label": "Low substance use; OTC pain management",
+        "behavioral_evidence_from_interview": [
+          "Q38: \"I do not smoke. I drink socially, mostly on weekends.\"",
+          "Q39: \"I do not use marijuana or other substances.\"",
+          "Q39: \"For pain, I use ibuprofen or Tylenol when I need it.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Trisha experiences situational anxiety when disorganized or afraid of disappointing people, does not identify as depressed, and has not seen a counselor regularly.",
+        "ground_truth_label": "Situational anxiety without diagnosed depression or regular counseling",
+        "behavioral_evidence_from_interview": [
+          "Q45: \"I would not say I have depression.\"",
+          "Q45: \"I do get anxious sometimes, especially when I feel disorganized or like I am disappointing people.\"",
+          "Q45: \"No, not regularly. I would consider it if things got heavier.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Trisha copes through exercise, talking to Kayla or her mom, cooking, singing, lists, sleep, and trying to avoid late-night TikTok.",
+        "ground_truth_label": "Active and social coping strategies",
+        "behavioral_evidence_from_interview": [
+          "Q38: \"Usually I need to talk it out, move around, or sing something loud.\"",
+          "Q45: \"I manage it with exercise, talking to people, lists, and sometimes just going to bed.\"",
+          "Q50: \"Scrolling TikTok late at night... makes me sleep worse.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Trisha cooks quinoa bowls with grilled chicken, black-bean tacos with cilantro and lime, and salmon with miso glaze.",
+        "ground_truth_label": "Protein-rich home cooking preferences",
+        "behavioral_evidence_from_interview": [
+          "Q32: \"Quinoa bowls with grilled chicken, black-bean tacos with cilantro and lime, and sometimes salmon with miso glaze.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Trisha uses black-bean tacos and chicken rice bowls as budget meals when saving money.",
+        "ground_truth_label": "Budget home meals: tacos and chicken rice bowls",
+        "behavioral_evidence_from_interview": [
+          "Q81: \"Black-bean tacos or chicken rice bowls because they stretch.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Trisha gets late-night pizza or takeout when tired or after social events.",
+        "ground_truth_label": "Convenience-food indulgence under fatigue/social context",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"Some nights it is pizza because I did not plan.\"",
+          "Q32: \"If I am tired after work, pizza sounds way better than chopping vegetables.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Trisha tries to pack lunch more often to save money, though busy workdays and social plans disrupt meal planning.",
+        "ground_truth_label": "Meal planning for savings with consistency challenges",
+        "behavioral_evidence_from_interview": [
+          "Q18: \"I am getting better about packing lunch instead of buying food.\"",
+          "Q32: \"My schedule gets packed and cheap convenience food is tempting.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Trisha likes weekend road trips when money and weather allow.",
+        "ground_truth_label": "Budget- and weather-dependent spontaneous road trips",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"a quick road trip if money and weather line up.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Trisha is saving for a Cancun beach trip and dreams of backpacking in Patagonia.",
+        "ground_truth_label": "Travel goals: Cancun realistic, Patagonia aspirational",
+        "behavioral_evidence_from_interview": [
+          "Q62: \"I am also trying to save for a beach trip to Cancun and, someday, a bigger backpacking trip to Patagonia.\"",
+          "Q108: \"maybe Cancun first and Patagonia someday.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Trisha has not traveled outside the United States but wants to.",
+        "ground_truth_label": "No international travel yet; wants international travel",
+        "behavioral_evidence_from_interview": [
+          "Q86: \"Have you traveled outside the U.S.? Not yet, but I want to.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Trisha saves better when she can picture a travel goal, with certification and a modest beach trip most realistic this year.",
+        "ground_truth_label": "Goal visualization improves travel saving",
+        "behavioral_evidence_from_interview": [
+          "Q62: \"I am better at saving when I can picture the trip.\"",
+          "Q62: \"Radiography certification costs and a modest beach trip.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Trisha is close to her parents and younger brother Cody, with frequent Sunday lunches and practical family support.",
+        "ground_truth_label": "Close nuclear family ties",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"My parents are very important to me.\"",
+          "Q05: \"I also have a younger brother, Cody, who is twenty.\"",
+          "Q05: \"Sunday lunch happens pretty often.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Trisha lives with close friend Kayla and sees her often through Zumba and daily household life.",
+        "ground_truth_label": "Roommate/friend Kayla is a central relationship",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"My closest friend is Kayla; we do Zumba together.\"",
+          "Q11: \"I rent a small two-bedroom place with my friend Kayla.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Trisha maintains softball, karaoke, work, church, and family social circles.",
+        "ground_truth_label": "Multiple activity-based social circles",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"My softball team is another circle.\"",
+          "Q07: \"I also have a karaoke group.\"",
+          "Q47: \"faith is part of... community.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Trisha has dated but is not in a serious relationship, has never lived with a romantic partner, and wants a partner or children someday if timing and person are right.",
+        "ground_truth_label": "Single, future-oriented about family without urgency",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"I do not have a partner right now, and I do not have children.\"",
+          "Q84: \"I have never been married, and I am not living with a romantic partner.\"",
+          "Q05: \"Eventually, yes, if it is the right person.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Trisha values family, friends, coworkers, community, usefulness, independence, joy, music, food, laughter, and growth without forgetting who matters.",
+        "ground_truth_label": "Core values: people, usefulness, independence, joy, grounded growth",
+        "behavioral_evidence_from_interview": [
+          "Q109: \"I value my people the most.\"",
+          "Q109: \"I also value being useful.\"",
+          "Q109: \"I value independence too.\"",
+          "Q109: \"And I value joy.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Trisha rents a two-bedroom place in Hardin with Kayla and splits rent and utilities evenly.",
+        "ground_truth_label": "Rents with roommate; shared expenses",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"I rent a small two-bedroom place with my friend Kayla.\"",
+          "Q55: \"Kayla and I split rent and utilities.\"",
+          "Q55: \"Yes, mostly fifty-fifty.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Trisha's household is functional but not perfectly tidy, with panic cleaning before guests.",
+        "ground_truth_label": "Somewhat disorganized but functional home style",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"It is not perfectly tidy because both of us are busy.\"",
+          "Q11: \"we both do panic cleaning if people are coming over.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Trisha uses phone calendars and lists to manage overbooking and disorganization.",
+        "ground_truth_label": "Scheduling tools compensate for disorganization",
+        "behavioral_evidence_from_interview": [
+          "Q18: \"I started putting workouts and meals in my phone calendar because I kept overbooking myself.\"",
+          "Q50: \"I am coping better... by making lists.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Trisha's household is just her and Kayla on a one-year lease, with no children, temporary members, lodgers, boarders, live-in employees, or absent usual residents.",
+        "ground_truth_label": "Stable two-person nonfamily household",
+        "behavioral_evidence_from_interview": [
+          "Q12: \"Everyone is permanent. It is just me and Kayla on the lease.\"",
+          "Q52: \"No babies or small children in the household.\"",
+          "Q54: \"No.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Trisha usually spends about $1,900-$2,000 per month for her share, with a recent $2,200 month due to wedding costs and car maintenance.",
+        "ground_truth_label": "Monthly personal spending around $1,900-$2,200",
+        "behavioral_evidence_from_interview": [
+          "Q57: \"For my share, I probably spent around $2,200 last month.\"",
+          "Q57: \"A normal month for me is closer to $1,900 or $2,000.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Trisha's savings account fluctuates; she tries to save $25-$50 per paycheck, wants at least $1,000 saved, and keeps a little emergency cash at home.",
+        "ground_truth_label": "Modest fluctuating savings habit",
+        "behavioral_evidence_from_interview": [
+          "Q61: \"I try to put something in every paycheck, even if it is only twenty-five or fifty dollars.\"",
+          "Q61: \"I would like to keep at least $1,000.\"",
+          "Q61: \"I also keep a little cash at home for emergencies.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Trisha has a car loan and some credit card debt, but no student loans and no family debt right now.",
+        "ground_truth_label": "Debt profile: car loan and credit card debt only",
+        "behavioral_evidence_from_interview": [
+          "Q63: \"I do not have student loans.\"",
+          "Q63: \"I have a car loan and some credit card debt.\"",
+          "Q63: \"I do not owe family money right now.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer",
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Trisha could probably cover a $400 emergency using savings first, then credit card, and parents as a last resort, but recovery would take a month or two.",
+        "ground_truth_label": "Can cover $400 emergency with strain",
+        "behavioral_evidence_from_interview": [
+          "Q82: \"I could probably cover $400, but it would hurt.\"",
+          "Q82: \"I would use savings first... put part on a credit card... ask my parents if it was serious.\"",
+          "Q82: \"Probably a month or two of cutting back.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer",
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Trisha regularly attends or helps host karaoke nights.",
+        "ground_truth_label": "Karaoke participation and hosting",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"I also have a karaoke group.\"",
+          "Q16: \"I sometimes help host karaoke events.\"",
+          "Q70: \"occasional paid karaoke hosting help.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.music"
+        ]
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Trisha hosts or attends movie nights with friends at home.",
+        "ground_truth_label": "Friend movie nights",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"the living room is where friends sometimes come for movie nights.\"",
+          "Q48: \"I also use social media to find... movie ideas.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Trisha uses social media to find karaoke nights, community theater events, and movie ideas.",
+        "ground_truth_label": "Social media used for local entertainment discovery",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"I also use social media to find karaoke nights, community theater events, and movie ideas.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.media_and_information_diet"
+        ]
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Trisha watches Cubs games with softball teammates at a sports bar and catches Bulls games when available locally.",
+        "ground_truth_label": "Sports-bar fandom: Cubs and Bulls",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"we practice together and end up at the sports bar watching Cubs games.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.sports_and_fitness"
+        ]
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Trisha plays co-ed softball and attends weekly Zumba.",
+        "ground_truth_label": "Regular softball and Zumba hobbies",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"Tuesday night is usually Zumba.\"",
+          "Q15: \"During softball season I have practice or games one evening a week.\""
+        ],
+        "duplicate_of": "HF-001",
+        "also_supported_by": [
+          "preferences.health_and_wellness",
+          "preferences.sports_and_fitness"
+        ]
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Trisha enjoys line dancing, karaoke, movie nights, hiking, fishing, and road trips.",
+        "ground_truth_label": "Active and social recreation mix",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"karaoke, movie nights, church sometimes, family lunch, hiking, fishing, or a quick road trip.\"",
+          "Q31: \"softball, Zumba, and line dancing.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Trisha volunteers at the county health fair to teach oral hygiene.",
+        "ground_truth_label": "County health fair oral hygiene volunteer",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"I volunteer at the county health fair in the summer doing oral hygiene education.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.community_and_civic"
+        ]
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Trisha helps with church events and sometimes helps family with errands, lifting, rides, or practical tasks.",
+        "ground_truth_label": "Practical family and church support",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"I help my parents sometimes, mostly errands, lifting things, or helping my mom with events at church.\"",
+          "Q35: \"I help with rides or errands sometimes.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Trisha works as a dental assistant handling radiographs, sterilization, chairside support, Dentrix records, and patient communication.",
+        "ground_truth_label": "Dental assistant clinical and administrative duties",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"I help set up rooms, sterilize instruments, take intra-oral radiographs... update patient records in Dentrix.\"",
+          "Q65: \"The most important duties are patient safety, accurate records, good communication.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Trisha wants to earn dental radiographer certification within the next year.",
+        "ground_truth_label": "Dental radiographer certification goal",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"I want to get my dental radiographer certification within the next year.\"",
+          "Q108: \"I want to have my dental radiographer certification.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Trisha aspires to become a lead dental assistant, dental hygienist, or eventually manage or open a community dental clinic.",
+        "ground_truth_label": "Dental career advancement ambitions",
+        "behavioral_evidence_from_interview": [
+          "Q108: \"lead dental assistant or hygienist.\"",
+          "Q108: \"helping manage or even open a modern community-focused dental clinic.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Trisha works about 38-40 hours per week, usually Monday through Friday, at a private non-union dental office where she has been for about three years.",
+        "ground_truth_label": "Full-time private non-union dental employment",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"Most weeks I work about 38 to 40 hours, Monday through Friday.\"",
+          "Q66: \"my job is not union-covered. It is a private dental office.\"",
+          "Q76: \"I have been at my current dental office about three years.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Trisha brought home about $2,600 from the dental office last month plus about $120 from one karaoke gig; household take-home with Kayla was about $5,000-$5,300.",
+        "ground_truth_label": "Recent income: $2,720 personal, $5,000-$5,300 household take-home",
+        "behavioral_evidence_from_interview": [
+          "Q72: \"around $2,600 after taxes last month... karaoke gig added about $120.\"",
+          "Q74: \"around $5,000 to $5,300.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Trisha is paid every two weeks by direct deposit.",
+        "ground_truth_label": "Biweekly direct deposit pay",
+        "behavioral_evidence_from_interview": [
+          "Q73: \"I get paid every two weeks at the dental office.\"",
+          "Q73: \"Yes\" to direct deposit."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Trisha has good work relationships with a fair but demanding boss and team-oriented coworkers, with tension mainly when the clinic runs behind.",
+        "ground_truth_label": "Generally positive workplace relationships",
+        "behavioral_evidence_from_interview": [
+          "Q77: \"My boss expects a lot but is fair, and my coworkers feel like a team most days.\"",
+          "Q77: \"Running behind schedule or unclear communication.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "After a short-staffed clinic week and chart-note mistake, Trisha relied on support, corrected the mistake, and adopted checklists more consistently.",
+        "ground_truth_label": "Work stress recovery through support and checklists",
+        "behavioral_evidence_from_interview": [
+          "Q44: \"I made a mistake entering a note that had to be corrected.\"",
+          "Q44: \"My mom... talked me down.\"",
+          "Q44: \"After that I started using checklists more consistently.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Karaoke is a core social activity and occasional paid gig for Trisha.",
+        "ground_truth_label": "Karaoke as art/social/gig activity",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"karaoke group.\"",
+          "Q16: \"help host karaoke events for a little gig money.\""
+        ],
+        "duplicate_of": "HF-030",
+        "also_supported_by": [
+          "preferences.entertainment",
+          "preferences.music"
+        ]
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Trisha uses social media to find community theater events and movie ideas.",
+        "ground_truth_label": "Community arts discovery through social media",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"community theater events, and movie ideas.\""
+        ],
+        "duplicate_of": "HF-032",
+        "also_supported_by": [
+          "preferences.entertainment"
+        ]
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Trisha connects arts and performance to friendship, fun, and stress relief.",
+        "ground_truth_label": "Performance as social coping and joy",
+        "behavioral_evidence_from_interview": [
+          "Q38: \"sing something loud.\"",
+          "Q109: \"music, food, laughter, and something to look forward to.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Trisha enjoys popular music and movie nights as part of her outgoing social identity.",
+        "ground_truth_label": "Popular arts as social identity",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"movie ideas.\"",
+          "Q109: \"When I am around people I love, singing...\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Trisha plays for a co-ed softball team and has suffered a softball ankle sprain.",
+        "ground_truth_label": "Co-ed softball participation with ankle sprain history",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"practice or games one evening a week.\"",
+          "Q33: \"I sprained my ankle sliding into base during softball.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Trisha attends Zumba at FitFusion Studio and line-dancing activities.",
+        "ground_truth_label": "Group dance fitness activities",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"Tuesday night is usually Zumba at FitFusion Studio.\"",
+          "Q31: \"line dancing.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "HF-001"
+        ]
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Trisha watches Cubs games and socializes with softball teammates at a sports bar.",
+        "ground_truth_label": "Cubs sports-bar socializing",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"end up at the sports bar watching Cubs games.\""
+        ],
+        "duplicate_of": "HF-033",
+        "also_supported_by": [
+          "preferences.entertainment"
+        ]
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Trisha shows up more consistently for exercise when classes or teams create social accountability.",
+        "ground_truth_label": "Peer accountability supports exercise adherence",
+        "behavioral_evidence_from_interview": [
+          "Q32: \"If someone expects me there, I show up.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Trisha identifies the Illinois River, farm fields, and quiet rural surroundings as part of Hardin neighborhood life.",
+        "ground_truth_label": "Rural river-town setting attachment",
+        "behavioral_evidence_from_interview": [
+          "Q08: \"You have the Illinois River close by, farm fields, older houses, churches, local shops.\"",
+          "Q10: \"community, family, and quiet.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Trisha enjoys hiking, fishing, and weekend outdoor plans when weather allows.",
+        "ground_truth_label": "Nearby hiking and fishing recreation",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"hiking, fishing, or a quick road trip if money and weather line up.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Trisha would miss the river and family closeness if she left Hardin.",
+        "ground_truth_label": "Attachment to river and family proximity",
+        "behavioral_evidence_from_interview": [
+          "Q10: \"The familiar faces and being close to the river and my family.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Trisha feels generally safe in Hardin because people know each other and would notice if something seemed off.",
+        "ground_truth_label": "Small-town safety through social visibility",
+        "behavioral_evidence_from_interview": [
+          "Q09: \"I feel pretty safe.\"",
+          "Q09: \"Knowing people nearby and knowing someone would notice if something seemed off.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Trisha uses Dentrix dental practice software at work.",
+        "ground_truth_label": "Dentrix work software use",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"update patient records in Dentrix.\"",
+          "Q65: \"update patient records in Dentrix.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Trisha uses phone calendars to manage overbooking and certification planning.",
+        "ground_truth_label": "Phone calendar for scheduling and planning",
+        "behavioral_evidence_from_interview": [
+          "Q18: \"putting workouts and meals in my phone calendar.\"",
+          "Q17: \"keep track of my own certification planning.\""
+        ],
+        "duplicate_of": "HF-024",
+        "also_supported_by": [
+          "preferences.home_and_lifestyle"
+        ]
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Trisha uses Facebook, Instagram, TikTok, and Snapchat for local information, entertainment, recipes, and friends.",
+        "ground_truth_label": "Main social media platforms and uses",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"I use Facebook, Instagram, TikTok, and Snapchat.\"",
+          "Q48: \"recipes, dental humor, makeup tips, and dance videos.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.media_and_information_diet"
+        ]
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Trisha checks banking apps to monitor spending but does not use spreadsheets for budgeting.",
+        "ground_truth_label": "Informal app-based budgeting",
+        "behavioral_evidence_from_interview": [
+          "Q57: \"I check my banking app, but I am not a spreadsheet person.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Trisha grew up with Methodist church, youth group, county fair, and 4-H community involvement.",
+        "ground_truth_label": "Methodist and rural civic childhood involvement",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"We went to a Methodist church, I did youth group, county fair stuff, and some 4-H things.\"",
+          "Q47: \"I grew up Methodist.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Trisha volunteers at the county health fair teaching oral hygiene.",
+        "ground_truth_label": "Health fair civic volunteering",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"volunteer at the county health fair... oral hygiene education.\""
+        ],
+        "duplicate_of": "HF-036",
+        "also_supported_by": [
+          "preferences.hobbies_and_recreation"
+        ]
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Trisha votes in presidential elections and is trying to improve her participation in local elections.",
+        "ground_truth_label": "Partial voter participation; improving local voting",
+        "behavioral_evidence_from_interview": [
+          "Q23: \"I vote in presidential elections, and I am trying to be better about local elections.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Trisha identifies as an Independent, moderate, and not strongly partisan; she is open to split-ticket voting.",
+        "ground_truth_label": "Weakly partisan moderate Independent",
+        "behavioral_evidence_from_interview": [
+          "Q95: \"I usually think of myself as an Independent.\"",
+          "Q95: \"moderate, not strongly partisan.\"",
+          "Q95: \"Yes, I am open to it\" about split tickets."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Trisha feels slightly closer to Republicans on some local and money issues and closer to Democrats on health care access and some social issues.",
+        "ground_truth_label": "Mixed issue alignment across parties",
+        "behavioral_evidence_from_interview": [
+          "Q96: \"slightly closer to the Republican Party on some local and money issues, but closer to Democrats on health care access and some social issues.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Trisha prioritizes health care access, rural jobs, post-high-school training, local services, and practical support systems without shame.",
+        "ground_truth_label": "Pragmatic rural health and opportunity politics",
+        "behavioral_evidence_from_interview": [
+          "Q24: \"Health care access, jobs in rural areas, education or training after high school.\"",
+          "Q25: \"more open to practical support systems.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Trisha has limited law-enforcement experience: one warning for rolling a stop sign, generally trusts local police, has never been arrested, and has no immediate family arrests.",
+        "ground_truth_label": "Limited police contact and qualified local trust",
+        "behavioral_evidence_from_interview": [
+          "Q20: \"pulled over once for rolling through a stop sign and got a warning.\"",
+          "Q20: \"Locally, mostly yes\" about trust.",
+          "Q22: \"I have never been arrested. I do not have immediate family who have been arrested.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Trisha was somewhat affected by Black Lives Matter and race/policing debates, thinks the issues are real, has not joined protests, and mostly discusses them with friends and family while avoiding ugly social media arguments.",
+        "ground_truth_label": "Moderate reflective BLM/race-policing response",
+        "behavioral_evidence_from_interview": [
+          "Q26: \"I would say it affected me somewhat.\"",
+          "Q27: \"I think the issues are real.\"",
+          "Q29: \"I have not joined protests.\"",
+          "Q29: \"social media arguments get ugly fast.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Trisha regularly participates in karaoke and sometimes helps host paid karaoke events.",
+        "ground_truth_label": "Regular karaoke plus paid hosting",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"karaoke group.\"",
+          "Q16: \"help host karaoke events for a little gig money.\""
+        ],
+        "duplicate_of": "HF-030",
+        "also_supported_by": [
+          "preferences.entertainment",
+          "preferences.arts_and_culture"
+        ]
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Trisha uses loud singing as a coping strategy rather than relying on substances.",
+        "ground_truth_label": "Singing as coping strategy",
+        "behavioral_evidence_from_interview": [
+          "Q38: \"Usually I need to talk it out, move around, or sing something loud.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Trisha values music as part of joy and feeling like herself.",
+        "ground_truth_label": "Music tied to identity and joy",
+        "behavioral_evidence_from_interview": [
+          "Q109: \"When I am around people I love, singing...\"",
+          "Q109: \"Life is better when there is music.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Trisha's karaoke gigs happen about one or two times a month depending on availability and can add useful extra money.",
+        "ground_truth_label": "Occasional karaoke gig income",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"Maybe one or two times a month.\"",
+          "Q60: \"even an extra hundred dollars helps.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Trisha watches makeup tips on TikTok.",
+        "ground_truth_label": "Makeup-tip social media interest",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"TikTok is where I waste time watching... makeup tips.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Trisha recently spent money on a bridesmaid dress for a friend's wedding.",
+        "ground_truth_label": "Recent event-clothing expense",
+        "behavioral_evidence_from_interview": [
+          "Q56: \"I also spent money... on a bridesmaid dress for a friend's wedding.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Trisha identifies as White and not Hispanic, Latinx, or Spanish origin.",
+        "ground_truth_label": "White non-Hispanic identity",
+        "behavioral_evidence_from_interview": [
+          "Q88: \"No, I am not Hispanic, Latinx, or Spanish origin.\"",
+          "Q89: \"I identify as White.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Trisha identifies as Methodist or Protestant Christian and was raised in that tradition.",
+        "ground_truth_label": "Methodist/Protestant Christian identity",
+        "behavioral_evidence_from_interview": [
+          "Q47: \"I grew up Methodist.\"",
+          "Q94: \"Methodist, Protestant Christian.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Trisha's family roots are in Calhoun County agriculture and small business culture.",
+        "ground_truth_label": "Agricultural and small-business family roots",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"My family has always been tied to farm work and small businesses around Calhoun County.\"",
+          "Q107: \"our family has been around Calhoun County for generations.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Trisha was born August 14, 2002, in Jerseyville, Illinois, and grew up in Hardin, Illinois.",
+        "ground_truth_label": "Birth date and birthplace; raised in Hardin",
+        "behavioral_evidence_from_interview": [
+          "Q85: \"My date of birth is August 14, 2002.\"",
+          "Q87: \"I was born in Jerseyville, Illinois... and grew up in Hardin.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "At age 16, Trisha lived in Hardin with both parents and younger brother Cody in a stable household.",
+        "ground_truth_label": "Stable two-parent childhood household in Hardin",
+        "behavioral_evidence_from_interview": [
+          "Q97: \"Hardin, Illinois.\"",
+          "Q98: \"Yes, I lived with both my mom and dad.\"",
+          "Q99: \"I lived with my younger brother Cody too.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Trisha's father completed high school and worked in agriculture-related farm equipment, repairs, hauling, and seasonal farm labor.",
+        "ground_truth_label": "Father education and agriculture-related work",
+        "behavioral_evidence_from_interview": [
+          "Q100: \"My dad completed high school.\"",
+          "Q106: \"farm equipment maintenance and seasonal farm labor.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Trisha's mother completed high school plus some community college and worked as an office assistant/bookkeeper for a local farm supply business.",
+        "ground_truth_label": "Mother education and bookkeeping/farm supply work",
+        "behavioral_evidence_from_interview": [
+          "Q101: \"My mom completed high school and some community college classes.\"",
+          "Q103: \"office assistant and bookkeeper for a local farm supply.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "After high school, a church connection led Trisha to a dental office job that became a career path.",
+        "ground_truth_label": "Church-connected dental career entry",
+        "behavioral_evidence_from_interview": [
+          "Q02: \"A woman from our church worked at a dental office and told me they needed someone.\"",
+          "Q02: \"The crossroads was deciding to take it seriously.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Trisha consciously chose to stay in dental assisting and improve after initially taking the job out of practical need.",
+        "ground_truth_label": "Conscious commitment to dental career",
+        "behavioral_evidence_from_interview": [
+          "Q03: \"At first it just happened.\"",
+          "Q03: \"after a few months I made a conscious choice to stay with it.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Trisha is considering radiography certification, dental hygiene school, and greater independence.",
+        "ground_truth_label": "Current transition goals: certification, hygiene school, independence",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"radiographer certification within the next year.\"",
+          "Q108: \"maybe be in or finished with a dental hygiene program.\"",
+          "Q109: \"I value independence.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Trisha sees a major life lesson in building something for herself without immediately leaving Hardin while still allowing herself to grow.",
+        "ground_truth_label": "Grounded growth without leaving roots immediately",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"I did not have to leave Hardin immediately to build something for myself, but I also do not have to stay exactly the same forever.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Trisha uses Facebook for local events, family updates, birthday reminders, and community posts.",
+        "ground_truth_label": "Facebook for local and family information",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"Facebook is for local events, family updates, birthday reminders, and community posts.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Trisha gets political information from local news, candidate websites, family conversations, and cautious online reading.",
+        "ground_truth_label": "Moderate local/personal political information diet",
+        "behavioral_evidence_from_interview": [
+          "Q24: \"Local news, Facebook links I double-check, conversations with family, and sometimes candidate websites.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Trisha trusts doctors, pharmacists, dentists, and health departments over random Facebook claims for vaccine information.",
+        "ground_truth_label": "Trusted vaccine information sources",
+        "behavioral_evidence_from_interview": [
+          "Q42: \"I trust my doctor, pharmacists, the dentist I work with... and official health department information.\"",
+          "Q42: \"I try to avoid random Facebook claims.\""
+        ],
+        "duplicate_of": "HF-003",
+        "also_supported_by": [
+          "preferences.health_and_wellness"
+        ]
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Trisha checks Instagram or TikTok first when bored, Facebook when she needs local information, and tries to double-check Facebook links.",
+        "ground_truth_label": "Platform-specific social media habits and verification",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"Instagram or TikTok if I am bored, Facebook if I need local information.\"",
+          "Q24: \"Facebook links I double-check.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Trisha does not use social media for financial support; for emotional support she contacts Kayla or her mom directly and sometimes donates small amounts to local fundraisers or meal trains.",
+        "ground_truth_label": "Direct emotional support seeking; no social-media financial support",
+        "behavioral_evidence_from_interview": [
+          "Q49: \"I do not use social media for financial support.\"",
+          "Q49: \"if I really need help I text or call people directly.\"",
+          "Q49: \"small amounts for local fundraisers or meal trains.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "reprojected",
+        "source_subcategory": "preferences.education",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Trisha's highest completed education is high school, supplemented by dental assisting training and on-the-job experience, and she is not currently enrolled in school.",
+        "ground_truth_label": "High school highest degree; not currently enrolled",
+        "behavioral_evidence_from_interview": [
+          "Q90: \"High school diploma.\"",
+          "Q91: \"No, I am not enrolled in school right now.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "top-level education"
+        ]
+      },
+      {
+        "fact_id": "HF-093",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Trisha spends on friends, food, travel, and events but uses savings, side gigs, and cutbacks when expenses rise.",
+        "ground_truth_label": "Present-focused social spending moderated by practical cutbacks",
+        "behavioral_evidence_from_interview": [
+          "Q56: \"food and random social spending.\"",
+          "Q60: \"used a little savings, picked up a karaoke gig, cut back on eating out.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "HF-026",
+          "HF-027",
+          "HF-073"
+        ]
+      },
+      {
+        "fact_id": "HF-094",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Trisha dislikes mean, performative, or conflict-driven politics.",
+        "ground_truth_label": "Distaste for performative political conflict",
+        "behavioral_evidence_from_interview": [
+          "Q24: \"I do not like when politics becomes people just yelling online.\"",
+          "Q96: \"I do not like mean or performative politics.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-095",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Trisha's self-concept includes being useful, kind, fun, and independent, especially in patient care and friendships.",
+        "ground_truth_label": "Self-concept: useful, kind, fun, independent",
+        "behavioral_evidence_from_interview": [
+          "Q65: \"help anxious patients feel less nervous.\"",
+          "Q109: \"I value being useful.\"",
+          "Q109: \"I value independence too.\""
+        ],
+        "duplicate_of": "HF-021",
+        "also_supported_by": [
+          "preferences.social_and_relationships"
+        ]
+      }
+    ]
+  }
+}
