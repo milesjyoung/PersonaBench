@@ -1,0 +1,2091 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "58c03faba45d40f79f6dac7c3eb612fd",
+      "name": "Stanley Bates",
+      "verification_date": "2026-05-22"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age, sex, marital status, city/state/ZIP, country, education level, and occupation match the interview's 47-year-old married male computer systems analyst in Bloomfield Hills, Michigan with a bachelor's degree.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed age/sex/marital_status/education_level/occupation/city/state/zipcode/country",
+              "source_b_ref": "Q16, Q84, Q85, Q90"
+            },
+            {
+              "id": 2,
+              "text": "Seed says Stanley grew up in suburban Detroit; interview enriches this with Royal Oak birth and Troy residence by high school.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "cultural_background",
+              "source_b_ref": "Q01, Q87, Q97",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward birth city Royal Oak and age-16 residence Troy into life_events_and_transitions."
+            },
+            {
+              "id": 3,
+              "text": "Seed identifies mixed English and German ancestry and middle-class family background; interview confirms mostly English and German ancestry, non-Hispanic White identity, father in automotive manufacturing, and mother in public elementary teaching.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "cultural_background",
+              "source_b_ref": "Q86, Q88, Q89, Q103, Q106"
+            },
+            {
+              "id": 4,
+              "text": "Seed marital status is married_present; interview specifies wife Megan, about nineteen years married, and two children Evan and Claire.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "marital_status",
+              "source_b_ref": "Q05, Q51, Q84",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward spouse name, marriage duration, and children's names/ages in social_and_relationships."
+            },
+            {
+              "id": 5,
+              "text": "Seed says Bloomfield Hills; interview confirms living there and describes an owned household with no lodgers or temporary members.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "city/state/zipcode",
+              "source_b_ref": "Q08, Q11, Q12, Q51, Q54, Q58",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward household composition and home ownership into home_and_lifestyle."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile demographic header and demographer summary faithfully represent age, location, education, occupation, marriage, household, and home ownership.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q51, Q58, Q65, Q84, Q85, Q90",
+              "source_b_ref": "profile header, summaries.demographer"
+            },
+            {
+              "id": 2,
+              "text": "Profile social relationships notes wife, children, parents, sister, and friends, but omits Megan's work as a school counselor and the children's ages and activities.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q05, Q19",
+              "source_b_ref": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add details that Megan is a school counselor, Evan is 16 and involved in robotics/soccer, and Claire is 13 and involved in art/photography/volleyball."
+            },
+            {
+              "id": 3,
+              "text": "Profile life-events section includes Royal Oak/Troy/MSU and career path; it does not mention first marriage or no military service, but those are lower-salience demographic record items.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q84, Q93",
+              "source_b_ref": "preferences.life_events_and_transitions",
+              "disposition": "DROP"
+            },
+            {
+              "id": 4,
+              "text": "Profile cultural_and_linguistic accurately captures non-Hispanic White, English/German ancestry, English-only home language, and Lutheran Protestant background.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q47, Q86, Q88, Q89, Q94",
+              "source_b_ref": "preferences.cultural_and_linguistic"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Header location, demographer summary, home_and_lifestyle, and neighborhood-linked preferences all consistently place him in Bloomfield Hills, Michigan.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "location, summaries.demographer",
+              "field_b": "preferences.home_and_lifestyle"
+            },
+            {
+              "id": 2,
+              "text": "Social_and_relationships and demographer summary consistently describe a married two-child household with no conflicting household members.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships",
+              "field_b": "summaries.demographer"
+            },
+            {
+              "id": 3,
+              "text": "Education and work details are internally consistent across header, work_and_career, technology, and summaries.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "education, occupation, preferences.work_and_career",
+              "field_b": "preferences.technology, summaries.demographer"
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview includes detailed household confirmation: no temporary members, no one away, no lodgers/boarders/employees.",
+              "gap": true,
+              "interview_ref": "Q12, Q14, Q53, Q54",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail that the household has no temporary members, no absent usual residents, and no lodgers or live-in employees."
+            },
+            {
+              "id": 2,
+              "text": "Interview gives spouse occupation and children's specific ages/interests.",
+              "gap": true,
+              "interview_ref": "Q05, Q19",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add Megan's school-counselor role and Evan/Claire ages and activities."
+            },
+            {
+              "id": 3,
+              "text": "Interview describes sister Laura's Ann Arbor residence and nonprofit education communications job.",
+              "gap": true,
+              "interview_ref": "Q06",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add Laura's location and occupation."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes pragmatic, cost-effective technology leadership; interview confirms cost/reliability tradeoffs, cloud-bill explanation, and practical systems problem-solving.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "professional_persona, skills_and_expertise",
+              "source_b_ref": "Q02, Q16, Q65"
+            },
+            {
+              "id": 2,
+              "text": "Seed says he forgets appointments but never misses critical system deadlines; interview confirms forgetting dentist appointments/forms while staying reliable in incidents.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "persona",
+              "source_b_ref": "Q03, Q17"
+            },
+            {
+              "id": 3,
+              "text": "Seed career ambitions include senior leadership, TOGAF/AWS, cloud migration, apprenticeship, and consulting; interview repeats those goals and adds family-balance constraints.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "career_goals_and_ambitions",
+              "source_b_ref": "Q03, Q70, Q91, Q108",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward that consulting is not currently paid side work because family/current work are full."
+            },
+            {
+              "id": 4,
+              "text": "Seed hobbies and culinary persona imply discretionary spending on cars, food, and recreation; interview confirms he budgets for these and delays wants rather than borrowing.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "hobbies_and_interests, culinary_persona",
+              "source_b_ref": "Q56, Q60, Q63, Q83",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward cautious budgeting, no hobby debt, and cutting discretionary spending first."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Behavioral summary accurately captures savings automation, budget tracking, debt avoidance, and planning buffers.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q57, Q61, Q63, Q82, Q83",
+              "source_b_ref": "summaries.behavioral_economist"
+            },
+            {
+              "id": 2,
+              "text": "Preferences lack a dedicated financial category and therefore underrepresent stable income, household spending, savings buckets, emergency fund, mortgage, car loan, and no public benefits.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q57-Q64, Q72-Q74, Q80-Q83",
+              "source_b_ref": "preferences.home_and_lifestyle, preferences.work_and_career",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add finance-related routine details to home_and_lifestyle and income/work details to work_and_career."
+            },
+            {
+              "id": 3,
+              "text": "Profile health and food sections accurately represent moderation around rich foods and exercise as a counterbalance.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q31, Q32, Q38",
+              "source_b_ref": "preferences.health_and_wellness, preferences.food_and_dining"
+            },
+            {
+              "id": 4,
+              "text": "Profile work_and_career correctly captures the conscious choice of technical leadership over a title-focused management path.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q02, Q03",
+              "source_b_ref": "preferences.work_and_career, summaries.behavioral_economist"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Home_and_lifestyle ownership with mortgage is consistent with demographer summary's financial stability and behavioral summary's planning orientation.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.home_and_lifestyle",
+              "field_b": "summaries.demographer, summaries.behavioral_economist"
+            },
+            {
+              "id": 2,
+              "text": "Travel aspirations and cautious financial personality are compatible because profile frames travel as saved-for and planned, not impulsive.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.travel",
+              "field_b": "summaries.behavioral_economist"
+            },
+            {
+              "id": 3,
+              "text": "Entertainment, hobbies, and work sections consistently show calculated leisure spending and time management rather than uncontrolled consumption.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.entertainment, preferences.hobbies_and_recreation",
+              "field_b": "preferences.work_and_career"
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview provides monthly spending estimates and normal spending range.",
+              "gap": true,
+              "interview_ref": "Q57",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add that last month was about $10,500 and normal monthly spending is about $9,000-$9,500."
+            },
+            {
+              "id": 2,
+              "text": "Interview specifies regular savings vehicles: emergency savings, retirement accounts, college savings, travel, home repairs, car work, index funds, and 529 plans.",
+              "gap": true,
+              "interview_ref": "Q61, Q62",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add savings buckets and approximately six months of liquid expenses."
+            },
+            {
+              "id": 3,
+              "text": "Interview details current debts: mortgage, car loan, no student loans, no carried credit-card debt, no family loans.",
+              "gap": true,
+              "interview_ref": "Q63",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add debt profile and avoidance of hobby-related debt."
+            },
+            {
+              "id": 4,
+              "text": "Interview includes employer income, household income, pay schedule, benefits, and tax filing.",
+              "gap": true,
+              "interview_ref": "Q72-Q76",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add gross monthly pay, gross household monthly income, twice-monthly salary pay, joint tax filing, and benefits."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed's community involvement through local events and library tech literacy is confirmed by interview volunteering at the Bloomfield Township library and STEM programs.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "cultural_background, hobbies_and_interests",
+              "source_b_ref": "Q17, Q109"
+            },
+            {
+              "id": 2,
+              "text": "Seed does not specify partisanship; interview adds Independent with Democratic lean and pragmatic center-left views.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed political fields absent",
+              "source_b_ref": "Q24, Q95, Q96",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward political identity into community_and_civic and media/information diet where relevant."
+            },
+            {
+              "id": 3,
+              "text": "Seed says Bloomfield Hills support for education and arts; interview confirms attention to school boards, library funding, public education, and DIA access.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "cultural_background",
+              "source_b_ref": "Q08, Q23, Q24, Q47"
+            },
+            {
+              "id": 4,
+              "text": "Seed gives no law-enforcement history; interview adds limited routine police contact, no arrests, and reform-oriented views on policing.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed law enforcement fields absent",
+              "source_b_ref": "Q20-Q22, Q26-Q29",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward routine personal police experience and reform views into community_and_civic."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Political summary accurately captures regular voting, local-election attention, Independent identity with Democratic lean, and center-left pragmatism.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23, Q24, Q95, Q96",
+              "source_b_ref": "summaries.political_scientist"
+            },
+            {
+              "id": 2,
+              "text": "Community_and_civic captures voting and volunteering but omits party identity and issue priorities in the preferences section.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q23, Q24, Q95, Q96",
+              "source_b_ref": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add Independent with Democratic lean and priorities of competent government, education, infrastructure, science, fairness, school boards, libraries, water infrastructure, zoning, and state races."
+            },
+            {
+              "id": 3,
+              "text": "Profile summary covers race/policing views but preferences do not include specific actions such as donations, family/coworker conversations, or not joining protests.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q26-Q30",
+              "source_b_ref": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add details about listening to Black coworkers, supporting accountability/data/mental-health response, donating locally, and preferring discussion/voting/donating over protests."
+            },
+            {
+              "id": 4,
+              "text": "Media_and_information_diet correctly notes social-media restraint and preference for local reporting, NPR, technical blogs, newsletters, and careful sources.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q28, Q42, Q48",
+              "source_b_ref": "preferences.media_and_information_diet"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Community_and_civic and media_and_information_diet consistently describe a locally engaged but non-performative civic style.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "preferences.media_and_information_diet"
+            },
+            {
+              "id": 2,
+              "text": "Political summary's moderate institutional trust is consistent with health source trust in doctors, CDC, Michigan health department, and major hospitals.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.political_scientist",
+              "field_b": "preferences.health_and_wellness, preferences.media_and_information_diet"
+            },
+            {
+              "id": 3,
+              "text": "Race/policing reform views are consistent with his stated demographic self-awareness as a White Bloomfield Hills resident.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.political_scientist",
+              "field_b": "preferences.cultural_and_linguistic"
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview includes specific political self-description: pragmatic center-left Independent with a clear Democratic lean.",
+              "gap": true,
+              "interview_ref": "Q24, Q95, Q96",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add political identity and Democratic lean."
+            },
+            {
+              "id": 2,
+              "text": "Interview includes regular absentee voting and attention to local candidate questionnaires.",
+              "gap": true,
+              "interview_ref": "Q23",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add absentee voting and local candidate questionnaire behavior."
+            },
+            {
+              "id": 3,
+              "text": "Interview includes law-enforcement contact history and no arrests for him or immediate family.",
+              "gap": true,
+              "interview_ref": "Q20-Q22",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add routine police contacts, neighborhood car theft response, and no arrests."
+            },
+            {
+              "id": 4,
+              "text": "Interview includes views on race as tied to housing, schools, wealth, policing, and health care in metro Detroit.",
+              "gap": true,
+              "interview_ref": "Q26-Q30",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add race/policing issue framing and preferred reform actions."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes Stanley as calm, curiosity-driven, relaxed, and pragmatic; interview repeatedly supports a calm problem-solver identity.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "persona, professional_persona",
+              "source_b_ref": "Q01, Q02, Q43, Q109"
+            },
+            {
+              "id": 2,
+              "text": "Seed highlights appointment forgetfulness but critical deadline reliability; interview confirms this exact self-pattern.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "persona",
+              "source_b_ref": "Q03, Q17"
+            },
+            {
+              "id": 3,
+              "text": "Seed mentions low-stress community-oriented sports lifestyle; interview enriches this with stress coping through cycling, garage work, cooking, photography, lists, and talking to Megan.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "sports_persona, persona",
+              "source_b_ref": "Q38, Q43-Q45, Q50",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward coping strategies into health_and_wellness and nature/hobbies."
+            },
+            {
+              "id": 4,
+              "text": "Seed's family/community orientation is confirmed and deepened by interview values of reliability, usefulness, family, and practical service.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "cultural_background, persona",
+              "source_b_ref": "Q46, Q109",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward stated core values into social_and_relationships/community_and_civic."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Psychologist summary accurately captures calm, conscientious, curious, systems-oriented, reliability-focused self-concept.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01, Q02, Q43-Q45, Q109",
+              "source_b_ref": "summaries.psychologist"
+            },
+            {
+              "id": 2,
+              "text": "Profile health and hobbies mention stress outlets, but omit no formal depression/anxiety diagnosis, situational anxious spiraling, and prior brief therapy after family loss.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q45",
+              "source_b_ref": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add mental-health detail: no diagnosis, situational stress/anxious spiraling, routines/exercise/lists/Megan as coping, prior brief therapy after a family loss."
+            },
+            {
+              "id": 3,
+              "text": "Profile social_and_relationships captures family-centeredness but omits emotional household practices such as open stress conversations, apology, quiet time, and family dinners.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q44, Q46",
+              "source_b_ref": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add family coping practices and apology/communication style."
+            },
+            {
+              "id": 4,
+              "text": "Profile work_and_career correctly captures his identity tension between leadership ambition and desire to remain connected to real systems.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q02, Q108",
+              "source_b_ref": "preferences.work_and_career, summaries.psychologist"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Preferences across work, technology, hobbies, and psychology summary consistently frame him as systems-oriented rather than narrowly careerist.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career, preferences.technology",
+              "field_b": "preferences.hobbies_and_recreation, summaries.psychologist"
+            },
+            {
+              "id": 2,
+              "text": "Health_and_wellness, nature_and_outdoors, and hobbies consistently describe active, moderate coping rather than substance-based coping.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness",
+              "field_b": "preferences.nature_and_outdoors, preferences.hobbies_and_recreation"
+            },
+            {
+              "id": 3,
+              "text": "Family-centered social preferences are consistent with career goals that explicitly preserve family balance.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships",
+              "field_b": "preferences.work_and_career"
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview includes a concrete overload episode involving a production incident, father's heart test, snapping at Evan, apology, walk, and boundary changes.",
+              "gap": true,
+              "interview_ref": "Q44",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add overload episode and boundary/recovery-time coping."
+            },
+            {
+              "id": 2,
+              "text": "Interview includes no depression/anxiety diagnosis but situational anxious spiraling around work risk and family obligations.",
+              "gap": true,
+              "interview_ref": "Q45",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add mental-health status and coping."
+            },
+            {
+              "id": 3,
+              "text": "Interview includes explicit values: reliability, curiosity, family, usefulness, practical community service, and beauty.",
+              "gap": true,
+              "interview_ref": "Q109",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add values statement to community_and_civic and arts_and_culture as appropriate."
+            },
+            {
+              "id": 4,
+              "text": "Interview includes low reliance on social media for emotional support and preference for direct contact with Megan, sister, Dave, or close work friend.",
+              "gap": true,
+              "interview_ref": "Q49",
+              "should_be_in": "preferences.media_and_information_diet",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add direct interpersonal support preference and non-use of social media for financial support."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No contradictions required flagging or partial correction, but multiple substantive interview details were missing from preferences and were carried forward or added as enrichments.",
+    "final_status": "Corrected profile is ready for downstream use after preference enrichment and hidden_facts generation."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "58c03faba45d40f79f6dac7c3eb612fd",
+    "name": "Stanley Bates",
+    "age": 47,
+    "gender": "Male",
+    "marital_status": "Married, living with wife Megan",
+    "location": "Bloomfield Hills, MI 48304",
+    "education": "Bachelor's degree in computer information systems from Michigan State University",
+    "occupation": "Computer systems analyst with enterprise architecture, cloud, automation, and incident response responsibilities",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Generally healthy but managing mild hypertension; prefers conventional preventive care, cycling, walking, golf, and practical moderation.",
+        "details": [
+          "Has mild hypertension controlled with low-dose medication and monitors cholesterol (Q31).",
+          "Cycles with a group, golfs, walks, and tries to reduce sedentary work habits (Q31, Q32).",
+          "Supports vaccination and relies on doctors, CDC, Michigan health department, and major hospital systems for vaccine information (Q41, Q42).",
+          "Had lower back stiffness in the past two years that improved with physical therapy exercises, stretching, and an adjusted monitor setup (Q33).",
+          "Does not smoke, drinks moderately, does not use marijuana or other substances, and uses ibuprofen only occasionally for pain (Q38, Q39).",
+          "Has not been diagnosed with depression or anxiety, but experiences situational stress and anxious spiraling around work risk and family obligations (Q45).",
+          "Copes with stress through routines, exercise, lists, talking with Megan, garage work, cooking, photography, walks, and blocked recovery time after major incidents (Q38, Q44, Q45, Q50).",
+          "Parents' aging-related health needs and medical logistics add mental load, though not full-time caregiving (Q35).",
+          "Uses employer-sponsored insurance, an HSA, and budgeting to manage health care costs, without forgoing needed care (Q36, Q40)."
+        ],
+        "evidence": "Q31, Q32, Q33, Q35, Q36, Q38, Q39, Q40, Q41, Q42, Q44, Q45, Q50"
+      },
+      "food_and_dining": {
+        "summary": "Enjoys cooking comfort foods with experimental global flavors while trying to balance richness with health.",
+        "details": [
+          "Enjoys Detroit-style pizza and recognizes it as a health temptation (Q31, Q32).",
+          "Uses grocery stores including Kroger, Costco, Papa Joe's, and local markets (Q56).",
+          "Cooks larger Sunday meals and uses cooking as a stress outlet (Q15, Q38).",
+          "Balances rich foods such as pizza and pork shoulder with cycling and smaller portions (Q32)."
+        ],
+        "evidence": "Q15, Q31, Q32, Q38, Q56"
+      },
+      "travel": {
+        "summary": "Prefers planned, photography-rich road trips and has future aspirations for Japan and Norway.",
+        "details": [
+          "Hopes for Japan during cherry blossom season or Norway's fjords (Q108).",
+          "Saves for travel and wants a larger family trip before Evan graduates (Q62).",
+          "Enjoys road trips and wants the Mustang reliable enough for longer trips (Q108).",
+          "Thinks a road trip closer to home or the Pacific Northwest may happen before the more complex Japan trip (Q108)."
+        ],
+        "evidence": "Q62, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "Family-centered, with a stable marriage, two teenage children, close local parents, a sister, and a small durable friend network.",
+        "details": [
+          "Married to Megan with children Evan and Claire (Q05, Q51).",
+          "Megan works in education as a school counselor and often handles school calendars and appointments (Q05).",
+          "Evan is 16 and involved in robotics, soccer, and casual music; Claire is 13 and interested in art, photography, and volleyball (Q05, Q19).",
+          "Maintains relationships with parents nearby and sister Laura in Ann Arbor (Q05, Q06).",
+          "Laura works in communications for an education-connected nonprofit, and their families gather a few times a year (Q06).",
+          "Sees friends through board-game nights, cycling, golf, and trusted work relationships (Q07).",
+          "Family coping includes dinners, shared calendars, quiet time, and trying to apologize quickly when someone misses the mark (Q46)."
+        ],
+        "evidence": "Q05, Q06, Q07, Q19, Q46, Q51"
+      },
+      "home_and_lifestyle": {
+        "summary": "Lives in an owned Bloomfield Hills home, values safety, schools, home routines, garage projects, home automation, and careful household budgeting.",
+        "details": [
+          "Owns home with mortgage in Bloomfield Hills and expects to stay through children's schooling (Q58).",
+          "Uses smart locks, cameras, sensors, and a more elaborate home network than necessary (Q09, Q17).",
+          "Runs Sunday evening reset routines for laundry, calendars, lunches, and school forms (Q11).",
+          "Household consists permanently of Stanley, Megan, Evan, and Claire, with no lodgers, live-in employees, temporary members, or absent usual residents (Q11, Q12, Q14, Q51, Q53, Q54).",
+          "Megan and Stanley share household expenses, and Stanley usually manages day-to-day bill payments (Q55).",
+          "Normal monthly household spending is about $9,000 to $9,500, while a recent high month was around $10,500 due to sports fees, car parts, and a medical bill (Q57).",
+          "Uses savings buckets for taxes, holidays, travel, house repairs, emergency reserves, college, retirement, home maintenance, and car work (Q59, Q61, Q62).",
+          "Keeps roughly six months of expenses liquid and invests in retirement accounts, index funds, and 529 college plans (Q61).",
+          "Current debts are mortgage and Megan's car loan; no student loans, no family loans, and credit cards are paid in full monthly (Q63).",
+          "Can cover a $400 emergency without borrowing and has not lacked money for needed bills or purchases in the past year (Q64, Q82)."
+        ],
+        "evidence": "Q09, Q11, Q12, Q14, Q17, Q51, Q53, Q54, Q55, Q57, Q58, Q59, Q61, Q62, Q63, Q64, Q82"
+      },
+      "entertainment": {
+        "summary": "Enjoys board games, Detroit sports, reading, photography, music, and low-key family media time.",
+        "details": [
+          "Hosts board-game nights with friends, including Terraforming Mars and Ticket to Ride (Q07).",
+          "Watches Detroit sports with family, including Tigers games (Q05, Q15).",
+          "Uses Instagram for photography and car-restoration posts rather than heavy posting (Q48).",
+          "Reads science-fiction and technology nonfiction as part of his leisure life (Q01 seed-supported, Q15 context)."
+        ],
+        "evidence": "Q05, Q07, Q15, Q48"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Hobbies combine hands-on technical tinkering, classic-car restoration, photography, board games, cooking, golf, and cycling.",
+        "details": [
+          "Restores a 1965 Ford Mustang and buys parts as budget allows (Q02, Q56, Q63, Q108).",
+          "Takes landscape photos and posts occasional photography on Instagram (Q48, Q108).",
+          "Participates in board-game nights, golf, cycling, and garage work (Q07, Q15, Q38).",
+          "Uses garage work and home projects as stress outlets and identity-affirming hands-on activity (Q15, Q38)."
+        ],
+        "evidence": "Q02, Q07, Q15, Q38, Q48, Q56, Q63, Q108"
+      },
+      "work_and_career": {
+        "summary": "Experienced systems analyst seeking senior technology leadership while preserving technical credibility and mentoring younger analysts.",
+        "details": [
+          "Works in systems analysis, architecture review, cloud migration, automation, SQL, Python, AWS, Azure, and incident response (Q16, Q65).",
+          "Chose technical leadership over pure management earlier in career (Q02).",
+          "Aspires to Director of IT or CIO, AWS Solutions Architect, TOGAF, apprenticeship programs, and possibly boutique consulting (Q108).",
+          "Works one salaried job, usually around 45 hours per week and sometimes 50-plus during incidents or major releases (Q68, Q70, Q71).",
+          "Gross pay is about $12,500 per month, paid twice monthly; household gross income with Megan was about $18,800 last month (Q72, Q73, Q74).",
+          "Has been at his current company about eight years and values benefits including health insurance, retirement match, paid vacation, sick time, and hybrid flexibility (Q76).",
+          "Current role is not union-covered, though auto-industry unions influenced family security growing up (Q66).",
+          "Files taxes jointly with Megan, usually using tax software and occasional CPA questions (Q75)."
+        ],
+        "evidence": "Q02, Q16, Q65, Q66, Q68, Q70, Q71, Q72, Q73, Q74, Q75, Q76, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Appreciates visual art, museums, photography, jazz, classic rock, and cultural institutions in metro Detroit.",
+        "details": [
+          "Finds peace in the Detroit Institute of Arts and human creativity (Q47).",
+          "Values photographs, Miles Davis records, Van Gogh paintings, engines, and clean system diagrams as forms of beauty (Q109).",
+          "Follows Detroit institutions and photographers on Instagram (Q48).",
+          "Sees beauty as meaningful alongside practical values such as reliability and usefulness (Q109)."
+        ],
+        "evidence": "Q47, Q48, Q109"
+      },
+      "sports_and_fitness": {
+        "summary": "Sports life is community-oriented and recreational, centered on Detroit teams, cycling, golf, and children's sports.",
+        "details": [
+          "Cycles with Oakland County Cycling Club on some Sundays (Q07, Q15, Q32).",
+          "Golfs about twice a month in season with buddies at Bloomfield Hills Masters Golf Club (Q07).",
+          "Supports children's soccer, volleyball, and robotics schedules; watches Detroit sports with family (Q15, Q19).",
+          "Uses group exercise as a way to stay accountable because others expect him to show up (Q32)."
+        ],
+        "evidence": "Q07, Q15, Q19, Q32"
+      },
+      "nature_and_outdoors": {
+        "summary": "Uses outdoor activity for exercise, photography, stress relief, and family connection.",
+        "details": [
+          "Takes photography hikes around Oakland County trails and parks (Q15, Q48).",
+          "Finds peace outdoors and through photography (Q47).",
+          "Cycles and walks to manage health and stress (Q32, Q38).",
+          "Sometimes takes photography walks with Claire on weekends (Q19)."
+        ],
+        "evidence": "Q15, Q19, Q32, Q38, Q47, Q48"
+      },
+      "technology": {
+        "summary": "Technology is central to his identity, career, volunteering, home life, and problem-solving style.",
+        "details": [
+          "Became interested in computers in high school by building databases and helping neighbors with PCs (Q01).",
+          "Works with enterprise systems, cloud platforms, SQL, Python, monitoring, ITIL, and automation (Q16, Q65).",
+          "Builds and manages home automation, smart locks, sensors, cameras, and a detailed home network (Q09, Q17).",
+          "Volunteers in STEM and library tech literacy programs (Q17).",
+          "Uses daily tools including ServiceNow, Jira, Teams, SQL tools, AWS and Azure consoles, Python scripts, monitoring dashboards, Visio or Lucidchart, and spreadsheets (Q16)."
+        ],
+        "evidence": "Q01, Q09, Q16, Q17, Q65"
+      },
+      "community_and_civic": {
+        "summary": "Values practical civic participation through voting, library support, STEM mentorship, local public institutions, and pragmatic center-left reform.",
+        "details": [
+          "Votes regularly, including local elections, and pays attention to school boards, libraries, infrastructure, and state races (Q23).",
+          "Volunteers with STEM after-school programming and library tech literacy sessions (Q17).",
+          "Values helping neighbors, supporting the library, and mentoring children (Q109).",
+          "Identifies as an Independent with a clear Democratic lean and describes himself as pragmatic center-left (Q24, Q95, Q96).",
+          "Prioritizes competent government, public education, infrastructure, science, fairness, water infrastructure, responsible zoning, and accountable implementation (Q24, Q25).",
+          "Has limited routine personal police contact, no arrests for himself or immediate family, and recognizes his experience is insulated compared with others (Q20, Q22, Q26).",
+          "Supports policing reforms such as data transparency, misconduct accountability, mental-health response options, and outcome-measured training (Q27).",
+          "Responded to increased focus on race and policing by talking with family, friends, and coworkers, donating to local education and legal-aid groups, and voting rather than joining protests (Q29).",
+          "Views race in the U.S. as connected to housing, schools, wealth, policing, health care, and metro Detroit city-suburb divides (Q28)."
+        ],
+        "evidence": "Q17, Q20, Q22, Q23, Q24, Q25, Q26, Q27, Q28, Q29, Q95, Q96, Q109"
+      },
+      "music": {
+        "summary": "Enjoys classic rock and jazz, with Miles Davis specifically named as meaningful.",
+        "details": [
+          "Names Miles Davis records as one form of beauty he values (Q109).",
+          "Describes music as a source of peace and spiritual feeling (Q47).",
+          "Son Evan has a casual interest in music (Q05)."
+        ],
+        "evidence": "Q05, Q47, Q109"
+      },
+      "fashion_and_appearance": {
+        "summary": "Little direct evidence; presentation appears practical and low-key rather than fashion-focused.",
+        "details": [
+          "No explicit fashion preferences were discussed; lifestyle details emphasize practical suburban, work, cycling, golf, and garage contexts (Q15, Q56)."
+        ],
+        "evidence": "Q15, Q56"
+      },
+      "cultural_and_linguistic": {
+        "summary": "Non-Hispanic White man of mostly English and German ancestry, culturally rooted in suburban Detroit and mainline Protestant/Lutheran background.",
+        "details": [
+          "Identifies as White and not Hispanic, Latinx, or Spanish origin (Q88, Q89).",
+          "Reports mostly English and German ancestry and English-only home language growing up (Q86, Q88).",
+          "Raised Lutheran and now culturally Christian/lightly Lutheran (Q47, Q94).",
+          "Was born in the United States and has not lived outside the U.S., though he has traveled internationally (Q86).",
+          "Attends church only a few times a year, mostly holidays or family events, and practices occasional quiet informal prayer (Q47, Q94)."
+        ],
+        "evidence": "Q47, Q86, Q88, Q89, Q94"
+      },
+      "life_events_and_transitions": {
+        "summary": "Key transitions include suburban Detroit upbringing, MSU education, marriage, parenthood, career choice toward technical leadership, hybrid work, and emerging elder-care responsibilities.",
+        "details": [
+          "Born in Royal Oak, grew up in suburban Detroit/Troy, and attended Michigan State University (Q01, Q87, Q97).",
+          "Made a significant career choice to remain close to technical architecture rather than move into pure management (Q02, Q03).",
+          "Recent routine changes include hybrid work, children's growing independence, and aging parents' health logistics (Q18, Q35).",
+          "Married Megan in his late twenties and has been married about nineteen years (Q01, Q84).",
+          "Was raised in a stable household with both parents and younger sister Laura when he was 16 (Q98, Q99)."
+        ],
+        "evidence": "Q01, Q02, Q03, Q18, Q35, Q84, Q87, Q97, Q98, Q99"
+      },
+      "media_and_information_diet": {
+        "summary": "Uses social media lightly and prefers local reporting, NPR, technical blogs, newsletters, official health sources, and direct expert guidance.",
+        "details": [
+          "Uses Facebook for family/neighborhood/school updates, Instagram for photography and cars, LinkedIn professionally, and avoids online political fights (Q48).",
+          "Prefers local papers, NPR, technical blogs, and newsletters for news (Q48).",
+          "Uses doctors, CDC, Michigan health department, and major hospitals for vaccine information (Q42).",
+          "Does not use social media for financial support and only lightly for emotional support, preferring texts or calls with actual people (Q49).",
+          "Barely uses Twitter now because it became too noisy (Q48).",
+          "Distrusts influencers selling certainty or chasing attention on vaccines and health topics (Q42)."
+        ],
+        "evidence": "Q42, Q48, Q49"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Stanley Bates is a 47-year-old non-Hispanic White married man living in Bloomfield Hills, Michigan, with his wife Megan and two teenage children, Evan and Claire (Q51, Q84, Q88, Q89). He was born in Royal Oak, grew up in Troy, and remains strongly rooted in metro Detroit (Q87, Q97). He has a bachelor's degree in computer information systems from Michigan State University and works as a salaried computer systems analyst with stable high household income (Q90, Q65, Q72, Q74). His household owns its home with a mortgage, has no lodgers or temporary members, and reports financial stability with savings and retirement planning (Q51-Q58, Q61, Q83).",
+      "behavioral_economist": "Stanley shows strong planning behavior, automation of savings, budget tracking, and loss aversion around debt and lifestyle creep (Q57, Q61, Q63, Q83). He is willing to invest in long-term human capital through AWS and TOGAF certifications and in children's college savings, suggesting future-oriented time preferences (Q62, Q91, Q108). His decisions are pragmatic rather than status-driven: he chose technical leadership over a pure management title because it preserved learning, credibility, and family balance (Q02, Q03). He responds to uncertainty by building buffers, savings buckets, spreadsheets, and reliable routines (Q59-Q62, Q82).",
+      "political_scientist": "Stanley is a regular voter who pays attention to local elections, school boards, library funding, infrastructure, and state races (Q23). He identifies as an Independent with a clear Democratic lean, describing himself as pragmatic center-left and concerned with competent government, public education, infrastructure, science, and fairness (Q24, Q95, Q96). His views on race and policing are reform-oriented but operationally cautious; he supports accountability, transparency, mental health response options, and listening to Black coworkers' lived experiences (Q26-Q30). He exhibits moderate institutional trust, especially in public health, schools, libraries, and local civic institutions (Q17, Q23, Q42).",
+      "psychologist": "Stanley presents as calm, conscientious, curious, and systems-oriented, with a strong identity around reliability and usefulness (Q01, Q02, Q109). He regulates stress through exercise, garage work, cooking, photography, lists, and conversations with Megan, though he acknowledges overload during work incidents and elder-care stress (Q38, Q43-Q45, Q50). His self-concept combines technical competence with Midwestern service values learned from his manufacturing father and teacher mother (Q01, Q103-Q109). Relationally, he is family-centered, emotionally restrained but reflective, and increasingly intentional about apology, communication, and boundaries (Q05, Q44, Q46)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Stanley has mild hypertension controlled with low-dose medication.",
+        "ground_truth_label": "Controlled mild hypertension",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"I have mild hypertension that is controlled with medication.\"",
+          "Q31 follow-up: \"A low-dose blood pressure medication.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "His doctor monitors his cholesterol.",
+        "ground_truth_label": "Cholesterol monitoring",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"my doctor keeps an eye on cholesterol.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "He stays active through cycling, golf, walking, and reducing sedentary habits.",
+        "ground_truth_label": "Moderate recreational exercise",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"I cycle, golf, walk\"",
+          "Q32: \"balance that with cycling and smaller portions.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.sports_and_fitness",
+          "preferences.nature_and_outdoors"
+        ]
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "He supports routine vaccination, flu shots, and COVID vaccines and boosters when recommended.",
+        "ground_truth_label": "Pro-vaccine orientation",
+        "behavioral_evidence_from_interview": [
+          "Q41: \"I am pro-vaccine.\"",
+          "Q41: \"we got COVID vaccines and boosters when recommended.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "He trusts doctors, the CDC, the Michigan health department, and major hospital systems for vaccine information.",
+        "ground_truth_label": "Trusts official medical sources",
+        "behavioral_evidence_from_interview": [
+          "Q42: \"Our family doctor, the CDC, the Michigan health department, and major hospital systems like Henry Ford or University of Michigan.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.media_and_information_diet",
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "He had lower back stiffness in the past two years that improved with physical therapy exercises and workstation changes.",
+        "ground_truth_label": "Recent lower back stiffness managed conservatively",
+        "behavioral_evidence_from_interview": [
+          "Q33: \"I also had some lower back stiffness\"",
+          "Q33 follow-up: \"Physical therapy exercises helped.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "He does not smoke and drinks moderately, usually two or three drinks total in a normal week or none.",
+        "ground_truth_label": "Non-smoker and moderate alcohol use",
+        "behavioral_evidence_from_interview": [
+          "Q38: \"I do not smoke.\"",
+          "Q38 follow-up: \"Maybe two or three drinks total, sometimes none.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "He does not use marijuana or other substances and uses ibuprofen only occasionally for pain.",
+        "ground_truth_label": "No marijuana or illicit substance use",
+        "behavioral_evidence_from_interview": [
+          "Q39: \"I do not use marijuana or other substances.\"",
+          "Q39: \"For pain I use ibuprofen occasionally.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "He has not been diagnosed with depression or an anxiety disorder but experiences situational stress and anxious spiraling.",
+        "ground_truth_label": "No formal depression/anxiety diagnosis; situational anxiety",
+        "behavioral_evidence_from_interview": [
+          "Q45: \"I have not been diagnosed with depression or an anxiety disorder.\"",
+          "Q45: \"occasional anxious spiraling around work risk or family obligations.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "He copes with stress through routines, exercise, lists, Megan, garage work, cooking, photography, walks, and recovery time after incidents.",
+        "ground_truth_label": "Active non-substance stress coping",
+        "behavioral_evidence_from_interview": [
+          "Q45: \"I manage it with routines, exercise, lists, and talking to Megan.\"",
+          "Q50: \"Blocking recovery time after major work incidents.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "His parents' aging-related health needs add mental load but not full-time caregiving.",
+        "ground_truth_label": "Emerging elder-care responsibility",
+        "behavioral_evidence_from_interview": [
+          "Q35: \"we are entering that stage where elder care is not full-time but it is always nearby.\"",
+          "Q35: \"It adds mental load more than daily caregiving right now.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.life_events_and_transitions",
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "His family uses employer-sponsored insurance, an HSA, and budgeting for health care and has not forgoed needed care.",
+        "ground_truth_label": "Insured with no recent unmet care need",
+        "behavioral_evidence_from_interview": [
+          "Q36: \"We have employer-sponsored insurance, and we have not had to forgo needed care.\"",
+          "Q40: \"We use an HSA for predictable out-of-pocket costs.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "He enjoys Detroit-style pizza and recognizes it as a health temptation.",
+        "ground_truth_label": "Enjoys Detroit-style pizza",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"liking pizza more than a cardiologist would recommend.\"",
+          "Q32: \"Detroit-style pizza\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "He shops at Kroger, Costco, Papa Joe's, and local markets.",
+        "ground_truth_label": "Preferred grocery stores",
+        "behavioral_evidence_from_interview": [
+          "Q56 follow-up: \"Kroger, Costco, and sometimes Papa Joe's or a local market\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "He cooks bigger meals on Sundays and uses cooking as a stress outlet.",
+        "ground_truth_label": "Cooking as Sunday routine and coping",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"Sundays... cook something bigger\"",
+          "Q38: \"cook something that requires steps but not panic.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "He hopes to visit Japan during cherry blossom season or Norway's fjords.",
+        "ground_truth_label": "Aspirational Japan/Norway travel",
+        "behavioral_evidence_from_interview": [
+          "Q108: \"maybe Japan in cherry blossom season or Norway's fjords\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "He saves for travel and wants a larger family trip before Evan graduates.",
+        "ground_truth_label": "Family travel savings goal",
+        "behavioral_evidence_from_interview": [
+          "Q62: \"We would like to take a bigger family trip before Evan graduates.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "He enjoys road trips and wants his Mustang reliable enough for longer road trips.",
+        "ground_truth_label": "Road-trip preference tied to Mustang",
+        "behavioral_evidence_from_interview": [
+          "Q108: \"I want the Mustang to be reliable enough for longer road trips.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "He is married to Megan and lives with her and their children Evan and Claire.",
+        "ground_truth_label": "Married two-child household",
+        "behavioral_evidence_from_interview": [
+          "Q51: \"I live with my wife Megan and our two children, Evan and Claire.\"",
+          "Q84: \"I am currently married and living with my wife.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Megan works in education as a school counselor and often manages school calendars and appointments.",
+        "ground_truth_label": "Spouse is school counselor",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"she works in education as a school counselor\"",
+          "Q05 follow-up: \"She is better with school calendars and appointments.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "His son Evan is 16 and involved in robotics, soccer, and casual music.",
+        "ground_truth_label": "Evan age and activities",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"Our son Evan is sixteen, into robotics, soccer, and music in a casual way.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "His daughter Claire is 13 and interested in art, photography, and volleyball.",
+        "ground_truth_label": "Claire age and activities",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"Our daughter Claire is thirteen, likes art, photography, and volleyball\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "His parents live nearby, are retired, and he sees or helps them about weekly to every other week.",
+        "ground_truth_label": "Nearby retired parents",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"My parents are still in the area\"",
+          "Q05 follow-up: \"Usually every other week, sometimes weekly\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "His sister Laura lives in Ann Arbor and works in communications for an education-connected nonprofit.",
+        "ground_truth_label": "Sister Laura in Ann Arbor nonprofit communications",
+        "behavioral_evidence_from_interview": [
+          "Q06: \"one younger sister, Laura, who lives in Ann Arbor.\"",
+          "Q06 follow-up: \"She works in communications for a nonprofit connected to education.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "He maintains a small durable friend network through board games, cycling, golf, and work relationships.",
+        "ground_truth_label": "Small steady friend network",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"I have a core friend group from college and work that has stuck around.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "His family uses dinners, calendars, quiet time, and quick apologies to support one another.",
+        "ground_truth_label": "Open family coping practices",
+        "behavioral_evidence_from_interview": [
+          "Q46 follow-up: \"Family dinners, checking calendars together, giving people quiet time, and trying to apologize quickly\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "He owns a home with a mortgage in Bloomfield Hills and expects to stay at least until Claire finishes high school.",
+        "ground_truth_label": "Owns Bloomfield Hills home with mortgage",
+        "behavioral_evidence_from_interview": [
+          "Q58: \"We own our home with a mortgage.\"",
+          "Q58 follow-up: \"At least until Claire finishes high school\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "His home uses cameras, smart locks, sensors, and an elaborate home network.",
+        "ground_truth_label": "Home automation/security setup",
+        "behavioral_evidence_from_interview": [
+          "Q09 follow-up: \"We have cameras, smart locks, and sensors\"",
+          "Q17: \"the home network, which is more elaborate than it probably needs to be.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.technology"
+        ]
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "His household has no temporary members, lodgers, live-in employees, or absent usual residents.",
+        "ground_truth_label": "Stable household with no temporary or absent residents",
+        "behavioral_evidence_from_interview": [
+          "Q12: \"Everyone is a permanent member of the household.\"",
+          "Q54: \"No.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Normal monthly household spending is about $9,000 to $9,500, with a recent high month around $10,500.",
+        "ground_truth_label": "Monthly household spending range",
+        "behavioral_evidence_from_interview": [
+          "Q57: \"Last month was around $10,500\"",
+          "Q57: \"A more normal month is closer to $9,000 to $9,500\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "He uses savings buckets for taxes, holidays, travel, house repairs, emergency reserves, college, retirement, home maintenance, and car work.",
+        "ground_truth_label": "Savings buckets and planning buffers",
+        "behavioral_evidence_from_interview": [
+          "Q59 follow-up: \"separate savings buckets for taxes, holidays, travel, and house repairs.\"",
+          "Q61: \"emergency savings, retirement accounts, college savings\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "He keeps roughly six months of expenses liquid and invests through retirement accounts, index funds, and 529 college plans.",
+        "ground_truth_label": "Emergency fund and mainstream investing",
+        "behavioral_evidence_from_interview": [
+          "Q61 follow-up: \"Roughly six months\"",
+          "Q61 follow-up: \"Some index funds and college 529 plans\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "His current debts are a mortgage and Megan's car loan, with no student loans, no family loans, and credit cards paid in full monthly.",
+        "ground_truth_label": "Debt-averse household debt profile",
+        "behavioral_evidence_from_interview": [
+          "Q63: \"Mortgage is the big one. We have a car loan on Megan's vehicle.\"",
+          "Q63: \"No student loans left, and we pay credit cards in full monthly. No family loans.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "He could cover a $400 emergency without borrowing and has not lacked money for needed bills or purchases in the past year.",
+        "ground_truth_label": "Can cover emergency expenses",
+        "behavioral_evidence_from_interview": [
+          "Q82: \"We could cover a $400 emergency from checking or savings without borrowing.\"",
+          "Q64: \"We have not had that happen in the past year.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "He hosts board-game nights with games such as Terraforming Mars and Ticket to Ride.",
+        "ground_truth_label": "Board-game nights",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"board games, usually Terraforming Mars or Ticket to Ride\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "He watches Detroit sports with his family, including Tigers games.",
+        "ground_truth_label": "Detroit sports viewing",
+        "behavioral_evidence_from_interview": [
+          "Q05 follow-up: \"we might watch a Tigers game\"",
+          "Q15: \"watch Detroit sports\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.sports_and_fitness"
+        ]
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "He restores a 1965 Ford Mustang and buys parts only as the budget allows.",
+        "ground_truth_label": "1965 Mustang restoration hobby",
+        "behavioral_evidence_from_interview": [
+          "Q02: \"my Mustang, which was half-restored\"",
+          "Q63 follow-up: \"The Mustang gets parts when the budget allows\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "He takes landscape photos and posts occasional photography on Instagram.",
+        "ground_truth_label": "Landscape photography hobby",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"Instagram is where I post occasional landscape photos\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.nature_and_outdoors"
+        ]
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "He works in systems analysis, architecture review, cloud migration, automation, SQL, Python, AWS, Azure, and incident response.",
+        "ground_truth_label": "Computer systems analyst technical responsibilities",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"requirements analysis, architecture review, cloud migration planning... automation, and incident response.\"",
+          "Q65: \"SQL databases, Python scripts, AWS, Azure\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.technology",
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "He consciously chose technical leadership over a pure management track to preserve learning, credibility, and family balance.",
+        "ground_truth_label": "Technical leadership over pure management",
+        "behavioral_evidence_from_interview": [
+          "Q02: \"I chose the technical leadership path\"",
+          "Q03 follow-up: \"whether it would keep me learning and whether it would still let me be home enough for the kids.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist",
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "He aspires to become Director of IT or CIO, earn AWS Solutions Architect and TOGAF certifications, create apprenticeship paths, and possibly launch a boutique consultancy.",
+        "ground_truth_label": "Senior technology leadership ambitions",
+        "behavioral_evidence_from_interview": [
+          "Q108: \"Director of IT or eventually CIO\"",
+          "Q108: \"finish AWS Solutions Architect and TOGAF\"",
+          "Q108: \"boutique consultancy\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "He works one salaried job, usually around 45 hours per week and sometimes 50-plus during incidents or major releases.",
+        "ground_truth_label": "Single salaried full-time job with variable hours",
+        "behavioral_evidence_from_interview": [
+          "Q68: \"Usually around 45 hours, sometimes 50-plus\"",
+          "Q70: \"No. I only have one job.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "His gross pay is about $12,500 per month, and combined household gross income with Megan was about $18,800 last month.",
+        "ground_truth_label": "High stable household income",
+        "behavioral_evidence_from_interview": [
+          "Q72: \"gross pay is about $12,500 a month\"",
+          "Q74: \"grossed around $18,800 last month\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "He has been at his current company about eight years and values health insurance, retirement match, vacation, sick time, and hybrid flexibility.",
+        "ground_truth_label": "Current job tenure and benefits",
+        "behavioral_evidence_from_interview": [
+          "Q76: \"about eight years\"",
+          "Q76: \"health insurance, retirement match, paid vacation, sick time, and hybrid flexibility.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "He finds peace in the Detroit Institute of Arts and human creativity.",
+        "ground_truth_label": "DIA and human creativity appreciation",
+        "behavioral_evidence_from_interview": [
+          "Q47: \"places like the DIA where human creativity feels bigger than everyday noise.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "He values photographs, Miles Davis records, Van Gogh paintings, engines, and clean system diagrams as forms of beauty.",
+        "ground_truth_label": "Broad aesthetic appreciation",
+        "behavioral_evidence_from_interview": [
+          "Q109: \"a good photograph, a Miles Davis record, a Van Gogh painting, a well-tuned engine, a clean system diagram.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.music"
+        ]
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "He cycles with the Oakland County Cycling Club on some Sundays.",
+        "ground_truth_label": "Oakland County Cycling Club rides",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"I ride some Sundays with people from the Oakland County Cycling Club\"",
+          "Q15: \"Sundays I like to ride with the cycling club early\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "He golfs about twice a month in season with buddies at Bloomfield Hills Masters Golf Club.",
+        "ground_truth_label": "Seasonal golf routine",
+        "behavioral_evidence_from_interview": [
+          "Q07 follow-up: \"golf maybe twice a month in season\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "He supports his children's soccer, volleyball, and robotics schedules.",
+        "ground_truth_label": "Parent support for children's activities",
+        "behavioral_evidence_from_interview": [
+          "Q19: \"robotics two or three days a week and soccer in season\"",
+          "Q19: \"Claire... volleyball practices, art club\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "He takes photography hikes around Oakland County trails and parks.",
+        "ground_truth_label": "Oakland County photography hikes",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"photography hikes around Oakland County\"",
+          "Q08 follow-up: \"parks or trails when I want to take photos.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "He sometimes takes photography walks with Claire on weekends.",
+        "ground_truth_label": "Photography walks with daughter",
+        "behavioral_evidence_from_interview": [
+          "Q19: \"sometimes photography walks with me on weekends.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "His interest in computers became practical in high school through a baseball-card database and helping a neighbor with a small-business PC.",
+        "ground_truth_label": "Early practical computing interest",
+        "behavioral_evidence_from_interview": [
+          "Q01 follow-up: \"I built a basic database for tracking baseball cards\"",
+          "Q01 follow-up: \"helped a neighbor clean up a small business PC.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "He volunteers in STEM after-school programming and library tech literacy sessions.",
+        "ground_truth_label": "Technology volunteering",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"volunteer with a local STEM after-school program\"",
+          "Q17: \"tech literacy sessions at the Bloomfield Township library\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.community_and_civic",
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "He uses ServiceNow, Jira, Teams, SQL tools, AWS and Azure consoles, Python scripts, monitoring dashboards, Visio or Lucidchart, and spreadsheets at work.",
+        "ground_truth_label": "Daily technical toolset",
+        "behavioral_evidence_from_interview": [
+          "Q16 follow-up: \"ServiceNow, Jira, Teams, SQL tools, AWS and Azure consoles, Python scripts, monitoring dashboards, Visio or Lucidchart\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "He votes regularly, including local elections, and pays attention to school boards, libraries, infrastructure, and state races.",
+        "ground_truth_label": "Regular local voter",
+        "behavioral_evidence_from_interview": [
+          "Q23: \"I vote regularly, including local elections.\"",
+          "Q23: \"school boards, library funding, infrastructure, and state races.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "He identifies as an Independent with a clear Democratic lean and pragmatic center-left views.",
+        "ground_truth_label": "Independent with Democratic lean",
+        "behavioral_evidence_from_interview": [
+          "Q24: \"pragmatic center-left independent.\"",
+          "Q95: \"Independent with a clear Democratic lean\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "He prioritizes competent government, public education, infrastructure, science, fairness, water infrastructure, zoning, and accountable implementation.",
+        "ground_truth_label": "Pragmatic public-institution priorities",
+        "behavioral_evidence_from_interview": [
+          "Q24: \"competent government, public education, infrastructure, science, and basic fairness.\"",
+          "Q25 follow-up: \"implementation plans and accountability\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "He has limited routine personal police contact and no arrests for himself or immediate family.",
+        "ground_truth_label": "Limited law-enforcement contact; no immediate-family arrests",
+        "behavioral_evidence_from_interview": [
+          "Q20: \"limited and mostly routine.\"",
+          "Q22: \"No arrests for me or immediate family.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "He supports policing reforms including data transparency, misconduct accountability, mental-health response options, and outcome-measured training.",
+        "ground_truth_label": "Operationally cautious policing reform support",
+        "behavioral_evidence_from_interview": [
+          "Q27 follow-up: \"Better data transparency, stronger accountability for misconduct, mental health response options\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "He responded to race and policing issues through conversations, donations, voting, and policy support rather than joining protests.",
+        "ground_truth_label": "Non-protest civic response to BLM-era issues",
+        "behavioral_evidence_from_interview": [
+          "Q29: \"talked with family, friends, and coworkers, donated... supported some policy changes.\"",
+          "Q29: \"I have not joined protests.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "He views race in the U.S. as connected to housing, schools, wealth, policing, health care, and metro Detroit city-suburb divides.",
+        "ground_truth_label": "Structural view of race in metro Detroit",
+        "behavioral_evidence_from_interview": [
+          "Q28: \"race is woven into housing, schools, wealth, policing, and health care\"",
+          "Q28: \"Metro Detroit makes that visible\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "He values Miles Davis records and experiences music as a source of peace or spiritual feeling.",
+        "ground_truth_label": "Jazz/music appreciation",
+        "behavioral_evidence_from_interview": [
+          "Q109: \"a Miles Davis record\"",
+          "Q47: \"peace outdoors, in music\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "The interview provides no explicit fashion preferences; his lifestyle presentation appears practical and low-key.",
+        "ground_truth_label": "No explicit fashion preference",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"Weeknights are dinner, kid logistics, maybe a little garage time\"",
+          "Q56: \"car parts\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "He identifies as White and not Hispanic, Latinx, or Spanish origin.",
+        "ground_truth_label": "Non-Hispanic White identity",
+        "behavioral_evidence_from_interview": [
+          "Q88: \"No.\"",
+          "Q89: \"White.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "His ancestry is mostly English and German, and he grew up speaking only English at home.",
+        "ground_truth_label": "English/German ancestry; English-only home language",
+        "behavioral_evidence_from_interview": [
+          "Q88 follow-up: \"Mostly English and German.\"",
+          "Q88 follow-up: \"No.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "He was raised Lutheran and now describes himself as culturally Christian, lightly Lutheran, and not very active.",
+        "ground_truth_label": "Culturally Christian/lightly Lutheran",
+        "behavioral_evidence_from_interview": [
+          "Q47: \"I was raised Lutheran\"",
+          "Q47: \"culturally Christian, lightly Lutheran\"",
+          "Q94: \"Lutheran Christian, though not very active.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "He was born in the United States and has not lived outside the U.S.",
+        "ground_truth_label": "U.S.-born with no foreign residence",
+        "behavioral_evidence_from_interview": [
+          "Q86: \"Yes, I was born in the United States.\"",
+          "Q86 follow-up: \"No, only traveled internationally.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "He was born in Royal Oak, grew up in suburban Detroit and Troy, and attended Michigan State University.",
+        "ground_truth_label": "Metro Detroit upbringing and MSU education",
+        "behavioral_evidence_from_interview": [
+          "Q87: \"Royal Oak, Michigan.\"",
+          "Q97: \"Troy, Michigan.\"",
+          "Q90 follow-up: \"Michigan State University.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "He married Megan in his late twenties and has been married about nineteen years.",
+        "ground_truth_label": "First long-term marriage to Megan",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"I married Megan in my late twenties\"",
+          "Q84 follow-up: \"About nineteen years.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Hybrid work, Evan's growing independence, Claire's volleyball schedule, and aging parents have changed his recent routine.",
+        "ground_truth_label": "Recent routine transitions",
+        "behavioral_evidence_from_interview": [
+          "Q18: \"work has become more hybrid\"",
+          "Q18: \"Evan getting older\"",
+          "Q18: \"Claire's volleyball schedule\"",
+          "Q35: \"parents' health is becoming more of an issue.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "He uses Facebook for family, neighborhood, school, and old-college-friend updates; Instagram for photography and cars; and LinkedIn professionally.",
+        "ground_truth_label": "Light practical social media use",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"Facebook is mostly extended family, neighborhood updates, school announcements, and old college friends.\"",
+          "Q48: \"Instagram is where I post occasional landscape photos or car restoration shots\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "He avoids online political arguments and barely uses Twitter because it became too noisy.",
+        "ground_truth_label": "Avoids low-signal social media politics",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"I avoid political arguments online\"",
+          "Q48 follow-up: \"I had Twitter, now I barely use it. It became too noisy\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "He prefers local papers, NPR, technical blogs, newsletters, careful reporting, books, coworkers' perspectives, museum exhibits, and some podcasts for information.",
+        "ground_truth_label": "Careful source-oriented information diet",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"local papers, NPR, technical blogs, and newsletters.\"",
+          "Q28 follow-up: \"Local reporting, books, coworkers' perspectives, museum exhibits, and sometimes podcasts.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "He does not use social media for financial support and prefers direct texts or calls for emotional support.",
+        "ground_truth_label": "Direct interpersonal support over social media support",
+        "behavioral_evidence_from_interview": [
+          "Q49: \"I do not use social media for financial support\"",
+          "Q49: \"If something is hard, I text or call actual people.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "reprojected",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Stanley is 47 years old.",
+        "ground_truth_label": "Age 47",
+        "behavioral_evidence_from_interview": [
+          "Q85 follow-up: \"And that makes you 47 today?\" \"Yes.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "reprojected",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": "summaries.demographer",
+        "claim": "He has a bachelor's degree in computer information systems from Michigan State University.",
+        "ground_truth_label": "Bachelor's in computer information systems from MSU",
+        "behavioral_evidence_from_interview": [
+          "Q90: \"Bachelor's degree.\"",
+          "Q90 follow-up: \"Computer information systems.\"",
+          "Q90 follow-up: \"Michigan State University.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.life_events_and_transitions"
+        ]
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "He automates savings and tracks budgets in spreadsheets to manage uncertainty.",
+        "ground_truth_label": "Automated savings and spreadsheet budgeting",
+        "behavioral_evidence_from_interview": [
+          "Q61: \"I automate a lot of it\"",
+          "Q57 follow-up: \"Yes, in a spreadsheet and through bank categories.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.home_and_lifestyle"
+        ]
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "He is willing to invest in long-term human capital through AWS and TOGAF certifications.",
+        "ground_truth_label": "Human-capital investment through certifications",
+        "behavioral_evidence_from_interview": [
+          "Q91 follow-up: \"I am studying for AWS Solutions Architect and considering TOGAF.\"",
+          "Q108: \"finish AWS Solutions Architect and TOGAF\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.work_and_career"
+        ]
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "He exhibits moderate institutional trust, especially in public health, schools, libraries, and local civic institutions.",
+        "ground_truth_label": "Moderate institutional trust",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"tech literacy sessions at the Bloomfield Township library\"",
+          "Q23: \"school boards, library funding\"",
+          "Q42: \"Our family doctor, the CDC, the Michigan health department\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.community_and_civic",
+          "preferences.media_and_information_diet"
+        ]
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "His core identity centers on reliability, usefulness, curiosity, family, and practical service.",
+        "ground_truth_label": "Reliability/usefulness/family/service self-concept",
+        "behavioral_evidence_from_interview": [
+          "Q109: \"Reliability, curiosity, family, and usefulness.\"",
+          "Q109: \"help your neighbor, support the library, mentor a kid\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.community_and_civic"
+        ]
+      }
+    ]
+  }
+}

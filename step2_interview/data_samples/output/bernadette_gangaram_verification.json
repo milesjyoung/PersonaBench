@@ -1,0 +1,2641 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "9485b0e97a604fa39c8739fe524d13dd",
+      "name": "Bernadette Gangaram",
+      "verification_date": "2026-05-21"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age 28 and female sex align with interview DOB confirmation and self-description.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed age, sex",
+              "source_b_ref": "Q85, Q89",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed location Denver, CO 80249 aligns with interview description of living in Denver's 80249 area near Green Valley Ranch/airport side.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed city/state/zipcode",
+              "source_b_ref": "Q08",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed marital status never_married aligns with interview saying she has never married, has no partner, and has no children.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed marital_status",
+              "source_b_ref": "Q05, Q84",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 4,
+              "text": "Seed high school education aligns with interview reporting a high school diploma plus CDL and certifications, with no college degree.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed education_level",
+              "source_b_ref": "Q90",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 5,
+              "text": "Seed occupational classification aligns with interview description of industrial truck/tractor and heavy-equipment operation with logistics coordination.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed occupation, skills_and_expertise",
+              "source_b_ref": "Q16, Q65",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile top-level demographics accurately represent age, gender, marital status, location, education, and occupation from the interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q84-Q90, Q16, Q65",
+              "source_b_ref": "corrected_extracted_profile top-level fields",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile correctly represents the household as a rented apartment with one roommate and separate finances.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q11, Q51-Q58",
+              "source_b_ref": "preferences.social_and_relationships, preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile captures U.S.-born, White, non-Hispanic Colorado-native identity and Denver-suburban upbringing.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q86-Q89, Q97-Q99",
+              "source_b_ref": "preferences.cultural_and_linguistic, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Interview gives precise household exclusions: no pets, no regular guests, no temporary members, and no one away; draft profile only partly captured this.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q12-Q14, Q51-Q55",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add household-count and no-pets/no-regular-guests detail to preferences.home_and_lifestyle.",
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 5,
+              "text": "Interview includes parents' education and childhood household structure that are not fully represented in draft cultural details.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q98-Q101",
+              "source_b_ref": "preferences.cultural_and_linguistic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add details that she lived with both parents and younger brother at 16 and that both parents had high school-level education with trade/community-college training.",
+              "disposition": "CARRY_FORWARD"
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Top-level marital status, social preferences, household preferences, and demographer summary consistently state no spouse, no partner, no children, and one roommate.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "top-level marital_status, preferences.social_and_relationships",
+              "field_b": "preferences.home_and_lifestyle, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Education and work fields consistently describe high school plus trade/CDL credentials rather than a college degree.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "top-level education",
+              "field_b": "preferences.work_and_career, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Location, cultural identity, and home/lifestyle sections consistently place her in Denver's 80249 area with Denver-suburban roots.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "top-level location, preferences.home_and_lifestyle",
+              "field_b": "preferences.cultural_and_linguistic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview provides exact DOB, June 14, 1997, which is absent from the draft profile.",
+              "gap": true,
+              "interview_ref": "Q85",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add DOB detail to preferences.cultural_and_linguistic."
+            },
+            {
+              "id": 2,
+              "text": "Interview clarifies household has two leaseholders, no pets, no regular visitors, no temporary members, and no one away.",
+              "gap": true,
+              "interview_ref": "Q12-Q14, Q51-Q55",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add no-pets/no-temporary-household detail to preferences.home_and_lifestyle."
+            },
+            {
+              "id": 3,
+              "text": "Interview states both parents' educational attainment and childhood household composition at age 16.",
+              "gap": true,
+              "interview_ref": "Q98-Q101",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add parent education and age-16 household details to preferences.cultural_and_linguistic."
+            },
+            {
+              "id": 4,
+              "text": "Interview describes neighborhood tradeoffs: airport noise, traffic, less walkability, lower rent, and practical access to job sites.",
+              "gap": true,
+              "interview_ref": "Q08-Q10",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add neighborhood practical-access and tradeoff detail to preferences.home_and_lifestyle."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes disciplined budgeting with creative splurges; interview confirms Friday budget checks, savings transfers, controlled art/hiking spending, and cutbacks when costs rise.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona",
+              "source_b_ref": "Q17, Q56-Q62",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 2,
+              "text": "Seed's methodical mindset aligns with interview evidence of option comparison, cost/pay calculations, checklists, route planning, and record keeping.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed professional_persona, skills_and_expertise",
+              "source_b_ref": "Q03, Q16, Q65",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed's interest in sustainable logistics and autonomous technology aligns with interview interest in electric machinery, autonomous equipment, routing software, and cleaner fleets.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed career_goals_and_ambitions",
+              "source_b_ref": "Q25, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed says she prefers meticulously planned travel; interview confirms a travel savings bucket and careful planning for Iceland.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed travel_persona",
+              "source_b_ref": "Q61-Q62, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 5,
+              "text": "Seed presents her as an intermediate home chef; interview confirms meal prep, cooking at home, restaurant restraint, and specific weeknight meals.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed culinary_persona",
+              "source_b_ref": "Q17-Q18, Q56-Q60",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures her mental accounting through emergency, travel, and certification savings buckets.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q61-Q62",
+              "source_b_ref": "preferences.travel, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures her response to extra expenses through savings, discretionary cutbacks, and overtime rather than borrowing.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q60, Q63-Q64, Q81-Q82",
+              "source_b_ref": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Draft profile underrepresents concrete income, spending, debt, and emergency affordability details from the interview.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q56-Q64, Q72-Q74, Q82-Q83",
+              "source_b_ref": "preferences.home_and_lifestyle, preferences.work_and_career",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add monthly spending, take-home pay, car loan/credit-card debt, and $400 emergency coverage details to relevant preference categories.",
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 4,
+              "text": "Profile correctly captures her future-oriented credential investment and OSHA/training ambitions.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q61, Q108",
+              "source_b_ref": "preferences.work_and_career, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Draft profile does not fully capture that she receives no public benefits and filed taxes with one W-2 and standard deduction.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q75, Q80",
+              "source_b_ref": "preferences.home_and_lifestyle, preferences.work_and_career",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add no public benefits and simple W-2 tax filing to preferences.home_and_lifestyle or work_and_career.",
+              "disposition": "CARRY_FORWARD"
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The profile's careful budgeting, controlled restaurant spending, and occasional creative splurges are internally consistent as bounded discretionary consumption.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.food_and_dining, preferences.home_and_lifestyle",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Career goals, technology interests, and certification savings consistently support future human-capital investment.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career, preferences.technology",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Stable employment and financial caution are not contradictory; the profile consistently depicts stability with limited cushion.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career, preferences.home_and_lifestyle",
+              "field_b": "summaries.demographer, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview provides detailed monthly spending: about $2,600 last month and usually $2,300-$2,400 personally.",
+              "gap": true,
+              "interview_ref": "Q57",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add monthly personal spending range and rent share to preferences.home_and_lifestyle."
+            },
+            {
+              "id": 2,
+              "text": "Interview provides income details: about $4,000 take-home last month, usual $3,700-$3,900, gross around $5,300, paid every two weeks.",
+              "gap": true,
+              "interview_ref": "Q72-Q73",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add pay cadence and income range to preferences.work_and_career."
+            },
+            {
+              "id": 3,
+              "text": "Interview states she has a car loan, small credit-card balance, no student loans, and no family/friend debt.",
+              "gap": true,
+              "interview_ref": "Q63",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add debt profile to preferences.home_and_lifestyle."
+            },
+            {
+              "id": 4,
+              "text": "Interview states she could cover a $400 emergency from savings and would replenish by cutting discretionary spending.",
+              "gap": true,
+              "interview_ref": "Q82",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add $400 emergency capacity to preferences.home_and_lifestyle."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed cultural background says she is open to progressive cultural influences; interview confirms left-leaning independent politics and generally progressive social views.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q24, Q95-Q96",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 2,
+              "text": "Seed emphasizes community involvement and self-reliance; interview shows voting, small donations, family help, and practical neighborliness.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q05, Q08, Q23, Q29",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 3,
+              "text": "Seed occupational safety orientation aligns with interview's regulatory views: she values rules that prevent injuries but wants grounded implementation.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed professional_persona, skills_and_expertise",
+              "source_b_ref": "Q24, Q27, Q65",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed does not specify law-enforcement experiences; interview adds respectful but conditional trust shaped by traffic/work encounters and protest observations.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed data omitted",
+              "source_b_ref": "Q20-Q22",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 5,
+              "text": "Seed gives no party identification; interview adds independent identity closer to Democrats without contradiction.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed data omitted",
+              "source_b_ref": "Q95-Q96",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 4
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately represents voting behavior, ballot research, and non-performative civic engagement.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23",
+              "source_b_ref": "preferences.community_and_civic, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile accurately describes left-leaning Independent identity and usual Democratic voting without strong party attachment.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q24, Q95-Q96",
+              "source_b_ref": "preferences.community_and_civic, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile captures BLM response, one peaceful gathering, and small donations, but underrepresents specific policing reform preferences.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q26-Q30",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add independent review, de-escalation, clearer use-of-force rules, and mental-health response separation to community_and_civic.",
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 4,
+              "text": "Profile captures conditional institutional trust but omits her concrete law-enforcement encounters and lack of arrests.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q20-Q22",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add traffic/work law-enforcement encounters, no arrests, and caution around unequal policing experiences.",
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 5,
+              "text": "Profile correctly connects political preferences to work, public lands, climate, labor, housing, and health care.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q24-Q25",
+              "source_b_ref": "preferences.community_and_civic, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Community/civic preferences and political summary consistently frame her as left-leaning, independent, and implementation-focused.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Work/career support for safety rules is consistent with political support for worker protections and competent regulation.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Technology and climate-policy preferences are consistent: both favor cleaner fleets and electrification with practical worker-centered implementation.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.technology",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview includes specific police-contact history: taillight warning, work interactions around oversized loads/traffic control, and no arrests.",
+              "gap": true,
+              "interview_ref": "Q20-Q22",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add law-enforcement experience detail to community_and_civic."
+            },
+            {
+              "id": 2,
+              "text": "Interview gives specific policing reforms she supports: independent review, de-escalation, clearer use-of-force rules, and separating some mental-health calls from armed response.",
+              "gap": true,
+              "interview_ref": "Q27",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add reform preferences to community_and_civic."
+            },
+            {
+              "id": 3,
+              "text": "Interview states her family and workplace are politically mixed and she chooses conversations carefully.",
+              "gap": true,
+              "interview_ref": "Q23, Q30",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add selective political-conversation detail to social_and_relationships."
+            },
+            {
+              "id": 4,
+              "text": "Interview states current workplace is not union-covered, though she supports unions and worker protections.",
+              "gap": true,
+              "interview_ref": "Q24, Q66",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Ensure work_and_career retains non-union status and union-support distinction."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed's methodical, detail-driven identity is strongly confirmed by interview patterns of checklists, inspections, budgeting, and structured routines.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed persona, professional_persona",
+              "source_b_ref": "Q03, Q15-Q18, Q65",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed's quiet solitary rhythm aligns with interview descriptions of small social circles, solo hikes, quiet evenings, and privacy around stress.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed persona, sports_persona",
+              "source_b_ref": "Q01, Q07, Q38, Q49",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed's art-infused and curiosity-driven self-concept aligns with interview evidence of drawing, watercolor, museums, technology curiosity, and nonfiction learning.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed arts_persona, hobbies_and_interests",
+              "source_b_ref": "Q01, Q07, Q43, Q48, Q108-Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed mentions disciplined budgeting but not anxiety; interview adds anxiety tendencies around money, safety, and responsibility without contradicting seed.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona",
+              "source_b_ref": "Q43-Q45, Q50",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 5,
+              "text": "Seed's values of hard work and self-reliance align with interview's stated values of reliability, independence, safety, and care.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q109",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately portrays conscientiousness, self-reliance, quiet creativity, and competence-based identity.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01-Q04, Q65, Q109",
+              "source_b_ref": "summaries.psychologist, preferences.work_and_career, preferences.arts_and_culture",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures anxiety tendencies and coping through lists, routines, hiking, painting, cooking, sleep, and practical action.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q43-Q45, Q50",
+              "source_b_ref": "summaries.psychologist, preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Draft profile underrepresents the near-miss work incident that shaped stress, responsibility, and safety behavior in the last year.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q44",
+              "source_b_ref": "preferences.life_events_and_transitions, preferences.work_and_career",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add near-miss story and procedural response to life_events_and_transitions.",
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 4,
+              "text": "Profile accurately represents selective relational style and practical care through family, Marisol, Trey, and roommate boundaries.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q05-Q07, Q11, Q46",
+              "source_b_ref": "preferences.social_and_relationships, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Draft profile does not fully capture her nonreligious, mildly nature-spiritual orientation and agnostic/nothing-in-particular identity.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q47, Q94",
+              "source_b_ref": "preferences.cultural_and_linguistic, preferences.nature_and_outdoors",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add no current religious affiliation and nature-based mild spirituality to cultural_and_linguistic and nature_and_outdoors.",
+              "disposition": "CARRY_FORWARD"
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Health, nature, arts, and psychologist summary consistently describe adaptive coping rather than substance-based coping.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness, preferences.nature_and_outdoors",
+              "field_b": "preferences.arts_and_culture, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Her small-circle relational style is consistent across social, entertainment, and psychologist summary sections.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships, preferences.entertainment",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Independence, reliability, financial discipline, and career mastery are mutually reinforcing throughout the profile.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.home_and_lifestyle, preferences.work_and_career",
+              "field_b": "preferences.life_events_and_transitions, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview explicitly states anxiety tendencies are not formally diagnosed and depression is not endorsed.",
+              "gap": true,
+              "interview_ref": "Q45",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add no formal anxiety diagnosis and no self-reported depression to health_and_wellness."
+            },
+            {
+              "id": 2,
+              "text": "Interview provides the emotionally significant work near-miss and her response through documentation, supervisor discussion, and hiking.",
+              "gap": true,
+              "interview_ref": "Q44",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add near-miss and procedural change to life_events_and_transitions."
+            },
+            {
+              "id": 3,
+              "text": "Interview states she does not use social media for emotional or financial support and instead contacts Marisol or her mother.",
+              "gap": true,
+              "interview_ref": "Q49",
+              "should_be_in": "preferences.media_and_information_diet",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add private support-seeking pattern to media_and_information_diet."
+            },
+            {
+              "id": 4,
+              "text": "Interview states core values: reliability, independence, safety, attention to the real world, and beauty/care.",
+              "gap": true,
+              "interview_ref": "Q109",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add values statement to life_events_and_transitions."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No contradictions required review. Several interview-supported demographic, financial, civic, psychological, household, and health details were missing or underrepresented, so targeted revisions were applied.",
+    "final_status": "Corrected profile is ready for downstream use after gap-filling and hidden_facts generation."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "9485b0e97a604fa39c8739fe524d13dd",
+    "name": "Bernadette Gangaram",
+    "age": 28,
+    "gender": "Female",
+    "marital_status": "Never married; not living with a romantic partner; no children",
+    "location": "Denver, CO 80249",
+    "education": "High school diploma plus CDL, endorsements, and equipment-related certifications; no college degree",
+    "occupation": "Industrial truck and tractor operator / heavy-equipment operator with logistics coordination duties",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Generally healthy and practical about wellness, with emphasis on sleep, stretching, packed meals, hiking, and injury prevention.",
+        "details": [
+          "Reports no major chronic illness and manages lower-back and shoulder soreness with stretching, heat, posture, and occasional ibuprofen (Q31, Q33).",
+          "Uses predictable sleep, meal prep, hiking, and trail running to maintain health (Q31, Q32, Q43).",
+          "Supports vaccination and trusts medical/public-health sources (Q41, Q42).",
+          "Has anxiety tendencies around responsibility, money, and safety, but no formal anxiety diagnosis and does not think she has depression (Q43-Q45).",
+          "Does not smoke, drinks lightly a few times a month, rarely uses marijuana because of equipment/CDL safety and drug-testing concerns, and avoids using substances for coping (Q38-Q39).",
+          "Has employer health insurance, contributes modestly to a health savings setup, delayed dental crown work because of cost, and keeps emergency savings partly for medical or dental surprises (Q36, Q40)."
+        ],
+        "evidence": "Q31-Q45"
+      },
+      "food_and_dining": {
+        "summary": "Intermediate home cook who budgets carefully but enjoys intentional restaurant meals and Colorado-inspired food.",
+        "details": [
+          "Cooks rice bowls, soup, grilled chicken, roasted vegetables, ramen, and meal-prepped lunches (Q17, Q18).",
+          "Cuts back on takeout and restaurant spending when expenses rise (Q18, Q60).",
+          "Enjoys occasional farm-to-table dining and had a beer with dinner recently (Q39, Q56).",
+          "Groceries are a major recurring expense, and she plans lunches on Sunday to avoid buying burritos or sandwiches near work (Q18, Q56-Q57)."
+        ],
+        "evidence": "Q17, Q18, Q39, Q56-Q60"
+      },
+      "travel": {
+        "summary": "Prefers planned adventure travel and is saving for a future Iceland trip.",
+        "details": [
+          "Maintains a travel savings bucket and specifically wants to visit Iceland's highlands and volcanic landscapes (Q62, Q108).",
+          "Uses careful planning and budgeting to make travel possible (Q61, Q62).",
+          "Took some PTO in the past year for travel and family time (Q67)."
+        ],
+        "evidence": "Q61, Q62, Q67, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "Small, stable support network centered on parents, brother, roommate, close friend Marisol, coworker Trey, and activity-based hiking/running contacts.",
+        "details": [
+          "Never married, no children, not currently partnered, and would need any future relationship to respect independence and quiet time (Q05, Q84).",
+          "Sees parents a couple times a month, texts mother several times weekly, and relies on her mother for stress and budget decisions (Q05).",
+          "Closest friend is Marisol; they cook, visit museums, attend board-game nights, and talk openly about nuanced issues (Q07, Q30).",
+          "Lives with roommate Lena and splits rent/utilities while keeping finances separate (Q11, Q55).",
+          "Has one younger brother, several cousins who are more holiday-and-Facebook close, and a trusted coworker named Trey (Q05-Q07).",
+          "Family and workplace politics are mixed, so she chooses when to discuss political or racial issues and avoids turning lunch into an argument unless someone crosses a line (Q23, Q30)."
+        ],
+        "evidence": "Q05-Q07, Q11, Q23, Q30, Q51-Q55, Q84"
+      },
+      "home_and_lifestyle": {
+        "summary": "Rents a shared apartment in Denver's 80249 area, lives quietly and practically, and values organization, tools, and a personal art workspace.",
+        "details": [
+          "Lives with one roommate in a rented apartment near Green Valley Ranch/airport side (Q08, Q11, Q58).",
+          "Keeps a drafting table, watercolors, manuals, and nonfiction books in her room (Q11).",
+          "Uses weekly routines for groceries, laundry, meal prep, budgeting, and car/tool maintenance (Q15, Q17).",
+          "Household count is two leaseholders, with no pets, no temporary household members, no regular overnight guests, and no one away who usually lives there (Q12-Q14, Q51-Q55).",
+          "Neighborhood fits her because rent is more manageable and access to job sites and warehouses is practical, but traffic, airport noise, weak walkability, and distance from central Denver arts are downsides (Q08-Q10).",
+          "Her rent share is about $1,050 before utilities, her usual personal monthly spending is about $2,300-$2,400, and last month was about $2,600 because of dental and gear expenses (Q57).",
+          "Has a car loan, a small credit-card balance she pays down monthly, no student loans, and no family or friend debt (Q63).",
+          "Could cover a $400 emergency from savings and would replenish it by cutting discretionary spending (Q82).",
+          "Does not receive SNAP, housing vouchers, SSI, unemployment, disability, or similar benefits (Q80)."
+        ],
+        "evidence": "Q08-Q17, Q51-Q58, Q63, Q80, Q82"
+      },
+      "entertainment": {
+        "summary": "Low-key entertainment includes board games, sports viewing, YouTube learning, museum visits, and occasional shows or meals with friends.",
+        "details": [
+          "Attends board-game nights with friends and sometimes hosts friends after late game nights (Q07, Q13).",
+          "Watches Avalanche games and reacts to Broncos or Avalanche online (Q15, Q48).",
+          "Uses YouTube for repair videos, equipment demos, cooking techniques, and logistics/sustainability talks (Q48).",
+          "Sometimes watches a show or shares dinner with roommate Lena, but they mostly do their own thing (Q11)."
+        ],
+        "evidence": "Q07, Q11, Q13, Q15, Q48"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Enjoys watercolor painting, sketching, hiking, trail running, climbing gym sessions, photography, cooking, DIY repairs, and board games.",
+        "details": [
+          "Paints and sketches, especially industrial and Colorado landscapes (Q01, Q11, Q43).",
+          "Hikes and participates in summer trail running (Q15, Q32, Q43).",
+          "Does DIY maintenance and mechanical projects to save money and stay capable (Q17, Q106).",
+          "Has used a climbing gym, and a work/climbing combination contributed to a wrist strain last year (Q33).",
+          "Likes practical weekend projects such as fixing a cabinet hinge or organizing gear (Q17)."
+        ],
+        "evidence": "Q01, Q11, Q15, Q17, Q32, Q33, Q43, Q106"
+      },
+      "work_and_career": {
+        "summary": "Detail-driven heavy-equipment operator aiming to move into training, safety, supervision, OSHA instruction, and eventually logistics/mechanical education or consulting.",
+        "details": [
+          "Operates skid-steers, front-end loaders, bulldozers, industrial trucks, forklifts when needed, and handles inspections, hydraulics checks, load staging, route planning, and inventory records (Q16, Q65).",
+          "Works full time, roughly 40-45 hours weekly, at one non-union job with benefits (Q66-Q78).",
+          "Wants advanced heavy-equipment certification, OSHA trainer status, and possible associate coursework in logistics or mechanical technology (Q61, Q108).",
+          "Has been at her current job about four years and receives health insurance, PTO, sick time, some retirement match, and safety gear support, though dental coverage could be better (Q76).",
+          "Usually works 6:00 a.m. to 2:30 or 3:00 p.m., Monday through Friday, with occasional overtime and some Saturdays (Q16, Q68-Q69, Q78).",
+          "Brought home about $4,000 last month after taxes and deductions, usually takes home about $3,700-$3,900, grossed about $5,300 last month, and is paid every two weeks by direct deposit (Q72-Q73).",
+          "Filed taxes last year with tax software, one W-2, the standard deduction, and received a modest refund (Q75).",
+          "Supports unions and worker protections, but her current workplace is not union-covered and she has never worked a union job (Q24, Q66)."
+        ],
+        "evidence": "Q16, Q24, Q61, Q65-Q78, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Art is central to her identity, especially watercolor, industrial silhouettes, Denver Art Museum visits, and visual observation.",
+        "details": [
+          "High school art teacher encouraged her sketches of buildings, cranes, and job-site shapes (Q01).",
+          "Visits Denver Art Museum with Marisol and follows watercolor artists online (Q07, Q48).",
+          "Uses painting to regulate stress and preserve beauty in practical life (Q43, Q109).",
+          "Her room includes a drafting table and watercolors (Q11)."
+        ],
+        "evidence": "Q01, Q07, Q11, Q43, Q48, Q109"
+      },
+      "sports_and_fitness": {
+        "summary": "Fitness is solitary and outdoors-oriented, with interest in hiking, trail running, climbing, and Denver sports fandom.",
+        "details": [
+          "Summer trail running and weekend hikes are part of her routine (Q15, Q32).",
+          "Has used a climbing gym and experienced a wrist strain after work/climbing combination (Q33).",
+          "Follows Colorado Avalanche and Denver Broncos (Q15, Q48).",
+          "Running is the first healthy habit to slip when work runs long (Q32)."
+        ],
+        "evidence": "Q15, Q32, Q33, Q48"
+      },
+      "nature_and_outdoors": {
+        "summary": "Colorado landscapes and mountain access are emotionally grounding and tied to her spirituality, recreation, art, and future travel dreams.",
+        "details": [
+          "Finds perspective and calm in mountains and trails (Q43, Q47).",
+          "Values Colorado identity, open sky, trails, and mountain scenes (Q08, Q108, Q109).",
+          "Wants to photograph Icelandic volcanic landscapes in future (Q62, Q108).",
+          "Describes herself as not religious but mildly spiritual in nature, with mountains giving her perspective (Q47, Q94)."
+        ],
+        "evidence": "Q08, Q43, Q47, Q62, Q94, Q108, Q109"
+      },
+      "technology": {
+        "summary": "Curious and pragmatic about emerging logistics, autonomous equipment, electric machinery, and software when it improves safety and efficiency.",
+        "details": [
+          "Uses GPS and fleet-management software for route and logistics work (Q65).",
+          "Interested in autonomous equipment, electric machinery, cleaner fleets, and routing software (Q25, Q108).",
+          "Uses YouTube and nonfiction learning for repair, equipment demos, and sustainability/logistics topics (Q48).",
+          "Wants cleaner fleet technology implemented in ways workers can maintain and afford (Q25)."
+        ],
+        "evidence": "Q25, Q48, Q65, Q108"
+      },
+      "community_and_civic": {
+        "summary": "Civically engaged but not performative; votes regularly in major elections, studies ballots, supports practical reform, and values community responsibility.",
+        "details": [
+          "Votes in presidential and usually midterm elections, using mail voting and ballot guides, but has missed smaller local elections (Q23).",
+          "Left-leaning independent with interest in labor, health care, public lands, housing, and climate policy (Q24, Q95, Q96).",
+          "Attended one peaceful racial justice gathering and has donated small amounts to legal aid/community groups (Q26, Q29).",
+          "Supports unions, worker protections, social progressivism, and practical climate policy, while disliking culture-war politics and slogans without implementation details (Q24-Q25, Q95-Q96).",
+          "Direct law-enforcement experience is limited to a taillight warning and work-related traffic/oversized-load contexts; she has never been arrested and has no immediate family arrests (Q20-Q22).",
+          "Thinks policing issues center on accountability and unequal treatment and supports independent review, better de-escalation, clearer use-of-force rules, and separating some mental-health calls from armed response (Q26-Q27)."
+        ],
+        "evidence": "Q20-Q30, Q95, Q96"
+      },
+      "music": {
+        "summary": "Music is present as a quiet support for art and downtime, though the interview gives limited direct detail.",
+        "details": [
+          "Listens to music while painting and uses it as part of relaxation (Q43).",
+          "No detailed artist list appears in the transcript beyond general use of music for painting/downtime (Q43)."
+        ],
+        "evidence": "Q43"
+      },
+      "fashion_and_appearance": {
+        "summary": "Limited evidence; appearance preferences are practical and work-oriented rather than fashion-driven.",
+        "details": [
+          "Spends on durable boots, work clothing, hiking gear, and safety gear rather than fashion items (Q59, Q60, Q76).",
+          "Workplace provides some safety gear support (Q76)."
+        ],
+        "evidence": "Q59, Q60, Q76"
+      },
+      "cultural_and_linguistic": {
+        "summary": "White, non-Hispanic, U.S.-born Colorado native raised in a practical middle-class Denver-area family shaped by construction, agricultural supply work, outdoor culture, and local arts exposure.",
+        "details": [
+          "Born in Denver, Colorado, U.S.; identifies as White and not Hispanic/Latinx/Spanish origin (Q86-Q89).",
+          "Raised in Denver suburbs with both parents and younger brother (Q97-Q99).",
+          "Family background includes construction/equipment work and agricultural supply administration (Q103-Q107).",
+          "Date of birth is June 14, 1997 (Q85).",
+          "At age 16, lived with both married parents and her younger brother in the Denver metro area, with no grandparents, relatives, foster, or stepfamily members in the home (Q97-Q99).",
+          "Father completed high school plus trade training/certifications; mother completed high school with some community-college office/bookkeeping classes but no degree (Q100-Q101).",
+          "Raised loosely around Christian holidays and values, but currently has no religious affiliation and describes herself as nothing in particular, leaning agnostic (Q47, Q94)."
+        ],
+        "evidence": "Q47, Q85-Q101, Q103-Q107"
+      },
+      "life_events_and_transitions": {
+        "summary": "Key transition was choosing skilled equipment/logistics work after high school instead of full-time college or retail, leading to a stable trade career and future training ambitions.",
+        "details": [
+          "After high school, chose a yard job and equipment/CDL path over college full time or retail (Q02, Q03).",
+          "Has built independence through work, renting, budgeting, and certifications (Q01, Q61, Q83).",
+          "Recent transition includes taking on training responsibilities for newer operators (Q18, Q65, Q108).",
+          "A near-miss at work last fall made her replay responsibility and safety concerns, then led her to talk with her supervisor, document needed changes, and support tighter staging and radio-confirmation procedures (Q44).",
+          "Core values include reliability, independence, safety, attention to the real world, and beauty shown through care in work, mountains, meals, and watercolor (Q109)."
+        ],
+        "evidence": "Q01-Q04, Q18, Q44, Q61, Q65, Q83, Q108-Q109"
+      },
+      "media_and_information_diet": {
+        "summary": "Uses Instagram, Facebook, YouTube, local news, ballot guides, official public-health sources, and issue-specific reading while distrusting unsourced social media claims.",
+        "details": [
+          "Instagram for trails, watercolor artists, machinery, restaurants, and galleries; Facebook for family, events, and hiking groups (Q48).",
+          "YouTube for repair videos, equipment demos, cooking, sustainability, and logistics talks (Q48).",
+          "Uses state ballot guides, local news, nonprofit voter guides, CDC, Colorado public health, and primary care provider for trusted information (Q23, Q42).",
+          "Uses local reporting, books, podcasts, and conversations with friends or coworkers to learn about race and policing (Q28).",
+          "Does not use social media for financial support and rarely uses it for emotional support; she texts Marisol or calls her mother instead (Q49).",
+          "Reduced nighttime doomscrolling because it was hurting sleep (Q50)."
+        ],
+        "evidence": "Q23, Q28, Q42, Q48-Q50"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Bernadette Gangaram is a 28-year-old never-married White non-Hispanic woman born in Denver, Colorado, and currently renting with one roommate in Denver's 80249 area (Q84-Q89, Q51-Q58). She has no children and is not living with a romantic partner, with her support network centered on parents, a younger brother, a close friend, a roommate, and trusted coworkers (Q05-Q07, Q11). Her highest formal education is a high school diploma, supplemented by CDL and trade certifications rather than a college degree (Q90). Her household position is economically stable but cost-conscious, reflecting a working adult with steady full-time employment but limited cushion in a high-cost metro area (Q56-Q64, Q82-Q83).",
+      "behavioral_economist": "Bernadette shows strong planning behavior, loss aversion around debt and emergencies, and a preference for predictable routines that reduce uncertainty (Q15, Q17, Q61-Q64). She uses mental accounting through separate savings buckets for emergencies, travel, and certifications, and she responds to financial pressure by cutting discretionary spending and taking overtime rather than borrowing (Q60-Q63). Her investments in certifications and OSHA training show patient, future-oriented human-capital planning (Q61, Q108). She permits controlled splurges on art, food, hiking gear, and travel, but only inside a disciplined budgeting system (Q56-Q62).",
+      "political_scientist": "Bernadette is a left-leaning Independent who usually votes Democratic but resists strong partisan identity (Q23-Q24, Q95-Q96). Her politics combine worker safety, labor protections, health care, housing, public lands, and climate policy with a trades-based concern for implementation and effects on contractors and workers (Q24-Q25). She is civically engaged through voting, ballot research, occasional discussion, small donations, and one peaceful racial justice gathering, but she is not highly performative or activist-centered (Q23, Q26-Q30). Her institutional trust is conditional: she values competent public systems and accountability while distrusting slogans and poorly designed rules (Q24, Q27).",
+      "psychologist": "Bernadette presents as conscientious, methodical, self-reliant, and observant, with identity rooted in competence, safety, practical skill, and quiet creativity (Q01-Q04, Q65, Q109). She has anxiety tendencies around responsibility, money, and safety, but manages them through lists, routines, hiking, painting, sleep, cooking, and practical action (Q43-Q45, Q50). Her relational style is intimate but selective: she keeps a small circle, values reliability, and often expresses care through concrete help rather than emotional display (Q05-Q07, Q46). Her motivational structure blends mastery, independence, and aesthetic attention, visible in both equipment work and watercolor/artistic practice (Q43, Q65, Q108-Q109)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Bernadette reports no major chronic illness.",
+        "ground_truth_label": "No major chronic illness",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"I do not have a major chronic illness that I know of.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Bernadette manages lower-back and shoulder soreness with stretching, heat, posture, and occasional ibuprofen.",
+        "ground_truth_label": "Manages musculoskeletal soreness conservatively",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"I get tight shoulders and lower-back soreness\"",
+          "Q31: \"Stretching, heat, better lifting habits, and occasionally ibuprofen.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Bernadette uses predictable sleep to support health.",
+        "ground_truth_label": "Sleep-based health maintenance",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"keep my sleep steady\"",
+          "Q15: \"Around 9:30 on work nights.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Bernadette uses meal prep and packed lunches to support health.",
+        "ground_truth_label": "Meal-prep health routine",
+        "behavioral_evidence_from_interview": [
+          "Q32: \"Packing lunch. Once it is made, I will eat it.\"",
+          "Q18: \"I started planning lunches on Sunday\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Bernadette supports vaccination and received COVID and flu shots.",
+        "ground_truth_label": "Pro-vaccine",
+        "behavioral_evidence_from_interview": [
+          "Q41: \"I am pro-vaccine.\"",
+          "Q41: \"I got COVID shots and flu shots\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Bernadette trusts medical and public-health sources for vaccine information.",
+        "ground_truth_label": "Trusts official medical/public-health sources",
+        "behavioral_evidence_from_interview": [
+          "Q42: \"I trust my primary care provider, the Colorado Department of Public Health, the CDC\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Bernadette has anxiety tendencies around responsibility, money, and safety.",
+        "ground_truth_label": "Anxiety tendencies around responsibility, money, and safety",
+        "behavioral_evidence_from_interview": [
+          "Q45: \"I have anxiety tendencies, mostly around responsibility, money, and safety.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Bernadette has not been formally diagnosed with an anxiety disorder.",
+        "ground_truth_label": "No formal anxiety diagnosis",
+        "behavioral_evidence_from_interview": [
+          "Q45: \"I have not been formally diagnosed with an anxiety disorder\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Bernadette does not think she has depression.",
+        "ground_truth_label": "No self-reported depression",
+        "behavioral_evidence_from_interview": [
+          "Q45: \"I do not think I have depression.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Bernadette does not smoke.",
+        "ground_truth_label": "Non-smoker",
+        "behavioral_evidence_from_interview": [
+          "Q38: \"I do not smoke.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Bernadette drinks lightly, usually two or three times a month.",
+        "ground_truth_label": "Light social alcohol use",
+        "behavioral_evidence_from_interview": [
+          "Q38: \"Maybe two or three times a month, usually lightly.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Bernadette rarely uses marijuana because of work safety and drug-testing concerns.",
+        "ground_truth_label": "Rare marijuana use due to safety-sensitive work",
+        "behavioral_evidence_from_interview": [
+          "Q39: \"I rarely use it because of work safety and drug testing concerns.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Bernadette has employer health insurance.",
+        "ground_truth_label": "Employer-sponsored health insurance",
+        "behavioral_evidence_from_interview": [
+          "Q36: \"I have insurance through work\"",
+          "Q40: \"I pay through my employer plan\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Bernadette delayed dental crown work because of out-of-pocket cost.",
+        "ground_truth_label": "Delayed dental care due to cost",
+        "behavioral_evidence_from_interview": [
+          "Q36: \"A dental crown estimate made me wait and save before scheduling.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Bernadette cooks rice bowls, soup, grilled chicken, roasted vegetables, and ramen during the week.",
+        "ground_truth_label": "Weeknight home cooking repertoire",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"Rice bowls, soup, grilled chicken, roasted vegetables, and sometimes ramen\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Bernadette cuts back on takeout and restaurant meals when expenses rise.",
+        "ground_truth_label": "Cuts dining out under budget pressure",
+        "behavioral_evidence_from_interview": [
+          "Q60: \"cut back on takeout, art supplies, and weekend restaurant meals\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Bernadette enjoys occasional farm-to-table dining.",
+        "ground_truth_label": "Occasional farm-to-table dining",
+        "behavioral_evidence_from_interview": [
+          "Q39: \"one beer with dinner at a farm-to-table place\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Groceries are one of Bernadette's biggest expenses.",
+        "ground_truth_label": "Groceries are major expense",
+        "behavioral_evidence_from_interview": [
+          "Q56: \"Biggest expenses were rent, groceries, gas, car insurance, utilities\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Bernadette maintains a travel savings bucket.",
+        "ground_truth_label": "Dedicated travel savings",
+        "behavioral_evidence_from_interview": [
+          "Q61: \"I keep an emergency fund, a smaller travel fund, and a certification fund.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Bernadette wants to visit Iceland's highlands and volcanic landscapes.",
+        "ground_truth_label": "Future Iceland travel goal",
+        "behavioral_evidence_from_interview": [
+          "Q62: \"Eventually Iceland, especially the highlands and volcanic landscapes.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Bernadette is willing to spend on experiences if she plans them carefully.",
+        "ground_truth_label": "Planned experiential spending",
+        "behavioral_evidence_from_interview": [
+          "Q62: \"I am willing to spend on experiences, but I plan them carefully.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Bernadette has never been married.",
+        "ground_truth_label": "Never married",
+        "behavioral_evidence_from_interview": [
+          "Q84: \"I have never been married\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Bernadette is not living with a romantic partner.",
+        "ground_truth_label": "No cohabiting romantic partner",
+        "behavioral_evidence_from_interview": [
+          "Q84: \"I am not living with a romantic partner.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Bernadette has no children.",
+        "ground_truth_label": "No children",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"I do not have children.\"",
+          "Q52: \"No babies or small children.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Bernadette sees her parents a couple times a month.",
+        "ground_truth_label": "Regular contact with parents",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"I see them a couple times a month\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Bernadette texts her mother several times a week and calls about once a week.",
+        "ground_truth_label": "Frequent maternal contact",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"I text my mom several times a week and call maybe once.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Bernadette's closest friend is Marisol.",
+        "ground_truth_label": "Closest friend Marisol",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"My closest friend is Marisol\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Bernadette and Marisol cook together, visit museums, and attend board-game nights.",
+        "ground_truth_label": "Activities with Marisol",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"We cook together sometimes or go to the Denver Art Museum\"",
+          "Q07: \"board-game night\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Bernadette lives with a roommate named Lena.",
+        "ground_truth_label": "Roommate Lena",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"I live with one roommate, Lena.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Bernadette and Lena split rent and utilities while keeping most finances separate.",
+        "ground_truth_label": "Split shared housing costs with roommate",
+        "behavioral_evidence_from_interview": [
+          "Q55: \"Lena and I split rent and utilities.\"",
+          "Q74: \"we do not pool money.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Bernadette has one younger brother.",
+        "ground_truth_label": "One younger brother",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"I also have one younger brother.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Bernadette is close with a trusted coworker named Trey.",
+        "ground_truth_label": "Trusted coworker Trey",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"I am close with a coworker named Trey\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Bernadette rents an apartment in Denver's 80249 area near Green Valley Ranch and the airport side.",
+        "ground_truth_label": "Rents in Denver 80249",
+        "behavioral_evidence_from_interview": [
+          "Q08: \"I live in the Denver 80249 area\"",
+          "Q58: \"We rent the apartment.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Bernadette keeps a drafting table, watercolors, manuals, and nonfiction books in her room.",
+        "ground_truth_label": "Art/manual workspace at home",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"My room has my drafting table, watercolors, and a few shelves of manuals and nonfiction books.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Bernadette uses Sunday routines for groceries, laundry, meal prep, and reset tasks.",
+        "ground_truth_label": "Sunday reset routine",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"Sundays are usually reset days: groceries, laundry, meal prep\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Bernadette checks spending every Friday.",
+        "ground_truth_label": "Friday budget check-in",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"I check spending every Friday\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Bernadette's household has two leaseholders and no pets.",
+        "ground_truth_label": "Two-person no-pet household",
+        "behavioral_evidence_from_interview": [
+          "Q14: \"So the household count is two? Yes, two.\"",
+          "Q14: \"No pets right now.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "No one regularly stays at Bernadette's apartment.",
+        "ground_truth_label": "No regular overnight guests",
+        "behavioral_evidence_from_interview": [
+          "Q13: \"No one regularly stays here.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Bernadette likes her neighborhood's practical job-site access and manageable rent.",
+        "ground_truth_label": "Neighborhood practical advantages",
+        "behavioral_evidence_from_interview": [
+          "Q08: \"I can get to work sites and warehouses without crossing the whole city.\"",
+          "Q08: \"rent is more manageable\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Bernadette dislikes traffic, airport noise, limited walkability, and distance from central Denver arts in her neighborhood.",
+        "ground_truth_label": "Neighborhood tradeoffs",
+        "behavioral_evidence_from_interview": [
+          "Q10: \"traffic, airport noise, and feeling a little removed from the art scene\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Bernadette's rent share is about $1,050 before utilities.",
+        "ground_truth_label": "Rent share about $1,050",
+        "behavioral_evidence_from_interview": [
+          "Q57: \"About $1,050 before utilities.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Bernadette usually spends about $2,300 to $2,400 personally each month.",
+        "ground_truth_label": "Usual monthly personal spending $2,300-$2,400",
+        "behavioral_evidence_from_interview": [
+          "Q57: \"Usually my personal monthly spending is closer to $2,300 to $2,400\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Bernadette has a car loan and a small credit-card balance but no student loans or family/friend debt.",
+        "ground_truth_label": "Car loan and small credit-card balance only",
+        "behavioral_evidence_from_interview": [
+          "Q63: \"I do not have student loans.\"",
+          "Q63: \"I have a car loan and a small credit card balance\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Bernadette could cover a $400 emergency from savings.",
+        "ground_truth_label": "Can cover $400 emergency from savings",
+        "behavioral_evidence_from_interview": [
+          "Q82: \"I could cover a $400 emergency from savings.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer",
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Bernadette receives no SNAP, housing vouchers, SSI, unemployment, disability, or similar benefits.",
+        "ground_truth_label": "No public assistance benefits",
+        "behavioral_evidence_from_interview": [
+          "Q80: \"No, I do not receive SNAP, housing vouchers, SSI, or similar benefits.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Bernadette attends board-game nights with friends.",
+        "ground_truth_label": "Board-game social activity",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"board-game night\"",
+          "Q13: \"after a late board-game night\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Bernadette watches Colorado Avalanche games.",
+        "ground_truth_label": "Colorado Avalanche fan",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"watching an Avalanche game\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Bernadette posts or reacts online about the Denver Broncos and Colorado Avalanche.",
+        "ground_truth_label": "Broncos and Avalanche online fandom",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"a Broncos or Avalanche reaction\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Bernadette uses YouTube for repair videos, equipment demos, cooking techniques, and sustainability or logistics talks.",
+        "ground_truth_label": "Educational YouTube use",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"YouTube for repair videos, equipment demos, cooking techniques\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Bernadette paints and sketches industrial and Colorado landscapes.",
+        "ground_truth_label": "Watercolor/sketching of industrial and Colorado landscapes",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"I liked drawing, especially buildings, cranes, utility poles\"",
+          "Q43: \"at my desk painting\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Bernadette hikes and participates in summer trail running.",
+        "ground_truth_label": "Hiking and summer trail running",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"I might do a trail run after work.\"",
+          "Q43: \"Early morning on a trail\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Bernadette does DIY maintenance and mechanical projects to save money and stay capable.",
+        "ground_truth_label": "DIY mechanical self-reliance",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"basic maintenance on my car and some tools\"",
+          "Q106: \"basic maintenance, tools\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Bernadette operates skid-steers, front-end loaders, bulldozers, industrial trucks, and forklifts when needed.",
+        "ground_truth_label": "Heavy-equipment operation",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"I operate skid-steers, front-end loaders, forklifts\"",
+          "Q65: \"skid-steer loaders, front-end loaders, bulldozers\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Bernadette performs pre-shift inspections, hydraulics checks, load staging, route planning, and inventory records.",
+        "ground_truth_label": "Equipment safety and logistics duties",
+        "behavioral_evidence_from_interview": [
+          "Q65: \"pre-shift inspections, checking hydraulics and fluid levels\"",
+          "Q65: \"schedule loads, optimize routes\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Bernadette works full time at one job.",
+        "ground_truth_label": "One full-time job",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"I work full time\"",
+          "Q70: \"No, I only have one job.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Bernadette usually works about 40 to 45 hours per week.",
+        "ground_truth_label": "40-45 weekly work hours",
+        "behavioral_evidence_from_interview": [
+          "Q68: \"Usually around 40 to 45 hours a week.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Bernadette's current job is not union-covered.",
+        "ground_truth_label": "Non-union workplace",
+        "behavioral_evidence_from_interview": [
+          "Q66: \"my current job is not union-covered.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Bernadette wants advanced heavy-equipment certification and OSHA trainer status.",
+        "ground_truth_label": "Advanced certification and OSHA trainer goal",
+        "behavioral_evidence_from_interview": [
+          "Q108: \"earn advanced heavy-equipment certification and become an OSHA trainer.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Bernadette may take coursework in logistics or mechanical technology.",
+        "ground_truth_label": "Future logistics/mechanical technology education goal",
+        "behavioral_evidence_from_interview": [
+          "Q108: \"classes toward logistics or mechanical technology\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Bernadette has been at her current job about four years.",
+        "ground_truth_label": "Four years at current job",
+        "behavioral_evidence_from_interview": [
+          "Q76: \"I have been at my current job about four years.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Bernadette's job benefits include health insurance, PTO, sick time, some retirement match, and safety gear support.",
+        "ground_truth_label": "Job benefits package",
+        "behavioral_evidence_from_interview": [
+          "Q76: \"health insurance, PTO, sick time, some retirement match, and safety gear support.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Bernadette brought home about $4,000 after taxes and deductions last month.",
+        "ground_truth_label": "Last-month take-home about $4,000",
+        "behavioral_evidence_from_interview": [
+          "Q72: \"Last month I brought home about $4,000 after taxes and deductions\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Bernadette's usual take-home pay is about $3,700 to $3,900 per month.",
+        "ground_truth_label": "Usual monthly take-home $3,700-$3,900",
+        "behavioral_evidence_from_interview": [
+          "Q72: \"Around $3,700 to $3,900 depending on overtime and deductions.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Bernadette is paid every two weeks by direct deposit.",
+        "ground_truth_label": "Biweekly direct deposit pay",
+        "behavioral_evidence_from_interview": [
+          "Q73: \"Every two weeks.\"",
+          "Q73: \"Yes.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Bernadette filed taxes last year with tax software, one W-2, and the standard deduction.",
+        "ground_truth_label": "Simple W-2 tax filing",
+        "behavioral_evidence_from_interview": [
+          "Q75: \"I used tax software and took the standard deduction.\"",
+          "Q75: \"one W-2 makes it pretty straightforward.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "A high school art teacher took Bernadette's sketches seriously.",
+        "ground_truth_label": "High school art teacher encouragement",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"I also had an art teacher in high school who took my sketches seriously.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Bernadette visits the Denver Art Museum with Marisol.",
+        "ground_truth_label": "Denver Art Museum visits",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"go to the Denver Art Museum\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Bernadette uses painting to regulate stress.",
+        "ground_truth_label": "Painting as coping",
+        "behavioral_evidence_from_interview": [
+          "Q43: \"hiking and painting help me keep perspective.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Bernadette's fitness includes summer trail running and weekend hikes.",
+        "ground_truth_label": "Outdoor fitness routine",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"Summer weeks vary more because I might do a trail run\"",
+          "Q17: \"On weekends I either hike\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Bernadette had a wrist strain last year related to work and a climbing gym session.",
+        "ground_truth_label": "Recent wrist strain after work/climbing",
+        "behavioral_evidence_from_interview": [
+          "Q33: \"wrist strain last year from a combination of work and a climbing gym session\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Running is the first healthy habit Bernadette skips when work runs long.",
+        "ground_truth_label": "Running slips under work pressure",
+        "behavioral_evidence_from_interview": [
+          "Q32: \"Running. If work runs long, that is the first thing I skip.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Bernadette finds perspective and calm in mountains and trails.",
+        "ground_truth_label": "Nature as emotional grounding",
+        "behavioral_evidence_from_interview": [
+          "Q43: \"Early morning on a trail before it gets crowded\"",
+          "Q47: \"Being in the mountains gives me that feeling of perspective\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Bernadette values her independence, connection to Colorado, and time outdoors.",
+        "ground_truth_label": "Values Colorado connection and outdoor time",
+        "behavioral_evidence_from_interview": [
+          "Q108: \"My independence, my connection to Colorado, and having time outdoors.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Bernadette describes herself as not religious but mildly spiritual in nature.",
+        "ground_truth_label": "Nature-based mild spirituality",
+        "behavioral_evidence_from_interview": [
+          "Q47: \"not religious, maybe mildly spiritual in nature.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Bernadette uses GPS and fleet-management software for route and logistics work.",
+        "ground_truth_label": "Uses logistics software",
+        "behavioral_evidence_from_interview": [
+          "Q65: \"optimize routes with GPS and fleet-management software\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Bernadette is interested in autonomous equipment, electric machinery, cleaner fleets, and routing software.",
+        "ground_truth_label": "Interest in emerging logistics and equipment technology",
+        "behavioral_evidence_from_interview": [
+          "Q108: \"autonomous equipment, electric machinery, and routing software\"",
+          "Q25: \"cleaner fleet technology\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Bernadette wants cleaner fleet technology implemented so workers can maintain and afford it.",
+        "ground_truth_label": "Practical worker-centered clean technology view",
+        "behavioral_evidence_from_interview": [
+          "Q25: \"workers can actually maintain and afford.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Bernadette votes in presidential elections and usually in midterms.",
+        "ground_truth_label": "Regular major-election voter",
+        "behavioral_evidence_from_interview": [
+          "Q23: \"I vote in presidential elections and usually in midterms\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Bernadette has missed smaller local elections before.",
+        "ground_truth_label": "Sometimes misses small local elections",
+        "behavioral_evidence_from_interview": [
+          "Q23: \"I have missed smaller local elections before.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Bernadette identifies as a left-leaning Independent who usually votes Democratic.",
+        "ground_truth_label": "Left-leaning Independent, usually Democratic voter",
+        "behavioral_evidence_from_interview": [
+          "Q24: \"I would call myself left-leaning independent.\"",
+          "Q95: \"most of my votes lately have gone to Democrats\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Bernadette cares politically about labor, worker safety, health care, housing, public lands, and climate policy.",
+        "ground_truth_label": "Worker-safety, health-care, housing, public-lands, climate priorities",
+        "behavioral_evidence_from_interview": [
+          "Q24: \"labor, safety rules, health care access, clean air, public lands\"",
+          "Q25: \"housing and climate\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Bernadette attended one peaceful racial justice gathering in Denver.",
+        "ground_truth_label": "Attended one peaceful racial justice gathering",
+        "behavioral_evidence_from_interview": [
+          "Q26: \"I attended one peaceful gathering in Denver\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Bernadette has donated small amounts to local legal aid and community groups.",
+        "ground_truth_label": "Small donations to legal aid/community groups",
+        "behavioral_evidence_from_interview": [
+          "Q29: \"I have donated small amounts to local legal aid and community groups.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Bernadette supports unions and worker protections.",
+        "ground_truth_label": "Supports unions and worker protections",
+        "behavioral_evidence_from_interview": [
+          "Q24: \"I support unions and worker protections\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Bernadette dislikes performative politics and slogans without implementation details.",
+        "ground_truth_label": "Anti-performative, implementation-focused politics",
+        "behavioral_evidence_from_interview": [
+          "Q25: \"performative politics\"",
+          "Q27: \"before I repeat slogans.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Bernadette's direct law-enforcement experience includes a taillight warning and work-related traffic/oversized-load contexts.",
+        "ground_truth_label": "Limited direct law-enforcement contact",
+        "behavioral_evidence_from_interview": [
+          "Q20: \"pulled over once for a taillight and got a warning\"",
+          "Q20: \"oversized load moves or traffic control\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Bernadette has never been arrested and has no immediate family arrests.",
+        "ground_truth_label": "No arrest history in self/immediate family",
+        "behavioral_evidence_from_interview": [
+          "Q22: \"I have never been arrested.\"",
+          "Q22: \"I do not have immediate family who have been arrested either.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Bernadette supports independent review, de-escalation, clearer use-of-force rules, and separating some mental-health calls from armed response.",
+        "ground_truth_label": "Policing reform preferences",
+        "behavioral_evidence_from_interview": [
+          "Q27: \"Independent review, better de-escalation, clearer use-of-force rules\"",
+          "Q27: \"separating some mental health calls from armed response.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Bernadette listens to music while painting.",
+        "ground_truth_label": "Music while painting",
+        "behavioral_evidence_from_interview": [
+          "Q43: \"at my desk painting with music on.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Bernadette prioritizes durable boots, work clothing, hiking gear, and safety gear over fashion items.",
+        "ground_truth_label": "Practical gear-oriented appearance spending",
+        "behavioral_evidence_from_interview": [
+          "Q59: \"work expenses fluctuate? Some clothing and boots\"",
+          "Q76: \"safety gear support\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Bernadette was born in Denver, Colorado, in the United States.",
+        "ground_truth_label": "U.S.-born in Denver, Colorado",
+        "behavioral_evidence_from_interview": [
+          "Q86: \"Yes, I was born in the United States.\"",
+          "Q87: \"Denver, Colorado.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Bernadette identifies as White and not Hispanic, Latinx, or Spanish origin.",
+        "ground_truth_label": "White non-Hispanic",
+        "behavioral_evidence_from_interview": [
+          "Q88: \"No.\"",
+          "Q89: \"White.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-093",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Bernadette's date of birth is June 14, 1997.",
+        "ground_truth_label": "DOB June 14, 1997",
+        "behavioral_evidence_from_interview": [
+          "Q85: \"June 14, 1997.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-094",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "At age 16, Bernadette lived in the Denver metro area with both married parents and her younger brother.",
+        "ground_truth_label": "Stable two-parent Denver-area childhood household",
+        "behavioral_evidence_from_interview": [
+          "Q97: \"Denver suburbs, Colorado.\"",
+          "Q98: \"Yes, I lived with both my mother and father.\"",
+          "Q99: \"My younger brother lived with us too.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-095",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Bernadette's father worked in construction and equipment operation.",
+        "ground_truth_label": "Father construction/equipment worker",
+        "behavioral_evidence_from_interview": [
+          "Q106: \"My dad worked construction and equipment operation.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-096",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Bernadette's mother worked in office administration and dispatch for an agricultural supply company.",
+        "ground_truth_label": "Mother agricultural supply office/dispatch worker",
+        "behavioral_evidence_from_interview": [
+          "Q103: \"office administration and dispatch for an agricultural supply company\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-097",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Bernadette's father completed high school plus trade training and certifications.",
+        "ground_truth_label": "Father high school plus trade training",
+        "behavioral_evidence_from_interview": [
+          "Q100: \"High school, plus trade training and certifications.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-098",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Bernadette's mother completed high school and some community-college classes but no degree.",
+        "ground_truth_label": "Mother high school plus some community college",
+        "behavioral_evidence_from_interview": [
+          "Q101: \"High school, with some community college classes but no degree.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-099",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Bernadette has no current religious affiliation and describes herself as nothing in particular, leaning agnostic.",
+        "ground_truth_label": "No current religious affiliation, leaning agnostic",
+        "behavioral_evidence_from_interview": [
+          "Q94: \"No current religious affiliation.\"",
+          "Q94: \"Probably nothing in particular, leaning agnostic.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-100",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Bernadette chose a yard job and equipment/CDL path after high school instead of full-time college or retail.",
+        "ground_truth_label": "Post-high-school skilled-trades choice",
+        "behavioral_evidence_from_interview": [
+          "Q02: \"I chose the yard job\"",
+          "Q02: \"gave me a path to equipment and CDL training.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-101",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Bernadette built independence through work, renting, budgeting, and certifications.",
+        "ground_truth_label": "Independence-building through work and budgeting",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"A lot of my life has been building independence.\"",
+          "Q83: \"I have built stability without a college degree\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-102",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Bernadette recently took on more training responsibilities for newer operators.",
+        "ground_truth_label": "Recent operator-training responsibilities",
+        "behavioral_evidence_from_interview": [
+          "Q18: \"I started taking on more training responsibilities for newer operators.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-103",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "A near-miss at work last fall made Bernadette feel responsible and led her to document changes and discuss them with her supervisor.",
+        "ground_truth_label": "Work near-miss prompted safety response",
+        "behavioral_evidence_from_interview": [
+          "Q44: \"Last fall I had a rough stretch after a near-miss at work.\"",
+          "Q44: \"talking to my supervisor, documenting what I thought needed to change\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-104",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Bernadette values reliability, independence, safety, real-world attention, and beauty shown through care.",
+        "ground_truth_label": "Core values: reliability, independence, safety, reality, beauty/care",
+        "behavioral_evidence_from_interview": [
+          "Q109: \"I value reliability, independence, safety, and attention to the real world.\"",
+          "Q109: \"I value beauty too\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-105",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Bernadette uses Instagram for trails, watercolor artists, machinery, restaurants, and galleries.",
+        "ground_truth_label": "Instagram use for trails, art, machinery, restaurants, galleries",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"Instagram the most, mostly for trail photos, watercolor artists, machinery accounts\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-106",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Bernadette uses Facebook mainly for family updates, events, and hiking groups.",
+        "ground_truth_label": "Facebook for family/events/hiking groups",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"Facebook... more for family updates, events, and hiking groups.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-107",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Bernadette uses state ballot guides, local news, and nonprofit voter guides before voting.",
+        "ground_truth_label": "Ballot research sources",
+        "behavioral_evidence_from_interview": [
+          "Q23: \"state ballot guide, local news summaries, and sometimes nonprofit voter guides\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-108",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Bernadette learns about race and policing through local reporting, books, podcasts, and conversations.",
+        "ground_truth_label": "Race/policing information sources",
+        "behavioral_evidence_from_interview": [
+          "Q28: \"Local reporting, books, podcasts, and conversations\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-109",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Bernadette does not use social media for financial support and rarely uses it for emotional support.",
+        "ground_truth_label": "Does not seek support on social media",
+        "behavioral_evidence_from_interview": [
+          "Q49: \"I do not use social media for financial support\"",
+          "Q49: \"I rarely use it for emotional support.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-110",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Bernadette reduced nighttime doomscrolling because it worsened her sleep.",
+        "ground_truth_label": "Reduced doomscrolling for sleep",
+        "behavioral_evidence_from_interview": [
+          "Q50: \"I reduced doomscrolling at night because it was making sleep worse.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-111",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Bernadette's identity is rooted in competence, safety, practical skill, and quiet creativity.",
+        "ground_truth_label": "Competence/safety/practical-skill/quiet-creativity identity",
+        "behavioral_evidence_from_interview": [
+          "Q65: \"The most important thing is safety.\"",
+          "Q109: \"A clean line of mountains, a well-run job site, a good meal, a finished watercolor\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-112",
+        "source": "reprojected",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Bernadette often expresses care through concrete help rather than emotional display.",
+        "ground_truth_label": "Practical-help relational style",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"If someone has a flat tire, a medical appointment, or a move, people are there.\"",
+          "Q46: \"usually through practical help rather than big conversations.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}

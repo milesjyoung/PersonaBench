@@ -1,0 +1,2568 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "4e5c3849a891432ba547a645a6e4be06",
+      "name": "Sonia Fernandez",
+      "verification_date": "2026-05-22"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age 57 is consistent with the interview date of birth March 14, 1969 and stated age 57.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.age",
+              "source_b_ref": "Q85",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed marital status married_present is confirmed by Sonia stating she is married and living with Manuel.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.marital_status",
+              "source_b_ref": "Q05,Q51,Q84",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed location Houston, TX 77086 is confirmed and enriched by interview descriptions of northwest Houston and neighborhood context.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.city,state,zipcode",
+              "source_b_ref": "Q08,Q51",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed education level high_school is consistent with interview statement that Sonia has a high school diploma, some community college, and no college degree.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.education_level",
+              "source_b_ref": "Q01,Q90",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Seed occupation code mathematical_science_occupation is broad, while the interview specifies senior quality assurance specialist in petrochemicals.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.occupation",
+              "source_b_ref": "Q16,Q65",
+              "action": "REINTERPRET_SEED",
+              "resolution": "Interpret the seed occupation code as a broad technical/data classification rather than a literal academic mathematics job."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 4
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile correctly states Sonia is a 57-year-old married woman in Houston, TX 77086.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q51,Q84,Q85",
+              "source_b_ref": "age, marital_status, location",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile correctly captures her household as Sonia and Manuel only, with adult children living separately.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q11,Q51,Q52,Q53,Q54",
+              "source_b_ref": "preferences.home_and_lifestyle, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile captures Mexican-American/Hispanic identity and White race-form response, consistent with interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q88,Q89",
+              "source_b_ref": "preferences.cultural_and_linguistic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile records high school education and supplemental community college/certification study accurately.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q90,Q91,Q92",
+              "source_b_ref": "education, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Marital and household descriptions are internally consistent across top-level marital_status, home_and_lifestyle, social_and_relationships, and demographer summary.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "marital_status, preferences.home_and_lifestyle",
+              "field_b": "preferences.social_and_relationships, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Education is internally consistent: high school diploma, some community college, no degree, and current certification pursuit.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "education",
+              "field_b": "preferences.work_and_career, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Retirement framing is consistent: she is employed full time but planning a transition, not already retired.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career",
+              "field_b": "preferences.life_events_and_transitions, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview states Sonia was born in Houston and has lived only around the Houston area; this rootedness is underrepresented.",
+              "gap": true,
+              "interview_ref": "Q86,Q87,Q97",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail that Sonia was born in Houston and has lived only around the Houston area."
+            },
+            {
+              "id": 2,
+              "text": "Interview gives specific family structure: son Daniel, daughter Elena, grandson, and brother Arturo.",
+              "gap": true,
+              "interview_ref": "Q05,Q06",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail naming adult children Daniel and Elena, grandson, and brother Arturo."
+            },
+            {
+              "id": 3,
+              "text": "Interview states both parents are deceased and mother died eight years ago.",
+              "gap": true,
+              "interview_ref": "Q06",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Retain existing detail and ensure hidden facts include both parents deceased and mother passing eight years before interview."
+            }
+          ],
+          "summary": {
+            "present": 1,
+            "missing": 2
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes disciplined finances and interview confirms spreadsheet budgeting, savings buckets, emergency funds, and retirement planning.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.persona, travel_persona",
+              "source_b_ref": "Q17,Q59,Q61,Q62,Q82,Q83",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed describes a checklist mindset and interview repeatedly confirms lists, records, folders, procedures, and structured routines.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.professional_persona, persona",
+              "source_b_ref": "Q15,Q17,Q40,Q65,Q75",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed describes modest retirement-budget travel; interview confirms travel saving is subordinate to retirement, emergencies, and health costs.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.travel_persona",
+              "source_b_ref": "Q62,Q83,Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed describes predictable routine and interview confirms early wake time, workday structure, yoga schedule, errands, Mass, and weekly planning.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.persona, sports_persona",
+              "source_b_ref": "Q15,Q18",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures preventive health behavior, step tracking, diet changes, vaccines, and trusted sources.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q31,Q33,Q40,Q41,Q42",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile accurately captures disciplined financial substitution when unexpected expenses arise.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q56,Q57,Q60,Q61,Q63,Q82,Q83",
+              "source_b_ref": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile captures her preference for pragmatic technology and fact checking.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q25,Q42,Q48,Q49",
+              "source_b_ref": "preferences.technology, preferences.media_and_information_diet",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile omits that she contributes to an HSA and uses employer insurance as part of health-finance management.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q36,Q40",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add a health_and_wellness detail: Uses employer insurance, contributes to an HSA when possible, and budgets for prescriptions and copays."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Financial caution is internally consistent across travel, fashion, health, lifestyle, and behavioral summary.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.travel, preferences.fashion_and_appearance",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Routine-based health management aligns with her broader planning and checklist style.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness",
+              "field_b": "preferences.home_and_lifestyle, preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Cultural food enjoyment and health adaptation are not contradictory because the profile states she modifies portions and recipes.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.food_and_dining",
+              "field_b": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview states monthly household spending was about $6,200 last month and usually $5,200-$5,500.",
+              "gap": true,
+              "interview_ref": "Q57",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail on usual monthly spending and higher recent month due to truck repair."
+            },
+            {
+              "id": 2,
+              "text": "Interview states household gross income is about $9,000 monthly and take-home about $6,800-$7,000.",
+              "gap": true,
+              "interview_ref": "Q74",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail on combined monthly household income range."
+            },
+            {
+              "id": 3,
+              "text": "Interview states debts include mortgage, one low-balance car loan, and credit cards paid off most months.",
+              "gap": true,
+              "interview_ref": "Q63",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail on current debts and aversion to paying credit-card interest."
+            },
+            {
+              "id": 4,
+              "text": "Interview states she could cover a $400 emergency from savings.",
+              "gap": true,
+              "interview_ref": "Q82",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail that she can cover a $400 emergency from savings and would rebuild the category."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed cultural background describes Catholic holidays and community traditions; interview confirms Catholic identity, Mass, Dia de los Muertos, and service orientation.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q47,Q94",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed says she supports cultural preservation initiatives; interview confirms cultural participation but gives more private forms such as book club, church, altars, and family traditions.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q07,Q47,Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed does not specify party identity; interview enriches with moderate Democrat identification and regular voting.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.persona/cultural_background",
+              "source_b_ref": "Q23,Q24,Q95,Q96",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed work in petrochemical process improvement is consistent with interview political concern for environmental and safety regulation.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.professional_persona",
+              "source_b_ref": "Q24,Q25,Q65",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 4
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures regular voting, early voting, voter guides, and local candidate attention.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23,Q29",
+              "source_b_ref": "preferences.community_and_civic, preferences.media_and_information_diet",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile accurately states she is a moderate Democrat shaped by immigrant history, Catholic social values, and evidence-based regulation.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q24,Q95,Q96",
+              "source_b_ref": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile captures concern about race, policing accountability, misinformation, and environmental justice.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q25,Q26,Q27,Q28",
+              "source_b_ref": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile omits specific law-enforcement experience: polite brake-light stop, non-emergency calls, and low confidence that small property crimes are solved.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q20,Q21",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add a community_and_civic detail on limited personal police contact, daytime safety caution, and skepticism about property-crime follow-through."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Moderate Democrat identity is consistent with support for business plus regulation and with Catholic dignity/service framing.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.political_scientist",
+              "field_b": "preferences.community_and_civic, preferences.cultural_and_linguistic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Private civic style is internally consistent with limited social media posting and avoidance of public online arguments.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "preferences.media_and_information_diet, preferences.technology",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Trust in official health sources aligns with evidence-driven political concern about misinformation.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness",
+              "field_b": "preferences.media_and_information_diet",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview says she is closer to the Democratic Party and associates fairly strongly, though moderate.",
+              "gap": true,
+              "interview_ref": "Q95,Q96",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail that she identifies as a moderate Democrat and is closer to the Democratic Party."
+            },
+            {
+              "id": 2,
+              "text": "Interview lists specific policing reforms she supports: training, body-camera review, mental-health teams, and complaint tracking.",
+              "gap": true,
+              "interview_ref": "Q27",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail with specific preferred policing reforms."
+            },
+            {
+              "id": 3,
+              "text": "Interview states she donated a small amount once to a local justice organization but has not joined protests.",
+              "gap": true,
+              "interview_ref": "Q29",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail about private response to racial justice issues: family discussion, small donation, no protest attendance."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes Sonia as methodical and quietly competitive; interview confirms identity around precision, checklists, trusted data, and benchmarking herself.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.persona, professional_persona",
+              "source_b_ref": "Q01,Q03,Q43,Q65,Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed puzzle interest is confirmed by interview use of Sudoku, crosswords, logic, and puzzles for stress regulation.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.hobbies_and_interests",
+              "source_b_ref": "Q17,Q38,Q50",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed reserved sports spirit and structured routine are consistent with interview preference for small social circle, early walks, yoga, and cautious tennis.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.sports_persona",
+              "source_b_ref": "Q07,Q15,Q31,Q33",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed cultural-tradition orientation is consistent with interview self-concept tied to Mexican heritage, Spanish, Catholic faith, family food, and parental memory.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.cultural_background, arts_persona, culinary_persona",
+              "source_b_ref": "Q01,Q47,Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately describes her as conscientious, emotionally contained, analytical, and usefulness-oriented.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q43,Q45,Q65,Q109",
+              "source_b_ref": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures coping through routines, lists, walking, yoga, prayer, puzzles, and factual analysis.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q38,Q43,Q44,Q45,Q50",
+              "source_b_ref": "preferences.hobbies_and_recreation, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile captures bounded closeness in relationships with Manuel, children, brother, Teresa, and book club.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q05,Q06,Q07,Q46",
+              "source_b_ref": "preferences.social_and_relationships, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile omits explicit anxiety pattern: uncertainty, money, health, and work mistakes trigger shoulder tension, sleep disruption, and repeated checking.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q45",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add a health_and_wellness detail describing intermittent, undiagnosed anxiety and her coping methods."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile is internally consistent in presenting Sonia as private but not isolated: small circle, church, family, tutoring, and book club.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships",
+              "field_b": "preferences.community_and_civic, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Analytical coping style is consistent across work, budgeting, health fact-checking, and emotional regulation.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career, preferences.technology",
+              "field_b": "preferences.health_and_wellness, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Competitive but reserved characterization aligns with structured hobbies, QA role, step tracking, and limited public activism.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.sports_and_fitness, preferences.hobbies_and_recreation",
+              "field_b": "summaries.psychologist, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview describes a recent audit mistake story where Sonia first blamed herself, snapped at Manuel, then reframed the issue as a training-process gap.",
+              "gap": true,
+              "interview_ref": "Q44",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail that she responds to mistakes by analyzing process gaps and improving checklists."
+            },
+            {
+              "id": 2,
+              "text": "Interview states she does not have diagnosed depression and is not opposed to counseling if symptoms worsened.",
+              "gap": true,
+              "interview_ref": "Q45",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail that she reports no depression diagnosis, manages intermittent anxiety, and would talk to a doctor if it worsened."
+            },
+            {
+              "id": 3,
+              "text": "Interview states her core values are family, faith, integrity, usefulness, education, heritage, Spanish, and doing things correctly.",
+              "gap": true,
+              "interview_ref": "Q109",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail about her stated core values."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No unresolved contradictions or FLAG_FOR_REVIEW findings were identified. Several interview-supported gaps required profile enrichment, so the output passes with revisions.",
+    "final_status": "Corrected profile is ready for downstream use with added interview-supported details and a generated hidden_facts registry."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "4e5c3849a891432ba547a645a6e4be06",
+    "name": "Sonia Fernandez",
+    "age": 57,
+    "gender": "Female",
+    "marital_status": "Married and living with husband Manuel Fernandez",
+    "location": "Houston, TX 77086",
+    "education": "High school diploma; some community college and work certifications; pursuing Six Sigma Green Belt",
+    "occupation": "Senior quality assurance specialist in the petrochemical industry",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Sonia prioritizes preventive, routine-based health management.",
+        "details": [
+          {
+            "detail": "Tracks steps with goals of about 8,000 on workdays and 10,000 on weekends.",
+            "evidence": "Q31"
+          },
+          {
+            "detail": "Manages high blood pressure with medication and responds to prediabetes risk through walking and diet changes.",
+            "evidence": "Q31,Q33"
+          },
+          {
+            "detail": "Uses yoga, walking, stretching, and cautious tennis participation to manage stiffness and knee pain.",
+            "evidence": "Q31,Q33,Q50"
+          },
+          {
+            "detail": "Is pro-vaccine and trusts doctors, CDC, local health department updates, and pharmacists.",
+            "evidence": "Q41,Q42"
+          },
+          {
+            "detail": "Uses employer insurance, contributes to an HSA when possible, and budgets for prescriptions and copays.",
+            "evidence": "Q36,Q40"
+          },
+          {
+            "detail": "Reports no depression diagnosis but manages intermittent anxiety about uncertainty, money, health, and work mistakes with routines, prayer, walking, yoga, and limiting news at night.",
+            "evidence": "Q45,Q50"
+          },
+          {
+            "detail": "Does not smoke, drinks lightly, and does not use marijuana or other non-prescribed substances.",
+            "evidence": "Q38,Q39"
+          },
+          {
+            "detail": "Uses informal family remedies such as chamomile tea, honey and lemon, Vicks, and sobadas for comfort, while relying on doctors for serious issues.",
+            "evidence": "Q37"
+          }
+        ],
+        "evidence": "Q31,Q33,Q36,Q37,Q38,Q39,Q40,Q41,Q42,Q45,Q50"
+      },
+      "food_and_dining": {
+        "summary": "She is a precise home cook rooted in Mexican family food traditions while adapting recipes for health.",
+        "details": [
+          {
+            "detail": "Cooks mole, caldo, tamales, and other traditional Mexican meals for family gatherings.",
+            "evidence": "Q05,Q32,Q48"
+          },
+          {
+            "detail": "Grows cilantro, epazote, rosemary, tomatoes, and peppers for cooking.",
+            "evidence": "Q17"
+          },
+          {
+            "detail": "Limits soda, pan dulce, tortillas, rice portions, and sweet drinks due to prediabetes risk.",
+            "evidence": "Q31,Q32,Q33"
+          },
+          {
+            "detail": "Shops at H-E-B, Fiesta, carnicerias, Costco, and a local panaderia.",
+            "evidence": "Q08"
+          },
+          {
+            "detail": "Adapts traditional recipes with less lard, more vegetables, smaller portions, and skimmed fat from broths.",
+            "evidence": "Q32"
+          }
+        ],
+        "evidence": "Q05,Q08,Q17,Q31,Q32,Q33,Q48"
+      },
+      "travel": {
+        "summary": "She prefers planned cultural travel on a modest, carefully budgeted schedule.",
+        "details": [
+          {
+            "detail": "Wants to return to Guadalajara and visit historic plazas, churches, and family roots in Jalisco.",
+            "evidence": "Q62"
+          },
+          {
+            "detail": "Hopes to visit Barcelona's Gothic Quarter with a detailed itinerary.",
+            "evidence": "Q62,Q108"
+          },
+          {
+            "detail": "Saves for travel but prioritizes retirement, emergencies, and health costs first.",
+            "evidence": "Q62,Q83"
+          }
+        ],
+        "evidence": "Q62,Q83,Q108"
+      },
+      "social_and_relationships": {
+        "summary": "Her social life is small, steady, family-centered, and maintained through practical support.",
+        "details": [
+          {
+            "detail": "Married to Manuel for 31 years and shares dinner, errands, games, and household responsibilities with him.",
+            "evidence": "Q05,Q11,Q84"
+          },
+          {
+            "detail": "Has two adult children, Daniel and Elena, and sees or texts them regularly.",
+            "evidence": "Q05"
+          },
+          {
+            "detail": "Has one grandson who visits and occasionally sleeps over, but she does not provide regular childcare.",
+            "evidence": "Q13,Q19,Q52"
+          },
+          {
+            "detail": "Has a younger brother, Arturo, in Pasadena, Texas, and they check in weekly.",
+            "evidence": "Q06"
+          },
+          {
+            "detail": "Closest friend is Teresa, a former coworker, and she also participates in a Spanish-language book club.",
+            "evidence": "Q07"
+          },
+          {
+            "detail": "Uses WhatsApp heavily for family communication.",
+            "evidence": "Q05,Q48"
+          }
+        ],
+        "evidence": "Q05,Q06,Q07,Q11,Q13,Q19,Q48,Q52,Q84"
+      },
+      "home_and_lifestyle": {
+        "summary": "Sonia lives a structured, privacy-oriented, homeowner lifestyle in northwest Houston.",
+        "details": [
+          {
+            "detail": "Owns a mortgaged home in Houston's 77086 area with husband Manuel.",
+            "evidence": "Q08,Q58"
+          },
+          {
+            "detail": "Maintains labeled files, calendars, budget spreadsheets, medical folders, and weekly lists.",
+            "evidence": "Q15,Q17,Q40,Q75"
+          },
+          {
+            "detail": "Values home privacy and does not rent rooms or host lodgers.",
+            "evidence": "Q54"
+          },
+          {
+            "detail": "Keeps guest space for occasional grandson sleepovers and family visits.",
+            "evidence": "Q11,Q13"
+          },
+          {
+            "detail": "Household spending was about $6,200 last month due to a truck repair and is usually about $5,200 to $5,500.",
+            "evidence": "Q57"
+          },
+          {
+            "detail": "Combined household income is about $9,000 gross monthly and about $6,800 to $7,000 take-home after deductions.",
+            "evidence": "Q74"
+          },
+          {
+            "detail": "Current debts are the mortgage, one low-balance car loan, and credit cards usually paid off monthly.",
+            "evidence": "Q63"
+          },
+          {
+            "detail": "Can cover a $400 emergency from savings and would rebuild that savings category afterward.",
+            "evidence": "Q82"
+          }
+        ],
+        "evidence": "Q08,Q11,Q13,Q15,Q17,Q40,Q54,Q57,Q58,Q63,Q74,Q75,Q82"
+      },
+      "entertainment": {
+        "summary": "Her entertainment is quiet and routine: sports broadcasts, reading, puzzles, and family media use.",
+        "details": [
+          {
+            "detail": "Watches Astros games with Manuel and family.",
+            "evidence": "Q05,Q43"
+          },
+          {
+            "detail": "Enjoys Sudoku, crosswords, logic puzzles, and reading at night.",
+            "evidence": "Q17,Q50"
+          },
+          {
+            "detail": "Uses Instagram mainly for recipes, gardening, travel, and museum or art pages.",
+            "evidence": "Q48"
+          }
+        ],
+        "evidence": "Q05,Q17,Q43,Q48,Q50"
+      },
+      "hobbies_and_recreation": {
+        "summary": "She favors structured hobbies that combine calm, skill, and measurable progress.",
+        "details": [
+          {
+            "detail": "Regularly does Sudoku, crosswords, and list-making as emotional regulation.",
+            "evidence": "Q17,Q38,Q50"
+          },
+          {
+            "detail": "Gardens herbs and vegetables for practical cooking use.",
+            "evidence": "Q17"
+          },
+          {
+            "detail": "Attends a monthly Spanish-language book club focused on literature such as Mariano Azuela.",
+            "evidence": "Q07"
+          },
+          {
+            "detail": "Volunteers as a math tutor about twice a month.",
+            "evidence": "Q17"
+          }
+        ],
+        "evidence": "Q07,Q17,Q38,Q50"
+      },
+      "work_and_career": {
+        "summary": "She is a meticulous, data-driven senior QA specialist preparing for a gradual retirement transition.",
+        "details": [
+          {
+            "detail": "Works in petrochemical quality assurance reviewing data, maintaining records, supporting audits, investigating deviations, and training staff.",
+            "evidence": "Q16,Q65"
+          },
+          {
+            "detail": "Uses Excel, Access, basic R, statistical tools, checklists, and SOPs.",
+            "evidence": "Q16,Q65"
+          },
+          {
+            "detail": "Is pursuing Six Sigma Green Belt certification.",
+            "evidence": "Q16,Q18,Q90,Q108"
+          },
+          {
+            "detail": "Wants to transition into part-time consulting for data validation, compliance, and quality systems.",
+            "evidence": "Q70,Q108"
+          },
+          {
+            "detail": "Responds to work mistakes by analyzing process gaps, revising training checklists, and coaching staff calmly.",
+            "evidence": "Q44"
+          },
+          {
+            "detail": "Works one paid salaried job, usually 40 to 45 hours per week, with predictable weekday hours and occasional audit-related late days.",
+            "evidence": "Q67,Q68,Q69,Q70,Q71,Q78"
+          },
+          {
+            "detail": "Gross pay is about $6,200 per month and take-home pay is about $4,700 after deductions.",
+            "evidence": "Q72"
+          }
+        ],
+        "evidence": "Q16,Q18,Q44,Q65,Q67,Q68,Q69,Q70,Q71,Q72,Q78,Q90,Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Her cultural life is anchored in Mexican, Catholic, Spanish-language, and visual arts traditions.",
+        "details": [
+          {
+            "detail": "Participates in Spanish-language book club discussions of Mexican and Spanish-language literature.",
+            "evidence": "Q07,Q30"
+          },
+          {
+            "detail": "Maintains Dia de los Muertos altars with photos, candles, marigolds, and food for deceased parents.",
+            "evidence": "Q47"
+          },
+          {
+            "detail": "Follows Frida Kahlo and museum pages online.",
+            "evidence": "Q48"
+          },
+          {
+            "detail": "Values Mexican heritage, Spanish language, Catholic holidays, and family food traditions.",
+            "evidence": "Q01,Q47,Q109"
+          }
+        ],
+        "evidence": "Q01,Q07,Q30,Q47,Q48,Q109"
+      },
+      "sports_and_fitness": {
+        "summary": "She combines practical fitness routines with loyal Houston sports fandom.",
+        "details": [
+          {
+            "detail": "Practices yoga twice a week or through home videos.",
+            "evidence": "Q15,Q50"
+          },
+          {
+            "detail": "Walks early, especially before Houston heat, and tracks step goals.",
+            "evidence": "Q15,Q18,Q31"
+          },
+          {
+            "detail": "Occasionally plays in an over-50 tennis group but limits activity due to knee pain.",
+            "evidence": "Q33"
+          },
+          {
+            "detail": "Watches Astros games with family and follows Houston sports.",
+            "evidence": "Q05,Q43"
+          }
+        ],
+        "evidence": "Q05,Q15,Q18,Q31,Q33,Q43,Q50"
+      },
+      "nature_and_outdoors": {
+        "summary": "She enjoys controlled outdoor routines, especially early walks and home gardening.",
+        "details": [
+          {
+            "detail": "Walks near the community garden and knows local streets, dogs, and drainage patterns.",
+            "evidence": "Q08"
+          },
+          {
+            "detail": "Gardens herbs and vegetables despite Houston heat.",
+            "evidence": "Q17,Q32"
+          },
+          {
+            "detail": "Adjusts outdoor activity to avoid extreme heat.",
+            "evidence": "Q18,Q32"
+          }
+        ],
+        "evidence": "Q08,Q17,Q18,Q32"
+      },
+      "technology": {
+        "summary": "She uses technology pragmatically for work, family coordination, budgeting, and information checking.",
+        "details": [
+          {
+            "detail": "Uses Excel, Access, and basic R in quality assurance work.",
+            "evidence": "Q16,Q65"
+          },
+          {
+            "detail": "Keeps household budget spreadsheets and labeled digital records.",
+            "evidence": "Q17,Q75"
+          },
+          {
+            "detail": "Uses WhatsApp, Facebook, and Instagram, but avoids public oversharing and does not use X much.",
+            "evidence": "Q48,Q49"
+          },
+          {
+            "detail": "Fact-checks dramatic health or political claims before accepting them.",
+            "evidence": "Q25,Q42"
+          }
+        ],
+        "evidence": "Q16,Q17,Q25,Q42,Q48,Q49,Q65,Q75"
+      },
+      "community_and_civic": {
+        "summary": "She is civically engaged through voting, tutoring, church participation, and cautious neighborhood involvement.",
+        "details": [
+          {
+            "detail": "Votes regularly, including local elections, and prefers early voting.",
+            "evidence": "Q23"
+          },
+          {
+            "detail": "Identifies as a moderate Democrat and feels closer to the Democratic Party.",
+            "evidence": "Q95,Q96"
+          },
+          {
+            "detail": "Volunteers as a middle-school math tutor about twice a month.",
+            "evidence": "Q17"
+          },
+          {
+            "detail": "Participates in church life mainly through Mass and occasional food or holiday setup help.",
+            "evidence": "Q47"
+          },
+          {
+            "detail": "Communicates with neighbors about safety and suspicious activity.",
+            "evidence": "Q09,Q21"
+          },
+          {
+            "detail": "Has limited personal police contact, respects public safety, but believes treatment is unequal and small property crimes often go unresolved.",
+            "evidence": "Q20,Q21"
+          },
+          {
+            "detail": "Supports policing reforms such as better training, body-camera review, mental-health response teams, and complaint-pattern tracking.",
+            "evidence": "Q27"
+          },
+          {
+            "detail": "Responded to racial justice issues mostly through family conversations, a small donation, and attention to local candidates rather than protest attendance.",
+            "evidence": "Q29"
+          }
+        ],
+        "evidence": "Q09,Q17,Q20,Q21,Q23,Q27,Q29,Q47,Q95,Q96"
+      },
+      "music": {
+        "summary": "Music evidence centers on Mexican family and cultural traditions rather than frequent current performance.",
+        "details": [
+          {
+            "detail": "Grew up listening to mariachi and Vicente Fernandez at home.",
+            "evidence": "Q01"
+          },
+          {
+            "detail": "Associates music with family gatherings and Mexican cultural continuity.",
+            "evidence": "Q01,Q109"
+          }
+        ],
+        "evidence": "Q01,Q109"
+      },
+      "fashion_and_appearance": {
+        "summary": "There is limited evidence, but Sonia appears practical and budget-conscious about appearance.",
+        "details": [
+          {
+            "detail": "Delayed buying new work clothes when extra expenses came up.",
+            "evidence": "Q60,Q81"
+          },
+          {
+            "detail": "Prefers practical choices over discretionary shopping when budgeting.",
+            "evidence": "Q60"
+          }
+        ],
+        "evidence": "Q60,Q81"
+      },
+      "cultural_and_linguistic": {
+        "summary": "Sonia is a bilingual first-generation Mexican-American whose identity is deeply tied to Spanish, Jalisco family roots, Catholic practice, and Houston Latino community life.",
+        "details": [
+          {
+            "detail": "Born in Houston to parents from Jalisco, Mexico, and raised in a bilingual household.",
+            "evidence": "Q01,Q86,Q88"
+          },
+          {
+            "detail": "Has lived only around the Houston area and feels rooted there.",
+            "evidence": "Q87,Q97"
+          },
+          {
+            "detail": "Speaks Spanish fluently and uses Spanish with family, prayer, and close emotional contexts.",
+            "evidence": "Q07,Q47,Q88"
+          },
+          {
+            "detail": "Identifies as Mexican-American/Hispanic and White on race forms when required.",
+            "evidence": "Q88,Q89"
+          },
+          {
+            "detail": "Maintains Mexican Catholic traditions including tamales, Dia de los Muertos altars, and family holiday gatherings.",
+            "evidence": "Q01,Q47,Q109"
+          },
+          {
+            "detail": "Values family, faith, integrity, usefulness, education, Mexican heritage, Spanish language, and doing things correctly.",
+            "evidence": "Q109"
+          }
+        ],
+        "evidence": "Q01,Q07,Q47,Q86,Q87,Q88,Q89,Q97,Q109"
+      },
+      "life_events_and_transitions": {
+        "summary": "Key transitions include choosing work over full-time college, building a long QA career, raising two children, losing both parents, and approaching retirement.",
+        "details": [
+          {
+            "detail": "Chose paid work and lab support after high school instead of full-time college due to family finances and opportunity.",
+            "evidence": "Q02,Q03"
+          },
+          {
+            "detail": "Married Manuel and raised Daniel and Elena in Houston.",
+            "evidence": "Q05,Q84"
+          },
+          {
+            "detail": "Lost both parents, with her mother passing eight years before the interview.",
+            "evidence": "Q06"
+          },
+          {
+            "detail": "Is planning transition from full-time work to part-time consulting and retirement-oriented life.",
+            "evidence": "Q43,Q62,Q83,Q108"
+          }
+        ],
+        "evidence": "Q02,Q03,Q05,Q06,Q43,Q62,Q83,Q84,Q108"
+      },
+      "media_and_information_diet": {
+        "summary": "She consumes information cautiously, preferring official, professional, and practical sources over social media claims.",
+        "details": [
+          {
+            "detail": "Reads voter guides, checks endorsements, and evaluates local candidates before voting.",
+            "evidence": "Q23"
+          },
+          {
+            "detail": "Avoids late-night news to reduce stress and improve sleep.",
+            "evidence": "Q50"
+          },
+          {
+            "detail": "Distrusts random Facebook posts and forwarded videos, especially about vaccines or politics.",
+            "evidence": "Q25,Q42"
+          },
+          {
+            "detail": "Uses Facebook for family, church, and community announcements; Instagram for recipes, gardens, travel, and arts.",
+            "evidence": "Q48"
+          }
+        ],
+        "evidence": "Q23,Q25,Q42,Q48,Q50"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Sonia Fernandez is a 57-year-old married Mexican-American woman living with her husband Manuel in owner-occupied housing in northwest Houston, Texas (Q51,Q58,Q84,Q88). She was born in Houston to parents from Jalisco and grew up in a bilingual, working-class household with one younger brother (Q86,Q97,Q98,Q99). Her highest completed formal education is a high school diploma, supplemented by community college coursework and job certifications (Q90). She has two adult children, Daniel and Elena, and one grandson, placing her in a later midlife stage marked by stable employment, grandparenthood, and retirement planning (Q05,Q108).",
+      "behavioral_economist": "Sonia is highly planning-oriented, loss-averse, and motivated by stability, accuracy, and future options rather than luxury consumption (Q17,Q61,Q62,Q83). She uses spreadsheets, savings buckets, early voting, preventive health care, and checklists to reduce uncertainty and avoid costly surprises (Q23,Q40,Q75,Q82). Her spending behavior shows disciplined substitution: when car repairs or high bills arise, she cuts restaurants, clothing, and discretionary purchases rather than taking on debt (Q60,Q63). She is present-biased only in culturally meaningful ways, such as family food and holidays, but even those are bounded by lists, budgeting, and health adaptations (Q32,Q59).",
+      "political_scientist": "Sonia is a regular voter and moderate Democrat whose politics are shaped by immigrant family history, Catholic social values, working-family concerns, and technical trust in evidence and regulation (Q23,Q24,Q95,Q96). She supports business and industry as sources of livelihood but believes in environmental, safety, and worker accountability because of her petrochemical QA background (Q24,Q65). She is concerned about misinformation, racial inequality, policing accountability, and unequal industrial risk in Houston neighborhoods (Q25,Q26,Q27,Q28). Her civic participation is practical and private: voting, tutoring, church involvement, selective donations, and family conversations rather than frequent protest or public social media argument (Q17,Q29,Q47,Q49).",
+      "psychologist": "Sonia presents as conscientious, methodical, quietly competitive, and emotionally contained, with a self-concept organized around competence, reliability, and usefulness (Q01,Q43,Q65,Q109). She regulates anxiety through routines, lists, walking, yoga, prayer, puzzles, and factual analysis, especially when work, money, health, or retirement feel uncertain (Q38,Q43,Q45,Q50). Her relationships are close but bounded: she maintains steady ties with Manuel, her adult children, her brother, Teresa, and book club friends without seeking a large social circle (Q05,Q06,Q07). Her cognitive style is analytical and evidence-driven, visible in her career, health information habits, budgeting, and preference for showing the data rather than relying on feelings alone (Q25,Q42,Q65,Q83)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Sonia tracks her steps.",
+        "ground_truth_label": "Tracks steps",
+        "behavioral_evidence_from_interview": [
+          "Q31: Eight thousand is my goal on workdays, ten thousand on weekends if the weather cooperates."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Sonia's step goals are about 8,000 on workdays and 10,000 on weekends.",
+        "ground_truth_label": "Step goals: 8000 workdays, 10000 weekends",
+        "behavioral_evidence_from_interview": [
+          "Q31: Eight thousand is my goal on workdays, ten thousand on weekends if the weather cooperates."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Sonia has high blood pressure controlled with medication.",
+        "ground_truth_label": "Controlled hypertension",
+        "behavioral_evidence_from_interview": [
+          "Q31: I have high blood pressure controlled with medication."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Sonia is in the prediabetes range and manages the risk through walking and diet changes.",
+        "ground_truth_label": "Prediabetes risk managed with lifestyle changes",
+        "behavioral_evidence_from_interview": [
+          "Q31: my doctor says I am in the prediabetes range",
+          "Q33: I started taking walking more seriously and cut back on soda completely."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Sonia uses yoga, walking, stretching, and cautious tennis participation to manage stiffness and knee pain.",
+        "ground_truth_label": "Knee pain managed with low-impact activity",
+        "behavioral_evidence_from_interview": [
+          "Q31: My knees get stiff, especially the right one, which is why yoga helps.",
+          "Q33: physical therapy exercises helped."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Sonia is pro-vaccine.",
+        "ground_truth_label": "Pro-vaccine",
+        "behavioral_evidence_from_interview": [
+          "Q41: I am pro-vaccine."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Sonia trusts her primary doctor, the CDC, Houston Health Department updates, and pharmacists for vaccine information.",
+        "ground_truth_label": "Trusted health sources",
+        "behavioral_evidence_from_interview": [
+          "Q42: My primary doctor is first. I also trust the CDC, Houston Health Department updates, and pharmacists."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Sonia uses employer insurance, contributes to an HSA when possible, and budgets for prescriptions and copays.",
+        "ground_truth_label": "Uses employer insurance and HSA budgeting",
+        "behavioral_evidence_from_interview": [
+          "Q40: We use my employer insurance, contribute to an HSA when we can, and budget for prescriptions and copays."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Sonia reports no depression diagnosis but experiences intermittent anxiety around uncertainty, money, health, and work mistakes.",
+        "ground_truth_label": "Intermittent undiagnosed anxiety",
+        "behavioral_evidence_from_interview": [
+          "Q45: I would not say I have depression.",
+          "Q45: I do have anxiety sometimes, especially around uncertainty, money, health, or work mistakes."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Sonia manages anxiety with routines, prayer, walking, yoga, and limiting news at night.",
+        "ground_truth_label": "Routine-based anxiety coping",
+        "behavioral_evidence_from_interview": [
+          "Q45: I manage it with routines, prayer, walking, yoga, and limiting news at night."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Sonia does not smoke, drinks lightly, and does not use marijuana or other non-prescribed substances.",
+        "ground_truth_label": "Low substance use",
+        "behavioral_evidence_from_interview": [
+          "Q38: I do not smoke and never have.",
+          "Q39: I do not use marijuana or other substances."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Sonia uses informal family remedies such as chamomile tea, honey and lemon, Vicks, and sobadas for comfort while relying on doctors for serious issues.",
+        "ground_truth_label": "Uses informal remedies with biomedical caution",
+        "behavioral_evidence_from_interview": [
+          "Q37: We use teas like manzanilla for stomach upset, honey and lemon for cough, and Vicks.",
+          "Q37: if something is serious, I go to the doctor."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Sonia cooks mole, caldo, tamales, and other traditional Mexican meals for family gatherings.",
+        "ground_truth_label": "Cooks traditional Mexican family meals",
+        "behavioral_evidence_from_interview": [
+          "Q05: Elena comes by often on Sundays, especially if I am cooking mole or caldo.",
+          "Q01: made tamales at Christmas"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Sonia grows cilantro, epazote, rosemary, tomatoes, and peppers for cooking.",
+        "ground_truth_label": "Grows cooking herbs and vegetables",
+        "behavioral_evidence_from_interview": [
+          "Q17: mostly cilantro, epazote, rosemary, tomatoes when they survive the heat, and a few peppers."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Sonia limits soda, pan dulce, tortillas, rice portions, and sweet drinks due to prediabetes risk.",
+        "ground_truth_label": "Limits sugar and refined-carbohydrate foods",
+        "behavioral_evidence_from_interview": [
+          "Q31: Pan dulce, tortillas, rice portions, and sweet drinks.",
+          "Q33: cut back on soda completely."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Sonia shops at H-E-B, Fiesta, carnicerias, Costco, and a local panaderia.",
+        "ground_truth_label": "Local grocery shopping pattern",
+        "behavioral_evidence_from_interview": [
+          "Q08: I go to H-E-B for most things, Fiesta or a carniceria for certain ingredients, and sometimes Costco.",
+          "Q08: There is a small panaderia not too far away."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Sonia adapts traditional recipes with less lard, more vegetables, smaller portions, and skimmed fat from broths.",
+        "ground_truth_label": "Health-adapted traditional cooking",
+        "behavioral_evidence_from_interview": [
+          "Q32: Less lard, more vegetables, smaller portions, and I skim fat from broths."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Sonia wants to return to Guadalajara to visit historic plazas, churches, and family roots in Jalisco.",
+        "ground_truth_label": "Planned Guadalajara cultural travel",
+        "behavioral_evidence_from_interview": [
+          "Q62: Historic plazas, churches, family roots in Jalisco, good food, and enough time not to rush."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Sonia hopes to visit Barcelona's Gothic Quarter with a detailed itinerary.",
+        "ground_truth_label": "Planned Barcelona cultural travel",
+        "behavioral_evidence_from_interview": [
+          "Q108: go to Barcelona, walking the Gothic Quarter with a detailed itinerary in my purse."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Sonia saves for travel but prioritizes retirement, emergencies, and health costs first.",
+        "ground_truth_label": "Travel subordinated to financial security",
+        "behavioral_evidence_from_interview": [
+          "Q62: saved mostly for retirement, emergencies, and a modest trip.",
+          "Q62: I am saving for options, health costs, and not being a burden on my children."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Sonia has been married to Manuel Fernandez for 31 years.",
+        "ground_truth_label": "Married 31 years to Manuel",
+        "behavioral_evidence_from_interview": [
+          "Q05: We have been married 31 years.",
+          "Q84: Thirty-one years."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Sonia lives with her husband Manuel and no one else.",
+        "ground_truth_label": "Two-person household with spouse",
+        "behavioral_evidence_from_interview": [
+          "Q51: Just the two of us in our house in northwest Houston.",
+          "Q53: Yes, two."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Sonia and Manuel share dinners, errands, games, and household responsibilities.",
+        "ground_truth_label": "Shared spousal routines",
+        "behavioral_evidence_from_interview": [
+          "Q05: We eat dinner together most nights around 6:30, watch the news or a game, and on Saturdays we do errands early."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Sonia has two adult children named Daniel and Elena.",
+        "ground_truth_label": "Two adult children: Daniel and Elena",
+        "behavioral_evidence_from_interview": [
+          "Q05: We have two adult children. Our son Daniel is 32... Our daughter Elena is 29."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Sonia has one grandson who visits and occasionally sleeps over, but she does not provide regular childcare.",
+        "ground_truth_label": "Grandson visits occasionally; no regular childcare",
+        "behavioral_evidence_from_interview": [
+          "Q13: Our grandson may sleep over occasionally.",
+          "Q52: My grandson visits, but he does not live here.",
+          "Q52: No, only occasional help."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Sonia has a younger brother, Arturo, in Pasadena, Texas, and they check in weekly.",
+        "ground_truth_label": "Younger brother Arturo in Pasadena",
+        "behavioral_evidence_from_interview": [
+          "Q06: I have one younger brother, Arturo, in Pasadena, Texas, and we are close enough to check in weekly."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Sonia's closest friend is Teresa, a former coworker.",
+        "ground_truth_label": "Closest friend Teresa",
+        "behavioral_evidence_from_interview": [
+          "Q07: My closest friend is Teresa, who I met at work almost twenty years ago."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Sonia participates in a Spanish-language book club.",
+        "ground_truth_label": "Spanish-language book club participant",
+        "behavioral_evidence_from_interview": [
+          "Q07: I also have women from my Spanish-language book club."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Sonia uses WhatsApp heavily for family communication.",
+        "ground_truth_label": "Uses WhatsApp for family",
+        "behavioral_evidence_from_interview": [
+          "Q05: We use WhatsApp a lot.",
+          "Q48: I use WhatsApp more than anything for family chats."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Sonia owns a mortgaged home in Houston's 77086 area with Manuel.",
+        "ground_truth_label": "Owner-occupied mortgaged home in 77086",
+        "behavioral_evidence_from_interview": [
+          "Q08: We live in northwest Houston, in the 77086 area.",
+          "Q58: We own our home with a mortgage."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Sonia maintains labeled files, calendars, budget spreadsheets, medical folders, and weekly lists.",
+        "ground_truth_label": "Highly organized household systems",
+        "behavioral_evidence_from_interview": [
+          "Q17: A spreadsheet with categories.",
+          "Q40: I keep a folder for medical bills.",
+          "Q75: Yes, in labeled folders, paper and digital."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Sonia values home privacy and does not rent rooms or host lodgers.",
+        "ground_truth_label": "Privacy-oriented home use",
+        "behavioral_evidence_from_interview": [
+          "Q54: No lodgers, boarders, or employees.",
+          "Q54: No, I prefer keeping home private."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Sonia keeps guest space for occasional grandson sleepovers and family visits.",
+        "ground_truth_label": "Guest room for family visits",
+        "behavioral_evidence_from_interview": [
+          "Q11: One room is a guest room.",
+          "Q13: Our grandson may sleep over occasionally."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Sonia's household spending was about $6,200 last month due to a truck repair and is usually about $5,200 to $5,500.",
+        "ground_truth_label": "Monthly spending range",
+        "behavioral_evidence_from_interview": [
+          "Q57: Last month we spent around $6,200 because of the truck repair. A more usual month is closer to $5,200 to $5,500."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Sonia and Manuel's combined household income is about $9,000 gross monthly and about $6,800 to $7,000 take-home.",
+        "ground_truth_label": "Household monthly income range",
+        "behavioral_evidence_from_interview": [
+          "Q74: Together, Manuel and I made around $9,000 gross last month, maybe about $6,800 to $7,000 take-home."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Sonia's current debts are the mortgage, one low-balance car loan, and credit cards usually paid off monthly.",
+        "ground_truth_label": "Mortgage plus low-balance car loan; minimal revolving debt",
+        "behavioral_evidence_from_interview": [
+          "Q63: We have the mortgage and one car loan with a low remaining balance. We use credit cards but pay them off most months."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Sonia can cover a $400 emergency from savings and would rebuild that savings category afterward.",
+        "ground_truth_label": "Can cover $400 emergency",
+        "behavioral_evidence_from_interview": [
+          "Q82: We could cover a $400 emergency from savings.",
+          "Q82: I would record it, then rebuild that savings category."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Sonia watches Astros games with Manuel and family.",
+        "ground_truth_label": "Astros fan and family viewer",
+        "behavioral_evidence_from_interview": [
+          "Q05: more if there is a birthday or Astros game.",
+          "Q43: Astros games with Manuel."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Sonia enjoys Sudoku, crosswords, logic puzzles, and reading at night.",
+        "ground_truth_label": "Puzzles and reading for leisure",
+        "behavioral_evidence_from_interview": [
+          "Q17: I do puzzles at night, especially Sudoku and crosswords.",
+          "Q50: Reading, puzzles, or prepping lunch."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Sonia uses Instagram mainly for recipes, gardening, travel, and museum or art pages.",
+        "ground_truth_label": "Instagram browsing interests",
+        "behavioral_evidence_from_interview": [
+          "Q48: I mostly look at recipes, garden ideas, travel photos, and sometimes Frida Kahlo or museum pages."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Sonia uses Sudoku, crosswords, and list-making for emotional regulation.",
+        "ground_truth_label": "Structured hobbies as coping",
+        "behavioral_evidence_from_interview": [
+          "Q38: When I am stressed I am more likely to clean, do a puzzle, walk, or make a list.",
+          "Q17: because it settles my mind."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Sonia gardens herbs and vegetables for practical cooking use.",
+        "ground_truth_label": "Practical food gardening",
+        "behavioral_evidence_from_interview": [
+          "Q17: I also keep up the garden, mostly cilantro, epazote, rosemary, tomatoes... and a few peppers."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Sonia attends a monthly Spanish-language book club focused on literature such as Mariano Azuela.",
+        "ground_truth_label": "Monthly Spanish-language book club",
+        "behavioral_evidence_from_interview": [
+          "Q07: We meet one Saturday a month.",
+          "Q07: we read authors like Mariano Azuela."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Sonia volunteers as a math tutor about twice a month.",
+        "ground_truth_label": "Volunteer math tutor twice monthly",
+        "behavioral_evidence_from_interview": [
+          "Q17: I volunteer as a math tutor at a community center about twice a month."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Sonia works in petrochemical quality assurance reviewing data, maintaining records, supporting audits, investigating deviations, and training staff.",
+        "ground_truth_label": "Senior petrochemical QA specialist duties",
+        "behavioral_evidence_from_interview": [
+          "Q65: I review lab and process data, verify that test results meet specifications, maintain quality records, support audits, investigate deviations.",
+          "Q16: training new staff."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Sonia uses Excel, Access, basic R, statistical tools, checklists, and SOPs at work.",
+        "ground_truth_label": "QA technical tools",
+        "behavioral_evidence_from_interview": [
+          "Q16: Excel every day, Access still for some legacy tracking, and a little basic R.",
+          "Q65: basic statistical tools, and a lot of checklists."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Sonia is pursuing Six Sigma Green Belt certification.",
+        "ground_truth_label": "Pursuing Six Sigma Green Belt",
+        "behavioral_evidence_from_interview": [
+          "Q16: I am also studying for my Six Sigma Green Belt.",
+          "Q108: I want to finish my Six Sigma Green Belt."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Sonia wants to transition into part-time consulting for data validation, compliance, and quality systems.",
+        "ground_truth_label": "Part-time consulting goal",
+        "behavioral_evidence_from_interview": [
+          "Q108: transition out of full-time work into part-time consulting, maybe helping small businesses with data validation, compliance, or quality systems."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Sonia responds to work mistakes by analyzing process gaps, revising training checklists, and coaching staff calmly.",
+        "ground_truth_label": "Process-improvement response to mistakes",
+        "behavioral_evidence_from_interview": [
+          "Q44: the training process had gaps, not just the person.",
+          "Q44: rewrote the training checklist."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Sonia works one paid salaried job, usually 40 to 45 hours per week, with predictable weekday hours and occasional audit-related late days.",
+        "ground_truth_label": "One salaried full-time job",
+        "behavioral_evidence_from_interview": [
+          "Q68: Usually about 40 to 45 hours a week.",
+          "Q70: No, only one paid job.",
+          "Q78: audits, customer issues, or deviations can make a day run long."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Sonia's gross pay is about $6,200 per month and take-home pay is about $4,700 after deductions.",
+        "ground_truth_label": "Monthly personal job income",
+        "behavioral_evidence_from_interview": [
+          "Q72: My gross pay is around $6,200 a month... my take-home is around $4,700."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Sonia participates in Spanish-language book club discussions of Mexican and Spanish-language literature.",
+        "ground_truth_label": "Spanish-language literary engagement",
+        "behavioral_evidence_from_interview": [
+          "Q07: Spanish-language book club.",
+          "Q30: especially when reading about the Mexican Revolution, class, land, and indigenous people."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Sonia maintains Dia de los Muertos altars with photos, candles, marigolds, and food for deceased parents.",
+        "ground_truth_label": "Dia de los Muertos altar practice",
+        "behavioral_evidence_from_interview": [
+          "Q47: I make a small altar with photos of my parents, candles, marigolds... and food they liked."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Sonia follows Frida Kahlo and museum pages online.",
+        "ground_truth_label": "Follows Frida Kahlo and museum content",
+        "behavioral_evidence_from_interview": [
+          "Q48: sometimes Frida Kahlo or museum pages."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Sonia practices yoga twice a week or through home videos.",
+        "ground_truth_label": "Twice-weekly yoga",
+        "behavioral_evidence_from_interview": [
+          "Q15: Tuesdays and Thursdays I do yoga in the evening, either a class or a video at home."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Sonia walks early, especially before Houston heat, and tracks step goals.",
+        "ground_truth_label": "Early walking routine",
+        "behavioral_evidence_from_interview": [
+          "Q18: I also started walking earlier because the heat has been tougher on me.",
+          "Q31: I track my steps."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Sonia occasionally plays in an over-50 tennis group but limits activity due to knee pain.",
+        "ground_truth_label": "Occasional over-50 tennis with knee limits",
+        "behavioral_evidence_from_interview": [
+          "Q33: Maybe once or twice a month with the over-50 group.",
+          "Q33: The knee pain came after I overdid tennis one weekend."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Sonia walks near the community garden and knows local streets, dogs, and drainage patterns.",
+        "ground_truth_label": "Localized outdoor awareness",
+        "behavioral_evidence_from_interview": [
+          "Q08: I walk early near the community garden... I know which houses have dogs and which corners collect water after heavy rain."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Sonia gardens herbs and vegetables despite Houston heat.",
+        "ground_truth_label": "Gardens despite heat",
+        "behavioral_evidence_from_interview": [
+          "Q17: I also keep up the garden.",
+          "Q32: What makes it hard is Houston heat."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Sonia adjusts outdoor activity to avoid extreme heat.",
+        "ground_truth_label": "Heat-adapted outdoor routine",
+        "behavioral_evidence_from_interview": [
+          "Q18: I also started walking earlier because the heat has been tougher on me."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Sonia uses Excel, Access, and basic R in quality assurance work.",
+        "ground_truth_label": "Work software: Excel, Access, basic R",
+        "behavioral_evidence_from_interview": [
+          "Q16: Excel every day, Access still for some legacy tracking, and a little basic R."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Sonia keeps household budget spreadsheets and labeled digital records.",
+        "ground_truth_label": "Digital household recordkeeping",
+        "behavioral_evidence_from_interview": [
+          "Q17: A spreadsheet with categories.",
+          "Q75: labeled folders, paper and digital."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Sonia uses WhatsApp, Facebook, and Instagram, avoids public oversharing, and does not use X much.",
+        "ground_truth_label": "Selective social media use",
+        "behavioral_evidence_from_interview": [
+          "Q48: I use Facebook mostly for family, church events, community announcements, and photos.",
+          "Q48: I use WhatsApp more than anything.",
+          "Q48: I do not use Twitter, or X, much at all."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Sonia fact-checks dramatic health or political claims before accepting them.",
+        "ground_truth_label": "Fact-checks dramatic claims",
+        "behavioral_evidence_from_interview": [
+          "Q42: Do you fact-check health claims people send you? Yes.",
+          "Q25: Facebook and forwarded messages... half the time it is old or twisted."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Sonia votes regularly, including local elections, and prefers early voting.",
+        "ground_truth_label": "Regular early voter",
+        "behavioral_evidence_from_interview": [
+          "Q23: I vote regularly... and I try not to skip local elections.",
+          "Q23: I vote early when I can."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Sonia identifies as a moderate Democrat and feels closer to the Democratic Party.",
+        "ground_truth_label": "Moderate Democrat",
+        "behavioral_evidence_from_interview": [
+          "Q95: I usually think of myself as a Democrat, but moderate.",
+          "Q96: Closer to the Democratic Party."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Sonia participates in church life mainly through Mass and occasional food or holiday setup help.",
+        "ground_truth_label": "Catholic church participation",
+        "behavioral_evidence_from_interview": [
+          "Q47: I go to Mass most Sundays.",
+          "Q47: sometimes help with food for events or holiday setup."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Sonia communicates with neighbors about safety and suspicious activity.",
+        "ground_truth_label": "Neighborhood safety communication",
+        "behavioral_evidence_from_interview": [
+          "Q09: especially through texts. If a strange car is sitting too long, someone usually says something.",
+          "Q21: Yes, mostly through texts."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Sonia has limited personal police contact, respects public safety, but believes treatment is unequal and small property crimes often go unresolved.",
+        "ground_truth_label": "Qualified trust in law enforcement",
+        "behavioral_evidence_from_interview": [
+          "Q20: Personally, I have had limited contact.",
+          "Q20: I respect the need for public safety, but I also know not everyone gets treated the same.",
+          "Q21: small property crimes are just documented, not solved."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Sonia supports policing reforms such as better training, body-camera review, mental-health response teams, and complaint-pattern tracking.",
+        "ground_truth_label": "Supports policing accountability reforms",
+        "behavioral_evidence_from_interview": [
+          "Q27: Better training, body cameras with real review, mental health response teams, and tracking patterns of complaints."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Sonia responded to racial justice issues mostly through family conversations, a small donation, and attention to local candidates rather than protest attendance.",
+        "ground_truth_label": "Private racial justice engagement",
+        "behavioral_evidence_from_interview": [
+          "Q29: talked with family and friends, donated a small amount once to a local justice organization, and paid more attention to local candidates.",
+          "Q29: I have not joined a protest."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Sonia grew up listening to mariachi and Vicente Fernandez at home.",
+        "ground_truth_label": "Mariachi and Vicente Fernandez childhood music",
+        "behavioral_evidence_from_interview": [
+          "Q01: At home we spoke Spanish, listened to mariachi and Vicente Fernandez."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Sonia associates music with family gatherings and Mexican cultural continuity.",
+        "ground_truth_label": "Music as cultural continuity",
+        "behavioral_evidence_from_interview": [
+          "Q01: listened to mariachi and Vicente Fernandez, made tamales at Christmas, and went to Mass.",
+          "Q109: Mexican heritage and the Spanish language... connect me to my parents."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Sonia delayed buying new work clothes when extra expenses came up.",
+        "ground_truth_label": "Delayed discretionary clothing purchase",
+        "behavioral_evidence_from_interview": [
+          "Q60: I delayed buying new clothes for work because the truck repair mattered more.",
+          "Q81: Replacing patio furniture and some work clothes."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Sonia prefers practical choices over discretionary shopping when budgeting.",
+        "ground_truth_label": "Budget-practical appearance spending",
+        "behavioral_evidence_from_interview": [
+          "Q60: cut back on eating out and small purchases.",
+          "Q60: the truck repair mattered more."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Sonia was born in Houston to parents from Jalisco, Mexico, and was raised in a bilingual household.",
+        "ground_truth_label": "Houston-born Mexican-American with Jalisco roots",
+        "behavioral_evidence_from_interview": [
+          "Q01: I was born here in Houston in 1969, but my parents were both from Jalisco, Mexico.",
+          "Q01: At home we spoke Spanish."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Sonia has lived only around the Houston area and feels rooted there.",
+        "ground_truth_label": "Lifelong Houston-area resident",
+        "behavioral_evidence_from_interview": [
+          "Q87: Only around the Houston area.",
+          "Q87: Yes, very much."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Sonia speaks Spanish fluently and uses Spanish with family, prayer, and close emotional contexts.",
+        "ground_truth_label": "Fluent Spanish for family and prayer",
+        "behavioral_evidence_from_interview": [
+          "Q88: Yes, fluently.",
+          "Q47: Mostly Spanish. The prayers of childhood stay in Spanish.",
+          "Q07: emotionally Spanish comes out with close friends and family."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Sonia identifies as Mexican-American/Hispanic and White on race forms when required.",
+        "ground_truth_label": "Mexican-American/Hispanic ethnicity and White race-form response",
+        "behavioral_evidence_from_interview": [
+          "Q88: Yes, I am Mexican-American, Hispanic.",
+          "Q89: I identify as White and Hispanic, Mexican-American."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Sonia maintains Mexican Catholic traditions including tamales, Dia de los Muertos altars, and family holiday gatherings.",
+        "ground_truth_label": "Mexican Catholic family traditions",
+        "behavioral_evidence_from_interview": [
+          "Q01: made tamales at Christmas, and went to Mass.",
+          "Q47: Dia de los Muertos is also important culturally and spiritually."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Sonia values family, faith, integrity, usefulness, education, Mexican heritage, Spanish language, and doing things correctly.",
+        "ground_truth_label": "Core values: family, faith, integrity, usefulness, education, heritage, correctness",
+        "behavioral_evidence_from_interview": [
+          "Q109: I value family, faith, integrity, and usefulness.",
+          "Q109: I value education.",
+          "Q109: I value my Mexican heritage and the Spanish language.",
+          "Q109: I value doing things correctly."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Sonia chose paid work and lab support after high school instead of full-time college due to family finances and opportunity.",
+        "ground_truth_label": "Post-high-school work over full-time college",
+        "behavioral_evidence_from_interview": [
+          "Q02: I chose the job because it helped my parents and gave me a real paycheck.",
+          "Q03: staying in quality and data was a conscious choice."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Sonia married Manuel and raised Daniel and Elena in Houston.",
+        "ground_truth_label": "Married Manuel and raised two children in Houston",
+        "behavioral_evidence_from_interview": [
+          "Q01: I married my husband, Manuel, in my mid-twenties, and we raised two children here in Houston.",
+          "Q05: Our son Daniel... Our daughter Elena."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Sonia has lost both parents, with her mother passing eight years before the interview.",
+        "ground_truth_label": "Both parents deceased; mother died eight years prior",
+        "behavioral_evidence_from_interview": [
+          "Q06: My mother passed away eight years ago, and my father passed before her."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Sonia is planning a transition from full-time work to part-time consulting and a retirement-oriented life.",
+        "ground_truth_label": "Approaching retirement transition",
+        "behavioral_evidence_from_interview": [
+          "Q108: transition out of full-time work into part-time consulting.",
+          "Q43: thinking about aging, retirement, and whether we have saved enough."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Sonia reads voter guides, checks endorsements, and evaluates local candidates before voting.",
+        "ground_truth_label": "Candidate research before voting",
+        "behavioral_evidence_from_interview": [
+          "Q23: I usually read a voter guide, check endorsements."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Sonia avoids late-night news to reduce stress and improve sleep.",
+        "ground_truth_label": "Avoids late-night news for sleep",
+        "behavioral_evidence_from_interview": [
+          "Q50: fewer late-night news videos.",
+          "Q50: I sleep better when I stop looking at headlines after dinner."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Sonia distrusts random Facebook posts and forwarded videos, especially about vaccines or politics.",
+        "ground_truth_label": "Distrusts forwarded social media claims",
+        "behavioral_evidence_from_interview": [
+          "Q42: I do not trust random Facebook posts or forwarded videos.",
+          "Q25: Facebook and forwarded messages."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Sonia uses Facebook for family, church, and community announcements and Instagram for recipes, gardens, travel, and arts.",
+        "ground_truth_label": "Practical Facebook and Instagram use",
+        "behavioral_evidence_from_interview": [
+          "Q48: I use Facebook mostly for family, church events, community announcements, and photos.",
+          "Q48: Instagram... recipes, garden ideas, travel photos, and sometimes Frida Kahlo or museum pages."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "reprojected",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Sonia grew up in a working-class household with one younger brother.",
+        "ground_truth_label": "Working-class childhood household with one brother",
+        "behavioral_evidence_from_interview": [
+          "Q01: My father worked maintenance... my mother sewed and later worked in a school cafeteria.",
+          "Q99: I lived with my younger brother Arturo."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "reprojected",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Sonia's highest completed formal education is a high school diploma, supplemented by community college coursework and job certifications.",
+        "ground_truth_label": "High school diploma plus supplemental coursework",
+        "behavioral_evidence_from_interview": [
+          "Q90: High school diploma. I also took some community college and work certifications, but no college degree."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Sonia is highly planning-oriented, loss-averse, and motivated by stability, accuracy, and future options rather than luxury consumption.",
+        "ground_truth_label": "Planning-oriented and loss-averse",
+        "behavioral_evidence_from_interview": [
+          "Q61: I am disciplined about it because uncertainty bothers me.",
+          "Q83: My comfort comes from knowing the numbers."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-093",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Sonia cuts restaurants, clothing, and discretionary purchases rather than taking on debt when extra costs arise.",
+        "ground_truth_label": "Disciplined substitution under budget stress",
+        "behavioral_evidence_from_interview": [
+          "Q60: used savings and cut back on eating out and small purchases.",
+          "Q63: It bothers me to pay interest."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-094",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Sonia supports business and industry as sources of livelihood but believes companies need environmental, safety, worker, and accountability regulation.",
+        "ground_truth_label": "Pro-industry with accountability regulation",
+        "behavioral_evidence_from_interview": [
+          "Q24: I am not against business. My family's livelihood came from industry.",
+          "Q24: companies need accountability, especially when chemicals, air, water, and workers' safety are involved."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-095",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Sonia is concerned about misinformation, racial inequality, policing accountability, and unequal industrial risk in Houston neighborhoods.",
+        "ground_truth_label": "Concerned about misinformation, race, policing, and environmental justice",
+        "behavioral_evidence_from_interview": [
+          "Q25: I have become more worried about misinformation.",
+          "Q25: environmental justice because in Houston you can see how certain neighborhoods carry more industrial risk.",
+          "Q27: accountability and human dignity."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-096",
+        "source": "reprojected",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Sonia is conscientious, methodical, quietly competitive, and emotionally contained, with a self-concept organized around competence, reliability, and usefulness.",
+        "ground_truth_label": "Conscientious and competence-oriented self-concept",
+        "behavioral_evidence_from_interview": [
+          "Q43: I am not someone who cries easily in front of people.",
+          "Q109: I value family, faith, integrity, and usefulness.",
+          "Q65: The most important duty is preventing small errors from becoming safety, compliance, or customer problems."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}

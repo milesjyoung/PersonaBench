@@ -1,0 +1,2661 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "0e2d3b13dbb74d16a7f43640cd47d571",
+      "name": "Milton Wells",
+      "verification_date": "2026-05-22"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age, sex, marital status, education, occupation, and Oklahoma City residence match the interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed age, sex, marital_status, education_level, occupation, city/state/zipcode",
+              "source_b_ref": "Q51, Q84, Q85, Q90, Q67-Q72",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed says Milton is divorced; interview enriches this with one prior marriage, divorce over fifteen years ago, two adult children, and no romantic partner.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed marital_status",
+              "source_b_ref": "Q05, Q84",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 3,
+              "text": "Seed places him in Oklahoma City; interview confirms lifelong Oklahoma City roots and current northwest Oklahoma City residence in 73132.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed city/state/zipcode",
+              "source_b_ref": "Q08, Q51, Q86-Q87, Q97",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 4,
+              "text": "Seed lists high school education and no bachelor's field; interview confirms high school diploma, no college, and no formal vocational degree.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed education_level, bachelors_field",
+              "source_b_ref": "Q02, Q90",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile demographic header accurately reflects name, age, gender, divorced status, Oklahoma City location, high school education, and retired occupation.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q84-Q90, Q65-Q72",
+              "source_b_ref": "corrected_extracted_profile header",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures that he lives alone in a paid-off home but omits that no one else contributes to household expenses.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q51, Q55, Q58",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 3,
+              "text": "Profile captures two adult children but under-specifies three grandchildren and occasional overnight visits before fishing trips.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q05, Q13, Q52",
+              "source_b_ref": "preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT"
+            },
+            {
+              "id": 4,
+              "text": "Profile omits date of birth and non-veteran status, both demographic facts from the interview.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q85, Q93",
+              "source_b_ref": "preferences.cultural_and_linguistic",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Home, social, and demographer summary fields consistently state that Milton is divorced and lives alone.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships",
+              "field_b": "preferences.home_and_lifestyle; summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Occupation header, work_and_career, and demographer summary consistently describe retirement from paid handyman work with unpaid volunteer roles.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "occupation; preferences.work_and_career",
+              "field_b": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview states Milton was born March 14, 1953, which is absent from the profile.",
+              "gap": true,
+              "interview_ref": "Q85",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail: \"Date of birth is March 14, 1953.\""
+            },
+            {
+              "id": 2,
+              "text": "Interview states he has three grandchildren and occasional overnight grandchild visits before fishing trips.",
+              "gap": true,
+              "interview_ref": "Q05, Q13",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add detail about three grandchildren and occasional overnight fishing-related visits."
+            },
+            {
+              "id": 3,
+              "text": "Interview states he has never served on active duty, reserves, or National Guard.",
+              "gap": true,
+              "interview_ref": "Q93",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add non-veteran status as a demographic fact."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes meticulous budgeting and record-keeping; interview confirms notebooks, spreadsheets, monthly budgeting, and Friday balance checks.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "skills_and_expertise",
+              "source_b_ref": "Q17, Q56-Q57",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 2,
+              "text": "Seed mentions misplacing receipts; interview repeatedly confirms receipts and envelopes are a weak point.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "persona",
+              "source_b_ref": "Q05, Q17, Q40, Q56, Q75",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed says he plans road trips carefully and uses budget motels; interview confirms route, motel, rest-stop, weather, and credit-card caution.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "travel_persona",
+              "source_b_ref": "Q62, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 4,
+              "text": "Seed describes volunteer coordination with project-manager precision; interview confirms sign-up sheets, supply lists, spreadsheets, and event scheduling.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "professional_persona, skills_and_expertise",
+              "source_b_ref": "Q16-Q17, Q78",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile captures debt avoidance, savings, and refusal to finance the Grand Canyon trip with credit card debt.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q62-Q64, Q82",
+              "source_b_ref": "summaries.behavioral_economist; preferences.travel",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile omits his specific monthly spending and household income ranges, which are central behavioral finance facts.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q57, Q74",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT"
+            },
+            {
+              "id": 3,
+              "text": "Profile captures cooking at home and combining errands but omits his specific cutbacks after extra expenses.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q60, Q81",
+              "source_b_ref": "preferences.food_and_dining; preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 4,
+              "text": "Profile accurately describes reliance on trusted family, church, senior-center, and professional sources over mass-media or social-media claims.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q25, Q42, Q48-Q50",
+              "source_b_ref": "preferences.media_and_information_diet; summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Travel, finances-related home details, and behavioral summary align on high planning discipline and debt avoidance.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.travel",
+              "field_b": "preferences.home_and_lifestyle; summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Receipt misplacement appears as a recurring imperfection but does not contradict his broader organized budgeting style.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.home_and_lifestyle",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Monthly spending is around $1,900-$2,100 usually and $2,250 in the referenced month.",
+              "gap": true,
+              "interview_ref": "Q57",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add monthly spending range and recent higher spending note."
+            },
+            {
+              "id": 2,
+              "text": "Household income is about $2,300-$2,600 per month from Social Security and occasional retirement withdrawals.",
+              "gap": true,
+              "interview_ref": "Q72-Q74",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add income sources and monthly range."
+            },
+            {
+              "id": 3,
+              "text": "He can cover a $400 emergency from savings and rebuild the fund by cutting extras.",
+              "gap": true,
+              "interview_ref": "Q82",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add emergency-fund behavior."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed cultural background emphasizes church and civic participation; interview confirms regular voting, church outreach, and senior-center service.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "cultural_background, career_goals_and_ambitions",
+              "source_b_ref": "Q16-Q17, Q23, Q47",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed says Protestant upbringing; interview specifies Protestant Christian, Baptist by upbringing, and local Baptist attendance.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "cultural_background",
+              "source_b_ref": "Q47, Q94",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 3,
+              "text": "Seed does not state party identity; interview adds moderately strong Republican identification and conservative but practical views.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed demographic/persona fields",
+              "source_b_ref": "Q24, Q95-Q96",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 4,
+              "text": "Seed respect for tradition and self-reliance is consistent with interview support for fiscal responsibility, police and military respect, and personal accountability.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "cultural_background",
+              "source_b_ref": "Q24, Q95-Q96",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures regular voting and ballot research.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23",
+              "source_b_ref": "preferences.community_and_civic; summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile summary captures Republican identity, but preferences lack a direct party-identification detail.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q24, Q95-Q96",
+              "source_b_ref": "preferences.community_and_civic; summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT"
+            },
+            {
+              "id": 3,
+              "text": "Profile captures police respect and accountability but omits his personal limited law-enforcement experiences.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q20-Q22",
+              "source_b_ref": "summaries.political_scientist; preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 4,
+              "text": "Profile accurately captures selective institutional trust and reduced trust in cable-news shouting.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q25-Q27, Q42, Q50",
+              "source_b_ref": "preferences.media_and_information_diet; summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Community_and_civic, cultural_and_linguistic, and political summary consistently frame him as locally civic, church-oriented, and conservative-practical.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic; preferences.cultural_and_linguistic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Respect for police and support for accountability are complementary in the profile, not contradictory.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.political_scientist",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview gives explicit party identity: Republican, moderately strong, closer to Republican Party.",
+              "gap": true,
+              "interview_ref": "Q95-Q96",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add explicit Republican party-identification detail."
+            },
+            {
+              "id": 2,
+              "text": "Interview states he has never been arrested and has only ordinary personal law-enforcement experiences.",
+              "gap": true,
+              "interview_ref": "Q20-Q22",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add personal law-enforcement experience detail."
+            },
+            {
+              "id": 3,
+              "text": "Interview says he has not joined protests over BLM/race/policing and instead talks with family and church friends.",
+              "gap": true,
+              "interview_ref": "Q26-Q30",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add civic response to race and policing issues."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes Milton as methodical; interview consistently shows conscientious planning, tool organization, budgeting, and diagnostic thinking.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "persona, professional_persona, skills_and_expertise",
+              "source_b_ref": "Q01, Q16-Q17, Q56-Q57, Q65",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed emphasizes community mentoring; interview confirms that mentoring restored purpose after retirement and divorce.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "career_goals_and_ambitions",
+              "source_b_ref": "Q01-Q03, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            },
+            {
+              "id": 3,
+              "text": "Seed mentions over-watering the garden and misplacing receipts; interview confirms both as recurring small lapses within an otherwise orderly personality.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "persona, culinary_persona",
+              "source_b_ref": "Q17, Q56, Q75",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed does not describe loneliness or low mood; interview adds lonely patches, winter low moods, and coping through routine, prayer, social contact, and hands-on tasks.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "persona",
+              "source_b_ref": "Q43-Q45, Q50",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile psychologist summary accurately represents his conscientious, practical, usefulness-centered self-concept.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01, Q65, Q109",
+              "source_b_ref": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures coping through routine, prayer, outdoor activity, model building, and social contact.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q38, Q43-Q45, Q50",
+              "source_b_ref": "summaries.psychologist; preferences.health_and_wellness; preferences.hobbies_and_recreation",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile omits the explicit statement that he does not identify as clinically depressed and is not generally anxious day to day.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q45",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "NEEDS_ENRICHMENT"
+            },
+            {
+              "id": 4,
+              "text": "Profile omits the specific fear of losing independence and usefulness.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q108",
+              "source_b_ref": "preferences.life_events_and_transitions",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD"
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Health limits, preference for morning activity, and desire for independence align psychologically with adaptive aging rather than contradiction.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness; preferences.sports_and_fitness",
+              "field_b": "preferences.life_events_and_transitions; summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Living alone, loneliness, and preferring solitude are internally consistent because the profile distinguishes preferred autonomy from occasional emotional loneliness.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships; preferences.home_and_lifestyle",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview says evenings after supper, especially winter darkness, are when loneliness is most likely.",
+              "gap": true,
+              "interview_ref": "Q43",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add loneliness timing and coping context."
+            },
+            {
+              "id": 2,
+              "text": "Interview says he did not seek formal counseling but retrospectively thinks it might have helped.",
+              "gap": true,
+              "interview_ref": "Q04, Q45",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add counseling attitude detail."
+            },
+            {
+              "id": 3,
+              "text": "Interview states his strongest values are faith, family, usefulness, honesty, keeping one's word, modest living, and quiet service.",
+              "gap": true,
+              "interview_ref": "Q109",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add values detail already partly present, expanded with honesty and faith."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No contradictions required partial correction or human review. Several meaningful interview details were absent from the draft profile and were carried forward or enriched in the corrected profile.",
+    "final_status": "Corrected profile is internally consistent and ready for downstream use."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "0e2d3b13dbb74d16a7f43640cd47d571",
+    "name": "Milton Wells",
+    "age": 73,
+    "gender": "Male",
+    "marital_status": "divorced",
+    "location": "Oklahoma City, OK 73132",
+    "education": "High school diploma",
+    "occupation": "Retired handyman and maintenance repairman; currently not in paid workforce and volunteers as a senior-center workshop leader and church repair coordinator",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to the verification report above.",
+      "health_and_wellness": {
+        "summary": "Milton manages controlled hypertension, arthritis, and age-related fatigue through routine, walking, medication adherence, and preventive care.",
+        "details": [
+          {
+            "detail": "Takes prescribed blood pressure medication and uses a weekly pill box.",
+            "evidence": "Q31, Q39"
+          },
+          {
+            "detail": "Prefers morning walking and low-impact senior-center exercise.",
+            "evidence": "Q18, Q32"
+          },
+          {
+            "detail": "Avoids ladders, heavy lifting, and night driving due to age and joint limitations.",
+            "evidence": "Q34"
+          },
+          {
+            "detail": "Generally supports vaccination and trusts his doctor, CDC, pharmacist, and local health department.",
+            "evidence": "Q41, Q42"
+          },
+          {
+            "detail": "Has controlled high blood pressure, arthritis in knees and hands, imperfect hearing, and earlier evening fatigue.",
+            "evidence": "Q31"
+          },
+          {
+            "detail": "Experiences lonely patches and low moods, especially after supper in winter or when health keeps him inactive, but does not describe himself as clinically depressed or generally anxious.",
+            "evidence": "Q43-Q45"
+          },
+          {
+            "detail": "Copes through routine, prayer, trusted conversations, outdoor time, model building, and keeping his hands busy.",
+            "evidence": "Q38, Q43-Q45, Q50"
+          },
+          {
+            "detail": "Has not sought formal counseling, though he thinks counseling or practical private help might have helped earlier during the divorce.",
+            "evidence": "Q04, Q45"
+          }
+        ],
+        "evidence": "Q31-Q45, Q50"
+      },
+      "food_and_dining": {
+        "summary": "He likes practical home cooking rooted in Oklahoma habits, especially garden vegetables, catfish, cornbread, coffee, and homemade meals.",
+        "details": [
+          {
+            "detail": "Enjoys fried catfish and cornbread but recognizes moderation is important.",
+            "evidence": "Q32"
+          },
+          {
+            "detail": "Cooks at home to manage money and health.",
+            "evidence": "Q60, Q81"
+          },
+          {
+            "detail": "Grows tomatoes, peppers, lettuce, green beans, and flowers.",
+            "evidence": "Q17"
+          },
+          {
+            "detail": "Drinks strong coffee as part of his daily routine.",
+            "evidence": "Q15, Q38"
+          },
+          {
+            "detail": "Cuts restaurant meals first when extra expenses arise.",
+            "evidence": "Q60, Q81"
+          }
+        ],
+        "evidence": "Q15, Q17, Q32, Q60, Q81"
+      },
+      "travel": {
+        "summary": "Milton prefers carefully planned budget road trips and wants to see the Grand Canyon sunrise while maintaining financial caution.",
+        "details": [
+          {
+            "detail": "Has photographed and remembers trips to Sedona and the Flint Hills.",
+            "evidence": "Q108"
+          },
+          {
+            "detail": "Wants to visit the Grand Canyon at sunrise but will not finance it with credit card debt.",
+            "evidence": "Q62, Q108"
+          },
+          {
+            "detail": "Plans trips around routes, motels, rest stops, weather, and physical comfort.",
+            "evidence": "Q62"
+          },
+          {
+            "detail": "Would want someone to know his route each day on a major road trip.",
+            "evidence": "Q108"
+          }
+        ],
+        "evidence": "Q62, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "He is divorced, lives alone, maintains close ties with two adult children, grandchildren, senior-center friends, church members, and fishing companions.",
+        "details": [
+          {
+            "detail": "Daughter Karen calls several times weekly and visits on many Sundays.",
+            "evidence": "Q05"
+          },
+          {
+            "detail": "Son Brian lives near Norman and bonds with him over engines and football.",
+            "evidence": "Q05"
+          },
+          {
+            "detail": "Friends Earl and Sam are regular chess and fishing companions.",
+            "evidence": "Q07"
+          },
+          {
+            "detail": "Does not seek a romantic relationship and prefers living alone.",
+            "evidence": "Q05, Q11, Q84"
+          },
+          {
+            "detail": "Has three grandchildren, stays connected by text and birthday cards, and sometimes takes them fishing.",
+            "evidence": "Q05"
+          },
+          {
+            "detail": "A grandchild may occasionally stay overnight before a fishing trip, about three or four times a year.",
+            "evidence": "Q13"
+          },
+          {
+            "detail": "Ex-wife Linda remains politely connected through children and grandchildren, but they do not spend time together otherwise.",
+            "evidence": "Q06"
+          }
+        ],
+        "evidence": "Q05-Q07, Q11, Q13, Q84"
+      },
+      "home_and_lifestyle": {
+        "summary": "Milton lives alone in a paid-off northwest Oklahoma City home and keeps a modest, organized, tool-centered household.",
+        "details": [
+          {
+            "detail": "Owns his home outright but budgets for taxes, insurance, utilities, and maintenance.",
+            "evidence": "Q58"
+          },
+          {
+            "detail": "Keeps one bedroom as an office and model-building room.",
+            "evidence": "Q11"
+          },
+          {
+            "detail": "Handles many small repairs himself but hires out dangerous or heavy work.",
+            "evidence": "Q58"
+          },
+          {
+            "detail": "Misplaces receipts despite using folders, envelopes, notebooks, and spreadsheets.",
+            "evidence": "Q17, Q40, Q56, Q75"
+          },
+          {
+            "detail": "Pays household expenses alone and receives no regular family contribution.",
+            "evidence": "Q55"
+          },
+          {
+            "detail": "Usually spends about $1,900 to $2,100 per month, with a recent month around $2,250 due to insurance and workshop supplies.",
+            "evidence": "Q57"
+          },
+          {
+            "detail": "Monthly household income is about $2,300 to $2,600, mostly Social Security with occasional retirement withdrawals.",
+            "evidence": "Q72-Q74"
+          },
+          {
+            "detail": "Can cover a $400 emergency from savings and rebuild the fund by cutting extras.",
+            "evidence": "Q82"
+          },
+          {
+            "detail": "Keeps an emergency fund and some storm cash at home.",
+            "evidence": "Q61"
+          }
+        ],
+        "evidence": "Q11, Q17, Q40, Q55-Q58, Q61, Q72-Q75, Q82"
+      },
+      "entertainment": {
+        "summary": "His entertainment is quiet and routine-based: sports on television, chess, reading historical biographies, model cars, and occasional photography talks.",
+        "details": [
+          {
+            "detail": "Watches the Oklahoma City Thunder and Dallas Cowboys.",
+            "evidence": "Q15, Q38"
+          },
+          {
+            "detail": "Plays chess at the senior center with Earl.",
+            "evidence": "Q07, Q44"
+          },
+          {
+            "detail": "Builds wooden models of classic cars.",
+            "evidence": "Q43"
+          },
+          {
+            "detail": "Reads and values historical biographies.",
+            "evidence": "Q15, Q108"
+          }
+        ],
+        "evidence": "Q07, Q15, Q38, Q43, Q44, Q108"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Milton's hobbies combine hands-on skill, outdoor routine, and patient observation: gardening, fishing, photography, chess, and model building.",
+        "details": [
+          {
+            "detail": "Fishes at Lake Hefner or Arcadia with Sam, often early in the day.",
+            "evidence": "Q07, Q15"
+          },
+          {
+            "detail": "Tends a vegetable garden and sometimes over-waters lettuce.",
+            "evidence": "Q17"
+          },
+          {
+            "detail": "Uses a vintage Nikon and organizes digital photos by date and place.",
+            "evidence": "Q48"
+          },
+          {
+            "detail": "Builds wooden model cars during quiet or stressful periods.",
+            "evidence": "Q43"
+          },
+          {
+            "detail": "Enjoys photographing Oklahoma prairie landscapes.",
+            "evidence": "Q48, Q108"
+          }
+        ],
+        "evidence": "Q07, Q15, Q17, Q43, Q48, Q108"
+      },
+      "work_and_career": {
+        "summary": "He identifies strongly with a lifetime of practical repair work and now channels those skills into unpaid mentoring and volunteer coordination.",
+        "details": [
+          {
+            "detail": "Worked as a handyman and maintenance repairman doing carpentry, plumbing repairs, small engines, doors, trim, drywall, fences, and decks.",
+            "evidence": "Q65"
+          },
+          {
+            "detail": "Retired from paid work and had zero paid work weeks in the past year.",
+            "evidence": "Q16, Q67, Q69"
+          },
+          {
+            "detail": "Leads senior-center workshops on home repair and tool safety.",
+            "evidence": "Q16, Q65"
+          },
+          {
+            "detail": "Coordinates church volunteer repair events using sign-up sheets, supply lists, and spreadsheets.",
+            "evidence": "Q16, Q17"
+          },
+          {
+            "detail": "Volunteers most weeks, usually five to ten hours and up to fifteen hours around repair days.",
+            "evidence": "Q67-Q68"
+          },
+          {
+            "detail": "Refuses or delegates major electrical, gas-line, roof, heavy-lumber, and ladder work.",
+            "evidence": "Q34, Q65"
+          }
+        ],
+        "evidence": "Q16, Q17, Q34, Q65-Q72"
+      },
+      "arts_and_culture": {
+        "summary": "He values prairie photography, historical memory, labeled family photos, and traditional American art and biography.",
+        "details": [
+          {
+            "detail": "Photographs Oklahoma prairie landscapes and wants to include photos in a memoir.",
+            "evidence": "Q48, Q108"
+          },
+          {
+            "detail": "Sorts Nikon photos digitally by date and place.",
+            "evidence": "Q48"
+          },
+          {
+            "detail": "Attends occasional photography talks.",
+            "evidence": "Q91"
+          },
+          {
+            "detail": "Wants his memoir to preserve life lessons and labeled images for grandchildren.",
+            "evidence": "Q108"
+          },
+          {
+            "detail": "Imagines a memoir organized by chapters for each season of life.",
+            "evidence": "Q108"
+          }
+        ],
+        "evidence": "Q48, Q91, Q108"
+      },
+      "sports_and_fitness": {
+        "summary": "He follows Oklahoma City Thunder basketball and Dallas Cowboys football while using low-impact walking and fishing to stay active.",
+        "details": [
+          {
+            "detail": "Keeps up with Thunder games and Cowboys games but avoids late nights when possible.",
+            "evidence": "Q15, Q38"
+          },
+          {
+            "detail": "Participates in weekly senior-center walking club.",
+            "evidence": "Q15, Q32"
+          },
+          {
+            "detail": "Avoids many high-school football games now because early evening fatigue affects him.",
+            "evidence": "Q18"
+          },
+          {
+            "detail": "Uses fishing as recreation and stress relief.",
+            "evidence": "Q07, Q38"
+          },
+          {
+            "detail": "Started walking more regularly after a doctor advised more activity for blood pressure and knees.",
+            "evidence": "Q18"
+          }
+        ],
+        "evidence": "Q07, Q15, Q18, Q32, Q38"
+      },
+      "nature_and_outdoors": {
+        "summary": "He is strongly attached to Oklahoma outdoor rhythms, including fishing, gardening, prairie photography, weather awareness, and storm preparation.",
+        "details": [
+          {
+            "detail": "Checks the weather each morning before tending his garden.",
+            "evidence": "Q15"
+          },
+          {
+            "detail": "Photographs prairie landscapes and values outdoor road-trip scenery.",
+            "evidence": "Q48, Q108"
+          },
+          {
+            "detail": "Keeps cash and plans for storms.",
+            "evidence": "Q61"
+          },
+          {
+            "detail": "Uses a folding garden stool and knee brace to keep gardening despite arthritis.",
+            "evidence": "Q33"
+          },
+          {
+            "detail": "Likes being near Lake Hefner and plans errands around nearby places to save gas.",
+            "evidence": "Q08"
+          }
+        ],
+        "evidence": "Q08, Q15, Q33, Q48, Q61, Q108"
+      },
+      "technology": {
+        "summary": "Milton uses basic technology pragmatically: email, spreadsheets, Facebook, digital photo storage, and occasional official websites.",
+        "details": [
+          {
+            "detail": "Uses spreadsheets for volunteer tool inventory and small account tracking.",
+            "evidence": "Q17"
+          },
+          {
+            "detail": "Uses Facebook for family photos, church announcements, senior-center notices, and weather updates.",
+            "evidence": "Q48"
+          },
+          {
+            "detail": "Prefers email for volunteer coordination because he can print lists.",
+            "evidence": "Q48"
+          },
+          {
+            "detail": "Uses official health websites cautiously and confirms information with professionals.",
+            "evidence": "Q42"
+          },
+          {
+            "detail": "Has Instagram because a granddaughter set it up but hardly uses it.",
+            "evidence": "Q48"
+          },
+          {
+            "detail": "Backs up digital photos to an external drive when he remembers.",
+            "evidence": "Q48"
+          }
+        ],
+        "evidence": "Q17, Q42, Q48"
+      },
+      "community_and_civic": {
+        "summary": "Community service is central to his identity; he volunteers through church and the senior center and votes regularly.",
+        "details": [
+          {
+            "detail": "Coordinates church repair days and outreach pantry support.",
+            "evidence": "Q16, Q47"
+          },
+          {
+            "detail": "Calls a homebound church member weekly.",
+            "evidence": "Q17"
+          },
+          {
+            "detail": "Votes regularly and studies sample ballots, judges, and local questions.",
+            "evidence": "Q23"
+          },
+          {
+            "detail": "Believes communities should help people after hardship such as tornadoes, hunger, or age-related need.",
+            "evidence": "Q24"
+          },
+          {
+            "detail": "Identifies as a moderately strong Republican, conservative but practical, and closer to the Republican Party.",
+            "evidence": "Q24, Q95-Q96"
+          },
+          {
+            "detail": "Supports fiscal responsibility, personal accountability, public safety, roads, schools run sensibly, and accounting for tax money.",
+            "evidence": "Q24"
+          },
+          {
+            "detail": "Respects police but believes bad treatment and abuse of authority should be investigated and disciplined.",
+            "evidence": "Q20-Q27"
+          },
+          {
+            "detail": "Has never been arrested and reports ordinary personal law-enforcement experiences such as traffic warnings and a tool-theft report.",
+            "evidence": "Q20-Q22"
+          },
+          {
+            "detail": "Responds to race and policing issues by listening and talking with family and church friends rather than joining protests.",
+            "evidence": "Q26-Q30"
+          }
+        ],
+        "evidence": "Q16, Q17, Q20-Q30, Q47, Q95-Q96"
+      },
+      "music": {
+        "summary": "His music preferences lean toward hymns, old country gospel, and Merle Haggard-style country at church socials.",
+        "details": [
+          {
+            "detail": "Enjoys hymns and old country gospel in church settings.",
+            "evidence": "Q47"
+          },
+          {
+            "detail": "Mentions Merle Haggard-style music at church socials.",
+            "evidence": "Q47"
+          }
+        ],
+        "evidence": "Q47"
+      },
+      "fashion_and_appearance": {
+        "summary": "There is limited direct evidence about fashion; his self-presentation appears practical, modest, and work-oriented.",
+        "details": [
+          {
+            "detail": "Values practical tools, modest living, and a working-man identity over display.",
+            "evidence": "Q01, Q65, Q109"
+          }
+        ],
+        "evidence": "Q01, Q65, Q109"
+      },
+      "cultural_and_linguistic": {
+        "summary": "Milton is a white, non-Hispanic, U.S.-born Protestant man from Oklahoma City whose cultural frame emphasizes self-reliance, modesty, hard work, church, and neighborliness.",
+        "details": [
+          {
+            "detail": "Born and raised in Oklahoma City and still lives there.",
+            "evidence": "Q86, Q87, Q97"
+          },
+          {
+            "detail": "Identifies as white and not Hispanic.",
+            "evidence": "Q88, Q89"
+          },
+          {
+            "detail": "Identifies as Protestant Christian, Baptist by upbringing.",
+            "evidence": "Q47, Q94"
+          },
+          {
+            "detail": "Values keeping one's word, useful skills, modest living, and helping neighbors.",
+            "evidence": "Q109"
+          },
+          {
+            "detail": "Date of birth is March 14, 1953.",
+            "evidence": "Q85"
+          },
+          {
+            "detail": "Was born in the United States and has not lived outside the country.",
+            "evidence": "Q86"
+          },
+          {
+            "detail": "Has never served on active duty in the U.S. Armed Forces, Reserves, or National Guard.",
+            "evidence": "Q93"
+          },
+          {
+            "detail": "Values faith, family, usefulness, honesty, and quiet service.",
+            "evidence": "Q109"
+          }
+        ],
+        "evidence": "Q47, Q85-Q89, Q93-Q94, Q97, Q109"
+      },
+      "life_events_and_transitions": {
+        "summary": "Major transitions include choosing work over college, building a handyman career, marriage and divorce, retirement, and converting skills into community service.",
+        "details": [
+          {
+            "detail": "Chose a contractor helper job after high school instead of community college.",
+            "evidence": "Q02"
+          },
+          {
+            "detail": "Divorce became a major emotional crossroads that led him toward church repair volunteering.",
+            "evidence": "Q02, Q04, Q84"
+          },
+          {
+            "detail": "Retirement initially left a hole, then senior-center workshops restored purpose.",
+            "evidence": "Q01"
+          },
+          {
+            "detail": "Now hopes to complete a memoir and remain independent.",
+            "evidence": "Q108"
+          },
+          {
+            "detail": "Fears losing independence and usefulness most.",
+            "evidence": "Q108"
+          },
+          {
+            "detail": "Was married once and has been divorced a little over fifteen years.",
+            "evidence": "Q84"
+          },
+          {
+            "detail": "Had one older brother, Ray, who passed several years ago.",
+            "evidence": "Q06"
+          }
+        ],
+        "evidence": "Q01, Q02, Q04, Q06, Q84, Q108"
+      },
+      "media_and_information_diet": {
+        "summary": "He consumes local news, limited national news, Facebook for community updates, official health sources, and avoids online political fights and sensational claims.",
+        "details": [
+          {
+            "detail": "Uses Facebook for family, church, senior center, and weather updates but avoids political fights.",
+            "evidence": "Q48"
+          },
+          {
+            "detail": "Limits news because too much makes him sour.",
+            "evidence": "Q50"
+          },
+          {
+            "detail": "Trusts doctors, CDC, pharmacist, and local health department for vaccine information.",
+            "evidence": "Q42"
+          },
+          {
+            "detail": "Has become less trusting of cable-news shouting and more focused on local facts.",
+            "evidence": "Q25"
+          },
+          {
+            "detail": "Does not trust random Facebook posts or miracle health claims.",
+            "evidence": "Q42, Q48"
+          }
+        ],
+        "evidence": "Q25, Q42, Q48, Q50"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Milton Wells is a 73-year-old white, non-Hispanic, U.S.-born man living alone in a paid-off home in northwest Oklahoma City (Q51, Q58, Q86-Q89). He is divorced, has two adult children and three grandchildren, and is not cohabiting with a romantic partner (Q05, Q84). His highest education is a high school diploma, and he is retired from handyman and maintenance repair work (Q65, Q90). His household income is modest but stable, based mainly on Social Security, savings, and occasional retirement withdrawals (Q61, Q74, Q83).",
+      "behavioral_economist": "Milton shows strong loss aversion and planning discipline, especially around debt avoidance, emergency savings, and refusing to put a desired Grand Canyon trip on a credit card (Q62, Q63, Q82). His choices are habit-driven: he budgets monthly, checks balances weekly, combines errands, cooks at home, and tracks volunteer funds with spreadsheets, though receipts are a recurring weak point (Q17, Q56, Q81). He values independence and future security more than consumption, delaying camera gear and other discretionary purchases when costs rise (Q60, Q64). Peer influence operates mainly through trusted family, church, and senior-center networks rather than mass media (Q25, Q42, Q48).",
+      "political_scientist": "Milton is a regular voter and a moderately strong Republican who describes himself as conservative but practical (Q23, Q95, Q96). He supports fiscal responsibility, personal accountability, public safety, and traditional values, while also endorsing community obligations toward seniors, disaster victims, and families in need (Q24). His institutional trust is selective: he respects police and doctors but wants accountability, local facts, and less cable-news conflict (Q25-Q27, Q42). His civic identity is local and service-oriented, expressed through church repair work, senior-center mentoring, and careful participation in elections (Q16, Q23, Q47).",
+      "psychologist": "Milton presents as conscientious, methodical, practical, and identity-anchored in usefulness, reliability, and hands-on competence (Q01, Q65, Q109). He copes with stress through routine, prayer, outdoor activity, repair tasks, model building, and social contact rather than substance use (Q38, Q43, Q45). He experiences loneliness and low moods, especially in winter evenings or when health limits activity, but maintains emotional stability through church, family, friends, and volunteer obligations (Q43-Q45). His self-concept is shaped by aging with limits while preserving independence, service, and dignity (Q34, Q83, Q108)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Milton takes prescribed blood pressure medication.",
+        "ground_truth_label": "Uses prescribed antihypertensive medication",
+        "behavioral_evidence_from_interview": [
+          "Q31: I take a blood pressure pill",
+          "Q39: I take prescribed blood pressure medicine as directed"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Milton uses a weekly pill box to manage medication.",
+        "ground_truth_label": "Uses weekly pill organizer",
+        "behavioral_evidence_from_interview": [
+          "Q31: A weekly pill box beside the coffee maker"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Milton prefers morning walking and low-impact exercise at the senior center.",
+        "ground_truth_label": "Prefers low-impact morning exercise",
+        "behavioral_evidence_from_interview": [
+          "Q18: I have started walking more regularly",
+          "Q32: Walking club on Tuesdays"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Milton avoids ladders, heavy lifting, and night driving because of age and joint limitations.",
+        "ground_truth_label": "Avoids physically risky or night activities",
+        "behavioral_evidence_from_interview": [
+          "Q34: I avoid ladders, heavy lifting, and night driving when I can"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Milton is generally pro-vaccine.",
+        "ground_truth_label": "Pro-vaccine orientation",
+        "behavioral_evidence_from_interview": [
+          "Q41: I am generally pro-vaccine"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Milton trusts his doctor, the CDC, pharmacists, and the local health department for vaccine and health information.",
+        "ground_truth_label": "Trusts official and professional health sources",
+        "behavioral_evidence_from_interview": [
+          "Q42: My primary doctor first",
+          "Q42: CDC website",
+          "Q42: local health department",
+          "Q42: doctor or pharmacist"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Milton has controlled high blood pressure, arthritis in his knees and hands, imperfect hearing, and earlier evening fatigue.",
+        "ground_truth_label": "Chronic age-related health conditions",
+        "behavioral_evidence_from_interview": [
+          "Q31: controlled high blood pressure",
+          "Q31: arthritis in my knees and hands",
+          "Q31: hearing is not perfect",
+          "Q31: tired earlier in the evening"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Milton experiences lonely patches and low moods, especially after supper in winter or when health limits activity.",
+        "ground_truth_label": "Seasonal and situational loneliness",
+        "behavioral_evidence_from_interview": [
+          "Q43: steady, with some lonely patches",
+          "Q43: After supper, especially in winter",
+          "Q44: missed two weeks at the senior center"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Milton does not describe himself as clinically depressed or generally anxious day to day.",
+        "ground_truth_label": "No self-reported clinical depression or daily anxiety",
+        "behavioral_evidence_from_interview": [
+          "Q45: I would not say I have clinical depression",
+          "Q45: I worry, but I am not an anxious person day to day"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Milton copes through routine, prayer, trusted conversations, outdoor time, model building, and keeping his hands busy.",
+        "ground_truth_label": "Routine and activity-based coping",
+        "behavioral_evidence_from_interview": [
+          "Q43: project on the bench",
+          "Q45: routine, prayer, talking to people I trust",
+          "Q38: work on a model car, or drive to the lake"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Milton has not sought formal counseling but thinks practical private help might have helped during his divorce.",
+        "ground_truth_label": "No formal counseling; retrospective openness",
+        "behavioral_evidence_from_interview": [
+          "Q04: Counseling probably would have helped us earlier",
+          "Q45: No formal counseling"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Milton enjoys fried catfish and cornbread but recognizes moderation is important.",
+        "ground_truth_label": "Likes fried catfish and cornbread with moderation",
+        "behavioral_evidence_from_interview": [
+          "Q32: liking fried catfish, cornbread",
+          "Q32: Fried catfish... hardest to moderate"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Milton cooks at home to manage money and health.",
+        "ground_truth_label": "Home cooking for budget and health",
+        "behavioral_evidence_from_interview": [
+          "Q60: fewer restaurant meals",
+          "Q81: cooking at home"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Milton grows tomatoes, peppers, lettuce, green beans, and flowers.",
+        "ground_truth_label": "Vegetable and flower gardener",
+        "behavioral_evidence_from_interview": [
+          "Q17: Tomatoes, peppers, lettuce, green beans, and a few flowers"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Milton drinks strong coffee as part of his daily routine.",
+        "ground_truth_label": "Strong coffee habit",
+        "behavioral_evidence_from_interview": [
+          "Q15: Start coffee",
+          "Q38: I make coffee"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Milton cuts restaurant meals first when extra expenses arise.",
+        "ground_truth_label": "Cuts dining out during tight months",
+        "behavioral_evidence_from_interview": [
+          "Q60: fewer restaurant meals",
+          "Q81: delaying discretionary purchases, cooking at home"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Milton has photographed or remembers trips to Sedona and the Flint Hills.",
+        "ground_truth_label": "Past Sedona and Flint Hills travel",
+        "behavioral_evidence_from_interview": [
+          "Q108: photos from Oklahoma prairies, Sedona, the Flint Hills"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Milton wants to visit the Grand Canyon at sunrise.",
+        "ground_truth_label": "Grand Canyon sunrise travel goal",
+        "behavioral_evidence_from_interview": [
+          "Q62: I would like to see the Grand Canyon sunrise someday",
+          "Q108: maybe someday the Grand Canyon at sunrise"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Milton will not finance the Grand Canyon trip with credit card debt.",
+        "ground_truth_label": "Debt-averse travel planning",
+        "behavioral_evidence_from_interview": [
+          "Q62: I will not put it on a credit card"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Milton plans trips around routes, motel prices, rest stops, weather, and physical comfort.",
+        "ground_truth_label": "Meticulous road-trip planning",
+        "behavioral_evidence_from_interview": [
+          "Q62: Route, motel prices, rest stops, weather",
+          "Q108: motel reservations"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Milton would want someone to know his route each day on a major road trip.",
+        "ground_truth_label": "Safety-conscious travel sharing",
+        "behavioral_evidence_from_interview": [
+          "Q108: someone knowing my route each day"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Milton's daughter Karen calls him two or three times a week and often visits Sundays.",
+        "ground_truth_label": "Close relationship with daughter Karen",
+        "behavioral_evidence_from_interview": [
+          "Q05: calls... two or three times a week",
+          "Q05: comes by on Sunday afternoon"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Milton's son Brian lives near Norman and bonds with him over engines and football.",
+        "ground_truth_label": "Relationship with son Brian",
+        "behavioral_evidence_from_interview": [
+          "Q05: My son, Brian, is down near Norman",
+          "Q05: talking engines or football"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Earl and Sam are Milton's regular chess and fishing companions.",
+        "ground_truth_label": "Senior-center and fishing friendships",
+        "behavioral_evidence_from_interview": [
+          "Q07: Earl and I play chess",
+          "Q07: Sam fishes with me"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Milton does not seek a romantic relationship and prefers living alone.",
+        "ground_truth_label": "Single by preference",
+        "behavioral_evidence_from_interview": [
+          "Q05: No, not really",
+          "Q11: I like company, but I also like deciding",
+          "Q84: not living with a romantic partner"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Milton has three grandchildren and stays connected through texts, birthday cards, and occasional fishing trips.",
+        "ground_truth_label": "Grandfather of three",
+        "behavioral_evidence_from_interview": [
+          "Q05: I have three grandchildren",
+          "Q05: Texts mostly",
+          "Q05: take them fishing"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "A grandchild may occasionally stay overnight before a fishing trip, about three or four times a year.",
+        "ground_truth_label": "Occasional grandchild overnight visits",
+        "behavioral_evidence_from_interview": [
+          "Q13: A grandchild may stay one night before fishing",
+          "Q13: Maybe three or four times a year"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Milton's ex-wife Linda remains politely connected through children and grandchildren.",
+        "ground_truth_label": "Civil relationship with ex-wife",
+        "behavioral_evidence_from_interview": [
+          "Q06: My ex-wife, Linda, is still in the picture",
+          "Q06: polite and can sit at the same birthday table"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Milton owns his home outright.",
+        "ground_truth_label": "Paid-off homeowner",
+        "behavioral_evidence_from_interview": [
+          "Q58: I own my home",
+          "Q58: The mortgage is paid off"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Milton budgets for property taxes, insurance, utilities, and maintenance.",
+        "ground_truth_label": "Budgets for home carrying costs",
+        "behavioral_evidence_from_interview": [
+          "Q58: property taxes, insurance, utilities, and maintenance"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Milton keeps one bedroom as an office and model-building room.",
+        "ground_truth_label": "Office and model-building room",
+        "behavioral_evidence_from_interview": [
+          "Q11: one bedroom as a sort of office and model-building room"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Milton handles many small repairs himself but hires out dangerous or heavy work.",
+        "ground_truth_label": "Selective DIY home repair",
+        "behavioral_evidence_from_interview": [
+          "Q58: Many small ones, yes",
+          "Q58: hire out anything dangerous or too heavy"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Milton misplaces receipts despite using organized record systems.",
+        "ground_truth_label": "Recurring receipt misplacement",
+        "behavioral_evidence_from_interview": [
+          "Q17: When I do not misplace the envelope",
+          "Q56: receipts do disappear on me",
+          "Q75: Karen helping if receipts are missing"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Milton pays household expenses alone and receives no regular family contribution.",
+        "ground_truth_label": "Sole household expense payer",
+        "behavioral_evidence_from_interview": [
+          "Q55: Just me",
+          "Q55: No"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Milton usually spends about $1,900 to $2,100 per month.",
+        "ground_truth_label": "Usual monthly spending 1900-2100",
+        "behavioral_evidence_from_interview": [
+          "Q57: A normal month is closer to $1,900 to $2,100"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Milton spent about $2,250 in the referenced month because of an insurance bill and workshop supplies.",
+        "ground_truth_label": "Recent monthly spending 2250",
+        "behavioral_evidence_from_interview": [
+          "Q57: Around $2,250 last month",
+          "Q57: insurance bill and workshop supplies"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Milton's monthly household income is about $2,300 to $2,600, mostly from Social Security and occasional retirement withdrawals.",
+        "ground_truth_label": "Monthly fixed retirement income",
+        "behavioral_evidence_from_interview": [
+          "Q72: Social Security and retirement savings withdrawals",
+          "Q74: About $2,600 last month",
+          "Q74: closer to $2,300"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Milton can cover a $400 emergency from savings without borrowing.",
+        "ground_truth_label": "Can cover 400 dollar emergency",
+        "behavioral_evidence_from_interview": [
+          "Q82: I could cover $400 from savings",
+          "Q82: would not require borrowing"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Milton keeps an emergency fund and some cash at home for storms.",
+        "ground_truth_label": "Emergency fund and storm cash",
+        "behavioral_evidence_from_interview": [
+          "Q61: I keep an emergency fund",
+          "Q61: keep some cash at home for storms"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Milton watches Oklahoma City Thunder basketball and Dallas Cowboys football.",
+        "ground_truth_label": "Thunder and Cowboys fan",
+        "behavioral_evidence_from_interview": [
+          "Q15: If the Thunder are playing late",
+          "Q38: a beer during a Cowboys game"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Milton plays chess at the senior center with Earl.",
+        "ground_truth_label": "Senior-center chess player",
+        "behavioral_evidence_from_interview": [
+          "Q07: Earl and I play chess on Tuesdays",
+          "Q44: sit in on chess"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Milton builds wooden models of classic cars.",
+        "ground_truth_label": "Wooden model car hobby",
+        "behavioral_evidence_from_interview": [
+          "Q43: working on a wooden model car"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Milton reads and values historical biographies.",
+        "ground_truth_label": "Historical biography reader",
+        "behavioral_evidence_from_interview": [
+          "Q15: laundry, reading, photo sorting",
+          "Q108: memoir for my children and grandchildren"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Milton fishes at Lake Hefner or Arcadia with Sam, often early in the day.",
+        "ground_truth_label": "Lake Hefner and Arcadia fishing",
+        "behavioral_evidence_from_interview": [
+          "Q07: Lake Hefner or Arcadia",
+          "Q15: Friday I may fish early"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Milton tends a vegetable garden and sometimes over-waters lettuce.",
+        "ground_truth_label": "Gardens and over-waters lettuce",
+        "behavioral_evidence_from_interview": [
+          "Q17: tend my vegetable garden",
+          "Q17: guilty of over-watering the lettuce"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Milton uses a vintage Nikon and organizes digital photos by date and place.",
+        "ground_truth_label": "Nikon digital photo organization",
+        "behavioral_evidence_from_interview": [
+          "Q48: upload from my Nikon",
+          "Q48: sort by date and place"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Milton builds wooden model cars during quiet or stressful periods.",
+        "ground_truth_label": "Model building as quiet coping hobby",
+        "behavioral_evidence_from_interview": [
+          "Q43: working on a wooden model car",
+          "Q38: work on a model car"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Milton enjoys photographing Oklahoma prairie landscapes.",
+        "ground_truth_label": "Prairie photography hobby",
+        "behavioral_evidence_from_interview": [
+          "Q108: photos from Oklahoma prairies",
+          "Q48: prairie photos"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Milton worked as a handyman and maintenance repairman doing carpentry, plumbing repairs, small engines, doors, trim, drywall, fences, and decks.",
+        "ground_truth_label": "Retired handyman and maintenance repairman",
+        "behavioral_evidence_from_interview": [
+          "Q65: handyman and maintenance repairman",
+          "Q65: carpentry, plumbing repairs, doors, trim, drywall patches, fence repairs, decks"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Milton is retired from paid work and had zero paid work weeks in the past year.",
+        "ground_truth_label": "No paid work in past year",
+        "behavioral_evidence_from_interview": [
+          "Q16: I do not work for pay now",
+          "Q67: zero weeks in the past year"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Milton leads senior-center workshops on home repair and tool safety.",
+        "ground_truth_label": "Senior-center repair workshop leader",
+        "behavioral_evidence_from_interview": [
+          "Q16: lead senior-center workshops",
+          "Q65: skill are you proudest of teaching"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Milton coordinates church volunteer repair events using sign-up sheets, supply lists, and spreadsheets.",
+        "ground_truth_label": "Church repair event coordinator",
+        "behavioral_evidence_from_interview": [
+          "Q16: coordinate volunteers for church repair days",
+          "Q16: sign-up sheets and supply lists",
+          "Q17: spreadsheet"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Milton volunteers most weeks, usually five to ten hours and up to fifteen hours around repair days.",
+        "ground_truth_label": "Regular unpaid volunteer work",
+        "behavioral_evidence_from_interview": [
+          "Q67: probably forty-plus weeks",
+          "Q68: Usually five to ten hours",
+          "Q68: repair days can make it fifteen"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Milton refuses or delegates major electrical, gas-line, roof, heavy-lumber, and ladder work.",
+        "ground_truth_label": "Delegates high-risk repair work",
+        "behavioral_evidence_from_interview": [
+          "Q34: roof work and hauling heavy lumber",
+          "Q65: Major electrical, gas lines, and high roof work"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Milton wants his memoir to preserve life lessons and labeled images for grandchildren.",
+        "ground_truth_label": "Memoir with labeled family photos",
+        "behavioral_evidence_from_interview": [
+          "Q108: a few lessons learned, and photos labeled"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Milton attends occasional photography talks.",
+        "ground_truth_label": "Occasional photography talks",
+        "behavioral_evidence_from_interview": [
+          "Q91: A photography talk"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Milton imagines a memoir organized by chapters for each season of life.",
+        "ground_truth_label": "Season-of-life memoir structure",
+        "behavioral_evidence_from_interview": [
+          "Q108: A chapter for each season of life"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Milton avoids many high-school football games because early evening fatigue affects him.",
+        "ground_truth_label": "Avoids evening high-school football due to fatigue",
+        "behavioral_evidence_from_interview": [
+          "Q18: used to go to more high-school football games",
+          "Q18: early evening fatigue catches me now"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Milton started walking more regularly after a doctor advised activity for blood pressure and knees.",
+        "ground_truth_label": "Doctor-prompted walking habit",
+        "behavioral_evidence_from_interview": [
+          "Q18: doctor wants me moving for blood pressure and knees"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Milton checks the weather each morning before tending his garden.",
+        "ground_truth_label": "Morning weather and garden check",
+        "behavioral_evidence_from_interview": [
+          "Q15: check the weather, and step outside to look at the garden"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Milton uses a folding garden stool and sometimes a knee brace to keep gardening despite arthritis.",
+        "ground_truth_label": "Adaptive gardening supports",
+        "behavioral_evidence_from_interview": [
+          "Q33: A folding garden stool and sometimes a knee brace"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Milton likes being near Lake Hefner and plans errands in a loop to save gas.",
+        "ground_truth_label": "Local outdoor access and gas-saving errands",
+        "behavioral_evidence_from_interview": [
+          "Q08: close enough to... Lake Hefner",
+          "Q08: plan errands in a loop to save gas"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Milton uses spreadsheets for volunteer tool inventory and small account tracking.",
+        "ground_truth_label": "Spreadsheet use for volunteer administration",
+        "behavioral_evidence_from_interview": [
+          "Q17: tool inventory on a spreadsheet",
+          "Q17: enter them into a simple spreadsheet"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Milton uses Facebook for family photos, church announcements, senior-center notices, and weather updates.",
+        "ground_truth_label": "Pragmatic Facebook use",
+        "behavioral_evidence_from_interview": [
+          "Q48: family photos, church announcements, senior center notices, and local weather updates"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Milton prefers email for volunteer coordination because he can print lists.",
+        "ground_truth_label": "Email preference for volunteer coordination",
+        "behavioral_evidence_from_interview": [
+          "Q48: prefer email for organizing volunteers because I can print lists"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Milton has Instagram because a granddaughter set it up but hardly uses it.",
+        "ground_truth_label": "Minimal Instagram use",
+        "behavioral_evidence_from_interview": [
+          "Q48: Instagram because a granddaughter set it up, but I hardly use it"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Milton backs up digital photos to an external drive when he remembers.",
+        "ground_truth_label": "Occasional external photo backup",
+        "behavioral_evidence_from_interview": [
+          "Q48: back them up on an external drive when I remember"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Milton coordinates church repair days and outreach pantry support.",
+        "ground_truth_label": "Church repair and pantry volunteer",
+        "behavioral_evidence_from_interview": [
+          "Q16: church repair days",
+          "Q47: repair days and pantry support"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Milton calls a homebound church member every Thursday.",
+        "ground_truth_label": "Weekly homebound-member check-in",
+        "behavioral_evidence_from_interview": [
+          "Q17: call one older church member, Mr. Haney, every Thursday"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Milton votes regularly and studies sample ballots, judges, and local questions.",
+        "ground_truth_label": "Regular informed voter",
+        "behavioral_evidence_from_interview": [
+          "Q23: I vote regularly",
+          "Q23: read the sample ballot, check the judges and local questions"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Milton believes communities should help people after tornadoes, hunger, or age-related need.",
+        "ground_truth_label": "Community obligation ethic",
+        "behavioral_evidence_from_interview": [
+          "Q24: elderly person needs food",
+          "Q24: family gets hit by a tornado, you help"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Milton identifies as a moderately strong Republican, conservative but practical, and closer to the Republican Party.",
+        "ground_truth_label": "Moderately strong Republican",
+        "behavioral_evidence_from_interview": [
+          "Q95: Republican, moderately strong",
+          "Q96: Closer to the Republican Party"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Milton supports fiscal responsibility, personal accountability, public safety, sensible roads and schools, and accounting for tax money.",
+        "ground_truth_label": "Conservative-practical policy priorities",
+        "behavioral_evidence_from_interview": [
+          "Q24: personal responsibility, balanced budgets",
+          "Q24: roads, schools being run sensibly, public safety",
+          "Q24: tax money is accounted for"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Milton respects police but believes bad treatment and abuse of authority should be investigated and disciplined.",
+        "ground_truth_label": "Police respect with accountability",
+        "behavioral_evidence_from_interview": [
+          "Q26: most police are trying to do a hard job",
+          "Q27: Clear investigations... discipline when someone abuses authority"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Milton has never been arrested and reports ordinary personal law-enforcement experiences.",
+        "ground_truth_label": "No arrest history; ordinary police contact",
+        "behavioral_evidence_from_interview": [
+          "Q20: experiences have been limited",
+          "Q22: I have never been arrested"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Milton responds to race and policing issues by listening and talking with family and church friends rather than joining protests.",
+        "ground_truth_label": "Conversational response to race and policing issues",
+        "behavioral_evidence_from_interview": [
+          "Q29: mostly talked with family and church friends",
+          "Q29: I have not joined protests"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Milton enjoys hymns and old country gospel in church settings.",
+        "ground_truth_label": "Hymns and old country gospel preference",
+        "behavioral_evidence_from_interview": [
+          "Q47: I like hymns and old country gospel"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Milton mentions Merle Haggard-style music at church socials.",
+        "ground_truth_label": "Merle Haggard-style church social music",
+        "behavioral_evidence_from_interview": [
+          "Q47: somebody usually plays Merle Haggard or similar music"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Milton values practical tools, modest living, and a working-man identity over display.",
+        "ground_truth_label": "Practical modest self-presentation",
+        "behavioral_evidence_from_interview": [
+          "Q01: I still feel like a working man",
+          "Q109: modest living",
+          "Q109: a well-kept tool"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Milton was born and raised in Oklahoma City and still lives there.",
+        "ground_truth_label": "Lifelong Oklahoma City resident",
+        "behavioral_evidence_from_interview": [
+          "Q86: born in the United States",
+          "Q87: Oklahoma City, Oklahoma",
+          "Q97: Oklahoma City, Oklahoma"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Milton identifies as white and not Hispanic.",
+        "ground_truth_label": "White non-Hispanic",
+        "behavioral_evidence_from_interview": [
+          "Q88: White, not Hispanic",
+          "Q89: White"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Milton identifies as Protestant Christian, Baptist by upbringing.",
+        "ground_truth_label": "Protestant Baptist identity",
+        "behavioral_evidence_from_interview": [
+          "Q47: Protestant, Baptist by upbringing",
+          "Q94: Protestant Christian, Baptist by upbringing"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Milton values keeping one's word, useful skills, modest living, and helping neighbors.",
+        "ground_truth_label": "Reliability and neighbor-help values",
+        "behavioral_evidence_from_interview": [
+          "Q109: keeping your word",
+          "Q109: modest living",
+          "Q109: help someone who cannot repay you"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Milton's date of birth is March 14, 1953.",
+        "ground_truth_label": "Born March 14 1953",
+        "behavioral_evidence_from_interview": [
+          "Q85: March 14, 1953"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Milton was born in the United States and has not lived outside the country.",
+        "ground_truth_label": "U.S.-born with no foreign residence",
+        "behavioral_evidence_from_interview": [
+          "Q86: Yes, I was born in the United States",
+          "Q86: No"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Milton has never served on active duty in the U.S. Armed Forces, Reserves, or National Guard.",
+        "ground_truth_label": "Non-veteran",
+        "behavioral_evidence_from_interview": [
+          "Q93: No, I have not"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Milton values faith, family, usefulness, honesty, and quiet service.",
+        "ground_truth_label": "Core values: faith, family, usefulness, honesty, service",
+        "behavioral_evidence_from_interview": [
+          "Q109: Faith, family, usefulness, honesty",
+          "Q109: doing good work whether anybody applauds or not"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Milton chose a contractor helper job after high school instead of community college.",
+        "ground_truth_label": "Chose work over college",
+        "behavioral_evidence_from_interview": [
+          "Q02: A counselor told me I might try community college",
+          "Q02: I chose work"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Milton's divorce became a major emotional crossroads that led him toward church repair volunteering.",
+        "ground_truth_label": "Divorce-to-service transition",
+        "behavioral_evidence_from_interview": [
+          "Q02: after my divorce",
+          "Q02: volunteer work",
+          "Q03: more conscious"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Milton's retirement initially left a hole, then senior-center workshops restored purpose.",
+        "ground_truth_label": "Retirement purpose restored through workshops",
+        "behavioral_evidence_from_interview": [
+          "Q01: At first it left a hole",
+          "Q01: senior center asked me to teach"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Milton hopes to complete a memoir and remain independent.",
+        "ground_truth_label": "Memoir and independence goals",
+        "behavioral_evidence_from_interview": [
+          "Q108: finish at least a rough memoir",
+          "Q108: stay healthy enough to live independently"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Milton fears losing independence and usefulness most.",
+        "ground_truth_label": "Fear of losing independence and usefulness",
+        "behavioral_evidence_from_interview": [
+          "Q108: Independence and usefulness"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-093",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Milton was married once and has been divorced a little over fifteen years.",
+        "ground_truth_label": "One marriage; divorced over fifteen years",
+        "behavioral_evidence_from_interview": [
+          "Q84: a little over fifteen years",
+          "Q84: Yes, one marriage"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-094",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Milton had one older brother, Ray, who passed several years ago.",
+        "ground_truth_label": "Older brother Ray deceased",
+        "behavioral_evidence_from_interview": [
+          "Q06: one older brother, Ray, but he passed several years ago"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-095",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Milton uses Facebook for family, church, senior center, and weather updates but avoids political fights.",
+        "ground_truth_label": "Community-focused Facebook use; avoids fights",
+        "behavioral_evidence_from_interview": [
+          "Q48: family photos, church announcements, senior center notices",
+          "Q48: Political fights... waste time"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-096",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Milton limits news because too much news makes him sour.",
+        "ground_truth_label": "News exposure self-limiting",
+        "behavioral_evidence_from_interview": [
+          "Q50: too much sitting and too much news make me sour",
+          "Q50: turn it off"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-097",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Milton has become less trusting of cable-news shouting and more focused on local facts.",
+        "ground_truth_label": "Selective media trust; local facts",
+        "behavioral_evidence_from_interview": [
+          "Q25: less trusting of cable-news shouting",
+          "Q25: more interested in local facts"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-098",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Milton does not trust random Facebook posts or miracle health claims.",
+        "ground_truth_label": "Skeptical of social-media health claims",
+        "behavioral_evidence_from_interview": [
+          "Q42: I do not trust random Facebook posts",
+          "Q48: miracle health claims"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-099",
+        "source": "reprojected",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Milton is a 73-year-old man.",
+        "ground_truth_label": "Age 73 male",
+        "behavioral_evidence_from_interview": [
+          "Q85: Yes, 73"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-100",
+        "source": "reprojected",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Milton's highest education is a high school diploma.",
+        "ground_truth_label": "High school diploma",
+        "behavioral_evidence_from_interview": [
+          "Q90: High school diploma"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}
