@@ -1,0 +1,2403 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "72672ab44e4b4e40a94e44b91913cfef",
+      "name": "Risa Mcelrath",
+      "verification_date": "2026-05-21"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age 15, female sex, never-married status, Bear DE residence, and not-in-workforce status are all confirmed in the interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed age/sex/marital_status/city/state/occupation",
+              "source_b_ref": "Q05, Q16, Q84-Q85",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed education_level says less_than_9th, while the interview says she has completed eighth grade and is currently in ninth grade. This is compatible if the seed code represents no completed ninth grade or higher.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed education_level",
+              "source_b_ref": "Q90-Q92",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed location in Bear, Delaware is confirmed, while the interview adds that she was born in Wilmington and grew up mostly in Bear.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed city/state/country",
+              "source_b_ref": "Q01, Q86-Q87",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed African American cultural background is confirmed by interview responses about Black/African American identity, Juneteenth, church, family food traditions, and Black cultural pride.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q01, Q88-Q89",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Seed does not name household members, while interview specifies she lives with mother, father, and older brother Malik in a rented townhouse.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed demographic fields",
+              "source_b_ref": "Q11, Q51, Q58",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The profile accurately records her age, Black/African American identity, Bear residence, rented townhouse, household composition, school enrollment, and no paid employment.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q11, Q51, Q58, Q84-Q92",
+              "source_b_ref": "top-level fields, preferences.home_and_lifestyle, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile carries over her education as completed eighth grade and current full-time ninth grade public high school enrollment.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q90-Q92",
+              "source_b_ref": "education",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The interview gives additional demographic details not in preferences: date of birth, U.S.-born status, Wilmington birthplace, and no international residence.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q85-Q87",
+              "source_b_ref": "preferences.life_events_and_transitions",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add demographic-origin details to preferences.life_events_and_transitions."
+            },
+            {
+              "id": 4,
+              "text": "The interview specifies both parents' occupations and education, which are partly reflected in the demographer summary but absent from relevant preference details.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q100-Q107",
+              "source_b_ref": "preferences.home_and_lifestyle, preferences.work_and_career",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add household work background and parent education details to home_and_lifestyle and work_and_career."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Top-level occupation, work_and_career, and demographer summary consistently describe her as a student not in the paid workforce.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "occupation, preferences.work_and_career",
+              "field_b": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Home_and_lifestyle and social_and_relationships consistently describe the same household: parents and older brother Malik.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.home_and_lifestyle",
+              "field_b": "preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The demographer summary says early adolescence, while age 15 is more precisely mid-adolescence, but the substantive life-course point of dependency and school enrollment is still accurate.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "age",
+              "field_b": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The interview states Risa's date of birth is September 14, 2010.",
+              "gap": true,
+              "interview_ref": "Q85",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add date of birth to life_events_and_transitions details."
+            },
+            {
+              "id": 2,
+              "text": "The interview states she was born in Wilmington, Delaware, is U.S.-born, and has not lived outside the U.S.",
+              "gap": true,
+              "interview_ref": "Q86-Q87",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add birthplace and U.S.-born/no-international-residence details."
+            },
+            {
+              "id": 3,
+              "text": "The interview identifies mother as a CNA at an assisted living facility and father as warehouse/delivery worker.",
+              "gap": true,
+              "interview_ref": "Q102-Q107",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add household labor context to home_and_lifestyle details."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes Risa as structure-loving yet impulsive with deadline chaos; interview repeatedly confirms planning intentions combined with procrastination.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed persona/professional_persona",
+              "source_b_ref": "Q01, Q18, Q44, Q50",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed career goals around graphic novels, multimedia design, scholarships, and community campaigns are confirmed in interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed career_goals_and_ambitions",
+              "source_b_ref": "Q65, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed notes practical digital and creative skills; interview confirms Canva, video editing, coding club, presentation comfort, cooking help, and creative writing/art.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed skills_and_expertise",
+              "source_b_ref": "Q01-Q04, Q17, Q65",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed does not include household financial constraints, while interview adds salient cost pressure around supplies, software, health care, cars, and emergency expenses.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona/career_goals_and_ambitions",
+              "source_b_ref": "Q04, Q56-Q64, Q82-Q83",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Seed describes social exercise and creativity; interview adds that peer participation makes exercise easier and that social comparison online can lower mood.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed sports_persona/hobbies_and_interests",
+              "source_b_ref": "Q32, Q45, Q48",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The profile accurately captures her present bias and deadline problems alongside long-term portfolio, scholarship, and career goals.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q02, Q44, Q108",
+              "source_b_ref": "preferences.life_events_and_transitions, preferences.work_and_career, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile captures her use of free tools and cheaper alternatives but understates broader household budgeting behavior and emergency-expense strain.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q56-Q64, Q81-Q83",
+              "source_b_ref": "preferences.home_and_lifestyle, summaries.behavioral_economist",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add household budget pressure, savings, no personal debt, and $400 emergency strain to home_and_lifestyle."
+            },
+            {
+              "id": 3,
+              "text": "The profile captures social influence in basketball, coding, and creative sharing.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q07, Q15, Q32",
+              "source_b_ref": "preferences.social_and_relationships, preferences.sports_and_fitness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "The interview includes risk-avoidant behavior around substances and vaping that is missing from health_and_wellness.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q38-Q39",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add no smoking, alcohol, marijuana, or recreational substance use; uses only ordinary medicine with parental guidance."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Work_and_career, technology, and arts_and_culture align in presenting creative technology as both hobby and future investment.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career, preferences.technology",
+              "field_b": "preferences.arts_and_culture",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Home_and_lifestyle and behavioral_economist summary consistently describe scarcity as salient but not extreme.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.home_and_lifestyle",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Health_and_wellness and sports_and_fitness consistently describe activity as meaningful but not fully consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness",
+              "field_b": "preferences.sports_and_fitness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview gives household spending estimate of about $4,000-$4,500 monthly and income guess of about $4,500-$5,000 before expenses.",
+              "gap": true,
+              "interview_ref": "Q57, Q74",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add approximate household monthly spending and income awareness."
+            },
+            {
+              "id": 2,
+              "text": "Interview says she has a small savings account and an envelope for art supplies or snacks.",
+              "gap": true,
+              "interview_ref": "Q61-Q62",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add personal savings behavior and savings goals."
+            },
+            {
+              "id": 3,
+              "text": "Interview says a $400 emergency would exceed her own resources and would stress the household.",
+              "gap": true,
+              "interview_ref": "Q82",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add emergency-expense vulnerability."
+            },
+            {
+              "id": 4,
+              "text": "Interview says she does not earn from TikTok and has no regular job income.",
+              "gap": true,
+              "interview_ref": "Q70-Q73",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add no TikTok monetization and no regular pay."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed community pride and empowerment themes are confirmed by interview discussions of youth programs, volunteering, mentoring, and community-oriented campaigns.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed cultural_background/career_goals_and_ambitions",
+              "source_b_ref": "Q04, Q15, Q19, Q108-Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed does not state political orientation, while interview adds Democrat-leaning views and future intention to vote.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed data",
+              "source_b_ref": "Q23-Q25, Q95-Q96",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed Black cultural grounding is consistent with interview statements that Black Lives Matter and racial justice issues affect her substantially.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q26-Q30",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed mentions church and community traditions; interview confirms Baptist Christian identity and church as family/community institution.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q47, Q94",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately reports she cannot vote yet, expects to vote, and links voting to civil rights history.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23",
+              "source_b_ref": "preferences.community_and_civic, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile accurately captures her Democrat-leaning issue orientation around education, race, health care, and fairness.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q24, Q95-Q96",
+              "source_b_ref": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile captures racial justice concerns but omits her specific caution toward police interactions and family talk about being respectful and careful if stopped.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q20-Q22",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add selective trust/caution around law enforcement and father's brake-light stop memory."
+            },
+            {
+              "id": 4,
+              "text": "Profile captures BLM concern but does not fully include her forms of response: family/friend discussion, reposting educational slides, and Black-pride art rather than protest participation.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q29-Q30",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add political response style to community_and_civic and media_and_information_diet."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Community_and_civic, cultural_and_linguistic, and political_scientist summary consistently frame racial justice as central to civic outlook.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic, preferences.cultural_and_linguistic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Media_and_information_diet and political_scientist summary consistently describe selective trust in family, teachers, doctors, and official sources over social media.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.media_and_information_diet",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview says she has not joined a protest but talks with family/friends and reposts educational slides, local events, voting reminders, and Black illustrators' art.",
+              "gap": true,
+              "interview_ref": "Q29",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add civic expression methods."
+            },
+            {
+              "id": 2,
+              "text": "Interview describes a remembered traffic stop involving her father and a family norm of caution around police encounters.",
+              "gap": true,
+              "interview_ref": "Q20-Q21",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add law-enforcement experience and caution."
+            },
+            {
+              "id": 3,
+              "text": "Interview says she discusses politics with friends around race, school rules, book bans, and online issues.",
+              "gap": true,
+              "interview_ref": "Q24",
+              "should_be_in": "preferences.media_and_information_diet",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add political discussion topics."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed's structure-loving but impulsive teen description is confirmed by interview accounts of planners, reminders, deadline panic, and creative overfocus.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed persona/professional_persona",
+              "source_b_ref": "Q03, Q18, Q44, Q50",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed's creative identity is strongly confirmed by the interview's emphasis on graphic novels, character sketches, visual storytelling, and art as self-expression.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed arts_persona/hobbies_and_interests",
+              "source_b_ref": "Q01-Q03, Q27, Q108-Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed does not discuss mental health, while interview adds stress, overthinking, comparison to online artists, and no diagnosed anxiety or depression.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona",
+              "source_b_ref": "Q43-Q45",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed's family/community grounding is confirmed by the interview's reliance on mother, cousin Nia, friends, church, prayer, and Black community identity.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q05-Q07, Q47, Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures creative self-concept, verbal expressiveness, and desire to be taken seriously as a visual storyteller.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01-Q02, Q108-Q109",
+              "source_b_ref": "preferences.arts_and_culture, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile accurately represents stress around school, deadlines, performance, and social comparison, with no diagnosis of depression or anxiety.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q43-Q45",
+              "source_b_ref": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile lists coping via music, drawing, basketball, support, and prayer, but does not fully include her preference for private rather than public emotional support.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q49",
+              "source_b_ref": "preferences.social_and_relationships",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add preference for private emotional support through close friends, cousin, mother, or close-friends stories."
+            },
+            {
+              "id": 4,
+              "text": "Profile omits that not posting every artwork is a newer coping strategy to reduce judgment and comparison.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q45, Q50",
+              "source_b_ref": "preferences.arts_and_culture, preferences.media_and_information_diet",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add selective posting as emotional regulation."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Psychologist summary, life_events_and_transitions, and work_and_career consistently depict tension between creative motivation and deadline management.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.psychologist",
+              "field_b": "preferences.life_events_and_transitions, preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Social_and_relationships and cultural_and_linguistic consistently ground self-concept in family, Black community, faith, and close peer support.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships",
+              "field_b": "preferences.cultural_and_linguistic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Media_and_information_diet and arts_and_culture consistently show social media as both inspiration and a source of comparison pressure.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.media_and_information_diet",
+              "field_b": "preferences.arts_and_culture",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview says she is upbeat around people but overthinks when alone.",
+              "gap": true,
+              "interview_ref": "Q43",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add social presentation and private overthinking pattern."
+            },
+            {
+              "id": 2,
+              "text": "Interview says social media inspires her but triggers comparison to polished artists.",
+              "gap": true,
+              "interview_ref": "Q45, Q48",
+              "should_be_in": "preferences.media_and_information_diet",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add social comparison effect."
+            },
+            {
+              "id": 3,
+              "text": "Interview says she values private support and does not put deepest feelings online.",
+              "gap": true,
+              "interview_ref": "Q49",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add private-support preference."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No contradictions required flagging. Several interview details were missing from the draft profile and were carried forward into the corrected preferences.",
+    "final_status": "Corrected profile is internally consistent and ready for downstream use with hidden_facts generated."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "72672ab44e4b4e40a94e44b91913cfef",
+    "name": "Risa Mcelrath",
+    "age": 15,
+    "gender": "Female",
+    "marital_status": "never married; not living with a romantic partner",
+    "location": "Bear, DE 19701",
+    "education": "completed eighth grade; currently enrolled full time in ninth grade public high school",
+    "occupation": "student; not in workforce",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Generally healthy teen who stays active through basketball and occasional jogging, with concerns about sleep, headaches, and consistency.",
+        "details": [
+          "Reports good overall health with seasonal allergies, occasional headaches, and no major medical condition (Q31).",
+          "Plays pickup basketball and sometimes jogs or walks near Brandywine River (Q31, Q32).",
+          "Wants to improve sleep, water intake, and consistency with exercise (Q31, Q32).",
+          "Sprained her ankle playing basketball last year and rested for a couple weeks after urgent care confirmed it was not broken (Q33).",
+          "Does not smoke, drink alcohol, use marijuana, or use recreational substances; she only uses ordinary medicines such as allergy medicine or ibuprofen with parental guidance (Q38-Q39).",
+          "Family usually uses regular doctors, preventive care, insurance, and budgeting, while also using home remedies such as ginger tea, honey, lemon, steam, Vicks, soup, and prayer for minor illness (Q36-Q37, Q40).",
+          "Generally accepts vaccines and trusts her doctor, mother, school nurses, and official health websites over random social media vaccine posts (Q41-Q42)."
+        ],
+        "evidence": "Q31-Q42"
+      },
+      "food_and_dining": {
+        "summary": "Enjoys family soul food traditions and quick homemade meals, while balancing snacks and ramen with healthier home cooking.",
+        "details": [
+          "Family meals include collards with smoked turkey, cornbread, Sunday dinners, and Juneteenth cooking traditions (Q01, Q05).",
+          "Helps prep dinner, chops vegetables, starts rice, and experiments with food at home (Q17).",
+          "Likes ramen, snacks, juice, and sweet tea but recognizes balance matters (Q32).",
+          "Family stress is often handled through food, prayer, humor, watching games, and quiet time (Q46).",
+          "When money is tight, her family cooks more at home, reduces takeout, compares prices, and avoids wasting food (Q60, Q81)."
+        ],
+        "evidence": "Q01, Q05, Q17, Q32, Q46, Q60, Q81"
+      },
+      "travel": {
+        "summary": "Has limited current travel but dreams of creative and cultural trips, especially New York Comic Con and Kyoto.",
+        "details": [
+          "Has taken school and family trips but no international travel (Q86).",
+          "Wants to visit New York Comic Con and more comic or art events (Q108).",
+          "Names Kyoto as a dream destination because of manga districts and art culture (Q108).",
+          "Creative events often feel distant because they usually require going to Wilmington, Philadelphia, or New York (Q10)."
+        ],
+        "evidence": "Q10, Q86, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "Family-centered and friend-oriented, with close ties to parents, brother Malik, cousin Nia, grandma, Jayla, and Amira.",
+        "details": [
+          "Lives with mother, father, and older brother Malik (Q05, Q11, Q51).",
+          "Close to Jayla and Amira, seeing them most school days and often outside school (Q07).",
+          "Turns to mother, friends, and cousin Nia for emotional support (Q43, Q49).",
+          "Grandma and aunt Tanya are important extended-family figures; aunt Tanya gives direct advice and pushes her to speak up (Q05-Q06).",
+          "Prefers private emotional support and does not put her deepest feelings online (Q49).",
+          "Usually seems upbeat around people but overthinks when alone (Q43).",
+          "She is not dating anyone seriously, and school, friends, and art are a bigger focus than dating (Q07, Q84)."
+        ],
+        "evidence": "Q05-Q07, Q43, Q49, Q84"
+      },
+      "home_and_lifestyle": {
+        "summary": "Lives in a rented Bear, Delaware townhouse with a structured but busy family routine and a cluttered creative bedroom.",
+        "details": [
+          "Household rents a townhouse in Bear, Delaware (Q58).",
+          "Home includes parents and older brother, with no temporary household members (Q11-Q14).",
+          "Bedroom is her own but cluttered with sketchbooks, markers, laundry, and charging cords (Q11).",
+          "No babies, small children, pets, lodgers, boarders, or live-in employees live in the household (Q51-Q54).",
+          "Mother works as a certified nursing assistant at an assisted living or elder care facility, and father works in warehouse and delivery/logistics work (Q11, Q102-Q107).",
+          "Malik is 19, lives at home, works part time, and takes community college classes nearby (Q11, Q53, Q74).",
+          "Mother and father handle household bills, while Malik helps with smaller expenses and Risa contributes chores and dinner help rather than regular money (Q55).",
+          "Typical household spending is guessed around $4,000 to $4,500 monthly, and household income is guessed around $4,500 to $5,000 before expenses, with fluctuations from shifts, extra work, school costs, car repairs, holidays, utilities, and medical appointments (Q57-Q59, Q74, Q81).",
+          "Risa has a small savings account and a cash envelope for art supplies or snacks, but a $400 emergency would exceed her personal resources and strain the household (Q61-Q62, Q82)."
+        ],
+        "evidence": "Q11-Q14, Q51-Q59, Q61-Q62, Q74, Q81-Q82, Q102-Q107"
+      },
+      "entertainment": {
+        "summary": "Prefers comics, urban fantasy, social video, open mic poetry, music, sports watching, and creative online content.",
+        "details": [
+          "Works on graphic novel panels and reads or creates visual storytelling inspired by comics (Q01, Q65).",
+          "Attends open-mic nights with Amira and enjoys spoken-word poetry (Q07, Q08).",
+          "Watches Eagles games with her father and follows basketball content (Q05, Q48).",
+          "Reads urban fantasy and enjoys art, music, school-safe funny clips, and creator content online (Q48, seed hobbies_and_interests)."
+        ],
+        "evidence": "Q01, Q05, Q07, Q08, Q48, Q65"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Centers free time around sketching, TikTok edits, Canva design, basketball, coding club, volunteering, and cooking.",
+        "details": [
+          "Sketches characters and graphic novel panels, often at night with music (Q01, Q15, Q43).",
+          "Creates short TikTok edits and art process clips (Q01, Q48).",
+          "Participates in coding club and volunteers at the community center after-school program (Q15, Q19).",
+          "Keeps a folder of ideas, deadlines, and character designs after choosing to take art more seriously (Q03).",
+          "Helps younger kids with reading worksheets, simple art projects, and focus during community center volunteering (Q19)."
+        ],
+        "evidence": "Q01, Q03, Q15, Q19, Q43, Q48"
+      },
+      "work_and_career": {
+        "summary": "Not employed; career aspirations focus on multimedia design, graphic novels, content creation, scholarships, and community-oriented creative work.",
+        "details": [
+          "Current occupation is student with no paid job (Q16, Q65-Q73).",
+          "Wants to be a multimedia designer, graphic novelist, or content creator (Q65, Q108).",
+          "Hopes to earn scholarships for visual arts or design and eventually mentor younger students (Q108).",
+          "Does not earn money from TikTok, does not have a regular allowance, and received no job income in the past month, though she may get about $20 to $30 in family or chore money depending on the week (Q70-Q73).",
+          "Imagines a creative team environment involving brainstorming, visual campaigns, design work, and community stories (Q65).",
+          "Wants a future summer job related to kids, books, art supplies, social media, a library, or a camp rather than a purely register-based job (Q16).",
+          "She wants a stable plan and scholarships because art programs, software, conventions, and college cost money (Q62-Q63, Q83, Q108)."
+        ],
+        "evidence": "Q16, Q62-Q65, Q70-Q73, Q83, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Strong visual storyteller influenced by Black culture, comics, illustration, music, church, and youth arts spaces.",
+        "details": [
+          "Takes art seriously after an eighth-grade comic project became a turning point (Q02).",
+          "Uses art to represent Black girls with power and ordinary emotions (Q27).",
+          "Draws from family stories, Black cultural traditions, church, and community pride (Q01, Q109).",
+          "Mother and art teacher encouraged her art, with her teacher pushing her to think about panels and pacing (Q01 follow-ups).",
+          "Not posting every artwork is a newer coping strategy so some art can remain practice rather than public judgment (Q45, Q50).",
+          "Concrete next-year creative goal is to finish the first chapter of her graphic novel idea and build a portfolio folder (Q108)."
+        ],
+        "evidence": "Q01-Q03, Q27, Q45, Q50, Q108-Q109"
+      },
+      "sports_and_fitness": {
+        "summary": "Enjoys pickup basketball, roots for Philadelphia teams, and uses sports as exercise and stress relief.",
+        "details": [
+          "Plays pickup basketball after school with Jayla and friends (Q07, Q15).",
+          "Father watches Philadelphia Eagles games, and sports are part of family life (Q05).",
+          "Uses basketball to cope with stress and stay active (Q32, Q38, Q43).",
+          "Basketball feels social and competitive, which makes it her easiest exercise habit (Q32).",
+          "She roots for Philadelphia teams, including the 76ers and Eagles, as reflected in the seed persona and family sports routines (seed sports_persona, Q05)."
+        ],
+        "evidence": "Q05, Q07, Q15, Q32, Q38, Q43"
+      },
+      "nature_and_outdoors": {
+        "summary": "Likes nearby outdoor recreation, especially weekend walks or jogs around the Brandywine River area when friends join.",
+        "details": [
+          "Occasionally takes weekend trail walks or jogs near Brandywine River (Q15, Q31).",
+          "Enjoys parks and local basketball courts in Bear (Q08).",
+          "Feels safer outdoors with friends and during daytime (Q09).",
+          "Avoids walking behind shopping centers or through parking lots at night and prefers to wait inside for a ride (Q09).",
+          "Transportation limits independence because she relies on parents, Malik, walking nearby, and rides rather than driving herself (Q08, Q10)."
+        ],
+        "evidence": "Q08-Q10, Q15, Q31"
+      },
+      "technology": {
+        "summary": "Comfortable with Canva, short video editing, social media creation, basic photography, and introductory coding.",
+        "details": [
+          "Uses Canva and video editing to make visual ideas real (Q01, Q60).",
+          "Joined after-school coding club and is learning basic creative technology (Q02, Q15, Q65).",
+          "Uses TikTok and Instagram for art process clips, trends, edits, and creator inspiration (Q48).",
+          "Has basic digital photography, social media video creation, Canva graphic design, introductory Python, and short-video editing skills (seed skills_and_expertise, Q01-Q02, Q65).",
+          "Helps her grandma with phone tasks such as saving pictures and finding church livestreams (Q17).",
+          "Uses free Canva, free editing apps, school supplies, and existing markers when money is tight (Q60)."
+        ],
+        "evidence": "Q01-Q02, Q15, Q17, Q48, Q60, Q65"
+      },
+      "community_and_civic": {
+        "summary": "Community-oriented, attentive to racial justice, youth empowerment, education, and future voting.",
+        "details": [
+          "Volunteers at the community center helping younger kids with reading and art (Q15, Q19).",
+          "Expects to vote when eligible and connects voting to civil rights history (Q23).",
+          "Cares about Black Lives Matter, school resources, racial justice, and community investment (Q24-Q30).",
+          "Describes herself as Democrat-leaning or closer to the Democratic Party but still learning and not strongly partisan like an adult party member (Q95-Q96).",
+          "Has not joined a protest but talks with family and friends, reposts educational slides or voting reminders, and makes art connected to Black pride and being seen (Q29).",
+          "Family teaches caution and respect around police encounters; she remembers her father's brake-light traffic stop and feels it is unfair that Black families must think about it so much (Q20-Q21).",
+          "Trusts institutions selectively: school and community programs can help, but she wants more youth art programs, free software access, teen art spaces, transit, and safe hangout places (Q04, Q10)."
+        ],
+        "evidence": "Q04, Q10, Q15, Q19, Q20-Q30, Q95-Q96"
+      },
+      "music": {
+        "summary": "Uses contemporary R&B and hip-hop as creative fuel and emotional regulation.",
+        "details": [
+          "Draws while listening to music, especially when resetting emotionally (Q43).",
+          "References SZA and H.E.R. as part of her routine and inspiration (Q15, Q31).",
+          "Enjoys church music and choir as part of religious connection (Q47).",
+          "Also listens to contemporary R&B and hip-hop, including artists named in the seed such as H.E.R., SZA, and J. Cole (seed arts_persona, Q15)."
+        ],
+        "evidence": "Q15, Q43, Q47"
+      },
+      "fashion_and_appearance": {
+        "summary": "Some interest in style appears through character design and cousin-supported outfit ideas, but fashion is not a central topic.",
+        "details": [
+          "Cousin Nia helps choose outfits for characters and gives feedback on visual ideas (Q05, Q13).",
+          "Mentions clothes as a school and family expense (Q56, Q60).",
+          "Draws characters, including girls with big hair and superhero outfits, making appearance part of her visual storytelling (Q01)."
+        ],
+        "evidence": "Q01, Q05, Q13, Q56, Q60"
+      },
+      "cultural_and_linguistic": {
+        "summary": "Identifies as Black/African American and is grounded in African American family, church, food, music, history, and community traditions.",
+        "details": [
+          "Identifies as Black or African American and says it is important to her identity (Q88-Q89).",
+          "Family observes Black cultural traditions including Juneteenth, church, and soul food (Q01, Q05).",
+          "Wants Black girls represented in her art beyond trauma narratives (Q27).",
+          "Identifies as Christian in the Baptist tradition, attends some Sundays and youth or family church events, and is still figuring out faith for herself (Q47, Q94).",
+          "Race shows up in daily life through family, music, hair, church, food, history, and the stories she wants to tell (Q89)."
+        ],
+        "evidence": "Q01, Q05, Q27, Q47, Q88-Q89, Q94"
+      },
+      "life_events_and_transitions": {
+        "summary": "Major recent transitions include starting high school, choosing to take art seriously in eighth grade, and learning to manage deadlines.",
+        "details": [
+          "Eighth-grade comic project was a crossroads in identifying as an aspiring graphic novelist (Q02-Q03).",
+          "Starting high school increased homework, expectations, and stress (Q01, Q18, Q50).",
+          "A difficult deadline week taught her to use planning and ask for help (Q44).",
+          "Date of birth is September 14, 2010, and she confirmed she is 15 (Q85).",
+          "She was born in Wilmington, Delaware, is U.S.-born, grew up mostly in Bear, and has not lived outside the United States (Q01, Q86-Q87).",
+          "She has had no major moves, expects she may still be in Bear at age 16, and has grown up living with both parents (Q97-Q99)."
+        ],
+        "evidence": "Q01-Q03, Q18, Q44, Q50, Q85-Q87, Q97-Q99"
+      },
+      "media_and_information_diet": {
+        "summary": "Gets information from family, school, TikTok, Instagram, teachers, and trusted adults, with some awareness of misinformation.",
+        "details": [
+          "Learns about politics from parents, TikTok, Instagram, school discussions, and teacher-shown news clips (Q23).",
+          "Uses TikTok most and Instagram second for edits, art, friends, and local events (Q48).",
+          "Trusts doctors, mother, school nurses, and official health websites over random online vaccine posts (Q42).",
+          "Social media inspires her but can make her compare her beginning to someone else's polished final version (Q45, Q48).",
+          "Discusses politics with friends mostly around race, school rules, book bans, and issues seen online (Q24).",
+          "Watches her social media time because one quick scroll can become an hour (Q48).",
+          "May post close-friends stories or send private messages for emotional support but avoids making her deepest feelings public (Q49)."
+        ],
+        "evidence": "Q23-Q24, Q42, Q45, Q48-Q49"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Risa Mcelrath is a 15-year-old Black/African American girl living in a rented townhouse in Bear, Delaware with both parents and her older brother Malik (Q11, Q51, Q58, Q89). She was born in Wilmington, Delaware, is U.S.-born, has completed eighth grade, and is enrolled full time in ninth grade public school (Q85-Q92). She has never been married, has no children, and is not in the paid workforce; her household income comes mainly from her mother's CNA work, her father's warehouse/delivery work, and some part-time income from Malik (Q16, Q74, Q84, Q102-Q107). Her life-course position is early adolescence, with family dependency, school enrollment, and emerging career aspirations in visual arts and media design (Q65, Q108).",
+      "behavioral_economist": "Risa shows a mix of future orientation and present-focused impulsivity: she wants scholarships, a portfolio, and a design career, but struggles with procrastination when creative tasks crowd out deadlines (Q02, Q44, Q108). Peer influence is mostly constructive, drawing her into basketball, outdoor activity, coding club, and creative sharing (Q07, Q15, Q32). Scarcity is salient but not extreme; she limits requests for art supplies, uses free tools, and understands that emergency expenses would strain the household (Q60, Q64, Q82). Her choices are strongly identity-linked, with investments in art, Black cultural expression, and community mentoring carrying more value than ordinary consumption (Q27, Q65, Q109).",
+      "political_scientist": "Risa is not yet eligible to vote but expects to register and vote when she turns 18, linking voting to civil rights history and family norms (Q23). She describes herself as Democrat-leaning or closer to the Democratic Party, though not strongly partisan in an adult sense, with issue priorities around education, racial justice, health care, school resources, and fairness (Q24, Q95, Q96). Black Lives Matter and race-conscious politics have affected her substantially, shaping how she thinks about policing, school discipline, representation, and community investment (Q26-Q30). Her institutional trust is selective: she trusts family, teachers, doctors, and official sources more than social media, while remaining cautious about policing and unequal treatment (Q20, Q42).",
+      "psychologist": "Risa presents as creative, verbally expressive, socially connected, and identity-driven, with a strong need to tell stories visually and be taken seriously (Q01, Q02, Q108). She likes structure but is prone to deadline chaos, especially when intrinsic motivation pulls her toward art over less enjoyable schoolwork (Q18, Q44, Q50). Emotionally, she reports stress and anxiety around school, comparison, and performance but no diagnosis of depression or anxiety; she copes through drawing, music, basketball, private support, prayer, and family conversations (Q38, Q43-Q45, Q47, Q49). Her self-concept is grounded in Black cultural pride, family belonging, faith, creativity, and a future-oriented desire to mentor others (Q27, Q89, Q109)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Risa reports good overall health with no major medical condition.",
+        "ground_truth_label": "Good general health; no major medical condition",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"My health is pretty good. I do not have a major medical condition.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Risa gets seasonal allergies and occasional headaches.",
+        "ground_truth_label": "Seasonal allergies and occasional headaches",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"I get seasonal allergies sometimes, and I get headaches when I stay up too late.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Risa plays pickup basketball and sometimes jogs or walks near the Brandywine River.",
+        "ground_truth_label": "Basketball and occasional Brandywine River jogging/walking",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"Pickup basketball after school and occasional weekend jogs or walks near Brandywine River.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.sports_and_fitness",
+          "preferences.nature_and_outdoors"
+        ]
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Risa wants to improve her sleep, water intake, and exercise consistency.",
+        "ground_truth_label": "Wants better sleep, hydration, and exercise consistency",
+        "behavioral_evidence_from_interview": [
+          "Q32: \"Going to bed earlier and drinking more water instead of juice or sweet tea.\"",
+          "Q31: \"I could be more consistent.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Risa sprained her ankle playing basketball last year and rested for a couple weeks after urgent care ruled out a break.",
+        "ground_truth_label": "Prior basketball ankle sprain; no fracture",
+        "behavioral_evidence_from_interview": [
+          "Q33: \"I sprained my ankle playing basketball last year.\"",
+          "Q33 follow-up: \"My mom took me to urgent care to make sure it was not broken.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Risa does not smoke, drink alcohol, use marijuana, or use recreational substances.",
+        "ground_truth_label": "No recreational substance use",
+        "behavioral_evidence_from_interview": [
+          "Q38: \"No, I do not smoke or drink.\"",
+          "Q39: \"I do not use marijuana or other substances.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Risa only uses ordinary medicines such as allergy medicine or ibuprofen with parental guidance.",
+        "ground_truth_label": "Uses ordinary medicine with parental guidance",
+        "behavioral_evidence_from_interview": [
+          "Q39: \"I only take regular medicine like allergy medicine or ibuprofen if my mom says it is okay.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Risa's family uses regular doctors and insurance, but copays and scheduling can create friction.",
+        "ground_truth_label": "Conventional healthcare with cost and scheduling constraints",
+        "behavioral_evidence_from_interview": [
+          "Q36: \"We can usually get care, but appointments can be annoying to schedule around school and work.\"",
+          "Q40: \"My parents handle it through insurance and budgeting.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Risa's family uses home remedies such as ginger tea, honey, lemon, steam, Vicks, soup, and prayer for minor illness.",
+        "ground_truth_label": "Family home remedies for minor illness",
+        "behavioral_evidence_from_interview": [
+          "Q37: \"Ginger tea, honey, lemon, steam, Vicks, and soup are big when somebody has a cold.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Risa generally accepts vaccines and trusts doctors, her mother, school nurses, and official health websites over random vaccine posts.",
+        "ground_truth_label": "Pro-vaccine with trusted medical sources",
+        "behavioral_evidence_from_interview": [
+          "Q41: \"I am generally okay with vaccines.\"",
+          "Q42: \"My doctor, my mom, school nurses, and official health websites are the sources I would trust.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.media_and_information_diet"
+        ]
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Risa's family food traditions include collards with smoked turkey, cornbread, Sunday dinners, and Juneteenth cooking.",
+        "ground_truth_label": "African American family soul food traditions",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"collards with smoked turkey and cornbread\"",
+          "Q05: \"Sunday dinner... cook for holidays and Juneteenth\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.cultural_and_linguistic"
+        ]
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Risa helps with dinner by chopping vegetables, starting rice, and preparing food at home.",
+        "ground_truth_label": "Helps prepare dinner at home",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"I might chop vegetables or start rice.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Risa likes ramen, snacks, juice, and sweet tea but recognizes she needs balance.",
+        "ground_truth_label": "Enjoys convenience foods and sweet drinks while seeking balance",
+        "behavioral_evidence_from_interview": [
+          "Q32: \"I also love ramen and snacks, so balance is real.\"",
+          "Q32 follow-up: \"drinking more water instead of juice or sweet tea.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "When money is tight, Risa's family cooks more at home, reduces takeout, compares prices, and avoids wasting food.",
+        "ground_truth_label": "Cost-conscious home cooking during tight periods",
+        "behavioral_evidence_from_interview": [
+          "Q81: \"My parents cooked more at home, delayed extras, compared prices, and asked us not to waste food or electricity.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Risa has had school and family trips but no international travel.",
+        "ground_truth_label": "Limited travel; no international travel",
+        "behavioral_evidence_from_interview": [
+          "Q86 follow-up: \"Only school trips and family trips, nothing international.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Risa wants to visit New York Comic Con and more comic or art events.",
+        "ground_truth_label": "Wants New York Comic Con and art-event travel",
+        "behavioral_evidence_from_interview": [
+          "Q108: \"I hope I get to visit New York Comic Con or at least go to more comic and art events.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Risa dreams of visiting Kyoto because of manga districts and art culture.",
+        "ground_truth_label": "Dream destination: Kyoto for manga and art culture",
+        "behavioral_evidence_from_interview": [
+          "Q108 follow-up: \"one day Kyoto because of manga districts and art culture.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Risa feels creative events usually require traveling to Wilmington, Philadelphia, or New York.",
+        "ground_truth_label": "Creative-event access requires regional travel",
+        "behavioral_evidence_from_interview": [
+          "Q10: \"creative stuff like comic events usually means going to Philly, Wilmington, or maybe New York someday.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Risa lives with her mother, father, and older brother Malik.",
+        "ground_truth_label": "Household includes mother, father, and older brother Malik",
+        "behavioral_evidence_from_interview": [
+          "Q51: \"I live with my mom, my dad, and my older brother Malik in Bear, Delaware.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer",
+          "preferences.home_and_lifestyle"
+        ]
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Risa is close to Jayla and Amira and sees them most school days.",
+        "ground_truth_label": "Close friends Jayla and Amira",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"My closest friends are Jayla and Amira from school.\"",
+          "Q07 follow-up: \"I see them most school days.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Risa turns to her mother, friends, and cousin Nia for emotional support.",
+        "ground_truth_label": "Private support network: mother, friends, cousin Nia",
+        "behavioral_evidence_from_interview": [
+          "Q49 follow-up: \"Jayla, Amira, Nia, or my mom, depending on what happened.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Risa's grandma and aunt Tanya are important extended-family figures.",
+        "ground_truth_label": "Important extended family: grandma and aunt Tanya",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"My grandma is important because she keeps family stories and recipes alive.\"",
+          "Q06: \"My aunt Tanya is close to us too.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Risa prefers private emotional support and does not put her deepest feelings online.",
+        "ground_truth_label": "Prefers private emotional support",
+        "behavioral_evidence_from_interview": [
+          "Q49: \"I do not put my deepest feelings online.\"",
+          "Q49 follow-up: \"Private. Public attention can make things feel messier.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.media_and_information_diet"
+        ]
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Risa is usually upbeat around people but overthinks when alone.",
+        "ground_truth_label": "Upbeat socially; private overthinking",
+        "behavioral_evidence_from_interview": [
+          "Q43: \"I am usually upbeat around people, but when I am alone I overthink.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Risa is not dating seriously and prioritizes school, friends, and art over dating.",
+        "ground_truth_label": "No serious dating; dating not central",
+        "behavioral_evidence_from_interview": [
+          "Q84 follow-up: \"No, not seriously.\"",
+          "Q84 follow-up: \"School, friends, and art are more important.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Risa's household rents a townhouse in Bear, Delaware.",
+        "ground_truth_label": "Rents townhouse in Bear, Delaware",
+        "behavioral_evidence_from_interview": [
+          "Q58: \"We rent our townhouse.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Risa has no temporary household members.",
+        "ground_truth_label": "No temporary household members",
+        "behavioral_evidence_from_interview": [
+          "Q12: \"Everyone is permanent right now.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Risa has her own room, but it gets cluttered with sketchbooks, markers, laundry, and charging cords.",
+        "ground_truth_label": "Own cluttered creative bedroom",
+        "behavioral_evidence_from_interview": [
+          "Q11 follow-up: \"Yes, I have my own room, but it gets cluttered with sketchbooks, markers, laundry, and charging cords.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "No babies, small children, pets, lodgers, boarders, or live-in employees live in Risa's household.",
+        "ground_truth_label": "No children, pets, lodgers, boarders, or live-in employees in household",
+        "behavioral_evidence_from_interview": [
+          "Q51 follow-up: \"No pets right now.\"",
+          "Q52: \"No babies or small children live with us.\"",
+          "Q54: \"No, none.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Risa's mother works as a certified nursing assistant at an assisted living or elder care facility.",
+        "ground_truth_label": "Mother occupation: CNA at assisted living/elder care facility",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"My mom works as a certified nursing assistant at an assisted living place.\"",
+          "Q104: \"She works at an assisted living or elder care facility.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Risa's father works in warehouse and delivery/logistics work.",
+        "ground_truth_label": "Father occupation: warehouse and delivery/logistics",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"My dad does warehouse and delivery work.\"",
+          "Q106: \"My dad works in warehouse and delivery work.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Malik is 19, lives at home, works part time, and takes community college classes nearby.",
+        "ground_truth_label": "Older brother Malik: 19, part-time worker, community college student at home",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"Malik is 19 and works part time while taking some community college classes.\"",
+          "Q53 follow-up: \"No, he takes classes nearby and lives at home.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Risa's parents handle household bills, Malik helps with smaller expenses, and Risa contributes chores and dinner help rather than regular money.",
+        "ground_truth_label": "Household expense roles: parents primary, Malik small expenses, Risa chores",
+        "behavioral_evidence_from_interview": [
+          "Q55: \"My mom and dad handle the bills. Malik helps with some smaller expenses.\"",
+          "Q55 follow-up: \"Yes, chores and helping with dinner.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Risa guesses her household spends about $4,000 to $4,500 in a typical month.",
+        "ground_truth_label": "Estimated household spending: $4,000-$4,500 monthly",
+        "behavioral_evidence_from_interview": [
+          "Q57: \"maybe around $4,000 to $4,500 in a typical month\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Risa guesses her household makes about $4,500 to $5,000 before expenses in a month.",
+        "ground_truth_label": "Estimated household income: $4,500-$5,000 before expenses monthly",
+        "behavioral_evidence_from_interview": [
+          "Q74: \"maybe around $4,500 to $5,000 before everything is paid\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Risa has a small savings account and a cash envelope for art supplies or snacks.",
+        "ground_truth_label": "Small savings account and cash envelope",
+        "behavioral_evidence_from_interview": [
+          "Q61: \"I have a small savings account my mom helped set up.\"",
+          "Q61: \"I also save cash in a little envelope for art supplies or snacks.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "A $400 emergency would exceed Risa's personal resources and would strain her household.",
+        "ground_truth_label": "$400 emergency unaffordable personally and stressful for household",
+        "behavioral_evidence_from_interview": [
+          "Q82: \"I personally would not have $400.\"",
+          "Q82: \"My parents might be able to cover it, but it would be stressful.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Risa works on graphic novel panels and visual storytelling.",
+        "ground_truth_label": "Graphic novel and visual storytelling entertainment",
+        "behavioral_evidence_from_interview": [
+          "Q65: \"creative projects like graphic novel panels\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.arts_and_culture"
+        ]
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Risa attends open-mic nights with Amira and enjoys spoken-word poetry.",
+        "ground_truth_label": "Open-mic and spoken-word interest",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"Amira is more into music and poetry, so she comes with me to open-mic nights sometimes.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Risa watches Eagles games with her father and follows basketball content.",
+        "ground_truth_label": "Sports entertainment: Eagles games and basketball content",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"My dad... watches Eagles games\"",
+          "Q48: \"basketball clips\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.sports_and_fitness"
+        ]
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Risa reads urban fantasy and enjoys art, music, school-safe funny clips, and creator content online.",
+        "ground_truth_label": "Urban fantasy and online creator entertainment",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"Short edits, sketch progress, random school-safe funny clips\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Risa sketches characters and graphic novel panels, often at night with music.",
+        "ground_truth_label": "Nighttime sketching with music",
+        "behavioral_evidence_from_interview": [
+          "Q43 follow-up: \"drawing late at night with music on\"",
+          "Q15 follow-up: \"Mostly evenings after homework, like 8 to 10\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.music",
+          "preferences.arts_and_culture"
+        ]
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Risa creates short TikTok edits and art process clips.",
+        "ground_truth_label": "TikTok edits and art process clips",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"Short edits, sketch progress\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.technology"
+        ]
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Risa participates in coding club.",
+        "ground_truth_label": "After-school coding club participation",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"Mondays or Wednesdays might be coding club.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.technology"
+        ]
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Risa volunteers at the community center after-school program.",
+        "ground_truth_label": "Community center volunteer",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"One evening a week I volunteer at the community center after-school program.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.community_and_civic"
+        ]
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Risa keeps a folder of ideas, deadlines, and character designs after choosing to take art seriously.",
+        "ground_truth_label": "Organized art idea folder",
+        "behavioral_evidence_from_interview": [
+          "Q03 follow-up: \"I started keeping a real folder of ideas, deadlines, and character designs.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Risa helps younger kids with reading worksheets, simple art projects, and focus during volunteering.",
+        "ground_truth_label": "Volunteer tasks: reading, art, focus support",
+        "behavioral_evidence_from_interview": [
+          "Q19 follow-up: \"Reading worksheets, simple art projects, and sometimes just keeping them focused.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Risa is a student with no paid job.",
+        "ground_truth_label": "Student; no paid employment",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"I do not have a paid job.\"",
+          "Q65: \"My occupation is student. I am not in the workforce.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Risa wants to be a multimedia designer, graphic novelist, or content creator.",
+        "ground_truth_label": "Career goal: multimedia designer, graphic novelist, or content creator",
+        "behavioral_evidence_from_interview": [
+          "Q65: \"I want to be a multimedia designer, graphic novelist, or content creator.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Risa hopes to earn scholarships for visual arts or design and eventually mentor younger students.",
+        "ground_truth_label": "Scholarship and mentoring aspirations",
+        "behavioral_evidence_from_interview": [
+          "Q108: \"good enough grades for scholarships\"",
+          "Q108: \"I also want to mentor younger kids\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Risa does not earn money from TikTok, has no regular allowance, and had no job income in the past month.",
+        "ground_truth_label": "No TikTok monetization or regular income",
+        "behavioral_evidence_from_interview": [
+          "Q70 follow-up: \"No, I do not make money from TikTok.\"",
+          "Q72: \"I received no job income in the past month.\"",
+          "Q73: \"I do not get paid regularly.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Risa may get about $20 to $30 in family or chore money depending on the week.",
+        "ground_truth_label": "Irregular spending money around $20-$30",
+        "behavioral_evidence_from_interview": [
+          "Q72 follow-up: \"Maybe around $20 to $30, depending on chores and what my parents can spare.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Risa imagines a creative team environment involving brainstorming, visual campaigns, design work, and community stories.",
+        "ground_truth_label": "Preferred career environment: creative community-oriented team",
+        "behavioral_evidence_from_interview": [
+          "Q65 follow-up: \"A creative team where people brainstorm, make campaigns, design visuals, and care about community stories.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Risa wants a future summer job related to kids, books, art supplies, social media, a library, or a camp.",
+        "ground_truth_label": "Preferred first job: creative, youth, book, or social media setting",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"maybe at a library, camp, or something creative.\"",
+          "Q16 follow-up: \"Something with kids, books, art supplies, or social media\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Risa began taking art seriously after an eighth-grade comic project became a turning point.",
+        "ground_truth_label": "Eighth-grade comic project as art turning point",
+        "behavioral_evidence_from_interview": [
+          "Q02: \"My crossroads was probably in eighth grade... treat art... serious.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.life_events_and_transitions"
+        ]
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Risa uses art to represent Black girls with power and ordinary emotions.",
+        "ground_truth_label": "Black-girl representation beyond trauma",
+        "behavioral_evidence_from_interview": [
+          "Q27 follow-up: \"I draw characters who are Black girls with power, but also normal feelings, not just trauma.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.cultural_and_linguistic",
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Risa draws from family stories, Black cultural traditions, church, and community pride.",
+        "ground_truth_label": "Art grounded in Black family, church, and community culture",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"family is African American... church, Juneteenth, Sunday dinners\"",
+          "Q109: \"I value... community, especially Black community\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Risa's mother and art teacher encouraged her art.",
+        "ground_truth_label": "Art encouragement from mother and art teacher",
+        "behavioral_evidence_from_interview": [
+          "Q01 follow-up: \"My mom encourages it the most\"",
+          "Q01 follow-up: \"My art teacher also pushed me\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Risa is learning not to post every artwork so some art can remain practice rather than public judgment.",
+        "ground_truth_label": "Selective art posting as coping",
+        "behavioral_evidence_from_interview": [
+          "Q50 follow-up: \"Not posting everything is new. I am learning some art can just be practice.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.media_and_information_diet"
+        ]
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Risa's concrete next-year creative goal is to finish the first chapter of her graphic novel and build a portfolio folder.",
+        "ground_truth_label": "Next-year goal: first graphic novel chapter and portfolio folder",
+        "behavioral_evidence_from_interview": [
+          "Q108 follow-up: \"Finish the first chapter of my graphic novel idea and build a portfolio folder.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Risa plays pickup basketball after school with Jayla and friends.",
+        "ground_truth_label": "After-school pickup basketball with peers",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"Jayla plays basketball with me\"",
+          "Q15: \"I play basketball at the park if Jayla is going.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Risa's father watches Philadelphia Eagles games, making sports part of family life.",
+        "ground_truth_label": "Eagles fandom in family routine",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"he watches Eagles games like it is a serious appointment.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Risa uses basketball to cope with stress and stay active.",
+        "ground_truth_label": "Basketball as coping and exercise",
+        "behavioral_evidence_from_interview": [
+          "Q38: \"shoot hoops\"",
+          "Q43: \"basketball... help me reset.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Basketball is Risa's easiest exercise habit because it feels social and competitive.",
+        "ground_truth_label": "Social and competitive exercise motivation",
+        "behavioral_evidence_from_interview": [
+          "Q32 follow-up: \"Playing basketball, because it feels social and competitive.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Risa roots for Philadelphia sports teams, including the 76ers and Eagles.",
+        "ground_truth_label": "Philadelphia 76ers and Eagles fan",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"watches Eagles games\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Risa occasionally takes weekend trail walks or jogs near the Brandywine River.",
+        "ground_truth_label": "Occasional Brandywine River trail walks or jogs",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"a Brandywine River trail walk or jog if friends are up for it\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Risa enjoys parks and local basketball courts in Bear.",
+        "ground_truth_label": "Uses Bear parks and basketball courts",
+        "behavioral_evidence_from_interview": [
+          "Q08: \"which basketball court people go to after school.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Risa feels safer outdoors during the day and when she is with friends.",
+        "ground_truth_label": "Outdoor safety depends on daytime and companions",
+        "behavioral_evidence_from_interview": [
+          "Q09: \"I mostly feel safe, especially during the day.\"",
+          "Q09 follow-up: \"Knowing neighbors, being with friends, and having my phone charged makes me feel safer.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Risa avoids walking behind shopping centers or through parking lots at night and prefers waiting inside for a ride.",
+        "ground_truth_label": "Avoids isolated nighttime walking areas",
+        "behavioral_evidence_from_interview": [
+          "Q09 follow-up: \"I avoid walking behind shopping centers or through parking lots at night.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Risa's independence is limited by transportation because she relies on parents, Malik, walking nearby, and rides.",
+        "ground_truth_label": "Transportation-dependent teen mobility",
+        "behavioral_evidence_from_interview": [
+          "Q08 follow-up: \"My parents drive me, Malik gives me rides sometimes, and I walk if it is close.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Risa uses Canva and video editing to make visual ideas real.",
+        "ground_truth_label": "Uses Canva and video editing",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"I could use Canva and video editing to make my ideas look real.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Risa joined an after-school coding club and is learning basic creative technology.",
+        "ground_truth_label": "After-school coding club; basic creative tech",
+        "behavioral_evidence_from_interview": [
+          "Q02: \"I joined coding club because my friend dared me to\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Risa uses TikTok and Instagram for art process clips, trends, edits, and creator inspiration.",
+        "ground_truth_label": "TikTok and Instagram creative use",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"TikTok is for edits, art process clips... Instagram is more for stories, art pages\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.media_and_information_diet"
+        ]
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Risa has basic digital photography, social media video creation, Canva graphic design, introductory Python, and short-video editing skills.",
+        "ground_truth_label": "Basic digital media and Python skills",
+        "behavioral_evidence_from_interview": [
+          "Q65 follow-up: \"Storyboarding, digital design, editing short videos, and basic coding.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Risa helps her grandma with phone tasks such as saving pictures and finding church livestreams.",
+        "ground_truth_label": "Helps grandma with phone tasks",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"I also help my grandma sometimes with her phone, like saving pictures or finding church livestreams.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Risa uses free Canva, free editing apps, school supplies, and existing markers when money is tight.",
+        "ground_truth_label": "Uses free and low-cost creative tools",
+        "behavioral_evidence_from_interview": [
+          "Q60 follow-up: \"I use free Canva, free editing apps, school supplies, and whatever markers I already have.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Risa volunteers at the community center helping younger kids with reading and art.",
+        "ground_truth_label": "Community center youth volunteer",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"I volunteer at the community center after-school program\"",
+          "Q19 follow-up: \"Reading worksheets, simple art projects\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.hobbies_and_recreation"
+        ]
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Risa expects to vote when eligible and connects voting to civil rights history.",
+        "ground_truth_label": "Future voter motivated by civil rights history",
+        "behavioral_evidence_from_interview": [
+          "Q23 follow-up: \"Yes, I think I will, especially because people before us fought for that right.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Risa cares about Black Lives Matter, school resources, racial justice, and community investment.",
+        "ground_truth_label": "Racial justice and community investment concerns",
+        "behavioral_evidence_from_interview": [
+          "Q26: \"It has affected me a lot\"",
+          "Q27: \"It is policing... Black students... Black neighborhoods get investment\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Risa describes herself as Democrat-leaning or closer to the Democratic Party while still learning and not strongly partisan like an adult.",
+        "ground_truth_label": "Democrat-leaning but still learning",
+        "behavioral_evidence_from_interview": [
+          "Q95: \"I would say Democrat-leaning.\"",
+          "Q96: \"Closer to the Democratic Party.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Risa has not joined a protest but talks with family and friends, reposts educational slides or voting reminders, and makes art connected to Black pride.",
+        "ground_truth_label": "Civic response through discussion, reposting, and Black-pride art",
+        "behavioral_evidence_from_interview": [
+          "Q29: \"I have not joined a protest, but I repost things sometimes and I have made art connected to Black pride\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Risa's family teaches caution and respect around police encounters, and she remembers her father's brake-light stop.",
+        "ground_truth_label": "Cautious family approach to police encounters",
+        "behavioral_evidence_from_interview": [
+          "Q20: \"My parents have talked to me about being respectful and careful if I ever get stopped\"",
+          "Q21: \"One time my dad got pulled over for a brake light\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Risa wants more youth art programs, free software access, teen art spaces, transit, and safe hangout places.",
+        "ground_truth_label": "Wants more youth creative resources and safe places",
+        "behavioral_evidence_from_interview": [
+          "Q04: \"More youth art programs or free software access would help a lot.\"",
+          "Q10 follow-up: \"more teen art spaces, late afternoon buses, and places where people can safely hang out\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Risa uses music while drawing and to reset emotionally.",
+        "ground_truth_label": "Music as creative fuel and emotional regulation",
+        "behavioral_evidence_from_interview": [
+          "Q43: \"Music, drawing, basketball... help me reset.\"",
+          "Q43 follow-up: \"drawing late at night with music on\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Risa references SZA and H.E.R. as part of her routine and inspiration.",
+        "ground_truth_label": "R&B inspiration: SZA and H.E.R.",
+        "behavioral_evidence_from_interview": [
+          "Q01 follow-up: \"draw while listening to SZA or H.E.R.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Risa enjoys church music and choir as part of religious connection.",
+        "ground_truth_label": "Church music and choir connection",
+        "behavioral_evidence_from_interview": [
+          "Q47: \"I feel connected when the choir is singing\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Risa listens to contemporary R&B and hip-hop, including H.E.R., SZA, and J. Cole.",
+        "ground_truth_label": "Contemporary R&B and hip-hop listener",
+        "behavioral_evidence_from_interview": [
+          "Q15 follow-up: \"draw while listening to SZA or H.E.R.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Cousin Nia helps Risa choose outfits for characters and gives feedback on visual ideas.",
+        "ground_truth_label": "Character fashion feedback from cousin Nia",
+        "behavioral_evidence_from_interview": [
+          "Q13 follow-up: \"she helps me pick outfits for characters.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Clothes are a school and family expense in Risa's household.",
+        "ground_truth_label": "Clothing as household/school expense",
+        "behavioral_evidence_from_interview": [
+          "Q56: \"school activity fees and some clothes for me\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Risa draws characters with big hair and superhero outfits, making appearance part of her visual storytelling.",
+        "ground_truth_label": "Appearance-focused character design",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"I drew on everything, mostly girls with big hair and superhero outfits\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Risa identifies as Black or African American and says that identity is important to her.",
+        "ground_truth_label": "Black/African American identity",
+        "behavioral_evidence_from_interview": [
+          "Q89: \"I identify as Black or African American.\"",
+          "Q89 follow-up: \"Yes, definitely.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Risa's family observes Black cultural traditions including Juneteenth, church, and soul food.",
+        "ground_truth_label": "Black cultural traditions: Juneteenth, church, soul food",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"church, Juneteenth, Sunday dinners\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-093",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Risa identifies as Christian in the Baptist tradition and attends some Sundays plus youth or family church events.",
+        "ground_truth_label": "Christian, Baptist tradition",
+        "behavioral_evidence_from_interview": [
+          "Q94: \"I identify as Christian, Baptist tradition.\"",
+          "Q94 follow-up: \"some Sundays and for youth or family events.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-094",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Risa is still figuring out her own relationship with faith.",
+        "ground_truth_label": "Faith important but personally developing",
+        "behavioral_evidence_from_interview": [
+          "Q94 follow-up: \"Yes, but I am still figuring out my own relationship with it.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-095",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Risa's date of birth is September 14, 2010.",
+        "ground_truth_label": "DOB: September 14, 2010",
+        "behavioral_evidence_from_interview": [
+          "Q85: \"My date of birth is September 14, 2010.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-096",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Risa was born in Wilmington, Delaware, is U.S.-born, grew up mostly in Bear, and has not lived outside the United States.",
+        "ground_truth_label": "Born Wilmington, U.S.-born, grew up mostly in Bear",
+        "behavioral_evidence_from_interview": [
+          "Q87: \"I was born in Wilmington, Delaware.\"",
+          "Q86: \"Yes, I was born in the United States.\"",
+          "Q87 follow-up: \"I grew up mostly in Bear, Delaware.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-097",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Risa has had no major moves, expects she may still be in Bear at age 16, and has grown up living with both parents.",
+        "ground_truth_label": "Stable Bear residence with both parents",
+        "behavioral_evidence_from_interview": [
+          "Q97 follow-up: \"No major moves that I really remember.\"",
+          "Q98 follow-up: \"I have grown up with both of them in the household.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-098",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Risa learns about politics from parents, TikTok, Instagram, school discussions, and teacher-shown news clips.",
+        "ground_truth_label": "Political information from family, school, and social media",
+        "behavioral_evidence_from_interview": [
+          "Q23 follow-up: \"My parents, TikTok, Instagram posts, school discussions, and sometimes news clips my teachers show.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-099",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Risa uses TikTok most and Instagram second for edits, art, friends, and local events.",
+        "ground_truth_label": "TikTok primary and Instagram secondary social platforms",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"I use TikTok the most, then Instagram.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-100",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Social media inspires Risa but can make her compare her beginning to someone else's polished final version.",
+        "ground_truth_label": "Social media inspiration and comparison pressure",
+        "behavioral_evidence_from_interview": [
+          "Q45 follow-up: \"It inspires me, but it also makes me compare my beginning to somebody else's polished final version.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-101",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Risa discusses politics with friends mostly around race, school rules, book bans, and online issues.",
+        "ground_truth_label": "Friend political discussion topics",
+        "behavioral_evidence_from_interview": [
+          "Q24 follow-up: \"race, school rules, book bans, and stuff we see online.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-102",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Risa watches her social media time because one quick scroll can become an hour.",
+        "ground_truth_label": "Aware of social media time sink",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"one quick scroll becomes an hour.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}

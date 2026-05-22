@@ -1,0 +1,2213 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "202953463f1243d798d4ed09992c7827",
+      "name": "Mekdes Mahone",
+      "verification_date": "2026-05-21"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age, sex, marital status, education, occupation, and residence match the interview: Mekdes is a seven-year-old girl in elementary school, never married, not in the workforce, living in Monroeville, Pennsylvania.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed age, sex, marital_status, education_level, occupation, city/state",
+              "source_b_ref": "Q01, Q65, Q84, Q90-Q92",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed says Mekdes comes from an Ethiopian-American family in Monroeville; the interview confirms Ethiopian-American identity, Amharic exposure, Ethiopian food and holidays, and Monroeville residence.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "cultural_background",
+              "source_b_ref": "Q01, Q05, Q28, Q88-Q89",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed implies a child household context but does not explicitly list household members; the interview enriches this by specifying she lives with both parents and no siblings, lodgers, temporary members, or pets.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "persona, demographic fields",
+              "source_b_ref": "Q11-Q14, Q51-Q54, Q99",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward the three-person household and no-pet/no-sibling information into home_and_lifestyle and hidden_facts."
+            },
+            {
+              "id": 4,
+              "text": "Seed does not specify birthplace or migration details; the interview adds that Mekdes was born in the United States, in Pennsylvania, has not been to Ethiopia, and does not know her exact birth city.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "country, cultural_background",
+              "source_b_ref": "Q86-Q87",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward U.S./Pennsylvania birth and no travel to Ethiopia into cultural_and_linguistic hidden facts."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The extracted profile accurately represents Mekdes as a seven-year-old elementary student in Monroeville who is not in the workforce.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01, Q65, Q90-Q92",
+              "source_b_ref": "top-level age, location, education, occupation; summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile correctly states she lives with both parents in a stable three-person household, but it omits interview details that there are no pets, no siblings living with her, and no lodgers or live-in helpers.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q51-Q54, Q99",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add no pets, no siblings living with her, and no lodgers/live-in helpers to home_and_lifestyle."
+            },
+            {
+              "id": 3,
+              "text": "The profile includes Ethiopian-American and Black identity but omits that she was born in the United States/Pennsylvania and has not yet visited Ethiopia.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q86-Q87",
+              "source_b_ref": "preferences.cultural_and_linguistic",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add U.S./Pennsylvania birth and no travel to Ethiopia to cultural_and_linguistic."
+            },
+            {
+              "id": 4,
+              "text": "The profile correctly notes that family finances and parental occupations are mostly outside her knowledge, consistent with her age and interview responses.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q55-Q83, Q100-Q107",
+              "source_b_ref": "summaries.demographer; preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Top-level occupation as not in workforce/student is consistent with work_and_career and demographer summary describing school as her main responsibility.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "occupation",
+              "field_b": "preferences.work_and_career; summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Marital status, age, and family summaries are internally consistent: she is a child, never married, has no partner or children, and lives with parents.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "marital_status, age",
+              "field_b": "preferences.social_and_relationships; summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The interview states no pets are currently in the household, which is absent from the draft profile.",
+              "gap": true,
+              "interview_ref": "Q51",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add detail: No pet right now."
+            },
+            {
+              "id": 2,
+              "text": "The interview states no siblings live with Mekdes, which is absent from the draft profile.",
+              "gap": true,
+              "interview_ref": "Q99",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add detail: No siblings live with her."
+            },
+            {
+              "id": 3,
+              "text": "The interview states Mekdes was born in the United States and in Pennsylvania, while exact city is unknown to her.",
+              "gap": true,
+              "interview_ref": "Q86-Q87",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add detail: Born in the United States/Pennsylvania; exact birth city unknown to her."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed portrays Mekdes as flexible but routine-oriented; interview confirms she likes predictable schedules and asks what comes next when routines change.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "persona, skills_and_expertise",
+              "source_b_ref": "Q15, Q18, Q78",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed describes leadership in group play; interview confirms she likes making teams, explaining rules, and being the person who organizes games.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "professional_persona, skills_and_expertise, hobbies_and_interests",
+              "source_b_ref": "Q01, Q16, Q24, Q65, Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed mentions sneaking extra chocolate chips; interview preserves the food preference and adds that extra chocolate chips can make healthy habits harder.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "culinary_persona, persona",
+              "source_b_ref": "Q32, Q58",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward the impulse-control/temptation framing in food_and_dining or health_and_wellness."
+            },
+            {
+              "id": 4,
+              "text": "Seed lists future aspirations involving children and public presence; interview confirms kindergarten teacher, children's TV host, and pediatric nurse as possible futures.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "career_goals_and_ambitions",
+              "source_b_ref": "Q01, Q65, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The profile accurately captures that adult structure and clear steps help Mekdes attempt new activities.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q02-Q04",
+              "source_b_ref": "summaries.behavioral_economist; preferences.life_events_and_transitions",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile notes child-level savings but omits that she sometimes saves in a little bank and is coached by her mother to count money and think before spending.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q60-Q62",
+              "source_b_ref": "preferences.community_and_civic or work_and_career not applicable; no finance subcategory",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add money-related child savings behavior under home_and_lifestyle because no finance preference subcategory exists."
+            },
+            {
+              "id": 3,
+              "text": "The profile captures her sensitivity to fairness and inclusion in games, matching the interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q24, Q44, Q109",
+              "source_b_ref": "preferences.community_and_civic; summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "The profile correctly describes school, chores, and helping roles as responsibilities rather than paid labor.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q16, Q65-Q74",
+              "source_b_ref": "preferences.work_and_career",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Preferences for structure in work_and_career, community_and_civic, life_events_and_transitions, and summaries are mutually consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career; preferences.community_and_civic",
+              "field_b": "preferences.life_events_and_transitions; summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Food preferences include both comfort foods and healthy snacks, which is not contradictory for a seven-year-old and matches the health profile.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.food_and_dining",
+              "field_b": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The interview gives a concrete coping rule for changed schedules: Mekdes asks what comes next, how long it will take, who will be there, and what she needs to bring.",
+              "gap": true,
+              "interview_ref": "Q18, Q50",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add detail about asking schedule-clarifying questions during changes."
+            },
+            {
+              "id": 2,
+              "text": "The interview includes concrete chores: hamper clothes, clean Lego off the floor, set forks on the table, pack folder, and remember library book.",
+              "gap": true,
+              "interview_ref": "Q16-Q17",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add detail about age-appropriate chores and school responsibilities."
+            },
+            {
+              "id": 3,
+              "text": "The interview adds that stores with shiny things make delayed spending hard and that she may put wanted items on a wish list.",
+              "gap": true,
+              "interview_ref": "Q60-Q62",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add detail about child-level saving, wish lists, and delayed gratification."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes church, gospel music, and community service as important; interview confirms Christian church attendance, Sunday school, gospel music, prayer, and service.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "cultural_background, hobbies_and_interests",
+              "source_b_ref": "Q47, Q94",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed does not specify party identification; interview appropriately states she has no party identification and is too young to vote.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "demographic seed fields",
+              "source_b_ref": "Q23, Q95-Q96",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward no voting eligibility and no party identification into community_and_civic and hidden_facts."
+            },
+            {
+              "id": 3,
+              "text": "Seed indicates African-American community participation; interview enriches this with child-level awareness of Black Lives Matter, racism, and policing filtered through parents, school, and church.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "cultural_background",
+              "source_b_ref": "Q25-Q30",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward age-appropriate BLM/race awareness into community_and_civic and media_and_information_diet."
+            },
+            {
+              "id": 4,
+              "text": "Seed emphasizes communal celebrations; interview confirms community attachment through church events, family gatherings, school voting, and inclusion norms.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "cultural_background, hobbies_and_interests",
+              "source_b_ref": "Q23-Q24, Q47, Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The profile correctly states Mekdes does not vote and understands voting only through school choices.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23",
+              "source_b_ref": "preferences.community_and_civic; summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile accurately captures her lack of party identification and child-level political understanding.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q95-Q96",
+              "source_b_ref": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The profile captures BLM, racism, and policing awareness, but the preferences omit her specific view that police should help people and not scare them.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q27",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add detail about police as helpers who should not scare people."
+            },
+            {
+              "id": 4,
+              "text": "The profile correctly identifies parents, teachers, doctors, school nurses, and church adults as trusted institutions/adults.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q42, Q47, Q49",
+              "source_b_ref": "preferences.media_and_information_diet; summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Community_and_civic and political_scientist summary are internally consistent: no adult partisan identity, but strong fairness and inclusion norms.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Media_and_information_diet is consistent with technology: she does not independently use social media and receives civic information through adults and school.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.media_and_information_diet",
+              "field_b": "preferences.technology",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The interview states Mekdes has not joined protests and mostly responds to race issues by talking a little with parents and including people.",
+              "gap": true,
+              "interview_ref": "Q29",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add detail about no protest participation and child-level interpersonal response."
+            },
+            {
+              "id": 2,
+              "text": "The interview states police exposure is limited to school safety visits, parades, community events, and seeing police cars, with no arrests known in family or friends.",
+              "gap": true,
+              "interview_ref": "Q20-Q22",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add detail about limited, non-adverse law-enforcement contact and no known arrests."
+            },
+            {
+              "id": 3,
+              "text": "The interview explicitly states her religion as Christian, while the draft profile describes church but not the identity label in preferences.",
+              "gap": true,
+              "interview_ref": "Q94",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add detail that she identifies as Christian and attends church with family."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed portrays Mekdes as sociable, talkative, cheerful, and confident; interview repeatedly confirms talkativeness, social engagement, and leadership in play.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "persona, skills_and_expertise",
+              "source_b_ref": "Q01, Q07, Q43, Q65",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed describes a flexible approach to spontaneous fun; interview adds nuance that flexibility is easier when she receives steps, roles, and schedule clarity.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "persona, professional_persona",
+              "source_b_ref": "Q03-Q04, Q18, Q50, Q78",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward role-based confidence and schedule-clarity needs into life_events_and_transitions and hidden_facts."
+            },
+            {
+              "id": 3,
+              "text": "Seed's love of vivid structured expression through Lego, drawing, singing, and games is confirmed in the interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "arts_persona, hobbies_and_interests, skills_and_expertise",
+              "source_b_ref": "Q01, Q07, Q29, Q38, Q47",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed does not mention emotional vulnerabilities; interview adds situational nervousness with novelty, frustration with rule-breaking, and sadness around perceived exclusion.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "persona",
+              "source_b_ref": "Q43-Q45",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Carry forward emotional-regulation patterns into social_and_relationships or life_events_and_transitions."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The profile faithfully captures her sociability, assertiveness, organization, and preference for structured group leadership.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01, Q15, Q65",
+              "source_b_ref": "summaries.psychologist; preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile correctly says she copes through talking, drawing, singing, physical activity, and schedule clarity.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q38, Q43-Q45, Q50",
+              "source_b_ref": "summaries.psychologist; preferences.music; preferences.life_events_and_transitions",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The profile omits the specific recess exclusion episode where she cried, breathed with teacher support, and learned to ask to join rather than infer rejection.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q44",
+              "source_b_ref": "preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add detail about the recess conflict and coping lesson to social_and_relationships."
+            },
+            {
+              "id": 4,
+              "text": "The profile correctly states there is no evidence of clinical depression or anxiety, only situational nervousness and sadness.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q45",
+              "source_b_ref": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Entertainment, music, arts_and_culture, and psychologist summary consistently describe drawing and singing as both enjoyment and coping.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.entertainment; preferences.music; preferences.arts_and_culture",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Social leadership and sensitivity to exclusion are not contradictory; they jointly describe a socially motivated child who values belonging and rules.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships",
+              "field_b": "summaries.behavioral_economist; summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The interview states she gets quiet and holds her mother's hand when nervous about new teams, new teachers, or unknown places.",
+              "gap": true,
+              "interview_ref": "Q45",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add detail about nervousness cues and novelty triggers."
+            },
+            {
+              "id": 2,
+              "text": "The interview states she asks for one more bedtime story and uses hugs, listening, stories, and celebrations as signs of love.",
+              "gap": true,
+              "interview_ref": "Q15, Q109",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add detail about bedtime stories and affection cues."
+            },
+            {
+              "id": 3,
+              "text": "The interview states family copes with stress by talking, praying, cleaning up, watching movies, and using music to make the house feel happy.",
+              "gap": true,
+              "interview_ref": "Q46",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add detail about family coping routines."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No contradictions required partial update or review. Several interview-supported gaps were carried forward into the corrected profile, so the result is pass with revisions.",
+    "final_status": "Corrected profile is ready for downstream use with added gap details and a generated hidden_facts registry."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "202953463f1243d798d4ed09992c7827",
+    "name": "Mekdes Mahone",
+    "age": 7,
+    "gender": "Female",
+    "marital_status": "never married; no romantic partner",
+    "location": "Monroeville, PA 15146",
+    "education": "elementary school student; less than 9th grade completed",
+    "occupation": "not in workforce; student",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Generally healthy child who stays active through play, swimming, and soccer; relies on parents, doctor, and school nurse for health decisions.",
+        "details": [
+          "Runs, swims, plays soccer, and climbs on playgrounds (Q31).",
+          "Likes healthy snacks such as strawberries, bananas, smoothies, apples, and carrots with dip (Q32).",
+          "Accepts vaccines despite disliking shots because parents say they keep people safe (Q41).",
+          "Has had no major recent health problems, no broken bones, and no regular medicine; parents administer child-safe medicine when needed (Q33, Q39).",
+          "Uses warm tea with honey, prayer, rest, cartoons, water, soup, and blankets as comfort when sick, while still using doctors and dentists (Q34-Q37)."
+        ],
+        "evidence": "Q31-Q42"
+      },
+      "food_and_dining": {
+        "summary": "Prefers child-friendly comfort foods and fruit smoothies, while also participating in Ethiopian family food traditions.",
+        "details": [
+          "Likes cereal, peanut butter-banana sandwiches, strawberry-banana smoothies, and snacks after school (Q15, Q32).",
+          "Helps stir cupcake batter and likes extra chocolate chips (Q32, Q58).",
+          "Eats injera and sees doro wat at Ethiopian-American family gatherings (Q05).",
+          "Enjoys family gatherings with food, music, storytelling, and reminders from aunties to wash hands before eating (Q05)."
+        ],
+        "evidence": "Q05, Q15, Q32, Q58"
+      },
+      "travel": {
+        "summary": "Enjoys family outings, parks, school trips, and hopes for Disney World and future ocean travel.",
+        "details": [
+          "Has gone to Lakeview State Park for picnics and took a school field trip to Washington, D.C.'s National Museum of Natural History (Q01, Q18).",
+          "Wants to save spending money for Disney World souvenirs (Q62).",
+          "Hopes one day to take a cruise to see the Great Barrier Reef (Q108).",
+          "Enjoyed the museum trip because she saw dinosaur bones, though waking early made her sleepy on the bus (Q18)."
+        ],
+        "evidence": "Q01, Q18, Q62, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "Highly social, family-centered, and peer-oriented; enjoys leading group play and maintaining school friendships.",
+        "details": [
+          "Lives with mother and father and sees cousins, aunties, uncles, and grandparents at gatherings (Q05, Q11).",
+          "Important friends include Aaliyah, Grace, and Mateo (Q07).",
+          "Likes making teams, explaining rules, and including others in games (Q01, Q24, Q109).",
+          "Closest school support includes her teacher first and Aaliyah when she is upset about friends (Q07).",
+          "After a recess misunderstanding where she felt excluded, she learned to ask whether she could play instead of assuming she was left out (Q44)."
+        ],
+        "evidence": "Q01, Q05, Q07, Q11, Q24, Q44, Q109"
+      },
+      "home_and_lifestyle": {
+        "summary": "Lives in a stable household with both parents in Monroeville; routines center on school, family meals, homework, play, and bedtime.",
+        "details": [
+          "Household is Mekdes, her mother, and her father, with no temporary members (Q11-Q14, Q51).",
+          "Typical evenings include dinner, homework or reading, tablet time, bath, pajamas, and a story (Q11, Q15).",
+          "Favorite home places include her Lego area and the kitchen when cupcakes are being made (Q58).",
+          "No pets, no babies, no siblings living with her, no lodgers, and no live-in helpers are in the household (Q51-Q54, Q99).",
+          "Family handles stress by talking, praying, cleaning up, watching a movie together, and using music to keep the house feeling happy (Q46).",
+          "She keeps coins or birthday money in a little bank and sometimes delays wants by using a wish list or saving for Lego or Disney World (Q60-Q62)."
+        ],
+        "evidence": "Q11-Q15, Q46, Q51-Q54, Q58, Q60-Q62, Q99"
+      },
+      "entertainment": {
+        "summary": "Enjoys children's music, animated films, cartoons, kid videos, and pretend play.",
+        "details": [
+          "Sings Frozen songs, especially 'Let It Go,' when upset or for fun (Q01, Q38).",
+          "Likes Moana and Frozen themes for birthdays and Disney-related toys (Q62, Q85).",
+          "Uses tablet time for kid videos, drawing games, and learning games with permission (Q48).",
+          "Enjoys cartoons on sick days and family movie time when the household is stressed (Q34, Q46)."
+        ],
+        "evidence": "Q01, Q34, Q38, Q46, Q48, Q62, Q85"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Strong preference for active group games, Lego building, drawing, coloring, puzzles, reading, singing, and dancing.",
+        "details": [
+          "Builds Lego houses with rainbow roofs and cleans up Lego as a chore (Q01, Q17).",
+          "Draws Elsa, Moana, princesses, animals, and kindness pictures (Q01, Q07, Q29).",
+          "Plays tag, hopscotch, soccer, swimming, and organized playground games (Q01, Q07, Q15, Q19).",
+          "Likes reading picture books and wants to get better at reading bigger books (Q17, Q108)."
+        ],
+        "evidence": "Q01, Q07, Q15, Q17, Q19, Q29, Q108"
+      },
+      "work_and_career": {
+        "summary": "Not employed; sees school as her main responsibility and imagines future roles involving children, structure, care, and public speaking.",
+        "details": [
+          "Occupation is student, with duties of learning, listening to her teacher, being kind, finishing work, and cleaning up (Q65).",
+          "Likes pretending to be a teacher and making stuffed animals follow a schedule (Q16).",
+          "Future interests include kindergarten teacher, children's television host, and pediatric nurse (Q01, Q65, Q108).",
+          "Age-appropriate responsibilities include putting clothes in the hamper, cleaning Lego off the floor, setting forks on the table, packing her folder, remembering her library book, and bringing sports gear (Q16-Q17).",
+          "Has zero paid work weeks, zero paid work hours, no jobs or businesses, no regular pay, and no tax filing responsibility (Q67-Q75)."
+        ],
+        "evidence": "Q01, Q16-Q17, Q65, Q67-Q75, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Expresses herself through drawing, singing, crafts, and cultural celebrations connected to Ethiopian-American and African-American community life.",
+        "details": [
+          "Draws Disney characters, princesses, animals, and family-friendly themed art (Q01, Q07, Q29).",
+          "Enjoys Sunday school crafts and gospel music at church (Q47).",
+          "Participates in Enkutatash and Kwanzaa family celebrations with food, music, and storytelling (Q05, Q28).",
+          "Values seeing girls with curly hair and brave girls like Moana in books and movies (Q28)."
+        ],
+        "evidence": "Q01, Q05, Q07, Q28, Q29, Q47"
+      },
+      "sports_and_fitness": {
+        "summary": "Physically active and team-oriented; participates in fall soccer, summer swimming, and playground games.",
+        "details": [
+          "Joined Sunrise Sprouts Soccer Club and learned confidence through team participation (Q02).",
+          "Does Little Swimmers in summer and wants to improve swimming (Q19, Q108).",
+          "Plays tag, hopscotch, and recess games and likes organizing teams (Q01, Q07).",
+          "Uses sports gear such as shin guards for soccer and a towel and goggles for swimming (Q17)."
+        ],
+        "evidence": "Q01, Q02, Q07, Q17, Q19, Q108"
+      },
+      "nature_and_outdoors": {
+        "summary": "Enjoys parks, playgrounds, leaves in fall, outdoor swimming, and family picnics.",
+        "details": [
+          "Likes Lakeview State Park picnics and park trips (Q01).",
+          "Enjoys fall leaves and collecting crunchy leaves in Monroeville (Q08, Q10).",
+          "Prefers outdoor play and finds rainy indoor recess frustrating (Q32, Q78).",
+          "Feels safest outdoors when with a parent or grown-up and avoids dark areas, fast cars, or places where she cannot see her grown-up (Q09)."
+        ],
+        "evidence": "Q01, Q08-Q10, Q32, Q78"
+      },
+      "technology": {
+        "summary": "Uses technology in age-limited, supervised ways, mainly educational apps, coloring games, and occasional family photos or videos.",
+        "details": [
+          "Does not have Facebook, Instagram, or Twitter because she is seven (Q48, Q49).",
+          "Uses a tablet for reading games, math games, coloring games, and kid videos with permission (Q48).",
+          "Sometimes shows drawings to relatives over video or sees family pictures on a parent's phone (Q05, Q48).",
+          "Screen time generally requires permission and usually happens after homework or on weekends (Q48)."
+        ],
+        "evidence": "Q05, Q48, Q49"
+      },
+      "community_and_civic": {
+        "summary": "Civic understanding is child-level and rooted in fairness, inclusion, church service, school voting, and community helpers.",
+        "details": [
+          "Does not vote but understands school voting for books, games, and class rewards (Q23).",
+          "Believes fairness means taking turns, not cheating, and explaining rules to new people (Q24, Q109).",
+          "Participates in church community events and sees church as a place of service and support (Q47).",
+          "Identifies as Christian and attends church with family for gospel music, Sunday school, prayer, and community service (Q47, Q94).",
+          "Has age-appropriate awareness that Black Lives Matter means Black people should be safe and treated fairly (Q26-Q30).",
+          "Has not joined protests; she responds to unfairness by talking with parents, telling teachers, and including people (Q27, Q29).",
+          "Law-enforcement contact is limited to police cars, a school safety visit, parades, and community events; she knows of no arrests among family or friends (Q20-Q22)."
+        ],
+        "evidence": "Q20-Q24, Q26-Q30, Q47, Q94, Q109"
+      },
+      "music": {
+        "summary": "Music is a major source of joy and coping, especially gospel, Frozen songs, and upbeat children's music.",
+        "details": [
+          "Likes gospel music at church and says church singing is loud and happy (Q07, Q47).",
+          "Sings Frozen songs and uses 'Let It Go' when upset (Q01, Q38).",
+          "Family music helps the household feel happy (Q46).",
+          "Enjoys music as part of celebrations, birthdays, church, and family gatherings (Q05, Q47, Q85)."
+        ],
+        "evidence": "Q01, Q05, Q07, Q38, Q46, Q47, Q85"
+      },
+      "fashion_and_appearance": {
+        "summary": "Limited evidence; appearance preferences are mostly tied to children's celebrations and identity expression.",
+        "details": [
+          "Would like Minnie ears or Disney-themed items at Disney World (Q62).",
+          "Notices and values pictures of girls with curly hair in books or movies (Q28).",
+          "Associates Ethiopian celebrations with pretty clothes and cultural pride (Q28)."
+        ],
+        "evidence": "Q28, Q62"
+      },
+      "cultural_and_linguistic": {
+        "summary": "Identifies as Black, African-American, and Ethiopian-American; exposed to Amharic phrases, Ethiopian holidays, food, and African-American church life.",
+        "details": [
+          "Family uses Amharic phrases such as 'selam' and preserves Ethiopian traditions (Q01).",
+          "Celebrates Enkutatash and Kwanzaa with family gatherings, food, music, and storytelling (Q05, Q28).",
+          "Identifies as Black or African-American and Ethiopian-American, not Hispanic or Latinx (Q88, Q89).",
+          "Was born in the United States and in Pennsylvania, does not know the exact birth city, and has not yet been to Ethiopia (Q86-Q87)."
+        ],
+        "evidence": "Q01, Q05, Q28, Q86-Q89"
+      },
+      "life_events_and_transitions": {
+        "summary": "Major child-life events include starting elementary school, joining soccer, seasonal swimming, museum field trip, and learning to handle new settings.",
+        "details": [
+          "Starting first grade and joining soccer were salient major events (Q01, Q02).",
+          "A soccer practice became a confidence-building crossroads when a coach gave her a team-counting role (Q02, Q03).",
+          "Recent routine changes include field trips, seasonal activity shifts, and end-of-school events (Q18).",
+          "Handles changed schedules by asking what comes next, how long things will take, who will be there, and what she needs to bring (Q18, Q50).",
+          "Gets nervous about new teams, new teachers, and unknown places; she may get quiet and hold her mother's hand before trying (Q45)."
+        ],
+        "evidence": "Q01-Q03, Q18, Q45, Q50"
+      },
+      "media_and_information_diet": {
+        "summary": "Information comes through parents, teachers, doctors, school nurse, church, children's books, and supervised tablet use.",
+        "details": [
+          "Trusted vaccine information sources are parents, doctor, and school nurse (Q42).",
+          "Learns about race, fairness, and history from parents, teachers, church, and school lessons (Q25-Q30).",
+          "Does not independently use social media or search for health information online (Q42, Q48, Q49).",
+          "News about serious issues is filtered through adults, often when her mother explains something on the news (Q29-Q30)."
+        ],
+        "evidence": "Q25-Q30, Q42, Q48, Q49"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Mekdes Mahone is a 7-year-old Black Ethiopian-American girl living in Monroeville, Pennsylvania, with both parents in a stable three-person household (Q11-Q14, Q88-Q89). She is enrolled in elementary school, has completed less than ninth grade, and is not in the workforce (Q90-Q92, Q65-Q74). She has never been married, has no romantic partner or children, and her social world centers on parents, cousins, school friends, church peers, and teachers (Q05-Q07, Q84). Her household finances, taxes, health insurance, and parental occupations are mostly outside her knowledge because of her age (Q55-Q83, Q100-Q107).",
+      "behavioral_economist": "Mekdes shows strong preference for predictable routines, structured choices, and clear rules, especially in school and playground games (Q15, Q24, Q78). Her choices are shaped by immediate social rewards, adult approval, and participation roles, such as gaining confidence when a soccer coach gave her a team-counting task (Q02-Q04). She has child-level savings behavior through a coin bank and gift money, with goals like Lego sets and Disney World souvenirs (Q61-Q62). She is sensitive to fairness and inclusion, and peer dynamics strongly influence her emotional responses and decisions (Q44, Q109).",
+      "political_scientist": "Mekdes is too young to vote or hold a party identification, and she explicitly does not identify as Democratic, Republican, or Independent (Q23, Q95-Q96). Her civic orientation is developmental and moral rather than partisan: fairness, safety, inclusion, and listening to rules dominate her political understanding (Q24-Q25). She has age-appropriate awareness of Black Lives Matter, racism, and policing through family, school, church, and news filtered by adults (Q26-Q30). Institutional trust is strongest toward parents, teachers, doctors, school nurses, and church adults (Q42, Q47).",
+      "psychologist": "Mekdes presents as sociable, talkative, assertive, and organized, with a clear preference for structured routines and group leadership (Q01, Q15, Q65). She copes with distress through talking to trusted adults, drawing, singing, physical play, and seeking schedule clarity (Q38, Q43-Q45, Q50). Her self-concept is grounded in being a helper, game organizer, learner, Ethiopian-American child, and future teacher, TV host, or pediatric nurse (Q01, Q28, Q65, Q108). Emotionally, she is generally happy and engaged, with situational nervousness around novelty and sadness around peer exclusion, but no evidence of clinical depression or anxiety (Q43-Q45)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Mekdes runs as part of active play.",
+        "ground_truth_label": "physically active: running",
+        "behavioral_evidence_from_interview": [
+          "Q31: I run, swim, play soccer, and climb on playgrounds."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Mekdes swims.",
+        "ground_truth_label": "physically active: swimming",
+        "behavioral_evidence_from_interview": [
+          "Q31: I run, swim, play soccer, and climb on playgrounds."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.sports_and_fitness"
+        ]
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Mekdes plays soccer.",
+        "ground_truth_label": "physically active: soccer",
+        "behavioral_evidence_from_interview": [
+          "Q31: I run, swim, play soccer, and climb on playgrounds."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.sports_and_fitness"
+        ]
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Mekdes climbs on playgrounds.",
+        "ground_truth_label": "physically active: playground climbing",
+        "behavioral_evidence_from_interview": [
+          "Q31: I run, swim, play soccer, and climb on playgrounds."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Mekdes likes strawberries, bananas, smoothies, apples, and carrots with dip.",
+        "ground_truth_label": "likes fruit and some vegetable snacks",
+        "behavioral_evidence_from_interview": [
+          "Q32: Strawberries, bananas, smoothies, apples, and sometimes carrots with dip."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Mekdes dislikes shots but accepts vaccines because parents say vaccines protect people.",
+        "ground_truth_label": "vaccine accepting despite fear of shots",
+        "behavioral_evidence_from_interview": [
+          "Q41: I do not like shots because they pinch, but my parents say vaccines help keep me and other people safe."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Mekdes has had no major recent health problems, no broken bones, and no regular medicine.",
+        "ground_truth_label": "no major recent health conditions",
+        "behavioral_evidence_from_interview": [
+          "Q33: I have not had a broken bone or big sickness that I know.",
+          "Q33 follow-up: No regular medicine."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "When Mekdes needs medicine for fever or pain, a parent administers child-safe medicine.",
+        "ground_truth_label": "parent-administered child medicine",
+        "behavioral_evidence_from_interview": [
+          "Q39: If I have a fever or pain, my parents give medicine that the doctor says is okay for kids.",
+          "Q39 follow-up: No, never. Mom or Dad gives it."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Mekdes uses warm tea with honey, prayer, rest, cartoons, water, soup, and blankets for comfort when sick.",
+        "ground_truth_label": "sick-day comfort routines",
+        "behavioral_evidence_from_interview": [
+          "Q34: Rest on the couch, watch cartoons, drink water, and maybe eat soup.",
+          "Q37: Warm tea with honey, and a blanket."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Mekdes likes cereal and peanut butter-banana sandwiches.",
+        "ground_truth_label": "likes child-friendly breakfast foods",
+        "behavioral_evidence_from_interview": [
+          "Q15: eat cereal or a peanut butter-banana sandwich"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Mekdes likes strawberry-banana smoothies.",
+        "ground_truth_label": "likes fruit smoothies",
+        "behavioral_evidence_from_interview": [
+          "Q05: makes smoothies with strawberries and bananas"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Mekdes helps stir cupcake batter and likes extra chocolate chips.",
+        "ground_truth_label": "likes helping with cupcakes and chocolate chips",
+        "behavioral_evidence_from_interview": [
+          "Q05: lets me stir cupcake batter.",
+          "Q32: it is hard when ... I want extra chocolate chips"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Mekdes eats injera at Ethiopian-American family gatherings.",
+        "ground_truth_label": "eats injera",
+        "behavioral_evidence_from_interview": [
+          "Q05: There is injera, doro wat for grown-ups..."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.cultural_and_linguistic"
+        ]
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Doro wat appears at Mekdes's Ethiopian-American family gatherings.",
+        "ground_truth_label": "doro wat at family gatherings",
+        "behavioral_evidence_from_interview": [
+          "Q05 follow-up: There is injera, doro wat for grown-ups..."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Mekdes has gone to Lakeview State Park for picnics.",
+        "ground_truth_label": "Lakeview State Park picnics",
+        "behavioral_evidence_from_interview": [
+          "Q01: going to Lakeview State Park for picnics"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Mekdes took a school field trip to Washington, D.C.'s National Museum of Natural History.",
+        "ground_truth_label": "National Museum of Natural History field trip",
+        "behavioral_evidence_from_interview": [
+          "Q01: visiting the National Museum of Natural History with my class"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Mekdes wants to save spending money for Disney World souvenirs.",
+        "ground_truth_label": "saving for Disney World souvenirs",
+        "behavioral_evidence_from_interview": [
+          "Q62: Maybe Minnie ears, a Moana toy, or a Frozen thing."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.home_and_lifestyle"
+        ]
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Mekdes hopes one day to take a cruise to see the Great Barrier Reef.",
+        "ground_truth_label": "future Great Barrier Reef cruise hope",
+        "behavioral_evidence_from_interview": [
+          "Q108: maybe one day a cruise to see the Great Barrier Reef"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Mekdes enjoyed the museum trip because she saw dinosaur bones.",
+        "ground_truth_label": "liked dinosaur bones on museum trip",
+        "behavioral_evidence_from_interview": [
+          "Q18 follow-up: The museum trip because I saw dinosaur bones."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Mekdes lives with her mother and father.",
+        "ground_truth_label": "lives with both parents",
+        "behavioral_evidence_from_interview": [
+          "Q11: I live with my mom and my dad.",
+          "Q51: I live with my mom and dad in Monroeville."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.home_and_lifestyle",
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Mekdes sees cousins, aunties, uncles, and grandparents at gatherings.",
+        "ground_truth_label": "extended family contact",
+        "behavioral_evidence_from_interview": [
+          "Q05: I have cousins I see at church and family gatherings.",
+          "Q06: I have aunties, uncles, cousins, and grandparents."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Important school friends include Aaliyah, Grace, and Mateo.",
+        "ground_truth_label": "named school friends",
+        "behavioral_evidence_from_interview": [
+          "Q07: Aaliyah likes hopscotch, Grace likes drawing, and Mateo likes soccer."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Mekdes likes making teams, explaining rules, and including others in games.",
+        "ground_truth_label": "peer game leadership",
+        "behavioral_evidence_from_interview": [
+          "Q01: now we play tag, now we make teams",
+          "Q24: if someone is new you explain the rules."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist",
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "When upset at school, Mekdes usually talks to her teacher first and Aaliyah if the issue is about friends.",
+        "ground_truth_label": "school emotional support sources",
+        "behavioral_evidence_from_interview": [
+          "Q07 follow-up: Usually my teacher first, then Aaliyah if it is about friends."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "After a recess misunderstanding, Mekdes learned to ask to play instead of assuming she was excluded.",
+        "ground_truth_label": "peer exclusion coping lesson",
+        "behavioral_evidence_from_interview": [
+          "Q44: It turned out they thought I was still finishing snack.",
+          "Q44 follow-up: I started asking, can I play, instead of guessing they left me out."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist",
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Mekdes's household has no temporary members.",
+        "ground_truth_label": "no temporary household members",
+        "behavioral_evidence_from_interview": [
+          "Q12: Everyone is permanent: me, Mom, and Dad."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Mekdes has dinner, homework or reading, tablet time, bath, pajamas, and a story during typical evenings.",
+        "ground_truth_label": "structured evening routine",
+        "behavioral_evidence_from_interview": [
+          "Q11 follow-up: Dinner, homework or reading, maybe a little tablet, bath, pajamas, and a story."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Mekdes's favorite home places include her Lego area and the kitchen during cupcake-making.",
+        "ground_truth_label": "favorite home areas",
+        "behavioral_evidence_from_interview": [
+          "Q58 follow-up: The place where I build Lego and the kitchen when cupcakes are happening."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Mekdes has no pet right now.",
+        "ground_truth_label": "no current pet",
+        "behavioral_evidence_from_interview": [
+          "Q51 follow-up: No pet right now."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "No babies, siblings living with her, lodgers, renters, or live-in helpers are in Mekdes's household.",
+        "ground_truth_label": "no other household members",
+        "behavioral_evidence_from_interview": [
+          "Q52: No babies live with us. I am the child.",
+          "Q54: No, nobody like that.",
+          "Q99 follow-up: No siblings living with me."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Mekdes's family copes with stress by talking, praying, cleaning up, watching movies, and using music.",
+        "ground_truth_label": "family stress coping routines",
+        "behavioral_evidence_from_interview": [
+          "Q46: Music helps our house feel happy.",
+          "Q46 follow-up: We talk, pray, clean up, or watch a movie together."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Mekdes keeps coins or birthday money in a little bank.",
+        "ground_truth_label": "child-level coin bank savings",
+        "behavioral_evidence_from_interview": [
+          "Q61: I have a little bank for coins and birthday money."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Mekdes sometimes delays wants by using a wish list or saving for Lego or Disney World.",
+        "ground_truth_label": "child delayed gratification",
+        "behavioral_evidence_from_interview": [
+          "Q60: maybe for a birthday list.",
+          "Q61 follow-up: Maybe a Lego set or something for Disney World."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Mekdes sings Frozen songs, especially 'Let It Go,' for fun or when upset.",
+        "ground_truth_label": "Frozen music enjoyment and coping",
+        "behavioral_evidence_from_interview": [
+          "Q01: sing Frozen songs really loud.",
+          "Q38 follow-up: Sometimes Let It Go, because I know all the words."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.music",
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Mekdes likes Moana and Frozen birthday themes and Disney-related toys.",
+        "ground_truth_label": "Disney character entertainment preference",
+        "behavioral_evidence_from_interview": [
+          "Q85 follow-up: maybe a Moana or Frozen theme.",
+          "Q62 follow-up: a Moana toy, or a Frozen thing."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Mekdes uses tablet time for kid videos, drawing games, and learning games with permission.",
+        "ground_truth_label": "supervised child tablet entertainment",
+        "behavioral_evidence_from_interview": [
+          "Q48: I use a tablet for educational games, drawing games, and sometimes kid videos with permission."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.technology"
+        ]
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Mekdes watches cartoons on sick days and movies with family during stress.",
+        "ground_truth_label": "cartoons and family movies",
+        "behavioral_evidence_from_interview": [
+          "Q34 follow-up: watch cartoons",
+          "Q46 follow-up: watch a movie together"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Mekdes builds Lego houses with rainbow roofs.",
+        "ground_truth_label": "Lego building hobby",
+        "behavioral_evidence_from_interview": [
+          "Q01: I build Lego houses with rainbow roofs"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Mekdes draws Elsa, Moana, princesses, animals, and kindness pictures.",
+        "ground_truth_label": "drawing and coloring subjects",
+        "behavioral_evidence_from_interview": [
+          "Q01: draw Elsa and Moana with crayons",
+          "Q07 follow-up: draw princesses and animals",
+          "Q29 follow-up: a picture about kindness and different kids holding hands"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.arts_and_culture"
+        ]
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Mekdes plays tag, hopscotch, organized playground games, soccer, and swimming.",
+        "ground_truth_label": "active group recreation",
+        "behavioral_evidence_from_interview": [
+          "Q07 follow-up: We play tag",
+          "Q19: soccer in fall, swimming in summer"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.sports_and_fitness"
+        ]
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Mekdes likes reading picture books and wants to read bigger books.",
+        "ground_truth_label": "reading interest and goal",
+        "behavioral_evidence_from_interview": [
+          "Q17: I also practice reading picture books",
+          "Q108 follow-up: Reading bigger books"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Mekdes is a student whose duties include learning, listening to her teacher, being kind, finishing work, and cleaning up.",
+        "ground_truth_label": "student responsibilities",
+        "behavioral_evidence_from_interview": [
+          "Q65: My important duties are learning, listening to my teacher, being kind, finishing work, and cleaning up."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Mekdes likes pretending to be a teacher and making stuffed animals follow a schedule.",
+        "ground_truth_label": "teacher pretend play",
+        "behavioral_evidence_from_interview": [
+          "Q16: I like pretending to be a teacher and making my stuffed animals sit in rows."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Mekdes's future interests include kindergarten teacher, children's television host, and pediatric nurse.",
+        "ground_truth_label": "future career interests",
+        "behavioral_evidence_from_interview": [
+          "Q01: I might be a kindergarten teacher, a children's TV host, or a nurse for kids.",
+          "Q65: kindergarten teacher, children's television host, or pediatric nurse."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Mekdes's chores include putting clothes in the hamper, cleaning Lego off the floor, setting forks on the table, packing her folder, remembering her library book, and bringing sports gear.",
+        "ground_truth_label": "age-appropriate chores and responsibilities",
+        "behavioral_evidence_from_interview": [
+          "Q16 follow-up: Put clothes in the hamper, clean Lego off the floor, and help set forks on the table.",
+          "Q17: pack my folder, and remember my library book."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Mekdes has no paid job, no business, no regular pay, no paid work hours, and no tax filing responsibility.",
+        "ground_truth_label": "not in workforce",
+        "behavioral_evidence_from_interview": [
+          "Q67: Zero weeks for paid work.",
+          "Q68: Zero paid work hours.",
+          "Q75: No, I did not file taxes because I am a child."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Mekdes enjoys Sunday school crafts and gospel music at church.",
+        "ground_truth_label": "church crafts and gospel music",
+        "behavioral_evidence_from_interview": [
+          "Q47 follow-up: The music, Sunday school crafts, and seeing other kids."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.community_and_civic",
+          "preferences.music"
+        ]
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Mekdes participates in Enkutatash and Kwanzaa celebrations with food, music, and storytelling.",
+        "ground_truth_label": "Ethiopian-American and Black cultural celebrations",
+        "behavioral_evidence_from_interview": [
+          "Q05: When we celebrate Enkutatash or Kwanzaa, everybody talks, eats, sings, and the grown-ups tell stories."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.cultural_and_linguistic"
+        ]
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Mekdes values seeing girls with curly hair and brave girls like Moana in books and movies.",
+        "ground_truth_label": "representation matters in media",
+        "behavioral_evidence_from_interview": [
+          "Q28 follow-up: I like seeing girls with curly hair and brave girls like Moana."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.fashion_and_appearance"
+        ]
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Joining Sunrise Sprouts Soccer Club was a confidence-building experience for Mekdes.",
+        "ground_truth_label": "soccer confidence transition",
+        "behavioral_evidence_from_interview": [
+          "Q02: After that I thought maybe I can do new things even if I am nervous first."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.life_events_and_transitions"
+        ]
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Mekdes participates in Little Swimmers in summer and wants to improve swimming.",
+        "ground_truth_label": "summer swim participation and goal",
+        "behavioral_evidence_from_interview": [
+          "Q19: swimming in summer",
+          "Q108 follow-up: swimming without getting tired"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Mekdes uses shin guards for soccer and a towel and goggles for swimming.",
+        "ground_truth_label": "sports gear routines",
+        "behavioral_evidence_from_interview": [
+          "Q17: On soccer days I have to bring my shin guards. On swim days I need my towel and goggles."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Mekdes enjoys fall leaves and collecting crunchy leaves in Monroeville.",
+        "ground_truth_label": "fall outdoor enjoyment",
+        "behavioral_evidence_from_interview": [
+          "Q08: In fall the leaves get crunchy and we collect them."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Mekdes prefers outdoor play and dislikes rainy indoor recess.",
+        "ground_truth_label": "outdoor play preference",
+        "behavioral_evidence_from_interview": [
+          "Q32: It is easy when I can play outside",
+          "Q78 follow-up: When recess is inside because of rain."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Mekdes feels safest outdoors when a parent or grown-up is watching.",
+        "ground_truth_label": "supervised outdoor safety need",
+        "behavioral_evidence_from_interview": [
+          "Q09: I feel safe when I am with my mom or dad.",
+          "Q09 follow-up: the yard and playground when a grown-up is watching."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Darkness, fast cars, or losing sight of her grown-up make a place feel unsafe to Mekdes.",
+        "ground_truth_label": "child safety concerns",
+        "behavioral_evidence_from_interview": [
+          "Q09 follow-up: If it is dark, too many cars are going fast, or I cannot see my grown-up."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Mekdes does not have Facebook, Instagram, or Twitter because she is seven.",
+        "ground_truth_label": "no personal social media accounts",
+        "behavioral_evidence_from_interview": [
+          "Q48: I do not have Facebook, Instagram, or Twitter because I am seven."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.media_and_information_diet"
+        ]
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Mekdes uses a tablet for reading games, math games, coloring games, and kid videos with permission.",
+        "ground_truth_label": "supervised educational tablet use",
+        "behavioral_evidence_from_interview": [
+          "Q48 follow-up: Reading games, math games with stars, and coloring games."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Mekdes sometimes shows drawings to relatives over video or sees family pictures on a parent's phone.",
+        "ground_truth_label": "family-mediated digital communication",
+        "behavioral_evidence_from_interview": [
+          "Q05: I show her drawings on video sometimes.",
+          "Q48: Sometimes Mom shows me a family picture or video on her phone."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Mekdes's screen time requires permission and usually occurs after homework or on weekends.",
+        "ground_truth_label": "parent-regulated screen time",
+        "behavioral_evidence_from_interview": [
+          "Q48 follow-up: I have to ask, and it is usually after homework or on weekends."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Mekdes does not vote because she is seven.",
+        "ground_truth_label": "not eligible to vote",
+        "behavioral_evidence_from_interview": [
+          "Q23: I do not vote because I am seven."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Mekdes understands school voting for books, games, extra recess, pajama day, and class rewards.",
+        "ground_truth_label": "school voting experience",
+        "behavioral_evidence_from_interview": [
+          "Q23: At school we vote for little things like which book to read or what class reward we want.",
+          "Q23 follow-up: Books, games, and whether we get extra recess or pajama day."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Mekdes believes fairness means taking turns, not cheating, and explaining rules to new people.",
+        "ground_truth_label": "fairness as turns, honesty, and inclusion",
+        "behavioral_evidence_from_interview": [
+          "Q24 follow-up: Everybody gets a turn, nobody cheats, and if someone is new you explain the rules."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist",
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Mekdes identifies as Christian and attends church with family for gospel music, Sunday school, prayer, and community service.",
+        "ground_truth_label": "Christian church participation",
+        "behavioral_evidence_from_interview": [
+          "Q47: Religion is important in my family. We go to a Christian church with gospel music.",
+          "Q94: Christian. My family goes to church."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Mekdes has age-appropriate awareness that Black Lives Matter means Black people should be safe and treated fairly.",
+        "ground_truth_label": "child-level BLM awareness",
+        "behavioral_evidence_from_interview": [
+          "Q26: I know Black Lives Matter means Black people should be safe and treated fair."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Mekdes has not joined protests and responds to unfairness by talking with parents, telling teachers, and including people.",
+        "ground_truth_label": "non-protest child civic response",
+        "behavioral_evidence_from_interview": [
+          "Q29: I have talked a little with my parents. I have not joined protests.",
+          "Q27 follow-up: I would tell a teacher and say they can play with me."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Mekdes's law-enforcement exposure is limited to police cars, a school safety visit, parades, and community events.",
+        "ground_truth_label": "limited non-adverse police contact",
+        "behavioral_evidence_from_interview": [
+          "Q20: I mostly know police from seeing police cars or when an officer came to school and talked about safety.",
+          "Q21: seeing police at a parade or community event."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Mekdes knows of no arrests among her family or friends.",
+        "ground_truth_label": "no known arrests in close network",
+        "behavioral_evidence_from_interview": [
+          "Q22: I do not know anyone in my family or friends who got arrested."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Mekdes likes gospel music at church and says church singing is loud and happy.",
+        "ground_truth_label": "gospel music enjoyment",
+        "behavioral_evidence_from_interview": [
+          "Q07: the choir people because they sing loud and happy.",
+          "Q47: gospel music, and I like the singing a lot."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Music is part of Mekdes's celebrations, birthdays, church, and family gatherings.",
+        "ground_truth_label": "music in social and cultural life",
+        "behavioral_evidence_from_interview": [
+          "Q05: everybody talks, eats, sings",
+          "Q85 follow-up: Cupcakes, music, games"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Mekdes would like Minnie ears or Disney-themed items at Disney World.",
+        "ground_truth_label": "Disney accessory preference",
+        "behavioral_evidence_from_interview": [
+          "Q62 follow-up: Maybe Minnie ears, a Moana toy, or a Frozen thing."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "Mekdes associates Ethiopian celebrations with pretty clothes and cultural pride.",
+        "ground_truth_label": "cultural clothing pride",
+        "behavioral_evidence_from_interview": [
+          "Q28 follow-up: Ethiopian food, music, pretty clothes at celebrations, and Amharic words."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Mekdes's family uses Amharic phrases such as 'selam'.",
+        "ground_truth_label": "Amharic phrase exposure",
+        "behavioral_evidence_from_interview": [
+          "Q01: at home I hear Amharic words like selam"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Mekdes identifies as Black or African-American and Ethiopian-American.",
+        "ground_truth_label": "Black Ethiopian-American identity",
+        "behavioral_evidence_from_interview": [
+          "Q89: I identify as Black or African-American, and Ethiopian-American."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Mekdes is not Hispanic or Latinx.",
+        "ground_truth_label": "not Hispanic or Latinx",
+        "behavioral_evidence_from_interview": [
+          "Q88: No, I am not Hispanic or Latinx."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Mekdes was born in the United States and in Pennsylvania, does not know the exact birth city, and has not yet been to Ethiopia.",
+        "ground_truth_label": "U.S.-born Pennsylvania child with Ethiopian family background",
+        "behavioral_evidence_from_interview": [
+          "Q86: Yes, I was born in the United States.",
+          "Q87: I was born in Pennsylvania, but I am not sure which city.",
+          "Q86 follow-up: No, not yet."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Starting first grade and joining soccer were salient major events for Mekdes.",
+        "ground_truth_label": "salient child life events",
+        "behavioral_evidence_from_interview": [
+          "Q01: Big things in my life are starting first grade, joining Sunrise Sprouts Soccer Club..."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "At soccer practice, Mekdes gained confidence when the coach gave her a team-counting role.",
+        "ground_truth_label": "role-supported confidence in new activity",
+        "behavioral_evidence_from_interview": [
+          "Q02: the coach said I could help count people for teams.",
+          "Q03: I decided to try because the coach gave me a job."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Recent routine changes include field trips, seasonal activity shifts, and end-of-school events.",
+        "ground_truth_label": "recent routine changes",
+        "behavioral_evidence_from_interview": [
+          "Q18: The routine changes when soccer ends and swimming starts. Also near the end of school there are more field day things and class parties."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Mekdes handles changed schedules by asking what comes next, how long things will take, who will be there, and what she needs to bring.",
+        "ground_truth_label": "schedule-clarity coping",
+        "behavioral_evidence_from_interview": [
+          "Q18 follow-up: I ask a lot of questions, like what comes next and when snack is.",
+          "Q50 follow-up: How long will it take, who will be there, and what do I need to bring?"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Mekdes gets nervous about new teams, new teachers, and unknown places, and may get quiet and hold her mother's hand.",
+        "ground_truth_label": "situational nervousness around novelty",
+        "behavioral_evidence_from_interview": [
+          "Q45 follow-up: New teams, new teachers, and going somewhere I do not know.",
+          "Q45 follow-up: I get quiet for a minute and hold my mom's hand."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Mekdes trusts her parents, doctor, and school nurse for vaccine information.",
+        "ground_truth_label": "trusted health information sources",
+        "behavioral_evidence_from_interview": [
+          "Q42: I trust my mom, dad, doctor, and school nurse."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Mekdes learns about race, fairness, and history from parents, teachers, church, and school lessons.",
+        "ground_truth_label": "adult-filtered civic learning",
+        "behavioral_evidence_from_interview": [
+          "Q25: we talk about kindness, community helpers, and Martin Luther King Jr.",
+          "Q30: My parents talk about fairness and safety. At church... Teachers talk about kindness and respect..."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Mekdes does not independently use social media or search for health information online.",
+        "ground_truth_label": "no independent online information seeking",
+        "behavioral_evidence_from_interview": [
+          "Q42: I do not look up vaccine information by myself.",
+          "Q48: I do not have Facebook, Instagram, or Twitter because I am seven."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.technology"
+        ]
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "News about serious issues is filtered through adults, often when her mother explains something on the news.",
+        "ground_truth_label": "adult-mediated news exposure",
+        "behavioral_evidence_from_interview": [
+          "Q29 follow-up: Usually Mom, if something is on the news.",
+          "Q30 follow-up: Grown-ups talk more when news is on."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "reprojected",
+        "source_subcategory": "preferences.education",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Mekdes is enrolled in elementary school and has completed less than ninth grade.",
+        "ground_truth_label": "elementary school student; less than ninth grade",
+        "behavioral_evidence_from_interview": [
+          "Q90: I have completed less than ninth grade. I am in elementary school.",
+          "Q91: Yes, I am enrolled in school."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "top-level education"
+        ]
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "reprojected",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Mekdes has never been married, has no romantic partner, and has no children.",
+        "ground_truth_label": "never married child with no partner or children",
+        "behavioral_evidence_from_interview": [
+          "Q84: I have never been married, and I do not live with a romantic partner.",
+          "Q19: I do not have children. I am the child."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "top-level marital_status"
+        ]
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Mekdes's household finances, taxes, health insurance, and parental occupations are mostly outside her knowledge because of her age.",
+        "ground_truth_label": "limited child knowledge of adult household administration",
+        "behavioral_evidence_from_interview": [
+          "Q55: My mom and dad do that.",
+          "Q74: I do not know. My parents know the household money.",
+          "Q100: I do not know my dad's highest degree.",
+          "Q103: I do not know the exact job title."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "reprojected",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Mekdes prefers predictable routines, structured choices, and clear rules, especially in school and playground games.",
+        "ground_truth_label": "strong routine and rule preference",
+        "behavioral_evidence_from_interview": [
+          "Q15: I like school because I know the schedule.",
+          "Q78 follow-up: Yes, because then my brain knows what is next."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "HF-080"
+        ]
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Mekdes does not identify as Democratic, Republican, or Independent and is too young to hold a party identification.",
+        "ground_truth_label": "no party identification",
+        "behavioral_evidence_from_interview": [
+          "Q95: I do not think of myself as Democrat, Republican, or Independent because I am a child.",
+          "Q96: I do not think of myself as closer to either party."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "reprojected",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Mekdes presents as sociable, talkative, assertive, and organized.",
+        "ground_truth_label": "sociable talkative organized personality",
+        "behavioral_evidence_from_interview": [
+          "Q01: I really like being the person who says, okay, now we play tag, now we make teams.",
+          "Q43 follow-up: Excited, because I want to tell my teacher things."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "HF-023"
+        ]
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "reprojected",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "There is no evidence Mekdes has clinical depression or anxiety.",
+        "ground_truth_label": "no reported clinical depression or anxiety",
+        "behavioral_evidence_from_interview": [
+          "Q45: I do not think I have depression or anxiety. I get nervous before new things and sad sometimes, but it goes away."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}

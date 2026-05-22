@@ -1,0 +1,2561 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "68913ebfbcc3476498e19dc33ca4729c",
+      "name": "Arianna Deluca",
+      "verification_date": "2026-05-16"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age, sex, education, occupation, and Springtown location match the interview's repeated demographic answers.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed age, sex, education_level, occupation, city/state/zipcode",
+              "source_b_ref": "Q01, Q16, Q85, Q90",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed marital status says never married; interview confirms never married, no partner, no children, and living alone.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed marital_status",
+              "source_b_ref": "Q05, Q11, Q51, Q84",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed Italian American background is confirmed, and the interview adds that Arianna was born in Weatherford, raised in Springtown, and that both parents were Texas-born.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q01, Q86, Q87, Q88",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed describes local Wise County insurance work; interview confirms senior insurance sales work across Springtown, Decatur, Weatherford, and surrounding local markets.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed professional_persona, occupation",
+              "source_b_ref": "Q16, Q65, Q76",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Seed says she grew up in Springtown; interview confirms Springtown at age 16 and continued local rootedness.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed city/state, cultural_background",
+              "source_b_ref": "Q87, Q97",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 4
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Top-level profile demographics match the interview on age, gender, marital status, location, education, and occupation.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q84-Q90",
+              "source_b_ref": "corrected_extracted_profile top-level fields",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile accurately captures living alone, owning with a mortgage, and paying household expenses herself.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q08, Q11, Q51-Q58",
+              "source_b_ref": "preferences.home_and_lifestyle, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile captures siblings and small social circle but omits cousin Lucia, adult nieces and nephew, and parents being deceased.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q05, Q06",
+              "source_b_ref": "preferences.social_and_relationships, preferences.life_events_and_transitions",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add Lucia, adult nieces/nephew, and deceased parents to social_and_relationships and life_events_and_transitions."
+            },
+            {
+              "id": 4,
+              "text": "Profile captures occupation but omits tenure at current agency, weekly hours, 52 weeks worked, benefits, and pay structure.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q67-Q78",
+              "source_b_ref": "preferences.work_and_career",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add agency tenure, hours, benefits, full-year work, twice-monthly pay, and variable commissions to work_and_career."
+            },
+            {
+              "id": 5,
+              "text": "Profile summarizes demographics but omits date of birth, birthplace, and never having lived outside Texas.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q85-Q87",
+              "source_b_ref": "preferences.cultural_and_linguistic",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add March 12, 1964 date of birth, Weatherford birthplace, Springtown upbringing, and Texas-only residence history to cultural_and_linguistic."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Marital status, social relationships, and home/household preferences consistently describe a never-married woman living alone without partner or children.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "top-level marital_status; preferences.social_and_relationships",
+              "field_b": "preferences.home_and_lifestyle; summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Location, cultural background, and life-events sections consistently portray local Texas rootedness rather than migration away from Texas.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.cultural_and_linguistic",
+              "field_b": "preferences.life_events_and_transitions; summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Work, home, and financial summary claims are mutually consistent with full-time senior insurance work, homeownership with a mortgage, and stable but watchful finances.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career; preferences.home_and_lifestyle",
+              "field_b": "summaries.demographer; summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview provides date of birth, birthplace, Springtown upbringing, and Texas-only residence history not present in the draft profile.",
+              "gap": true,
+              "interview_ref": "Q85-Q87, Q97",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add DOB, birthplace, Springtown upbringing, and Texas-only residence history."
+            },
+            {
+              "id": 2,
+              "text": "Interview describes childhood household and parents' occupations: mother in banking/bookkeeping, father in appliance repair, siblings Marco and Gina, and grandmother staying for stretches.",
+              "gap": true,
+              "interview_ref": "Q98-Q107",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add childhood household and parental work background."
+            },
+            {
+              "id": 3,
+              "text": "Interview identifies cousin Lucia and adult nieces/nephew as family ties missing from the draft social profile.",
+              "gap": true,
+              "interview_ref": "Q05-Q06",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add Lucia, two nieces, and one nephew."
+            },
+            {
+              "id": 4,
+              "text": "Interview gives detailed job tenure, hours, benefits, and work-year information missing from preferences.",
+              "gap": true,
+              "interview_ref": "Q67-Q78",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add 18-year tenure, 43-48 weekly hours, 52 weeks worked, and benefits."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes flexible client-centered sales and CRM friction; interview confirms she uses CRM but keeps handwritten notes and prefers flexible, relationship-based work.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed professional_persona, skills_and_expertise",
+              "source_b_ref": "Q18, Q65, Q78",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed describes modest off-peak travel; interview confirms travel funds, delayed trips for budget reasons, and off-peak Santa Fe/Kyoto aspirations.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed travel_persona",
+              "source_b_ref": "Q60, Q62, Q108",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed culinary indulgences are supported by interview evidence about steak, Italian cooking, brisket tacos, pretzels, and cooking shows.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed culinary_persona",
+              "source_b_ref": "Q32, Q56, Q81",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed ambition to become top-producing and launch a boutique agency is partly reflected; interview strongly confirms boutique, mentoring, writing, and consulting goals but does not explicitly repeat top-producing language.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed career_goals_and_ambitions",
+              "source_b_ref": "Q108",
+              "action": "NO_CHANGE",
+              "disposition": "DROP",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Seed describes calm resilience and competitive sales style; interview supports calmness, negotiation, and autonomy, while adding a risk-aware financial personality.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona, professional_persona",
+              "source_b_ref": "Q02, Q65, Q83",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Behavioral economist summary accurately reflects risk awareness, savings, expense tracking, and ability to cover a 400 dollar emergency, but preferences lack the detailed financial facts.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q56-Q64, Q81-Q83",
+              "source_b_ref": "summaries.behavioral_economist; preferences.home_and_lifestyle",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add monthly spending, savings, debts, credit-card behavior, and 400 dollar emergency capacity to home_and_lifestyle."
+            },
+            {
+              "id": 2,
+              "text": "Work profile captures entrepreneurial goals but omits pay amount, pay timing, commission variability, and slower commission months.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q72-Q74, Q81",
+              "source_b_ref": "preferences.work_and_career",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add gross and take-home pay, twice-monthly pay schedule, and commission variability."
+            },
+            {
+              "id": 3,
+              "text": "Draft entertainment and food details say she binge-watches cooking shows; the interview only supports watching cooking shows while snacking, so binge-watching is an overstatement.",
+              "verdict": "inconsistent",
+              "gap": false,
+              "source_a_ref": "Q32",
+              "source_b_ref": "preferences.food_and_dining; preferences.entertainment",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Replace 'binge-watches cooking shows' with 'watches cooking shows while snacking'."
+            },
+            {
+              "id": 4,
+              "text": "Technology preferences faithfully capture CRM adoption and handwritten notes, matching her pragmatic but non-rigid tool use.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q18, Q65",
+              "source_b_ref": "preferences.technology",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Health and food preferences capture moderation struggles, but the draft underplays overwork and stress-snacking as coping patterns.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q32, Q38, Q45, Q50",
+              "source_b_ref": "preferences.health_and_wellness; preferences.food_and_dining",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add stress-snacking and overwork as coping risks in health_and_wellness and food_and_dining."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 1,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Financial caution in the behavioral summary is internally consistent with modest travel, delayed discretionary spending, and emergency savings.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.behavioral_economist",
+              "field_b": "preferences.travel; preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Digital CRM proficiency and resistance to rigid CRM workflows are not contradictory; the profile consistently describes pragmatic adoption with a preference for flexibility.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.technology",
+              "field_b": "preferences.work_and_career; summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Creative consumption and conservative financial protection coexist coherently across arts, travel, and financial summaries.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.arts_and_culture; preferences.travel",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview gives specific monthly spending and typical budget ranges that were absent from the draft preferences.",
+              "gap": true,
+              "interview_ref": "Q56-Q57",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add last-month spending around 4300 dollars and typical monthly spending of 3700-3900 dollars."
+            },
+            {
+              "id": 2,
+              "text": "Interview describes savings accounts, retirement account, brokerage account, six-month reserve goal, and 400 dollar emergency capacity.",
+              "gap": true,
+              "interview_ref": "Q61-Q62, Q82",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add savings structure, reserve goal, and emergency capacity."
+            },
+            {
+              "id": 3,
+              "text": "Interview describes mortgage, car loan, paid-off student loans, monthly credit-card payoff, and no family debt.",
+              "gap": true,
+              "interview_ref": "Q63-Q64",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add current debts and credit-card behavior."
+            },
+            {
+              "id": 4,
+              "text": "Interview gives income, pay timing, commission variation, slower months, and adjustment behavior.",
+              "gap": true,
+              "interview_ref": "Q72-Q74, Q81",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add income, twice-monthly pay, variable commissions, and coping during low-income months."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes church gatherings, local volunteer work, and community service; interview confirms Catholic identity, Mass attendance, church festivals, and local workshops.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q17, Q47, Q94",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed does not specify voting behavior; interview adds regular voting, usually early, and attention to local races.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed data lacks political participation fields",
+              "source_b_ref": "Q23",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed does not specify party identity; interview adds Republican-leaning moderate conservatism with independent reservations.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed data lacks party identity",
+              "source_b_ref": "Q24-Q25, Q95-Q96",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed does not cover law enforcement; interview adds limited routine experiences, no mistreatment, and no arrest history.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed data lacks law enforcement history",
+              "source_b_ref": "Q20-Q22",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Seed does not cover race or policing attitudes; interview adds nuanced BLM-related views emphasizing accountability and reform.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed data lacks race/policing attitudes",
+              "source_b_ref": "Q26-Q30",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 4
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Political scientist summary faithfully captures regular voting, local civic priorities, moderate conservatism, and conditional institutional trust.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23-Q30, Q41-Q42, Q95-Q96",
+              "source_b_ref": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Community preference captures voting and local issues but omits party identity, ideological moderation, and ability to vote for competent moderates across party lines.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q24-Q25, Q95-Q96",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add Republican-leaning moderate conservative identity and reservations about extremism."
+            },
+            {
+              "id": 3,
+              "text": "Profile summary covers BLM and accountability, but preference details omit the concrete reforms she supports.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q26-Q30",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add body cameras, complaint transparency, de-escalation, and consequences for misconduct."
+            },
+            {
+              "id": 4,
+              "text": "Law-enforcement experiences are summarized politically but absent from the preferences section.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q20-Q22",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add routine traffic-stop/police-report experience, no mistreatment, no personal arrest, and distant cousin DUI."
+            },
+            {
+              "id": 5,
+              "text": "Health and media preferences accurately capture vaccine trust and avoidance of social media misinformation.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q41-Q42, Q48",
+              "source_b_ref": "preferences.health_and_wellness; preferences.media_and_information_diet",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Moderate conservative identity is internally consistent with support for targeted help, institutional transparency, and police accountability.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Republican-leaning identity and pro-vaccine official-source trust are not contradictory because the profile explicitly notes anti-conspiracy and anti-performance-politics attitudes.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness; preferences.media_and_information_diet",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Solitary lifestyle and civic participation are internally coherent: she prefers small, local, low-performance forms of participation rather than mass activism.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview gives detailed party identity and ideological self-placement missing from community preferences.",
+              "gap": true,
+              "interview_ref": "Q24-Q25, Q95-Q96",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add Republican-leaning moderate conservative identity, reservations, and possible Democratic vote for competent moderates."
+            },
+            {
+              "id": 2,
+              "text": "Interview describes routine law enforcement interactions, police reports through work, no personal mistreatment, no personal arrest, and distant cousin DUI.",
+              "gap": true,
+              "interview_ref": "Q20-Q22",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add law-enforcement experience and arrest-history details."
+            },
+            {
+              "id": 3,
+              "text": "Interview provides specific views on BLM, race, policing, and reform that are missing from preferences.",
+              "gap": true,
+              "interview_ref": "Q26-Q30",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add BLM impact, equal dignity/accountability framing, and preferred reforms."
+            },
+            {
+              "id": 4,
+              "text": "Interview states she usually votes early and talks politics carefully to avoid conflict.",
+              "gap": true,
+              "interview_ref": "Q23",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add early voting habit and careful small-setting political discussion style."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes a calm, creatively restless, solitary persona; interview confirms steadiness, solitude, creative hunger, painting, piano, puzzles, and birdwatching.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed persona, hobbies_and_interests",
+              "source_b_ref": "Q01, Q11, Q43-Q50",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed's abstract storytelling sales style is strongly supported by interview examples of using paint layers and visual analogies to make risk understandable.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed professional_persona, skills_and_expertise",
+              "source_b_ref": "Q01, Q65",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed says she thrives on spontaneous negotiations; interview adds that major life decisions are deliberate and written out. This is not a contradiction because daily work intuition and high-stakes life planning differ.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed professional_persona",
+              "source_b_ref": "Q03",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Seed's solitary identity is enriched by interview evidence that she is warm but autonomy-protective in family, friendship, and romantic life.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona",
+              "source_b_ref": "Q05-Q07, Q84",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "Seed calm resilience is enriched by interview evidence of anxious seasons, no diagnosis, and coping through lists, walking, painting, prayer, and trusted disclosure.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona, skills_and_expertise",
+              "source_b_ref": "Q43-Q50",
+              "action": "NO_CHANGE",
+              "disposition": "CARRY_FORWARD",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Psychologist summary is faithful to interview evidence on calmness, independence, creativity, metaphorical cognition, stress regulation, and generativity.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01, Q43-Q45, Q65, Q108-Q109",
+              "source_b_ref": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Preferences capture hobbies and relationships but omit her explicit values: integrity, independence, craft, family loyalty, and imagination.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q109",
+              "source_b_ref": "preferences.life_events_and_transitions; preferences.arts_and_culture",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add explicit values to life_events_and_transitions."
+            },
+            {
+              "id": 3,
+              "text": "Health preferences omit emotional-health details: no depression/anxiety diagnosis, anxious seasons, therapy after her mother died, and openness to counseling if needed.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q45",
+              "source_b_ref": "preferences.health_and_wellness; preferences.life_events_and_transitions",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add emotional-health status and coping approach."
+            },
+            {
+              "id": 4,
+              "text": "Music and hobbies preferences capture piano and painting but omit prayer, list-making, and trusted-person disclosure as coping tools.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q45, Q50",
+              "source_b_ref": "preferences.health_and_wellness; preferences.music",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add prayer, list-making, and selective disclosure to health_and_wellness."
+            },
+            {
+              "id": 5,
+              "text": "Life-events profile captures therapy after mother died but omits the recent longtime client death that triggered grief and a painting response.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q44",
+              "source_b_ref": "preferences.life_events_and_transitions",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add recent client death and grief-processing through piano and painting."
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 4
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Solitary temperament is internally consistent with loyal family ties and small-circle friendships because the profile repeatedly frames relationships as close but spacious.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Creative restlessness and financial conservatism are internally consistent: the profile describes expressive identity paired with risk-aware protection.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.arts_and_culture; preferences.hobbies_and_recreation",
+              "field_b": "summaries.behavioral_economist; summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Independence and family loyalty are not contradictory; the profile consistently defines loyalty as practical availability rather than co-residence or enmeshment.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships",
+              "field_b": "preferences.life_events_and_transitions; summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview states Arianna's explicit values: integrity, independence, craft, family loyalty, and imagination.",
+              "gap": true,
+              "interview_ref": "Q109",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add explicit values as a life-orientation detail."
+            },
+            {
+              "id": 2,
+              "text": "Interview describes emotional state over the past year as steady, restless, pressured, grateful, and concerned about the next chapter.",
+              "gap": true,
+              "interview_ref": "Q43",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add emotional well-being and long-range worry."
+            },
+            {
+              "id": 3,
+              "text": "Interview details coping mechanisms: lists, walking, painting, prayer, piano, and selective disclosure to Gina, Maribel, or Patsy.",
+              "gap": true,
+              "interview_ref": "Q45, Q49-Q50",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add coping repertoire and preference for private support."
+            },
+            {
+              "id": 4,
+              "text": "Interview describes recent grief after a longtime client's death and using piano and a dark canvas to process it.",
+              "gap": true,
+              "interview_ref": "Q44",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add client-loss emotional event."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No FLAG_FOR_REVIEW findings remain. One overstatement about binge-watching was corrected, and multiple interview-supported gaps were added to preferences.",
+    "final_status": "Corrected profile is ready for downstream use with enriched preferences and a canonical hidden_facts registry."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "68913ebfbcc3476498e19dc33ca4729c",
+    "name": "Arianna Deluca",
+    "age": 62,
+    "gender": "Female",
+    "marital_status": "never married; not living with a romantic partner",
+    "location": "Springtown, TX 76082",
+    "education": "Bachelor's degree in business",
+    "occupation": "Senior insurance sales agent",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Maintains moderate health through walking, low-impact tennis, routine medical care, and cautious medication use.",
+        "details": [
+          "Takes low-dose blood pressure medication. Evidence: Q31",
+          "Takes a statin for cholesterol. Evidence: Q31",
+          "Walks four to five days a week when weather allows. Evidence: Q18, Q32",
+          "Plays low-impact tennis in spring. Evidence: Q31",
+          "Uses physical therapy stretches for lower back and hip stiffness. Evidence: Q33",
+          "Generally supports vaccination and received COVID vaccines, boosters, and flu shots. Evidence: Q41",
+          "Has not been diagnosed with depression or an anxiety disorder, though she has anxious seasons tied to work pressure or family health worries. Evidence: Q45",
+          "Copes with stress through lists, walking, painting, prayer, and talking with one trusted person. Evidence: Q45, Q50",
+          "Uses employer-sponsored health insurance, payroll deductions, copays, and a health savings account to manage care costs. Evidence: Q36, Q40"
+        ],
+        "evidence": "Q18, Q31-Q42, Q45, Q50"
+      },
+      "food_and_dining": {
+        "summary": "Enjoys hearty Italian and Texan food while trying to practice moderation.",
+        "details": [
+          "Associates childhood and family life with Italian Sunday sauce, garlic, basil, and shared meals. Evidence: Q01",
+          "Enjoys steak, Italian cooking, coffee, and specialty ingredients. Evidence: Q32, Q56",
+          "Eats late brisket tacos and salty pretzels when work piles up. Evidence: Q32",
+          "Watches cooking shows while snacking on salty pretzels. Evidence: Q32",
+          "Cooks budget-conscious meals at home, including pasta with vegetables, soups, roasted chicken, beans, and leftover tacos. Evidence: Q81"
+        ],
+        "evidence": "Q01, Q32, Q56, Q81"
+      },
+      "travel": {
+        "summary": "Prefers modest, off-peak, art- and food-oriented travel with a dream trip to Kyoto.",
+        "details": [
+          "Delayed a planned Santa Fe art weekend to manage extra expenses. Evidence: Q60",
+          "Keeps a small travel fund for trips such as Santa Fe and Kyoto. Evidence: Q62",
+          "Took a short Hill Country road trip during the past year. Evidence: Q67",
+          "Hopes to travel off-peak and visit Kyoto gardens if finances allow. Evidence: Q108"
+        ],
+        "evidence": "Q60, Q62, Q67, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "Solitary but not isolated; keeps a small circle of family, friends, clients, and mentors.",
+        "details": [
+          "Never married, has no children, and is not living with a romantic partner. Evidence: Q05, Q84",
+          "Talks with brother Marco weekly and sees siblings Marco and Gina regularly. Evidence: Q05",
+          "Has two adult nieces, one adult nephew, and a cousin Lucia who feels almost like a sister. Evidence: Q05, Q06",
+          "Walks with friend Maribel and has monthly lunches with retired mentor Patsy. Evidence: Q07",
+          "Prefers relationships with breathing room and honest companionship. Evidence: Q05, Q07"
+        ],
+        "evidence": "Q05-Q07, Q84"
+      },
+      "home_and_lifestyle": {
+        "summary": "Lives alone in a modest owned Springtown home and values quiet, privacy, and practical routines.",
+        "details": [
+          "Lives alone in a one-story brick house in Springtown with a yard for succulents and lavender. Evidence: Q08, Q11",
+          "Owns her home with a mortgage and values stability. Evidence: Q58",
+          "Pays household expenses herself with no lodgers, co-residents, or household financial contributors. Evidence: Q51-Q55",
+          "Uses the guest room partly for paintings, wrapping paper, and a half-finished jigsaw puzzle. Evidence: Q11",
+          "Feels mostly safe at home, locks doors, keeps porch lights on, and worries more about faster traffic than crime. Evidence: Q09",
+          "Usually spends about 3700 to 3900 dollars per month, with a recent 4300 dollar month due to dental payment and car maintenance. Evidence: Q56, Q57",
+          "Tracks spending with a spreadsheet and bank app. Evidence: Q57",
+          "Maintains emergency savings, retirement savings, and a small brokerage account, with a goal of at least six months of expenses. Evidence: Q61",
+          "Could cover a 400 dollar emergency from savings or checking. Evidence: Q82",
+          "Current debts are a mortgage and a car loan; she pays credit cards off monthly and owes no family money or student loans. Evidence: Q63"
+        ],
+        "evidence": "Q08, Q09, Q11, Q51-Q58, Q61, Q63, Q82"
+      },
+      "entertainment": {
+        "summary": "Enjoys speculative fiction, sports viewing, cooking shows, puzzles, and quiet evenings at home.",
+        "details": [
+          "Reads speculative fiction and values books as part of evening routine. Evidence: Q01, Q15",
+          "Watches Cowboys and Astros games with family conversation around them. Evidence: Q05, Q15",
+          "Watches cooking shows while snacking when stressed. Evidence: Q32",
+          "Uses jigsaw puzzles as a quiet home activity. Evidence: Q11"
+        ],
+        "evidence": "Q01, Q05, Q11, Q15, Q32"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Creative and contemplative hobbies include abstract acrylic painting, puzzles, gardening, walking, birdwatching, and piano.",
+        "details": [
+          "Paints abstract acrylic color fields to process emotions and ideas. Evidence: Q01, Q44",
+          "Gardens with succulents and lavender. Evidence: Q08",
+          "Walks trails with Maribel and watches birds. Evidence: Q07, Q47",
+          "Practices piano and uses it for stress relief. Evidence: Q43, Q50"
+        ],
+        "evidence": "Q01, Q07, Q08, Q43, Q44, Q47, Q50"
+      },
+      "work_and_career": {
+        "summary": "Experienced senior insurance sales agent with creative, client-centered, risk-translation skills and entrepreneurial goals.",
+        "details": [
+          "Works as a senior insurance sales agent selling personal and commercial coverage. Evidence: Q16, Q65",
+          "Sells property, liability, auto, life, and small business coverage. Evidence: Q16, Q65",
+          "Uses visual analogies such as acrylic paint layers to explain deductibles, liability limits, and coverage gaps. Evidence: Q65",
+          "Mentors younger women in sales and wants a formal mentorship path for women over 50. Evidence: Q17, Q108",
+          "Wants to build a boutique insurance niche for artists, freelancers, and small businesses. Evidence: Q65, Q108",
+          "Worked all 52 weeks in the past year and usually works about 43 to 48 hours per week. Evidence: Q67, Q68",
+          "Has been with her current agency for 18 years and receives health insurance, paid time off, sick time, a retirement plan, and some flexibility. Evidence: Q76",
+          "Received about 7200 dollars before taxes and deductions last month and about 5100 dollars take-home. Evidence: Q72",
+          "Gets regular pay twice a month, with commissions that can lag or vary by 1000 dollars or more. Evidence: Q72, Q73",
+          "Her occupation is not union-covered. Evidence: Q66"
+        ],
+        "evidence": "Q16, Q17, Q65-Q68, Q72-Q73, Q76, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Strongly shaped by Italian American craft traditions, abstract art, jazz, and literary imagination.",
+        "details": [
+          "Family roots trace to southern Italy and emphasize food, craft, and close family. Evidence: Q01, Q86",
+          "Paints abstract acrylics and uses color fields in emotional processing. Evidence: Q44",
+          "Uses artful thinking in insurance and hopes to write a guide titled \"Imaginative Insurance: How Artful Thinking Improves Risk Management.\" Evidence: Q65, Q108",
+          "Uses speculative fiction and imaginative stories to inspire sales narratives. Evidence: Q01",
+          "Uses church festivals and community meals as cultural anchors. Evidence: Q47"
+        ],
+        "evidence": "Q01, Q44, Q47, Q65, Q86, Q108"
+      },
+      "sports_and_fitness": {
+        "summary": "Casual but steady sports fan and participant, favoring Dallas Cowboys, Houston Astros, walking, and low-impact tennis.",
+        "details": [
+          "Talks with brother Marco around Cowboys games. Evidence: Q05",
+          "Includes Astros games in Sunday routines. Evidence: Q15",
+          "Plays low-impact tennis in spring. Evidence: Q31",
+          "Uses walking as a central fitness and social routine. Evidence: Q07, Q32"
+        ],
+        "evidence": "Q05, Q07, Q15, Q31, Q32"
+      },
+      "nature_and_outdoors": {
+        "summary": "Values prairie landscapes, trails, birds, gardening, and outdoor observation.",
+        "details": [
+          "Likes the prairie sky and local landscape around Springtown. Evidence: Q10",
+          "Walks trails with binocular-carrying friend Maribel. Evidence: Q07",
+          "Gardens with succulents and lavender. Evidence: Q08",
+          "Feels spiritually connected while watching birds on trails. Evidence: Q47"
+        ],
+        "evidence": "Q07, Q08, Q10, Q47"
+      },
+      "technology": {
+        "summary": "Uses digital tools pragmatically but resists rigid systems and avoids online conflict.",
+        "details": [
+          "Uses CRM, email, phone, and carrier portals for insurance work. Evidence: Q65",
+          "Moved more policy tracking into CRM while still keeping handwritten notes. Evidence: Q18",
+          "Uses Facebook, Instagram, and LinkedIn selectively. Evidence: Q48",
+          "Avoids medical misinformation and political shouting on social media. Evidence: Q48, Q42"
+        ],
+        "evidence": "Q18, Q42, Q48, Q65"
+      },
+      "community_and_civic": {
+        "summary": "Locally attached, civically responsible, and involved in voting, church festivals, workshops, and community support.",
+        "details": [
+          "Votes regularly and usually votes early because client emergencies can disrupt Election Day. Evidence: Q23",
+          "Cares about local roads, property taxes, schools, health care costs, public safety, and county services. Evidence: Q23, Q24",
+          "Identifies as a Republican-leaning moderate conservative with independent streaks and reservations about extremism. Evidence: Q24, Q95, Q96",
+          "Supports practical, targeted, accountable help for families and small businesses facing illness, disasters, or bad economies. Evidence: Q24",
+          "Says Black Lives Matter affected her somewhat and supports accountability, transparency, de-escalation, proper body camera use, complaint processes, and consequences for misconduct. Evidence: Q26-Q30",
+          "Has had limited, mostly routine law-enforcement experiences, has not felt mistreated, and has never been arrested. Evidence: Q20-Q22",
+          "Had a distant cousin arrested for DUI many years ago, but no close family jail or prison experience shaped her daily life. Evidence: Q22",
+          "Volunteers at church festivals, donation drives, community meals, and occasional insurance workshops after storms. Evidence: Q17, Q47"
+        ],
+        "evidence": "Q17, Q20-Q30, Q47, Q95-Q96"
+      },
+      "music": {
+        "summary": "Uses jazz piano and listening as private emotional regulation and pleasure.",
+        "details": [
+          "Practices piano at night because she lives alone and values quiet. Evidence: Q11",
+          "Listens to Oscar Peterson recordings to feel grounded. Evidence: Q43",
+          "Played piano after a client's death to process grief. Evidence: Q44",
+          "Uses piano for quick stress relief. Evidence: Q50"
+        ],
+        "evidence": "Q11, Q43, Q44, Q50"
+      },
+      "fashion_and_appearance": {
+        "summary": "Little direct evidence; appearance preferences are not a major topic in the interview.",
+        "details": [
+          "No substantive clothing, grooming, or fashion preferences were discussed, though she wears reading glasses. Evidence: Q31, Q01-Q109"
+        ],
+        "evidence": "Q01-Q109"
+      },
+      "cultural_and_linguistic": {
+        "summary": "White Italian American woman from Texas with Catholic and southern Italian family traditions.",
+        "details": [
+          "Grandparents immigrated from southern Italy in the 1920s. Evidence: Q01, Q86",
+          "Identifies as White. Evidence: Q89",
+          "Is not Hispanic, Latinx, or Spanish origin. Evidence: Q88",
+          "Speaks only a few Italian family phrases and food words. Evidence: Q88",
+          "Identifies as Roman Catholic, was raised Catholic, and attends Mass a couple of times a month. Evidence: Q47, Q94",
+          "Was born March 12, 1964 in Weatherford, Texas, raised in Springtown, and has never lived outside Texas. Evidence: Q85-Q87",
+          "Both parents were born in Texas. Evidence: Q86"
+        ],
+        "evidence": "Q01, Q47, Q85-Q89, Q94"
+      },
+      "life_events_and_transitions": {
+        "summary": "Key transitions include choosing local independence over Dallas corporate advancement, parental loss, caregiving, and late-career planning.",
+        "details": [
+          "Turned down a Dallas management-track insurance job in her thirties to stay local and independent. Evidence: Q02",
+          "Helped care for her mother during heart trouble and diabetes. Evidence: Q35",
+          "Had therapy briefly after her mother died. Evidence: Q45",
+          "Is planning a later-career shift toward boutique insurance, writing, mentoring, and travel. Evidence: Q108",
+          "Lost a longtime boutique-owner client last fall and processed the grief through piano and a dark blue canvas with a thin orange line. Evidence: Q44",
+          "Values integrity, independence, craft, family loyalty, and imagination. Evidence: Q109"
+        ],
+        "evidence": "Q02, Q35, Q44, Q45, Q108-Q109"
+      },
+      "media_and_information_diet": {
+        "summary": "Uses a mix of local news, social media, official health sources, long-form reading, and selective professional media.",
+        "details": [
+          "Reads news in the morning as part of her routine. Evidence: Q15",
+          "Uses Facebook for family, local events, church announcements, and community news. Evidence: Q48",
+          "Uses Instagram lightly for art, gardening, and jazz accounts. Evidence: Q48",
+          "Trusts her doctor, CDC, state health department, and major hospitals for vaccine information. Evidence: Q42",
+          "Learns about race and policing through long-form articles, interviews, church discussions, and conversations rather than social media fights. Evidence: Q28"
+        ],
+        "evidence": "Q15, Q28, Q42, Q48"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Arianna Deluca is a 62-year-old White Italian American woman living alone in an owned home with a mortgage in Springtown, Texas (Q08, Q51-Q58, Q85-Q89). She has never married, has no children, and maintains kin ties with siblings, nieces, nephews, and a cousin while relying on a small circle of friends and professional mentors (Q05-Q07, Q84). She has a bachelor's degree in business and works full time as a senior insurance sales agent with stable but variable commission income (Q65-Q74, Q90). Her life course reflects local rootedness, upward professional stability, and aging-related planning around health care, retirement, and future work identity (Q40, Q83, Q108).",
+      "behavioral_economist": "Arianna is risk-aware and reserve-oriented, which is consistent with both her insurance career and personal financial behavior: she maintains savings, tracks spending, avoids revolving credit card debt, and could handle a 400 dollar emergency (Q61-Q64, Q82). She values independence and optionality, shown in her decision to reject a higher-paying Dallas management path to preserve local autonomy and family proximity (Q02-Q04). Her consumption choices balance restraint and identity: she cuts travel or dining first when expenses rise but preserves meaningful spending on art, food, books, and modest travel dreams (Q56-Q62, Q81). She responds to uncertainty with lists, buffers, documentation, and practical analogies rather than impulsive action (Q03, Q65, Q83).",
+      "political_scientist": "Arianna is a regular voter with a locally grounded civic orientation, especially attentive to roads, property taxes, health care costs, small business policy, and public safety (Q23-Q24). She identifies as Republican-leaning or moderately conservative but with declining partisan attachment and discomfort with extremism, conspiracy thinking, and cruelty in politics (Q24-Q26, Q95-Q96). She supports law enforcement but also favors accountability, transparency, de-escalation, and listening to concerns raised by Black Lives Matter (Q26-Q30). Her institutional trust is pragmatic and conditional: she relies on doctors and official health sources for vaccines while distrusting social media misinformation and performative politics (Q41-Q42, Q48).",
+      "psychologist": "Arianna presents as calm, independent, conscientious, creatively restless, and cognitively metaphorical, using art, narrative, and analogies to organize complex experience (Q01, Q43-Q45, Q65). She regulates stress through walking, painting, piano, prayer, lists, and selective disclosure to trusted people rather than public emotional expression (Q43-Q50). Her attachment style appears warm but autonomy-protective: she maintains loyal family and friend bonds while preferring solitude, privacy, and relationships with breathing room (Q05-Q07, Q11, Q84). Her motivation combines mastery, usefulness, craft, and late-career generativity, especially mentoring women over 50 and building a more imaginative insurance niche (Q17, Q108-Q109)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Arianna takes low-dose blood pressure medication.",
+        "ground_truth_label": "Takes low-dose blood pressure medication",
+        "behavioral_evidence_from_interview": [
+          "Q31: Yes, a low-dose blood pressure medication."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Arianna takes a statin for cholesterol.",
+        "ground_truth_label": "Takes statin for cholesterol",
+        "behavioral_evidence_from_interview": [
+          "Q31: and a statin for cholesterol."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Arianna walks four to five days a week when weather allows.",
+        "ground_truth_label": "Walks four to five days weekly when possible",
+        "behavioral_evidence_from_interview": [
+          "Q18: Usually four days, sometimes five if the weather is kind."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.sports_and_fitness"
+        ]
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Arianna plays low-impact tennis in spring.",
+        "ground_truth_label": "Plays low-impact spring tennis",
+        "behavioral_evidence_from_interview": [
+          "Q31: I walk, play low-impact tennis in spring."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.sports_and_fitness"
+        ]
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Arianna uses physical therapy stretches for lower back and hip stiffness.",
+        "ground_truth_label": "Uses PT stretches for back and hip stiffness",
+        "behavioral_evidence_from_interview": [
+          "Q33: physical therapy gave me stretches I actually do most mornings."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Arianna generally supports vaccination and received COVID vaccines, boosters, and flu shots.",
+        "ground_truth_label": "Generally pro-vaccine and vaccinated",
+        "behavioral_evidence_from_interview": [
+          "Q41: I am generally pro-vaccine. I got COVID vaccines and boosters, and I keep up with flu shots."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Arianna has not been diagnosed with depression or an anxiety disorder.",
+        "ground_truth_label": "No diagnosed depression or anxiety disorder",
+        "behavioral_evidence_from_interview": [
+          "Q45: I have not been diagnosed with depression or an anxiety disorder."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Arianna has anxious seasons tied to work pressure or family health worries.",
+        "ground_truth_label": "Situational anxious seasons",
+        "behavioral_evidence_from_interview": [
+          "Q45: I do have anxious seasons, usually tied to work pressure or family health worries."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Arianna copes with stress through lists, walking, painting, prayer, and talking with one trusted person.",
+        "ground_truth_label": "Private multimodal stress coping",
+        "behavioral_evidence_from_interview": [
+          "Q45: I cope by making lists, walking, painting, prayer, and talking with one trusted person."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Arianna uses employer-sponsored health insurance, payroll deductions, copays, and an HSA to manage care costs.",
+        "ground_truth_label": "Employer coverage plus HSA for care costs",
+        "behavioral_evidence_from_interview": [
+          "Q40: I pay through my employer plan, payroll deductions, copays, and a health savings account."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Arianna associates childhood and family life with Italian Sunday sauce, garlic, basil, and shared meals.",
+        "ground_truth_label": "Italian Sunday meal memory",
+        "behavioral_evidence_from_interview": [
+          "Q01: On Sundays my grandmother would make sauce early, and the whole house smelled like garlic and basil."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.arts_and_culture"
+        ]
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Arianna enjoys steak, Italian cooking, coffee, and specialty ingredients.",
+        "ground_truth_label": "Enjoys hearty Italian and steak-centered food",
+        "behavioral_evidence_from_interview": [
+          "Q32: I enjoy good food, especially steak and Italian cooking.",
+          "Q56: Meat, produce, coffee, and the specialty ingredients I use for Italian cooking."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Arianna eats late brisket tacos and salty pretzels when work piles up.",
+        "ground_truth_label": "Stress-related savory snacking",
+        "behavioral_evidence_from_interview": [
+          "Q32: I snack on pretzels, eat late brisket tacos, and sit too much."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Arianna watches cooking shows while snacking on salty pretzels.",
+        "ground_truth_label": "Cooking shows with salty snacks",
+        "behavioral_evidence_from_interview": [
+          "Q32: Salty evening snacks while watching cooking shows."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.entertainment"
+        ]
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Arianna cooks budget-conscious meals at home such as pasta, soups, roasted chicken, beans, and leftover tacos.",
+        "ground_truth_label": "Cooks economical home meals",
+        "behavioral_evidence_from_interview": [
+          "Q81: Pasta with vegetables, soups, roasted chicken, beans, and leftovers turned into tacos."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Arianna delayed a planned Santa Fe art weekend to manage extra expenses.",
+        "ground_truth_label": "Delayed Santa Fe art trip for expenses",
+        "behavioral_evidence_from_interview": [
+          "Q60: A little Santa Fe art weekend I had been considering."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Arianna keeps a small travel fund for trips such as Santa Fe and Kyoto.",
+        "ground_truth_label": "Maintains small travel fund",
+        "behavioral_evidence_from_interview": [
+          "Q62: I also keep a small travel fund... like Santa Fe or eventually Kyoto."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Arianna took a short Hill Country road trip during the past year.",
+        "ground_truth_label": "Recent Hill Country road trip",
+        "behavioral_evidence_from_interview": [
+          "Q67: one short Hill Country road trip."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Arianna hopes to travel off-peak and visit Kyoto gardens if finances allow.",
+        "ground_truth_label": "Off-peak travel and Kyoto garden aspiration",
+        "behavioral_evidence_from_interview": [
+          "Q108: travel more in off-peak seasons... take that Kyoto garden trip if finances allow."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Arianna has never married, has no children, and is not living with a romantic partner.",
+        "ground_truth_label": "Never married, no children, no cohabiting partner",
+        "behavioral_evidence_from_interview": [
+          "Q05: I have never been married... I do not have children.",
+          "Q84: I am not currently living with a romantic partner."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Arianna talks with brother Marco weekly and sees siblings Marco and Gina regularly.",
+        "ground_truth_label": "Regular contact with siblings Marco and Gina",
+        "behavioral_evidence_from_interview": [
+          "Q05: My older brother Marco... we talk every Sunday evening.",
+          "Q05: Gina I see every few weeks."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Arianna has two adult nieces, one adult nephew, and a cousin Lucia who feels almost like a sister.",
+        "ground_truth_label": "Adult nieces/nephew and close cousin Lucia",
+        "behavioral_evidence_from_interview": [
+          "Q05: I have two nieces and one nephew, all grown now.",
+          "Q06: a cousin, Lucia... almost like a sister."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Arianna walks with friend Maribel and has monthly lunches with retired mentor Patsy.",
+        "ground_truth_label": "Small friend and mentor circle",
+        "behavioral_evidence_from_interview": [
+          "Q07: My friend Maribel walks with me.",
+          "Q07: Patsy... we still have lunch once a month."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Arianna prefers relationships with breathing room and honest companionship.",
+        "ground_truth_label": "Autonomy-protective relationship preference",
+        "behavioral_evidence_from_interview": [
+          "Q05: I just like relationships that have breathing room.",
+          "Q07: I would rather have honest companionship."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Arianna lives alone in a one-story brick house in Springtown with a yard for succulents and lavender.",
+        "ground_truth_label": "Lives alone in modest Springtown brick house",
+        "behavioral_evidence_from_interview": [
+          "Q08: modest one-story brick house with a small yard and enough sun for succulents and lavender.",
+          "Q11: I live alone."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Arianna owns her home with a mortgage and values the stability of ownership.",
+        "ground_truth_label": "Owns home with mortgage",
+        "behavioral_evidence_from_interview": [
+          "Q58: I own my home with a mortgage.",
+          "Q58: Stability and being able to make the yard and studio corner my own."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Arianna pays household expenses herself with no lodgers, co-residents, or household financial contributors.",
+        "ground_truth_label": "Sole household expense payer",
+        "behavioral_evidence_from_interview": [
+          "Q54: No lodgers, boarders, or live-in employees.",
+          "Q55: I pay the household expenses myself."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Arianna uses her guest room partly for paintings, wrapping paper, and a half-finished jigsaw puzzle.",
+        "ground_truth_label": "Guest room used for creative storage and puzzle",
+        "behavioral_evidence_from_interview": [
+          "Q11: a guest room that mostly holds paintings, wrapping paper, and a half-finished jigsaw puzzle."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Arianna feels mostly safe at home and uses basic precautions like locking doors and keeping porch lights on.",
+        "ground_truth_label": "Mostly safe with routine home precautions",
+        "behavioral_evidence_from_interview": [
+          "Q09: I feel mostly safe. I lock my doors, keep porch lights on, and pay attention."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Arianna worries more about faster local traffic than crime near her home.",
+        "ground_truth_label": "Traffic is primary neighborhood safety concern",
+        "behavioral_evidence_from_interview": [
+          "Q09: The bigger worry is traffic getting faster on roads that used to feel quiet."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Arianna usually spends about 3700 to 3900 dollars per month and recently spent about 4300 dollars due to dental and car expenses.",
+        "ground_truth_label": "Monthly spending range and recent elevated month",
+        "behavioral_evidence_from_interview": [
+          "Q57: Last month I spent around 4,300 dollars.",
+          "Q57: A more typical month is closer to 3,700 to 3,900 dollars."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Arianna tracks spending with a spreadsheet and bank app.",
+        "ground_truth_label": "Tracks spending digitally and manually",
+        "behavioral_evidence_from_interview": [
+          "Q57: Yes, in a spreadsheet and through my bank app."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Arianna maintains emergency savings, retirement savings, and a small brokerage account with a goal of at least six months of expenses.",
+        "ground_truth_label": "Emergency, retirement, and brokerage savings",
+        "behavioral_evidence_from_interview": [
+          "Q61: regular savings account for emergencies, a retirement account through work, and a small brokerage account.",
+          "Q61: At least six months is my goal."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Arianna could cover a 400 dollar emergency from savings or checking.",
+        "ground_truth_label": "Can cover 400 dollar emergency",
+        "behavioral_evidence_from_interview": [
+          "Q82: I could cover a 400 dollar emergency from savings or checking."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Arianna's current debts are a mortgage and car loan; she pays credit cards monthly and has no family or student loan debt.",
+        "ground_truth_label": "Mortgage and car loan only, no revolving or family debt",
+        "behavioral_evidence_from_interview": [
+          "Q63: I have my mortgage and a car loan.",
+          "Q63: I use credit cards... but pay them off monthly.",
+          "Q63: I do not have student loans anymore and I do not owe family money."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Arianna reads speculative fiction and values books as part of evening routine.",
+        "ground_truth_label": "Reads speculative fiction",
+        "behavioral_evidence_from_interview": [
+          "Q01: reading speculative fiction.",
+          "Q15: I try to sit at the piano or read before bed."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.arts_and_culture"
+        ]
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Arianna watches Cowboys and Astros games as part of family and Sunday routines.",
+        "ground_truth_label": "Watches Cowboys and Astros",
+        "behavioral_evidence_from_interview": [
+          "Q05: unless the Cowboys game has us both yelling.",
+          "Q15: maybe an Astros game."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.sports_and_fitness"
+        ]
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Arianna uses jigsaw puzzles as a quiet home activity.",
+        "ground_truth_label": "Enjoys jigsaw puzzles",
+        "behavioral_evidence_from_interview": [
+          "Q11: a half-finished jigsaw puzzle on a folding table."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.hobbies_and_recreation"
+        ]
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Arianna paints abstract acrylic color fields to process emotions and ideas.",
+        "ground_truth_label": "Abstract acrylic painting for processing",
+        "behavioral_evidence_from_interview": [
+          "Q44: painted a dark blue canvas with a thin orange line through it.",
+          "Q43: painting color fields."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.arts_and_culture",
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Arianna gardens with succulents and lavender.",
+        "ground_truth_label": "Gardens succulents and lavender",
+        "behavioral_evidence_from_interview": [
+          "Q08: enough sun for succulents and lavender."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.nature_and_outdoors",
+          "preferences.home_and_lifestyle"
+        ]
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Arianna walks trails with Maribel and watches birds.",
+        "ground_truth_label": "Trail walking and birdwatching",
+        "behavioral_evidence_from_interview": [
+          "Q07: My friend Maribel walks with me.",
+          "Q47: watching birds on a trail."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.nature_and_outdoors"
+        ]
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Arianna practices piano and uses it for stress relief.",
+        "ground_truth_label": "Piano as hobby and stress relief",
+        "behavioral_evidence_from_interview": [
+          "Q50: sitting at the piano for 20 minutes.",
+          "Q43: painting, piano."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.music",
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Arianna works as a senior insurance sales agent selling personal and commercial coverage.",
+        "ground_truth_label": "Senior insurance sales agent",
+        "behavioral_evidence_from_interview": [
+          "Q16: I am a senior insurance sales agent.",
+          "Q65: I sell auto, home, life, and commercial policies."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Arianna sells property, liability, auto, life, and small business coverage.",
+        "ground_truth_label": "Sells multiple insurance product lines",
+        "behavioral_evidence_from_interview": [
+          "Q16: property, liability, auto, life, and small business coverage."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Arianna uses visual analogies such as acrylic paint layers to explain insurance coverage.",
+        "ground_truth_label": "Uses visual insurance analogies",
+        "behavioral_evidence_from_interview": [
+          "Q65: visual analogies, like layers of acrylic paint, to explain deductibles, liability limits, and gaps in coverage."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist",
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Arianna mentors younger women in sales and wants a formal mentorship path for women over 50.",
+        "ground_truth_label": "Mentors women in sales",
+        "behavioral_evidence_from_interview": [
+          "Q17: mentor two younger women in sales.",
+          "Q108: mentor women in sales over 50."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Arianna wants to build a boutique insurance niche for artists, freelancers, and small businesses.",
+        "ground_truth_label": "Boutique insurance niche ambition",
+        "behavioral_evidence_from_interview": [
+          "Q108: boutique insurance practice or consulting niche focused on artists, freelancers, and small businesses."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Arianna worked all 52 weeks in the past year and usually works about 43 to 48 hours per week.",
+        "ground_truth_label": "Full-year work with 43-48 weekly hours",
+        "behavioral_evidence_from_interview": [
+          "Q67: I worked all 52 weeks.",
+          "Q68: Usually about 43 to 48 hours a week."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Arianna has been with her current agency for 18 years.",
+        "ground_truth_label": "18 years at current agency",
+        "behavioral_evidence_from_interview": [
+          "Q76: I have been with my current agency 18 years."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Arianna's job benefits include health insurance, paid time off, sick time, a retirement plan, and some flexibility.",
+        "ground_truth_label": "Receives standard benefits and flexibility",
+        "behavioral_evidence_from_interview": [
+          "Q76: health insurance, paid time off, sick time, retirement plan, and some flexibility."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Arianna received about 7200 dollars before taxes and deductions last month and about 5100 dollars take-home.",
+        "ground_truth_label": "Last month income 7200 gross and 5100 net",
+        "behavioral_evidence_from_interview": [
+          "Q72: about 7,200 dollars before taxes and deductions.",
+          "Q72: take-home was closer to 5,100 dollars."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Arianna is paid twice a month and commissions can lag or vary by 1000 dollars or more.",
+        "ground_truth_label": "Twice-monthly pay with variable commissions",
+        "behavioral_evidence_from_interview": [
+          "Q73: I get regular pay twice a month.",
+          "Q72: It can swing by 1,000 dollars or more."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Arianna's occupation is not union-covered.",
+        "ground_truth_label": "Not union-covered",
+        "behavioral_evidence_from_interview": [
+          "Q66: No, my occupation is not union-covered."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Arianna hopes to write a guide titled Imaginative Insurance: How Artful Thinking Improves Risk Management.",
+        "ground_truth_label": "Imaginative Insurance writing goal",
+        "behavioral_evidence_from_interview": [
+          "Q108: Imaginative Insurance: How Artful Thinking Improves Risk Management."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Arianna uses speculative fiction and imaginative stories to inspire sales narratives.",
+        "ground_truth_label": "Speculative fiction inspires sales narratives",
+        "behavioral_evidence_from_interview": [
+          "Q01: reading speculative fiction... inspire fresh sales narratives."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Church festivals and community meals function as cultural anchors for Arianna.",
+        "ground_truth_label": "Church festivals as cultural anchors",
+        "behavioral_evidence_from_interview": [
+          "Q47: festival food tables, donation drives, and occasional setup for community meals."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "preferences.community_and_civic"
+        ]
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Arianna talks with Marco around Dallas Cowboys games.",
+        "ground_truth_label": "Dallas Cowboys fan connection",
+        "behavioral_evidence_from_interview": [
+          "Q05: unless the Cowboys game has us both yelling too much."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Arianna includes Houston Astros games in Sunday routines.",
+        "ground_truth_label": "Houston Astros fan routine",
+        "behavioral_evidence_from_interview": [
+          "Q15: Sundays are church when I go... and maybe an Astros game."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Arianna likes the prairie sky and local landscape around Springtown.",
+        "ground_truth_label": "Values Springtown prairie landscape",
+        "behavioral_evidence_from_interview": [
+          "Q10: the way the prairie sky opens up in the evening."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Arianna walks trails with Maribel, who brings binoculars.",
+        "ground_truth_label": "Trail walks with binocular-carrying friend",
+        "behavioral_evidence_from_interview": [
+          "Q07: She brings binoculars, and I bring almonds or a thermos."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Arianna feels spiritually connected while watching birds on trails.",
+        "ground_truth_label": "Birdwatching as spiritual connection",
+        "behavioral_evidence_from_interview": [
+          "Q47: When I am watching birds on a trail... I feel connected to something larger."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Arianna uses CRM, email, phone, and carrier portals for insurance work.",
+        "ground_truth_label": "Uses insurance work digital tools",
+        "behavioral_evidence_from_interview": [
+          "Q65: I use a CRM, email, phone, and carrier portals."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Arianna moved more policy tracking into CRM while still keeping handwritten notes.",
+        "ground_truth_label": "CRM plus handwritten notes",
+        "behavioral_evidence_from_interview": [
+          "Q18: moved more of my policy tracking into the CRM, even though I still keep handwritten notes."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Arianna uses Facebook, Instagram, and LinkedIn selectively.",
+        "ground_truth_label": "Selective social media use",
+        "behavioral_evidence_from_interview": [
+          "Q48: I use Facebook mostly for family... I have Instagram... For work, I maintain a LinkedIn profile."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Arianna avoids medical misinformation and political shouting on social media.",
+        "ground_truth_label": "Avoids misinformation and online conflict",
+        "behavioral_evidence_from_interview": [
+          "Q48: Political shouting... and medical misinformation."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Arianna votes regularly and usually votes early.",
+        "ground_truth_label": "Regular early voter",
+        "behavioral_evidence_from_interview": [
+          "Q23: I vote regularly.",
+          "Q23: Usually early."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Arianna cares about local roads, property taxes, schools, health care costs, public safety, and county services.",
+        "ground_truth_label": "Local civic issue priorities",
+        "behavioral_evidence_from_interview": [
+          "Q23: roads, schools, taxes, and county services.",
+          "Q24: Small business policy, property taxes, health care costs, public safety."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Arianna identifies as a Republican-leaning moderate conservative with independent streaks and reservations about extremism.",
+        "ground_truth_label": "Republican-leaning moderate conservative",
+        "behavioral_evidence_from_interview": [
+          "Q95: Republican-leaning... Moderate conservative is the best description.",
+          "Q96: Closer to the Republican Party, but with reservations."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Arianna supports practical, targeted, accountable help for families and small businesses facing illness, disasters, or bad economies.",
+        "ground_truth_label": "Supports targeted accountable public help",
+        "behavioral_evidence_from_interview": [
+          "Q24: I support practical help when it is targeted and accountable."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Black Lives Matter affected Arianna somewhat, and she supports police accountability reforms such as transparency, de-escalation, proper body camera use, complaint processes, and consequences for misconduct.",
+        "ground_truth_label": "Somewhat affected by BLM and supports accountability reforms",
+        "behavioral_evidence_from_interview": [
+          "Q26: I would say somewhat.",
+          "Q27: Body cameras used properly, transparent complaint processes, de-escalation training."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Arianna has had limited, mostly routine law-enforcement experiences, has not felt mistreated, and has never been arrested.",
+        "ground_truth_label": "Limited routine law enforcement experience and no arrest",
+        "behavioral_evidence_from_interview": [
+          "Q20: limited and mostly routine.",
+          "Q20: I have not felt mistreated.",
+          "Q22: I have never been arrested."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Arianna had a distant cousin arrested for DUI many years ago, but no close family jail or prison experience shaped her daily life.",
+        "ground_truth_label": "Distant cousin DUI, no close family incarceration impact",
+        "behavioral_evidence_from_interview": [
+          "Q22: a distant cousin arrested for a DUI many years ago.",
+          "Q22: no close family member has been through jail or prison in a way that shaped my daily life."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Arianna volunteers at church festivals, donation drives, community meals, and occasional insurance workshops after storms.",
+        "ground_truth_label": "Local church and insurance workshop volunteer",
+        "behavioral_evidence_from_interview": [
+          "Q17: volunteer at church festivals and sometimes help with community insurance workshops after storms.",
+          "Q47: festival food tables, donation drives, and occasional setup for community meals."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Arianna practices piano at night because she lives alone and values quiet.",
+        "ground_truth_label": "Nighttime piano practice",
+        "behavioral_evidence_from_interview": [
+          "Q11: I can practice piano at 9:00 at night."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Arianna listens to Oscar Peterson recordings to feel grounded.",
+        "ground_truth_label": "Oscar Peterson for grounding",
+        "behavioral_evidence_from_interview": [
+          "Q43: playing Oscar Peterson recordings."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Arianna played piano after a client's death to process grief.",
+        "ground_truth_label": "Piano for grief processing",
+        "behavioral_evidence_from_interview": [
+          "Q44: I played piano quietly."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "No substantive clothing, grooming, or fashion preferences were discussed, though Arianna wears reading glasses.",
+        "ground_truth_label": "No fashion preference evidence; wears reading glasses",
+        "behavioral_evidence_from_interview": [
+          "Q31: I wear reading glasses."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Arianna's grandparents immigrated from southern Italy in the 1920s.",
+        "ground_truth_label": "Southern Italian grandparent immigration",
+        "behavioral_evidence_from_interview": [
+          "Q01: My grandparents came to Texas in the 1920s.",
+          "Q86: My grandparents came from southern Italy in the 1920s."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Arianna identifies as White.",
+        "ground_truth_label": "White racial identity",
+        "behavioral_evidence_from_interview": [
+          "Q89: White."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Arianna is not Hispanic, Latinx, or Spanish origin.",
+        "ground_truth_label": "Not Hispanic/Latinx/Spanish origin",
+        "behavioral_evidence_from_interview": [
+          "Q88: No, I am not Hispanic, Latinx, or Spanish origin."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Arianna speaks only a few Italian family phrases and food words.",
+        "ground_truth_label": "Limited Italian language knowledge",
+        "behavioral_evidence_from_interview": [
+          "Q88: Only a few family phrases and food words."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Arianna identifies as Roman Catholic, was raised Catholic, and attends Mass a couple of times a month.",
+        "ground_truth_label": "Moderately practicing Roman Catholic",
+        "behavioral_evidence_from_interview": [
+          "Q47: I was raised Catholic, and I still identify as Catholic.",
+          "Q94: Roman Catholic.",
+          "Q94: I attend a couple of times a month."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Arianna was born on March 12, 1964.",
+        "ground_truth_label": "Date of birth March 12 1964",
+        "behavioral_evidence_from_interview": [
+          "Q85: March 12, 1964."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Arianna was born in Weatherford, Texas, raised in Springtown, and has never lived outside Texas.",
+        "ground_truth_label": "Weatherford birth, Springtown upbringing, Texas-only residence",
+        "behavioral_evidence_from_interview": [
+          "Q87: born in Weatherford, Texas, and raised in Springtown.",
+          "Q87: No, only traveled outside Texas."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Both of Arianna's parents were born in Texas.",
+        "ground_truth_label": "Parents born in Texas",
+        "behavioral_evidence_from_interview": [
+          "Q86: Yes, both were born in Texas."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Arianna turned down a Dallas management-track insurance job in her thirties to stay local and independent.",
+        "ground_truth_label": "Rejected Dallas management path for local independence",
+        "behavioral_evidence_from_interview": [
+          "Q02: I turned it down and stayed independent in the local market."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Arianna helped care for her mother during heart trouble and diabetes.",
+        "ground_truth_label": "Helped with mother's heart trouble and diabetes",
+        "behavioral_evidence_from_interview": [
+          "Q35: My mother's later years involved heart trouble and diabetes, and I helped with appointments and paperwork."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Arianna had therapy briefly after her mother died.",
+        "ground_truth_label": "Brief therapy after mother's death",
+        "behavioral_evidence_from_interview": [
+          "Q45: Briefly after my mother died."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Arianna is planning a later-career shift toward boutique insurance, writing, mentoring, and travel.",
+        "ground_truth_label": "Late-career transition planning",
+        "behavioral_evidence_from_interview": [
+          "Q108: boutique insurance practice... mentor women... make real progress on my guide... travel more."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer",
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Arianna lost a longtime boutique-owner client last fall and processed grief through piano and a dark blue canvas with a thin orange line.",
+        "ground_truth_label": "Recent client death processed through art and music",
+        "behavioral_evidence_from_interview": [
+          "Q44: Last fall I lost a longtime client, a small boutique owner.",
+          "Q44: played piano quietly, then painted a dark blue canvas with a thin orange line."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Arianna values integrity, independence, craft, family loyalty, and imagination.",
+        "ground_truth_label": "Core values integrity independence craft family loyalty imagination",
+        "behavioral_evidence_from_interview": [
+          "Q109: I value integrity, independence, craft, family loyalty, and imagination."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Arianna reads news in the morning as part of her routine.",
+        "ground_truth_label": "Morning news routine",
+        "behavioral_evidence_from_interview": [
+          "Q15: read the news."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-093",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Arianna uses Facebook for family, local events, church announcements, and community news.",
+        "ground_truth_label": "Facebook for family and local information",
+        "behavioral_evidence_from_interview": [
+          "Q48: Facebook mostly for family, local events, church announcements, and keeping an eye on community news."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-094",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Arianna uses Instagram lightly for art, gardening, and jazz accounts.",
+        "ground_truth_label": "Light Instagram use for art garden jazz",
+        "behavioral_evidence_from_interview": [
+          "Q48: Instagram... mainly for art accounts, garden ideas, and a few jazz pages."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-095",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Arianna trusts her doctor, the CDC, the state health department, and major hospitals for vaccine information.",
+        "ground_truth_label": "Trusted official and medical vaccine sources",
+        "behavioral_evidence_from_interview": [
+          "Q42: My primary care doctor is first. I also look at the CDC website, the state health department, and major hospital information."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-096",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Arianna learns about race and policing through long-form articles, interviews, church discussions, and conversations rather than social media fights.",
+        "ground_truth_label": "Long-form and interpersonal race/policing information diet",
+        "behavioral_evidence_from_interview": [
+          "Q28: long-form articles, interviews, church discussions, and conversations with people I know rather than social media fights."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-097",
+        "source": "reprojected",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Arianna's life course reflects local rootedness and upward professional stability.",
+        "ground_truth_label": "Local rootedness with professional stability",
+        "behavioral_evidence_from_interview": [
+          "Q87: born in Weatherford, Texas, and raised in Springtown.",
+          "Q76: I have been with my current agency 18 years."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-098",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Arianna is risk-aware and reserve-oriented in her personal finances.",
+        "ground_truth_label": "Risk-aware reserve-oriented financial style",
+        "behavioral_evidence_from_interview": [
+          "Q61: Working in insurance makes you think about risk and reserves.",
+          "Q83: My financial personality is creative in earning and conservative in protecting."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-099",
+        "source": "reprojected",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Arianna responds to uncertainty with lists, buffers, documentation, and practical analogies rather than impulsive action.",
+        "ground_truth_label": "Deliberate uncertainty management",
+        "behavioral_evidence_from_interview": [
+          "Q03: sit with a legal pad and write out what I am protecting and what I am giving up.",
+          "Q65: visual analogies... to explain deductibles, liability limits, and gaps in coverage."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-100",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Arianna's institutional trust is pragmatic and conditional.",
+        "ground_truth_label": "Pragmatic conditional institutional trust",
+        "behavioral_evidence_from_interview": [
+          "Q24: institutions need transparency because power can get lazy.",
+          "Q42: I trust the broad medical consensus more than rumors."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-101",
+        "source": "reprojected",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Arianna presents as calm, independent, conscientious, creatively restless, and cognitively metaphorical.",
+        "ground_truth_label": "Calm independent conscientious creatively restless metaphorical style",
+        "behavioral_evidence_from_interview": [
+          "Q43: mostly steady, with pockets of restlessness.",
+          "Q65: I can translate policy language into images that make sense."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-102",
+        "source": "reprojected",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Arianna's attachment style appears warm but autonomy-protective.",
+        "ground_truth_label": "Warm but autonomy-protective attachment style",
+        "behavioral_evidence_from_interview": [
+          "Q05: solitary by temperament, but I am not cut off.",
+          "Q07: I would rather have honest companionship than a relationship that rearranges my whole house."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-103",
+        "source": "reprojected",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Arianna's motivation combines mastery, usefulness, craft, and late-career generativity.",
+        "ground_truth_label": "Mastery usefulness craft and generativity motivation",
+        "behavioral_evidence_from_interview": [
+          "Q108: I hope I am still useful, but less rushed.",
+          "Q109: Craft... the way you make something matters."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}

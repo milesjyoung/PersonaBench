@@ -1,0 +1,2351 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "e4cc52624842450b80da0a10a4014f67",
+      "name": "Brittany Bradford",
+      "verification_date": "2026-05-22"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age 38 and female sex match interview date of birth and self-description.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.age, seed.sex",
+              "source_b_ref": "Q85",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed married-present status matches interview reports that Brittany is married and lives with husband Michael.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.marital_status",
+              "source_b_ref": "Q05, Q84",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward spouse name Michael Bradford-Reyes/Reyes and marriage since 2016."
+            },
+            {
+              "id": 3,
+              "text": "Seed Washington, DC 20007 location matches interview Northwest DC residence near Georgetown and Glover Park.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.city, seed.state, seed.zipcode",
+              "source_b_ref": "Q08, Q11",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward owned two-bedroom condo and neighborhood context."
+            },
+            {
+              "id": 4,
+              "text": "Seed graduate education is consistent, but seed bachelor's_field says business while interview says bachelor's degree was in computer science and graduate degree was business.",
+              "verdict": "inconsistent",
+              "gap": false,
+              "source_a_ref": "seed.bachelors_field",
+              "source_b_ref": "Q01, Q90",
+              "action": "REINTERPRET_SEED",
+              "resolution": "Interpret the seed business field as referring to graduate business education, not the bachelor's field."
+            },
+            {
+              "id": 5,
+              "text": "Seed omits household composition; interview confirms a two-person child-free household with no pets, lodgers, or temporary residents.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed demographic fields",
+              "source_b_ref": "Q11-Q14, Q51-Q54",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward no children, no pets, and household count of two."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 1,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile age, gender, marital status, location, education, and occupation faithfully represent interview demographics.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q05, Q08, Q84-Q90",
+              "source_b_ref": "profile top-level fields, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures the no-children household, but could be more explicit that there are no pets and no dependents.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q14, Q51-Q54",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Add no dependents and no pets to home_and_lifestyle."
+            },
+            {
+              "id": 3,
+              "text": "Profile captures D.C.-area family ties but omits that parents still live in Maryland and in-laws are in Northern Virginia.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q05",
+              "source_b_ref": "preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Add regional family locations to social_and_relationships."
+            },
+            {
+              "id": 4,
+              "text": "Profile correctly identifies upper-middle-class, dual-income status through occupation, income, homeownership, and savings.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q56-Q64, Q72-Q74, Q83",
+              "source_b_ref": "summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Top-level marital status, home_and_lifestyle, social_and_relationships, and demographer summary all agree that Brittany is married and lives in a two-person household.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "profile.marital_status, preferences.home_and_lifestyle",
+              "field_b": "preferences.social_and_relationships, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Education fields consistently describe graduate business education after computer science undergraduate education.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "profile.education",
+              "field_b": "preferences.life_events_and_transitions, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Location fields consistently place her in Northwest Washington, DC 20007 near Georgetown/Glover Park.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "profile.location",
+              "field_b": "preferences.home_and_lifestyle, summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview gives birthplace Washington, D.C. and Bethesda residence at age 16; profile includes this but could distinguish birthplace from childhood residence more explicitly.",
+              "gap": true,
+              "interview_ref": "Q87, Q97",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add explicit birthplace and age-16 residence detail."
+            },
+            {
+              "id": 2,
+              "text": "Interview names parents' occupations and education, which are only summarized broadly in the profile.",
+              "gap": true,
+              "interview_ref": "Q100-Q107",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add father's federal contracting program-manager background and mother's public-school guidance counselor background."
+            },
+            {
+              "id": 3,
+              "text": "Interview confirms no military service, no school enrollment, and no public assistance; these demographic facts are absent from preferences.",
+              "gap": true,
+              "interview_ref": "Q91-Q93, Q80",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add not currently enrolled, never served in the military, and no public assistance benefits."
+            }
+          ],
+          "summary": {
+            "present": 1,
+            "missing": 3
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes methodical planning and data-driven decisions; interview repeatedly confirms spreadsheets, budget tracking, habit apps, and calendar blocking.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona, seed.professional_persona",
+              "source_b_ref": "Q03, Q17, Q57, Q61",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed describes competitive drive; interview confirms tennis competition, career ambition, and performance tracking.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.sports_persona, seed.persona",
+              "source_b_ref": "Q15, Q17, Q43",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed mentions overcommitment to conference speaking; interview enriches this with sleep disruption and deliberate boundary-setting.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q18, Q43-Q45, Q50",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward boundary-setting, protected evenings, and reduced weeknight wine."
+            },
+            {
+              "id": 4,
+              "text": "Seed implies affluent cultural consumption; interview supports secure finances but adds caution, automated savings, and opportunity-cost thinking.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.travel_persona, seed.culinary_persona",
+              "source_b_ref": "Q56-Q64, Q83",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward financial security with disciplined saving and spending tradeoffs."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately reflects her future orientation and automated savings behavior.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q61-Q62, Q83",
+              "source_b_ref": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures budgeting and travel as intentional spending but omits gross income and monthly spending figures.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q57, Q72-Q74",
+              "source_b_ref": "preferences.home_and_lifestyle, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Add monthly spending, personal gross pay, and household gross pay facts to home_and_lifestyle."
+            },
+            {
+              "id": 3,
+              "text": "Profile correctly describes her coping shift from organizing harder toward recovery time and sleep protection.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q18, Q43-Q45, Q50",
+              "source_b_ref": "preferences.health_and_wellness, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile includes wine monitoring, but not the occasional low-dose cannabis use and non-use of prescriptions for coping.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q39",
+              "source_b_ref": "preferences.health_and_wellness, preferences.food_and_dining",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Add occasional low-dose cannabis gummies and no prescription coping use to health_and_wellness."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Financial security, intentional spending, travel, dining, and professional development goals are mutually consistent.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.travel, preferences.food_and_dining",
+              "field_b": "summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Career ambition and overcommitment risks are consistently represented across work, health, and psychological summary fields.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.work_and_career, preferences.health_and_wellness",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Data-driven identity is consistently reflected in technology, sports tracking, budgeting, and work leadership.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.technology, preferences.sports_and_fitness",
+              "field_b": "preferences.home_and_lifestyle, summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview states she keeps about six months of core expenses in emergency savings.",
+              "gap": true,
+              "interview_ref": "Q61",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add six-month emergency fund."
+            },
+            {
+              "id": 2,
+              "text": "Interview states credit cards are used for points and paid in full monthly.",
+              "gap": true,
+              "interview_ref": "Q63, Q82",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add no revolving credit-card debt and points usage."
+            },
+            {
+              "id": 3,
+              "text": "Interview states she can cover a $400 emergency without borrowing.",
+              "gap": true,
+              "interview_ref": "Q82",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add emergency expense resilience."
+            },
+            {
+              "id": 4,
+              "text": "Interview says she donates occasionally and attends political events, but is more consistent with voting and civic tech volunteering.",
+              "gap": true,
+              "interview_ref": "Q23",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add occasional donations/events and stronger voting/civic-tech pattern."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed civic-engagement background is confirmed by consistent voting, D.C. statehood concern, and public-sector modernization values.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.cultural_background, seed.career_goals_and_ambitions",
+              "source_b_ref": "Q23-Q25, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed does not specify party ID; interview adds strong Democratic identification.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed demographic/persona fields",
+              "source_b_ref": "Q24, Q95-Q96",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward strong Democratic, center-left to progressive, pragmatic orientation."
+            },
+            {
+              "id": 3,
+              "text": "Seed career in civic organizations is consistent with interview emphasis on civic tech and public-sector systems.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.career_goals_and_ambitions",
+              "source_b_ref": "Q24-Q25, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Interview enriches seed with law-enforcement experiences: limited direct contact, protest observation, and support for accountability.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.cultural_background",
+              "source_b_ref": "Q20-Q22, Q24",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward buffered personal law-enforcement experience and accountability stance."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately captures voting frequency, Democratic identification, and issue priorities.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23-Q24, Q95-Q96",
+              "source_b_ref": "preferences.community_and_civic, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile accurately captures implementation-focused politics around procurement, data, privacy, cybersecurity, and administration.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q24-Q25",
+              "source_b_ref": "preferences.technology, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Profile captures Black Lives Matter influence and workplace equity actions but omits some concrete actions such as protests and donations.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q26-Q30",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Add joined a few protests, donated to local organizations, and discussed race/policing with family, friends, and coworkers."
+            },
+            {
+              "id": 4,
+              "text": "Profile does not fully capture nuanced trust in law enforcement: routine personal encounters but awareness of unequal experiences by race, neighborhood, age, and immigration status.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q20-Q22",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Add law-enforcement experience and institutional-accountability nuance."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Community/civic preferences and political scientist summary consistently describe strong Democratic alignment and civic participation.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Technology and civic categories consistently frame her career as public-sector modernization rather than purely private-sector advancement.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.technology, preferences.work_and_career",
+              "field_b": "preferences.community_and_civic, summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Race/equity commitments are consistent across community/civic, technology, work, and summaries.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic, preferences.technology",
+              "field_b": "summaries.political_scientist, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview includes direct law-enforcement history: expired-registration warning, package-theft report, no arrests, and acquaintances arrested at protests.",
+              "gap": true,
+              "interview_ref": "Q20-Q22",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add law-enforcement experience details."
+            },
+            {
+              "id": 2,
+              "text": "Interview says Michael is engaged in race/policing issues through policy work and family responses vary.",
+              "gap": true,
+              "interview_ref": "Q30",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add political conversation pattern with spouse and family."
+            },
+            {
+              "id": 3,
+              "text": "Interview says she may consider candidate quality in local nonpartisan races despite not voting Republican in recent major elections.",
+              "gap": true,
+              "interview_ref": "Q95",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add pragmatic local candidate evaluation."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 3
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed describes organized, methodical resilience; interview confirms childhood structure, calm work identity, and planning-heavy coping.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona, seed.professional_persona",
+              "source_b_ref": "Q01, Q15-Q18, Q77",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Seed describes high-energy social life; interview confirms hosting, tennis friends, meetups, family ties, and social dinners.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona, seed.culinary_persona",
+              "source_b_ref": "Q07, Q15, Q56",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Seed mentions hidden late-night wine tastings and overcommitment; interview confirms wine as social/coping risk and late-night conference-prep pressure.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q18, Q38, Q43-Q45, Q50",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Interview enriches the seed with reflective self-awareness around privilege, boundaries, and rest legitimacy.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed.persona",
+              "source_b_ref": "Q28, Q43-Q45, Q50, Q109",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Carry forward self-awareness around privilege, balance, and rest."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 1
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Profile accurately represents conscientiousness, achievement orientation, and analytical coping.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01-Q03, Q15-Q18, Q43-Q45",
+              "source_b_ref": "summaries.psychologist, preferences.technology",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Profile captures overcommitment and work-related anxiety, but omits that she has no diagnosed depression or formal anxiety disorder and no panic attacks.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q45",
+              "source_b_ref": "preferences.health_and_wellness, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Add no formal depression/anxiety diagnosis and no panic attacks to health_and_wellness."
+            },
+            {
+              "id": 3,
+              "text": "Profile captures relational loyalty to Michael, family, friends, and mentees.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q05-Q07, Q17, Q43-Q46",
+              "source_b_ref": "preferences.social_and_relationships, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "Profile captures values but could include the explicit formulation 'competence with kindness' and ambition serving something larger than ego.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q109",
+              "source_b_ref": "preferences.life_events_and_transitions, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null,
+              "disposition": "CARRY_FORWARD",
+              "gap_resolution": "Add explicit values to life_events_and_transitions."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Socially active identity and need for recovery time are not contradictory; the profile consistently presents overcommitment as a managed risk.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships, preferences.food_and_dining",
+              "field_b": "preferences.health_and_wellness, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Competitive sports habits and calm professional identity are consistent with a high-conscientiousness, mastery-oriented personality.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.sports_and_fitness",
+              "field_b": "preferences.work_and_career, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Cultural curiosity, spirituality, and civic identity are consistently integrated into values and lifestyle rather than treated as competing identities.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.arts_and_culture, preferences.cultural_and_linguistic",
+              "field_b": "preferences.community_and_civic, summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Interview says Michael helped her recognize that she had built an overcommitment trap.",
+              "gap": true,
+              "interview_ref": "Q44",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add Michael as practical emotional support who names patterns without dramatizing them."
+            },
+            {
+              "id": 2,
+              "text": "Interview says she has considered therapy but has not made it a regular practice.",
+              "gap": true,
+              "interview_ref": "Q45",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add therapy openness but no regular practice."
+            },
+            {
+              "id": 3,
+              "text": "Interview says the family tends to cope by becoming competent and presenting solutions before admitting overwhelm.",
+              "gap": true,
+              "interview_ref": "Q46",
+              "should_be_in": "preferences.social_and_relationships",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add family coping style."
+            },
+            {
+              "id": 4,
+              "text": "Interview says she values competence with kindness, curiosity, integrity, civic responsibility, family, friendship, beauty, and ambition serving something larger than ego.",
+              "gap": true,
+              "interview_ref": "Q109",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "CARRY_FORWARD",
+              "resolution": "Add explicit values statement."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No unresolved contradictions or FLAG_FOR_REVIEW findings remain. The only substantive inconsistency is the seed bachelor's-field label, resolved by interpreting it as graduate business education. Several interview gaps were carried forward into the corrected profile.",
+    "final_status": "Corrected profile is ready for downstream use with summaries preserved verbatim and hidden facts generated."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "e4cc52624842450b80da0a10a4014f67",
+    "name": "Brittany Bradford",
+    "age": 38,
+    "gender": "Female",
+    "marital_status": "Married, living with husband Michael Bradford-Reyes since 2016",
+    "location": "Washington, DC 20007",
+    "education": "Master's-level graduate business degree after bachelor's degree in computer science",
+    "occupation": "Full-stack software developer and technical lead specializing in cloud architecture, civic technology, and Scrum team leadership",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Health-oriented and data-conscious, with regular exercise, strong vaccine support, and attention to stress and sleep.",
+        "details": [
+          "Exercises through tennis, hiking, yoga, walking, and occasional strength training, usually four or five times a week. Evidence: Q31",
+          "Uses habit tracking and calendar blocking to maintain wellness routines. Evidence: Q17, Q32",
+          "Strongly pro-vaccine and trusts doctors, CDC, NIH, Johns Hopkins, and peer-reviewed sources. Evidence: Q41, Q42",
+          "Has mild seasonal allergies, occasional ergonomic neck/shoulder tension, and no major chronic condition. Evidence: Q31, Q33",
+          "Had a minor tennis-related wrist strain last year and used brief physical therapy, a brace, tennis rest, and voice dictation. Evidence: Q33",
+          "Manages work-related insomnia and stress through fewer late screens, less weeknight wine, protected evenings, exercise, planning, and sleep boundaries. Evidence: Q18, Q33, Q43-Q45, Q50",
+          "Has not been diagnosed with depression or a formal anxiety disorder and reports no panic attacks, though she experiences work-related anxiety around presentations and unclear expectations. Evidence: Q45",
+          "Uses yoga, meditation apps, massage, and occasional acupuncture as complementary stress and muscle-tension care while relying on conventional medicine. Evidence: Q37",
+          "Does not smoke, does not use prescriptions for coping, and uses only normal over-the-counter pain medication when needed. Evidence: Q38, Q39",
+          "Uses low-dose cannabis gummies only occasionally, about a couple of times a year in legal social settings. Evidence: Q39",
+          "Has considered therapy for performance pressure and boundaries but has not made it a regular practice. Evidence: Q45",
+          "Has good employer-sponsored insurance and has not forgone needed care because of cost, though she finds health-care administration frustrating. Evidence: Q36, Q40"
+        ],
+        "evidence": "Q17-Q18, Q31-Q45, Q50"
+      },
+      "food_and_dining": {
+        "summary": "Avid home cook and social host who enjoys themed dinner parties, wine pairings, and elevated but practical grocery routines.",
+        "details": [
+          "Hosts monthly dinner parties that mix friends, colleagues, cooking, and wine pairings. Evidence: Q07",
+          "Enjoys French-themed meals, Bordeaux, Sauvignon Blanc, and culinary experimentation. Evidence: Q38, Q56",
+          "Shops at Trader Joe's, Whole Foods, and local markets depending on the meal. Evidence: Q56",
+          "Uses food and wine socially but monitors weeknight drinking when stressed. Evidence: Q38, Q50",
+          "Usually drinks wine two or three nights per week, mostly one glass, with more during hosting or tastings. Evidence: Q38",
+          "Cuts dining out and convenience purchases first when extra expenses arise. Evidence: Q60"
+        ],
+        "evidence": "Q07, Q38, Q50, Q56, Q60"
+      },
+      "travel": {
+        "summary": "Plans travel deliberately, favoring cultural festivals, historic cities, photography, and regional outdoor getaways.",
+        "details": [
+          "Saves for travel to Lisbon, Prague, Istanbul, and Shenandoah Valley trips. Evidence: Q62",
+          "Prefers shoulder-season travel and cultural festivals. Evidence: Q59, Q62",
+          "Treats travel as a budget category and weighs it against other goals. Evidence: Q56, Q62",
+          "Enjoys travel photography and culturally immersive experiences. Evidence: Q48, Q62",
+          "Most recently saved for a Portugal trip tied to cultural festivals and photography. Evidence: Q62",
+          "Would pause travel or reduce travel upgrades if money got tight or extra expenses arose. Evidence: Q60, Q64"
+        ],
+        "evidence": "Q48, Q56, Q59-Q62, Q64"
+      },
+      "social_and_relationships": {
+        "summary": "Socially active, with a close marriage, strong family ties, recurring friendships, tennis relationships, and professional networks.",
+        "details": [
+          "Married to Michael Bradford-Reyes, with shared routines around cooking, walks, calendars, and sports. Evidence: Q05, Q11",
+          "Close to parents, brother Andrew, niece, and in-laws across the D.C.-Maryland-Virginia region. Evidence: Q05, Q06",
+          "Parents still live in Maryland, brother Andrew lives in Silver Spring with his wife and daughter, and Michael's parents live in Northern Virginia. Evidence: Q05",
+          "Closest friend is Maya, a product manager she meets for coffee every other Friday. Evidence: Q07",
+          "Maintains social ties through tennis, dinner parties, college friends, colleagues, and tech meetups. Evidence: Q07, Q15",
+          "Sees her parents about twice a month, her brother's family monthly or more, and Michael's parents about every six weeks unless there is a holiday. Evidence: Q05",
+          "Often plays the planner in family life by booking restaurants, coordinating Thanksgiving side dishes, and tracking travel. Evidence: Q05",
+          "Calls Michael first and Maya second when something is hard. Evidence: Q07",
+          "Michael provides practical emotional support by naming overcommitment patterns without dramatizing them. Evidence: Q44",
+          "Her family often copes by becoming competent and presenting solutions before admitting overwhelm. Evidence: Q46",
+          "Michael is engaged with race and policing issues through his policy work, while family members vary in urgency and framing. Evidence: Q30"
+        ],
+        "evidence": "Q05-Q07, Q15, Q30, Q44, Q46"
+      },
+      "home_and_lifestyle": {
+        "summary": "Lives in an owned two-bedroom Northwest D.C. condo with a structured, professional, hybrid-work lifestyle.",
+        "details": [
+          "Owns a condo with husband Michael in the 20007 area near Georgetown and Glover Park. Evidence: Q08, Q58",
+          "Uses the second bedroom as a shared office with two desks and remote-work equipment. Evidence: Q11",
+          "Values walkability, trails, coffee shops, restaurants, and access to D.C. cultural and professional life. Evidence: Q08",
+          "Household consists of two permanent members, with no children, pets, dependents, lodgers, employees, or temporary residents. Evidence: Q11-Q14, Q51-Q54",
+          "Occasional one-night guests such as a niece or friend stay only a few times a year, with no regular guest. Evidence: Q13",
+          "Michael and Brittany share household expenses roughly proportional to income, and Brittany mostly manages the budget. Evidence: Q55",
+          "Typical monthly household spending is about $8,500 to $9,000, with a recent high month around $9,500. Evidence: Q57",
+          "Her personal gross monthly pay is about $15,800, and household gross monthly income is about $26,000. Evidence: Q72, Q74",
+          "Maintains about six months of core expenses in emergency savings. Evidence: Q61",
+          "Main debt is the mortgage; student loans are paid off; there is no car loan, family loan, or carried credit-card balance. Evidence: Q63",
+          "Uses credit cards for points and convenience but pays them in full monthly. Evidence: Q63, Q82",
+          "Could cover a $400 emergency from checking or savings without borrowing. Evidence: Q82",
+          "Receives no public assistance benefits and had no low-income period in the last year. Evidence: Q80, Q81"
+        ],
+        "evidence": "Q08, Q11-Q14, Q51-Q58, Q61, Q63, Q72, Q74, Q80-Q82"
+      },
+      "entertainment": {
+        "summary": "Enjoys sports, films, restaurants, museums, social dinners, and curated media rather than passive mass entertainment.",
+        "details": [
+          "Watches Capitals and Nationals games with Michael. Evidence: Q05",
+          "Uses Instagram for travel, food, tennis friends, museums, and restaurants. Evidence: Q48",
+          "Enjoys smart conversation and dinner parties as entertainment. Evidence: Q07, Q109",
+          "References arts, music, and film as part of social and cultural life. Evidence: Q109"
+        ],
+        "evidence": "Q05, Q07, Q48, Q109"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Balances competitive, intellectual, social, and creative hobbies including tennis, hiking, mentoring, photography, hosting, and tech events.",
+        "details": [
+          "Plays weekly competitive tennis at Capital Tennis Club. Evidence: Q07, Q15",
+          "Hikes the C&O Canal Trail and takes regional outdoor trips. Evidence: Q08, Q15",
+          "Attends and speaks at tech meetups and conferences. Evidence: Q16, Q48",
+          "Mentors students interested in coding through a local nonprofit. Evidence: Q17",
+          "Mentoring usually takes two to four hours a month, more if there is a workshop. Evidence: Q17",
+          "Does a Sunday evening reset involving calendar review, groceries, spending checks, priorities, and protected evenings. Evidence: Q17"
+        ],
+        "evidence": "Q07, Q08, Q15-Q17, Q48"
+      },
+      "work_and_career": {
+        "summary": "Ambitious full-stack developer and technical lead aiming for senior technology leadership in civic technology and public-sector modernization.",
+        "details": [
+          "Works with Python, Java, JavaScript, React, AWS, Azure, SQL, Tableau, APIs, CI/CD, documentation, and architecture. Evidence: Q16, Q65",
+          "Leads Scrum ceremonies, reviews code and architecture, mentors junior developers, and translates technical decisions into business value. Evidence: Q16, Q65",
+          "Aims for Director of Engineering or VP of Product roles and possibly future consultancy. Evidence: Q108",
+          "Plans PMP certification and may pursue an executive MBA. Evidence: Q62, Q108",
+          "Works for a mid-size technology firm doing cloud modernization, including government and civic-sector clients. Evidence: Q16",
+          "Works hybrid, mostly from home and in the office or client site about twice a week. Evidence: Q16",
+          "Usually works about 45 hours per week, sometimes closer to 50 during releases. Evidence: Q68",
+          "Has one main salaried job, with occasional speaking honoraria but no regular side work or consulting. Evidence: Q70-Q71",
+          "Has been at her current company about four years and receives strong benefits including health, dental, vision, 401(k), PTO, sick leave, parental leave, and professional development funds. Evidence: Q76",
+          "Work relationships are good; her manager trusts her and coworkers see her as organized, direct, and calm under pressure. Evidence: Q77",
+          "Job is not union-covered, though she sees value in worker organization around ethics, layoffs, and working conditions. Evidence: Q66"
+        ],
+        "evidence": "Q16, Q62, Q65-Q71, Q76-Q78, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "Culturally engaged, with interests in museums, music, festivals, film, photography, and art-inflected design sensibility.",
+        "details": [
+          "Grew up with museum trips into D.C. and still values culture. Evidence: Q01",
+          "Follows museums on Instagram and uses travel for cultural exploration. Evidence: Q48, Q62",
+          "Values Beethoven while cooking, smart films, city festivals, and beauty in daily experience. Evidence: Q109",
+          "Connects art and culture to conversation, travel, and hosting. Evidence: Q07, Q109"
+        ],
+        "evidence": "Q01, Q07, Q48, Q62, Q109"
+      },
+      "sports_and_fitness": {
+        "summary": "Highly active and competitive, with tennis, yoga, hiking, walking, and sports fandom central to routine.",
+        "details": [
+          "Plays competitive tennis weekly and tracks performance metrics. Evidence: Q15, Q17",
+          "Practices yoga for mindfulness and stress management. Evidence: Q15, Q37",
+          "Roots for the Washington Capitals and Nationals and watches games with Michael. Evidence: Q05",
+          "Uses fitness as a coping strategy and boundary from screen-heavy work. Evidence: Q31, Q50",
+          "Tennis is her most consistent weekly activity outside work because it provides competition and a clean break from screens. Evidence: Q15",
+          "Moved yoga to Friday mornings because evening sessions were being displaced by work. Evidence: Q18"
+        ],
+        "evidence": "Q05, Q15, Q17-Q18, Q31, Q37, Q50"
+      },
+      "nature_and_outdoors": {
+        "summary": "Values nearby trails, hiking, walking, and regional outdoor getaways as routine grounding practices.",
+        "details": [
+          "Chose current neighborhood partly because it gives quick access to the C&O Canal Trail. Evidence: Q08",
+          "Hikes on weekends and takes trips to Shenandoah. Evidence: Q15, Q62",
+          "Experiences hiking and trails as a form of spiritual or emotional reset. Evidence: Q47, Q109",
+          "Uses neighborhood walks with Michael as part of ordinary evening life. Evidence: Q05"
+        ],
+        "evidence": "Q05, Q08, Q15, Q47, Q62, Q109"
+      },
+      "technology": {
+        "summary": "Deeply technical and strategically oriented, with strong interest in cloud, data, civic tech, AI ethics, and public-sector systems.",
+        "details": [
+          "Expertise includes Python, Java, React, AWS, Azure, SQL, Tableau, CI/CD, APIs, cloud architecture, and analytics. Evidence: Q16, Q65",
+          "Frames technology around public value, implementation, cybersecurity, privacy, and AI governance. Evidence: Q24, Q25, Q108",
+          "Uses data-driven routines in work, fitness, budgeting, and decision-making. Evidence: Q03, Q17, Q57",
+          "Mentors students in coding and supports inclusive technology pathways. Evidence: Q17, Q26, Q29",
+          "Made a conscious 2017 career shift from narrower backend engineering toward full-stack cloud architecture, product strategy, and public-sector modernization. Evidence: Q02, Q03",
+          "Cares about how data collection, appeals, websites, defaults, and missing data can exclude people from public systems. Evidence: Q25, Q27"
+        ],
+        "evidence": "Q02-Q03, Q16-Q17, Q24-Q29, Q57, Q65, Q108"
+      },
+      "community_and_civic": {
+        "summary": "Civically engaged Democrat who votes consistently, supports D.C. statehood, mentors youth, and focuses on public-sector modernization.",
+        "details": [
+          "Votes in every general election and almost every primary and local election. Evidence: Q23",
+          "Supports D.C. statehood, voting rights, reproductive rights, LGBTQ rights, climate policy, and social safety net improvements. Evidence: Q24",
+          "Mentors underrepresented students interested in coding and advocates for inclusive hiring and paid pathways. Evidence: Q17, Q26, Q29",
+          "Sees civic technology and better public systems as central to her career purpose. Evidence: Q24, Q25, Q108",
+          "Identifies as a fairly strong Democrat and center-left to progressive with a pragmatic implementation streak. Evidence: Q24, Q95-Q96",
+          "Occasionally donates or attends campaign/political events but is more consistent with voting and civic-tech volunteering than campaign work. Evidence: Q23",
+          "Supports policing accountability, civilian oversight, and more non-police responses for mental health and homelessness. Evidence: Q24",
+          "Has limited direct law-enforcement experience, including routine traffic stops and a package-theft report, and has not been arrested. Evidence: Q20-Q22",
+          "Saw heavy police presence during D.C. protests and public events and became more attentive to unequal policing experiences. Evidence: Q20-Q21",
+          "Joined a few protests, donated to local organizations, and discussed race and policing with friends, family, and coworkers after 2020. Evidence: Q26-Q30",
+          "Views racism and policing as systemic issues tied to housing, education, health care, hiring, lending, professional credibility, and public administration. Evidence: Q27-Q28",
+          "May evaluate local nonpartisan candidates by competence even though she has not voted Republican in recent major elections. Evidence: Q95"
+        ],
+        "evidence": "Q17, Q20-Q30, Q95-Q96, Q108"
+      },
+      "music": {
+        "summary": "Music evidence is limited but includes classical music and ritual/cultural appreciation.",
+        "details": [
+          "Values Beethoven while cooking as part of meaningful daily experience. Evidence: Q109",
+          "Appreciates church music and ritual despite not being a regular churchgoer. Evidence: Q47",
+          "Played piano for a few years as a child. Evidence: Q01"
+        ],
+        "evidence": "Q01, Q47, Q109"
+      },
+      "fashion_and_appearance": {
+        "summary": "Limited evidence; appearance preferences are not central, though she manages professional presentation and delays clothing purchases when budgeting.",
+        "details": [
+          "Delays clothing purchases when cutting discretionary spending. Evidence: Q60",
+          "Maintains a professional identity tied to speaking, leadership, and conference settings, implying attention to professional presentation. Evidence: Q16, Q65"
+        ],
+        "evidence": "Q16, Q60, Q65"
+      },
+      "cultural_and_linguistic": {
+        "summary": "White, non-Hispanic American from the Mid-Atlantic region with a culturally Christian Protestant background and lifelong D.C.-area identity.",
+        "details": [
+          "Born in Washington, D.C. and grew up mostly in Bethesda, Maryland. Evidence: Q87, Q97",
+          "Identifies as white and not Hispanic, Latinx, or Spanish origin. Evidence: Q88, Q89",
+          "Raised in a mainline Protestant, Episcopal-adjacent environment but is not actively practicing. Evidence: Q47, Q94",
+          "Grew up in an English-speaking household with education, civic engagement, and professional achievement emphasized. Evidence: Q01, Q88",
+          "Was born in the United States, has only traveled rather than lived abroad, and has no immediate immigrant background. Evidence: Q86",
+          "Was living in Bethesda, Maryland at age 16 with both parents and younger brother Andrew. Evidence: Q97-Q99",
+          "Is not currently enrolled in school and has not been enrolled in the past three months. Evidence: Q91-Q92",
+          "Has never served on active duty in the U.S. Armed Forces, Reserves, or National Guard. Evidence: Q93"
+        ],
+        "evidence": "Q01, Q47, Q86-Q94, Q97-Q99"
+      },
+      "life_events_and_transitions": {
+        "summary": "Key transitions include D.C.-area upbringing, computer science education, graduate business education, marriage, civic-tech career pivot, family aging, and pandemic-era boundary changes.",
+        "details": [
+          "Grew up in Bethesda with parents who emphasized education, public service, and structure. Evidence: Q01, Q97-Q107",
+          "Studied computer science, later completed a graduate business degree, and shifted toward cloud architecture and product strategy. Evidence: Q01-Q03, Q90",
+          "Married Michael in 2016 and built a two-person household without children. Evidence: Q05, Q84",
+          "Career crossroads in 2017 moved her from narrower backend engineering toward civic technology, leadership, and public-sector modernization. Evidence: Q02",
+          "Pandemic and racial justice movements shifted her focus toward systems, implementation, equity, and boundaries. Evidence: Q25-Q30, Q43-Q45",
+          "Her father completed a bachelor's degree and worked in federal contracting as a program manager. Evidence: Q100, Q105-Q107",
+          "Her mother completed a master's degree in counseling or education and worked as a public school guidance counselor. Evidence: Q101-Q104",
+          "Lost her grandmother in 2020, which was one of her major life turning points. Evidence: Q01",
+          "Father has hypertension and had a minor cardiac scare; mother has hand arthritis; Michael's mother had a knee replacement. Evidence: Q35",
+          "Values competence with kindness, curiosity, integrity, civic responsibility, family, friendship, beauty, experience, and ambition serving something larger than ego. Evidence: Q109",
+          "Wants future leadership without burnout and wants to get better at saying no before she is exhausted. Evidence: Q108"
+        ],
+        "evidence": "Q01-Q05, Q25-Q30, Q35, Q43-Q45, Q84, Q90, Q97-Q109"
+      },
+      "media_and_information_diet": {
+        "summary": "Uses LinkedIn, Instagram, newsletters, Slack communities, reputable journalism, and official expert sources while avoiding influencer-based health information.",
+        "details": [
+          "Uses LinkedIn for tech articles, conference announcements, and professional networking. Evidence: Q48",
+          "Uses Instagram for travel, food, tennis, museums, and restaurants; Facebook mostly for family and local groups. Evidence: Q48",
+          "Uses newsletters and Slack communities for tech, cloud security, and product strategy. Evidence: Q48",
+          "Trusts doctors, CDC, NIH, Johns Hopkins, peer-reviewed summaries, and reputable journalism for vaccine information. Evidence: Q42",
+          "Uses social media minimally for emotional support, preferring texts and private group chats. Evidence: Q49",
+          "Uses X much less than she used to because the signal-to-noise ratio got worse. Evidence: Q48",
+          "Avoids posting very personal conflict, family health details, and performative politics. Evidence: Q48"
+        ],
+        "evidence": "Q42, Q48, Q49"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Brittany Bradford is a 38-year-old white, non-Hispanic woman born in Washington, D.C. and raised primarily in Bethesda, Maryland (Q85-Q89, Q97). She is married to Michael Bradford-Reyes, lives in an owned two-bedroom condo in Northwest Washington, D.C. 20007, and has no children or other household members (Q05, Q11-Q14, Q51-Q58, Q84). She has high educational attainment, with a computer science bachelor's degree and graduate business degree, and works in a high-income professional technology role (Q16, Q65, Q72-Q74, Q90). Her life-course profile reflects an upper-middle-class, dual-income, child-free household with strong family ties, civic engagement, and substantial cultural and professional capital (Q01, Q05, Q83).",
+      "behavioral_economist": "Brittany is a planner with strong future orientation, using spreadsheets, automated savings, budget categories, habit tracking, and calendar blocks to manage uncertainty and commitments (Q03, Q17, Q57, Q61-Q62). Her choices are motivated by impact, competence, professional growth, and social identity, especially in civic technology and leadership (Q02, Q24, Q65, Q108). She is financially secure but not careless, showing loss aversion around housing, health, job risk, and aging-family obligations while still spending intentionally on travel, dining, and cultural experiences (Q56-Q64, Q83). Peer networks matter to her through professional conferences, tennis, mentoring, and dinner parties, but she resists purely performative status behavior and values implementation over signaling (Q07, Q23-Q30, Q48).",
+      "political_scientist": "Brittany is a strong Democrat with high civic participation, voting in general, primary, and local elections and supporting D.C. statehood, voting rights, reproductive rights, LGBTQ rights, climate policy, and a stronger safety net (Q23-Q24, Q95-Q96). Her politics are institutionally oriented: she emphasizes not just policy goals but administration, procurement, data systems, privacy, cybersecurity, and implementation capacity (Q24-Q25). She has been significantly affected by Black Lives Matter and frames race and policing as systemic issues connected to workplaces, housing, education, and public administration (Q26-Q30). Her civic attachment is reinforced by her career in public-sector modernization and mentoring underrepresented youth in coding (Q17, Q24, Q29, Q108).",
+      "psychologist": "Brittany presents as highly conscientious, achievement-oriented, analytical, and socially capable, with a strong need for competence, structure, and impact (Q01-Q03, Q15-Q17, Q65). She regulates stress through planning, exercise, mentoring, social support, and calendar boundaries, but she is vulnerable to overcommitment, perfectionism, work-related anxiety, and sleep disruption (Q18, Q43-Q45, Q50). Her identity integrates technical mastery, civic responsibility, cultural curiosity, and relational loyalty, especially to Michael, family, friends, mentees, and high-performing teams (Q05-Q07, Q24, Q47, Q108-Q109). She shows reflective self-awareness: she recognizes privilege, monitors alcohol as a coping risk, and is actively trying to make rest legitimate rather than something earned only after productivity (Q28, Q38, Q43-Q45)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Brittany exercises through tennis, hiking, yoga, walking, and occasional strength training, usually four or five times a week.",
+        "ground_truth_label": "Exercises four or five times weekly through tennis, hiking, yoga, walking, and strength training",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"I exercise regularly through tennis, hiking, yoga, and some strength training\"",
+          "Q31: \"Four or five times a week if I count walks, yoga, tennis, and hiking.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Brittany uses habit tracking and calendar blocking to maintain wellness routines.",
+        "ground_truth_label": "Uses tracking and calendar blocks for health routines",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"I track workouts and tennis performance in an app\"",
+          "Q32: \"Putting exercise on the calendar like a meeting.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Brittany is strongly pro-vaccine and trusts doctors, CDC guidance, NIH, Johns Hopkins, peer-reviewed summaries, and reputable journalism for vaccine information.",
+        "ground_truth_label": "Strongly pro-vaccine and trusts medical institutions",
+        "behavioral_evidence_from_interview": [
+          "Q41: \"I am strongly pro-vaccine.\"",
+          "Q42: \"I trust my primary care doctor, CDC guidance, peer-reviewed summaries, and major medical institutions like Johns Hopkins or NIH.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Brittany has mild seasonal allergies, occasional ergonomic neck and shoulder tension, and no major chronic condition.",
+        "ground_truth_label": "Mild allergies and ergonomic tension without major chronic condition",
+        "behavioral_evidence_from_interview": [
+          "Q31: \"I have mild seasonal allergies and occasional neck and shoulder tension from computer work.\"",
+          "Q31: \"No major chronic condition.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Brittany had a minor tennis-related wrist strain last year and used brief physical therapy, a brace, tennis rest, and voice dictation.",
+        "ground_truth_label": "Minor recent tennis wrist strain treated conservatively",
+        "behavioral_evidence_from_interview": [
+          "Q33: \"I had a minor tennis-related wrist strain last year and did physical therapy for a few sessions\"",
+          "Q33: \"I wore a brace, skipped tennis for a few weeks, and used voice dictation more.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Brittany manages work-related insomnia and stress through fewer late screens, less weeknight wine, protected evenings, exercise, planning, and sleep boundaries.",
+        "ground_truth_label": "Manages stress and insomnia with boundaries and healthy routines",
+        "behavioral_evidence_from_interview": [
+          "Q18: \"I blocked two evenings a week as no-meeting, no-speaking-prep nights.\"",
+          "Q33: \"fewer late screens, less wine on weeknights, more consistent sleep\"",
+          "Q50: \"Exercise plus calendar boundaries.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Brittany has not been diagnosed with depression or a formal anxiety disorder and reports no panic attacks, though she experiences work-related anxiety.",
+        "ground_truth_label": "No formal depression or anxiety diagnosis; work-related anxiety present",
+        "behavioral_evidence_from_interview": [
+          "Q45: \"I have not been diagnosed with depression or a formal anxiety disorder.\"",
+          "Q45: \"No, not panic attacks.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Brittany uses yoga, meditation apps, massage, and occasional acupuncture as complementary care while relying on conventional medicine.",
+        "ground_truth_label": "Uses complementary wellness practices alongside conventional medicine",
+        "behavioral_evidence_from_interview": [
+          "Q37: \"I use yoga, meditation apps, massage, and occasionally acupuncture for muscle tension.\"",
+          "Q37: \"I do not reject Western medicine; I see those as complementary\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Brittany does not smoke, does not use prescriptions for coping, and uses only normal over-the-counter pain medication when needed.",
+        "ground_truth_label": "Does not smoke or use prescriptions for coping",
+        "behavioral_evidence_from_interview": [
+          "Q38: \"I do not smoke.\"",
+          "Q39: \"I do not use prescriptions for coping\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Brittany uses low-dose cannabis gummies only occasionally, about a couple of times a year in legal social settings.",
+        "ground_truth_label": "Rare low-dose cannabis edible use",
+        "behavioral_evidence_from_interview": [
+          "Q39: \"I have used cannabis gummies occasionally, maybe a couple of times a year\"",
+          "Q39: \"I took a very low-dose edible\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Brittany has considered therapy for performance pressure and boundaries but has not made it a regular practice.",
+        "ground_truth_label": "Open to therapy but not in regular therapy",
+        "behavioral_evidence_from_interview": [
+          "Q45: \"I have considered therapy for performance pressure and boundaries\"",
+          "Q45: \"I just have not made it a consistent priority.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Brittany has good employer-sponsored insurance and has not forgone needed care because of cost, though she finds health-care administration frustrating.",
+        "ground_truth_label": "Employer-insured and not cost-barred from needed care",
+        "behavioral_evidence_from_interview": [
+          "Q36: \"I have good employer-sponsored insurance\"",
+          "Q36: \"I have not had to forgo needed care because of cost.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Brittany hosts monthly dinner parties that mix friends, colleagues, cooking, and wine pairings.",
+        "ground_truth_label": "Hosts monthly social dinner parties with wine pairings",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"About once a month\"",
+          "Q07: \"I usually cook a theme meal and pair wine with it.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Brittany enjoys French-themed meals, Bordeaux, Sauvignon Blanc, and culinary experimentation.",
+        "ground_truth_label": "Enjoys French cooking themes and wine pairings",
+        "behavioral_evidence_from_interview": [
+          "Q56: \"I did a Bordeaux and French cooking theme.\"",
+          "Q38: \"dinner parties, wine pairings, travel, tastings\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Brittany shops at Trader Joe's, Whole Foods, and local markets depending on the meal.",
+        "ground_truth_label": "Uses Trader Joe's, Whole Foods, and local markets",
+        "behavioral_evidence_from_interview": [
+          "Q56: \"Trader Joe's, Whole Foods when convenient, and local markets when I am cooking something specific.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Brittany usually drinks wine two or three nights per week, mostly one glass, with more during hosting or tastings, and monitors weeknight drinking when stressed.",
+        "ground_truth_label": "Moderate social wine use with self-monitoring",
+        "behavioral_evidence_from_interview": [
+          "Q38: \"Usually two or three nights, mostly one glass.\"",
+          "Q38: \"if I notice it becoming a weeknight habit, I pull back\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Brittany saves for travel to Lisbon, Prague, Istanbul, and Shenandoah Valley trips.",
+        "ground_truth_label": "Saves for Lisbon, Prague, Istanbul, and Shenandoah travel",
+        "behavioral_evidence_from_interview": [
+          "Q62: \"Lisbon, Prague, maybe Istanbul again, and weekend trips to Shenandoah.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Brittany prefers shoulder-season travel and cultural festivals.",
+        "ground_truth_label": "Prefers shoulder-season cultural travel",
+        "behavioral_evidence_from_interview": [
+          "Q59: \"Travel costs cluster around spring and fall because we like shoulder-season trips.\"",
+          "Q62: \"A Portugal trip tied to cultural festivals and photography.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Brittany treats travel as a budget category and weighs it against other goals.",
+        "ground_truth_label": "Budgets deliberately for travel",
+        "behavioral_evidence_from_interview": [
+          "Q56: \"travel savings\"",
+          "Q64: \"delayed a trip because it was not worth the tradeoff\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Brittany is married to Michael Bradford-Reyes, who socially usually goes by Michael Reyes, and they have been married since 2016.",
+        "ground_truth_label": "Married to Michael Bradford-Reyes since 2016",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"I am married to Michael Bradford-Reyes\"",
+          "Q84: \"Since 2016.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Brittany and Michael do not have children by a mix of circumstance and choice.",
+        "ground_truth_label": "Child-free by circumstance and choice",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"We do not have children.\"",
+          "Q05: \"partly circumstance and partly choice\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Brittany is close to her parents, her younger brother Andrew, her niece, and her in-laws in the D.C.-Maryland-Virginia region.",
+        "ground_truth_label": "Close regional family ties",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"My parents still live in Maryland\"",
+          "Q05: \"My brother Andrew lives in Silver Spring with his wife and their daughter\"",
+          "Q05: \"Michael's parents are in Northern Virginia\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Brittany's closest friend is Maya, a product manager she meets for coffee every other Friday.",
+        "ground_truth_label": "Closest friend Maya with biweekly coffee",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"My closest friend is Maya, a product manager\"",
+          "Q07: \"we have standing coffee every other Friday.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Brittany often plays the planner in family life by booking restaurants, coordinating Thanksgiving side dishes, and tracking travel.",
+        "ground_truth_label": "Family planner role",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"I am the planner.\"",
+          "Q05: \"I book the restaurant, coordinate Thanksgiving side dishes, and keep track of who is traveling when.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Brittany calls Michael first and Maya second when something is hard.",
+        "ground_truth_label": "Primary emotional supports are Michael and Maya",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"Michael first, then Maya.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Michael provides practical emotional support by naming Brittany's overcommitment patterns without dramatizing them.",
+        "ground_truth_label": "Michael helps her identify overcommitment patterns",
+        "behavioral_evidence_from_interview": [
+          "Q44: \"Michael gently pointed out that I was not trapped; I had built the trap.\"",
+          "Q44: \"He just named the pattern.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Brittany's family often copes by becoming competent and presenting solutions before admitting overwhelm.",
+        "ground_truth_label": "Family coping style is competence-first",
+        "behavioral_evidence_from_interview": [
+          "Q46: \"we are also a family that tends to cope by becoming competent\"",
+          "Q46: \"We tend to present solutions before admitting we are overwhelmed.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Brittany owns a two-bedroom condo with Michael in Northwest D.C. 20007 near Georgetown and Glover Park.",
+        "ground_truth_label": "Owns two-bedroom condo in Northwest DC 20007",
+        "behavioral_evidence_from_interview": [
+          "Q08: \"We live in Northwest D.C., in the 20007 area near Glover Park and Georgetown.\"",
+          "Q58: \"We own our condo with a mortgage.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Brittany's household consists of two permanent members, with no children, pets, dependents, lodgers, employees, or temporary residents.",
+        "ground_truth_label": "Two-person household with no children, pets, or other residents",
+        "behavioral_evidence_from_interview": [
+          "Q11: \"It is just me and my husband, Michael.\"",
+          "Q51: \"It is just the two of us in our condo.\"",
+          "Q54: \"No lodgers, boarders, or live-in employees.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Brittany values her neighborhood's walkability, trails, coffee shops, restaurants, transit or rideshare options, and access to D.C. culture and professional life.",
+        "ground_truth_label": "Values walkable Northwest DC lifestyle",
+        "behavioral_evidence_from_interview": [
+          "Q08: \"I like being close to trails, restaurants, coffee shops\"",
+          "Q10: \"access: culture, work, trails, food, airports, and smart people everywhere\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Michael and Brittany share household expenses roughly proportional to income, and Brittany mostly manages the budget.",
+        "ground_truth_label": "Shared expenses with Brittany managing budget",
+        "behavioral_evidence_from_interview": [
+          "Q55: \"Michael and I share household expenses.\"",
+          "Q55: \"Roughly proportional to income.\"",
+          "Q55: \"Mostly, yes.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Brittany's typical household spending is about $8,500 to $9,000 per month, with a recent high month around $9,500.",
+        "ground_truth_label": "Typical monthly spending $8,500-$9,000",
+        "behavioral_evidence_from_interview": [
+          "Q57: \"Last month we spent around $9,500\"",
+          "Q57: \"A more typical month is closer to $8,500 to $9,000.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Brittany's gross monthly pay is about $15,800 and household gross monthly income with Michael is about $26,000.",
+        "ground_truth_label": "Personal gross monthly pay $15,800; household gross monthly income $26,000",
+        "behavioral_evidence_from_interview": [
+          "Q72: \"My gross monthly pay is about $15,800\"",
+          "Q74: \"Together, Michael and I made about $26,000 gross last month\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Brittany maintains about six months of core expenses in emergency savings.",
+        "ground_truth_label": "Six-month emergency fund",
+        "behavioral_evidence_from_interview": [
+          "Q61: \"About six months of core expenses.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Brittany's main debt is the mortgage; student loans are paid off; there is no car loan, family loan, or carried credit-card balance.",
+        "ground_truth_label": "Mortgage only major debt; no consumer debt carried",
+        "behavioral_evidence_from_interview": [
+          "Q63: \"Our main debt is the mortgage.\"",
+          "Q63: \"We use credit cards for points and convenience but pay them in full every month.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Brittany could cover a $400 emergency from checking or savings without borrowing.",
+        "ground_truth_label": "Can cover $400 emergency without borrowing",
+        "behavioral_evidence_from_interview": [
+          "Q82: \"We could cover a $400 emergency from checking or savings without borrowing.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Brittany watches Washington Capitals and Nationals games with Michael.",
+        "ground_truth_label": "Watches Capitals and Nationals with Michael",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"watch a Capitals or Nationals game if one is on\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Brittany uses Instagram for travel photos, food, tennis friends, museums, and restaurants.",
+        "ground_truth_label": "Instagram use for travel, food, tennis, museums, and restaurants",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"I use Instagram for travel photos, food, tennis friends, and following museums or restaurants.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Brittany plays weekly competitive tennis at Capital Tennis Club.",
+        "ground_truth_label": "Weekly competitive tennis at Capital Tennis Club",
+        "behavioral_evidence_from_interview": [
+          "Q07: \"I also have a tennis group at Capital Tennis Club\"",
+          "Q15: \"Tuesday evenings I play tennis when the weather cooperates\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Brittany hikes the C&O Canal Trail and takes regional outdoor trips.",
+        "ground_truth_label": "Hikes C&O Canal Trail and regional outdoors",
+        "behavioral_evidence_from_interview": [
+          "Q08: \"On weekends I can get to the C&O Canal Trail quickly\"",
+          "Q15: \"weekends are hiking\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Brittany attends and speaks at tech meetups and conferences.",
+        "ground_truth_label": "Attends and speaks at tech events",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"I also speak at conferences and meetups\"",
+          "Q48: \"conference announcements\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Brittany mentors students interested in coding through a local nonprofit, usually two to four hours a month.",
+        "ground_truth_label": "Mentors coding students two to four hours monthly",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"I mentor students interested in coding\"",
+          "Q17: \"Usually two to four hours a month\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Brittany works with Python, Java, JavaScript, React, AWS, Azure, SQL, Tableau, APIs, CI/CD, documentation, and architecture.",
+        "ground_truth_label": "Full-stack cloud technical skill set",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"Python, Java, React, AWS, Azure, SQL\"",
+          "Q65: \"CI/CD pipelines\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Brittany leads Scrum ceremonies, reviews code and architecture, mentors junior developers, and translates technical decisions into business value.",
+        "ground_truth_label": "Technical lead responsibilities",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"I lead Scrum ceremonies, review architecture, write code, mentor junior developers\"",
+          "Q65: \"technical translation\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Brittany aims for Director of Engineering or VP of Product roles and possibly a future consultancy.",
+        "ground_truth_label": "Aspires to senior tech leadership and consultancy",
+        "behavioral_evidence_from_interview": [
+          "Q108: \"maybe Director of Engineering or VP of Product\"",
+          "Q108: \"eventually launching a consultancy\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Brittany plans PMP certification and may pursue an executive MBA.",
+        "ground_truth_label": "Plans PMP and possible executive MBA",
+        "behavioral_evidence_from_interview": [
+          "Q62: \"PMP certification first, executive MBA possibly later.\"",
+          "Q108: \"PMP certification, then deciding whether an executive MBA makes sense.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Brittany works for a mid-size technology firm doing cloud modernization, including government and civic-sector clients.",
+        "ground_truth_label": "Mid-size civic cloud modernization firm",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"a mid-size technology firm that does cloud modernization, including government and civic-sector clients\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Brittany works hybrid, mostly from home and in the office or client site about twice a week.",
+        "ground_truth_label": "Hybrid work schedule",
+        "behavioral_evidence_from_interview": [
+          "Q16: \"Hybrid. I work from home most days and go into the office or client site about twice a week.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Brittany usually works about 45 hours per week and sometimes closer to 50 during releases.",
+        "ground_truth_label": "Works 45-50 hours weekly",
+        "behavioral_evidence_from_interview": [
+          "Q68: \"Usually about 45 hours a week, sometimes closer to 50 during releases.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Brittany has one main salaried job, with occasional speaking honoraria but no regular side work or consulting.",
+        "ground_truth_label": "One main salaried job",
+        "behavioral_evidence_from_interview": [
+          "Q70: \"No, I have one main job.\"",
+          "Q70: \"Occasionally an honorarium, but not regular income.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Brittany has been at her current company about four years and receives strong benefits including health, dental, vision, 401(k), PTO, sick leave, parental leave, and professional development funds.",
+        "ground_truth_label": "Four-year tenure with strong benefits",
+        "behavioral_evidence_from_interview": [
+          "Q76: \"I have been at my current company about four years.\"",
+          "Q76: \"Benefits are strong: health, dental, vision, 401(k), paid time off, sick leave, parental leave, and professional development funds.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Brittany's manager trusts her and coworkers see her as organized, direct, and calm under pressure.",
+        "ground_truth_label": "Trusted and calm technical lead at work",
+        "behavioral_evidence_from_interview": [
+          "Q77: \"My manager trusts me\"",
+          "Q77: \"coworkers see me as organized, direct, and calm under pressure.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Brittany grew up with museum trips into D.C. and still values culture.",
+        "ground_truth_label": "Lifelong D.C. museum and culture exposure",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"a lot of weekend museum trips into D.C.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Brittany values Beethoven while cooking, smart films, city festivals, and beauty in daily experience.",
+        "ground_truth_label": "Values music, film, festivals, and beauty",
+        "behavioral_evidence_from_interview": [
+          "Q109: \"Beethoven while cooking\"",
+          "Q109: \"a city festival where history feels alive\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Tennis is Brittany's most consistent weekly activity outside work because it provides competition and a clean break from screens.",
+        "ground_truth_label": "Tennis is primary weekly non-work activity",
+        "behavioral_evidence_from_interview": [
+          "Q15: \"Tennis. It gives me competition and a clean break from screens.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Brittany practices yoga for mindfulness and stress management and moved yoga to Friday mornings because evening sessions were displaced by work.",
+        "ground_truth_label": "Yoga used for mindfulness and protected by morning scheduling",
+        "behavioral_evidence_from_interview": [
+          "Q18: \"I also moved yoga to Friday mornings\"",
+          "Q37: \"I use yoga\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Brittany experiences hiking and trails as a form of spiritual or emotional reset.",
+        "ground_truth_label": "Trails and hiking as spiritual reset",
+        "behavioral_evidence_from_interview": [
+          "Q47: \"Yoga and hiking probably give me more of a spiritual reset than Sunday services\"",
+          "Q109: \"a trail in the morning\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Brittany made a conscious 2017 career shift from narrower backend engineering toward full-stack cloud architecture, product strategy, and public-sector modernization.",
+        "ground_truth_label": "2017 shift toward civic cloud architecture and product strategy",
+        "behavioral_evidence_from_interview": [
+          "Q02: \"The biggest crossroads was around 2017.\"",
+          "Q02: \"move toward full-stack cloud architecture and product strategy\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Brittany cares about how data collection, appeals, websites, defaults, and missing data can exclude people from public systems.",
+        "ground_truth_label": "Public-system technology equity focus",
+        "behavioral_evidence_from_interview": [
+          "Q25: \"who administers it, what data is collected, how are appeals handled, how does the website work, and who gets excluded by default\"",
+          "Q27: \"whose data is missing\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Brittany votes in every general election and almost every primary and local election.",
+        "ground_truth_label": "High voting participation",
+        "behavioral_evidence_from_interview": [
+          "Q23: \"I vote in every general election and almost every primary and local election.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Brittany supports D.C. statehood, voting rights, reproductive rights, LGBTQ rights, climate policy, and social safety net improvements.",
+        "ground_truth_label": "Center-left to progressive policy priorities",
+        "behavioral_evidence_from_interview": [
+          "Q24: \"I support voting rights, D.C. statehood, reproductive rights, LGBTQ rights, climate policy, and a stronger social safety net.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Brittany identifies as a fairly strong Democrat and center-left to progressive with a pragmatic implementation streak.",
+        "ground_truth_label": "Strong Democrat, pragmatic center-left/progressive",
+        "behavioral_evidence_from_interview": [
+          "Q95: \"I think of myself as a Democrat, and fairly strongly.\"",
+          "Q95: \"Center-left to progressive, with a pragmatic implementation streak.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Brittany supports policing accountability, civilian oversight, and more non-police responses for mental health and homelessness.",
+        "ground_truth_label": "Supports police accountability and non-police crisis responses",
+        "behavioral_evidence_from_interview": [
+          "Q24: \"I support accountability, better civilian oversight, and more investment in non-police responses for mental health and homelessness.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Brittany has limited direct law-enforcement experience, including routine traffic stops and a package-theft report, and has not been arrested.",
+        "ground_truth_label": "Limited direct law-enforcement contact and no arrest history",
+        "behavioral_evidence_from_interview": [
+          "Q20: \"traffic stops, reporting a package theft\"",
+          "Q22: \"I have not been arrested.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Brittany joined a few protests, donated to local organizations, and discussed race and policing with friends, family, and coworkers after 2020.",
+        "ground_truth_label": "Participated in race/policing civic response",
+        "behavioral_evidence_from_interview": [
+          "Q29: \"I joined a few protests, donated to local organizations\"",
+          "Q29: \"conversations with friends, family, and coworkers\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Brittany views racism and policing as systemic issues tied to housing, education, health care, hiring, lending, professional credibility, and public administration.",
+        "ground_truth_label": "Systemic view of race and policing",
+        "behavioral_evidence_from_interview": [
+          "Q27: \"I think about them as systemic issues\"",
+          "Q28: \"neighborhood wealth, school quality, maternal health, policing, who gets venture funding\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Brittany played piano for a few years as a child.",
+        "ground_truth_label": "Childhood piano experience",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"piano for a few years\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Brittany was born in Washington, D.C. and grew up mostly in Bethesda, Maryland.",
+        "ground_truth_label": "Born in DC and raised mostly in Bethesda",
+        "behavioral_evidence_from_interview": [
+          "Q87: \"I was born in Washington, D.C.\"",
+          "Q97: \"When I was 16, I lived in Bethesda, Maryland.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Brittany identifies as white and not Hispanic, Latinx, or Spanish origin.",
+        "ground_truth_label": "White non-Hispanic identity",
+        "behavioral_evidence_from_interview": [
+          "Q88: \"No, I am not Hispanic, Latinx, or Spanish origin.\"",
+          "Q89: \"I identify as white.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Brittany was raised in a mainline Protestant, Episcopal-adjacent environment but is not actively practicing.",
+        "ground_truth_label": "Culturally Christian Protestant background, not active",
+        "behavioral_evidence_from_interview": [
+          "Q47: \"raised in a mainline Protestant environment, mostly Episcopal-adjacent\"",
+          "Q94: \"Christian, Protestant background, but not actively practicing.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Brittany was born in the United States, has only traveled rather than lived abroad, and has no immediate immigrant background.",
+        "ground_truth_label": "U.S.-born with no immediate immigrant background",
+        "behavioral_evidence_from_interview": [
+          "Q86: \"Yes, I was born in the United States.\"",
+          "Q86: \"No, only traveled.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Brittany is not currently enrolled in school, has not been enrolled in the past three months, and has never served in the U.S. Armed Forces, Reserves, or National Guard.",
+        "ground_truth_label": "Not enrolled in school and no military service",
+        "behavioral_evidence_from_interview": [
+          "Q91: \"No, I am not currently enrolled in school.\"",
+          "Q92: \"No, I have not been enrolled in school in the past three months.\"",
+          "Q93: \"No, I have never served\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Brittany completed a bachelor's degree in computer science and later completed a graduate business degree.",
+        "ground_truth_label": "Computer science bachelor's plus graduate business degree",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"I went to the University of Maryland for computer science\"",
+          "Q90: \"a master's degree in business, after a bachelor's degree in computer science\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Brittany's father completed a bachelor's degree and worked in federal contracting as a program manager.",
+        "ground_truth_label": "Father bachelor's degree and federal contracting program manager",
+        "behavioral_evidence_from_interview": [
+          "Q100: \"My dad completed a bachelor's degree.\"",
+          "Q106: \"He worked in federal contracting as a program manager.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Brittany's mother completed a master's degree in counseling or education and worked as a public school guidance counselor.",
+        "ground_truth_label": "Mother master's degree and public school guidance counselor",
+        "behavioral_evidence_from_interview": [
+          "Q101: \"My mom completed a master's degree in counseling or education.\"",
+          "Q103: \"She was a public school guidance counselor.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Brittany lost her grandmother in 2020, which was one of her major life turning points.",
+        "ground_truth_label": "Grandmother died in 2020",
+        "behavioral_evidence_from_interview": [
+          "Q01: \"losing my grandmother in 2020\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Brittany's father has hypertension and had a minor cardiac scare; her mother has hand arthritis; Michael's mother had a knee replacement.",
+        "ground_truth_label": "Aging-family health logistics",
+        "behavioral_evidence_from_interview": [
+          "Q35: \"My father has hypertension and had a minor cardiac scare\"",
+          "Q35: \"My mother is healthy but has some arthritis in her hands.\"",
+          "Q35: \"Michael's mother had a knee replacement\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Brittany values competence with kindness, curiosity, integrity, civic responsibility, family, friendship, beauty, experience, and ambition serving something larger than ego.",
+        "ground_truth_label": "Core values: competence with kindness and civic-minded ambition",
+        "behavioral_evidence_from_interview": [
+          "Q109: \"I value competence with kindness.\"",
+          "Q109: \"curiosity, integrity, civic responsibility, family, friendship\"",
+          "Q109: \"ambition should serve something larger than ego\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Brittany uses LinkedIn for tech articles, conference announcements, and professional networking.",
+        "ground_truth_label": "Professional LinkedIn user",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"I use LinkedIn the most professionally, especially for tech articles, conference announcements, and staying connected with colleagues.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Brittany uses newsletters and Slack communities for tech, cloud security, and product strategy.",
+        "ground_truth_label": "Uses newsletters and Slack communities for professional information",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"I also read newsletters and Slack communities for tech, cloud security, and product strategy.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Brittany uses social media minimally for emotional support, preferring texts and private group chats with Michael, Maya, or a small group chat.",
+        "ground_truth_label": "Prefers private support channels over public social media",
+        "behavioral_evidence_from_interview": [
+          "Q49: \"I do not use social media for financial support, and rarely for emotional support.\"",
+          "Q49: \"I text Michael, Maya, or a small group chat\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Brittany uses X much less than she used to because the signal-to-noise ratio got worse.",
+        "ground_truth_label": "Reduced X use due to poor signal-to-noise",
+        "behavioral_evidence_from_interview": [
+          "Q48: \"I use X much less than I used to because the signal-to-noise ratio got worse.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "reprojected",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Brittany's life-course profile reflects an upper-middle-class, dual-income, child-free household with substantial cultural and professional capital.",
+        "ground_truth_label": "Upper-middle-class dual-income child-free professional household",
+        "behavioral_evidence_from_interview": [
+          "Q72: \"My gross monthly pay is about $15,800\"",
+          "Q74: \"about $26,000 gross last month\"",
+          "Q83: \"We earn good incomes, own a home, save consistently\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "HF-020",
+          "HF-028",
+          "HF-033",
+          "HF-034"
+        ]
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "reprojected",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Brittany's choices are motivated by impact, competence, professional growth, and social identity, especially in civic technology and leadership.",
+        "ground_truth_label": "Motivated by impact, competence, growth, and civic-tech leadership identity",
+        "behavioral_evidence_from_interview": [
+          "Q03: \"Impact. I wanted my work to matter outside a quarterly roadmap.\"",
+          "Q108: \"senior technology leadership\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "HF-045",
+          "HF-058",
+          "HF-078"
+        ]
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Brittany is financially secure but not careless and shows loss aversion around housing, health, job risk, and aging-family obligations.",
+        "ground_truth_label": "Financially secure with cautious long-term risk management",
+        "behavioral_evidence_from_interview": [
+          "Q83: \"I feel secure and grateful, with a layer of D.C.-specific anxiety.\"",
+          "Q83: \"A major health issue, job loss, or needing to support aging parents more heavily.\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "HF-034",
+          "HF-036",
+          "HF-077"
+        ]
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Brittany's civic attachment is reinforced by her career in public-sector modernization and mentoring underrepresented youth in coding.",
+        "ground_truth_label": "Civic attachment through public-sector modernization and coding mentorship",
+        "behavioral_evidence_from_interview": [
+          "Q17: \"I mentor students interested in coding, especially girls and underrepresented students\"",
+          "Q108: \"public-sector modernization or civic technology\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "HF-042",
+          "HF-045",
+          "HF-059"
+        ]
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "reprojected",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Brittany is vulnerable to overcommitment, perfectionism, work-related anxiety, and sleep disruption.",
+        "ground_truth_label": "Overcommitment and perfectionism risk profile",
+        "behavioral_evidence_from_interview": [
+          "Q43: \"steady with spikes of anxiety\"",
+          "Q45: \"over-preparing, checking things repeatedly, and having trouble falling asleep\"",
+          "Q50: \"Stress has been a little higher\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "HF-006",
+          "HF-007"
+        ]
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "reprojected",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Brittany's identity integrates technical mastery, civic responsibility, cultural curiosity, and relational loyalty.",
+        "ground_truth_label": "Integrated identity of technical mastery, civic responsibility, culture, and relationships",
+        "behavioral_evidence_from_interview": [
+          "Q05: \"Family is important to me\"",
+          "Q24: \"I believe government can and should work better\"",
+          "Q109: \"curiosity, integrity, civic responsibility, family, friendship\""
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "HF-022",
+          "HF-043",
+          "HF-054",
+          "HF-078"
+        ]
+      }
+    ]
+  }
+}

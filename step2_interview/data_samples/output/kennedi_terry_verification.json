@@ -1,0 +1,2324 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "f00db7d331e74b86a2491741396a9644",
+      "name": "Kennedi Terry",
+      "verification_date": "2026-05-16"
+    },
+    "experts": {
+      "demographer": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Seed age, sex, marital status, city/state, education level, and occupation match the interview's 40-year-old never-married woman in Glassboro with a Rowan bachelor's degree and senior network/systems administrator role.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed age, sex, marital_status, education_level, occupation, city/state",
+              "source_b_ref": "Q16, Q84, Q85, Q90",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The seed places Kennedi in Glassboro, NJ, and the interview repeatedly confirms Glassboro and South Jersey residency; the interview does not repeat the ZIP code.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed city/state/zipcode",
+              "source_b_ref": "Q08, Q51, Q58",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The seed describes Kennedi as African-American and South Jersey raised, while the interview confirms Black/African-American identity, non-Hispanic origin, U.S. birth in Camden, and upbringing around Glassboro.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed cultural_background",
+              "source_b_ref": "Q86-Q89, Q97",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "The seed's never-married status is confirmed and enriched by interview details that she has no partner, no children, lives alone, and owns a townhouse.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed marital_status",
+              "source_b_ref": "Q05, Q11, Q51, Q58, Q84",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "The seed's STEM bachelor's and network/computer systems occupation are confirmed and enriched by the interview's Rowan information systems degree, healthcare employer, current salary, benefits, and work schedule.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed bachelors_field, occupation, skills_and_expertise",
+              "source_b_ref": "Q16, Q65, Q72, Q76",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 4
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The draft profile's core demographic fields match the interview, but it omits birth date and birthplace details supplied in the interview.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q85, Q87",
+              "source_b_ref": "corrected_extracted_profile top fields; preferences.life_events_and_transitions",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add birth date and Camden birthplace to preferences.life_events_and_transitions and cultural/geographic facts."
+            },
+            {
+              "id": 2,
+              "text": "The draft accurately represents Kennedi as living alone in an owned Glassboro townhouse with no partner, children, roommates, or temporary household members.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q11-Q14, Q51-Q55, Q58",
+              "source_b_ref": "preferences.home_and_lifestyle; summaries.demographer",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The profile's family network is faithful to the interview's parents Robert and Denise, brother Marcus, sister-in-law Dana, niece and nephew, and Aunt Elaine.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q05, Q06",
+              "source_b_ref": "preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "The interview provides childhood household and parental education/occupation details that are not substantively represented in the draft preferences.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q97-Q107",
+              "source_b_ref": "preferences.life_events_and_transitions",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add childhood household, parents' work, and parental education context to preferences.life_events_and_transitions."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The demographer summary's living-alone, owned-townhouse description is consistent with home_and_lifestyle and social_and_relationships preferences.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.demographer",
+              "field_b": "preferences.home_and_lifestyle; preferences.social_and_relationships",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The education, occupation, and middle-class professional summary is consistent with work_and_career and home_and_lifestyle details about full-time salaried IT work and homeownership.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.demographer",
+              "field_b": "preferences.work_and_career; preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The interview gives Kennedi's date of birth and birthplace, which were missing from draft preferences.",
+              "gap": true,
+              "interview_ref": "Q85, Q87",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add September 14, 1985 birth date and Camden, New Jersey birthplace."
+            },
+            {
+              "id": 2,
+              "text": "The interview describes her age-16 household with both parents, older brother Marcus, and a grandmother staying for a period.",
+              "gap": true,
+              "interview_ref": "Q97-Q99",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add childhood household composition and South Jersey continuity."
+            },
+            {
+              "id": 3,
+              "text": "The interview provides parents' education and jobs: father high school plus telecom certifications as a telecommunications technician; mother associate degree and school administrative work.",
+              "gap": true,
+              "interview_ref": "Q100-Q107",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add parental education and occupational background."
+            },
+            {
+              "id": 4,
+              "text": "The interview gives household finance structure: Kennedi pays the mortgage and expenses herself and has her own salary as household income.",
+              "gap": true,
+              "interview_ref": "Q55, Q72, Q74",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add solo household expense responsibility and salary-based household income."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "behavioral_economist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The seed's routine-oriented but spontaneous persona is confirmed by the interview's work documentation, garden schedule, meal prep, and occasional splurges on camera gear or live music.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed persona",
+              "source_b_ref": "Q15, Q56, Q57, Q60",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The seed's healthier soul-food cooking preference is confirmed by meal prep, lower sodium choices, baked chicken, greens, sweet potatoes, and reduced salty takeout.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed culinary_persona",
+              "source_b_ref": "Q15, Q18, Q32",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The seed's budget-conscious travel style is consistent with the interview's slow Ghana fund and refusal to put major travel on credit.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed travel_persona",
+              "source_b_ref": "Q61, Q62, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "The seed's incident-control and spontaneous problem-solving claim is supported by her crisis work, ransomware scare response, and operational preference for incident checklists.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed professional_persona",
+              "source_b_ref": "Q44, Q65, Q78",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 5,
+              "text": "The interview adds detailed savings, debt, emergency-fund, and budgeting behavior not present in the seed.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona and travel_persona",
+              "source_b_ref": "Q57, Q61-Q64, Q82-Q83",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 5,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The health_and_wellness profile accurately captures routine-based preventive health and evidence-based care.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q31-Q42",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The interview's automatic savings, five-month emergency fund, $400 emergency capacity, spreadsheet budgeting, and debt profile are underrepresented in draft preferences.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q57, Q61-Q64, Q82-Q83",
+              "source_b_ref": "preferences.home_and_lifestyle",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add financial routines, emergency savings, debt, and solo income/expense facts to preferences.home_and_lifestyle."
+            },
+            {
+              "id": 3,
+              "text": "The draft work profile captures her role and goals but omits on-call frequency, salaried no-overtime structure, and schedule flexibility tradeoffs.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q68, Q72, Q78",
+              "source_b_ref": "preferences.work_and_career",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add one-week-in-five on-call rotation, typical 45-hour weeks, and salaried no-overtime constraints."
+            },
+            {
+              "id": 4,
+              "text": "The draft health profile omits meaningful substance-use and coping boundaries: no smoking, modest drinking, non-routine cannabis edible use, and no anxiety/sleep prescriptions.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q38, Q39",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add smoking, alcohol, cannabis, and prescription-use facts to health_and_wellness."
+            },
+            {
+              "id": 5,
+              "text": "The draft entertainment profile claims she follows Phillies spring training, but the interview does not mention the Phillies or baseball; this claim is only in seed data and is incorrectly sourced to Q15/Q17.",
+              "verdict": "inconsistent",
+              "gap": true,
+              "source_a_ref": "Q15, Q17",
+              "source_b_ref": "preferences.entertainment",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Remove baseball/Phillies from preferences.entertainment and replace with interview-supported entertainment such as Eagles football, live jazz, reading, chess, Sudoku, YouTube tutorials, and music."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 1,
+            "gaps": 4
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Routines across health, home, work documentation, budgeting, and meal prep reinforce rather than contradict each other.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness; preferences.home_and_lifestyle",
+              "field_b": "preferences.work_and_career; summaries.behavioral_economist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Occasional camera or jazz splurges are internally consistent with stable savings and budgeting because the profile frames them as bounded discretionary choices.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.behavioral_economist",
+              "field_b": "preferences.entertainment; preferences.home_and_lifestyle",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "Her sports activity is consistent with hypertension and knee-tendinitis management because the profile describes moderate activity, stretching, and avoiding overdoing stacked sports.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.sports_and_fitness",
+              "field_b": "preferences.health_and_wellness",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Financial resilience details are missing: automated savings, five months of basic emergency savings, and ability to cover a $400 emergency.",
+              "gap": true,
+              "interview_ref": "Q61, Q82",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add automated savings, emergency fund size, and $400 emergency capacity."
+            },
+            {
+              "id": 2,
+              "text": "The interview gives monthly spending, mortgage, income, and debt details not in draft preferences.",
+              "gap": true,
+              "interview_ref": "Q56-Q58, Q63, Q72-Q74",
+              "should_be_in": "preferences.home_and_lifestyle",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add mortgage amount, usual monthly spending, salary/take-home income, and mortgage/car/student-loan debt."
+            },
+            {
+              "id": 3,
+              "text": "Work incentive and time-pressure details are missing: typical 45-hour week, heavy weeks of 50-55 hours, salaried no overtime, and on-call rotation.",
+              "gap": true,
+              "interview_ref": "Q68, Q72, Q78",
+              "should_be_in": "preferences.work_and_career",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add work hours, on-call rotation, and salary/no-overtime facts."
+            },
+            {
+              "id": 4,
+              "text": "Coping and substance-use boundaries are missing from preferences despite clear interview answers.",
+              "gap": true,
+              "interview_ref": "Q38-Q40, Q43-Q45, Q50",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add no smoking, modest drinking, non-routine cannabis use, journaling, EAP counseling, walking, and boundary-setting coping."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "political_scientist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The seed's local Black community and mentorship orientation is confirmed by interview details about voting help, community tutoring, Juneteenth planning, and women-in-tech mentorship.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed cultural_background; career_goals_and_ambitions",
+              "source_b_ref": "Q17, Q23, Q25, Q108",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The seed does not specify party identity, but the interview adds a fairly strong Democratic identity with progressive but pragmatic issue positions.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona and cultural_background",
+              "source_b_ref": "Q24, Q95, Q96",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The seed does not mention law enforcement; the interview adds a mixed view shaped by traffic stops, family experience, and post-2020 community meetings.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed data",
+              "source_b_ref": "Q20-Q22",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "The seed's community-centered outlook is consistent with the interview's voting regularity, local-meeting attendance, workplace equity discussions, and youth mentoring.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona; cultural_background",
+              "source_b_ref": "Q23, Q25, Q26-Q30",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The draft captures her voting regularity and civic participation accurately.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q23",
+              "source_b_ref": "preferences.community_and_civic; summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile summaries include Democratic identity, but the preferences need explicit party identification and issue priorities from the interview.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q24, Q95, Q96",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add fairly strong Democrat identification and priority issues including civil rights, healthcare, education, labor fairness, voting rights, abortion rights, cybersecurity, and infrastructure."
+            },
+            {
+              "id": 3,
+              "text": "Law enforcement views and experiences are substantively absent from preferences even though they are politically and civically important in the interview.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q20-Q22",
+              "source_b_ref": "preferences.community_and_civic",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add mixed policing view, 2017 Route 55 traffic stop, brother's stops, cousin's expunged marijuana charge, and desire for accountability/prevention."
+            },
+            {
+              "id": 4,
+              "text": "The draft media profile captures sources but needs stronger representation of misinformation concerns and source-checking behavior tied to family group chats and politics.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q25, Q42, Q48",
+              "source_b_ref": "preferences.media_and_information_diet",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add misinformation concern and source-checking behavior."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The political summary's practical Democrat profile is consistent with community_and_civic descriptions of voting, local meetings, racial equity, and institutional competence.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "summaries.political_scientist",
+              "field_b": "preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The media diet's reliance on AP, NPR, WHYY, CISA, and source-checking is consistent with her concern about misinformation.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.media_and_information_diet",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The profile's BLM-related activism is internally consistent with a pragmatic civic style because it includes limited protest, workplace action, donations, voting, and mentoring rather than constant public demonstration.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.community_and_civic",
+              "field_b": "summaries.political_scientist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Party identification and issue priorities are missing from preferences.",
+              "gap": true,
+              "interview_ref": "Q24, Q95, Q96",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add fairly strong Democratic identity and practical progressive issue positions."
+            },
+            {
+              "id": 2,
+              "text": "Policing experiences and justice-system views are missing from preferences.",
+              "gap": true,
+              "interview_ref": "Q20-Q22, Q27",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add mixed law-enforcement trust, Route 55 stop, family caution, cousin's expunged marijuana charge, and accountability/prevention preferences."
+            },
+            {
+              "id": 3,
+              "text": "Recent shift toward local politics, school boards, county/municipal implementation, and misinformation is missing from preferences.",
+              "gap": true,
+              "interview_ref": "Q25",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add local governance and misinformation concerns."
+            },
+            {
+              "id": 4,
+              "text": "Specific BLM responses such as a bail-fund donation and workplace hiring/mentorship discussions are missing from preferences.",
+              "gap": true,
+              "interview_ref": "Q26-Q30",
+              "should_be_in": "preferences.community_and_civic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add vigil, peaceful march, one-time bail-fund donation, workplace listening sessions, and equity discussions."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      },
+      "psychologist": {
+        "direction_1_seed_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The seed's routine-loving but spontaneous personality is confirmed by the interview's careful documentation, garden and meal routines, creative photography, live music, and bounded splurges.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed persona",
+              "source_b_ref": "Q01, Q15, Q48, Q56-Q57",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The seed's resilient, community-centered outlook is supported by the interview's family role, mentoring, faith, Black cultural identity, and civic engagement.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "seed persona; cultural_background",
+              "source_b_ref": "Q05-Q07, Q17, Q47, Q108-Q109",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The seed's calm incident-control style is consistent with her reported response to technical incidents and the January 2026 ransomware scare.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed professional_persona",
+              "source_b_ref": "Q44, Q65, Q78",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 4,
+              "text": "The interview adds mental-health nuance not present in the seed: work-linked anxiety symptoms, EAP counseling, journaling, prayer, and boundary setting.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "seed persona",
+              "source_b_ref": "Q43-Q47, Q50",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 2
+          }
+        },
+        "direction_2_interview_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The psychologist summary accurately represents Kennedi as conscientious, analytical, routine-oriented, creative, and community-minded.",
+              "verdict": "consistent",
+              "gap": false,
+              "source_a_ref": "Q01, Q15, Q48, Q65, Q109",
+              "source_b_ref": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The draft health preferences need more detail on anxiety symptoms, EAP counseling, sleep disruption, journaling, prayer, and boundary-setting coping.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q43-Q45, Q47, Q50",
+              "source_b_ref": "preferences.health_and_wellness",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add work-linked anxiety symptoms and intentional coping practices to health_and_wellness."
+            },
+            {
+              "id": 3,
+              "text": "The interview's explicit value system is underrepresented in preferences.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q109",
+              "source_b_ref": "preferences.arts_and_culture; preferences.social_and_relationships",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add values of family, integrity, stability, community, faith, learning, Black culture, reliability, and joy."
+            },
+            {
+              "id": 4,
+              "text": "The profile mentions Baptist traditions but should include current attendance frequency and private prayer as coping.",
+              "verdict": "consistent",
+              "gap": true,
+              "source_a_ref": "Q47, Q94",
+              "source_b_ref": "preferences.cultural_and_linguistic; preferences.health_and_wellness",
+              "action": "PARTIAL_UPDATE",
+              "resolution": "Add current Baptist identification, attending two or three times per month, and prayer as coping."
+            }
+          ],
+          "summary": {
+            "consistent": 4,
+            "inconsistent": 0,
+            "gaps": 3
+          }
+        },
+        "direction_3_profile_internal_consistency": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "No clinical depression and work-linked anxiety symptoms are psychologically compatible and not contradictory.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.health_and_wellness",
+              "field_b": "summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The routine-oriented identity and spontaneous creative side are framed as a stable personality contrast rather than an inconsistency.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.home_and_lifestyle; preferences.work_and_career",
+              "field_b": "preferences.hobbies_and_recreation; summaries.psychologist",
+              "action": "NO_CHANGE",
+              "resolution": null
+            },
+            {
+              "id": 3,
+              "text": "The values of reliability, competence, family, faith, and community are consistent across work, social, cultural, and civic preference categories.",
+              "verdict": "consistent",
+              "gap": false,
+              "field_a": "preferences.social_and_relationships; preferences.cultural_and_linguistic",
+              "field_b": "preferences.work_and_career; preferences.community_and_civic",
+              "action": "NO_CHANGE",
+              "resolution": null
+            }
+          ],
+          "summary": {
+            "consistent": 3,
+            "inconsistent": 0,
+            "gaps": 0
+          }
+        },
+        "direction_4_completeness": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The January 2026 ransomware scare, crying after a long shift, EAP counseling, and incident-response checklist improvements are missing from preferences.",
+              "gap": true,
+              "interview_ref": "Q44",
+              "should_be_in": "preferences.life_events_and_transitions",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add the ransomware scare and recovery/learning response as a recent emotional and work event."
+            },
+            {
+              "id": 2,
+              "text": "The interview's explicit values are missing as preference facts.",
+              "gap": true,
+              "interview_ref": "Q109",
+              "should_be_in": "preferences.arts_and_culture",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add family, integrity, stability, community, faith, learning, Black culture, reliability, and joy."
+            },
+            {
+              "id": 3,
+              "text": "Intentional coping changes such as journaling, fewer late-night scroll sessions, and saying no before resentment are missing.",
+              "gap": true,
+              "interview_ref": "Q43, Q45, Q50",
+              "should_be_in": "preferences.health_and_wellness",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add journaling, reduced scrolling, and boundary-setting coping."
+            },
+            {
+              "id": 4,
+              "text": "Current religious practice and prayer as coping are only partially represented.",
+              "gap": true,
+              "interview_ref": "Q47, Q94",
+              "should_be_in": "preferences.cultural_and_linguistic",
+              "disposition": "NEEDS_ENRICHMENT",
+              "resolution": "Add Baptist identification, attendance two or three times monthly, and prayer as private coping."
+            }
+          ],
+          "summary": {
+            "present": 0,
+            "missing": 4
+          }
+        }
+      }
+    },
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "No finding requires FLAG_FOR_REVIEW. The draft was broadly consistent, but several interview-supported gaps needed enrichment and one unsupported entertainment claim about Phillies/baseball was removed.",
+    "final_status": "Corrected profile is ready for downstream use after applying preference enrichments, preserving expert summaries verbatim, and generating the hidden_facts registry."
+  },
+  "corrected_extracted_profile": {
+    "participant_id": "f00db7d331e74b86a2491741396a9644",
+    "name": "Kennedi Terry",
+    "age": 40,
+    "gender": "Female",
+    "marital_status": "never married; not living with a romantic partner",
+    "location": "Glassboro, NJ 08028",
+    "education": "Bachelor's degree in information systems from Rowan University",
+    "occupation": "Senior network and computer systems administrator / network engineer",
+    "preferences": {
+      "_note": "Same 18 subcategories as the draft profile, with gaps filled and inconsistencies resolved. Every correction traces back to an observation in the verification report above.",
+      "health_and_wellness": {
+        "summary": "Kennedi prefers routine-based preventive health, including walking, sports, meal prep, medication adherence, evidence-based care, and intentional stress management.",
+        "details": [
+          "Manages mild hypertension diagnosed in 2025 with low-dose amlodipine, walking, and lower sodium intake.",
+          "Checks blood pressure at home a few mornings a week and tracks steps on a watch without being obsessive.",
+          "Uses tennis, soccer, walking, stretching, and meal prep to maintain health.",
+          "Trusts her primary care doctor, CDC guidance, healthcare employer guidance, major hospital systems, vaccines, and careful medical reporting.",
+          "Does not smoke.",
+          "Drinks socially two or three times a month, usually wine or a cocktail with food or music.",
+          "Has tried low-dose cannabis edibles once or twice, most recently in 2024, but does not use them routinely.",
+          "Manages work-linked anxiety symptoms with walking, music, prayer, journaling, turning off notifications when possible, trusted friends, and EAP counseling when needed."
+        ],
+        "evidence": "Q31-Q45, Q50"
+      },
+      "food_and_dining": {
+        "summary": "She enjoys soul-food staples with healthier adjustments and likes cooking at home for budget, health, and family connection.",
+        "details": [
+          "Meal preps baked chicken with smoked paprika, roasted vegetables, sweet potatoes, brown rice, and greens.",
+          "Enjoys collards with garlic and apple cider vinegar.",
+          "Uses fresh herbs from her garden for cooking and mint tea.",
+          "Hosts family dinners and spends more on groceries around family gatherings and holidays."
+        ],
+        "evidence": "Q15, Q32, Q37, Q56, Q59"
+      },
+      "travel": {
+        "summary": "Kennedi favors culturally rich, budget-conscious travel, including historic cities, jazz destinations, and a long-term dream trip to Ghana.",
+        "details": [
+          "Wants to visit Ghana for ancestry, history, and cultural immersion.",
+          "Hopes for cultural trips to New Orleans for jazz, Savannah for architecture, and museum weekends in Philadelphia or D.C.",
+          "Saves slowly for travel rather than putting a major trip on a credit card.",
+          "Sometimes considers Philadelphia or Collingswood but values Glassboro's affordability, space, and family access."
+        ],
+        "evidence": "Q10, Q61, Q62, Q86, Q108"
+      },
+      "social_and_relationships": {
+        "summary": "Her social world is small, stable, and centered on family, close friends, church ties, tech networks, tennis, and mentoring.",
+        "details": [
+          "Never married, has no children, lives alone, and is not currently in a serious romantic relationship.",
+          "Is close to parents Robert and Denise, brother Marcus, sister-in-law Dana, niece and nephew, and Aunt Elaine.",
+          "Maintains close friendships with Tasha, Priya, coworker Omar, tennis contacts, and women-in-tech peers.",
+          "Helps with her niece and nephew occasionally but is not their primary caregiver.",
+          "Is open to a romantic relationship if it does not throw her life into chaos."
+        ],
+        "evidence": "Q05-Q07, Q19, Q84"
+      },
+      "home_and_lifestyle": {
+        "summary": "She prefers a stable, organized, independent household with routines, documentation, budgeting, and a small garden.",
+        "details": [
+          "Lives alone in a two-bedroom Glassboro townhouse that she owns with a mortgage.",
+          "Uses the second bedroom as a home office and guest room and values quiet after work.",
+          "Keeps a backyard garden with herbs, tomatoes, peppers, and collards.",
+          "Pays the mortgage and household expenses herself.",
+          "Tracks spending with a spreadsheet and reviews accounts twice a month.",
+          "Has about five months of basic emergency savings and can cover a $400 emergency from savings."
+        ],
+        "evidence": "Q08, Q11, Q51, Q55, Q57, Q58, Q61, Q82"
+      },
+      "entertainment": {
+        "summary": "Her entertainment preferences include live jazz, reading mysteries and biographies, Eagles football, strategy games, puzzles, and selective streaming or tutorials.",
+        "details": [
+          "Attends intimate live jazz shows and follows local venues.",
+          "Reads mystery novels and biographies of African-American leaders.",
+          "Watches Eagles football on Sundays during football season.",
+          "Enjoys chess, Sudoku, YouTube tutorials, music, and selective social media browsing."
+        ],
+        "evidence": "Q15, Q17, Q38, Q48"
+      },
+      "hobbies_and_recreation": {
+        "summary": "Her hobbies blend structured routines with creative outlets: gardening, cooking, photography, reading, puzzles, tennis, soccer, and mentoring.",
+        "details": [
+          "Does street photography inspired by Gordon Parks, including murals, parks, chess players, and community moments.",
+          "Gardens regularly and uses herbs for cooking and tea.",
+          "Plays weekly pickup tennis and casual adult soccer for cardio and stress relief.",
+          "Volunteers two Saturdays a month tutoring middle-school students in coding and digital literacy."
+        ],
+        "evidence": "Q08, Q17, Q37, Q48"
+      },
+      "work_and_career": {
+        "summary": "Kennedi is an experienced network and systems administrator aiming for senior IT leadership, cybersecurity credentials, and mentorship impact.",
+        "details": [
+          "Works as a senior network and computer systems administrator for a regional healthcare organization in South Jersey.",
+          "Has worked at her current job since 2019.",
+          "Uses Cisco, Juniper, Windows Server, Linux, VMware, Hyper-V, AWS, Azure, PowerShell, Python, SolarWinds, PRTG, and Nagios.",
+          "Keeps clinical and business systems available by managing network infrastructure, firewalls, VPNs, monitoring, servers, cloud connectivity, documentation, and compliance.",
+          "Usually works about 45 hours weekly and is on call about one week out of every five.",
+          "Is salaried and does not usually receive overtime for extra hours.",
+          "Plans to complete CCNP and CISSP and move toward network architect, cybersecurity manager, or IT operations director roles."
+        ],
+        "evidence": "Q16, Q18, Q65, Q68, Q72, Q76, Q78, Q90, Q108"
+      },
+      "arts_and_culture": {
+        "summary": "She is strongly connected to Black cultural traditions, jazz and neo-soul, street photography, storytelling, church culture, Juneteenth, and Kwanzaa.",
+        "details": [
+          "Was raised around church, family storytelling, soul food, gospel, R&B, Juneteenth, and Kwanzaa.",
+          "Photographs street and park scenes in a style inspired by Gordon Parks.",
+          "Values Black culture, family stories, music, food, community, humor, and joy as central to identity.",
+          "Values family, integrity, stability, community, faith, learning, reliability, good work done with care, and joy."
+        ],
+        "evidence": "Q01, Q05, Q28, Q47, Q48, Q109"
+      },
+      "sports_and_fitness": {
+        "summary": "She is a Philadelphia Eagles fan and stays active through tennis, soccer, walking, and stretching.",
+        "details": [
+          "Watches Eagles football on Sundays during the season and sometimes hosts or goes out for games.",
+          "Plays pickup tennis weekly.",
+          "Plays casual adult soccer when the league is in season.",
+          "Had knee tendinitis after overdoing soccer and tennis and now stretches more and avoids stacking sports too aggressively."
+        ],
+        "evidence": "Q15, Q17, Q31-Q33, Q59"
+      },
+      "nature_and_outdoors": {
+        "summary": "Kennedi enjoys low-key outdoor routines, especially gardening, walking, farmers markets, parks, and photography.",
+        "details": [
+          "Waters and maintains a backyard garden with herbs and vegetables.",
+          "Uses walks for health and emotional regulation.",
+          "Spends time at farmers markets, parks, and local outdoor street scenes for photography."
+        ],
+        "evidence": "Q08, Q15, Q18, Q43, Q48"
+      },
+      "technology": {
+        "summary": "Technology is both her profession and a community service tool; she values reliable systems, cybersecurity, documentation, and digital literacy.",
+        "details": [
+          "Built a career in network engineering, systems administration, cloud networking, cybersecurity, monitoring, automation, and documentation.",
+          "Tutors middle-school students in Scratch, basic Python logic, internet safety, and digital literacy.",
+          "Helps family with portals, passwords, online accounts, appointment scheduling, and healthcare paperwork.",
+          "Treats cybersecurity, broadband access, privacy, and digital literacy as political and civic issues."
+        ],
+        "evidence": "Q16, Q17, Q24, Q35, Q65"
+      },
+      "community_and_civic": {
+        "summary": "She is civically engaged through voting, local meetings, racial equity conversations, church/community networks, and youth mentorship.",
+        "details": [
+          "Votes in almost every election, including local and school board races.",
+          "Identifies as a fairly strong Democrat with practical progressive leanings.",
+          "Prioritizes civil rights, healthcare access, education, labor fairness, voting rights, racial equity, abortion rights, cybersecurity, infrastructure, and competent implementation.",
+          "Has become more attentive to local governance, school boards, county and municipal decisions, and misinformation.",
+          "Has mixed views of law enforcement shaped by traffic stops, family caution, community meetings, and broader racial patterns.",
+          "Responded to Black Lives Matter-related issues by talking with family and friends, attending a vigil and peaceful march, donating once to a bail fund, and pushing workplace mentorship and hiring discussions.",
+          "Supports transparent police discipline data, better crisis response, less tolerance for misconduct, and investment in youth and neighborhood resources."
+        ],
+        "evidence": "Q20-Q30, Q95-Q96"
+      },
+      "music": {
+        "summary": "Her music taste centers on neo-soul, classic R&B, jazz, and gospel, which she uses for enjoyment, stress relief, and cultural grounding.",
+        "details": [
+          "Listens to Erykah Badu, D'Angelo, Jill Scott, Miles Davis, and old gospel when stressed.",
+          "Attends live jazz shows and follows local music venues on Instagram.",
+          "Connects church, gospel music, and Black cultural identity with her upbringing.",
+          "Uses music for stress relief and grounding."
+        ],
+        "evidence": "Q15, Q38, Q47, Q48"
+      },
+      "fashion_and_appearance": {
+        "summary": "There is limited evidence, but Kennedi favors practical, neat, comfortable clothing suited to hybrid technical work and server-room needs.",
+        "details": [
+          "For remote work she wears a neat top, jeans, and sneakers.",
+          "For onsite work she wears dark slacks, a blouse or company polo, and comfortable shoes for server-room work."
+        ],
+        "evidence": "Q15"
+      },
+      "cultural_and_linguistic": {
+        "summary": "Kennedi identifies as Black/African-American, non-Hispanic, English-speaking, Christian Baptist, and culturally rooted in South Jersey Black Baptist family traditions.",
+        "details": [
+          "Identifies as Black or African-American and not Hispanic, Latinx, or Spanish origin.",
+          "English is her primary language.",
+          "Was born in the United States in Camden, New Jersey, and grew up mostly in Glassboro and nearby South Jersey communities.",
+          "Identifies as Christian, specifically Baptist, and attends church about two or three times a month.",
+          "Feels racial identity as strength in family gatherings, church, music, storytelling, Juneteenth events, and mentoring younger Black women in tech."
+        ],
+        "evidence": "Q47, Q86-Q89, Q94, Q97"
+      },
+      "life_events_and_transitions": {
+        "summary": "Major life events include becoming the first STEM bachelor's degree holder in her family, choosing the network engineering path, buying a townhouse, turning 40, and managing family health concerns.",
+        "details": [
+          "Was born on September 14, 1985.",
+          "Graduated from Rowan University with a bachelor's in information systems and became the first in her family with a STEM degree.",
+          "Chose a technical networking path over a safer support supervisor route after college.",
+          "Bought her Glassboro townhouse in 2021.",
+          "A serious romantic relationship ended in 2022, and she is not rushing into a new one.",
+          "Turned 40 in 2025, prompting reflection on leadership, health, and the next decade.",
+          "Had a serious ransomware scare at work in January 2026 and used EAP counseling afterward."
+        ],
+        "evidence": "Q01-Q03, Q05, Q44, Q58, Q85, Q90"
+      },
+      "media_and_information_diet": {
+        "summary": "She uses social media selectively and relies on professional, local, and mainstream sources for news, health, and cybersecurity information.",
+        "details": [
+          "Uses Instagram for photography, food, gardening, musicians, and local venues.",
+          "Uses Facebook mostly for family, church people, neighborhood updates, and community events.",
+          "Uses LinkedIn for professional networking, women-in-tech groups, certifications, and cybersecurity conversations.",
+          "Gets news from WHYY, NPR, the Philadelphia Inquirer, AP, and local outlets.",
+          "Follows CISA alerts, Krebs, vendor security blogs, CDC, her doctor, and hospital guidance while avoiding unsourced YouTube or social media claims."
+        ],
+        "evidence": "Q42, Q48"
+      }
+    },
+    "summaries": {
+      "_note": "Carried over VERBATIM from the draft extracted profile. Not regenerated in this step.",
+      "demographer": "Kennedi Terry is a 40-year-old Black/African-American woman living alone in an owned townhouse in Glassboro, New Jersey, with no spouse, partner, or children (Q51, Q58, Q84, Q89). She was born in Camden, raised in South Jersey, lived with both parents and an older brother at age 16, and remains closely tied to parents, sibling, niece, nephew, church, and community networks (Q05, Q87, Q97-Q99). She has a bachelor's degree in information systems from Rowan University and works full time as a senior network and systems administrator, placing her in a stable middle-class professional position (Q65, Q72, Q90). Her household income is from her own salaried employment, with homeownership, retirement savings, and remaining student, car, and mortgage debt shaping her life-course position (Q61-Q63, Q74).",
+      "behavioral_economist": "Kennedi is a disciplined planner who uses routines, automatic savings, spreadsheets, documentation, and preventive maintenance to reduce uncertainty (Q15, Q61, Q65). She is risk-aware rather than risk-avoidant: she chose the harder technical career path, bought a home, and occasionally splurges on camera gear or jazz, but she keeps emergency savings and avoids reckless credit use (Q02, Q56, Q58, Q82). Her choices are identity-linked, especially around family responsibility, Black community mentorship, professional competence, and self-sufficiency (Q17, Q28, Q83, Q108). She shows long time horizons through certification planning, retirement saving, health management, and a dream Ghana trip funded gradually rather than impulsively (Q18, Q31, Q62, Q108).",
+      "political_scientist": "Kennedi is a regular voter and fairly strong Democrat with practical progressive views on civil rights, healthcare, education, labor fairness, voting rights, racial equity, and institutional competence (Q23-Q24, Q95-Q96). She has become more attentive to local governance, school boards, misinformation, and implementation after the pandemic and recent political conflicts (Q25). Black Lives Matter and policing issues affected her deeply, leading to family conversations, a vigil, a peaceful march, workplace equity discussions, and stronger views on accountability and prevention (Q26-Q30). Her civic orientation is participatory but pragmatic, combining voting, community tutoring, church/community ties, and mentorship rather than constant public protest (Q17, Q23, Q29).",
+      "psychologist": "Kennedi presents as conscientious, routine-oriented, technically analytical, and community-minded, with a self-concept built around reliability, competence, and making room for others (Q01, Q15, Q65, Q109). She also has a spontaneous and creative side expressed through photography, live music, travel dreams, cooking, and occasional camera or jazz-ticket splurges (Q48, Q56, Q108). Emotionally, she reports no clinical depression but does experience work-linked anxiety symptoms, especially around cybersecurity incidents, responsibility, and sleep disruption (Q43-Q45). Her coping style combines problem-solving, documentation, walking, prayer, music, journaling, close friendships, and selective counseling, showing both self-reliance and willingness to seek support when stress exceeds routine coping (Q38, Q44-Q47)."
+    },
+    "hidden_facts": [
+      {
+        "fact_id": "HF-001",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kennedi manages mild hypertension diagnosed in 2025.",
+        "ground_truth_label": "Mild hypertension diagnosis in 2025",
+        "behavioral_evidence_from_interview": [
+          "Q31: I have mild hypertension",
+          "Q33: The main thing was the hypertension diagnosis in 2025"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-002",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kennedi takes low-dose amlodipine for blood pressure.",
+        "ground_truth_label": "Uses low-dose amlodipine",
+        "behavioral_evidence_from_interview": [
+          "Q31: A low dose of amlodipine"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-003",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kennedi checks her blood pressure at home a few mornings a week.",
+        "ground_truth_label": "Home blood pressure monitoring",
+        "behavioral_evidence_from_interview": [
+          "Q31: I use a home blood pressure cuff a few mornings a week"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-004",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kennedi uses walking, sports, stretching, meal prep, and lower sodium intake to maintain health.",
+        "ground_truth_label": "Routine-based preventive health behavior",
+        "behavioral_evidence_from_interview": [
+          "Q18: added morning walks twice a week and cut back on salty takeout",
+          "Q32: If I meal prep, schedule tennis, and keep healthy food in the house"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-005",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kennedi trusts evidence-based health sources such as her primary care doctor, CDC, healthcare employer guidance, hospital systems, and careful medical reporting.",
+        "ground_truth_label": "Evidence-based health information trust",
+        "behavioral_evidence_from_interview": [
+          "Q42: My primary care doctor is first",
+          "Q42: I also trust the CDC, my healthcare employer's internal guidance, major hospital systems"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-006",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kennedi is pro-vaccine and received COVID vaccines, boosters, and flu shots.",
+        "ground_truth_label": "Pro-vaccine",
+        "behavioral_evidence_from_interview": [
+          "Q41: I am pro-vaccine",
+          "Q41: I got the COVID vaccines and boosters, I get my flu shot"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-007",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kennedi does not smoke.",
+        "ground_truth_label": "Non-smoker",
+        "behavioral_evidence_from_interview": [
+          "Q38: I do not smoke"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-008",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kennedi drinks socially about two or three times a month.",
+        "ground_truth_label": "Modest social alcohol use",
+        "behavioral_evidence_from_interview": [
+          "Q38: Maybe two or three times a month"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-009",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kennedi has tried low-dose cannabis edibles once or twice but does not use them routinely.",
+        "ground_truth_label": "Non-routine cannabis edible use",
+        "behavioral_evidence_from_interview": [
+          "Q39: tried a low-dose cannabis edible once or twice",
+          "Q39: it is not part of my routine"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-010",
+        "source": "direct",
+        "source_subcategory": "preferences.health_and_wellness",
+        "reprojected_from": null,
+        "claim": "Kennedi manages work-linked anxiety symptoms with walking, music, prayer, journaling, reduced notifications, trusted friends, and EAP counseling when needed.",
+        "ground_truth_label": "Intentional anxiety coping practices",
+        "behavioral_evidence_from_interview": [
+          "Q45: I do deal with anxiety symptoms, mostly tied to work pressure",
+          "Q45: Writing things down, turning off work notifications when I truly can, walking, music, prayer",
+          "Q44: scheduled two EAP counseling sessions"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-011",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Kennedi meal preps baked chicken with smoked paprika, roasted vegetables, sweet potatoes, brown rice, and greens.",
+        "ground_truth_label": "Soul-food-influenced meal prep",
+        "behavioral_evidence_from_interview": [
+          "Q15: bake chicken with smoked paprika, make greens or roasted vegetables, cook brown rice or sweet potatoes"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-012",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Kennedi enjoys collards with garlic and apple cider vinegar.",
+        "ground_truth_label": "Collards with garlic and apple cider vinegar",
+        "behavioral_evidence_from_interview": [
+          "Q32: Collards with garlic and apple cider vinegar"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-013",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Kennedi uses fresh garden herbs for cooking and mint tea.",
+        "ground_truth_label": "Uses garden herbs in food and tea",
+        "behavioral_evidence_from_interview": [
+          "Q37: mint, basil, thyme, and sometimes rosemary",
+          "Q37: Mostly for cooking, but mint tea is a regular thing"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-014",
+        "source": "direct",
+        "source_subcategory": "preferences.food_and_dining",
+        "reprojected_from": null,
+        "claim": "Kennedi hosts family dinners and spends more on groceries around gatherings and holidays.",
+        "ground_truth_label": "Family-hosting grocery increases",
+        "behavioral_evidence_from_interview": [
+          "Q56: Groceries were a little higher because I hosted family for dinner",
+          "Q59: Groceries went up around holidays and family birthdays"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-015",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Kennedi wants to visit Ghana for ancestry, history, and cultural immersion.",
+        "ground_truth_label": "Ghana ancestry travel goal",
+        "behavioral_evidence_from_interview": [
+          "Q108: Ghana for ancestry and history",
+          "Q86: Ghana interests me"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-016",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Kennedi hopes for cultural trips to New Orleans, Savannah, Philadelphia, and D.C.",
+        "ground_truth_label": "Cultural domestic travel interests",
+        "behavioral_evidence_from_interview": [
+          "Q108: New Orleans for jazz, Savannah for architecture, and weekend museum trips to Philly or D.C."
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-017",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Kennedi saves slowly for travel rather than putting a major trip on a credit card.",
+        "ground_truth_label": "Budget-conscious travel saving",
+        "behavioral_evidence_from_interview": [
+          "Q62: Ghana is the dream fund, but it grows slowly",
+          "Q62: I would rather go when I can do it thoughtfully than put it all on a card"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-018",
+        "source": "direct",
+        "source_subcategory": "preferences.travel",
+        "reprojected_from": null,
+        "claim": "Kennedi values Glassboro's affordability, space, and access to family even though she sometimes fantasizes about Philadelphia or Collingswood.",
+        "ground_truth_label": "Glassboro stability over relocation",
+        "behavioral_evidence_from_interview": [
+          "Q10: Sometimes I fantasize about Philly or Collingswood",
+          "Q10: Glassboro gives me space, affordability, and family access"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-019",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Kennedi has never been married, has no children, lives alone, and is not in a serious romantic relationship.",
+        "ground_truth_label": "Single-person household with no children",
+        "behavioral_evidence_from_interview": [
+          "Q05: I am not married, I am not living with a partner, and I do not have children",
+          "Q51: I live alone"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-020",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Kennedi is close to parents Robert and Denise, brother Marcus, sister-in-law Dana, niece and nephew, and Aunt Elaine.",
+        "ground_truth_label": "Close extended immediate family network",
+        "behavioral_evidence_from_interview": [
+          "Q05: My parents, Robert and Denise Terry",
+          "Q05: My older brother Marcus",
+          "Q06: My sister-in-law, Dana",
+          "Q05: Aunt Elaine in Camden"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-021",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Kennedi's close friends include Tasha, Priya, Omar, tennis contacts, and women-in-tech peers.",
+        "ground_truth_label": "Small stable friend network",
+        "behavioral_evidence_from_interview": [
+          "Q07: My closest friend is Tasha",
+          "Q07: I also have Priya",
+          "Q07: Omar, a coworker",
+          "Q07: a small group from tennis and a women's tech meetup"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-022",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Kennedi helps with her niece and nephew occasionally but is not their primary caregiver.",
+        "ground_truth_label": "Occasional aunt caregiving role",
+        "behavioral_evidence_from_interview": [
+          "Q19: I sometimes help with pickup or homework",
+          "Q19: I am not the primary caregiver"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-023",
+        "source": "direct",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": null,
+        "claim": "Kennedi is open to a romantic relationship if it does not disrupt her life.",
+        "ground_truth_label": "Cautiously open to dating",
+        "behavioral_evidence_from_interview": [
+          "Q07: I am open to it if it does not throw my life into chaos"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-024",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Kennedi lives alone in a two-bedroom Glassboro townhouse that she owns with a mortgage.",
+        "ground_truth_label": "Owns mortgaged two-bedroom townhouse",
+        "behavioral_evidence_from_interview": [
+          "Q11: I live by myself in a two-bedroom townhouse",
+          "Q58: I own my townhouse with a mortgage"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-025",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Kennedi uses her second bedroom as a home office and guest room.",
+        "ground_truth_label": "Second bedroom office and guest room",
+        "behavioral_evidence_from_interview": [
+          "Q11: My second bedroom is a guest room and office"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-026",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Kennedi keeps a backyard garden with herbs, tomatoes, peppers, and collards.",
+        "ground_truth_label": "Backyard herb and vegetable garden",
+        "behavioral_evidence_from_interview": [
+          "Q08: herbs, tomatoes, peppers, and collards"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-027",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Kennedi pays her mortgage and household expenses herself.",
+        "ground_truth_label": "Sole household expense payer",
+        "behavioral_evidence_from_interview": [
+          "Q55: I pay the mortgage and household expenses myself"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-028",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Kennedi tracks spending with a spreadsheet and reviews accounts twice a month.",
+        "ground_truth_label": "Spreadsheet-based budgeting",
+        "behavioral_evidence_from_interview": [
+          "Q57: I use a spreadsheet and review accounts twice a month"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-029",
+        "source": "direct",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": null,
+        "claim": "Kennedi has about five months of basic emergency savings and can cover a $400 emergency from savings.",
+        "ground_truth_label": "Emergency savings cushion",
+        "behavioral_evidence_from_interview": [
+          "Q61: Around five months of basic expenses",
+          "Q82: I could cover a $400 emergency from savings"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-030",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Kennedi attends intimate live jazz shows and follows local venues.",
+        "ground_truth_label": "Live jazz entertainment preference",
+        "behavioral_evidence_from_interview": [
+          "Q15: go hear live jazz",
+          "Q48: following musicians or local venues"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-031",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Kennedi reads mystery novels and biographies of African-American leaders.",
+        "ground_truth_label": "Mystery and African-American biography reader",
+        "behavioral_evidence_from_interview": [
+          "Q17: Mystery novels and biographies of African-American leaders"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-032",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Kennedi watches Eagles football on Sundays during football season.",
+        "ground_truth_label": "Philadelphia Eagles fan",
+        "behavioral_evidence_from_interview": [
+          "Q15: Eagles football when it is that season"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-033",
+        "source": "direct",
+        "source_subcategory": "preferences.entertainment",
+        "reprojected_from": null,
+        "claim": "Kennedi enjoys chess, Sudoku, YouTube tutorials, music, and selective social media browsing.",
+        "ground_truth_label": "Puzzles and selective media use",
+        "behavioral_evidence_from_interview": [
+          "Q17: Playing chess and solving puzzles",
+          "Q48: I use YouTube for tutorials and music, and I read more than I post"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-034",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Kennedi does street photography inspired by Gordon Parks.",
+        "ground_truth_label": "Gordon Parks-inspired street photography",
+        "behavioral_evidence_from_interview": [
+          "Q48: candid city moments inspired by Gordon Parks"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-035",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Kennedi gardens regularly and uses herbs for cooking and tea.",
+        "ground_truth_label": "Gardening hobby",
+        "behavioral_evidence_from_interview": [
+          "Q37: Mostly for cooking, but mint tea is a regular thing"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-036",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Kennedi plays weekly pickup tennis and casual adult soccer for cardio and stress relief.",
+        "ground_truth_label": "Tennis and adult soccer participant",
+        "behavioral_evidence_from_interview": [
+          "Q17: I play pickup tennis weekly and casual adult soccer when the league is running"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-037",
+        "source": "direct",
+        "source_subcategory": "preferences.hobbies_and_recreation",
+        "reprojected_from": null,
+        "claim": "Kennedi volunteers two Saturdays a month tutoring middle-school students in coding and digital literacy.",
+        "ground_truth_label": "Volunteer coding tutor",
+        "behavioral_evidence_from_interview": [
+          "Q17: tutoring middle-school students in basic coding and digital literacy, usually two Saturdays a month"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-038",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kennedi works as a senior network and computer systems administrator for a regional healthcare organization in South Jersey.",
+        "ground_truth_label": "Senior network and systems administrator in healthcare",
+        "behavioral_evidence_from_interview": [
+          "Q16: I am a senior network and systems administrator for a regional healthcare organization in South Jersey"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-039",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kennedi has worked at her current job since 2019.",
+        "ground_truth_label": "Current job since 2019",
+        "behavioral_evidence_from_interview": [
+          "Q76: I have been at my current job since 2019"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-040",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kennedi uses Cisco, Juniper, Windows Server, Linux, VMware, Hyper-V, AWS, Azure, PowerShell, Python, SolarWinds, PRTG, and Nagios.",
+        "ground_truth_label": "Enterprise networking and systems tool stack",
+        "behavioral_evidence_from_interview": [
+          "Q65: I work with Cisco, Juniper, Windows Server, Linux, VMware, Hyper-V, AWS, and Azure",
+          "Q65: SolarWinds, PRTG, Nagios"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-041",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kennedi keeps clinical and business systems available by managing network infrastructure, firewalls, VPNs, monitoring, servers, cloud connectivity, documentation, and compliance.",
+        "ground_truth_label": "Healthcare IT infrastructure duties",
+        "behavioral_evidence_from_interview": [
+          "Q65: keeping clinical and business systems available",
+          "Q65: firewalls, VPNs, wireless, servers, and cloud connectivity",
+          "Q65: documenting changes"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-042",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kennedi usually works about 45 hours weekly and is on call about one week out of every five.",
+        "ground_truth_label": "45-hour week with one-in-five on-call rotation",
+        "behavioral_evidence_from_interview": [
+          "Q68: Usually about 45 hours a week",
+          "Q78: About one week every five weeks"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-043",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kennedi is salaried and does not usually receive overtime for extra hours.",
+        "ground_truth_label": "Salaried no regular overtime",
+        "behavioral_evidence_from_interview": [
+          "Q72: No, I am salaried, so extra hours do not usually mean extra pay"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-044",
+        "source": "direct",
+        "source_subcategory": "preferences.work_and_career",
+        "reprojected_from": null,
+        "claim": "Kennedi plans to complete CCNP and CISSP and move toward network architect, cybersecurity manager, or IT operations director roles.",
+        "ground_truth_label": "Senior IT leadership and certification goals",
+        "behavioral_evidence_from_interview": [
+          "Q108: I hope to be in a senior leadership role like network architect, cybersecurity manager, or IT operations director",
+          "Q108: I want my CCNP and CISSP finished"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-045",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Kennedi was raised around church, family storytelling, soul food, gospel, R&B, Juneteenth, and Kwanzaa.",
+        "ground_truth_label": "South Jersey Black Baptist cultural upbringing",
+        "behavioral_evidence_from_interview": [
+          "Q01: church, family cookouts",
+          "Q05: Juneteenth, Thanksgiving, Christmas, and sometimes Kwanzaa",
+          "Q47: raised in a Black Baptist church"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-046",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Kennedi photographs street and park scenes in a style inspired by Gordon Parks.",
+        "ground_truth_label": "Street and park photography inspired by Gordon Parks",
+        "behavioral_evidence_from_interview": [
+          "Q48: street scenes, murals, parks",
+          "Q48: inspired by Gordon Parks"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-047",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Kennedi values Black culture, family stories, music, food, community, humor, and joy as central to identity.",
+        "ground_truth_label": "Black cultural identity as strength and joy",
+        "behavioral_evidence_from_interview": [
+          "Q28: There is joy, culture, humor, music, food, and community too",
+          "Q109: I value Black culture and the stories that kept my family grounded"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-048",
+        "source": "direct",
+        "source_subcategory": "preferences.arts_and_culture",
+        "reprojected_from": null,
+        "claim": "Kennedi values family, integrity, stability, community, faith, learning, reliability, good work done with care, and joy.",
+        "ground_truth_label": "Core values: family, integrity, stability, community, faith, learning, reliability, care, joy",
+        "behavioral_evidence_from_interview": [
+          "Q109: I value family, integrity, stability, community, faith, and the ability to keep learning",
+          "Q109: I value being reliable",
+          "Q109: I value joy"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-049",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Kennedi watches Eagles football on Sundays during the season and sometimes hosts or goes out for games.",
+        "ground_truth_label": "Philadelphia Eagles football routine",
+        "behavioral_evidence_from_interview": [
+          "Q15: Eagles football when it is that season",
+          "Q59: football season I spend a bit more hosting or going out for games"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-050",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Kennedi plays pickup tennis weekly.",
+        "ground_truth_label": "Weekly pickup tennis",
+        "behavioral_evidence_from_interview": [
+          "Q17: I play pickup tennis weekly"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-051",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Kennedi plays casual adult soccer when the league is in season.",
+        "ground_truth_label": "Seasonal adult soccer",
+        "behavioral_evidence_from_interview": [
+          "Q17: casual adult soccer when the league is running"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-052",
+        "source": "direct",
+        "source_subcategory": "preferences.sports_and_fitness",
+        "reprojected_from": null,
+        "claim": "Kennedi had knee tendinitis after overdoing soccer and tennis and now stretches more and avoids stacking sports too aggressively.",
+        "ground_truth_label": "Knee tendinitis managed through stretching and pacing",
+        "behavioral_evidence_from_interview": [
+          "Q33: knee tendinitis after overdoing soccer and tennis in the same week",
+          "Q33: Now I stretch more and do not stack soccer and tennis too aggressively"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-053",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Kennedi waters and maintains a backyard garden with herbs and vegetables.",
+        "ground_truth_label": "Backyard gardening routine",
+        "behavioral_evidence_from_interview": [
+          "Q15: water the garden if it is warm",
+          "Q08: herbs, tomatoes, peppers, and collards"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-054",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Kennedi uses walks for health and emotional regulation.",
+        "ground_truth_label": "Walking for physical and emotional regulation",
+        "behavioral_evidence_from_interview": [
+          "Q18: added morning walks twice a week",
+          "Q44: took a walk",
+          "Q45: walking"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-055",
+        "source": "direct",
+        "source_subcategory": "preferences.nature_and_outdoors",
+        "reprojected_from": null,
+        "claim": "Kennedi spends time at farmers markets, parks, and local outdoor street scenes for photography.",
+        "ground_truth_label": "Local outdoor photography and markets",
+        "behavioral_evidence_from_interview": [
+          "Q08: farmers market when it is running",
+          "Q48: street scenes, murals, parks"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-056",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Kennedi built a career in network engineering, systems administration, cloud networking, cybersecurity, monitoring, automation, and documentation.",
+        "ground_truth_label": "Network engineering and cybersecurity career",
+        "behavioral_evidence_from_interview": [
+          "Q16: network infrastructure, firewalls, VPNs, monitoring, server issues, cloud connectivity, and documentation",
+          "Q65: automate repetitive tasks with PowerShell or Python"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-057",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Kennedi tutors middle-school students in Scratch, basic Python logic, internet safety, and digital literacy.",
+        "ground_truth_label": "Youth digital literacy tutor",
+        "behavioral_evidence_from_interview": [
+          "Q17: Scratch, basic Python logic, internet safety"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-058",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Kennedi helps family with portals, passwords, online accounts, appointment scheduling, and healthcare paperwork.",
+        "ground_truth_label": "Family technology and portal support",
+        "behavioral_evidence_from_interview": [
+          "Q17: online accounts, appointment portals, and anything that involves passwords",
+          "Q35: schedule appointments, and keep track of medication questions"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-059",
+        "source": "direct",
+        "source_subcategory": "preferences.technology",
+        "reprojected_from": null,
+        "claim": "Kennedi treats cybersecurity, broadband access, privacy, and digital literacy as political and civic issues.",
+        "ground_truth_label": "Technology access as civic issue",
+        "behavioral_evidence_from_interview": [
+          "Q24: Cybersecurity, broadband access, privacy, and digital literacy are political issues to me"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-060",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Kennedi votes in almost every election, including local and school board races.",
+        "ground_truth_label": "Regular voter including local elections",
+        "behavioral_evidence_from_interview": [
+          "Q23: I vote in almost every election, including local and school board races"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-061",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Kennedi identifies as a fairly strong Democrat with practical progressive leanings.",
+        "ground_truth_label": "Fairly strong practical Democrat",
+        "behavioral_evidence_from_interview": [
+          "Q95: I think of myself as a Democrat, fairly strongly",
+          "Q24: practical Democrat with progressive leanings"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-062",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Kennedi prioritizes civil rights, healthcare access, education, labor fairness, voting rights, racial equity, abortion rights, cybersecurity, infrastructure, and competent implementation.",
+        "ground_truth_label": "Practical progressive issue priorities",
+        "behavioral_evidence_from_interview": [
+          "Q24: civil rights, healthcare access, education, labor fairness, and voting rights",
+          "Q24: Healthcare costs, voting rights, racial equity, cybersecurity and infrastructure, abortion rights"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-063",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Kennedi has become more attentive to local governance, school boards, county and municipal decisions, and misinformation.",
+        "ground_truth_label": "Increased local governance and misinformation focus",
+        "behavioral_evidence_from_interview": [
+          "Q25: I have become more local in my thinking",
+          "Q25: more concerned about misinformation"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-064",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Kennedi has mixed views of law enforcement shaped by traffic stops, family caution, community meetings, and broader racial patterns.",
+        "ground_truth_label": "Mixed institutional trust in law enforcement",
+        "behavioral_evidence_from_interview": [
+          "Q20: my view is mixed",
+          "Q20: I do not ignore the bigger patterns, especially for Black people",
+          "Q21: They gave us the talk"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-065",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Kennedi responded to Black Lives Matter-related issues through family and friend conversations, a vigil, a peaceful march, a one-time bail fund donation, and workplace mentorship and hiring discussions.",
+        "ground_truth_label": "BLM-related civic response",
+        "behavioral_evidence_from_interview": [
+          "Q29: talked with family and friends, attended a vigil and a peaceful march, donated to a bail fund once",
+          "Q29: pushed for more concrete mentorship and hiring discussions at work"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.political_scientist"
+        ]
+      },
+      {
+        "fact_id": "HF-066",
+        "source": "direct",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": null,
+        "claim": "Kennedi supports transparent police discipline data, better crisis response, less tolerance for misconduct, and investment in youth and neighborhood resources.",
+        "ground_truth_label": "Police accountability and prevention preference",
+        "behavioral_evidence_from_interview": [
+          "Q27: Transparent discipline data, better crisis response, less tolerance for misconduct",
+          "Q27: real investment in youth and neighborhood resources"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-067",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Kennedi listens to Erykah Badu, D'Angelo, Jill Scott, Miles Davis, and old gospel when stressed.",
+        "ground_truth_label": "Neo-soul, jazz, and gospel stress music",
+        "behavioral_evidence_from_interview": [
+          "Q38: Erykah Badu, D'Angelo, Jill Scott, Miles Davis, or old gospel"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-068",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Kennedi attends live jazz shows and follows local music venues on Instagram.",
+        "ground_truth_label": "Live jazz and local venue following",
+        "behavioral_evidence_from_interview": [
+          "Q15: go hear live jazz",
+          "Q48: following musicians or local venues"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-069",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Kennedi connects church, gospel music, and Black cultural identity with her upbringing.",
+        "ground_truth_label": "Gospel and church as cultural grounding",
+        "behavioral_evidence_from_interview": [
+          "Q47: raised in a Black Baptist church",
+          "Q47: music, community, service, and endurance"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-070",
+        "source": "direct",
+        "source_subcategory": "preferences.music",
+        "reprojected_from": null,
+        "claim": "Kennedi uses music for stress relief and grounding.",
+        "ground_truth_label": "Music-based emotional regulation",
+        "behavioral_evidence_from_interview": [
+          "Q38: put on Erykah Badu",
+          "Q43: music"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-071",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "For remote work, Kennedi wears a neat top, jeans, and sneakers.",
+        "ground_truth_label": "Remote-work casual neat clothing",
+        "behavioral_evidence_from_interview": [
+          "Q15: If I am remote, it is a neat top, jeans, and sneakers"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-072",
+        "source": "direct",
+        "source_subcategory": "preferences.fashion_and_appearance",
+        "reprojected_from": null,
+        "claim": "For onsite work, Kennedi wears dark slacks, a blouse or company polo, and comfortable shoes for server-room work.",
+        "ground_truth_label": "Practical onsite technical work clothing",
+        "behavioral_evidence_from_interview": [
+          "Q15: dark slacks, a blouse or company polo, and comfortable shoes"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-073",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Kennedi identifies as Black or African-American and not Hispanic, Latinx, or Spanish origin.",
+        "ground_truth_label": "Black/African-American non-Hispanic identity",
+        "behavioral_evidence_from_interview": [
+          "Q88: No",
+          "Q89: Black or African-American"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-074",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "English is Kennedi's primary language.",
+        "ground_truth_label": "English primary language",
+        "behavioral_evidence_from_interview": [
+          "Q88 follow-up: English is my primary language"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-075",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Kennedi was born in Camden, New Jersey, and grew up mostly in Glassboro and nearby South Jersey communities.",
+        "ground_truth_label": "Camden-born, South Jersey-raised",
+        "behavioral_evidence_from_interview": [
+          "Q87: Camden, New Jersey",
+          "Q87: grew up mostly in Glassboro and nearby South Jersey communities"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-076",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Kennedi identifies as Christian, specifically Baptist, and attends church about two or three times a month.",
+        "ground_truth_label": "Christian Baptist with regular attendance",
+        "behavioral_evidence_from_interview": [
+          "Q47: I still identify as Christian, specifically Baptist",
+          "Q47: attend church maybe two or three times a month"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-077",
+        "source": "direct",
+        "source_subcategory": "preferences.cultural_and_linguistic",
+        "reprojected_from": null,
+        "claim": "Kennedi feels racial identity as strength in family gatherings, church, music, storytelling, Juneteenth events, and mentoring younger Black women in tech.",
+        "ground_truth_label": "Racial identity as cultural strength",
+        "behavioral_evidence_from_interview": [
+          "Q28: In family gatherings, church, music, storytelling, Juneteenth events",
+          "Q28: mentoring younger Black women in tech"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-078",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Kennedi was born on September 14, 1985.",
+        "ground_truth_label": "Date of birth September 14, 1985",
+        "behavioral_evidence_from_interview": [
+          "Q85: September 14, 1985"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-079",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Kennedi graduated from Rowan University with a bachelor's in information systems and became the first in her family with a STEM degree.",
+        "ground_truth_label": "First family STEM bachelor's degree",
+        "behavioral_evidence_from_interview": [
+          "Q01: I went to Rowan and finished a bachelor's in information systems",
+          "Q01: first to get a STEM degree"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.demographer"
+        ]
+      },
+      {
+        "fact_id": "HF-080",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Kennedi chose a technical networking path over a safer support supervisor route after college.",
+        "ground_truth_label": "Chose technical network career path",
+        "behavioral_evidence_from_interview": [
+          "Q02: got offered a more customer-facing support supervisor track",
+          "Q02: I chose networking anyway"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-081",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Kennedi bought her Glassboro townhouse in 2021.",
+        "ground_truth_label": "Bought townhouse in 2021",
+        "behavioral_evidence_from_interview": [
+          "Q58: I bought it in 2021"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.behavioral_economist"
+        ]
+      },
+      {
+        "fact_id": "HF-082",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Kennedi's serious relationship ended in 2022, and she is not rushing into a new relationship.",
+        "ground_truth_label": "Serious relationship ended in 2022",
+        "behavioral_evidence_from_interview": [
+          "Q05: I dated someone seriously for a few years, but that ended in 2022",
+          "Q05: right now I am not rushing into anything"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-083",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Turning 40 in 2025 prompted Kennedi to reflect on leadership, health, and the next decade.",
+        "ground_truth_label": "Age-40 reflection",
+        "behavioral_evidence_from_interview": [
+          "Q85: Yes, 40",
+          "Q85: It made me think about leadership, health, and what I want to build next"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-084",
+        "source": "direct",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": null,
+        "claim": "Kennedi had a serious ransomware scare at work in January 2026 and used EAP counseling afterward.",
+        "ground_truth_label": "January 2026 ransomware scare and EAP counseling",
+        "behavioral_evidence_from_interview": [
+          "Q44: In January 2026 we had a serious ransomware scare at work",
+          "Q44: scheduled two EAP counseling sessions"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": [
+          "summaries.psychologist"
+        ]
+      },
+      {
+        "fact_id": "HF-085",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Kennedi uses Instagram for photography, food, gardening, musicians, and local venues.",
+        "ground_truth_label": "Instagram for creative and local interests",
+        "behavioral_evidence_from_interview": [
+          "Q48: I use Instagram for photography, food, gardening, and following musicians or local venues"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-086",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Kennedi uses Facebook mostly for family, church people, neighborhood updates, and community events.",
+        "ground_truth_label": "Facebook for family and community updates",
+        "behavioral_evidence_from_interview": [
+          "Q48: Facebook is mostly family, church people, neighborhood updates, and community events"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-087",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Kennedi uses LinkedIn for professional networking, women-in-tech groups, certifications, and cybersecurity conversations.",
+        "ground_truth_label": "LinkedIn professional and cybersecurity use",
+        "behavioral_evidence_from_interview": [
+          "Q48: LinkedIn is for professional networking, women-in-tech groups, and keeping up with certifications or cybersecurity conversations"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-088",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Kennedi gets news from WHYY, NPR, the Philadelphia Inquirer, AP, and local outlets.",
+        "ground_truth_label": "Trusted local and mainstream news sources",
+        "behavioral_evidence_from_interview": [
+          "Q48: WHYY, NPR, the Philadelphia Inquirer, AP, local outlets"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-089",
+        "source": "direct",
+        "source_subcategory": "preferences.media_and_information_diet",
+        "reprojected_from": null,
+        "claim": "Kennedi follows CISA alerts, Krebs, vendor security blogs, CDC, her doctor, and hospital guidance while avoiding unsourced YouTube or social media claims.",
+        "ground_truth_label": "Source-checking technical and health information diet",
+        "behavioral_evidence_from_interview": [
+          "Q48: CISA alerts, Krebs, and vendor security blogs",
+          "Q42: I avoid random YouTube medical advice and social media posts with no source"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-090",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.demographer",
+        "claim": "Kennedi's salaried IT work, homeownership, savings, and debt profile place her in a stable middle-class professional life-course position.",
+        "ground_truth_label": "Stable middle-class professional position",
+        "behavioral_evidence_from_interview": [
+          "Q72: about $8,400 for the month",
+          "Q58: I own my townhouse with a mortgage",
+          "Q61: I have an emergency savings account"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-091",
+        "source": "reprojected",
+        "source_subcategory": "preferences.home_and_lifestyle",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Kennedi uses routines, automatic savings, spreadsheets, documentation, and preventive maintenance to reduce uncertainty.",
+        "ground_truth_label": "Uncertainty reduction through planning",
+        "behavioral_evidence_from_interview": [
+          "Q15: Mondays are usually planning and documentation",
+          "Q57: I use a spreadsheet",
+          "Q61: I automate savings right after payday"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-092",
+        "source": "reprojected",
+        "source_subcategory": "preferences.life_events_and_transitions",
+        "reprojected_from": "summaries.behavioral_economist",
+        "claim": "Kennedi is risk-aware rather than risk-avoidant.",
+        "ground_truth_label": "Risk-aware rather than risk-avoidant",
+        "behavioral_evidence_from_interview": [
+          "Q02: I chose networking anyway, even though it was intimidating",
+          "Q58: I bought it in 2021, which felt scary but important",
+          "Q82: I could cover a $400 emergency from savings"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-093",
+        "source": "reprojected",
+        "source_subcategory": "preferences.community_and_civic",
+        "reprojected_from": "summaries.political_scientist",
+        "claim": "Kennedi's civic orientation is participatory but pragmatic rather than constant public protest.",
+        "ground_truth_label": "Participatory pragmatic civic orientation",
+        "behavioral_evidence_from_interview": [
+          "Q29: I am not out every weekend protesting, but I am not silent either",
+          "Q23: I vote in almost every election",
+          "Q17: volunteer at a community center"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      },
+      {
+        "fact_id": "HF-094",
+        "source": "reprojected",
+        "source_subcategory": "preferences.social_and_relationships",
+        "reprojected_from": "summaries.psychologist",
+        "claim": "Kennedi's self-concept centers on reliability, competence, and making room for others.",
+        "ground_truth_label": "Reliability- and competence-centered self-concept",
+        "behavioral_evidence_from_interview": [
+          "Q109: I showed up, did the work well, made room for others",
+          "Q07: They come to me when something needs sorting out",
+          "Q65: You need to understand packets, but you also need to leave a path for the next person"
+        ],
+        "duplicate_of": null,
+        "also_supported_by": []
+      }
+    ]
+  }
+}

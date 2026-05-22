@@ -1,0 +1,621 @@
+{
+  "verification": {
+    "verification_metadata": {
+      "participant_id": "e4cc52624842450b80da0a10a4014f67",
+      "name": "Brittany Bradford",
+      "verification_date": "2026-05-22"
+    },
+    "per_person_verification": [
+      {
+        "name": "Michael Bradford-Reyes",
+        "relationship": "husband",
+        "direction_1_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Michael is explicitly named as Brittany's husband; his age, occupation, shared household, meeting context, marriage since 2016, daily routines, sports watching, calendar coordination, and emotional-support role are supported by the interview.",
+              "verdict": "consistent",
+              "gap": false,
+              "unsourced": false,
+              "interview_ref": "Q01, Q05, Q07, Q11, Q44, Q84",
+              "social_circle_ref": "name, relationship, demographics.age, demographics.occupation, background, shared_activities, recent_text_topics, evidence_from_interview",
+              "action": "NO_CHANGE",
+              "disposition": null,
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Michael's education is listed as graduate-level policy or public affairs education, but the interview only states that he works in environmental policy and does not provide his education.",
+              "verdict": "inconsistent",
+              "gap": true,
+              "unsourced": false,
+              "interview_ref": "Q05",
+              "social_circle_ref": "demographics.education",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "ENRICH_FROM_INTERVIEW",
+              "resolution": "Set Michael's education to \"Not specified in the interview.\""
+            }
+          ],
+          "summary": {
+            "consistent": 1,
+            "inconsistent": 1,
+            "gaps": 1,
+            "unsourced": 0
+          }
+        },
+        "direction_2_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Michael's shared activities and recent text topics align with the profile's social, home, politics, nature, sports, and emotional well-being details.",
+              "verdict": "consistent",
+              "gap": false,
+              "profile_ref": "preferences.social_and_relationships, preferences.home_and_lifestyle, preferences.sports_and_fitness, preferences.nature_and_outdoors, summaries.psychologist",
+              "social_circle_ref": "shared_activities, recent_text_topics, personality_mini_profile",
+              "action": "NO_CHANGE",
+              "disposition": null,
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The corrected profile also does not specify Michael's education, so the draft education field should not be presented as verified.",
+              "verdict": "inconsistent",
+              "gap": true,
+              "profile_ref": "preferences.social_and_relationships",
+              "social_circle_ref": "demographics.education",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "ENRICH_FROM_INTERVIEW",
+              "resolution": "Set Michael's education to \"Not specified in the interview.\""
+            }
+          ],
+          "summary": {
+            "consistent": 1,
+            "inconsistent": 1,
+            "gaps": 1
+          }
+        }
+      },
+      {
+        "name": "Maya Shah",
+        "relationship": "closest friend",
+        "direction_1_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Maya is explicitly named as Brittany's closest friend, a product manager she met at a D.C. tech meetup, with standing coffee every other Friday and a practical support style.",
+              "verdict": "consistent",
+              "gap": false,
+              "unsourced": false,
+              "interview_ref": "Q07, Q49",
+              "social_circle_ref": "relationship, demographics.occupation, background.how_they_met, background.why_close, shared_activities",
+              "action": "NO_CHANGE",
+              "disposition": null,
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Maya's surname, age, education, exact location, years known, and 3-4x/week communication frequency are not provided in the interview.",
+              "verdict": "inconsistent",
+              "gap": true,
+              "unsourced": false,
+              "interview_ref": "Q07, Q49",
+              "social_circle_ref": "name, demographics.age, demographics.location, demographics.education, background.years_known, communication_frequency",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "ENRICH_FROM_INTERVIEW",
+              "resolution": "Rename to \"Maya (last name not specified)\"; set age, education, and years_known to null/not specified; set location to D.C. area implied but not directly specified; set communication frequency to standing coffee every other Friday plus support texts as needed."
+            },
+            {
+              "id": 3,
+              "text": "Most recent text topics about work pressure, options, coffee scheduling, restaurants, dinner parties, and support align with the interview, but museum and travel planning are better treated as general Brittany interests rather than directly evidenced Maya topics.",
+              "verdict": "consistent",
+              "gap": true,
+              "unsourced": false,
+              "interview_ref": "Q07, Q48, Q49",
+              "social_circle_ref": "recent_text_topics",
+              "action": "NO_CHANGE",
+              "disposition": "ENRICH_FROM_INTERVIEW",
+              "resolution": "Revise Maya's recent text topics to emphasize coffee scheduling, work pressure/options, dinner-party or restaurant ideas, and private support rather than museum or travel planning."
+            }
+          ],
+          "summary": {
+            "consistent": 2,
+            "inconsistent": 1,
+            "gaps": 2,
+            "unsourced": 0
+          }
+        },
+        "direction_2_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Maya's role as closest friend and practical support aligns with the profile's social relationships and media/support-channel details.",
+              "verdict": "consistent",
+              "gap": false,
+              "profile_ref": "preferences.social_and_relationships, preferences.media_and_information_diet, summaries.psychologist",
+              "social_circle_ref": "relationship, background.why_close, personality_mini_profile, shared_activities",
+              "action": "NO_CHANGE",
+              "disposition": null,
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile preserves only Maya's first name, occupation, meeting context, coffee routine, and support role; it does not support her surname, age, education, exact residence, years known, or several-times-weekly contact.",
+              "verdict": "inconsistent",
+              "gap": true,
+              "profile_ref": "preferences.social_and_relationships, HF-023, HF-025, HF-081",
+              "social_circle_ref": "name, demographics, background.years_known, communication_frequency",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "ENRICH_FROM_INTERVIEW",
+              "resolution": "Use only the verified first name and supported relationship details; mark unsupported demographic fields as not specified."
+            }
+          ],
+          "summary": {
+            "consistent": 1,
+            "inconsistent": 1,
+            "gaps": 1
+          }
+        }
+      },
+      {
+        "name": "Andrew Bradford",
+        "relationship": "younger brother",
+        "direction_1_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Andrew is explicitly named as Brittany's younger brother; the interview supports that he lives in Silver Spring with his wife and daughter, texts Brittany several times a week, and is close but teasing with her.",
+              "verdict": "consistent",
+              "gap": false,
+              "unsourced": false,
+              "interview_ref": "Q01, Q05, Q06, Q19, Q46, Q99",
+              "social_circle_ref": "relationship, demographics.location, background, shared_activities, communication_frequency, recent_text_topics",
+              "action": "NO_CHANGE",
+              "disposition": null,
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "Andrew's surname is a plausible family-name inference, but his age, occupation, education, and exact years known are not stated in the interview.",
+              "verdict": "inconsistent",
+              "gap": true,
+              "unsourced": false,
+              "interview_ref": "Q05, Q06, Q46, Q99",
+              "social_circle_ref": "name, demographics.age, demographics.occupation, demographics.education, background.years_known",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "ENRICH_FROM_INTERVIEW",
+              "resolution": "Keep Andrew as the brother; set age, occupation, education, and years_known to not specified/null, and note that the surname is inferred from Brittany's family name."
+            }
+          ],
+          "summary": {
+            "consistent": 1,
+            "inconsistent": 1,
+            "gaps": 1,
+            "unsourced": 0
+          }
+        },
+        "direction_2_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Andrew's closeness, Silver Spring location, wife and daughter, texting about sports and niece logistics, and family role align with the corrected profile.",
+              "verdict": "consistent",
+              "gap": false,
+              "profile_ref": "preferences.social_and_relationships, preferences.life_events_and_transitions",
+              "social_circle_ref": "relationship, demographics.location, background, shared_activities, recent_text_topics",
+              "action": "NO_CHANGE",
+              "disposition": null,
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The profile does not specify Andrew's age, occupation, education, or numeric years known.",
+              "verdict": "inconsistent",
+              "gap": true,
+              "profile_ref": "preferences.social_and_relationships",
+              "social_circle_ref": "demographics.age, demographics.occupation, demographics.education, background.years_known",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "ENRICH_FROM_INTERVIEW",
+              "resolution": "Set unsupported demographic and years-known fields to not specified/null."
+            }
+          ],
+          "summary": {
+            "consistent": 1,
+            "inconsistent": 1,
+            "gaps": 1
+          }
+        }
+      },
+      {
+        "name": "Ellen Bradford",
+        "relationship": "mother",
+        "direction_1_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Brittany's mother is clearly present in the interview as a public school guidance counselor with a master's degree in counseling or education; Brittany sees her parents about twice a month and helps with family medical and digital paperwork.",
+              "verdict": "consistent",
+              "gap": false,
+              "unsourced": false,
+              "interview_ref": "Q01, Q05, Q35, Q40, Q101, Q103, Q104",
+              "social_circle_ref": "relationship, demographics.occupation, demographics.education, background.why_close, shared_activities, recent_text_topics, evidence_from_interview",
+              "action": "NO_CHANGE",
+              "disposition": null,
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The interview does not provide Brittany's mother's first name, current surname, age, retirement status, current city, or weekly communication frequency.",
+              "verdict": "inconsistent",
+              "gap": true,
+              "unsourced": false,
+              "interview_ref": "Q05, Q101, Q103",
+              "social_circle_ref": "name, demographics.age, demographics.occupation, demographics.location, communication_frequency",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "ENRICH_FROM_INTERVIEW",
+              "resolution": "Rename to \"Brittany's mother (name not specified)\"; set age to null; set occupation to \"public school guidance counselor; current retirement status not specified\"; set location to Maryland; set communication frequency to about twice monthly in person plus calls/texts as needed."
+            }
+          ],
+          "summary": {
+            "consistent": 1,
+            "inconsistent": 1,
+            "gaps": 1,
+            "unsourced": 0
+          }
+        },
+        "direction_2_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The mother's role in education, family closeness, health logistics, and holiday or museum routines aligns with the corrected profile.",
+              "verdict": "consistent",
+              "gap": false,
+              "profile_ref": "preferences.social_and_relationships, preferences.life_events_and_transitions, preferences.health_and_wellness",
+              "social_circle_ref": "relationship, demographics.occupation, demographics.education, shared_activities, recent_text_topics",
+              "action": "NO_CHANGE",
+              "disposition": null,
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The corrected profile does not supply the invented name Ellen, age 67, Bethesda as current city, or retired status.",
+              "verdict": "inconsistent",
+              "gap": true,
+              "profile_ref": "preferences.social_and_relationships, preferences.life_events_and_transitions",
+              "social_circle_ref": "name, demographics.age, demographics.location, demographics.occupation",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "ENRICH_FROM_INTERVIEW",
+              "resolution": "Use only verified mother details and mark unsupported identifying details as not specified."
+            }
+          ],
+          "summary": {
+            "consistent": 1,
+            "inconsistent": 1,
+            "gaps": 1
+          }
+        }
+      },
+      {
+        "name": "Robert Bradford",
+        "relationship": "father",
+        "direction_1_vs_interview": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "Brittany's father is clearly present in the interview as someone who worked in federal contracting as a program manager, completed a bachelor's degree, shaped Brittany's organized style, and has hypertension plus a prior minor cardiac scare.",
+              "verdict": "consistent",
+              "gap": false,
+              "unsourced": false,
+              "interview_ref": "Q01, Q05, Q35, Q46, Q100, Q105, Q106, Q107",
+              "social_circle_ref": "relationship, demographics.occupation, demographics.education, background.why_close, personality_mini_profile, shared_activities, recent_text_topics, evidence_from_interview",
+              "action": "NO_CHANGE",
+              "disposition": null,
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The interview does not provide Brittany's father's first name, age, retirement status, current city, or weekly communication frequency.",
+              "verdict": "inconsistent",
+              "gap": true,
+              "unsourced": false,
+              "interview_ref": "Q05, Q35, Q46, Q100, Q106",
+              "social_circle_ref": "name, demographics.age, demographics.occupation, demographics.location, communication_frequency",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "ENRICH_FROM_INTERVIEW",
+              "resolution": "Rename to \"Brittany's father (name not specified)\"; set age to null; set occupation to \"federal contracting program manager; current retirement status not specified\"; set location to Maryland; set communication frequency to about twice monthly in person plus calls/texts as needed."
+            }
+          ],
+          "summary": {
+            "consistent": 1,
+            "inconsistent": 1,
+            "gaps": 1,
+            "unsourced": 0
+          }
+        },
+        "direction_2_vs_profile": {
+          "observations": [
+            {
+              "id": 1,
+              "text": "The father's federal contracting background, bachelor's degree, health concerns, and family closeness align with the corrected profile.",
+              "verdict": "consistent",
+              "gap": false,
+              "profile_ref": "preferences.social_and_relationships, preferences.life_events_and_transitions",
+              "social_circle_ref": "relationship, demographics.occupation, demographics.education, background.why_close, recent_text_topics",
+              "action": "NO_CHANGE",
+              "disposition": null,
+              "resolution": null
+            },
+            {
+              "id": 2,
+              "text": "The corrected profile does not supply the invented name Robert, age 69, Bethesda as current city, or retired status.",
+              "verdict": "inconsistent",
+              "gap": true,
+              "profile_ref": "preferences.social_and_relationships, preferences.life_events_and_transitions",
+              "social_circle_ref": "name, demographics.age, demographics.location, demographics.occupation",
+              "action": "PARTIAL_UPDATE",
+              "disposition": "ENRICH_FROM_INTERVIEW",
+              "resolution": "Use only verified father details and mark unsupported identifying details as not specified."
+            }
+          ],
+          "summary": {
+            "consistent": 1,
+            "inconsistent": 1,
+            "gaps": 1
+          }
+        }
+      }
+    ],
+    "circle_level_observations": [
+      {
+        "id": 1,
+        "text": "The interview also mentions Brittany's niece, Andrew's wife, Michael's parents, tennis friends, colleagues, neighbors, and former manager Priya, but the five selected members remain the closest and most repeatedly supported circle: husband, closest friend, brother, mother, and father.",
+        "verdict": "consistent",
+        "gap": false,
+        "disposition": "CARRY_FORWARD",
+        "resolution": null
+      }
+    ],
+    "overall_verdict": "PASS_WITH_REVISIONS",
+    "verdict_rationale": "The core five-person circle is supported, but several inferred names, ages, education fields, locations, retirement statuses, years-known values, and contact-frequency claims were not verified. These were resolved with partial updates and no FLAG_FOR_REVIEW findings remain.",
+    "final_status": "Verified with revisions; the corrected social circle is ready for downstream use."
+  },
+  "corrected_social_circle": {
+    "_note": "Same five-member structure as the draft social circle, with unsupported demographic and identifying details revised to match the interview and corrected extracted profile.",
+    "social_circle": [
+      {
+        "name": "Michael Bradford-Reyes",
+        "relationship": "husband",
+        "demographics": {
+          "age": 40,
+          "gender": "male",
+          "occupation": "Environmental policy professional",
+          "location": "Washington, DC",
+          "education": "Not specified in the interview"
+        },
+        "background": {
+          "how_they_met": "They met through mutual friends at a Washington Nationals game.",
+          "years_known": 10,
+          "why_close": "They have been married since 2016, live together, share a child-free household, and regularly talk through work stress, public systems, climate, politics, sports, travel, and family logistics."
+        },
+        "personality_mini_profile": {
+          "key_traits": [
+            "practical",
+            "policy-minded",
+            "steady",
+            "observant"
+          ],
+          "interests": [
+            "environmental policy",
+            "climate issues",
+            "Washington Nationals",
+            "Washington Capitals",
+            "neighborhood walks"
+          ],
+          "communication_style": "Direct and grounded; uses practical check-ins, calendar details, and calm reality checks rather than dramatic emotional language."
+        },
+        "shared_activities": [
+          "Cooking or reheating dinner together",
+          "Comparing calendars",
+          "Watching Capitals or Nationals games",
+          "Neighborhood walks",
+          "Family holiday planning",
+          "Travel and household budget decisions"
+        ],
+        "communication_frequency": "daily",
+        "recent_text_topics": [
+          "Coordinating who gets the shared office for high-stakes meetings and who works from the dining table or coffee shop.",
+          "Checking whether Brittany is overcommitting around releases, speaking prep, tennis, and family plans.",
+          "Planning meals, walks, Nationals or Capitals games, and weekend family obligations.",
+          "Discussing climate, public systems, policing, and local politics from their policy and civic-tech perspectives."
+        ],
+        "evidence_from_interview": "Q05: \"I am married to Michael Bradford-Reyes\" and \"He is 40 and works in environmental policy.\" Q05: ordinary evenings include cooking, comparing calendars, watching Capitals or Nationals games, and walking. Q07: \"Michael first, then Maya.\" Q44: Michael helped name Brittany's overcommitment pattern."
+      },
+      {
+        "name": "Maya (last name not specified)",
+        "relationship": "closest friend",
+        "demographics": {
+          "age": null,
+          "gender": "female",
+          "occupation": "Product manager",
+          "location": "D.C. area implied, exact location not specified",
+          "education": "Not specified in the interview"
+        },
+        "background": {
+          "how_they_met": "They met at a D.C. tech meetup.",
+          "years_known": null,
+          "why_close": "Maya is Brittany's closest friend outside family. They share technology and product interests, meet for standing coffee every other Friday, and Maya understands Brittany's analytical way of processing problems."
+        },
+        "personality_mini_profile": {
+          "key_traits": [
+            "practical",
+            "analytical",
+            "loyal",
+            "socially perceptive"
+          ],
+          "interests": [
+            "product strategy",
+            "coffee meetups",
+            "D.C. restaurants",
+            "tech events",
+            "food and social plans"
+          ],
+          "communication_style": "Concise but warm; asks clarifying questions and often frames decisions as options."
+        },
+        "shared_activities": [
+          "Standing coffee every other Friday",
+          "Tech meetups",
+          "Private emotional support texts",
+          "Dinner parties",
+          "Small group chats"
+        ],
+        "communication_frequency": "standing coffee every other Friday, plus support texts or group chat as needed",
+        "recent_text_topics": [
+          "Scheduling their every-other-Friday coffee around Brittany's work deadlines and speaking prep.",
+          "Talking through professional pressure, presentation anxiety, and whether Brittany should say no to extra commitments.",
+          "Sharing restaurant ideas and dinner-party themes.",
+          "Running through options when Brittany feels stuck, especially around work or family logistics."
+        ],
+        "evidence_from_interview": "Q07: \"My closest friend is Maya, a product manager I met at a D.C. tech meetup; we have standing coffee every other Friday.\" Q07: Maya asks, \"What are the options?\" Q49: Brittany texts Michael, Maya, or a small group chat when struggling."
+      },
+      {
+        "name": "Andrew Bradford",
+        "relationship": "younger brother",
+        "demographics": {
+          "age": null,
+          "gender": "male",
+          "occupation": "Not specified in the interview",
+          "location": "Silver Spring, MD",
+          "education": "Not specified in the interview"
+        },
+        "background": {
+          "how_they_met": "Andrew is Brittany's younger brother; they grew up together in Bethesda, Maryland.",
+          "years_known": null,
+          "why_close": "They were competitive but close growing up and still text frequently about sports, family logistics, and Brittany's niece."
+        },
+        "personality_mini_profile": {
+          "key_traits": [
+            "practical",
+            "teasing",
+            "family-oriented",
+            "organized"
+          ],
+          "interests": [
+            "sports",
+            "parenting",
+            "school logistics",
+            "family gatherings"
+          ],
+          "communication_style": "Casual sibling texting with teasing, quick logistics, sports commentary, and short check-ins."
+        },
+        "shared_activities": [
+          "Family dinners",
+          "Planning visits with his wife and daughter",
+          "Coordinating museum or weekend activities with Brittany's niece",
+          "Discussing sports",
+          "Holiday logistics"
+        ],
+        "communication_frequency": "several times a week by text",
+        "recent_text_topics": [
+          "Scheduling when Brittany can see or take her niece to a museum or coding activity.",
+          "Coordinating family Sunday dinners, holidays, and who is bringing what.",
+          "Light teasing and sports texts.",
+          "Checking in about their parents' health and technology needs."
+        ],
+        "evidence_from_interview": "Q06: Brittany's immediate family includes her younger brother Andrew, and they are close though they tease each other. Q06: they text several times a week about sports or seeing her niece. Q05: Andrew lives in Silver Spring with his wife and daughter."
+      },
+      {
+        "name": "Brittany's mother (name not specified)",
+        "relationship": "mother",
+        "demographics": {
+          "age": null,
+          "gender": "female",
+          "occupation": "Public school guidance counselor; current retirement status not specified",
+          "location": "Maryland",
+          "education": "Master's degree in counseling or education"
+        },
+        "background": {
+          "how_they_met": "She is Brittany's mother and raised her in Bethesda in an education-focused household.",
+          "years_known": 38,
+          "why_close": "Brittany sees her parents regularly, inherited her mother's education and service values, and often helps with family planning, health-care portals, and scheduling."
+        },
+        "personality_mini_profile": {
+          "key_traits": [
+            "caring",
+            "structured",
+            "patient",
+            "school-minded"
+          ],
+          "interests": [
+            "education",
+            "museum outings",
+            "family dinners",
+            "student support",
+            "Christmas traditions"
+          ],
+          "communication_style": "Warm and detail-oriented; likely checks plans, confirms times, and shares family updates."
+        },
+        "shared_activities": [
+          "Sunday dinners",
+          "Museum outings",
+          "Holiday planning",
+          "Christmas service",
+          "Health and insurance paperwork help"
+        ],
+        "communication_frequency": "about twice monthly in person, plus calls or texts as needed",
+        "recent_text_topics": [
+          "Planning Sunday dinner or a museum outing in Maryland or D.C.",
+          "Discussing booster timing and routine health information.",
+          "Asking Brittany for help with medical portals, insurance paperwork, or digital forms.",
+          "Coordinating family holiday meals and checking what Brittany is bringing."
+        ],
+        "evidence_from_interview": "Q05: Brittany's parents still live in Maryland and she sees them about twice a month, usually for Sunday dinner or a museum outing. Q101: her mother completed a master's degree in counseling or education. Q103: \"She was a public school guidance counselor.\" Q40: Brittany helps her parents understand digital paperwork."
+      },
+      {
+        "name": "Brittany's father (name not specified)",
+        "relationship": "father",
+        "demographics": {
+          "age": null,
+          "gender": "male",
+          "occupation": "Federal contracting program manager; current retirement status not specified",
+          "location": "Maryland",
+          "education": "Bachelor's degree"
+        },
+        "background": {
+          "how_they_met": "He is Brittany's father and raised her in Bethesda, Maryland.",
+          "years_known": 38,
+          "why_close": "He shaped Brittany's organized, deadline-driven style and civic-tech interests through his federal contracting background. Brittany remains involved in her parents' lives and worries about his tendency to minimize health concerns."
+        },
+        "personality_mini_profile": {
+          "key_traits": [
+            "organized",
+            "deadline-driven",
+            "competent",
+            "reserved"
+          ],
+          "interests": [
+            "public administration",
+            "federal contracting",
+            "family dinners",
+            "current events",
+            "museum outings"
+          ],
+          "communication_style": "Brief, practical, and task-oriented; likely confirms plans, asks for tech help, or shares matter-of-fact updates."
+        },
+        "shared_activities": [
+          "Sunday dinners",
+          "Museum outings",
+          "Family holiday logistics",
+          "Technology help",
+          "Health appointment coordination"
+        ],
+        "communication_frequency": "about twice monthly in person, plus calls or texts as needed",
+        "recent_text_topics": [
+          "Coordinating dinner times, parking, and museum plans with Brittany and her mother.",
+          "Health-related check-ins after his hypertension and prior cardiac scare.",
+          "Asking Brittany for help with portals, forms, passwords, or insurance documentation.",
+          "Talking about D.C.-area public systems, contractors, and current events."
+        ],
+        "evidence_from_interview": "Q01: Brittany's father worked in federal contracting and asked what problem she solved that day. Q05: her parents live in Maryland and she sees them about twice a month. Q35: her father has hypertension and had a minor cardiac scare. Q46: Brittany worries most about her dad because he minimizes health concerns. Q100 and Q106: he completed a bachelor's degree and worked in federal contracting as a program manager."
+      }
+    ]
+  }
+}
