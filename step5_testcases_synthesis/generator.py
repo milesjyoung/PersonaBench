@@ -23,6 +23,9 @@ import re
 import sys
 from pathlib import Path
 from typing import Any
+from leakage_audit import run_and_write_leakage_audit, format_leakage_audit_summary
+
+print("DEBUG: loaded step5_testcases_synthesis/generator.py", file=sys.stderr)
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from llm import (
@@ -161,6 +164,7 @@ def run_step(
     provider: str = "anthropic",
     backend: str = "anthropic-api",
 ) -> int:
+    print("DEBUG: loaded step5_testcases_synthesis/generator.py", file=sys.stderr)
     corrected_profile_file = json.loads(profile_path.read_text(encoding="utf-8"))
     corrected_profile = corrected_profile_file["corrected_extracted_profile"]
     app_logs = json.loads(app_logs_path.read_text(encoding="utf-8"))
@@ -172,6 +176,7 @@ def run_step(
 
     base_name = extract_base_name(profile_path)
     test_cases_out = output_dir / f"{base_name}_test_cases.json"
+    leakage_audit_out = output_dir / f"{base_name}_test_cases_leakage_audit.json"
     verification_out = output_dir / f"{base_name}_test_cases_verification.json"
 
     for attempt in range(1, max_iterations + 1):
@@ -184,6 +189,10 @@ def run_step(
             json.dumps(test_cases, indent=2, ensure_ascii=False), encoding="utf-8"
         )
 
+        print(f"[attempt {attempt}/{max_iterations}] running leakage audit for {base_name}")
+        leakage_audit = run_and_write_leakage_audit(test_cases, app_logs, leakage_audit_out)
+        print(f"[attempt {attempt}/{max_iterations}] {format_leakage_audit_summary(leakage_audit)}")
+
         print(f"[attempt {attempt}/{max_iterations}] verifying test cases for {base_name}")
         verification = run_verification(
             client, model, test_cases, corrected_profile, app_logs,
@@ -193,13 +202,15 @@ def run_step(
             json.dumps(verification, indent=2, ensure_ascii=False), encoding="utf-8"
         )
 
-        if verification_passed(verification):
+        if leakage_audit["passed"] and verification_passed(verification):
             print(f"[attempt {attempt}/{max_iterations}] passed")
             return 0
         summary = verification.get("verification_metadata", {}).get("summary", {})
         deficit = verification.get("corrected_test_cases", {}).get("coverage_deficit", [])
         print(
-            f"[attempt {attempt}/{max_iterations}] rejected={summary.get('rejected', 0)} "
+            f"[attempt {attempt}/{max_iterations}] "
+            f"{format_leakage_audit_summary(leakage_audit)} "
+            f"rejected={summary.get('rejected', 0)} "
             f"coverage_deficit={len(deficit)}"
         )
 
