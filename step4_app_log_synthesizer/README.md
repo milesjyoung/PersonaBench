@@ -4,19 +4,20 @@
 
 Generate the messenger conversations and calendar events that the benchmark's evaluator LLM will see. The raw app log is the ONLY context the evaluator receives in Step 6 — so the encoding of every hidden fact into implicit behavioral signals is the structural heart of PersonaBench.
 
-## Architecture — per-fact verify-before-merge
+## Architecture -- cluster verify-before-merge
 
 Fragment generation and verification are decoupled from log merging:
 
 ```
-for each hidden_fact:
-    generate 2-3 implicit fragments
+cluster selected hidden_facts into related groups:
+    generate 4-5 shared implicit fragments per cluster
     run reverse-inferability gate on those fragments alone
-    if gate recovers the ground_truth_label → keep
-    if not → regenerate the fragments (up to N attempts)
+    if the gate recovers every fact in the cluster -> keep
+    if not -> regenerate the cluster fragments (up to N attempts)
 
-once all facts' fragments pass:
-    merge fragments + filler (3:1 filler:meaningful ratio) + surprises
+once all selected clusters pass:
+    assemble verified fragments deterministically
+    add mundane filler at about 2.5:1 filler:meaningful tokens
     produce the final app_logs.json
 ```
 
@@ -37,7 +38,9 @@ Fragments encode hidden facts through **behaviors and context**, never through c
 ## Outputs
 
 - `data_samples/output/{persona}_app_logs.json` — the final merged log with messenger sessions, calendar events, hidden_facts registry (mirrors Step 2 schema + adds verification + embedding_strategy blocks), cross_app_index, token_stats
-- `data_samples/output/{persona}_app_logs_trace.json` — per-fact verification trace showing attempts made and whether each fact passed the gate
+- `data_samples/output/{persona}_app_logs_trace.json` — per-cluster verification trace showing attempts made and whether every selected fact passed the gate
+- `data_samples/output/{persona}_verified_fragments.json` — verified fragment cache used by `--resume` and `--retry-failed`
+- `data_samples/output/{persona}_verified_decoys.json` — optional pre-verified decoy pool; the merge selects hard messenger decoys first when `--verified-decoys` and `--decoy-count` are provided
 
 ## Rules baked into `prompt.txt`
 
@@ -54,15 +57,19 @@ The prompt encodes concrete rules addressing common failure modes in open-ended 
 
 ```bash
 python generator.py \
-  --profile       data_samples/input/{persona}_verification.json \
-  --social-circle data_samples/input/{persona}_social_circle_verification.json \
-  --output        data_samples/output/
+  --profile        data_samples/input/{persona}_verification.json \
+  --social-circle  data_samples/input/{persona}_social_circle_verification.json \
+  --output         data_samples/output/ \
+  --model          claude-opus-4-7 \
+  --verifier-model claude-sonnet-4-6
 
 # Optional: add real news for surprise weaving
 python generator.py \
-  --profile       ... \
-  --social-circle ... \
-  --news-events   data_samples/input/news_events.json
+  --profile        ... \
+  --social-circle  ... \
+  --news-events    data_samples/input/news_events.json \
+  --model          claude-opus-4-7 \
+  --verifier-model claude-sonnet-4-6
 ```
 
 Advanced: use different models for generation vs verification (recommended — keeps the gate independent):
@@ -74,16 +81,19 @@ python generator.py \
   --verifier-model claude-sonnet-4-6
 ```
 
-## Per-fact fallback
+## Failed-cluster retry
 
-If a hidden fact fails the gate after `--per-fact-max-attempts` tries (default 3), the fragments are still merged into the log but the trace file records `passed: false` for that fact. Step 5's test case generator can choose to skip unrecoverable facts, and Step 6's final accuracy should be interpreted in that light.
+If a cluster fails the gate after `--per-cluster-max-attempts` tries (default
+3), the trace file records `passed: false` for that cluster. A professor-ready
+run requires every selected fact to pass. Use `--resume --retry-failed` to
+reuse passed clusters and regenerate only failed clusters.
 
 ## Log window and filler ratio
 
 | Parameter | Default | Where set |
 |---|---|---|
 | Log window | March 1-31, 2026 (30 days) | `--log-start` / `--log-end` flags |
-| Filler ratio | 2.5 filler messages per 1 meaningful message | `merge_prompt.txt` |
+| Filler ratio | 2.5 filler tokens per 1 meaningful token | `merge_prompt.txt` / `--filler-ratio` |
 
 Filler is mundane logistics noise that the evaluator must sift through to find implicit behavioral signals. Without filler, the benchmark degenerates into a reading comprehension test. Changing either parameter requires regenerating Step 4 and downstream steps (5-6).
 

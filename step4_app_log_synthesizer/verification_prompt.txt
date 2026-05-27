@@ -1,12 +1,12 @@
 SYSTEM:
 
 You are the reverse-inferability gate for the app log synthesis pipeline.
-You receive 2-3 fragments that were generated for ONE hidden fact about a
-persona. You do NOT know what the hidden fact is. Your job is to infer it
+You receive 4-5 fragments that were generated for ONE hidden fact cluster about a
+persona. You do NOT know what the hidden facts are. Your job is to infer them
 using ONLY the fragments.
 
 This verification is the structural heart of the benchmark. If you cannot
-recover the fact from the fragments alone, neither can the benchmark's
+recover the facts in the cluster from the fragments alone, neither can the benchmark's
 evaluator LLM — and the fragments must be regenerated before they can enter
 the final app log.
 
@@ -16,7 +16,7 @@ This prompt is self-contained. All required data is inserted below.
 INPUT DATA
 ===============================================================================
 
-FRAGMENTS (2-3 entries produced by the per-fact generator):
+FRAGMENTS (4-5 shared fragments for ONE hidden-fact cluster with 2~3 related hidden facts.):
 {{INSERT_FRAGMENTS_JSON_HERE}}
 
 PERSONA IDENTITY (name + age + occupation + location, for light context —
@@ -32,14 +32,14 @@ YOUR TASK
 
 1. READ the fragments as if they are the only messages and calendar entries
    you have ever seen about this persona.
-2. INFER the single most specific fact about the persona that all 2-3
-   fragments jointly point toward. Produce:
+2. INFER the set of most specific hidden facts that the 4-5 fragments jointly suggest.
+  Produce the following fields per candidate fact :
    - A concise candidate label (one line, analogous to a
      `ground_truth_label`: a clinical diagnosis, a routine, a relationship,
      a preference, a life event, a financial state, etc.).
    - A confidence level: HIGH | MEDIUM | LOW.
    - A 1-2 sentence rationale citing specific fragment evidence.
-3. IDENTIFY any fragment that, ON ITS OWN, makes the inference trivially
+3. IDENTIFY any fragment that, ON ITS OWN, makes any candidate fact trivially
    obvious (i.e., uses a clinical or categorical label). Those fragments
    fail the implicitness test even if the overall inference recovered.
 
@@ -48,26 +48,43 @@ OUTPUT FORMAT
 ===============================================================================
 
 {
-  "candidate_label": "your one-line guess at the underlying fact",
-  "confidence": "HIGH | MEDIUM | LOW",
-  "rationale": "1-2 sentences citing which fragments support the inference
-    and what evidence in them matters.",
-  "implicitness_check": {
-    "fragments_that_leak_labels": ["fragment_id", "fragment_id"],
-    "notes": "which text in which fragment violated behaviors-not-labels,
-      or empty string if all fragments are clean"
+  "shared_evidence_check": {
+    "every_fragment_supports_multiple_candidate_facts": true,
+    "each_candidate_supported_by_at_least_2_fragments": true
   },
-  "specificity_check": {
-    "concrete_details_preserved": ["list any concrete details — names,
-      amounts, dates — present in fragments that anchor the inference"],
-    "missing_specificity": "describe if the fragments are too vague to
-      permit a specific inference, or empty string otherwise"
-  },
-  "verdict": "RECOVERED | AMBIGUOUS | UNRECOVERABLE"
+  "candidate_facts": [
+    {
+      "candidate_label": "one-line inferred candidate fact",
+      "confidence": "HIGH | MEDIUM | LOW",
+      "supporting_fragments": ["fragment_id", "fragment_id"],
+      "rationale": "1-2 sentences citing evidence.",
+      "implicitness_check": {
+        "fragments_that_leak_labels": [
+          {
+            "fragment_id": "fragment_id",
+            "leaked_text": "text that leaked the label",
+            "leak_type": "explicit_label | close_synonym | categorical_phrase | too_obvious_single_fragment"
+          }
+
+        ]
+      },
+      "specificity_check": {
+        "concrete_details_preserved": [
+          {
+            "fragment_id": "fragment_id",
+            "details": ["name, amount, date, place, time, recurring pattern"]
+          }
+        ],
+        "missing_specificity": ""
+      }
+    }
+  ],
+  "verdict": "RECOVERED | AMBIGUOUS | UNRECOVERABLE",
+  "overall_notes": ""
 }
 
 Verdict rules:
-- RECOVERED = confidence is HIGH, implicitness_check has no leaks.
+- RECOVERED = confidence of all candidates is HIGH, implicitness_check has no leaks.
 - AMBIGUOUS = confidence is MEDIUM OR implicitness_check leaked one label
   (the fact is guessable but the fragments can be sharpened).
 - UNRECOVERABLE = confidence is LOW OR the fragments contradict each other
@@ -79,11 +96,11 @@ PROCESS
 
 1. Sort fragments by date, read them in chronological order.
 2. Note every concrete detail (name, amount, time, place).
-3. Ask: "what single fact about this persona would account for all these
+3. Ask: "what set of hidden facts about this persona would account for all these
    fragments jointly?" Prefer the most specific consistent answer.
-4. Ask: "does any one fragment already name the answer directly?" If yes,
+4. Ask: "does any one fragment already name any inferred hidden fact directly?" If yes,
    list it under fragments_that_leak_labels.
 5. Emit the output JSON. Do not guess wildly if the fragments are
-   insufficient — return LOW confidence and UNRECOVERABLE.
+   insufficient — assign LOW confidence and UNRECOVERABLE.
 
 End of prompt.
