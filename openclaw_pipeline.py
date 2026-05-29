@@ -44,12 +44,16 @@ from llm import (
     make_client,
     provider_for_backend,
 )
+from step4_app_log_synthesizer.generator import (
+    run_step_from_dicts as run_step4_from_dicts,
+    select_hidden_facts,
+)
 
 REPO_ROOT = Path(__file__).parent
 CLAUDE_CMD = os.environ.get(
     "CLAUDE_CMD", "claude.cmd" if sys.platform == "win32" else "claude"
 )
-CODEX_CMD = os.environ.get("CODEX_CMD", "codex.exe" if sys.platform == "win32" else "codex")
+CODEX_CMD = os.environ.get("CODEX_CMD", "codex")
 
 STEP1_DIR = REPO_ROOT / "step1_seed"
 STEP2_DIR = REPO_ROOT / "step2_interview"
@@ -225,157 +229,51 @@ def run_step4(
     name: str,
     log_start: str,
     log_end: str,
-    per_fact_max_attempts: int,
-    caller: ModelCaller,
-    gpt_reasoning: str,
+    per_cluster_max_attempts: int,
+    backend: str,
+    provider: str,
     model: str | None = None,
     verifier_model: str | None = None,
+    max_facts: int = 100,
+    resume: bool = False,
+    retry_failed: bool = False,
+    filler_ratio: float = 2.5,
+    target_context_tokens: int | None = None,
+    verified_decoys_path: Path | None = None,
+    decoy_count: int = 0,
+    decoy_pool_size: int = 40,
 ) -> Path:
-    """Per-fact generate-then-verify loop via the CLI, then merge.
-
-    The reverse-inferability gate is the structural defense: each hidden fact's
-    fragments must be re-recoverable by an independent verifier model that does
-    not see the ground-truth label. Pass a different `verifier_model` from
-    `model` so the gate is not the generator pattern-matching its own output.
-    Both invocations are fresh backend CLI subprocesses, so the verifier has
-    no access to the generator's prompt or response history.
-    """
+    """Delegate Step 4 to the canonical cluster-based generator."""
     if verifier_model is None:
         verifier_model = model
-    hidden_facts = profile["hidden_facts"]
-    persona = {
-        "name": profile.get("name", ""),
-        "age": profile.get("age", ""),
-        "occupation": profile.get("occupation", ""),
-        "location": profile.get("location", ""),
-    }
+    if model is None or verifier_model is None:
+        raise ValueError("Step 4 requires explicit generator and verifier models")
 
-    verified_fragments: list[dict[str, Any]] = []
-    contact_usage: dict[str, int] = {}
-    trace: list[dict[str, Any]] = []
-
-    gen_template = load_prompt(STEP4_DIR / "prompt.txt")
-    ver_template = load_prompt(STEP4_DIR / "verification_prompt.txt")
-    merge_template = load_prompt(STEP4_DIR / "merge_prompt.txt")
-    output_dir.mkdir(parents=True, exist_ok=True)
-    trace_path = output_dir / f"{base(name)}_app_logs_trace.json"
-    fragments_path = output_dir / f"{base(name)}_verified_fragments.json"
-
-    for i, hf in enumerate(hidden_facts, start=1):
-        fact_id = hf.get("fact_id", f"HF-{i:03d}")
-        passed = False
-        last_fragments: list[dict[str, Any]] = []
-        last_verification: dict[str, Any] | None = None
-
-        for attempt in range(1, per_fact_max_attempts + 1):
-            print(
-                f"[step4/{fact_id}] attempt {attempt}/{per_fact_max_attempts} "
-                f"({i}/{len(hidden_facts)})"
-            )
-            gen_prompt = fill(gen_template, "{{INSERT_HIDDEN_FACT_JSON_HERE}}", hf)
-            gen_prompt = fill(
-                gen_prompt,
-                "{{INSERT_CORRECTED_SOCIAL_CIRCLE_JSON_HERE}}",
-                corrected_social_circle,
-            )
-            gen_prompt = gen_prompt.replace("{{LOG_START_DATE}}", log_start)
-            gen_prompt = gen_prompt.replace("{{LOG_END_DATE}}", log_end)
-            gen_prompt = fill(
-                gen_prompt, "{{INSERT_CONTACT_USAGE_COUNTS_JSON_HERE}}", contact_usage
-            )
-            bundle = extract_json(caller.call(gen_prompt, gpt_reasoning, model=model))
-            fragments = bundle.get("fragments", [])
-
-            ver_prompt = fill(ver_template, "{{INSERT_FRAGMENTS_JSON_HERE}}", fragments)
-            ver_prompt = ver_prompt.replace("{{PERSONA_NAME}}", str(persona["name"]))
-            ver_prompt = ver_prompt.replace("{{PERSONA_AGE}}", str(persona["age"]))
-            ver_prompt = ver_prompt.replace(
-                "{{PERSONA_OCCUPATION}}", str(persona["occupation"])
-            )
-            ver_prompt = ver_prompt.replace("{{PERSONA_LOCATION}}", str(persona["location"]))
-            verification = extract_json(caller.call(ver_prompt, gpt_reasoning, model=verifier_model))
-            last_fragments = fragments
-            last_verification = verification
-
-            if verification.get("verdict") == "RECOVERED":
-                recovered = (verification.get("candidate_label") or "").lower()
-                target = (hf.get("ground_truth_label") or "").lower()
-                rec_tokens = set(re.findall(r"[a-z0-9]{3,}", recovered))
-                tgt_tokens = set(re.findall(r"[a-z0-9]{3,}", target))
-                if tgt_tokens and len(rec_tokens & tgt_tokens) / len(tgt_tokens) >= 0.15:
-                    passed = True
-                    for c in bundle.get("contacts_used", []) or []:
-                        contact_usage[c] = contact_usage.get(c, 0) + 1
-                    break
-
-        verified_fragments.extend(
-            {**f, "source_fact_id": fact_id, "passed_verification": passed}
-            for f in last_fragments
-        )
-        trace.append(
-            {
-                "fact_id": fact_id,
-                "ground_truth_label": hf.get("ground_truth_label"),
-                "attempts": attempt,
-                "passed": passed,
-                "final_verification": last_verification,
-            }
-        )
-        trace_path.write_text(
-            json.dumps(trace, indent=2, ensure_ascii=False),
-            encoding="utf-8",
-        )
-        fragments_path.write_text(
-            json.dumps(verified_fragments, indent=2, ensure_ascii=False),
-            encoding="utf-8",
-        )
-
-    trace_path.write_text(
-        json.dumps(trace, indent=2, ensure_ascii=False),
-        encoding="utf-8",
-    )
-    fragments_path.write_text(
-        json.dumps(verified_fragments, indent=2, ensure_ascii=False),
-        encoding="utf-8",
-    )
-
-    merge_prompt = merge_template
-    merge_prompt = merge_prompt.replace("{{PERSONA_NAME}}", str(persona["name"]))
-    merge_prompt = merge_prompt.replace("{{PERSONA_AGE}}", str(persona["age"]))
-    merge_prompt = merge_prompt.replace(
-        "{{PERSONA_OCCUPATION}}", str(persona["occupation"])
-    )
-    merge_prompt = merge_prompt.replace("{{PERSONA_LOCATION}}", str(persona["location"]))
-    merge_prompt = fill(
-        merge_prompt, "{{INSERT_VERIFIED_FRAGMENTS_JSON_HERE}}", verified_fragments
-    )
-    merge_prompt = fill(
-        merge_prompt, "{{INSERT_HIDDEN_FACTS_JSON_HERE}}", hidden_facts
-    )
-    merge_prompt = fill(
-        merge_prompt,
-        "{{INSERT_CORRECTED_SOCIAL_CIRCLE_JSON_HERE}}",
+    hidden_facts = select_hidden_facts(profile["hidden_facts"], max_facts)
+    rc = run_step4_from_dicts(
+        profile,
         corrected_social_circle,
+        hidden_facts,
+        output_dir,
+        model,
+        verifier_model,
+        per_cluster_max_attempts,
+        log_start,
+        log_end,
+        provider,
+        backend,
+        base_name=base(name),
+        resume=resume,
+        retry_failed=retry_failed,
+        filler_ratio=filler_ratio,
+        target_context_tokens=target_context_tokens,
+        verified_decoys_path=verified_decoys_path,
+        decoy_count=decoy_count,
+        decoy_pool_size=decoy_pool_size,
     )
-    merge_prompt = merge_prompt.replace("{{LOG_START_DATE}}", log_start)
-    merge_prompt = merge_prompt.replace("{{LOG_END_DATE}}", log_end)
-    merge_prompt = fill(merge_prompt, "{{INSERT_NEWS_EVENTS_JSON_HERE}}", [])
-
-    app_log = extract_json(caller.call(merge_prompt, gpt_reasoning, model=model))
-    # Defense-in-depth: strip per-session/per-event source_fact_ids so any
-    # downstream consumer that hands the raw JSON to a Pass 1 inference call
-    # cannot accidentally leak fact-anchored sessions. Traceability is
-    # preserved via cross_app_index.
-    messenger = app_log.get("messenger", {})
-    for bucket in ("meaningful_sessions", "filler_sessions", "sessions"):
-        for s in messenger.get(bucket, []) or []:
-            s.pop("source_fact_ids", None)
-    calendar = app_log.get("calendar", {})
-    if isinstance(calendar, dict):
-        for e in calendar.get("events", []) or []:
-            e.pop("source_fact_ids", None)
+    if rc != 0:
+        raise RuntimeError("Step 4 failed final validation")
     out = output_dir / f"{base(name)}_app_logs.json"
-    out.write_text(json.dumps(app_log, indent=2, ensure_ascii=False), encoding="utf-8")
     return out
 
 
@@ -475,12 +373,20 @@ def run_pipeline(
     stop: int = 6,
     log_start: str = "2026-03-01",
     log_end: str = "2026-03-31",
-    per_fact_max_attempts: int = 3,
+    per_cluster_max_attempts: int = 3,
     model: str | None = None,
     verifier_model: str | None = None,
     judge_model: str | None = None,
     gpt_reasoning: str = "high",
     gpt_eval_reasoning: str = "low",
+    max_facts: int = 100,
+    resume: bool = False,
+    retry_failed: bool = False,
+    filler_ratio: float = 2.5,
+    target_context_tokens: int | None = None,
+    verified_decoys_path: Path | None = None,
+    decoy_count: int = 0,
+    decoy_pool_size: int = 40,
 ) -> None:
     seed = json.loads(seed_path.read_text(encoding="utf-8"))
     name = extract_name(seed)
@@ -524,8 +430,18 @@ def run_pipeline(
     if start <= 4 <= stop:
         run_step4(
             profile, corrected_social_circle, step4_out, name,
-            log_start, log_end, per_fact_max_attempts,
-            caller, model=model, verifier_model=verifier_model,
+            log_start, log_end, per_cluster_max_attempts,
+            backend, provider,
+            model=model,
+            verifier_model=verifier_model,
+            max_facts=max_facts,
+            resume=resume,
+            retry_failed=retry_failed,
+            filler_ratio=filler_ratio,
+            target_context_tokens=target_context_tokens,
+            verified_decoys_path=verified_decoys_path,
+            decoy_count=decoy_count,
+            decoy_pool_size=decoy_pool_size,
         )
 
     app_logs_path = step4_out / f"{n}_app_logs.json"
@@ -580,7 +496,64 @@ def main() -> None:
     parser.add_argument("--stop", type=int, default=6, choices=[2, 3, 4, 5, 6])
     parser.add_argument("--log-start", default="2026-03-01")
     parser.add_argument("--log-end", default="2026-03-31")
-    parser.add_argument("--per-fact-max-attempts", type=int, default=3)
+    parser.add_argument(
+        "--per-cluster-max-attempts",
+        type=int,
+        default=3,
+        help="Maximum Step 4 generation attempts per hidden-fact cluster.",
+    )
+    parser.add_argument(
+        "--per-fact-max-attempts",
+        type=int,
+        dest="per_cluster_max_attempts",
+        help=argparse.SUPPRESS,
+    )
+    parser.add_argument(
+        "--max-facts",
+        type=int,
+        default=100,
+        help="Maximum hidden facts selected for Step 4.",
+    )
+    parser.add_argument(
+        "--resume",
+        action="store_true",
+        help="Reuse existing Step 4 trace and verified fragments when compatible.",
+    )
+    parser.add_argument(
+        "--retry-failed",
+        action="store_true",
+        help="With --resume, retry only failed Step 4 clusters.",
+    )
+    parser.add_argument(
+        "--filler-ratio",
+        type=float,
+        default=2.5,
+        help="Step 4 filler-to-meaningful token ratio.",
+    )
+    parser.add_argument(
+        "--target-context-tokens",
+        type=int,
+        default=None,
+        help="Optional total context token target for Step 4.",
+    )
+    parser.add_argument(
+        "--verified-decoys",
+        type=Path,
+        default=None,
+        help="Optional verified decoy pool JSON for Step 4.",
+    )
+    parser.add_argument(
+        "--decoy-count",
+        type=int,
+        default=0,
+        help="Number of verified messenger decoys to place in Step 4.",
+    )
+    parser.add_argument(
+        "--decoy-pool-size",
+        type=int,
+        default=40,
+        help="Number of Step 4 decoy candidates to generate when no pool is supplied.",
+    )
     parser.add_argument(
         "--backend",
         default=None,
@@ -681,22 +654,38 @@ def main() -> None:
         for seed_file in sorted(seed_dir.glob("*_seed.json")):
             run_pipeline(
                 seed_file, caller, args.backend, provider, args.start, args.stop,
-                args.log_start, args.log_end, args.per_fact_max_attempts,
+                args.log_start, args.log_end, args.per_cluster_max_attempts,
                 model=args.model,
                 verifier_model=args.verifier_model,
                 judge_model=args.judge_model,
                 gpt_reasoning=args.gpt_reasoning,
                 gpt_eval_reasoning=args.gpt_eval_reasoning,
+                max_facts=args.max_facts,
+                resume=args.resume,
+                retry_failed=args.retry_failed,
+                filler_ratio=args.filler_ratio,
+                target_context_tokens=args.target_context_tokens,
+                verified_decoys_path=args.verified_decoys,
+                decoy_count=args.decoy_count,
+                decoy_pool_size=args.decoy_pool_size,
             )
     elif args.seed:
         run_pipeline(
             args.seed, caller, args.backend, provider, args.start, args.stop,
-            args.log_start, args.log_end, args.per_fact_max_attempts,
+            args.log_start, args.log_end, args.per_cluster_max_attempts,
             model=args.model,
             verifier_model=args.verifier_model,
             judge_model=args.judge_model,
             gpt_reasoning=args.gpt_reasoning,
             gpt_eval_reasoning=args.gpt_eval_reasoning,
+            max_facts=args.max_facts,
+            resume=args.resume,
+            retry_failed=args.retry_failed,
+            filler_ratio=args.filler_ratio,
+            target_context_tokens=args.target_context_tokens,
+            verified_decoys_path=args.verified_decoys,
+            decoy_count=args.decoy_count,
+            decoy_pool_size=args.decoy_pool_size,
         )
     else:
         parser.error("Provide --persona <name>, --seed <path>, or --all")

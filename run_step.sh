@@ -10,19 +10,19 @@
 #   bash run_step.sh <step> <persona> [backend] [model]
 #   bash run_step.sh 4 julio_simmons
 #   bash run_step.sh 6 alicia_gonzalez
-#   bash run_step.sh 6 julio_simmons codex gpt-5-mini
+#   bash run_step.sh 6 julio_simmons codex gpt-5.4-mini
 #   bash run_step.sh 6 julio_simmons anthropic-api claude-opus-4-7
 #
 # Steps:
 #   2   Interview and verification
 #   3   Social circle and verification
-#   4   App log synthesis (per-fact reverse-inferability gate)
+#   4   App log synthesis (cluster reverse-inferability gate)
 #   5   Test case synthesis and verification
 #   6   Benchmark runner (two-pass, ground-truth isolated)
 #
 # This script is a thin bash wrapper around openclaw_pipeline.py. The Python
-# orchestrator handles file I/O, prompt template filling, the per-fact loop in
-# Step 4, and the iterative refinement loop in Step 5.
+# orchestrator handles file I/O, prompt template filling, the Step 4 cluster
+# gate, and the iterative refinement loop in Step 5.
 
 set -euo pipefail
 
@@ -72,7 +72,7 @@ esac
 # Step 6 uses a smaller evaluator model by default.
 if [[ "$STEP" == "6" ]]; then
   case "$BACKEND" in
-    codex|openai-api) DEFAULT_GENERATOR_MODEL="${MODEL_ARG:-gpt-5-mini}" ;;
+    codex|openai-api) DEFAULT_GENERATOR_MODEL="${MODEL_ARG:-gpt-5.4-mini}" ;;
   esac
 fi
 
@@ -81,7 +81,20 @@ VERIFIER_MODEL="${VERIFIER_MODEL:-$DEFAULT_VERIFIER_MODEL}"
 JUDGE_MODEL="${JUDGE_MODEL:-$DEFAULT_JUDGE_MODEL}"
 LOG_START="${LOG_START:-2026-03-01}"
 LOG_END="${LOG_END:-2026-03-31}"
-MAX_FACT_ATTEMPTS="${MAX_FACT_ATTEMPTS:-3}"
+MAX_CLUSTER_ATTEMPTS="${MAX_CLUSTER_ATTEMPTS:-${MAX_FACT_ATTEMPTS:-3}}"
+MAX_FACTS="${MAX_FACTS:-100}"
+FILLER_RATIO="${FILLER_RATIO:-2.5}"
+DECOY_COUNT="${DECOY_COUNT:-0}"
+DECOY_POOL_SIZE="${DECOY_POOL_SIZE:-40}"
+VERIFIED_DECOYS="${VERIFIED_DECOYS:-}"
+
+DECOY_ARGS=()
+if [[ -n "$VERIFIED_DECOYS" ]]; then
+  DECOY_ARGS+=(--verified-decoys "$VERIFIED_DECOYS")
+fi
+if [[ "$DECOY_COUNT" != "0" ]]; then
+  DECOY_ARGS+=(--decoy-count "$DECOY_COUNT")
+fi
 
 python openclaw_pipeline.py \
   --persona "${PERSONA}" \
@@ -93,4 +106,8 @@ python openclaw_pipeline.py \
   --judge-model "${JUDGE_MODEL}" \
   --log-start "${LOG_START}" \
   --log-end "${LOG_END}" \
-  --per-fact-max-attempts "${MAX_FACT_ATTEMPTS}"
+  --per-cluster-max-attempts "${MAX_CLUSTER_ATTEMPTS}" \
+  --max-facts "${MAX_FACTS}" \
+  --filler-ratio "${FILLER_RATIO}" \
+  --decoy-pool-size "${DECOY_POOL_SIZE}" \
+  "${DECOY_ARGS[@]}"

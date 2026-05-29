@@ -10,8 +10,8 @@ Five phases:
   1. Clustering                       (cluster_prompt.txt)
   2. Per-cluster fragment generation  (prompt.txt)
   3. Per-cluster verification         (verification_prompt.txt)
-  4. Decoy generation                 (decoy_prompt.txt) [DISABLED]
-  5. Global merge + filler            (merge_prompt.txt)
+  4. Optional decoy generation         (decoy_prompt.txt)
+  5. Deterministic assembly + filler
 """
 
 from __future__ import annotations
@@ -38,13 +38,28 @@ from llm import (
     make_client,
     provider_for_backend,
 )
+try:
+    from .decoys import (
+        build_decoy_filler_sessions,
+        finalize_filler_sessions,
+        load_verified_decoys,
+        resolve_verified_decoy_pool,
+        select_verified_decoys,
+    )
+except ImportError:
+    from decoys import (
+        build_decoy_filler_sessions,
+        finalize_filler_sessions,
+        load_verified_decoys,
+        resolve_verified_decoy_pool,
+        select_verified_decoys,
+    )
 
 STEP_DIR = Path(__file__).parent
 CLUSTER_PROMPT_PATH = STEP_DIR / "cluster_prompt.txt"
 PROMPT_PATH = STEP_DIR / "prompt.txt"
 VERIFICATION_PROMPT_PATH = STEP_DIR / "verification_prompt.txt"
 DECOY_PROMPT_PATH = STEP_DIR / "decoy_prompt.txt"
-MERGE_PROMPT_PATH = STEP_DIR / "merge_prompt.txt"
 
 CLAUDE_CMD = os.environ.get(
     "CLAUDE_CMD", "claude.cmd" if sys.platform == "win32" else "claude"
@@ -450,273 +465,6 @@ def cluster_passed(
 
 
 # ---------------------------------------------------------------------------
-# Phase 4: Programmatic decoy generation
-# ---------------------------------------------------------------------------
-
-_DECOY_TEMPLATES_ONE_OFF = [
-    {"topic": "errand", "messages": [
-        {"sender": "contact", "text": "Can you grab paper towels if you pass Target?"},
-        {"sender": "persona", "text": "Got them, also picked up batteries"},
-    ]},
-    {"topic": "tech", "messages": [
-        {"sender": "contact", "text": "My printer is jammed again"},
-        {"sender": "persona", "text": "Did you try the paper tray trick?"},
-        {"sender": "contact", "text": "That worked, thanks"},
-    ]},
-    {"topic": "lost_item", "messages": [
-        {"sender": "persona", "text": "Have you seen my sunglasses? Can't find them anywhere"},
-        {"sender": "contact", "text": "Check the car console, you left them there last time"},
-    ]},
-    {"topic": "traffic", "messages": [
-        {"sender": "persona", "text": "Running 10 min late, traffic on the main road"},
-        {"sender": "contact", "text": "No rush, I just got here too"},
-    ]},
-    {"topic": "show", "messages": [
-        {"sender": "contact", "text": "Have you watched that new series everyone is talking about?"},
-        {"sender": "persona", "text": "Not yet, is it worth starting?"},
-        {"sender": "contact", "text": "First two episodes are slow but it picks up"},
-    ]},
-    {"topic": "food", "messages": [
-        {"sender": "persona", "text": "What should I bring to the potluck Saturday?"},
-        {"sender": "contact", "text": "Something easy, maybe chips and salsa?"},
-    ]},
-    {"topic": "weather", "messages": [
-        {"sender": "contact", "text": "Did you see the forecast? Rain all weekend"},
-        {"sender": "persona", "text": "Great, there go my plans"},
-    ]},
-    {"topic": "package", "messages": [
-        {"sender": "persona", "text": "Did my package arrive? Tracking says delivered"},
-        {"sender": "contact", "text": "I see a box by your door, want me to grab it?"},
-        {"sender": "persona", "text": "Yes please, thanks"},
-    ]},
-    {"topic": "laundry", "messages": [
-        {"sender": "persona", "text": "The dryer ate my sock again"},
-        {"sender": "contact", "text": "Check behind the drum, they get stuck there"},
-    ]},
-    {"topic": "subscription", "messages": [
-        {"sender": "contact", "text": "Did you cancel that free trial before it charged?"},
-        {"sender": "persona", "text": "Just did, thanks for the reminder"},
-    ]},
-    {"topic": "book", "messages": [
-        {"sender": "persona", "text": "Finished that book you recommended, really liked the ending"},
-        {"sender": "contact", "text": "Told you! The sequel comes out in fall"},
-    ]},
-    {"topic": "wifi", "messages": [
-        {"sender": "contact", "text": "Is your wifi being weird today too?"},
-        {"sender": "persona", "text": "Yeah, restarted the router twice already"},
-    ]},
-]
-
-_DECOY_CALENDAR_TEMPLATES = [
-    {"title": "Package pickup window", "location": "UPS Store", "notes": ""},
-    {"title": "Return library books", "location": "Public Library", "notes": ""},
-    {"title": "Haircut", "location": "", "notes": ""},
-    {"title": "Voter registration deadline", "location": "", "notes": "online"},
-    {"title": "Renew parking permit", "location": "City Hall", "notes": ""},
-    {"title": "Pick up photos", "location": "Print shop", "notes": ""},
-]
-
-_OTHER_PERSON_TEMPLATES = [
-    {"topic": "other_errand", "messages": [
-        {"sender": "contact", "text": "Can you grab my dry cleaning if you are near Main St?"},
-        {"sender": "persona", "text": "Sure, ticket number?"},
-        {"sender": "contact", "text": "4417, under my name"},
-    ]},
-    {"topic": "other_item", "messages": [
-        {"sender": "contact", "text": "I left my charger at your place last week"},
-        {"sender": "persona", "text": "Found it under the couch, I'll bring it tomorrow"},
-        {"sender": "contact", "text": "Perfect, thanks"},
-    ]},
-    {"topic": "other_schedule", "messages": [
-        {"sender": "contact", "text": "Can you let the plumber in at 2? I have a meeting"},
-        {"sender": "persona", "text": "Sure, just text me when they are on the way"},
-        {"sender": "contact", "text": "Will do"},
-    ]},
-]
-
-
-
-def _decoy_tokens(decoy: dict[str, Any]) -> set[str]:
-    """Extract all tokens from a decoy's user-visible text."""
-    tokens: set[str] = set()
-    for msg in decoy.get("messages", []) or []:
-        text = (msg.get("text") or "").lower()
-        tokens.update(re.findall(r"[a-z]{3,}", text))
-    cal = decoy.get("calendar_event") or {}
-    for field in ("title", "notes", "location"):
-        val = (cal.get(field) or "").lower()
-        tokens.update(re.findall(r"[a-z]{3,}", val))
-    return tokens
-
-
-def _overlap_safe(
-    decoy: dict[str, Any],
-    hidden_facts: list[dict[str, Any]],
-    threshold: float = 0.25,
-) -> tuple[bool, list[str]]:
-    """Check that a decoy does not overlap with any individual hidden fact.
-
-    Checks BOTH directions per hidden fact:
-    - decoy_overlap: what fraction of the decoy's tokens are HF tokens
-    - fact_overlap: what fraction of the HF's tokens appear in the decoy
-    If either exceeds threshold for ANY fact, the decoy is unsafe.
-
-    Returns (safe, list_of_overlapping_fact_ids).
-    """
-    dtokens = _decoy_tokens(decoy)
-    if not dtokens:
-        return (True, [])
-
-    _STOPWORDS = {"the", "and", "for", "not", "you", "that", "this", "with", "from", "have", "was", "are", "but", "can", "had", "has", "her", "his", "how", "its", "may", "she", "too", "use", "who", "did", "get", "got", "let", "our", "out", "own", "say", "way", "all", "any", "been", "each", "just", "like", "more", "some", "than", "them", "then", "very", "when", "will", "about", "could", "into", "also", "back", "been", "come", "down", "even", "give", "here", "know", "look", "make", "most", "much", "only", "over", "such", "take", "time", "well", "what", "year"}
-    dtokens_clean = dtokens - _STOPWORDS
-    if not dtokens_clean:
-        return (True, [])
-
-    overlapping_ids: list[str] = []
-    for hf in hidden_facts:
-        fact_tokens: set[str] = set()
-        for field in ("ground_truth_label", "claim"):
-            val = (hf.get(field) or "").lower()
-            fact_tokens.update(re.findall(r"[a-z]{3,}", val))
-        fact_tokens -= _STOPWORDS
-        if not fact_tokens:
-            continue
-
-        shared = dtokens_clean & fact_tokens
-        if not shared:
-            continue
-
-        decoy_overlap = len(shared) / len(dtokens_clean)
-        fact_overlap = len(shared) / len(fact_tokens)
-
-        if decoy_overlap >= threshold or fact_overlap >= threshold:
-            overlapping_ids.append(hf.get("fact_id", "?"))
-
-    return (len(overlapping_ids) == 0, overlapping_ids)
-
-
-def generate_decoys_programmatic(
-    hidden_facts: list[dict[str, Any]],
-    social_circle: dict[str, Any],
-    persona: dict[str, Any],
-    target_count: int = 0,
-) -> list[dict[str, Any]]:
-    """Generate decoy filler candidates programmatically.
-
-    Three strategies:
-    1. Domain-exclusion templates: one-off errands/logistics from domains
-       that don't overlap with hidden facts.
-    2. Other-person-owned templates: a contact owns the detail, persona
-       just helps.
-    3. Calendar noise: one-off calendar events from generic errands.
-
-    Each candidate is checked per-hidden-fact for safety (both directions).
-    """
-    if target_count <= 0:
-        return []
-
-    contacts = []
-    members = social_circle.get("members", social_circle.get("social_circle", []))
-    if isinstance(members, list):
-        contacts = [m.get("name", "") for m in members if m.get("name")]
-    elif isinstance(members, dict):
-        contacts = [m.get("name", "") for m in members.values() if isinstance(m, dict) and m.get("name")]
-
-    persona_name = persona.get("name", "Persona")
-    decoys: list[dict[str, Any]] = []
-    decoy_id = 0
-
-    for tmpl in _DECOY_TEMPLATES_ONE_OFF:
-        if len(decoys) >= target_count:
-            break
-        candidate = {
-            "decoy_id": f"D-{decoy_id + 1:03d}",
-            "type": "messenger",
-            "contact_policy": "flexible",
-            "preferred_contact": None,
-            "placement_hint": "separate_filler_session",
-            "decoy_type": "one_off",
-            "overlap_check": "none",
-            "overlapping_hidden_fact_ids": [],
-            "why_safe": f"One-off {tmpl['topic']} logistics, not a recurring pattern",
-            "messages": [
-                {
-                    "sender": persona_name if m["sender"] == "persona" else "contact",
-                    "text": m["text"],
-                }
-                for m in tmpl["messages"]
-            ],
-            "calendar_event": None,
-        }
-        safe, overlap_ids = _overlap_safe(candidate, hidden_facts)
-        if safe:
-            decoy_id += 1
-            candidate["decoy_id"] = f"D-{decoy_id:03d}"
-            decoys.append(candidate)
-
-    for tmpl in _OTHER_PERSON_TEMPLATES:
-        if len(decoys) >= target_count:
-            break
-        contact = contacts[decoy_id % len(contacts)] if contacts else "contact"
-        candidate = {
-            "decoy_id": f"D-{decoy_id + 1:03d}",
-            "type": "messenger",
-            "contact_policy": "specific",
-            "preferred_contact": contact,
-            "placement_hint": "flexible",
-            "decoy_type": "other_person_owned",
-            "overlap_check": "safe_other_person_owned",
-            "overlapping_hidden_fact_ids": [],
-            "why_safe": f"Detail belongs to {contact}, not the persona",
-            "messages": [
-                {
-                    "sender": persona_name if m["sender"] == "persona" else contact,
-                    "text": m["text"],
-                }
-                for m in tmpl["messages"]
-            ],
-            "calendar_event": None,
-        }
-        safe, overlap_ids = _overlap_safe(candidate, hidden_facts)
-        if safe:
-            decoy_id += 1
-            candidate["decoy_id"] = f"D-{decoy_id:03d}"
-            decoys.append(candidate)
-        elif overlap_ids:
-            candidate["overlap_check"] = "unsafe_overlap"
-            candidate["overlapping_hidden_fact_ids"] = overlap_ids
-
-    for tmpl in _DECOY_CALENDAR_TEMPLATES:
-        if len(decoys) >= target_count:
-            break
-        candidate = {
-            "decoy_id": f"D-{decoy_id + 1:03d}",
-            "type": "calendar",
-            "contact_policy": "flexible",
-            "preferred_contact": None,
-            "placement_hint": "flexible",
-            "decoy_type": "one_off",
-            "overlap_check": "none",
-            "overlapping_hidden_fact_ids": [],
-            "why_safe": f"One-off calendar event ({tmpl['title']}), not a recurring pattern",
-            "messages": None,
-            "calendar_event": {
-                "title": tmpl["title"],
-                "location": tmpl.get("location", ""),
-                "participants": [],
-                "notes": tmpl.get("notes", ""),
-            },
-        }
-        safe, overlap_ids = _overlap_safe(candidate, hidden_facts)
-        if safe:
-            decoy_id += 1
-            candidate["decoy_id"] = f"D-{decoy_id:03d}"
-            decoys.append(candidate)
-
-    return decoys[:target_count]
-
-
-# ---------------------------------------------------------------------------
 # Phase 5: Deterministic assembly
 # ---------------------------------------------------------------------------
 
@@ -1033,141 +781,6 @@ def generate_filler_sessions(
     return filler_sessions
 
 
-def load_verified_decoys(decoys_path: Path | str | None) -> list[dict[str, Any]]:
-    if not decoys_path:
-        return []
-    path = Path(decoys_path)
-    if not path.exists():
-        raise FileNotFoundError(f"Verified decoys file not found: {path}")
-    payload = json.loads(path.read_text(encoding="utf-8"))
-    if isinstance(payload, dict):
-        decoys = payload.get("decoys", payload.get("verified_decoys", []))
-    else:
-        decoys = payload
-    if not isinstance(decoys, list):
-        raise ValueError(f"Verified decoys file must contain a list: {path}")
-    return decoys
-
-
-def _social_circle_contact_names(social_circle: dict[str, Any]) -> list[str]:
-    members = social_circle.get("members", social_circle.get("social_circle", []))
-    if isinstance(members, list):
-        contacts = [m.get("name", "") for m in members if m.get("name")]
-    elif isinstance(members, dict):
-        contacts = [
-            m.get("name", "")
-            for m in members.values()
-            if isinstance(m, dict) and m.get("name")
-        ]
-    else:
-        contacts = []
-    return contacts or ["Contact"]
-
-
-def select_verified_decoys(
-    verified_decoys: list[dict[str, Any]],
-    target_count: int,
-) -> list[dict[str, Any]]:
-    """Select hard decoys first while keeping only safe messenger candidates."""
-    if target_count <= 0:
-        return []
-    difficulty_rank = {"hard": 0, "medium": 1, "easy": 2}
-    candidates = [
-        d for d in verified_decoys
-        if d.get("type") == "messenger"
-        and d.get("decoy_id")
-        and d.get("overlap_check") != "unsafe_overlap"
-        and d.get("messages")
-    ]
-    candidates.sort(
-        key=lambda d: (
-            difficulty_rank.get(str(d.get("difficulty", "easy")).lower(), 9),
-            d.get("decoy_id", ""),
-        )
-    )
-    return [dict(d) for d in candidates[:target_count]]
-
-
-def build_decoy_filler_sessions(
-    selected_decoys: list[dict[str, Any]],
-    persona: dict[str, Any],
-    social_circle: dict[str, Any],
-    log_start: str,
-    log_end: str,
-) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    """Place selected messenger decoys as filler sessions, never as evidence."""
-    if not selected_decoys:
-        return [], []
-
-    import datetime
-    start = datetime.date.fromisoformat(log_start)
-    end = datetime.date.fromisoformat(log_end)
-    total_days = (end - start).days + 1
-    contacts = _social_circle_contact_names(social_circle)
-    persona_name = persona.get("name", "Persona")
-
-    sessions: list[dict[str, Any]] = []
-    registry: list[dict[str, Any]] = []
-    for i, decoy in enumerate(selected_decoys):
-        preferred = decoy.get("preferred_contact")
-        contact = (
-            preferred if decoy.get("contact_policy") == "specific" and preferred
-            else contacts[i % len(contacts)]
-        )
-        day_offset = (i * total_days) // max(len(selected_decoys), 1)
-        date = (start + datetime.timedelta(days=day_offset)).isoformat()
-        hour = 9 + (i * 5) % 11
-        minute = (i * 17) % 60
-
-        messages = []
-        for j, msg in enumerate(decoy.get("messages", []) or []):
-            sender = msg.get("sender", "")
-            if sender in {"contact", "{{CONTACT_NAME}}"}:
-                sender = contact
-            elif sender in {"persona", "{{PERSONA_NAME}}"}:
-                sender = persona_name
-            messages.append({
-                "time": f"{hour:02d}:{(minute + j * 3) % 60:02d}",
-                "sender": sender,
-                "text": msg.get("text", ""),
-            })
-
-        sessions.append({
-            "session_id": "",
-            "date": date,
-            "contact": contact,
-            "messages": messages,
-        })
-        registry.append({
-            "decoy_id": decoy.get("decoy_id"),
-            "related_item_id": "",
-            "placement_type": "filler_session",
-            "message_indices": list(range(len(messages))),
-            "decoy_type": decoy.get("decoy_type"),
-            "difficulty": decoy.get("difficulty", "easy"),
-            "overlap_check": decoy.get("overlap_check"),
-            "overlapping_hidden_fact_ids": decoy.get("overlapping_hidden_fact_ids", []),
-            "why_safe": decoy.get("why_safe", ""),
-        })
-
-    return sessions, registry
-
-
-def finalize_filler_sessions(
-    decoy_sessions: list[dict[str, Any]],
-    mundane_sessions: list[dict[str, Any]],
-    decoy_registry: list[dict[str, Any]],
-) -> tuple[list[dict[str, Any]], list[dict[str, Any]], int, int]:
-    combined = decoy_sessions + mundane_sessions
-    for idx, session in enumerate(combined, 1):
-        session["session_id"] = f"F-{idx:03d}"
-    for idx, registry_entry in enumerate(decoy_registry):
-        registry_entry["related_item_id"] = combined[idx]["session_id"]
-    decoy_tokens = len(json.dumps(decoy_sessions, ensure_ascii=False)) // 4
-    mundane_tokens = len(json.dumps(mundane_sessions, ensure_ascii=False)) // 4
-    return combined, decoy_registry, decoy_tokens, mundane_tokens
-
-
 def build_filler_with_decoys(
     persona: dict[str, Any],
     social_circle: dict[str, Any],
@@ -1181,6 +794,11 @@ def build_filler_with_decoys(
     decoy_count: int,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]], int, int]:
     selected_decoys = select_verified_decoys(verified_decoy_pool, decoy_count)
+    if decoy_count > 0 and len(selected_decoys) < decoy_count:
+        raise ValueError(
+            f"Requested {decoy_count} decoys but only "
+            f"{len(selected_decoys)} safe messenger decoys are available"
+        )
     decoy_sessions, decoy_registry = build_decoy_filler_sessions(
         selected_decoys, persona, social_circle, log_start, log_end,
     )
@@ -1334,11 +952,13 @@ def assemble_final_log(
     target_filler_tokens = int(meaningful_tokens * target_filler_ratio)
     if mundane_filler_token_count is None:
         mundane_filler_token_count = max(0, filler_tokens - decoy_filler_token_count)
+    decoy_registry = decoy_registry or []
 
     app_log["token_stats"] = {
         "approximate_tokens": meaningful_tokens + filler_tokens + cal_tokens,
         "meaningful_token_count": meaningful_tokens,
         "target_total_filler_tokens": target_filler_tokens,
+        "target_selected_decoy_count": len(decoy_registry),
         "filler_token_count": filler_tokens,
         "mundane_filler_token_count": mundane_filler_token_count,
         "decoy_filler_token_count": decoy_filler_token_count,
@@ -1349,7 +969,6 @@ def assemble_final_log(
         "ratio_filler_to_meaningful": f"{filler_tokens / meaningful_tokens:.1f}:1" if meaningful_tokens else "N/A",
     }
 
-    decoy_registry = decoy_registry or []
     difficulty_counts = {
         "easy": sum(1 for d in decoy_registry if d.get("difficulty") == "easy"),
         "medium": sum(1 for d in decoy_registry if d.get("difficulty") == "medium"),
@@ -1468,7 +1087,6 @@ def _build_hidden_facts_registry(
 ) -> list[dict[str, Any]]:
     """Build the hidden_facts array from source data + trace programmatically.
 
-    The generative merge step frequently drops or truncates the registry.
     Building it programmatically guarantees every verified fact is present.
 
     Iterates trace entries that have hidden_fact_ids (list) and for each
@@ -1777,6 +1395,7 @@ def run_step(
     target_context_tokens: int | None = None,
     verified_decoys_path: Path | str | None = None,
     decoy_count: int = 0,
+    decoy_pool_size: int = 40,
 ) -> int:
     """File-path based entry point for CLI use."""
     profile = json.loads(profile_path.read_text(encoding="utf-8"))
@@ -1799,6 +1418,7 @@ def run_step(
         target_context_tokens=target_context_tokens,
         verified_decoys_path=verified_decoys_path,
         decoy_count=decoy_count,
+        decoy_pool_size=decoy_pool_size,
     )
 
 
@@ -1822,6 +1442,7 @@ def run_step_from_dicts(
     target_context_tokens: int | None = None,
     verified_decoys_path: Path | str | None = None,
     decoy_count: int = 0,
+    decoy_pool_size: int = 40,
 ) -> int:
     """Dict-based entry point for openclaw_pipeline.py integration."""
     client = make_client(provider) if backend in API_BACKENDS else None
@@ -1840,6 +1461,7 @@ def run_step_from_dicts(
     app_log_out = output_dir / f"{name}_app_logs.json"
     trace_out = output_dir / f"{name}_app_logs_trace.json"
     fragments_out = output_dir / f"{name}_verified_fragments.json"
+    decoys_out = output_dir / f"{name}_verified_decoys.json"
 
     clusters: list[dict[str, Any]] | None = None
     verified_fragments: list[dict[str, Any]] = []
@@ -1851,6 +1473,38 @@ def run_step_from_dicts(
     if news_events_path and Path(news_events_path).exists():
         news_events = json.loads(Path(news_events_path).read_text(encoding="utf-8"))
     verified_decoy_pool = load_verified_decoys(verified_decoys_path)
+    decoy_prompt_cache: str | None = None
+
+    def ensure_decoy_pool(
+        verified_hidden_facts: list[dict[str, Any]],
+        reuse_existing: bool,
+    ) -> list[dict[str, Any]]:
+        nonlocal decoy_prompt_cache, verified_decoy_pool
+        if decoy_count > 0 and not verified_decoy_pool and decoy_prompt_cache is None:
+            decoy_prompt_cache = load_prompt(DECOY_PROMPT_PATH)
+
+        def call_decoy_model(prompt: str) -> str:
+            return _call_llm(
+                client, model, prompt, provider=provider, backend=backend,
+            )
+
+        verified_decoy_pool = resolve_verified_decoy_pool(
+            call_decoy_model,
+            decoy_prompt_cache or "",
+            extract_json,
+            persona,
+            verified_hidden_facts,
+            corrected_social_circle,
+            log_start,
+            log_end,
+            contact_usage,
+            verified_decoy_pool,
+            decoys_out,
+            decoy_count,
+            decoy_pool_size,
+            resume=reuse_existing,
+        )
+        return verified_decoy_pool
 
     # Resume check: if trace + fragments exist and --resume is set, skip to assembly
     if resume and trace_out.exists() and fragments_out.exists():
@@ -1926,6 +1580,9 @@ def run_step_from_dicts(
                 meaningful_tokens = len(
                     json.dumps(partial_log["messenger"]["meaningful_sessions"], ensure_ascii=False)
                 ) // 4
+                verified_decoy_pool = ensure_decoy_pool(
+                    verified_hidden_facts, reuse_existing=True,
+                )
                 filler, decoy_registry, decoy_tokens, mundane_tokens = build_filler_with_decoys(
                     persona, corrected_social_circle, log_start, log_end,
                     meaningful_tokens, filler_ratio, target_context_tokens,
@@ -2124,6 +1781,9 @@ def run_step_from_dicts(
     meaningful_tokens = len(
         json.dumps(partial_log["messenger"]["meaningful_sessions"], ensure_ascii=False)
     ) // 4
+    verified_decoy_pool = ensure_decoy_pool(
+        verified_hidden_facts, reuse_existing=resume,
+    )
     filler_sessions, decoy_registry, decoy_tokens, mundane_tokens = build_filler_with_decoys(
         persona, corrected_social_circle, log_start, log_end,
         meaningful_tokens, filler_ratio, target_context_tokens,
@@ -2235,6 +1895,10 @@ def main() -> None:
         "--decoy-count", type=int, default=0,
         help="Number of verified messenger decoys to place as filler (default 0)",
     )
+    parser.add_argument(
+        "--decoy-pool-size", type=int, default=40,
+        help="Number of decoy candidates to generate when --verified-decoys is omitted",
+    )
     args = parser.parse_args()
 
     backend = args.backend
@@ -2268,6 +1932,7 @@ def main() -> None:
             target_context_tokens=args.target_context_tokens,
             verified_decoys_path=args.verified_decoys,
             decoy_count=args.decoy_count,
+            decoy_pool_size=args.decoy_pool_size,
         )
     )
 

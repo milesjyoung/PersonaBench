@@ -25,6 +25,10 @@ The gate is run against a **cold, independent verifier model** (different from t
 
 This is the structural reason the benchmark is defensible: every fact in the answer key has already been proven implicitly recoverable at the fragment level.
 
+Decoy pool generation, hard-first selection, and filler placement helpers live
+in `decoys.py`; `generator.py` owns the Step 4 orchestration and final
+validation.
+
 ## Behaviors, never labels
 
 Fragments encode hidden facts through **behaviors and context**, never through clinical or categorical words. If a hidden fact is "Generalized Anxiety Disorder + sertraline", the fragments never contain the words "anxiety", "SSRI", "antidepressant", "depression", etc. — they contain pharmacy pickup texts, biweekly Thursday 3pm video calls with "Dr. P", refill alerts, offhand supportive lines from family. The inference is recoverable but not stated.
@@ -40,14 +44,14 @@ Fragments encode hidden facts through **behaviors and context**, never through c
 - `data_samples/output/{persona}_app_logs.json` — the final merged log with messenger sessions, calendar events, hidden_facts registry (mirrors Step 2 schema + adds verification + embedding_strategy blocks), cross_app_index, token_stats
 - `data_samples/output/{persona}_app_logs_trace.json` — per-cluster verification trace showing attempts made and whether every selected fact passed the gate
 - `data_samples/output/{persona}_verified_fragments.json` — verified fragment cache used by `--resume` and `--retry-failed`
-- `data_samples/output/{persona}_verified_decoys.json` — optional pre-verified decoy pool; the merge selects hard messenger decoys first when `--verified-decoys` and `--decoy-count` are provided
+- `data_samples/output/{persona}_verified_decoys.json` — persona-specific decoy pool; when `--decoy-count` is set, Step 4 either loads this from `--verified-decoys` or generates it from `decoy_prompt.txt`
 
 ## Rules baked into `prompt.txt`
 
 The prompt encodes concrete rules addressing common failure modes in open-ended log synthesis:
 
 - **Concrete details preserved** — dollar amounts, medication names, store names, dates, named people outside the circle (no "picked up my prescription" without a named pharmacy).
-- **Contact balancing** — fragment generation reads the running contact usage count and prefers under-used contacts. Final merge enforces no contact below 10% or above 35% of meaningful sessions.
+- **Contact balancing** — fragment generation reads the running contact usage count and prefers under-used contacts. Final assembly keeps meaningful sessions balanced across contacts.
 - **Realistic timestamps** — 60/25/10/5 distribution across 1-5min / 5-15min / 15-45min / 1-24hr gaps. No uniform cadence.
 - **Filler quality** — mundane logistics (3-15 words), not philosophical essays. Each contact has its own opener vocabulary.
 - **Temporal distribution** — fragments and filler spread across the full log window, not bunched in the last 3 days.
@@ -81,6 +85,31 @@ python generator.py \
   --verifier-model claude-sonnet-4-6
 ```
 
+Optional: add persona-specific hard decoys. If `--verified-decoys` is omitted,
+Step 4 generates `{persona}_verified_decoys.json` from `decoy_prompt.txt`,
+then selects hard messenger decoys first:
+
+```bash
+python generator.py \
+  --profile        ... \
+  --social-circle  ... \
+  --model          claude-opus-4-7 \
+  --verifier-model claude-sonnet-4-6 \
+  --decoy-count    12
+```
+
+To reuse an audited pool, pass it explicitly:
+
+```bash
+python generator.py \
+  --profile          ... \
+  --social-circle    ... \
+  --model            claude-opus-4-7 \
+  --verifier-model   claude-sonnet-4-6 \
+  --verified-decoys  data_samples/output/{persona}_verified_decoys.json \
+  --decoy-count      12
+```
+
 ## Failed-cluster retry
 
 If a cluster fails the gate after `--per-cluster-max-attempts` tries (default
@@ -93,7 +122,7 @@ reuse passed clusters and regenerate only failed clusters.
 | Parameter | Default | Where set |
 |---|---|---|
 | Log window | March 1-31, 2026 (30 days) | `--log-start` / `--log-end` flags |
-| Filler ratio | 2.5 filler tokens per 1 meaningful token | `merge_prompt.txt` / `--filler-ratio` |
+| Filler ratio | 2.5 filler tokens per 1 meaningful token | `generator.py` / `--filler-ratio` |
 
 Filler is mundane logistics noise that the evaluator must sift through to find implicit behavioral signals. Without filler, the benchmark degenerates into a reading comprehension test. Changing either parameter requires regenerating Step 4 and downstream steps (5-6).
 

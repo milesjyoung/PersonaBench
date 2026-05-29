@@ -23,7 +23,11 @@ def make_client(provider: str):
 
 
 def call_llm(
-    client, model: str, prompt: str, provider: str = "anthropic",
+    client,
+    model: str,
+    prompt: str,
+    gpt_reasoning: str | None = None,
+    provider: str = "anthropic",
     max_retries: int = 3,
 ) -> str:
     import time
@@ -81,7 +85,7 @@ def default_model_for_backend(backend: str, role: str = "generator") -> str:
         return "claude-opus-4-7"
     if backend in {"codex", "openai-api"}:
         if role == "evaluator":
-            return "gpt-5-mini"
+            return "gpt-5.4-mini"
         if role == "judge":
             return "gpt-5.4"
         if role == "verifier":
@@ -172,6 +176,7 @@ def call_codex_cli(
     prompt: str,
     model: str | None = None,
     codex_cmd: str | None = None,
+    reasoning_effort: str | None = None,
     max_retries: int = 2,
 ) -> str:
     """Call `codex exec` as an isolated subscription-backed subprocess."""
@@ -182,7 +187,9 @@ def call_codex_cli(
     from pathlib import Path
 
     cmd_name = codex_cmd or os.environ.get("CODEX_CMD", "codex")
-    reasoning_effort = os.environ.get("CODEX_REASONING_EFFORT", "medium")
+    reasoning_effort = reasoning_effort or os.environ.get(
+        "CODEX_REASONING_EFFORT", "medium"
+    )
     wrapped_prompt = (
         "You are being used as a pure inference backend for PersonaBench. "
         "Do not inspect files, run commands, browse, or use tools. Read only "
@@ -267,6 +274,7 @@ def call_subscription_cli(
     prompt: str,
     model: str | None,
     backend: str,
+    gpt_reasoning: str | None = None,
     claude_cmd: str | None = None,
     codex_cmd: str | None = None,
     max_retries: int = 2,
@@ -274,5 +282,11 @@ def call_subscription_cli(
     if backend == "claude":
         return call_claude_cli(prompt, model, claude_cmd, max_retries=max_retries)
     if backend == "codex":
-        return call_codex_cli(prompt, model, codex_cmd, max_retries=max_retries)
+        return call_codex_cli(
+            prompt,
+            model,
+            codex_cmd,
+            reasoning_effort=gpt_reasoning,
+            max_retries=max_retries,
+        )
     raise ValueError(f"Unknown subscription backend: {backend}")

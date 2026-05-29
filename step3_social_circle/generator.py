@@ -54,7 +54,7 @@ def fill_identity_placeholders(template: str, profile: dict[str, Any]) -> str:
 
 
 CLAUDE_CMD = os.environ.get("CLAUDE_CMD", "claude.cmd" if sys.platform == "win32" else "claude")
-CODEX_CMD = os.environ.get("CODEX_CMD", "codex.exe" if sys.platform == "win32" else "codex")
+CODEX_CMD = os.environ.get("CODEX_CMD", "codex")
 
 
 def call_llm(client, model: str, prompt: str, gpt_reasoning: str, provider: str = "anthropic",
