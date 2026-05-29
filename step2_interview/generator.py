@@ -85,7 +85,7 @@ def fill_json_placeholder(template: str, placeholder: str, payload: Any) -> str:
 
 
 CLAUDE_CMD = os.environ.get("CLAUDE_CMD", "claude.cmd" if sys.platform == "win32" else "claude")
-CODEX_CMD = os.environ.get("CODEX_CMD", "codex.exe" if sys.platform == "win32" else "codex")
+CODEX_CMD = os.environ.get("CODEX_CMD", "codex")
 
 
 def call_llm(client, model: str, prompt: str, gpt_reasoning: str, provider: str = "anthropic",

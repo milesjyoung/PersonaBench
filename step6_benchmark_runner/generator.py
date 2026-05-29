@@ -190,6 +190,7 @@ def run_pass_1(
     client: Any | None,
     backend: str,
     provider: str,
+    reasoning_effort: str,
     claude_cmd: str,
     codex_cmd: str,
 ) -> dict[str, Any]:
@@ -202,11 +203,16 @@ def run_pass_1(
     )
     if backend in SUBSCRIPTION_BACKENDS:
         raw = call_subscription_cli(
-            template, model, backend, claude_cmd=claude_cmd, codex_cmd=codex_cmd
+            template,
+            model,
+            backend,
+            reasoning_effort,
+            claude_cmd=claude_cmd,
+            codex_cmd=codex_cmd,
         )
     else:
         assert client is not None
-        raw = call_llm(client, model, template, provider=provider)
+        raw = call_llm(client, model, template, reasoning_effort, provider=provider)
     return extract_json(raw)
 
 
@@ -218,6 +224,7 @@ def _call_pass2_single(
     client: Any | None,
     backend: str,
     provider: str,
+    reasoning_effort: str,
     claude_cmd: str,
     codex_cmd: str,
 ) -> dict[str, Any]:
@@ -229,11 +236,16 @@ def _call_pass2_single(
     )
     if backend in SUBSCRIPTION_BACKENDS:
         raw = call_subscription_cli(
-            template, model, backend, claude_cmd=claude_cmd, codex_cmd=codex_cmd
+            template,
+            model,
+            backend,
+            reasoning_effort,
+            claude_cmd=claude_cmd,
+            codex_cmd=codex_cmd,
         )
     else:
         assert client is not None
-        raw = call_llm(client, model, template, provider=provider)
+        raw = call_llm(client, model, template, reasoning_effort, provider=provider)
     return extract_json(raw)
 
 
@@ -244,6 +256,7 @@ def run_pass_2(
     client: Any | None,
     backend: str,
     provider: str,
+    reasoning_effort: str,
     claude_cmd: str,
     codex_cmd: str,
     batch_size: int = 5,
@@ -256,7 +269,8 @@ def run_pass_2(
     if backend not in SUBSCRIPTION_BACKENDS or len(all_cases) <= batch_size:
         return _call_pass2_single(
             sections, test_cases_full, pass1_answers,
-            model, client, backend, provider, claude_cmd, codex_cmd,
+            model, client, backend, provider, reasoning_effort,
+            claude_cmd, codex_cmd,
         )
 
     merged_evaluations: list[dict[str, Any]] = []
@@ -280,7 +294,8 @@ def run_pass_2(
             try:
                 result = _call_pass2_single(
                     sections, tc_batch, ans_batch,
-                    model, client, backend, provider, claude_cmd, codex_cmd,
+                    model, client, backend, provider, reasoning_effort,
+                    claude_cmd, codex_cmd,
                 )
                 evals = result.get("evaluations", [])
                 if not evals and isinstance(result, dict) and "test_case_id" in result:
@@ -385,6 +400,8 @@ def run_step(
     claude_cmd: str,
     codex_cmd: str,
     skip_pass1: bool = False,
+    reasoning_pass1: str = "low",
+    reasoning_pass2: str = "high",
 ) -> int:
     app_logs = json.loads(app_logs_path.read_text(encoding="utf-8"))
     test_cases = json.loads(test_cases_path.read_text(encoding="utf-8"))
@@ -441,12 +458,14 @@ def run_step(
             client=client,
             backend=backend,
             provider=provider,
+            reasoning_effort=reasoning_pass1,
             claude_cmd=claude_cmd,
             codex_cmd=codex_cmd,
         )
         pass1_out.write_text(json.dumps(pass1, indent=2, ensure_ascii=False), encoding="utf-8")
     pass1.setdefault("metadata", {})
     pass1["metadata"]["model_used"] = model_pass1
+    pass1["metadata"]["reasoning_effort"] = reasoning_pass1
     pass1["metadata"]["cases_answered"] = len(stripped["test_cases"])
     pass1_out.write_text(json.dumps(pass1, indent=2, ensure_ascii=False), encoding="utf-8")
 
@@ -458,10 +477,14 @@ def run_step(
         client,
         backend=backend,
         provider=provider,
+        reasoning_effort=reasoning_pass2,
         claude_cmd=claude_cmd,
         codex_cmd=codex_cmd,
     )
     pass2 = recompute_benchmark_summary(pass2, test_cases, model_pass1, model_pass2)
+    pass2.setdefault("metadata", {})
+    pass2["metadata"]["reasoning_effort_pass1"] = reasoning_pass1
+    pass2["metadata"]["reasoning_effort_pass2"] = reasoning_pass2
     pass2_out.write_text(json.dumps(pass2, indent=2, ensure_ascii=False), encoding="utf-8")
 
     accuracy = pass2.get("overall_accuracy", "unknown")
@@ -484,6 +507,8 @@ def main() -> None:
     )
     parser.add_argument("--model-pass1", default=None)
     parser.add_argument("--model-pass2", default=None)
+    parser.add_argument("--reasoning-pass1", default="low")
+    parser.add_argument("--reasoning-pass2", default="high")
     parser.add_argument(
         "--backend",
         default="anthropic-api",
@@ -521,7 +546,7 @@ def main() -> None:
     backend = "claude" if args.openclaw else args.backend
     provider = provider_for_backend(backend, args.provider or "anthropic") if backend in API_BACKENDS else (args.provider or "anthropic")
     if args.model_pass1 is None:
-        args.model_pass1 = DEFAULT_MODEL if backend in {"anthropic-api", "claude"} else "gpt-5-mini"
+        args.model_pass1 = DEFAULT_MODEL if backend in {"anthropic-api", "claude"} else "gpt-5.4-mini"
     if args.model_pass2 is None:
         args.model_pass2 = DEFAULT_JUDGE_MODEL if backend in {"anthropic-api", "claude"} else "gpt-5.4"
 
@@ -544,6 +569,8 @@ def main() -> None:
             args.claude_cmd,
             args.codex_cmd,
             skip_pass1=args.skip_pass1,
+            reasoning_pass1=args.reasoning_pass1,
+            reasoning_pass2=args.reasoning_pass2,
         )
     )
 

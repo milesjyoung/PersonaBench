@@ -25,7 +25,7 @@ All 5 personas have complete data through Step 5. To benchmark a model, run Step
 # Benchmark GPT 5 with GPT 5.4 as judge (Codex subscription)
 python openclaw_pipeline.py --persona julio_simmons --start 6 --stop 6 \
   --backend codex \
-  --model gpt-5-mini \
+  --model gpt-5.4-mini \
   --judge-model gpt-5.4
 
 # Benchmark Opus 4.7 with Sonnet 4.6 as judge (Claude subscription)
@@ -37,7 +37,7 @@ python openclaw_pipeline.py --persona julio_simmons --start 6 --stop 6 \
 # Score all 5 personas at once
 python openclaw_pipeline.py --all --start 6 --stop 6 \
   --backend codex \
-  --model gpt-5-mini \
+  --model gpt-5.4-mini \
   --judge-model gpt-5.4
 ```
 
