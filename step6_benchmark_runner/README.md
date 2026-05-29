@@ -74,7 +74,7 @@ python generator.py \
   --test-cases   data_samples/input/{persona}_test_cases.json \
   --output       data_samples/output/ \
   --backend      openai-api \
-  --model-pass1  gpt-5-mini \
+  --model-pass1  gpt-5.4-mini \
   --model-pass2  gpt-5.4
 ```
 
@@ -96,7 +96,7 @@ python generator.py \
   --test-cases   data_samples/input/{persona}_test_cases.json \
   --output       data_samples/output/ \
   --backend      codex \
-  --model-pass1  gpt-5-mini \
+  --model-pass1  gpt-5.4-mini \
   --model-pass2  gpt-5.4
 ```
 

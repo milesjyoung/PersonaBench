@@ -23,8 +23,7 @@ def make_client(provider: str):
 
 
 def call_llm(
-    client, model: str, prompt: str, gpt_reasoning: str | None = "low", 
-    provider: str = "anthropic",
+    client, model: str, prompt: str, provider: str = "anthropic",
     max_retries: int = 3,
 ) -> str:
     import time
@@ -35,6 +34,7 @@ def call_llm(
                 with client.messages.stream(
                     model=model,
                     max_tokens=64_000,
+                    temperature=0,
                     messages=[
                         {
                             "role": "user",
@@ -52,8 +52,8 @@ def call_llm(
             if provider == "openai":
                 response = client.chat.completions.create(
                     model=model,
+                    temperature=0,
                     messages=[{"role": "user", "content": prompt}],
-                    reasoning_effort=gpt_reasoning
                 )
                 return response.choices[0].message.content
             raise ValueError(f"Unknown provider: {provider}")
@@ -74,15 +74,6 @@ def call_llm(
                 raise
 
 
-def check_api_key(provider: str) -> bool:
-    import os
-    if provider == "anthropic":
-        return "ANTHROPIC_API_KEY" in os.environ
-    if provider == "openai":
-        return "OPENAI_API_KEY" in os.environ
-    return False
-
-
 def default_model_for_backend(backend: str, role: str = "generator") -> str:
     if backend in {"claude", "anthropic-api"}:
         if role in {"verifier", "judge"}:
@@ -90,13 +81,22 @@ def default_model_for_backend(backend: str, role: str = "generator") -> str:
         return "claude-opus-4-7"
     if backend in {"codex", "openai-api"}:
         if role == "evaluator":
-            return "gpt-5.4-mini"
+            return "gpt-5-mini"
         if role == "judge":
             return "gpt-5.4"
         if role == "verifier":
-            return "gpt-5.4"
+            return "gpt-5"
         return "gpt-5.5"
     raise ValueError(f"Unsupported backend: {backend}")
+
+
+def check_api_key(provider: str) -> bool:
+    import os
+    if provider == "anthropic":
+        return "ANTHROPIC_API_KEY" in os.environ
+    if provider == "openai":
+        return "OPENAI_API_KEY" in os.environ
+    return False
 
 
 def provider_for_backend(backend: str, provider: str = "anthropic") -> str:
@@ -128,12 +128,20 @@ def call_claude_cli(
     if model:
         cmd += ["--model", model]
 
+    wrapped_prompt = (
+        "You are being used as a pure inference backend for PersonaBench. "
+        "Do not inspect files, run commands, browse, or use tools. Read the "
+        "instructions below in full and return ONLY the requested JSON output. "
+        "No preamble, no commentary, no markdown fences.\n\n"
+        + prompt
+    )
+
     last_stderr = ""
     for attempt in range(max_retries + 1):
         tmp = tempfile.NamedTemporaryFile(
             mode="w", suffix=".txt", delete=False, encoding="utf-8"
         )
-        tmp.write(prompt)
+        tmp.write(wrapped_prompt)
         tmp.close()
         try:
             with open(tmp.name, "r", encoding="utf-8") as stream:
@@ -141,7 +149,7 @@ def call_claude_cli(
                     cmd,
                     stdin=stream,
                     capture_output=True,
-                    timeout=1800,
+                    timeout=3600,
                 )
             stdout = result.stdout.decode("utf-8", errors="replace")
             stderr = result.stderr.decode("utf-8", errors="replace")
@@ -164,7 +172,6 @@ def call_codex_cli(
     prompt: str,
     model: str | None = None,
     codex_cmd: str | None = None,
-    gpt_reasoning: str | None = "low",
     max_retries: int = 2,
 ) -> str:
     """Call `codex exec` as an isolated subscription-backed subprocess."""
@@ -174,9 +181,8 @@ def call_codex_cli(
     import tempfile
     from pathlib import Path
 
-    cmd_name = codex_cmd or os.environ.get(
-        "CODEX_CMD", "codex.exe" if sys.platform == "win32" else "codex"
-    )
+    cmd_name = codex_cmd or os.environ.get("CODEX_CMD", "codex")
+    reasoning_effort = os.environ.get("CODEX_REASONING_EFFORT", "medium")
     wrapped_prompt = (
         "You are being used as a pure inference backend for PersonaBench. "
         "Do not inspect files, run commands, browse, or use tools. Read only "
@@ -188,6 +194,7 @@ def call_codex_cli(
     for attempt in range(max_retries + 1):
         with tempfile.TemporaryDirectory(prefix="personabench_codex_") as tmp_dir:
             tmp_path = Path(tmp_dir)
+            prompt_path = tmp_path / "prompt.txt"
             out_path = tmp_path / "last_message.txt"
             cmd = [
                 cmd_name,
@@ -198,7 +205,7 @@ def call_codex_cli(
                 "--sandbox",
                 "read-only",
                 "-c",
-                f"model_reasoning_effort={gpt_reasoning}",
+                f"model_reasoning_effort={reasoning_effort!r}",
                 "-C",
                 str(tmp_path),
                 "-o",
@@ -207,14 +214,37 @@ def call_codex_cli(
             if model:
                 cmd += ["--model", model]
             cmd.append("-")
-            result = subprocess.run(
-                cmd,
-                input=wrapped_prompt,
-                capture_output=True,
-                text=True,
-                encoding="utf-8",
-                timeout=3600,
-            )
+            if sys.platform == "win32":
+                def ps_quote(value: str) -> str:
+                    return "'" + value.replace("'", "''") + "'"
+
+                prompt_path.write_text(wrapped_prompt, encoding="utf-8")
+                model_arg = f" --model {ps_quote(model)}" if model else ""
+                ps_script = (
+                    "$ErrorActionPreference = 'Stop'; "
+                    f"$prompt = Get-Content -Raw -LiteralPath {ps_quote(str(prompt_path))}; "
+                    f"$prompt | & {ps_quote(cmd_name)} exec --ephemeral "
+                    "--skip-git-repo-check --ignore-rules --sandbox read-only "
+                    f"-c {ps_quote('model_reasoning_effort=' + repr(reasoning_effort))} "
+                    f"-C {ps_quote(str(tmp_path))} -o {ps_quote(str(out_path))}"
+                    f"{model_arg} -"
+                )
+                result = subprocess.run(
+                    ["powershell", "-NoProfile", "-Command", ps_script],
+                    capture_output=True,
+                    text=True,
+                    encoding="utf-8",
+                    timeout=3600,
+                )
+            else:
+                result = subprocess.run(
+                    cmd,
+                    input=wrapped_prompt,
+                    capture_output=True,
+                    text=True,
+                    encoding="utf-8",
+                    timeout=3600,
+                )
             if result.returncode == 0:
                 if out_path.exists():
                     text = out_path.read_text(encoding="utf-8").strip()
@@ -237,7 +267,6 @@ def call_subscription_cli(
     prompt: str,
     model: str | None,
     backend: str,
-    gpt_reasoning: str | None = None,
     claude_cmd: str | None = None,
     codex_cmd: str | None = None,
     max_retries: int = 2,
@@ -245,5 +274,5 @@ def call_subscription_cli(
     if backend == "claude":
         return call_claude_cli(prompt, model, claude_cmd, max_retries=max_retries)
     if backend == "codex":
-        return call_codex_cli(prompt, model, codex_cmd, gpt_reasoning, max_retries=max_retries)
+        return call_codex_cli(prompt, model, codex_cmd, max_retries=max_retries)
     raise ValueError(f"Unknown subscription backend: {backend}")

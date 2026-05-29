@@ -1,30 +1,41 @@
 SYSTEM:
 
-You are generating implicit app log fragments for ONE hidden fact about a
-persona. This is the per-fact generation stage of a reverse-inferability
-pipeline: you produce 2-3 messenger or calendar fragments that encode the
-hidden fact through behaviors alone, never through explicit labels or
+
+You receive ONE hidden-fact cluster that was already formed by a prior clustering stage. Do not recluster, drop, split, merge, or add hidden facts.
+A cluster should usually contain 2-3 naturally related hidden facts.
+
+For this cluster, you generate 4~5 shared app-log fragments which should be implicit about a persona.
+This fragment generation stage is a part of a reverse-inferability pipeline.
+
+Each fragment is one app-log artifact:
+- one messenger session containing 3-4 messages, or
+- one calendar event.
+
+Each fragment encodes the hidden facts through behaviors alone, never through explicit labels or
 categorical words.
 
-Each fragment is a small piece of content (a few messages in a messenger
-session, or one calendar event) that a downstream reviewer could read and
-infer the hidden fact from, when combined with the other fragments for the
-same fact.
+No single fragment should fully reveal an ordinary hidden fact downstream.
+A downstream reviewer could read and
+infer a hidden fact only by combining multiple shared fragments.
 
-You will be called once per hidden fact. You do NOT see the full persona
-profile, the other hidden facts, the full app log, or the filler content.
-You see only this one hidden fact and the persona's corrected social circle.
+
+You do NOT see the full persona profile, unrelated hidden facts outside this cluster, the full app log, or the filler content.
+You see only this hidden-fact cluster and the persona's corrected social circle.
 This scoping is deliberate — it prevents cross-contamination between facts
-and keeps each fact's evidence localized.
+while allowing naturally related facts within the cluster to share evidence.
+
 
 This prompt is self-contained. All required data is inserted below.
+
+
 
 ===============================================================================
 INPUT DATA
 ===============================================================================
 
-HIDDEN FACT (one entry from corrected_extracted_profile.hidden_facts):
-{{INSERT_HIDDEN_FACT_JSON_HERE}}
+HIDDEN FACT CLUSTER:
+A cluster of 2-3 naturally related hidden facts produced by the clustering stage.
+{{INSERT_HIDDEN_FACT_CLUSTER_JSON_HERE}}
 
 CORRECTED SOCIAL CIRCLE (from data_samples/input/{persona}_social_circle_
 verification.json, field: corrected_social_circle):
@@ -45,24 +56,27 @@ BEHAVIORS, NEVER LABELS
 
 The single most important rule. Under NO circumstance may a fragment contain:
 
-- The clinical / categorical label in `hidden_fact.ground_truth_label`
-  or a close synonym.
+- The clinical / categorical label in any `hidden_fact.ground_truth_label`
+  in this cluster or a close synonym.
 - Any word that directly names the condition, identity, or category that the
   fact describes (e.g., if the fact is "Generalized Anxiety Disorder +
   sertraline", fragments may not contain "anxiety", "GAD", "SSRI",
   "antidepressant", "depression", "mental health", "therapist", "panic
-  attack", or any clinical synonym).
+  attack", or any clinical synonym). Do not use category-adjacent phrases that strongly imply the label,
+  even if they are not exact synonyms.
 - Diagnostic or explanatory language from a first-person narrator explaining
-  the fact ("I take my SSRI because of anxiety" is forbidden).
+  any hidden fact in this cluster. ("I take my SSRI because of anxiety" is forbidden).
 
 Instead, express the fact through BEHAVIORS and CONTEXT:
 
 - Routine artifacts: medication pick-up at 7:15 AM; biweekly Thursday 3pm
   video call; refill alert from Walgreens on the 14th.
-- Logistical artifacts: specific named items (Smith & Sons sertraline 50mg
-  generic is allowed as a product name on a pharmacy text, but the INFERENCE
-  must come from the pharmacy context — the fragment itself does not say
-  "for anxiety").
+- Logistical artifacts: pharmacy pickup notifications, copay amounts, refill
+  reminders, or generic prescription references ("your refill is ready,"
+  "$11 copay," "90-day supply picked up") WITHOUT naming the specific
+  medication when the medication itself is part of the ground_truth_label.
+  The inference must come from the behavioral pattern (pharmacy visits,
+  regular pickups, copay amounts), not from reading a drug name.
 - Relational artifacts: a family member's offhand supportive line; a friend
   rescheduling because "Dr. Patel's slot moved"; a calendar entry "weekly
   video w/ Dr. P" with no explanatory note.
@@ -70,46 +84,110 @@ Instead, express the fact through BEHAVIORS and CONTEXT:
   — a chat says "picked up my Thursday pill" and the calendar has a
   "Walgreens" event on the same Thursday.
 
-The test: if a reader saw just this fragment on its own, they should be able
-to guess the fact is plausible but not be CERTAIN. Two or three fragments
-together should make the inference clear.
+The test: if a reader saw just one fragment alone, they  might think one or more hidden facts
+are plausible, but should not be CERTAIN about any ordinary hidden fact.
+
+If a reader saw the full 4-5 fragment cluster, they should be able to infer
+every hidden fact in the cluster with high confidence.
+The cluster should work by accumulation: each fragment contributes partial
+evidence, and the hidden facts become clear only when the shared fragments are
+read together.
 
 ===============================================================================
-FRAGMENT DESIGN RULES
+SHARED FRAGMENT DESIGN RULES
 ===============================================================================
 
-Generate 2 or 3 fragments per hidden fact. Distribute them so:
+You receive one pre-formed hidden-fact cluster.
 
-1. At least TWO DIFFERENT SOURCES are used. A source is a unique contact in
-   the social circle, OR the calendar. Never put all fragments for one fact
-   into one messenger thread.
-2. At least ONE fragment is a calendar event when the fact has a temporal
-   dimension (routine, appointment, recurring event). Otherwise messenger
-   fragments only are acceptable.
-3. CONCRETE DETAILS are preserved wherever the hidden_fact provides them:
-   - Dollar amounts (if the fact involves finances) — include the actual
-     number.
+Do NOT recluster, split, merge, drop, or add hidden facts.
+
+Generate 4-5 shared fragments total for this cluster.
+Do NOT generate separate 2-3 fragments per hidden fact.
+The generated fragments must satisfy all rules below:
+
+
+1. SHARED EVIDENCE
+
+Fragments must be truly shared. That is, every fragment must support 2 or more hidden facts through partial clues.
+
+Each fragment should provide only a partial clue for each hidden fact it supports. That is,
+Every fragment must be useful but incomplete: it should contribute evidence, not explain the hidden fact.
+
+A reviewer should need to combine multiple fragments to infer each hidden fact.
+
+Good pattern:
+- F1 supports HF-A + HF-B
+- F2 supports HF-A + HF-C
+- F3 supports HF-B + HF-C
+- F4 supports HF-A + HF-B
+- F5 supports HF-B + HF-C
+
+Bad pattern:
+- F1, F2 support only HF-A
+- F3, F4 support only HF-B
+- F5 supports only HF-C
+
+The bad pattern is separate per-fact evidence, not a shared cluster.
+If that happens, such fragment should be rewritten.
+
+2. MINIMUM SUPPORT
+
+Each hidden fact must be supported by at least 2 fragments.
+Prefer 3 or more supporting fragments for a hidden fact when this can be done
+naturally within the 4-5 fragment cluster.
+No single fragment should make the hidden fact fully inferable on its own.
+The hidden fact should become strongly inferable only when its supporting
+fragments are combined.
+
+
+3. SOURCE DIVERSITY
+
+Use at least 2 sources across the cluster.
+
+A source is either:
+- one social-circle contact, or
+- the calendar.
+
+Do not put all evidence into one messenger thread.
+
+4. CALENDAR USE
+
+Use at least one calendar event if any hidden fact involves time, such as:
+- routine
+- appointment
+- deadline
+- payment cycle
+- trip
+- caregiving schedule
+- recurring obligation
+
+5. CONCRETE DETAILS are preserved wherever the hidden facts in this cluster provide them:
+   - amounts  — include the actual number.
    - Medication names, dosages (but never the reason for taking the med).
-   - Store names, street names, neighborhood names.
+   - places, streets, neighborhoods, clinics, schools, workplaces, stores
    - Dates and times with specificity (not "next week" — "Thursday the 24th
      at 6:30 AM").
    - Named people outside the 5 social circle members (Dr. Patel, coworker
      "Jamal from data team", neighbor "Mrs. Ito", cat "Oliver").
-4. CONTACT BALANCING: check the `contact_usage_counts` input. Prefer contacts
+     Concrete details should anchor the inference, not state the conclusion.
+6. CONTACT BALANCING: check the `contact_usage_counts` input. Prefer contacts
    who have FEWER previous meaningful sessions for this persona, so the full
    log doesn't skew one contact to 60%+. If every contact is balanced, use
    the social circle member whose `shared_activities` or
-   `recent_text_topics` best matches this hidden fact's subcategory.
-5. TIMESTAMPS: realistic cadence. Messages within a session should have
+   `recent_text_topics` best matches this cluster.
+7. TIMESTAMPS: Every fact-bearing fragment must include a realistic timestamp
+   within the log window. Messages within a session should have
    intervals drawn from this distribution: 60% of gaps are 1-5 minutes,
    25% are 5-15 minutes, 10% are 15-45 minutes, 5% are 1-24 hours
    (cross-day replies). Never use uniform gaps.
-6. VOICE: each contact should sound like their `personality_mini_profile`
+8. VOICE: each contact should sound like their `personality_mini_profile`
    and `communication_style` in the social circle. No homogeneous voice.
-7. FRAGMENT ORDER: within the log window, fragments for a fact should
+9. FRAGMENT ORDER: within the log window, fragments for the cluster should
    distribute across multiple days, not bunch on one day or at the end of
-   the window. If the fact is temporal (routine, recurring), spread the
-   2-3 fragments across at least 2 different weeks.
+   the window. If the fact is temporal (routine, recurring), spread supporting
+   fragments across at least 2 different weeks when possible.
+10. NO SINGLE-FRAGMENT REVEAL: No ordinary hidden fact should be fully revealed
+  by one fragment alone. The full 4-5 fragment cluster should make every hidden fact strongly inferable.
 
 ===============================================================================
 WHAT FRAGMENTS MUST NOT CONTAIN
@@ -125,76 +203,317 @@ WHAT FRAGMENTS MUST NOT CONTAIN
   separately; this prompt produces meaningful fact-bearing content only.
 - Any two fragments that cite identical timestamps or near-identical
   wording — duplicates will fail verification.
+- Over-explanation that tells the reader what to infer.
+
+Filler content is generated separately. This prompt produces meaningful fact-bearing content only.
 
 ===============================================================================
 OUTPUT FORMAT
 ===============================================================================
 
+Return valid JSON only.
+
+Return exactly one cluster object. Do not return a top-level "clusters" array. This prompt receives one pre-formed hidden-fact cluster and generates 4-5 shared fragments for that cluster only.
+
+Each fragment must be either:
+- one messenger session with 3-4 messages, or
+- one calendar event
+
+Use this schema:
+
 {
-  "fact_id": "HF-XXX",
-  "ground_truth_label": "{copied verbatim from the input hidden_fact}",
+  "cluster_id": "C1",
+  "cluster_status": "valid_cluster",
+  "hidden_fact_ids": ["HF-A", "HF-B", "HF-C"],
+
   "fragments": [
-    {
-      "fragment_id": "HF-XXX-F1",
-      "type": "messenger | calendar",
-      "source": {
-        "contact_name": "social_circle member name (messenger only)",
-        "contact_relationship": "their relationship (messenger only)",
-        "event_category": "appointment | routine | social | errand | travel (calendar only)"
+  {
+    "fragment_id": "C1-F1",
+    "fragment_type": "calendar_event",
+    "date": "2026-03-04",
+    "source": {
+      "type": "calendar",
+      "name": "calendar"
+    },
+    "messages": null,
+    "calendar_event": {
+      "start_time": "07:30",
+      "end_time": "07:45",
+      "title": "...",
+      "location": "...",
+      "participants": [],
+      "notes": "..."
+    },
+    "supports_hidden_facts": [
+      {
+        "hidden_fact_id": "HF-A",
+        "signal_strength": "primary",
+        "evidence_type": "..."
       },
-      "date": "YYYY-MM-DD",
-      "messages": [
-        {
-          "time": "HH:MM",
-          "sender": "{persona first name} | {contact first name}",
-          "text": "message text — behavioral, no labels"
-        }
-      ],
-      "calendar_event": {
-        "start_time": "HH:MM",
-        "end_time": "HH:MM",
-        "title": "short event title — behavioral",
-        "location": "specific named place",
-        "participants": ["name", "name"],
-        "notes": "optional, brief, behavioral"
+      {
+        "hidden_fact_id": "HF-B",
+        "signal_strength": "secondary",
+        "evidence_type": "..."
+      }
+    ],
+    "pipeline_notes_only": "..."
+  },
+  {
+    "fragment_id": "C1-F2",
+    "fragment_type": "messenger_session",
+    "date": "2026-03-07",
+    "source": {
+      "type": "contact",
+      "name": "Leah"
+    },
+    "messages": [
+      {
+        "time": "12:07",
+        "sender": "Leah",
+        "text": "..."
       },
-      "implicit_signal_explanation": "1-2 sentences for the verifier: what
-        behavioral/contextual clue this fragment contributes to inferring
-        the hidden fact. Stripped from the final merged log."
-    }
-  ],
-  "contacts_used": ["list of contact names used across fragments"],
-  "calendar_used": true | false,
-  "dates_touched": ["YYYY-MM-DD", "YYYY-MM-DD"]
+      {
+        "time": "12:10",
+        "sender": "Persona",
+        "text": "..."
+      },
+      {
+        "time": "12:16",
+        "sender": "Leah",
+        "text": "..."
+      }
+    ],
+    "calendar_event": null,
+    "supports_hidden_facts": [
+      {
+        "hidden_fact_id": "HF-B",
+        "signal_strength": "primary",
+        "evidence_type": "..."
+      },
+      {
+        "hidden_fact_id": "HF-C",
+        "signal_strength": "secondary",
+        "evidence_type": "..."
+      }
+    ],
+    "pipeline_notes_only": "..."
+  },
+  {
+    "fragment_id": "C1-F3",
+    "fragment_type": "messenger_session",
+    "date": "2026-03-10",
+    "source": {
+      "type": "contact",
+      "name": "Marcus"
+    },
+    "messages": [
+      {
+        "time": "18:11",
+        "sender": "Marcus",
+        "text": "..."
+      },
+      {
+        "time": "18:15",
+        "sender": "Persona",
+        "text": "..."
+      },
+      {
+        "time": "18:22",
+        "sender": "Marcus",
+        "text": "..."
+      },
+      {
+        "time": "18:27",
+        "sender": "Persona",
+        "text": "..."
+      }
+    ],
+    "calendar_event": null,
+    "supports_hidden_facts": [
+      {
+        "hidden_fact_id": "HF-A",
+        "signal_strength": "secondary",
+        "evidence_type": "..."
+      },
+      {
+        "hidden_fact_id": "HF-C",
+        "signal_strength": "primary",
+        "evidence_type": "..."
+      }
+    ],
+    "pipeline_notes_only": "..."
+  },
+  {
+    "fragment_id": "C1-F4",
+    "fragment_type": "calendar_event",
+    "date": "2026-03-14",
+    "source": {
+      "type": "calendar",
+      "name": "calendar"
+    },
+    "messages": null,
+    "calendar_event": {
+      "start_time": "09:00",
+      "end_time": "09:30",
+      "title": "...",
+      "location": "...",
+      "participants": [],
+      "notes": "..."
+    },
+    "supports_hidden_facts": [
+      {
+        "hidden_fact_id": "HF-A",
+        "signal_strength": "primary",
+        "evidence_type": "..."
+      },
+      {
+        "hidden_fact_id": "HF-B",
+        "signal_strength": "secondary",
+        "evidence_type": "..."
+      }
+    ],
+    "pipeline_notes_only": "..."
+  },
+  {
+    "fragment_id": "C1-F5",
+    "fragment_type": "messenger_session",
+    "date": "2026-03-18",
+    "source": {
+      "type": "contact",
+      "name": "Gina"
+    },
+    "messages": [
+      {
+        "time": "20:06",
+        "sender": "Gina",
+        "text": "..."
+      },
+      {
+        "time": "20:10",
+        "sender": "Persona",
+        "text": "..."
+      },
+      {
+        "time": "20:17",
+        "sender": "Gina",
+        "text": "..."
+      }
+    ],
+    "calendar_event": null,
+    "supports_hidden_facts": [
+      {
+        "hidden_fact_id": "HF-B",
+        "signal_strength": "secondary",
+        "evidence_type": "..."
+      },
+      {
+        "hidden_fact_id": "HF-C",
+        "signal_strength": "primary",
+        "evidence_type": "..."
+      }
+    ],
+    "pipeline_notes_only": "..."
+  }
+],
+  "coverage_check": {
+    "fragment_count_valid": true,
+    "each_hidden_fact_supported_by_at_least_2_fragments": true,
+    "three_or_more_supporting_fragments_preferred_when_natural": true,
+    "every_fragment_supports_multiple_facts": true,
+    "uses_at_least_two_sources": true,
+    "uses_calendar_if_temporal": true,
+    "no_single_fragment_fully_reveals_fact": true,
+    "combined_fragments_make_each_fact_inferable": true
+  },
+  "coverage_check_notes": "",
+  "label_leakage_self_check": {
+    "contains_ground_truth_label_or_synonym": false,
+    "notes": ""
+  }
 }
 
-Include either `messages` OR `calendar_event` depending on `type`. The other
-field is null.
+Each fragment must include either `messages` or `calendar_event`,
+depending on `fragment_type`.
 
 ===============================================================================
 PROCESS
 ===============================================================================
 
-1. Read the hidden fact carefully. Identify:
-   - What concrete details are in the fact (medication names, dollar
-     amounts, dates, places, contacts)?
-   - What is the risk of accidentally using a forbidden clinical/categorical
-     word in the fragments?
-   - Which behaviors, routines, or artifacts would naturally surface the
-     fact over 2-3 weeks of normal messaging / calendar activity?
-2. Read the social circle. Identify:
+1. Read the hidden-fact cluster carefully. Identify:
+   - concrete details in the fact (medication names, dollar
+     amounts, dates, places, contacts, routines, organizations, locations, or recurring times),
+   - forbidden labels or close synonyms that must not appear in user-visible text
+   - behaviors, routines, logistics, or app-log artifacts that could make the
+     fact inferable without naming it
+
+2.  Do not recluster. This prompt receives one pre-formed hidden-fact cluster.
+Do not split, merge, drop, add, or recluster hidden facts.
+
+3.  Plan shared evidence for this cluster.
+
+   - generate 4-5 fragments total
+   - make every fragment support 2 or more hidden facts
+   - ensure each hidden fact is supported by at least 2 fragments
+   - prefer 3 or more supporting fragments per hidden fact when natural
+   - ensure the hidden fact becomes strongly inferable only by combining its
+     supporting fragments
+
+4. Read the social circle. Identify:
    - Which contacts have `shared_activities` or `recent_text_topics` that
-     make them natural participants in fragments for this fact.
+     make them natural participants in fragments for this cluster.
    - Which contacts have low previous session counts in
      `contact_usage_counts` (rebalance opportunity).
-3. Decide: 2 or 3 fragments? Use 3 when the fact has multiple distinct
-   surfaces (e.g., medication + appointment + dietary adjustment). Use 2
-   when the fact is narrow (e.g., "shops at Rochester Public Market
-   Saturdays").
-4. Plan the source distribution: which fragment goes to which contact or
-   calendar, which dates.
-5. Draft each fragment. Verify as you write — every sentence in the text
-   field must pass the "no labels" test.
-6. Emit the output JSON.
+5. Plan source and time distribution.
+
+   For this cluster, decide:
+   - which fragments are messenger sessions and which are calendar events
+   - which contact or calendar source each fragment uses
+   - which date and time each fragment uses within the log window
+   - how fragments are spread across days or weeks
+   - how each fragment supports multiple hidden facts
+
+6. Draft each fragment.
+
+   Each fragment must be one app-log artifact:
+   - one messenger session with 3-4 messages, or
+   - one calendar event
+
+   Include either `messages` OR `calendar_event` depending on `fragment_type`.
+   The other field must be null.
+
+   As you write, verify that every user-visible text field passes the
+   "behaviors, never labels" test.  After drafting each fragment, ask whether a reader could infer a
+   hidden fact from this fragment alone. If yes, weaken or split the clue.
+
+7. Build the support mappings.
+
+   produce:
+   - `supports_hidden_facts` inside each fragment
+   - `hidden_fact_ids` at the cluster level: the list of all hidden facts in this cluster
+
+   Confirm that these mappings are consistent.
+
+8. Fill `coverage_check`  and repair if needed.
+
+For this cluster, set each `coverage_check` field based on the generated fragments.
+
+If any required check would be false, revise the fragments before output.
+Do not emit JSON with a failed required check unless the failure is impossible to repair.
+
+required checks :
+- the cluster has 2-3 hidden facts and 4-5 fragments
+- each hidden fact is supported by at least 2 fragments
+- 3 or more supporting fragments are used when natural
+- every fragments supports 2 or more hidden facts.
+- no single ordinary fragment fully reveals a hidden fact
+- combined supporting fragments make each hidden fact strongly inferable
+- at least 2 sources are used
+- calendar is used when the cluster has a temporal dimension
+- timestamps, contact choices, and message cadence are realistic
+
+If a check cannot be repaired, set the field to false and explain why in
+`coverage_check_notes`.
+
+9. Emit the output JSON.
 
 End of prompt.

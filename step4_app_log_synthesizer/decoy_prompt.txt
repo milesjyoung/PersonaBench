@@ -1,0 +1,414 @@
+SYSTEM:
+
+You are generating benign decoy filler candidates for an app-log benchmark.
+
+A decoy is non-evidence filler that may look relevant or important in the app log, but must not be usable as evidence for any hidden fact about the persona.
+
+You are NOT generating hidden-fact evidence.
+You are NOT generating mundane filler.
+You are generating only benign decoy filler candidates.
+
+
+===============================================================================
+INPUT DATA
+===============================================================================
+
+PERSONA IDENTITY:
+  name:        {{PERSONA_NAME}}
+  age:         {{PERSONA_AGE}}
+  occupation: {{PERSONA_OCCUPATION}}
+  location:   {{PERSONA_LOCATION}}
+
+SELECTED HIDDEN FACTS REGISTRY:
+{{INSERT_HIDDEN_FACTS_JSON_HERE}}
+
+CORRECTED SOCIAL CIRCLE:
+{{INSERT_CORRECTED_SOCIAL_CIRCLE_JSON_HERE}}
+
+LOG WINDOW:
+  start_date: {{LOG_START_DATE}}
+  end_date:   {{LOG_END_DATE}}
+
+DECOY BUDGET:
+  target_decoy_count: {{TARGET_DECOY_COUNT}}
+
+CONTACT USAGE COUNTS:
+{{INSERT_CONTACT_USAGE_COUNTS_JSON_HERE}}
+
+===============================================================================
+CORE RULE
+===============================================================================
+
+A decoy may distract the model, but it must not actually support, reinforce,
+clarify, contradict, or overlap unsafely with any hidden fact about the persona.
+
+A decoy must not create:
+- a stable pattern
+- recurring routine
+- durable preference
+- health condition
+- medication routine
+- financial constraint
+- relationship fact
+- safety-relevant fact
+- legal or risk-relevant fact
+- long-term behavioral trait
+
+
+===============================================================================
+VALID DECOY TYPES
+===============================================================================
+
+Each decoy must satisfy at least one of these types:
+
+1. one_off:
+   The decoy appears once only and is not repeated across dates, contacts, apps,
+   or calendar events.
+
+2. context_bound:
+   The decoy is clearly tied to a temporary situation and does not generalize
+   into a stable persona trait.
+
+3. other_person_owned:
+   The decoy detail clearly belongs to someone other than the persona.
+   The persona may be a helper, observer, or logistical participant only.
+
+Prefer one_off or context_bound decoys from domains unrelated to the hidden facts.
+Use other_person_owned only when the decoy touches a domain similar to a hidden fact.
+
+===============================================================================
+CONTACT FLEXIBILITY RULE FOR MESSENGER DECOYS
+===============================================================================
+
+Messenger decoys may be either contact-specific or contact-flexible.
+
+Use contact_policy = "specific" when the decoy only makes sense with one particular contact from CORRECTED SOCIAL CIRCLE.
+  - set preferred_contact to a real contact from CORRECTED SOCIAL CIRCLE;
+- use sender = "{{PERSONA_NAME}}" when the persona is speaking;
+- use the real contact name when the other conversation participant is speaking;
+
+Examples:
+- a decoy about Mom’s porch should use Mom;
+- a decoy about a coworker’s meeting should use that coworker;
+- a decoy about a friend’s child should use that friend.
+
+
+
+Use contact_policy = "flexible" when the decoy could naturally fit into a conversation with many different existing contacts.
+
+Flexible decoys should look like high-salience false leads, not ordinary mundane filler. They may involve a one-time document, borrowed item, temporary appointment, misplaced object, isolated misunderstanding, someone else’s issue, or a bounded legal/financial/health/work-looking artifact.
+
+However, they must remain non-evidence. Each flexible decoy must be clearly bounded by one-off context, other-person ownership, or contextual disownership through task routing, third-party ownership, temporary scope, or one-off logistics. Avoid explicit denial unless needed for safety.
+
+Example 1 — finance-looking but other-person-owned:
+- contact: "The reimbursement upload bounced again."
+- {{PERSONA_NAME}}: "Send me the receipt photo before the organizer resubmits it."
+- contact: "The date is the blurry part."
+- {{PERSONA_NAME}}: "I can sharpen it, but finance may still ask the organizer for the original."
+
+Example 2 — health-looking but other-person-owned:
+- contact: "The clinic form is cutting off page 2."
+- {{PERSONA_NAME}}: "Tell the requester to resend the scan flat, not folded."
+- contact: "The medication line wraps weirdly."
+- {{PERSONA_NAME}}: "I can fix the PDF fields, but the requester should check the dosage text before uploading it."
+
+Example 3 — legal-looking but context-bound:
+- contact: "That certified letter title looked scary."
+- {{PERSONA_NAME}}: "The downstairs unit number was on the slip."
+- contact: "Ah, mailbox mix-up?"
+- {{PERSONA_NAME}}: "Yes, I left it with the carrier note."
+
+For flexible-contact decoys:
+- set preferred_contact = null;
+- do not use contact names, nicknames, relationship-specific details, or private history;
+- use sender = "{{PERSONA_NAME}}" when the persona is speaking;
+- use sender = "contact" when the other conversation participant is speaking;
+- the merge step will choose the actual contact and replace "contact" with that contact’s name.
+
+
+
+Do not invent new contacts.
+===============================================================================
+FLEXIBILITY RULE FOR CALENDAR DECOYS
+===============================================================================
+
+Calendar decoys are floating candidates. The merge step assigns their final date and time.
+
+For calendar decoys:
+- do not assign a fixed date;
+- do not assign fixed start_time or end_time;
+- include only the event title, location, participants, and notes;
+- include participants only if the decoy is impossible without them;
+- do not include placeholder participants such as "contact" or "other person name";
+- if a real participant is required, use an existing contact from CORRECTED SOCIAL CIRCLE;
+- if no participant is required, set participants = [];
+- clearly temporary or one-off;
+- designed to be scheduled by the merge step.
+
+
+
+
+===============================================================================
+PLACEMENT HINT RULE
+===============================================================================
+
+placement_hint tells the merge step where this decoy is best placed.
+
+Allowed placement_hint values:
+
+- same_contact_meaningful_session:
+  This decoy is structurally compatible with insertion into a meaningful messenger session later, but it must still be valid as non-evidence if placed separately.
+
+- separate_filler_session:
+  This decoy is best as its own filler session.
+
+- flexible:
+  This decoy is safe and natural in either placement mode: inserted into a compatible meaningful messenger session or placed as a separate filler session.
+
+A decoy marked same_contact_meaningful_session or flexible must be self-contained enough to remain non-evidence even if it is later placed as a separate filler session.
+It must not depend on surrounding meaningful-session context to explain why it is safe.
+
+This is only a hint. The decoy must still be valid if the merge step ignores the hint and places it as a separate filler session.
+
+A hard decoy with placement_hint = same_contact_meaningful_session or flexible must carry its own disambiguating context
+inside the decoy messages, not only in surrounding meaningful-session context.
+
+Note: contact_policy = "flexible" means contact-flexible: the merge step chooses the final contact.
+placement_hint = "flexible" means placement-flexible: the merge step chooses whether to insert it or place it separately.
+These two uses of "flexible" are different and must not be interpreted interchangeably.
+
+===============================================================================
+HIDDEN-FACT OVERLAP RULE
+===============================================================================
+
+Before generating a decoy, inspect the selected hidden facts.
+
+A decoy must not use the same domain, objects, medications, routines, locations,
+relationships, amounts, or behavioral pattern as any existing hidden fact unless
+the detail is explicitly owned by another person and cannot reasonably be
+attributed to the persona.
+
+Allowed overlap_check values during candidate evaluation:
+
+- none:
+The decoy does not overlap with any selected hidden fact.
+
+- safe_other_person_owned:
+The decoy touches a hidden-fact-like domain, but the relevant detail clearly
+belongs to someone other than the persona and cannot reasonably be attributed
+to the persona.
+- unsafe_overlap:
+The decoy creates, reinforces, clarifies, contradicts, or overlaps with a
+hidden fact in a way that could reasonably be attributed to the persona.
+
+Final output rule: Do not output unsafe decoys.
+For each decoy, explicitly compare it against every hidden fact before setting overlap_check.
+If a candidate would overlap unsafely with a hidden fact, rewrite it as a safe
+unrelated-domain decoy, make it clearly other-person-owned, or omit it.
+If fewer safe decoys are available than target_decoy_count decoys,
+output fewer rather than weakening the safety rules.
+
+If the persona has a hidden fact about allergies, do NOT create persona-owned
+filler involving allergy-related artifacts such as:
+- Zyrtec
+- Claritin
+- Allegra
+- nasal rinse
+- pollen symptoms
+- itchy eyes
+- antihistamines
+- allergy appointments
+
+If such details are used, they must be explicitly owned by another person.
+
+Examples:
+
+Unsafe:
+  Persona: "I picked up Claritin again before the pollen gets bad."
+
+Safe other-person-owned:
+  Contact: "Can we stop at CVS? Luca forgot his Claritin."
+  Persona: "Sure, I need paper towels anyway."
+
+Safer unrelated-domain decoy:
+  Persona: "I stopped at CVS for paper towels and printer tape."
+
+===============================================================================
+DECOY DESIGN RULES
+===============================================================================
+
+Allowed decoy surfaces:
+- one-time errand
+- temporary schedule disruption
+- someone else's health, finance, logistics, school, or family issue
+- one-off purchase
+- one-off meal/place mention
+- temporary work complication
+- one-time media/article recommendation
+- casual request that does not become a pattern
+
+Hard decoy requirement:
+At least 40% of the output decoys must have difficulty = "hard".
+
+A hard decoy:
+- looks potentially relevant or important at first glance;
+- does not contain an explicit label saying it is irrelevant;
+- becomes non-evidence only through bounded context, third-person ownership, temporary scope, task routing, or one-off logistics;
+- should not fully resolve itself through a blunt denial such as "not mine," "not about me," "no personal drama," or "no medical mystery."
+
+
+Prefer medium and hard decoys over easy decoys.
+Avoid:
+- repeated behaviors
+- repeated objects
+- repeated locations if location preference is a hidden fact
+- repeated medication or health references
+- persona-owned financial amounts if financial facts exist
+- anything that could become source evidence for a test case
+- decoy-shaped exchanges such as suspicious question → persona says "not mine" → contact accepts;
+- repeated blunt denial phrases such as "not mine," "not about me," "no personal drama," or "no medical mystery";
+- making every decoy fully self-explanatory inside one obvious clarification message.
+
+Messenger decoys:
+- Messenger decoys:
+- usually 3–5 messages
+- easy decoys may be 2–3 messages
+- hard decoys should usually be 4–6 messages when needed to show bounded context or third-party ownership
+- do not add length unless it improves safety, naturalness, or difficulty
+
+Vary messenger decoy shapes. Use a mix of:
+- partial handoff
+- interrupted thread
+- correction after misunderstanding
+- third-person logistics
+- admin cleanup
+- forwarded-document context
+- one-off scheduling conflict
+- unresolved but bounded task
+
+Do not use the same question-answer-clarification-close structure repeatedly.
+
+Calendar decoys:
+- one event only;
+
+Deduplication:
+Do not output duplicate or near-duplicate decoys across dates, contacts, messenger, or calendar. If two decoys share the same idea, object, domain, behavioral pattern, wording, or apparent implication, keep only the safer and more context-bound one; rewrite or omit the other.
+
+Do not assign final dates or times.
+LOG WINDOW is provided only for context.
+The merge step will distribute selected decoys across the log window.
+
+
+Use CONTACT USAGE COUNTS only when choosing a specific contact is necessary.
+For flexible-contact decoys, leave final contact choice to the merge step.
+
+Count definitions:
+- flexible_decoy_count = number of decoys with contact_policy = "flexible".
+- specific_contact_decoy_count = number of decoys with contact_policy = "specific".
+- easy_decoy_count = number of decoys with difficulty = "easy".
+- medium_decoy_count = number of decoys with difficulty = "medium".
+- hard_decoy_count = number of decoys with difficulty = "hard".
+
+
+
+===============================================================================
+OUTPUT FORMAT
+===============================================================================
+
+Return JSON only.
+
+{
+  "decoys": [
+  {
+    "decoy_id": "D-001",
+    "type": "messenger | calendar",
+
+"contact_policy": "flexible | specific",
+"preferred_contact": "contact name or null",
+"placement_hint": "same_contact_meaningful_session | separate_filler_session | flexible",
+
+    "decoy_type": "one_off | context_bound | other_person_owned",
+    "overlap_check": "none | safe_other_person_owned",
+    "overlapping_hidden_fact_ids": [],
+    "why_safe": "one short sentence explaining why this decoy is not usable as evidence for any hidden fact. why_safe should explain the bounded context or third-party ownership without using the same blunt denial wording that appears in the message text.",
+    "difficulty": "easy | medium | hard",
+    "messages": [
+      {
+"sender": "{{PERSONA_NAME}} | contact | specific contact name",
+"text": "short natural message"
+      }
+    ],
+
+    "calendar_event": {
+      "title": "short natural title",
+      "location": "optional location",
+      "participants": ["actual contact names from CORRECTED SOCIAL CIRCLE only, or empty list"],
+      "notes": "optional short note"
+    }
+  }
+  ],
+"contacts_used": ["actual contact names from CORRECTED SOCIAL CIRCLE explicitly used by this decoy pool"],
+"flexible_decoy_count": 0,
+"specific_contact_decoy_count": 0,
+"easy_decoy_count": 0,
+"medium_decoy_count": 0,
+"hard_decoy_count": 0
+
+}
+
+For messenger decoys:
+- include messages;
+- set calendar_event to null;
+- do not include date;
+- do not include message time;
+- use contact_policy and preferred_contact;
+- when the persona is speaking, set sender = "{{PERSONA_NAME}}";
+- when the other participant is speaking and contact_policy = "flexible", set sender = "contact";
+- when the other participant is speaking and contact_policy = "specific", set sender to the real contact name from CORRECTED SOCIAL CIRCLE.
+
+For difficulty:
+- easy = clearly irrelevant or explicitly disowned;
+- medium = bounded but somewhat obvious;
+- hard = plausible false lead, non-evidence only after reading context carefully.
+A hard decoy may be subtle, but it must still contain enough internal context to be safely classified as non-evidence without reading why_safe.
+
+Prefer medium and hard decoys. Avoid producing mostly easy decoys.
+
+
+For calendar decoys:
+- include calendar_event;
+- set messages to null;
+- do not include date;
+- do not include start_time;
+- do not include end_time;
+- the merge step will assign the final date, start_time, and end_time.
+- Hard calendar decoys may look administratively, legally, financially, or medically important, but must be bounded by title/notes as a one-time task, third-party task, template review, routing task, or temporary logistics issue.
+
+contacts_used must include only real contact names from CORRECTED SOCIAL CIRCLE that are explicitly used by specific-contact decoys or calendar participants.
+
+Do not include placeholders in contacts_used:
+- contact
+- persona
+- null
+- other person name
+
+Count consistency:
+- flexible_decoy_count + specific_contact_decoy_count must equal len(decoys).
+- easy_decoy_count + medium_decoy_count + hard_decoy_count must equal len(decoys).
+- hard_decoy_count must be at least ceil(0.6 * len(decoys)) unless safety constraints force fewer hard decoys.
+
+
+Never output:
+- a decoy with overlap_check = unsafe_overlap
+- a decoy that overlaps with an existing hidden-fact domain in a way attributable to the persona
+- a duplicate or near-duplicate decoy
+- a decoy that should appear in hidden_facts
+- a messenger decoy with fixed date or time
+- a calendar decoy with fixed date, start_time, or end_time
+- Hard-decoy safety must be visible in the decoy content itself.
+Do not mark a decoy as difficulty = "hard"
+if its non-evidence status depends mainly on why_safe metadata or blunt denial phrases such as "not mine," "not about me," "no personal drama," or "no medical mystery."
+
+
+
+End of prompt.
