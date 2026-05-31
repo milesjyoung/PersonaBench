@@ -405,7 +405,7 @@ def run_pipeline(
     if start <= 2 <= stop:
         interview_path = run_step2_gen(seed, step2_out, caller, gpt_reasoning, model=model)
         interview = json.loads(interview_path.read_text(encoding="utf-8"))
-        verification_path = run_step2_verify(seed, interview, step2_out, caller, gpt_reasoning, model=model)
+        verification_path = run_step2_verify(seed, interview, step2_out, caller, gpt_reasoning, model=verifier_model)
         verification = json.loads(verification_path.read_text(encoding="utf-8"))
     else:
         interview = json.loads((step2_out / f"{n}_interview.json").read_text(encoding="utf-8"))
@@ -418,7 +418,7 @@ def run_pipeline(
     if start <= 3 <= stop:
         circle_path = run_step3_gen(profile, transcript, step3_out, name, caller, gpt_reasoning, model=model)
         circle = json.loads(circle_path.read_text(encoding="utf-8"))
-        run_step3_verify(profile, transcript, circle, step3_out, name, caller, gpt_reasoning, model=model)
+        run_step3_verify(profile, transcript, circle, step3_out, name, caller, gpt_reasoning, model=verifier_model)
 
     circle_verification_path = step3_out / f"{n}_social_circle_verification.json"
     circle_verification = json.loads(circle_verification_path.read_text(encoding="utf-8"))
@@ -457,7 +457,7 @@ def run_pipeline(
                 caller, gpt_reasoning, model=model,
             )
             test_cases = json.loads(test_cases_path.read_text(encoding="utf-8"))
-            run_step5_verify(test_cases, profile, app_logs, step5_out, name, caller, gpt_reasoning, model=model)
+            run_step5_verify(test_cases, profile, app_logs, step5_out, name, caller, gpt_reasoning, model=verifier_model)
 
     test_cases_path = step5_out / f"{n}_test_cases.json"
 
